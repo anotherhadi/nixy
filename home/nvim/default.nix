@@ -23,6 +23,7 @@
     enable = true;
 
     colorschemes.catppuccin.enable = true;
+    colorschemes.catppuccin.transparentBackground = true;
 
     keymaps = [
       {

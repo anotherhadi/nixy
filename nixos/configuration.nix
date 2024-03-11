@@ -71,6 +71,7 @@
     nvidiaSettings = true;
   };
   hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   # Set environment variables
   environment.variables = {

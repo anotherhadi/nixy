@@ -1,5 +1,7 @@
 { pkgs, config, ... }: {
 
+  imports = [ ./hyprlock.nix ./hypridle.nix ];
+
   home.packages = with pkgs; [
     xdg-desktop-portal-hyprland
     wlr-randr
@@ -32,6 +34,7 @@
       exec-once = [
         "swww init"
         "swww img /home/hadi/Nextcloud/wallpaper/Dim_12000x6000.png"
+        "hypridle"
       ];
 
       monitor = [
@@ -96,6 +99,39 @@
         "GTK2_RC_FILES,/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc"
         "QT_STYLE_OVERRIDE,Adwaita-Dark"
       ];
+
+      general = {
+        resize_on_border = true;
+        gaps_in = 10;
+        gaps_out = 20;
+        border_size = 2;
+        "col.active_border" = "rgba(9978F8ff)";
+        "col.inactive_border" = "rgba(0b0b16ee)";
+        layout = "master";
+      };
+
+      decoration = {
+        rounding = 15;
+        drop_shadow = true;
+        shadow_range = 15;
+        shadow_render_power = 4;
+        "col.shadow" = "rgba(00010196)";
+        blur = { enabled = false; };
+      };
+
+      master = {
+        new_is_master = true;
+        new_on_top = true;
+      };
+
+      gestures = { workspace_swipe = true; };
+
+      misc = {
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+        focus_on_activate = true;
+        new_window_takes_over_fullscreen = 2;
+      };
 
       input = {
         kb_layout = "fr";
