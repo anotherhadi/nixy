@@ -3,7 +3,32 @@
     home.homeDirectory = "/home/hadi";
 
     home.packages = with pkgs; [
-    vscode
+      swappy
+      spotify
+      imv
+      discord
+      obsidian
+      ranger
+      fd
+      btop
+      go
+      cargo
+      nodejs
+      python3
+      unzip
+      blueman
+      gcc
+      peaclock
+      xdg_utils
+      tldr
+      qt5ct
+      libva
+      wget
+      ripgrep
+
+      # Backup
+      vscode
+      firefox
     ];
 
     home.stateVersion = "23.11";
@@ -21,5 +46,6 @@
       ./git
       ./shell
       ./misc
+      ./nextcloud
     ];
 }

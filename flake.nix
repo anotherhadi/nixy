@@ -8,19 +8,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-    url = "github:nix-community/nixvim";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, nixvim, ... }: {
     nixosConfigurations = {
-    hadi = nixpkgs.lib.nixosSystem {
+      hadi = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./nixos/configuration.nix
-          ./hadi
           ./hosts
+          { _module.args = { inherit inputs; }; }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

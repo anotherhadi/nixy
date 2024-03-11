@@ -1,3 +1,3 @@
-{
-  imports = [ ./tuigreet ];
+{inputs, ...}:{
+  imports = [ ./tuigreet ./fonts ];
 }
