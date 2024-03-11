@@ -10,68 +10,69 @@
     cmp = {
       enable = true;
       settings = {
-        snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+        snippet.expand =
+          "function(args) require('luasnip').lsp_expand(args.body) end";
         sources = [
-        { name = "nvim_lsp"; }
-        { name = "luasnip"; }
-        { name = "buffer"; }
-        { name = "nvim_lua"; }
-        { name = "path"; }
+          { name = "nvim_lsp"; }
+          { name = "luasnip"; }
+          { name = "buffer"; }
+          { name = "nvim_lua"; }
+          { name = "path"; }
         ];
 
         formatting = {
           fields = [ "abbr" "kind" "menu" ];
           format =
-# lua
+            # lua
             ''
-            function(_, item)
-            local icons = {
-              Namespace = "󰌗",
-              Text = "󰉿",
-              Method = "󰆧",
-              Function = "󰆧",
-              Constructor = "",
-              Field = "󰜢",
-              Variable = "󰀫",
-              Class = "󰠱",
-              Interface = "",
-              Module = "",
-              Property = "󰜢",
-              Unit = "󰑭",
-              Value = "󰎠",
-              Enum = "",
-              Keyword = "󰌋",
-              Snippet = "",
-              Color = "󰏘",
-              File = "󰈚",
-              Reference = "󰈇",
-              Folder = "󰉋",
-              EnumMember = "",
-              Constant = "󰏿",
-              Struct = "󰙅",
-              Event = "",
-              Operator = "󰆕",
-              TypeParameter = "󰊄",
-              Table = "",
-              Object = "󰅩",
-              Tag = "",
-              Array = "[]",
-              Boolean = "",
-              Number = "",
-              Null = "󰟢",
-              String = "󰉿",
-              Calendar = "",
-              Watch = "󰥔",
-              Package = "",
-              Copilot = "",
-              Codeium = "",
-              TabNine = "",
-            }
+                function(_, item)
+                local icons = {
+                  Namespace = "󰌗",
+                  Text = "󰉿",
+                  Method = "󰆧",
+                  Function = "󰆧",
+                  Constructor = "",
+                  Field = "󰜢",
+                  Variable = "󰀫",
+                  Class = "󰠱",
+                  Interface = "",
+                  Module = "",
+                  Property = "󰜢",
+                  Unit = "󰑭",
+                  Value = "󰎠",
+                  Enum = "",
+                  Keyword = "󰌋",
+                  Snippet = "",
+                  Color = "󰏘",
+                  File = "󰈚",
+                  Reference = "󰈇",
+                  Folder = "󰉋",
+                  EnumMember = "",
+                  Constant = "󰏿",
+                  Struct = "󰙅",
+                  Event = "",
+                  Operator = "󰆕",
+                  TypeParameter = "󰊄",
+                  Table = "",
+                  Object = "󰅩",
+                  Tag = "",
+                  Array = "[]",
+                  Boolean = "",
+                  Number = "",
+                  Null = "󰟢",
+                  String = "󰉿",
+                  Calendar = "",
+                  Watch = "󰥔",
+                  Package = "",
+                  Copilot = "",
+                  Codeium = "",
+                  TabNine = "",
+                }
 
-          local icon = icons[item.kind] or ""
-            item.kind = string.format("%s %s", icon, item.kind or "")
-            return item
-            end
+              local icon = icons[item.kind] or ""
+                item.kind = string.format("%s %s", icon, item.kind or "")
+                return item
+                end
             '';
         };
 

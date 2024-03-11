@@ -1,5 +1,7 @@
 {
-  programs.nixvim.plugins.lsp = {
+  programs.nixvim.plugins = {
+    lsp-format.enable = true;
+    lsp = {
     enable = true;
     servers = {
       bashls.enable = true;
@@ -14,5 +16,6 @@
       "gi" = "implementation";
       "K" = "hover";
     };
+  };
   };
 }

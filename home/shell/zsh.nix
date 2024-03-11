@@ -27,7 +27,7 @@
       celar = "clear";
       e = "exit";
       cd = "z";
-      ls = "eza --icons";
+      ls = "eza --icons=always";
       open = "xdg-open";
       icat = "kitty +kitten icat";
     };

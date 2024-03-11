@@ -31,7 +31,7 @@
 
       exec-once = [
         "swww init"
-        "swww img /home/hadi/nextcloud/wallpaper/Dim.png"
+        "swww img /home/hadi/Nextcloud/wallpaper/Dim_12000x6000.png"
       ];
 
       monitor = [
