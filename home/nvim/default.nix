@@ -20,32 +20,27 @@
 
   programs.nixvim = {
 
-enable = true;
+    enable = true;
 
-  colorschemes.catppuccin.enable = true;
+    colorschemes.catppuccin.enable = true;
 
-  keymaps = [
-    # Global Mappings
-    # Default mode is "" which means normal-visual-op
-    {
-      # Toggle NvimTree
-      key = "<leader>e";
-      action = "<CMD>Neotree toggle<CR>";
-    }
-    {
-      # Format file
-      key = "<space>fm";
-      action = "<CMD>lua vim.lsp.buf.format()<CR>";
-    }
+    keymaps = [
+      {
+        key = "<leader>e";
+        action = "<CMD>Neotree toggle<CR>";
+      }
+      {
+        key = "<space>fm";
+        action = "<CMD>lua vim.lsp.buf.format()<CR>";
+      }
 
-    # Terminal Mappings
-    {
-      # Escape terminal mode using ESC
-      mode = "t";
-      key = "<esc>";
-      action = "<C-\\><C-n>";
-    }
-  ];
+      # Terminal Mappings
+      {
+        mode = "t";
+        key = "<esc>";
+        action = "<C-\\><C-n>";
+      }
+    ];
   };
 
 }

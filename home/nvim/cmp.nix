@@ -79,8 +79,8 @@
         window = {
           completion = {
             winhighlight =
-              "FloatBorder:CmpBorder,Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel";
-            scrollbar = false;
+              "FloatBorder:CmpBorder,Normal:CmpPmenu,Search:PmenuSel";
+            scrollbar = true;
             sidePadding = 0;
             border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
           };
@@ -88,7 +88,7 @@
           documentation = {
             border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
             winhighlight =
-              "FloatBorder:CmpBorder,Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel";
+              "FloatBorder:CmpBorder,Normal:CmpPmenu,Search:PmenuSel";
           };
         };
 

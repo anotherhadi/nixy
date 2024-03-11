@@ -2,24 +2,35 @@
 
   programs.nixvim.globals.mapleader = " ";
   programs.nixvim.options = {
-    updatetime = 100; # Faster completion
+    updatetime = 50; # Faster completion
 
     number = true;
     relativenumber = true;
 
     autoindent = true;
-    clipboard = "unnamedplus";
+    clipboard = "unnamed,unnamedplus";
+
     expandtab = true;
+    tabstop = 2;
+    softtabstop = 2;
     shiftwidth = 2;
     smartindent = true;
-    tabstop = 2;
+    breakindent = true;
 
     ignorecase = true;
     incsearch = true;
+    hlsearch = true;
     smartcase = true;
     wildmode = "list:longest";
+    completeopt = [ "menuone" "noselect" ];
+    signcolumn = "yes";
+    cursorline = true;
+    scrolloff = 8;
+    mouse = "a";
+
+    wrap = false;
 
     swapfile = false;
-    undofile = true; # Build-in persistent undo
+    undofile = true;
   };
 }

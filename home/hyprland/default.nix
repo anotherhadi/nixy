@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
 
   home.packages = with pkgs; [
     xdg-desktop-portal-hyprland
@@ -26,7 +26,7 @@
 
     settings = {
       "$mod" = "SUPER";
-      "$menu" = "~/scripts/menu.sh";
+      "$menu" = "menu";
       "$powermenu" = "${pkgs.wlogout}/bin/wlogout";
 
       exec-once = [
