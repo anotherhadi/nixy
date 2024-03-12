@@ -8,7 +8,7 @@
     consoleMode = "auto";
   };
 
-  networking.hostName = "hadi";
+  networking.hostName = "nixy";
 
   # Enable networking
   networking.networkmanager.enable = true;

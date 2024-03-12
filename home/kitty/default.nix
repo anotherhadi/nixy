@@ -1,4 +1,7 @@
-{
+{ config, ... }: {
+
+  imports = [ ../variables/theme ];
+
   programs.kitty = {
     enable = true;
     settings = {
@@ -6,7 +9,7 @@
       scrollback_lines = 10000;
       enable_audio_bell = false;
       update_check_interval = 0;
-      font_family = "FiraCode Nerd Font";
+      font_family = config.theme.font-mono;
       font_size = 13;
       cursor_shape = "Underline";
       cursor_underline_thickness = 1;
@@ -19,49 +22,31 @@
       initial_window_width = 1000;
       initial_window_height = 600;
 
-      # Special
-      background = "#090914";
-      url_color = "#9978F8";
+      background = "#" + config.theme.colors.bg;
+      url_color = "#" + config.theme.colors.primary-fg;
 
-      # Black
-      color0 = "#414868";
-      color8 = "#515878";
+      color0 = "#" + config.theme.colors.color0;
+      color8 = "#" + config.theme.colors.color8;
+      color1 = "#" + config.theme.colors.color1;
+      color9 = "#" + config.theme.colors.color9;
+      color2 = "#" + config.theme.colors.color2;
+      color10 = "#" + config.theme.colors.color10;
+      color3 = "#" + config.theme.colors.color3;
+      color11 = "#" + config.theme.colors.color11;
+      color4 = "#" + config.theme.colors.color4;
+      color12 = "#" + config.theme.colors.color12;
+      color5 = "#" + config.theme.colors.color5;
+      color13 = "#" + config.theme.colors.color13;
+      color6 = "#" + config.theme.colors.color6;
+      color14 = "#" + config.theme.colors.color14;
+      color7 = "#" + config.theme.colors.color7;
+      color15 = "#" + config.theme.colors.color15;
 
-      # Red
-      color1 = "#f7768e";
-      color9 = "#f7869e";
+      cursor = "#" + config.theme.colors.fg;
+      cursor_text_color = "#" + config.theme.colors.bg;
 
-      # Green
-      color2 = "#73daca";
-      color10 = "#83eada";
-
-      # Yellow
-      color3 = "#e0af68";
-      color11 = "#f0bf78";
-
-      # Blue
-      color4 = "#7aa2f7";
-      color12 = "#8ab2f7";
-
-      # Magenta
-      color5 = "#9978F8";
-      color13 = "#A988F8";
-
-      # Cyan
-      color6 = "#7dcfff";
-      color14 = "#8ddfff";
-
-      # White
-      color7 = "#E4E5E7";
-      color15 = "#f4f5f7";
-
-      # Cursor
-      cursor = "#FBFBFB";
-      cursor_text_color = "#090914";
-
-      # Selection highlight
-      selection_foreground = "#9978F8";
-      selection_background = "#28344a";
+      selection_foreground = "#" + config.theme.colors.primary-fg;
+      selection_background = "#" + config.theme.colors.primary-bg;
     };
   };
 }

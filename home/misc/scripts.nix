@@ -12,14 +12,7 @@ let
         	fzf \
     		    --preview='kitty icat --clear --transfer-mode=memory --stdin=no --place=''${FZF_PREVIEW_COLUMNS}x''${FZF_PREVIEW_LINES}@0x0 {}' \
         		--preview-window=bottom,border-top \
-        		--margin=1 \
-        		--layout=reverse \
-        		--border --border-label "Wallpaper" \
-        		--info="hidden" \
-        		--header="" \
-        		--prompt='/ ' \
-            --color="dark,fg+:white,bg+:-1,fg:white,bg:-1"\
-            --color='prompt:grey,pointer:magenta,fg+:regular') || exit 1
+        		--border-label "Wallpaper" ) || exit 1
 
         swww img $choosed_wallpaper
   '';
@@ -68,14 +61,7 @@ let
 
 
     choosed_sink=$(echo "$(parse_sinks)" | fzf \
-      --margin=1 \
-      --layout=reverse \
-      --border --border-label "Wallpaper" \
-      --info="hidden" \
-      --header="" \
-      --prompt='/ ' \
-      --color="dark,fg+:white,bg+:-1,fg:white,bg:-1"\
-      --color='prompt:grey,pointer:magenta,fg+:regular') || exit 1
+      --border-label "Choose sound output" ) || exit 1
 
     choosed_sink_id=$(echo "$choosed_sink" | sed 's/.*(\(.*\))/\1/')
 

@@ -1,6 +1,6 @@
 { pkgs, config, ... }: {
 
-  imports = [ ./hyprlock.nix ./hypridle.nix ];
+  imports = [ ./hyprlock.nix ./hypridle.nix ../variables/theme ];
 
   home.packages = with pkgs; [
     xdg-desktop-portal-hyprland
@@ -105,17 +105,17 @@
         gaps_in = 10;
         gaps_out = 20;
         border_size = 2;
-        "col.active_border" = "rgba(9978F8ff)";
-        "col.inactive_border" = "rgba(0b0b16ee)";
+        "col.active_border" = "rgba(${config.theme.colors.primary-bg}ff)";
+        "col.inactive_border" = "rgba(${config.theme.colors.color0}ee)";
         layout = "master";
       };
 
       decoration = {
-        rounding = 15;
+        rounding = config.theme.rounding;
         drop_shadow = true;
         shadow_range = 15;
         shadow_render_power = 4;
-        "col.shadow" = "rgba(00010196)";
+        "col.shadow" = "rgba(${config.theme.colors.color0}96)";
         blur = { enabled = false; };
       };
 

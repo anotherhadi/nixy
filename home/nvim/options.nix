@@ -32,5 +32,6 @@
 
     swapfile = false;
     undofile = true;
+    conceallevel = 2;
   };
 }

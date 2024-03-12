@@ -5,6 +5,16 @@ with lib;
 {
   options.theme = {
 
+    font = mkOption {
+      type = types.str;
+      description = "Default font";
+    };
+
+    font-mono = mkOption {
+      type = types.str;
+      description = "Default mono font";
+    };
+
     rounding = mkOption {
       type = types.int;
       description = "Borders rounding";
@@ -42,7 +52,6 @@ with lib;
       "primary-fg"
       "secondary-bg"
       "secondary-fg"
-      "cursor"
       "color0"
       "color1"
       "color2"

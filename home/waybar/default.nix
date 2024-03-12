@@ -1,4 +1,5 @@
-{
+{ config, lib, ... }: {
+  imports = [ ../variables/theme ];
   services = {
     blueman-applet.enable = true;
     network-manager-applet.enable = true;
@@ -12,9 +13,9 @@
         layer = "top";
         position = "top";
         spacing = 0;
-        "margin-top" = 15;
-        "margin-left" = 15;
-        "margin-right" = 15;
+        "margin-top" = config.theme.gaps-out;
+        "margin-left" = config.theme.gaps-out;
+        "margin-right" = config.theme.gaps-out;
         height = 40;
         modules-left = [ "custom/logo" "hyprland/window" ];
         modules-center = [ "hyprland/workspaces" ];
@@ -25,7 +26,7 @@
           format = "{icon}";
           "on-click" = "activate";
           "on-click-right" = "fullscreen";
-          "icon-theme" = "WhiteSur";
+
           "icon-size" = 25;
           "tooltip-format" = "{title}";
         };
@@ -79,7 +80,7 @@
         };
 
         "custom/logo" = {
-          format = "  ";
+          format = "  ";
           tooltip = false;
           "on-click" = "~/scripts/menu.sh";
         };
@@ -117,14 +118,15 @@
         border: none;
         border-radius: 0;
         min-height: 0;
-        font-family: "SFProDisplay Nerd Font Bold";
+        font-family: "${config.theme.font}";
+        color: #${config.theme.colors.fg};
       }
 
       window#waybar {
-        background-color: #090914;
+        background-color: #${config.theme.colors.bg};
         transition-property: background-color;
         transition-duration: 0.5s;
-        border-radius: 15px;
+        border-radius: ${toString config.theme.rounding}px;
         font-size: 13px;
       }
 
@@ -143,24 +145,23 @@
         padding: 6px 18px;
         margin: 6px 3px;
         border-radius: 4px;
-        background-color: #1e1e2e;
-        color: #cdd6f4;
+        background-color: #${config.theme.colors.alt-bg};
+        color: #${config.theme.colors.alt-fg};
       }
 
       #workspaces button.active {
-        color: #1e1e2e;
-        background-color: #cdd6f4;
+        color: #${config.theme.colors.primary-fg};
+        background-color: #${config.theme.colors.primary-bg};
       }
 
       #workspaces button:hover {
        box-shadow: inherit;
        text-shadow: inherit;
-       color: #1e1e2e;
-       background-color: #cdd6f4;
+       opacity: 0.8;
       }
 
       #workspaces button.urgent {
-        background-color: #f38ba8;
+        background-color: #${config.theme.colors.color1};
       }
 
       #memory,
@@ -175,13 +176,13 @@
         border-radius: 9px;
         margin: 6px 3px;
         padding: 6px 12px;
-        background-color: #1e1e2e;
-        color: #FBFBFB;
+        background-color: #${config.theme.colors.alt-bg};
+        color: #${config.theme.colors.alt-fg};
       }
 
       #tray menu {
-        background-color: #1e1e2e;
-        color: #FBFBFB;
+        background-color: #${config.theme.colors.alt-bg};
+        color: #${config.theme.colors.alt-fg};
       }
 
       #custom-power {
@@ -194,7 +195,7 @@
         margin-left: 5px;
         font-size: 15px;
         border-radius: 8px 0px 0px 8px;
-        color: #9978F8;
+        color: #${config.theme.colors.primary-bg};
       }
 
       @keyframes blink {
@@ -232,12 +233,14 @@
       tooltip {
         border-radius: 8px;
         padding: 15px;
-        background-color: #1E1E2E;
+        background-color: #${config.theme.colors.alt-bg};
+        color: #${config.theme.colors.alt-fg};
       }
 
       tooltip label {
         padding: 5px;
-        background-color: #1E1E2E;
+        background-color: #${config.theme.colors.alt-bg};
+        color: #${config.theme.colors.alt-fg};
       }
     '';
   };

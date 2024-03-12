@@ -1,11 +1,10 @@
-{ config, lib, pkgs, ... }:
-{
+{ config, lib, pkgs, ... }: {
 
-  home.packages = with pkgs; [
-   libnotify
-  ];
+  imports = [ ../variables/theme ];
 
-services.dunst = {
+  home.packages = with pkgs; [ libnotify ];
+
+  services.dunst = {
     enable = true;
     iconTheme = {
       name = "Papirus-Dark";
@@ -37,11 +36,12 @@ services.dunst = {
         sticky_history = "yes";
         history_length = 20;
         always_run_script = true;
-        corner_radius = 10;
+        corner_radius = config.theme.rounding;
         follow = "mouse";
-        font = "Source Sans Pro 10";
-        format = "<b>%s</b>\\n%b"; #format = "<span foreground='#f3f4f5'><b>%s %p</b></span>\n%b"
-        frame_color = "#232323";
+        font = config.theme.font;
+        format =
+          "<b>%s</b>\\n%b"; # format = "<span foreground='#f3f4f5'><b>%s %p</b></span>\n%b"
+        frame_color = "#" + config.theme.colors.bg;
         frame_width = 1;
         offset = "15x15";
         horizontal_padding = 10;
@@ -61,19 +61,19 @@ services.dunst = {
         browser = "/usr/bin/env librewolf -new-tab";
       };
 
-      fullscreen_delay_everything = {fullscreen = "delay";};
+      fullscreen_delay_everything = { fullscreen = "delay"; };
 
       urgency_critical = {
-        background = "#d64e4e";
-        foreground = "#f0e0e0";
+        background = "#" + config.theme.colors.color1;
+        foreground = "#" + config.theme.colors.color0;
       };
       urgency_low = {
-        background = "#232323";
-        foreground = "#2596be";
+        background = "#" + config.theme.colors.color3;
+        foreground = "#" + config.theme.colors.color0;
       };
       urgency_normal = {
-        background = "#1e1e2a";
-        foreground = "#2596be";
+        background = "#" + config.theme.colors.alt-bg;
+        foreground = "#" + config.theme.colors.alt-fg;
       };
     };
   };
