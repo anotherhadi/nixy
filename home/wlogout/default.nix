@@ -1,4 +1,7 @@
-{
+{ config, ... }: {
+
+  imports = [ ../variables/theme ];
+
   programs.wlogout = {
     enable = true;
     layout = [
@@ -41,78 +44,72 @@
     ];
 
     style = ''
-      * {
-        font-family: "Fira Sans Semibold";
-      	background-image: none;
-      	transition: 20ms;
-      }
+            * {
+              font-family: "${config.theme.font}";
+              background-image: none;
+      transition: 20ms;
+            }
 
-      window {
-      	background-color: rgba(12, 12, 12, 0.5);
-      }
+          window {
+            background-color: rgba(12,12,12,0.5);
+          }
 
-      button {
-      	color: #FFFFFF;
-          font-size:20px;
+          button {
+      color: #${config.theme.colors.fg};
+             font-size:20px;
 
-          background-repeat: no-repeat;
-      	background-position: center;
-      	background-size: 25%;
+             background-repeat: no-repeat;
+             background-position: center;
+             background-size: 25%;
 
-      	border-style: solid;
-      	background-color: rgba(12, 12, 12, 0.5);
-      	border: 3px solid #FFFFFF;
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      }
+             border-style: solid;
+             background-color: #${config.theme.colors.bg};
+              border: ${
+                toString config.theme.border-size
+              }px solid #${config.theme.colors.fg};
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          }
 
       button:focus,
-      button:active,
-      button:hover {
-          color: #9978F8;
-      	background-color: rgba(12, 12, 12, 0.8);
-      	border: 3px solid #9978F8;
+               button:active {
+      color: #${config.theme.colors.primary-fg};
+             background-color: #${config.theme.colors.primary-bg};
+      border: 3px solid #${config.theme.colors.primary-bg};
+               }
+
+             /* 
+                ----------------------------------------------------- 
+                Buttons
+                ----------------------------------------------------- 
+              */
+
+      #lock,#logout,#suspend,#hibernate,#shutdown,#reboot {
+        margin: 10px;
+        border-radius: ${toString config.theme.rounding}px;
       }
 
-      /* 
-      ----------------------------------------------------- 
-      Buttons
-      ----------------------------------------------------- 
-      */
-
       #lock {
-      	margin: 10px;
-      	border-radius: 20px;
-      	background-image: image(url("icons/lock.png"));
+              background-image: image(url("icons/lock.png"));
       }
 
       #logout {
-      	margin: 10px;
-      	border-radius: 20px;
-      	background-image: image(url("icons/logout.png"));
+              background-image: image(url("icons/logout.png"));
       }
 
       #suspend {
-      	margin: 10px;
-      	border-radius: 20px;
-      	background-image: image(url("icons/suspend.png"));
+              background-image: image(url("icons/suspend.png"));
       }
 
       #hibernate {
-      	margin: 10px;
-      	border-radius: 20px;
-      	background-image: image(url("icons/hibernate.png"));
+              background-image: image(url("icons/hibernate.png"));
       }
 
       #shutdown {
-      	margin: 10px;
-      	border-radius: 20px;
-      	background-image: image(url("icons/shutdown.png"));
+              background-image: image(url("icons/shutdown.png"));
       }
 
       #reboot {
-      	margin: 10px;
-      	border-radius: 20px;
-      	background-image: image(url("icons/reboot.png"));
+              background-image: image(url("icons/reboot.png"));
       }
     '';
   };

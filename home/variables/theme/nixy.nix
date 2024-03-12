@@ -18,7 +18,7 @@
       primary-fg = "000000";
       secondary-bg = "4928B8";
       secondary-fg = "000000";
-      color0 = "414868";
+      color0 = "000000";
       color1 = "f7768e";
       color2 = "73daca";
       color3 = "e0af68";

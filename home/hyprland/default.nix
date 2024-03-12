@@ -33,7 +33,7 @@
 
       exec-once = [
         "swww init"
-        "swww img /home/hadi/Nextcloud/wallpaper/Dim_12000x6000.png"
+        "swww img /home/hadi/.config/wallpaper/default.png"
         "hypridle"
       ];
 
@@ -106,7 +106,7 @@
         gaps_out = 20;
         border_size = 2;
         "col.active_border" = "rgba(${config.theme.colors.primary-bg}ff)";
-        "col.inactive_border" = "rgba(${config.theme.colors.color0}ee)";
+        "col.inactive_border" = "rgba(${config.theme.colors.color0}96)";
         layout = "master";
       };
 

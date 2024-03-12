@@ -120,6 +120,7 @@
         min-height: 0;
         font-family: "${config.theme.font}";
         color: #${config.theme.colors.fg};
+        font-weight: 700;
       }
 
       window#waybar {

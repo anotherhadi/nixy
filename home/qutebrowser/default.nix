@@ -1,82 +1,94 @@
-{
+{ config, ... }: {
+
+  imports = [ ./duckduckgo-colorscheme.nix ];
+
   programs.qutebrowser = {
     enable = true;
+
     searchEngines = {
-      "DEFAULT" = "https://google.com/search?q={}";
-      "yt" = "https://youtube.com/results?search_query={}";
+      "DEFAULT" = "https://duckduckgo.com/?q={}&ia=web";
+      "d" = "https://duckduckgo.com/?q={}&ia=web";
+      "g" = "https://google.com/search?q={}";
+      "y" = "https://youtube.com/results?search_query={}";
+      "n" = "https://mynixos.com/search?q={}";
       "nixo" = "https://search.nixos.org/options?channel=unstable&query={}";
       "nixp" = "https://search.nixos.org/packages?channel=unstable&query={}";
     };
 
     settings = {
 
+      url = {
+        default_page = "https://duckduckgo.com";
+        start_pages = [ "https://duckduckgo.com" ];
+      };
+
       colors = {
         tabs = {
-          odd.bg = "#000000";
-          odd.fg = "#FFFFFF";
-          even.bg = "#000000";
-          even.fg = "#FFFFFF";
-          selected.odd.bg = "#101012";
-          selected.odd.fg = "#FFFFFF";
-          selected.even.bg = "#101012";
-          selected.even.fg = "#FFFFFF";
-          indicator.error = "#101012";
-          indicator.start = "#101012";
-          indicator.stop = "#101012";
+          odd.bg = "#${config.theme.colors.bg}";
+          odd.fg = "#${config.theme.colors.fg}";
+          even.bg = "#${config.theme.colors.bg}";
+          even.fg = "#${config.theme.colors.fg}";
+          selected.odd.bg = "#${config.theme.colors.primary-bg}";
+          selected.odd.fg = "#${config.theme.colors.primary-fg}";
+          selected.even.bg = "#${config.theme.colors.primary-bg}";
+          selected.even.fg = "#${config.theme.colors.primary-fg}";
+          indicator.error = "#${config.theme.colors.color1}";
+          indicator.start = "#${config.theme.colors.alt-bg}";
+          indicator.stop = "#${config.theme.colors.alt-bg}";
         };
 
         hints = {
-          bg = "#101012";
-          fg = "#FFFFFF";
-          match.fg = "#E2E2E2";
+          bg = "#${config.theme.colors.alt-bg}";
+          fg = "#${config.theme.colors.alt-fg}";
+          match.fg = "#${config.theme.colors.bg}";
         };
 
         completion = {
-          category.bg = "#101012";
-          category.fg = "#FFFFFF";
-          category.border.top = "#101012";
-          category.border.bottom = "#101012";
+          category.bg = "#${config.theme.colors.bg}";
+          category.fg = "#${config.theme.colors.fg}";
+          category.border.top = "#${config.theme.colors.bg}";
+          category.border.bottom = "#${config.theme.colors.bg}";
 
-          odd.bg = "#101012";
-          even.bg = "#101012";
+          odd.bg = "#${config.theme.colors.bg}";
+          even.bg = "#${config.theme.colors.bg}";
 
           fg = [ "#FFFFFF" "#FFFFFF" "#FFFFFF" ];
 
-          match.fg = "#FF0000";
+          match.fg = "#${config.theme.colors.primary-bg}";
 
-          item.selected.bg = "#FF0000";
-          item.selected.border.top = "#FF0000";
-          item.selected.border.bottom = "#FF0000";
-          item.selected.fg = "#FBFBFB";
-          item.selected.match.fg = "#FBFBFB";
+          item.selected.bg = "#${config.theme.colors.primary-bg}";
+          item.selected.border.top = "#${config.theme.colors.primary-bg}";
+          item.selected.border.bottom = "#${config.theme.colors.primary-bg}";
+          item.selected.fg = "#${config.theme.colors.primary-fg}";
+          item.selected.match.fg = "#${config.theme.colors.primary-fg}";
         };
 
-        #        statusbar = {
-        #          normal.bg = colors.statusbar.bg;
-        #          normal.fg = colors.statusbar.fg;
-        #          private.bg = colors.statusbar.private.bg;
-        #          private.fg = colors.statusbar.private.fg;
-        #          command = {
-        #            bg = colors.statusbar.bg;
-        #            fg = colors.statusbar.fg;
-        #            private.bg = colors.statusbar.private.bg;
-        #            private.fg = colors.statusbar.private.fg;
-        #          };
-        #        };
-        #
-        #        messages = {
-        #          info = {
-        #            bg = colors.statusbar.bg;
-        #            fg = colors.statusbar.fg;
-        #            border = colors.statusbar.bg;
-        #          };
-        #
-        #          error = {
-        #            bg = colors.messages.error.bg;
-        #            fg = colors.messages.error.fg;
-        #            border = colors.messages.error.bg;
-        #          };
-        #        };
+        statusbar = {
+          normal.bg = "#${config.theme.colors.bg}";
+          normal.fg = "#${config.theme.colors.fg}";
+          private.bg = "#${config.theme.colors.bg}";
+          private.fg = "#${config.theme.colors.fg}";
+          command = {
+            bg = "#${config.theme.colors.alt-bg}";
+            fg = "#${config.theme.colors.alt-fg}";
+            private.bg = "#${config.theme.colors.alt-bg}";
+            private.fg = "#${config.theme.colors.alt-fg}";
+          };
+        };
+
+        messages = {
+          info = {
+            bg = "#${config.theme.colors.alt-bg}";
+            fg = "#${config.theme.colors.alt-fg}";
+            border = "#${config.theme.colors.alt-bg}";
+          };
+
+          error = {
+            bg = "#${config.theme.colors.color1}";
+            fg = "#${config.theme.colors.alt-fg}";
+            border = "#${config.theme.colors.color1}";
+          };
+        };
       };
 
       completion = {
@@ -147,12 +159,7 @@
         close_mouse_button = "right";
       };
 
-      url = {
-        default_page = "https://duckduckgo.com";
-        start_pages = [ "https://duckduckgo.com" ];
-      };
-
-      zoom.default = "130%";
+      zoom.default = "100%";
     };
 
     keyMappings = {

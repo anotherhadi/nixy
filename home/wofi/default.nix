@@ -1,10 +1,13 @@
-{
+{ config, ... }: {
+
+  imports = [ ../variables/theme ];
+
   programs.wofi = {
     enable = true;
 
     settings = {
       allow_markup = true;
-      width = 250;
+      width = 450;
       show = "drun";
       prompt = "Apps";
       normal_window = true;
@@ -34,15 +37,15 @@
       /** ********** Fonts ********** **/
 
       * {
-        font-family: "SFProDisplay Nerd Font Bold", archcraft, sans-serif;
+        font-family: "${config.theme.font}";
+        font-weight: 500;
         font-size: 12px;
       }
 
       #window {
-        background-color: #0B0B13;
-        color: #D9E0EE;
-        border: 2px solid #1B1B23;
-        border-radius: 0px;
+        background-color: #${config.theme.colors.alt-bg};
+        color: #${config.theme.colors.alt-fg};
+        border-radius: ${toString config.theme.rounding}px;
       }
 
       #outer-box {
@@ -50,8 +53,8 @@
       }
 
       #input {
-        background-color: #1B1B23;
-        border: 0px solid #B4BEFE;
+        background-color: #${config.theme.colors.bg};
+        border: 0px solid #${config.theme.colors.primary-bg};
         padding: 8px 12px;
       }
 
@@ -66,11 +69,11 @@
       }
 
       #text {
-        color: #D9E0EE;
+        color: #${config.theme.colors.color7};
       }
 
       #text:selected {
-        color: #0B0B13;
+        color: #${config.theme.colors.fg};
       }
 
       #entry {
@@ -78,8 +81,8 @@
       }
 
       #entry:selected {
-        background-color: #B4BEFE;
-        color: #0B0B13;
+        background-color: #${config.theme.colors.primary-bg};
+        color: #${config.theme.colors.primary-fg};
       }
 
       #unselected {}
@@ -88,7 +91,7 @@
 
       #input,
       #entry:selected {
-        border-radius: 4px;
+        border-radius: ${toString (config.theme.rounding - 10)}px;
       }
     '';
   };
