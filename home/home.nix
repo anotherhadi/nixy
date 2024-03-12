@@ -48,5 +48,6 @@
     ./shell
     ./misc
     ./nextcloud
+    ./scripts
   ];
 }

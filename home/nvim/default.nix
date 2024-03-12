@@ -28,6 +28,65 @@
     colorschemes.catppuccin.enable = true;
     colorschemes.catppuccin.transparentBackground = true;
 
+    plugins.alpha = {
+      enable = true;
+      layout = [
+        {
+          type = "padding";
+          val = 4;
+        }
+        {
+          type = "text";
+          opts = { position = "center"; };
+          val = [
+            "                                                                     "
+            "       ████ ██████           █████      ██                     "
+            "      ███████████             █████                             "
+            "      █████████ ███████████████████ ███   ███████████   "
+            "     █████████  ███    █████████████ █████ ██████████████   "
+            "    █████████ ██████████ █████████ █████ █████ ████ █████   "
+            "  ███████████ ███    ███ █████████ █████ █████ ████ █████  "
+            " ██████  █████████████████████ ████ █████ █████ ████ ██████ "
+            "                                                                       "
+          ];
+        }
+        {
+          type = "padding";
+          val = 4;
+        }
+        {
+          opts = {
+            position = "center";
+            cursor = 3;
+            width = 50;
+            align_shortcut = "right";
+            hl_shortcut = "Keyword";
+          };
+          type = "group";
+          val = [
+            {
+              type = "button";
+              val = "  New file";
+              on_press.__raw = "function() vim.cmd[[ene]] end";
+              opts.shortcut = "n";
+            }
+            {
+              type = "button";
+              val = "  NixOs Config";
+              on_press.__raw = "function() vim.cmd[[e ~/.config/nixos]] end";
+              opts.shortcut = "n";
+            }
+            {
+              type = "button";
+              val = "󰩈 Quit Neovim";
+              on_press.__raw = "function() vim.cmd[[qa]] end";
+              opts.shortcut = "q";
+            }
+          ];
+        }
+      ];
+    };
+
     keymaps = [
       {
         key = "<leader>e";

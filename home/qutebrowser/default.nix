@@ -91,6 +91,8 @@
         };
       };
 
+      fonts = { default_family = "#${config.theme.font}"; };
+
       completion = {
         height = "30%";
         open_categories = [ "history" ];

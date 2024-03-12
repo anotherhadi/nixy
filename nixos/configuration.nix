@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   imports = [ ./hardware-configuration.nix ];
 
   # Bootloader.
@@ -36,7 +36,6 @@
   };
   console.keyMap = "fr";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
@@ -70,7 +69,10 @@
     open = false;
     nvidiaSettings = true;
   };
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
   services.blueman.enable = true;
 
   # Set environment variables
@@ -96,6 +98,28 @@
     pulse.enable = true;
     jack.enable = true;
     wireplumber.enable = true;
+  };
+
+  # Auto Update & Clean
+  system.autoUpgrade = {
+    enable = true;
+    dates = "04:00";
+    flake = "${config.users.users.hadi.home}/.config/nixos";
+    flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
+    allowReboot = true;
+  };
+
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+    gc = {
+      automatic = true;
+      persistent = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
   };
 
   system.stateVersion = "23.11";

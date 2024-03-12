@@ -1,5 +1,1 @@
-{
-
-  imports = [ ./scripts.nix ./sshconfig.nix ];
-
-}
+{ imports = [ ./sshconfig.nix ]; }

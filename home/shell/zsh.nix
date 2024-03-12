@@ -7,6 +7,9 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
+    historySubstringSearch.enable = true;
+
+    initExtraFirst = "nerdfetch";
 
     history = {
       ignoreDups = true;
@@ -14,9 +17,10 @@
       size = 1000000;
     };
 
-
     profileExtra = lib.optionalString (config.home.sessionPath != [ ]) ''
-      export PATH="$PATH''${PATH:+:}${lib.concatStringsSep ":" config.home.sessionPath}"
+      export PATH="$PATH''${PATH:+:}${
+        lib.concatStringsSep ":" config.home.sessionPath
+      }"
     '';
 
     shellAliases = {
