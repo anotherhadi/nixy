@@ -15,6 +15,7 @@ let
         		--border-label "Wallpaper" ) || exit 1
 
         swww img $choosed_wallpaper
+        cp $choosed_wallpaper $HOME/.config/wallpaper/default.png
   '';
 
   menu = pkgs.writeShellScriptBin "menu" ''
@@ -23,6 +24,10 @@ let
     else
     	wofi --show drun
     fi
+  '';
+
+  powermenu = pkgs.writeShellScriptBin "powermenu" ''
+    ${pkgs.wlogout}/bin/wlogout
   '';
 
   wireguard-import = pkgs.writeShellScriptBin "wireguard-import" ''
@@ -69,5 +74,11 @@ let
   '';
 
 in {
-  home.packages = with pkgs; [ wallpaper menu wireguard-import choose-output ];
+  home.packages = with pkgs; [
+    wallpaper
+    menu
+    wireguard-import
+    choose-output
+    powermenu
+  ];
 }

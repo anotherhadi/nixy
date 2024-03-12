@@ -5,6 +5,10 @@ with lib;
 {
   options.theme = {
 
+    waybar-transparent = mkOption {
+      type = types.bool;
+      description = "Does waybar have a transparent background?";
+    };
     font = mkOption {
       type = types.str;
       description = "Default font";
