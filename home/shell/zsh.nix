@@ -9,7 +9,10 @@
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
 
-    initExtraFirst = "neofetch";
+    initExtraFirst = ''
+      bindkey -e
+      ${pkgs.neofetch}/bin/neofetch
+    '';
 
     history = {
       ignoreDups = true;
@@ -24,7 +27,6 @@
     '';
 
     shellAliases = {
-      sl = "ls";
       vim = "nvim";
       v = "nvim";
       c = "clear";
@@ -32,9 +34,10 @@
       celar = "clear";
       e = "exit";
       cd = "z";
-      ls = "eza --icons=always";
-      open = "xdg-open";
-      icat = "kitty +kitten icat";
+      ls = "${pkgs.eza}/bin/eza --icons=always";
+      sl = "ls";
+      open = "${pkgs.xdg_utils}/bin/xdg-open";
+      icat = "${pkgs.kitty}/bin/kitty +kitten icat";
     };
   };
 }

@@ -5,14 +5,13 @@
   xdg.configFile."hypr/hyprlock.conf".text = ''
     background {
         monitor =
-        path = $HOME/.config/wallpaper/default.png   # only png supported for now
+        path = $HOME/.config/wallpaper/${config.theme.wallpaper}
         color = rgb(${config.theme.colors.bg})
 
-        # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
         blur_size = 4
-        blur_passes = 3 # 0 disables blurring
+        blur_passes = 3
         noise = 0.0117
-        contrast = 1.3000 # Vibrant!!!
+        contrast = 1.3000
         brightness = 0.8000
         vibrancy = 0.2100
         vibrancy_darkness = 0.0
