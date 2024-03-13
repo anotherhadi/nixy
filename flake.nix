@@ -25,10 +25,15 @@
           { _module.args = { inherit inputs; }; }
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.hadi = import ./home/home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs; inherit spicetify-nix; };
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.hadi = import ./home/home.nix; # CHANGEME - replace "hadi"
+              extraSpecialArgs = {
+                inherit inputs;
+                inherit spicetify-nix;
+              };
+            };
           }
         ];
       };

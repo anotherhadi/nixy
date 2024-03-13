@@ -1,5 +1,5 @@
 { pkgs, config, ... }: {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ./nvidia.nix ];
 
   # Bootloader.
   boot.loader.efi.canTouchEfiVariables = true;
@@ -8,15 +8,14 @@
     consoleMode = "auto";
   };
 
-  networking.hostName = "nixy";
-
-  # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
+  ##############
+
+  # CHANGEME
+  networking.hostName = "nixy";
   time.timeZone = "Europe/Paris";
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "fr_FR.UTF-8";
     LC_IDENTIFICATION = "fr_FR.UTF-8";
@@ -29,21 +28,35 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "fr";
-    xkb.variant = "";
+  users.users.hadi = { # CHANGEME
+    isNormalUser = true;
+    description = "Hadi account";
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
+
+  # Auto Update & Clean
+  system.autoUpgrade = {
+    enable = true;
+    dates = "04:00";
+    flake = "${config.users.users.hadi.home}/.config/nixos"; # CHANGEME
+    flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
+    allowReboot = true;
+  };
+
+  ##############
+
+  services = {
+    xserver = {
+      xkb.layout = "fr";
+      xkb.variant = "";
+    };
+    blueman.enable = true;
+    gnome.gnome-keyring.enable = true;
   };
   console.keyMap = "fr";
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
-
-  users.users.hadi = {
-    isNormalUser = true;
-    description = "hadi";
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -52,28 +65,10 @@
 
   nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" "nix-2.16.2" ];
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  services.gnome.gnome-keyring.enable = true;
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-  };
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
   };
-  services.blueman.enable = true;
 
   # Set environment variables
   environment.variables = {
@@ -98,15 +93,6 @@
     pulse.enable = true;
     jack.enable = true;
     wireplumber.enable = true;
-  };
-
-  # Auto Update & Clean
-  system.autoUpgrade = {
-    enable = true;
-    dates = "04:00";
-    flake = "${config.users.users.hadi.home}/.config/nixos";
-    flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
-    allowReboot = true;
   };
 
   nix = {
