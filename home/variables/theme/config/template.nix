@@ -9,6 +9,12 @@ with lib;
       type = types.bool;
       description = "Does waybar have a transparent background?";
     };
+
+    wallpaper = mkOption {
+      type = types.str;
+      description = "Name of the wallpaper (in the wallpaper directory)";
+    };
+
     font = mkOption {
       type = types.str;
       description = "Default font";

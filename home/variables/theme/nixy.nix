@@ -2,19 +2,21 @@
   imports = [ ./config/template.nix ];
 
   theme = {
+    wallpaper = "default.png";
+    waybar-transparent = true;
     font-mono = "FiraCode Nerd Font Mono";
     font = "SFProDisplay Nerd Font";
-    rounding = 15;
+    rounding = 12;
     gaps-in = 10;
-    gaps-out = 15;
-    border-size = 2;
+    gaps-out = 20;
+    border-size = 3;
 
     colors = {
-      bg = "090914";
+      bg = "040409";
       fg = "FCFCFC";
-      alt-bg = "191924";
+      alt-bg = "101012";
       alt-fg = "ECECEC";
-      primary-bg = "9978F8";
+      primary-bg = "a158ff";
       primary-fg = "000000";
       secondary-bg = "4928B8";
       secondary-fg = "000000";

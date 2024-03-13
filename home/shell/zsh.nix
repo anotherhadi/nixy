@@ -24,6 +24,7 @@
     '';
 
     shellAliases = {
+      sl = "ls";
       vim = "nvim";
       v = "nvim";
       c = "clear";

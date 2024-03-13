@@ -1,11 +1,10 @@
 { pkgs, config, ... }: {
 
-  imports = [ ./hyprlock.nix ./hypridle.nix ];
+  imports = [ ./hyprlock.nix ./hypridle.nix ./hyprpaper.nix ];
 
   home.packages = with pkgs; [
     xdg-desktop-portal-hyprland
     wlr-randr
-    swww
     wl-clipboard
     brightnessctl
     gnome.gnome-themes-extra
@@ -31,11 +30,7 @@
       "$menu" = "menu";
       "$powermenu" = "${pkgs.wlogout}/bin/wlogout";
 
-      exec-once = [
-        "swww init"
-        "swww img /home/hadi/.config/wallpaper/default.png"
-        "hypridle"
-      ];
+      exec-once = [ "hypridle" "hyprpaper"];
 
       monitor = [
         "eDP-2,highres,0x0,1"

@@ -1,1 +1,1 @@
-{ imports = [ ./blackish.nix ]; }
+{ imports = [ ./nixy.nix ]; }
