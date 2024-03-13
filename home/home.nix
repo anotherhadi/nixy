@@ -52,5 +52,6 @@
     ./neofetch
     ./spicetify
     ./variables/theme
+    ./wallpaper
   ];
 }
