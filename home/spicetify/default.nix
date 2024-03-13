@@ -21,11 +21,11 @@ in {
       card = "${config.theme.colors.bg}";
       shadow = "000000";
       selected-row = "797979";
-      button = "31748f";
-      button-active = "31748f";
-      button-disabled = "555169";
-      tab-active = "00FF00";
-      misc = "00FF00";
+      button = "${config.theme.colors.primary-bg}";
+      button-active = "${config.theme.colors.primary-bg}";
+      button-disabled = "${config.theme.colors.alt-bg}";
+      tab-active = "${config.theme.colors.primary-bg}";
+      misc = "${config.theme.colors.alt-fg}";
     };
 
     enabledExtensions = with spicePkgs.extensions; [

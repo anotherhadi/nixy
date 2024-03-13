@@ -1,41 +1,41 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
 
   programs.wlogout = {
     enable = true;
     layout = [
       {
         label = "lock";
-        action = "sleep 1; hyprlock";
+        action = "${pkgs.hyprlock}/bin/hyprlock";
         text = "Lock";
         keybind = "l";
       }
       {
         label = "hibernate";
-        action = "sleep 1; systemctl hibernate";
+        action = "systemctl hibernate";
         text = "Hibernate";
         keybind = "h";
       }
       {
         label = "logout";
-        action = "sleep 1; killall -9 Hyprland sleep 2";
+        action = "killall -9 Hyprland sleep 2";
         text = "Exit";
         keybind = "e";
       }
       {
         label = "shutdown";
-        action = "sleep 1; systemctl poweroff";
+        action = "systemctl poweroff";
         text = "Shutdown";
         keybind = "s";
       }
       {
         label = "suspend";
-        action = "sleep 1; systemctl suspend";
+        action = "systemctl suspend";
         text = "Suspend";
         keybind = "u";
       }
       {
         label = "reboot";
-        action = "sleep 1; systemctl reboot";
+        action = "systemctl reboot";
         text = "Reboot";
         keybind = "r";
       }

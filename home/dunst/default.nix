@@ -5,8 +5,8 @@
   services.dunst = {
     enable = true;
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "Adwaita-Dark";
+      package = pkgs.gnome.adwaita-icon-theme;
     };
     settings = {
       global = {
@@ -56,7 +56,7 @@
         show_indicators = "yes";
         shrink = "no";
         word_wrap = "yes";
-        browser = "/usr/bin/env librewolf -new-tab";
+        browser = "${pkgs.qutebrowser}/bin/qutebrowser";
       };
 
       fullscreen_delay_everything = { fullscreen = "delay"; };
