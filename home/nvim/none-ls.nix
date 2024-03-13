@@ -7,7 +7,6 @@
         statix.enable = true;
       };
       formatting = {
-        fantomas.enable = true;
         gofmt.enable = true;
         goimports.enable = true;
         nixfmt.enable = true;

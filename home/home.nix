@@ -49,5 +49,6 @@
     ./misc
     ./nextcloud
     ./scripts
+    ./neofetch
   ];
 }
