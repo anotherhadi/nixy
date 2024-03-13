@@ -47,6 +47,11 @@
     wget
     ripgrep
 
+    # Just cool
+    cbonsai
+    pipes
+    cmatrix
+
     # Backup
     vscode
     firefox

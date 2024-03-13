@@ -71,8 +71,8 @@
         foreground = "#" + config.theme.colors.color0;
       };
       urgency_low = {
-        background = "#" + config.theme.colors.color3;
-        foreground = "#" + config.theme.colors.color0;
+        background = "#" + config.theme.colors.alt-bg;
+        foreground = "#" + config.theme.colors.alt-fg;
       };
       urgency_normal = {
         background = "#" + config.theme.colors.alt-bg;

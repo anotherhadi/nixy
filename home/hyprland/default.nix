@@ -3,6 +3,7 @@
   imports = [ ./hyprlock.nix ./hypridle.nix ./hyprpaper.nix ];
 
   home.packages = with pkgs; [
+    hyprshot
     xdg-desktop-portal-hyprland
     wlr-randr
     wl-clipboard
@@ -27,6 +28,7 @@
 
     settings = {
       "$mod" = "SUPER";
+      "$shiftMod" = "SUPER_SHIFT";
       "$menu" = "menu";
       "$powermenu" = "${pkgs.wlogout}/bin/wlogout";
 
@@ -46,7 +48,7 @@
         "$mod, T, togglefloating,"
         "$mod, F, fullscreen"
         "$mod, B, exec, ${pkgs.qutebrowser}/bin/qutebrowser"
-        "$mod, C, exec, ${pkgs.kitty}/bin/kitty --class floating peaclock"
+        "$mod, C, exec, ${pkgs.kitty}/bin/kitty --class peaclock peaclock"
         "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
         "$mod, SPACE, exec, $menu"
         "$mod, X, exec, $powermenu"
@@ -54,6 +56,9 @@
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
+        "$mod, PRINT, exec, ${pkgs.hyprshot}/bin/hyprshot -m window -o ~/Pictures/screenshots"
+        ", PRINT, exec, ${pkgs.hyprshot}/bin/hyprshot -m output -o ~/Pictures/screenshots"
+        "$shiftMod, PRINT, exec, ${pkgs.hyprshot}/bin/hyprshot -m region -o ~/Pictures/screenshots"
       ] ++ (builtins.concatLists (builtins.genList (i:
         let ws = i + 1;
         in [
@@ -129,7 +134,7 @@
       };
 
       input = {
-        kb_layout = "fr";
+        kb_layout = "fr"; # CHANGEME
 
         kb_options = "caps:escape";
         follow_mouse = 1;
@@ -143,6 +148,15 @@
           clickfinger_behavior = true;
         };
       };
+
+      windowrulev2 = [
+        "float, class:peaclock"
+        "move 2% 78%, class:peaclock"
+        "size 30% 20%, class:peaclock"
+        "float, title:Bluetooth Devices"
+        "move 20% 20%, title:Bluetooth Devices"
+        "size 60% 60%, title:Bluetooth Devices"
+      ];
 
     };
   };

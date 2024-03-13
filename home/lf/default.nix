@@ -4,21 +4,29 @@
   programs.lf = {
     enable = true;
     keybindings = {
-      # I find x to be a better cut, and save d for delete
       d = "delete";
       x = "cut";
       "<enter>" = "open";
       "<c-g>" = "quit";
       "<esc>" = "quit";
+      "H" = "set hidden!";
     };
+
+    settings = { ratios = [ 1 1 2 ]; };
 
     previewer.source = "${pkgs.pistol}/bin/pistol";
 
     extraConfig = ''
-      set hidden
-      set nodirfirst
-      set incsearch
+      set nodirfirst 
+      set incsearch 
+      set icons
+      set drawbox
     '';
 
+  };
+
+  xdg.configFile."lf" = {
+    recursive = true;
+    source = ./config;
   };
 }
