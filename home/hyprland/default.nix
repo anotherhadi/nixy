@@ -64,15 +64,15 @@
       bindm = [ "$mod, mouse:272, movewindow" "$mod, R, resizewindow" ];
 
       bindl = [
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
+        ",XF86AudioMute, exec, sound-toggle"
         ",switch:Lid Switch, exec, ${pkgs.hyprlock}/bin/hyprlock"
       ];
 
       bindle = [
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 10%+"
-        ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 10%-"
+        ", XF86AudioRaiseVolume, exec, sound-up"
+        ", XF86AudioLowerVolume, exec, sound-down"
+        ", XF86MonBrightnessUp, exec, brightness-up"
+        ", XF86MonBrightnessDown, exec, brightness-down"
       ];
 
       env = [

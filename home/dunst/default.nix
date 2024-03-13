@@ -37,9 +37,14 @@
         corner_radius = config.theme.rounding;
         follow = "mouse";
         font = config.theme.font;
-        format =
-          "<b>%s</b>\\n%b"; # format = "<span foreground='#f3f4f5'><b>%s %p</b></span>\n%b"
+        format = "<b>%s</b>\\n%b";
+        progress_bar_corner_radius = config.theme.rounding - 10;
+        #format = ''
+        #  <span foreground='#${config.theme.colors.primary-bg}'><b>%s %p</b></span>
+        #  %b'';
         frame_color = "#" + config.theme.colors.bg;
+        highlight = "#" + config.theme.colors.primary-bg;
+        foreground = "#" + config.theme.colors.fg;
         frame_width = 1;
         offset = "0x10";
         horizontal_padding = 10;

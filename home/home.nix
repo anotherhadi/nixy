@@ -18,6 +18,7 @@
     ./spicetify
     ./variables/theme
     ./wallpaper
+    ./lf
   ];
 
   home.username = "hadi"; # CHANGEME
@@ -26,9 +27,9 @@
   home.packages = with pkgs; [
     swappy
     imv
+    bc
     discord
     obsidian
-    ranger
     fd
     btop
     go
