@@ -1,5 +1,4 @@
 { pkgs, config, lib, ... }: {
-  imports = [ ../variables/theme ];
   services = {
     blueman-applet.enable = true;
     network-manager-applet.enable = true;
@@ -207,7 +206,6 @@
 
             #custom-logo {
               padding-right: 7px;
-              padding-left: 7px;
               font-size: 15px;
               color: #${config.theme.colors.primary-bg};
             }
@@ -232,14 +230,14 @@
             }
 
             #battery.charging {
-              background-color: #1E1E2E;
-              color: #FBFBFB;
+              background-color: #${config.theme.colors.alt-bg};
+              color: #${config.theme.colors.alt-fg};
               animation: none;
             }
 
             #custom-power {
-              background-color: #9978F8;
-              color: #0C0C0C;
+              background-color: #${config.theme.colors.primary-bg};
+              color: #${config.theme.colors.primary-fg};
             }
 
 

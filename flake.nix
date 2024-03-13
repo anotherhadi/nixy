@@ -12,9 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixvim, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nixvim, spicetify-nix, ... }: {
     nixosConfigurations = {
       nixy = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -27,7 +28,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.hadi = import ./home/home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = { inherit inputs; inherit spicetify-nix; };
           }
         ];
       };

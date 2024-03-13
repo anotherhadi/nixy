@@ -1,7 +1,5 @@
 { config, ... }: {
 
-  imports = [ ../variables/theme ];
-
   programs.wofi = {
     enable = true;
 

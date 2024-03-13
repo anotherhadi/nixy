@@ -1,7 +1,5 @@
 { config, ... }: {
 
-  imports = [ ../variables/theme ];
-
   programs.wlogout = {
     enable = true;
     layout = [

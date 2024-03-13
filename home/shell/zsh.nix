@@ -9,7 +9,7 @@
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
 
-    initExtraFirst = "nerdfetch";
+    initExtraFirst = "neofetch";
 
     history = {
       ignoreDups = true;

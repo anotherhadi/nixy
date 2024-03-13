@@ -1,6 +1,6 @@
 { pkgs, config, ... }: {
 
-  imports = [ ./hyprlock.nix ./hypridle.nix ../variables/theme ];
+  imports = [ ./hyprlock.nix ./hypridle.nix ];
 
   home.packages = with pkgs; [
     xdg-desktop-portal-hyprland

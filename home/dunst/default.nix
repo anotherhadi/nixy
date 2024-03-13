@@ -1,7 +1,5 @@
 { config, lib, pkgs, ... }: {
 
-  imports = [ ../variables/theme ];
-
   home.packages = with pkgs; [ libnotify ];
 
   services.dunst = {
@@ -13,7 +11,7 @@
     settings = {
       global = {
         rounded = "yes";
-        origin = "top-right";
+        origin = "top-center";
         monitor = "0";
         alignment = "left";
         vertical_alignment = "center";
@@ -43,7 +41,7 @@
           "<b>%s</b>\\n%b"; # format = "<span foreground='#f3f4f5'><b>%s %p</b></span>\n%b"
         frame_color = "#" + config.theme.colors.bg;
         frame_width = 1;
-        offset = "15x15";
+        offset = "0x10";
         horizontal_padding = 10;
         icon_position = "left";
         indicate_hidden = "yes";

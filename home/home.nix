@@ -1,10 +1,10 @@
 { config, pkgs, ... }: {
+
   home.username = "hadi";
   home.homeDirectory = "/home/hadi";
 
   home.packages = with pkgs; [
     swappy
-    spotify
     imv
     discord
     obsidian
@@ -50,5 +50,7 @@
     ./nextcloud
     ./scripts
     ./neofetch
+    ./spicetify
+    ./variables/theme
   ];
 }

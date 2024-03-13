@@ -55,32 +55,46 @@
           val = 4;
         }
         {
-          opts = {
-            position = "center";
-            cursor = 3;
-            width = 50;
-            align_shortcut = "right";
-            hl_shortcut = "Keyword";
-          };
           type = "group";
           val = [
             {
               type = "button";
               val = "  New file";
               on_press.__raw = "function() vim.cmd[[ene]] end";
-              opts.shortcut = "n";
+              opts = {
+                shortcut = "n";
+                position = "center";
+                cursor = 3;
+                width = 50;
+                align_shortcut = "right";
+                hl_shortcut = "Keyword";
+              };
             }
             {
               type = "button";
-              val = "  NixOs Config";
+              val = "  NixOs Config";
               on_press.__raw = "function() vim.cmd[[e ~/.config/nixos]] end";
-              opts.shortcut = "n";
+              opts = {
+                shortcut = "c";
+                position = "center";
+                cursor = 3;
+                width = 50;
+                align_shortcut = "right";
+                hl_shortcut = "Keyword";
+              };
             }
             {
               type = "button";
-              val = "󰩈 Quit Neovim";
+              val = "󰩈  Quit Neovim";
               on_press.__raw = "function() vim.cmd[[qa]] end";
-              opts.shortcut = "q";
+              opts = {
+                shortcut = "q";
+                position = "center";
+                cursor = 3;
+                width = 50;
+                align_shortcut = "right";
+                hl_shortcut = "Keyword";
+              };
             }
           ];
         }

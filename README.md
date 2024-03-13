@@ -4,7 +4,7 @@ This is my dotfiles repo. It's a work in progress, and I'm still learning how to
 
 # TODOLIST
 
-- [ ] import theme globally
+- [x] import theme globally
 - [ ] Variable user & homeDir
 - [ ] Settings fzf
 - [ ] Nixvim Alpha config
