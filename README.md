@@ -57,6 +57,13 @@ Themes and colors are managed by the `home/variable/theme` folder.
 - `sound-output`
 - `sound-change <up/down/mute> <increment>`
 
+## Caffeine
+
+Caffeine is a simple script that toggles the hypridle (disable suspend & screenlock).
+
+- `caffeine` # Toggle caffeine
+- `caffeine-status` # Return active/inactive
+
 # Installation
 
 ```sh
