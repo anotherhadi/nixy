@@ -1,1 +1,4 @@
-{ imports = [ ./scripts.nix ./nerdfetch.nix ]; }
+{
+  imports =
+    [ ./scripts.nix ./nerdfetch.nix ./nixy.nix ./sounds.nix ./brightness.nix ];
+}
