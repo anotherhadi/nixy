@@ -8,13 +8,6 @@ You can search for it with ripgrep: `rg "CHANGEME"`
 # TODOLIST
 
 - [ ] Variable user & homeDir
-- [ ] Settings fzf
-- [ ] Nixvim Alpha config
-- [ ] Scripts:
-  - [ ] Edit
-  - [ ] Rebuild
-  - [ ] Update
-  - [ ] Garbage collector
 - [ ] Ricing things
   - [ ] Peaclock
 - [ ] Find a tui app for white noises (does that exist ? If not, I'll build my own)
