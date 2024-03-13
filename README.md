@@ -2,6 +2,9 @@
 
 This is my dotfiles repo. It's a work in progress, and I'm still learning how to use nix.
 
+Every things that you *must* change got a "CHANGEME" comment.
+You can search for it with ripgrep: `rg "CHANGEME"`
+
 # TODOLIST
 
 - [ ] Variable user & homeDir

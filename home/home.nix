@@ -20,8 +20,8 @@
     ./wallpaper
   ];
 
-  home.username = "hadi";
-  home.homeDirectory = "/home/hadi";
+  home.username = "hadi"; # CHANGEME
+  home.homeDirectory = "/home/hadi"; # CHANGEME
 
   home.packages = with pkgs; [
     swappy
