@@ -1,1 +1,1 @@
-{ imports = [ ./sshconfig.nix ]; }
+{ imports = [ ./sshconfig.nix ./cava/default.nix ]; }
