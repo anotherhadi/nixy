@@ -18,6 +18,16 @@ let
     cd ${homedir}/.config/nixos && sudo nix-collect-garbage -d
   '';
 
+  nixy-cb = pkgs.writeShellScriptBin "nixy-cb" ''
+    sudo /run/current-system/bin/switch-to-configuration boot
+  '';
+
 in {
-  home.packages = with pkgs; [ nixy-rebuild nixy-edit nixy-update nixy-gc ];
+  home.packages = with pkgs; [
+    nixy-rebuild
+    nixy-edit
+    nixy-update
+    nixy-gc
+    nixy-cb
+  ];
 }
