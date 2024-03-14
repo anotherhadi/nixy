@@ -10,6 +10,11 @@ This is my dotfiles repo. It's a work in progress, and I'm still learning how to
 
 # Apps
 
+- WM: *Hyprland*
+  - hyprlock
+  - hyprpaper
+  - hypridle
+  - wlogout
 - File manager:
   - lf
   - thunar
@@ -23,11 +28,6 @@ This is my dotfiles repo. It's a work in progress, and I'm still learning how to
 - Bar: waybar
 - Notifications: dunst
 - Launcher: wofi
-- WM: Hyprland
-  - hyprlock
-  - hyprpaper
-  - hypridle
-  - wlogout
 - DM: Tuigreet
 
 # Themes & Colors
@@ -65,6 +65,13 @@ Caffeine is a simple script that toggles hypridle (disable suspend & screenlock)
 - `caffeine` # Toggle caffeine
 - `caffeine-status` # Return active/inactive
 
+## Night-Shift
+
+Blue light filter, using wlsunset
+
+- `night-shift-on`
+- `night-shift-off`
+
 # Installation
 
 ```sh
@@ -83,3 +90,5 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
 
 - [ ] Variable user & homeDir
 - [ ] Custom GTK based on the colorscheme
+- [ ] Obsidian.nvim on every markdown file
+- [ ] Nextcloud services (Only on my personnal network)

@@ -6,5 +6,6 @@
     ./sounds.nix
     ./brightness.nix
     ./caffeine.nix
+    ./night-shift.nix
   ];
 }
