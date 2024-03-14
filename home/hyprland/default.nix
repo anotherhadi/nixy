@@ -14,6 +14,9 @@
     xwayland
     xdg-desktop-portal-gtk
     wlroots
+    qt5ct
+    libva
+    dconf
     wayland-utils
     wayland-protocols
     meson
@@ -56,6 +59,8 @@
         "$mod, PRINT, exec, ${pkgs.hyprshot}/bin/hyprshot -m window -o ~/Pictures/screenshots"
         ", PRINT, exec, ${pkgs.hyprshot}/bin/hyprshot -m output -o ~/Pictures/screenshots"
         "$shiftMod, PRINT, exec, ${pkgs.hyprshot}/bin/hyprshot -m region -o ~/Pictures/screenshots"
+        "$mod, F2, exec, night-shift-off"
+        "$mod, F3, exec, night-shift-on"
       ] ++ (builtins.concatLists (builtins.genList (i:
         let ws = i + 1;
         in [
@@ -95,20 +100,21 @@
 
       general = {
         resize_on_border = true;
-        gaps_in = 10;
-        gaps_out = 20;
-        border_size = 2;
+        gaps_in = config.theme.gaps-in;
+        gaps_out = config.theme.gaps-out;
+        border_size = config.theme.border-size;
         "col.active_border" = "rgba(${config.theme.colors.primary-bg}ff)";
-        "col.inactive_border" = "rgba(${config.theme.colors.color0}96)";
+        "col.inactive_border" = "rgba(00000055)";
+        border_part_of_window = true;
         layout = "master";
       };
 
       decoration = {
         rounding = config.theme.rounding;
         drop_shadow = true;
-        shadow_range = 15;
-        shadow_render_power = 4;
-        "col.shadow" = "rgba(${config.theme.colors.color0}96)";
+        shadow_range = 20;
+        shadow_render_power = 3;
+        "col.shadow" = "rgba(00000055)";
         blur = { enabled = false; };
       };
 
@@ -150,6 +156,30 @@
         "move 20% 20%, title:Bluetooth Devices"
         "size 60% 60%, title:Bluetooth Devices"
       ];
+
+      animations = {
+        enabled = true;
+        bezier = [
+          "fluent_decel, 0, 0.2, 0.4, 1"
+          "easeOutCirc, 0, 0.55, 0.45, 1"
+          "easeOutCubic, 0.33, 1, 0.68, 1"
+          "easeinoutsine, 0.37, 0, 0.63, 1"
+        ];
+
+        animation = [
+          "windowsIn, 1, 3, easeOutCubic, popin 30% # window open"
+          "windowsOut, 1, 3, fluent_decel, popin 70% # window close."
+          "windowsMove, 1, 2, easeinoutsine, slide # everything in between, moving, dragging, resizing."
+          "fadeIn, 1, 3, easeOutCubic  # fade in (open) -> layers and windows"
+          "fadeOut, 1, 2, easeOutCubic # fade out (close) -> layers and windows"
+          "fadeSwitch, 0, 1, easeOutCirc # fade on changing activewindow and its opacity"
+          "fadeShadow, 1, 10, easeOutCirc # fade on changing activewindow for shadows"
+          "fadeDim, 1, 4, fluent_decel # the easing of the dimming of inactive windows"
+          "border, 1, 2.7, easeOutCirc # for animating the border's color switch speed"
+          "borderangle, 1, 30, fluent_decel, once # for animating the border's gradient angle - styles: once (default), loop"
+          "workspaces, 1, 4, easeOutCubic, fade # styles: slide, slidevert, fade, slidefade, slidefadevert"
+        ];
+      };
 
     };
   };

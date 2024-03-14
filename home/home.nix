@@ -21,44 +21,48 @@
     ./lf
   ];
 
-  home.username = "hadi"; # CHANGEME
-  home.homeDirectory = "/home/hadi"; # CHANGEME
+  home = {
+    username = "hadi"; # CHANGEME
+    homeDirectory = "/home/hadi"; # CHANGEME
 
-  home.packages = with pkgs; [
-    swappy
-    imv
-    bc
-    discord
-    obsidian
-    fd
-    btop
-    go
-    cargo
-    nodejs
-    python3
-    unzip
-    blueman
-    gcc
-    peaclock
-    xdg_utils
-    tldr
-    qt5ct
-    libva
-    dconf
-    wget
-    ripgrep
-    xfce.thunar
+    packages = with pkgs; [
+      swappy
+      imv
+      discord
+      obsidian
+      btop
+      xfce.thunar
 
-    # Just cool
-    cbonsai
-    pipes
-    cmatrix
+      # Dev
+      go
+      cargo
+      nodejs
+      python3
 
-    # Backup
-    vscode
-    firefox
-  ];
+      # Utils
+      fd
+      bc
+      gcc
+      blueman
+      unzip
+      xdg_utils
+      tldr
+      wget
+      curl
+      ripgrep
 
-  home.stateVersion = "23.11";
+      # Just cool
+      peaclock
+      cbonsai
+      pipes
+      cmatrix
+
+      # Backup
+      vscode
+      firefox
+    ];
+
+    stateVersion = "23.11";
+  };
   programs.home-manager.enable = true;
 }
