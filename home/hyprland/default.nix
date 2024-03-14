@@ -4,6 +4,7 @@
 
   home.packages = with pkgs; [
     hyprshot
+    hyprpicker
     xdg-desktop-portal-hyprland
     wlr-randr
     wl-clipboard
@@ -89,7 +90,7 @@
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_QPA_PLATFORM=wayland,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "GTK_THEME,Flat-Remix-GTK-Grey-Darkest:dark"
+        "GTK_THEME,Flat-Remix-GTK-White-Darkest-Solid:dark"
       ];
 
       general = {
@@ -163,7 +164,7 @@
     enable = true;
     theme = {
       package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Grey-Darkest";
+      name = "Flat-Remix-GTK-White-Darkest-Solid";
     };
 
     iconTheme = {

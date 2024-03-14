@@ -82,4 +82,4 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
 # TODOLIST
 
 - [ ] Variable user & homeDir
-- [ ] Custom GTK & Qt Theme based on the colorscheme
+- [ ] Custom GTK based on the colorscheme
