@@ -9,7 +9,7 @@ let
   caffeine = pkgs.writeShellScriptBin "caffeine" ''
     if [[ -f /tmp/caffeine ]]; then
       rm /tmp/caffeine
-      ${pkgs.hypridle}/bin/hypridle &
+      ${pkgs.hyprland}/bin/hyprctl dispatch exec ${pkgs.hypridle}/bin/hypridle
       ${pkgs.libnotify}/bin/notify-send "󰾪 Caffeine Deactivated"
     else
       touch /tmp/caffeine
