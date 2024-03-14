@@ -40,8 +40,9 @@ Themes and colors are managed by the `home/variable/theme` folder.
 
 - `nixy-edit`
 - `nixy-rebuild`
-- `nixy-gc`
 - `nixy-update`
+- `nixy-gc` # garbage collection
+- `nixy-cb` # clean boot menu
 
 ## Brightness control
 
@@ -59,7 +60,7 @@ Themes and colors are managed by the `home/variable/theme` folder.
 
 ## Caffeine
 
-Caffeine is a simple script that toggles the hypridle (disable suspend & screenlock).
+Caffeine is a simple script that toggles hypridle (disable suspend & screenlock).
 
 - `caffeine` # Toggle caffeine
 - `caffeine-status` # Return active/inactive

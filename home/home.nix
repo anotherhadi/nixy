@@ -44,8 +44,10 @@
     tldr
     qt5ct
     libva
+    dconf
     wget
     ripgrep
+    xfce.thunar
 
     # Just cool
     cbonsai
