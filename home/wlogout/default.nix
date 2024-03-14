@@ -62,9 +62,6 @@
 
              border-style: solid;
              background-color: #${config.theme.colors.bg};
-              border: ${
-                toString config.theme.border-size
-              }px solid #${config.theme.colors.fg};
               box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
           }
 
