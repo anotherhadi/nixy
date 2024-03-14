@@ -9,9 +9,6 @@
     wl-clipboard
     brightnessctl
     gnome.gnome-themes-extra
-    adwaita-qt
-    adwaita-qt6
-    gnome.adwaita-icon-theme
     wlsunset
     xwayland
     xdg-desktop-portal-gtk
@@ -19,7 +16,6 @@
     wayland-utils
     wayland-protocols
     meson
-    xfce.thunar
   ];
 
   wayland.windowManager.hyprland = {
@@ -90,14 +86,10 @@
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
         "XDG_SESSION_DESKTOP,Hyprland"
-        "QT_QPA_PLATFORMTHEME,qt5ct"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_QPA_PLATFORM=wayland,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "QT_STYLE_OVERRIDE,Adwaita-Dark"
-        "T_QPA_PLATFORMTHEME,qt5ct"
-        "GTK_THEME,Adwaita:dark"
-        "GTK2_RC_FILES,/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc"
+        "GTK_THEME,Flat-Remix-GTK-Grey-Darkest:dark"
       ];
 
       general = {
@@ -160,4 +152,29 @@
 
     };
   };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+    style.name = "gtk2";
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.flat-remix-gtk;
+      name = "Flat-Remix-GTK-Grey-Darkest";
+    };
+
+    iconTheme = {
+      package = pkgs.flat-remix-icon-theme;
+      name = "Flat-Remix-Grey-Darkest";
+    };
+
+    font = {
+      name = config.theme.font;
+      size = 11;
+    };
+  };
+
 }
