@@ -232,6 +232,26 @@
         "type": "github"
       }
     },
+    "homeage": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1669234151,
+        "narHash": "sha256-TwT87E3m2TZLgwYJESlype14HxUOrRGojPM5C2akrMg=",
+        "owner": "jordanisaacs",
+        "repo": "homeage",
+        "rev": "02bfe4ca06962d222e522fff0240c93946b20278",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jordanisaacs",
+        "repo": "homeage",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -371,6 +391,7 @@
       "inputs": {
         "apple-fonts": "apple-fonts",
         "home-manager": "home-manager",
+        "homeage": "homeage",
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
         "spicetify-nix": "spicetify-nix"

@@ -17,8 +17,9 @@
     ./neofetch
     ./spicetify
     ./variables/theme
-    ./wallpaper
+    ./wallpapers
     ./lf
+    ./secrets # REMOVE
   ];
 
   home = {
@@ -40,6 +41,7 @@
       python3
 
       # Utils
+      age # Secrets
       fd
       bc
       gcc

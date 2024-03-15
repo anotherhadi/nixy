@@ -5,7 +5,7 @@
   xdg.configFile."hypr/hyprlock.conf".text = ''
     background {
         monitor =
-        path = $HOME/.config/wallpaper/${config.theme.wallpaper}
+        path = $HOME/.config/wallpapers/${config.theme.wallpaper}
         color = rgb(${config.theme.colors.bg})
 
         blur_size = 4

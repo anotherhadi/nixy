@@ -1,1 +1,6 @@
-{ imports = [ ./sshconfig.nix ./cava/default.nix ]; }
+{
+  imports = [
+    ./cava/default.nix
+    ./nextcloud.nix # REMOVE
+  ];
+}

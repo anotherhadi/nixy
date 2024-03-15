@@ -169,7 +169,6 @@
         animation = [
           "windowsIn, 1, 3, easeOutCubic, popin 30% # window open"
           "windowsOut, 1, 3, fluent_decel, popin 70% # window close."
-          "windowsMove, 1, 2, easeinoutsine, slide # everything in between, moving, dragging, resizing."
           "fadeIn, 1, 3, easeOutCubic  # fade in (open) -> layers and windows"
           "fadeOut, 1, 2, easeOutCubic # fade out (close) -> layers and windows"
           "fadeSwitch, 0, 1, easeOutCirc # fade on changing activewindow and its opacity"
