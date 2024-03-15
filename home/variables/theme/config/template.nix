@@ -12,7 +12,7 @@ with lib;
 
     wallpaper = mkOption {
       type = types.str;
-      description = "Name of the wallpaper (in the wallpaper directory)";
+      description = "Name of the wallpaper (from the wallpapers directory)";
     };
 
     font = mkOption {
