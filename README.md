@@ -79,6 +79,7 @@ git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```
 
 - Every things that you *must* change got a "CHANGEME" comment. You can search for it with ripgrep: `rg "CHANGEME"`
+- Every things that you *must* remove got a "REMOVE" comment. You can search for it with ripgrep: `rg "REMOVE"` (Secrets, own stuff..)
 - Change the `nixos/configuration.nix` file to match your system
 - Copy your `hardware-configuration.nix` file to the `nixos` folder
 
@@ -92,3 +93,5 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
 - [ ] Custom GTK based on the colorscheme
 - [ ] Obsidian.nvim on every markdown file
 - [ ] Nextcloud services (Only on my personnal network)
+- [ ] Caffeine & Night-Shift replace notif
+- [ ] Raycast like launcher
