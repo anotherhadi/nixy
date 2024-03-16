@@ -94,4 +94,3 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
 - [ ] Obsidian.nvim on every markdown file
 - [ ] Nextcloud services (Only on my personnal network)
 - [ ] Caffeine & Night-Shift replace notif
-- [ ] Raycast like launcher

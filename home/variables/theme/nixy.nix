@@ -16,6 +16,7 @@
       fg = "FCFCFC";
       alt-bg = "101012";
       alt-fg = "ECECEC";
+      primary-ansi-16 = "magenta";
       primary-bg = "a158ff";
       primary-fg = "000000";
       secondary-bg = "4928B8";
