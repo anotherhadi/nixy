@@ -1,14 +1,14 @@
-{
+{ config, ... }: {
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
     colors = {
-      "fg+" = "magenta";
+      "fg+" = config.theme.colors.primary-ansi-16;
       "bg+" = "-1";
       "fg" = "white";
       "bg" = "-1";
       "prompt" = "grey";
-      "pointer" = "magenta";
+      "pointer" = config.theme.colors.primary-ansi-16;
     };
     defaultOptions = [
       "--margin=1"

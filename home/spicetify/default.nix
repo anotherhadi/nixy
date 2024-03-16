@@ -20,7 +20,7 @@ in {
       player = "${config.theme.colors.bg}";
       card = "${config.theme.colors.bg}";
       shadow = "000000";
-      selected-row = "797979";
+      selected-row = "${config.theme.colors.alt-bg}";
       button = "${config.theme.colors.primary-bg}";
       button-active = "${config.theme.colors.primary-bg}";
       button-disabled = "${config.theme.colors.alt-bg}";

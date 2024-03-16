@@ -19,7 +19,7 @@
     ./variables/theme
     ./wallpapers
     ./lf
-    ./secrets # REMOVE
+    ./sops # REMOVE
   ];
 
   home = {
@@ -39,8 +39,10 @@
       cargo
       nodejs
       python3
+      jq
 
       # Utils
+      sops # Secrets
       age # Secrets
       fd
       bc

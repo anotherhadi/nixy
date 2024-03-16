@@ -13,15 +13,14 @@
     };
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
-    homeage = {
-      url = "github:jordanisaacs/homeage";
-      # Optional
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs =
-    inputs@{ nixpkgs, home-manager, homeage, nixvim, spicetify-nix, ... }: {
+    inputs@{ nixpkgs, home-manager, sops-nix, nixvim, spicetify-nix, ... }: {
       nixosConfigurations = {
         nixy = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -38,7 +37,7 @@
                 extraSpecialArgs = {
                   inherit inputs;
                   inherit spicetify-nix;
-                  inherit homeage;
+                  inherit sops-nix;
                 };
               };
             }
