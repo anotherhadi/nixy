@@ -1,4 +1,11 @@
-{
+{ config, ... }: {
+
+  programs.nixvim.highlight = {
+    AlphaHeaderColor.fg = "#${config.theme.colors.primary-bg}";
+    AlphaTextColor.fg = "#${config.theme.colors.fg}";
+    AlphaShortcutColor.fg = "#${config.theme.colors.alt-fg}";
+  };
+
   programs.nixvim.plugins.alpha = {
     enable = true;
     layout = [
@@ -8,7 +15,10 @@
       }
       {
         type = "text";
-        opts = { position = "center"; };
+        opts = {
+          position = "center";
+          hl = "AlphaHeaderColor";
+        };
         val = [
           "                                                                     "
           "       ████ ██████           █████      ██                     "
@@ -39,7 +49,8 @@
               cursor = 3;
               width = 50;
               align_shortcut = "right";
-              hl_shortcut = "Keyword";
+              hl_shortcut = "AlphaShortcutColor";
+              hl = "AlphaTextColor";
             };
           }
           {
@@ -52,7 +63,8 @@
               cursor = 3;
               width = 50;
               align_shortcut = "right";
-              hl_shortcut = "Keyword";
+              hl_shortcut = "AlphaShortcutColor";
+              hl = "AlphaTextColor";
             };
           }
           {
@@ -65,7 +77,8 @@
               cursor = 3;
               width = 50;
               align_shortcut = "right";
-              hl_shortcut = "Keyword";
+              hl_shortcut = "AlphaShortcutColor";
+              hl = "AlphaTextColor";
             };
           }
           {
@@ -78,7 +91,8 @@
               cursor = 3;
               width = 50;
               align_shortcut = "right";
-              hl_shortcut = "Keyword";
+              hl_shortcut = "AlphaShortcutColor";
+              hl = "AlphaTextColor";
             };
           }
           {
@@ -91,7 +105,8 @@
               cursor = 3;
               width = 50;
               align_shortcut = "right";
-              hl_shortcut = "Keyword";
+              hl_shortcut = "AlphaShortcutColor";
+              hl = "AlphaTextColor";
             };
           }
           {
@@ -104,7 +119,8 @@
               cursor = 3;
               width = 50;
               align_shortcut = "right";
-              hl_shortcut = "Keyword";
+              hl_shortcut = "AlphaShortcutColor";
+              hl = "AlphaTextColor";
             };
           }
         ];

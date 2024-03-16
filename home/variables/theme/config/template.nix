@@ -78,6 +78,18 @@ with lib;
       "color13"
       "color14"
       "color15"
-    ]);
+    ]) // {
+      primary-ansi-16 = mkOption {
+        type = types.str;
+        description =
+          "Name of the primary color - ansi 16 colors (black, red, green, yellow, blue, magenta, cyan, white, bright-black, bright-red, bright-green, bright-yellow, bright-blue, bright-magenta, bright-cyan, bright-white)";
+      };
+
+      primary-ansi-16-number = mkOption {
+        type = types.int;
+        description = "Set the primary color - ansi 16 colors (0-15)";
+      };
+
+    };
   };
 }
