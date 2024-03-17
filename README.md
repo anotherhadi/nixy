@@ -4,32 +4,37 @@ This is my dotfiles repo. It's a work in progress, and I'm still learning how to
 
 # Images
 
-![1](img/1.png)
-![2](img/2.png)
-![3](img/3.png)
+![neofetch](https://image.nostr.build/c208c164ae04e4c58e01adb9fab584b163a565155865833851275f89c9270b7a.jpg)
+![qutebrowser](https://image.nostr.build/8cc32d981e6be256bdc37a2571c31bb76d7c3335ce7c76fa6eca89a03019bfc9.jpg)
+![spotify](https://image.nostr.build/76b18bcbcdf1d911a2dbdff7bfac6652044d45602a3dce9d9c53feb295d13245.jpg)
+![wofi](https://image.nostr.build/90d69ffe6251c17e25b0fb44abadaeb0dfe6db8210d935fca14bf8b00be49fa6.jpg)
 
 # Apps
 
-- WM: *Hyprland*
-  - hyprlock
-  - hyprpaper
-  - hypridle
-  - wlogout
-- File manager:
-  - lf
-  - thunar
-- Terminal: kitty
-- Shell: zsh
-  - Prompt: starship
-  - Bat, eza, zoxide, fzf, ripgrep
-- Editor: nixvim
-- Browser: qutebrowser
-- Music: spictify
-- Bar: waybar
-- Notifications: dunst
-- Launcher: wofi
-- DM: Tuigreet
-- Secrets: sops-nix
+| Category       | Software      |
+|----------------|---------------|
+| WM             | Hyprland      |
+|                | - hyprlock    |
+|                | - hyprpaper   |
+|                | - hypridle    |
+|                | - wlogout     |
+| File manager   | - lf          |
+|                | - thunar      |
+| Terminal       | kitty         |
+| Shell          | zsh           |
+|                | - starship    |
+|                | - bat         |
+|                | - eza         |
+|                | - zoxide      |
+|                | - fzf         |
+| Editor         | nixvim        |
+| Browser        | qutebrowser   |
+| Music          | spicetify     |
+| Bar            | waybar        |
+| Notifications  | dunst         |
+| Launcher       | wofi          |
+| DM             | tuigreet      |
+| Secrets        | sops-nix      |
 
 # Themes & Colors
 
@@ -93,5 +98,5 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
 - [ ] Variable user & homeDir
 - [ ] Custom GTK based on the colorscheme
 - [ ] Obsidian.nvim on every markdown file
-- [ ] Nextcloud services (Only on my personnal network)
 - [ ] Caffeine & Night-Shift replace notif
+- [ ] Make hyprcursor working
