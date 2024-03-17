@@ -29,6 +29,7 @@ This is my dotfiles repo. It's a work in progress, and I'm still learning how to
 - Notifications: dunst
 - Launcher: wofi
 - DM: Tuigreet
+- Secrets: sops-nix
 
 # Themes & Colors
 

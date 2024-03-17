@@ -9,6 +9,7 @@
         gopls.enable = true;
         nixd.enable = true;
         tailwindcss.enable = true;
+        html.enable = true;
       };
       keymaps.lspBuf = {
         "gd" = "definition";

@@ -1,4 +1,7 @@
-{ config, ... }: {
+{ config, ... }:
+let
+
+in {
 
   imports = [ ./duckduckgo-colorscheme.nix ];
 
@@ -10,16 +13,33 @@
       "d" = "https://duckduckgo.com/?q={}&ia=web";
       "g" = "https://google.com/search?q={}";
       "y" = "https://youtube.com/results?search_query={}";
+      "ya" = "https://yandex.com/search/?text={}";
       "n" = "https://mynixos.com/search?q={}";
       "nixo" = "https://search.nixos.org/options?channel=unstable&query={}";
       "nixp" = "https://search.nixos.org/packages?channel=unstable&query={}";
     };
 
-    settings = {
+    quickmarks = {
+      mynixos = "https://mynixos.com";
+      github = "https://github.com";
+      outlook = "https://outlook.office.com/mail/";
+      office = "https://www.office.com/?auth=2";
+      teams = "https://teams.microsoft.com/_";
+      casa = "http://192.168.2.16:8081/#/";
+      proton = "https://mail.proton.me/u/0/inbox";
+      cloudflare-one = "https://one.dash.cloudflare.com/";
+      chatgpt = "https://chat.openai.com/";
+      nixvim = "https://nix-community.github.io/nixvim/";
+      hyprland = "https://wiki.hyprland.org/";
+      nerdfont = "https://www.nerdfonts.com/cheat-sheet";
+    };
 
+    settings = {
       url = {
-        default_page = "https://duckduckgo.com";
-        start_pages = [ "https://duckduckgo.com" ];
+        default_page =
+          "${config.home.homeDirectory}/.config/startpage/index.html";
+        start_pages =
+          [ "${config.home.homeDirectory}/.config/startpage/index.html" ];
       };
 
       colors = {
@@ -91,7 +111,7 @@
         };
       };
 
-      fonts = { default_family = "#${config.theme.font}"; };
+      fonts = { default_family = "${config.theme.font}"; };
 
       completion = {
         height = "30%";
@@ -117,28 +137,6 @@
         remove_finished = 0;
       };
 
-      fileselect = {
-        handler = "external";
-        multiple_files.command = [
-          "alacritty"
-          "--embed"
-          "$(xdotool getactivewindow)"
-          "-e"
-          "lf"
-          "-selection-path"
-          "{}"
-        ];
-        single_file.command = [
-          "alacritty"
-          "--embed"
-          "$(xdotool getactivewindow)"
-          "-e"
-          "lf"
-          "-selection-path"
-          "{}"
-        ];
-      };
-
       hints = {
         border = "none";
         radius = 1;
@@ -147,11 +145,6 @@
       scrolling = {
         bar = "never";
         smooth = true;
-      };
-
-      statusbar = {
-        show = "never";
-        widgets = [ ];
       };
 
       tabs = {
@@ -197,32 +190,6 @@
         "<Super-8>" = "tab-focus 8";
         "<Super-9>" = "tab-focus 9";
         "<Super-0>" = "tab-focus 10";
-
-        "gtb" = "open https://github.com/noib3";
-        "ttb" = "open -t https://github.com/noib3";
-
-        "gma" = "open https://mail.protonmail.com/inbox";
-        "tma" = "open -t https://mail.protonmail.com/inbox";
-
-        "gkp" = "open https://keep.google.com";
-        "tkp" = "open -t https://keep.google.com";
-
-        "grhm" =
-          "open https://github.com/nix-community/home-manager/find/master";
-        "trhm" =
-          "open -t https://github.com/nix-community/home-manager/find/master";
-
-        "gnv" = "open https://github.com/neovim/neovim/tree/master/src/nvim";
-        "tnv" = "open -t https://github.com/neovim/neovim/tree/master/src/nvim";
-
-        "gbg" = "open https://rarbgunblocked.org/torrents.php";
-        "tbg" = "open -t https://rarbgunblocked.org/torrents.php";
-
-        "g12ft" = "open https://12ft.io/";
-        "t12ft" = "open -t https://12ft.io/";
-
-        "gtra" = "open http://localhost:9091/transmission/web/";
-        "ttra" = "open -t http://localhost:9091/transmission/web/";
       };
 
       command = {

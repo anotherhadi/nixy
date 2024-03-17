@@ -11,6 +11,7 @@
         goimports.enable = true;
         nixfmt.enable = true;
         markdownlint.enable = true;
+        tidy.enable = true;
       };
     };
   };

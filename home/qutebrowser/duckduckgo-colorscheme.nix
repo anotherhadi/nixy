@@ -24,7 +24,7 @@
       });
     };
 
-    alert('The GitHub Dark theme will be applied.');
+    alert('The Nixy theme will be applied.');
 
     // Call set cookies, passing in formated cookie data
     setCookies(cookieToJSON(cookie));

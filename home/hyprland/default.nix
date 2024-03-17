@@ -33,7 +33,7 @@
       "$powermenu" = "${pkgs.wlogout}/bin/wlogout";
 
       exec-once =
-        [ "${pkgs.hypridle}/bin/hypridle" "${pkgs.hyprpaper}/bin/hyprpaper" ];
+        [ "${pkgs.hypridle}/bin/hypridle" "${pkgs.hyprpaper}/bin/hyprpaper" "${pkgs.bitwarden}/bin/bitwarden" ];
 
       monitor = [
         "eDP-2,highres,0x0,1"
