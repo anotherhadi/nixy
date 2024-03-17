@@ -1,6 +1,6 @@
-{ pkgs, config, ... }: {
+{ self, pkgs, config, ... }: {
 
-  imports = [ ./hyprlock.nix ./hypridle.nix ./hyprpaper.nix ];
+  imports = [ ./hyprlock.nix ./hypridle.nix ./hyprpaper.nix ./hyprcursor.nix ];
 
   home.packages = with pkgs; [
     hyprshot
@@ -29,11 +29,12 @@
     settings = {
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
-      "$menu" = "menu";
-      "$powermenu" = "${pkgs.wlogout}/bin/wlogout";
 
-      exec-once =
-        [ "${pkgs.hypridle}/bin/hypridle" "${pkgs.hyprpaper}/bin/hyprpaper" "${pkgs.bitwarden}/bin/bitwarden" ];
+      exec-once = [
+        "${pkgs.hypridle}/bin/hypridle"
+        "${pkgs.hyprpaper}/bin/hyprpaper"
+        "${pkgs.bitwarden}/bin/bitwarden"
+      ];
 
       monitor = [
         "eDP-2,highres,0x0,1"
@@ -43,22 +44,25 @@
 
       bind = [
         "$mod, RETURN, exec, ${pkgs.kitty}/bin/kitty"
-        "$mod, Q, killactive,"
         "$mod, E, exec, ${pkgs.xfce.thunar}/bin/thunar"
-        "$mod, T, togglefloating,"
-        "$mod, F, fullscreen"
         "$mod, B, exec, ${pkgs.qutebrowser}/bin/qutebrowser"
         "$mod, C, exec, ${pkgs.kitty}/bin/kitty --class peaclock peaclock"
         "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
-        "$mod, SPACE, exec, $menu"
-        "$mod, X, exec, $powermenu"
+        "$mod, X, exec, ${pkgs.wlogout}/bin/wlogout"
+        "$mod, SPACE, exec, menu"
+        # Windows control
+        "$mod, Q, killactive,"
+        "$mod, T, togglefloating,"
+        "$mod, F, fullscreen"
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
+        # Screenshots
         "$mod, PRINT, exec, ${pkgs.hyprshot}/bin/hyprshot -m window -o ~/Pictures/screenshots"
         ", PRINT, exec, ${pkgs.hyprshot}/bin/hyprshot -m output -o ~/Pictures/screenshots"
         "$shiftMod, PRINT, exec, ${pkgs.hyprshot}/bin/hyprshot -m region -o ~/Pictures/screenshots"
+        # Night Shift
         "$mod, F2, exec, night-shift-off"
         "$mod, F3, exec, night-shift-on"
       ] ++ (builtins.concatLists (builtins.genList (i:
@@ -96,6 +100,8 @@
         "QT_QPA_PLATFORM=wayland,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "GTK_THEME,Flat-Remix-GTK-White-Darkest-Solid:dark"
+        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+        "HYPRCURSOR_SIZE,10"
       ];
 
       general = {
