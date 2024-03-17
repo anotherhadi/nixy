@@ -3,6 +3,7 @@
   imports = [
     ./hyprland
     ./nvim
+    ./homepage
     ./waybar
     ./kitty
     ./dunst
@@ -33,6 +34,7 @@
       obsidian
       btop
       xfce.thunar
+      bitwarden
 
       # Dev
       go
