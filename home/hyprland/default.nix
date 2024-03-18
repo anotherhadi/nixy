@@ -49,7 +49,7 @@
         "$mod, K, exec, ${pkgs.bitwarden}/bin/bitwarden"
         "$mod, C, exec, ${pkgs.kitty}/bin/kitty --class peaclock peaclock"
         "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
-        "$mod, X, exec, ${pkgs.wlogout}/bin/wlogout"
+        "$mod, X, exec, powermenu"
         "$mod, SPACE, exec, menu"
         # Windows control
         "$mod, Q, killactive,"
