@@ -46,6 +46,7 @@
         "$mod, RETURN, exec, ${pkgs.kitty}/bin/kitty"
         "$mod, E, exec, ${pkgs.xfce.thunar}/bin/thunar"
         "$mod, B, exec, ${pkgs.qutebrowser}/bin/qutebrowser"
+        "$mod, K, exec, ${pkgs.bitwarden}/bin/bitwarden"
         "$mod, C, exec, ${pkgs.kitty}/bin/kitty --class peaclock peaclock"
         "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
         "$mod, X, exec, ${pkgs.wlogout}/bin/wlogout"
@@ -59,12 +60,17 @@
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
         # Screenshots
-        "$mod, PRINT, exec, ${pkgs.hyprshot}/bin/hyprshot -m window -o ~/Pictures/screenshots"
-        ", PRINT, exec, ${pkgs.hyprshot}/bin/hyprshot -m output -o ~/Pictures/screenshots"
-        "$shiftMod, PRINT, exec, ${pkgs.hyprshot}/bin/hyprshot -m region -o ~/Pictures/screenshots"
+        "$mod, PRINT, exec, screenshot window"
+        ", PRINT, exec, screenshot monitor"
+        "$shiftMod, PRINT, exec, screenshot region"
+        "ALT, PRINT, exec, screenshot region swappy"
         # Night Shift
         "$mod, F2, exec, night-shift-off"
         "$mod, F3, exec, night-shift-on"
+        # Sound output
+        "$mod, F5, exec, ${pkgs.kitty}/bin/kitty --class floating zsh -c sound-output"
+        "$mod, F6, exec, ${pkgs.kitty}/bin/kitty --class floating zsh -c sound-output"
+        "$mod, F7, exec, ${pkgs.kitty}/bin/kitty --class floating zsh -c sound-output"
       ] ++ (builtins.concatLists (builtins.genList (i:
         let ws = i + 1;
         in [
@@ -87,7 +93,6 @@
       ];
 
       env = [
-        "XCURSOR_SIZE,24"
         "LIBVA_DRIVER_NAME,nvidia"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "WLR_NO_HARDWARE_CURSORS,1"
@@ -100,8 +105,8 @@
         "QT_QPA_PLATFORM=wayland,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "GTK_THEME,Flat-Remix-GTK-White-Darkest-Solid:dark"
-        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
-        "HYPRCURSOR_SIZE,10"
+        # "HYPRCURSOR_THEME,rose-pine"
+        # "HYPRCURSOR_SIZE,16"
       ];
 
       general = {
@@ -158,6 +163,11 @@
         "float, class:peaclock"
         "move 2% 78%, class:peaclock"
         "size 30% 20%, class:peaclock"
+
+        "float, class:floating"
+        "size 40% 40%, class:floating"
+        "move 30% 30%, class:floating"
+
         "float, title:Bluetooth Devices"
         "move 20% 20%, title:Bluetooth Devices"
         "size 60% 60%, title:Bluetooth Devices"
@@ -166,26 +176,29 @@
       animations = {
         enabled = true;
         bezier = [
-          "fluent_decel, 0, 0.2, 0.4, 1"
+          "linear, 0, 0, 1, 1"
+          "md3_standard, 0.2, 0, 0, 1"
+          "md3_decel, 0.05, 0.7, 0.1, 1"
+          "md3_accel, 0.3, 0, 0.8, 0.15"
+          "overshot, 0.05, 0.9, 0.1, 1.1"
+          "crazyshot, 0.1, 1.5, 0.76, 0.92 "
+          "hyprnostretch, 0.05, 0.9, 0.1, 1.0"
+          "fluent_decel, 0.1, 1, 0, 1"
+          "easeInOutCirc, 0.85, 0, 0.15, 1"
           "easeOutCirc, 0, 0.55, 0.45, 1"
-          "easeOutCubic, 0.33, 1, 0.68, 1"
-          "easeinoutsine, 0.37, 0, 0.63, 1"
+          "easeOutExpo, 0.16, 1, 0.3, 1"
         ];
 
         animation = [
-          "windowsIn, 1, 3, easeOutCubic, popin 30% # window open"
-          "windowsOut, 1, 3, fluent_decel, popin 70% # window close."
-          "fadeIn, 1, 3, easeOutCubic  # fade in (open) -> layers and windows"
-          "fadeOut, 1, 2, easeOutCubic # fade out (close) -> layers and windows"
-          "fadeSwitch, 0, 1, easeOutCirc # fade on changing activewindow and its opacity"
-          "fadeShadow, 1, 10, easeOutCirc # fade on changing activewindow for shadows"
-          "fadeDim, 1, 4, fluent_decel # the easing of the dimming of inactive windows"
-          "border, 1, 2.7, easeOutCirc # for animating the border's color switch speed"
-          "borderangle, 1, 30, fluent_decel, once # for animating the border's gradient angle - styles: once (default), loop"
-          "workspaces, 1, 4, easeOutCubic, fade # styles: slide, slidevert, fade, slidefade, slidefadevert"
+          "windows, 1, 3, md3_decel, popin 60%"
+          "border, 1, 10, default"
+          "fade, 1, 2.5, md3_decel"
+          "workspaces, 1, 3.5, easeOutExpo, slide"
+          "specialWorkspace, 1, 3, md3_decel, slidevert"
         ];
       };
 
+      debug = { disable_logs = false; };
     };
   };
 
@@ -213,4 +226,10 @@
     };
   };
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 14;
+  };
 }

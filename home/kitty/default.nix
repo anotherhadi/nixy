@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
 
   programs.kitty = {
     enable = true;
@@ -16,7 +16,7 @@
       confirm_os_window_close = "0";
       remember_window_size = "no";
       disable_ligatures = "never";
-      shell = "zsh";
+      shell = "${pkgs.zsh}/bin/zsh";
       initial_window_width = 1000;
       initial_window_height = 600;
 

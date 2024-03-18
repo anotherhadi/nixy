@@ -21,20 +21,14 @@ let
 
     message=""
     if [ $muted = true ]; then
-      message="                                                    Muted"
+      message="󰖁 Muted"
     else
-      message="                                               Volume: $volume%"
+      message="󰕾 Volume: $volume%"
     fi
 
-    ID=$(cat /tmp/audio-notification 2>/dev/null)
-    [[ $ID -eq "" ]] && ID=0
-
     ${pkgs.libnotify}/bin/notify-send "$message" \
-                --replace-id="$ID" \
-                --print-id \
-                -t 2000 \
-                -h int:value:"$volume" \
-                -h string:synchronous:volume-change > /tmp/audio-notification
+      -h int:value:"$volume" \
+      --replace-id="$(cat "/tmp/nixy-notification" 2>/dev/null || echo 0)" --print-id > "/tmp/nixy-notification"
   '';
 
   sound-up = pkgs.writeShellScriptBin "sound-up" ''
@@ -80,7 +74,7 @@ let
     }
 
 
-    choosed_sink=$(echo "$(parse_sinks)" | fzf \
+    choosed_sink=$(echo "$(parse_sinks)" | ${pkgs.fzf}/bin/fzf \
       --border-label "Choose sound output" ) || exit 1
 
     choosed_sink_id=$(echo "$choosed_sink" | sed 's/.*(\(.*\))/\1/')

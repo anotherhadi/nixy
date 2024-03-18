@@ -10,11 +10,14 @@ let
     if [[ -f /tmp/caffeine ]]; then
       rm /tmp/caffeine
       ${pkgs.hyprland}/bin/hyprctl dispatch exec ${pkgs.hypridle}/bin/hypridle
-      ${pkgs.libnotify}/bin/notify-send "󰾪 Caffeine Deactivated"
+      message="󰾪  Caffeine Deactivated"
     else
       touch /tmp/caffeine
-      pkill hypridle && ${pkgs.libnotify}/bin/notify-send "󰅶 Caffeine Activated"
+      pkill hypridle
+      message="󰅶  Caffeine Activated"
     fi
+    ${pkgs.libnotify}/bin/notify-send "$message" \
+      --replace-id="$(cat "/tmp/nixy-notification" 2>/dev/null || echo 0)" --print-id > "/tmp/nixy-notification"
   '';
 
 in { home.packages = with pkgs; [ caffeine-status caffeine ]; }

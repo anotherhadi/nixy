@@ -7,7 +7,7 @@ let
       {text: "Proton", url: "https://mail.proton.me/u/0/inbox", icon: ""},
       {text: "Cloudflare One", url: "https://one.dash.cloudflare.com/", icon: ""},
       {text: "Chat GPT", url: "https://chat.openai.com/", icon: "󰭹"},
-      {text: "Nixvim", url: "https://nix-community.github.io/nixvim/", icon: "󰭹"},
+      {text: "Nixvim", url: "https://nix-community.github.io/nixvim/", icon: ""},
       {text: "Hyprland Wiki", url: "https://wiki.hyprland.org/", icon: "󰖬"},
       {text: "Nerdfont", url: "https://www.nerdfonts.com/cheat-sheet", icon: ""},
     ],

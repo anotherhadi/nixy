@@ -7,6 +7,6 @@
     ./brightness.nix
     ./caffeine.nix
     ./night-shift.nix
-    ./age.nix
+    ./screenshot.nix
   ];
 }

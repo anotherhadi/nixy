@@ -12,17 +12,11 @@ let
 
     brightness_level=$(${pkgs.brightnessctl}/bin/brightnessctl get)
 
-    message="                                               Brightness: $brightness_level%"
-
-    ID=$(cat /tmp/brightness-notification 2>/dev/null)
-    [[ $ID -eq "" ]] && ID=0
+    message="󰃠  Brightness: $brightness_level%"
 
     ${pkgs.libnotify}/bin/notify-send "$message" \
-                --replace-id="$ID" \
-                --print-id \
-                -t 2000 \
                 -h int:value:"$brightness_level" \
-                -h string:synchronous:brightness-change > /tmp/brightness-notification
+                --replace-id="$(cat "/tmp/nixy-notification" 2>/dev/null || echo 0)" --print-id > "/tmp/nixy-notification"
   '';
 
   brightness-up = pkgs.writeShellScriptBin "brightness-up" ''

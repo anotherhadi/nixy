@@ -6,11 +6,15 @@ let
 
   night-shift-on = pkgs.writeShellScriptBin "night-shift-on" ''
     ${pkgs.hyprland}/bin/hyprctl dispatch exec "${pkgs.wlsunset}/bin/wlsunset -t ${default}"
-    ${pkgs.libnotify}/bin/notify-send "󰖔 Night Shift Activated"
+    message="󰖔  Night-Shift Activated"
+    ${pkgs.libnotify}/bin/notify-send "$message" \
+      --replace-id="$(cat "/tmp/nixy-notification" 2>/dev/null || echo 0)" --print-id > "/tmp/nixy-notification"
   '';
   night-shift-off = pkgs.writeShellScriptBin "night-shift-off" ''
     pkill wlsunset
-    ${pkgs.libnotify}/bin/notify-send " Night Shift Deactivated"
+    message="󰖔  Night-Shift Deactivated"
+    ${pkgs.libnotify}/bin/notify-send "$message" \
+      --replace-id="$(cat "/tmp/nixy-notification" 2>/dev/null || echo 0)" --print-id > "/tmp/nixy-notification"
   '';
 
 in { home.packages = with pkgs; [ night-shift-on night-shift-off ]; }

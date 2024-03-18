@@ -6,6 +6,7 @@ let
   nixy-rebuild = pkgs.writeShellScriptBin "nixy-rebuild" ''
     sudo nixos-rebuild switch --flake ${homedir}/.config/nixos#nixy
   '';
+
   nixy-edit = pkgs.writeShellScriptBin "nixy-edit" ''
     $EDITOR ${homedir}/.config/nixos/
   '';
