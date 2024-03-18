@@ -13,7 +13,7 @@
         rounded = "yes";
         origin = "top-center";
         monitor = "0";
-        alignment = "left";
+        alignment = "center";
         vertical_alignment = "center";
         width = "400";
         height = "400";
