@@ -17,7 +17,7 @@
       remember_window_size = "no";
       disable_ligatures = "never";
       shell = "${pkgs.zsh}/bin/zsh";
-      initial_window_width = 1000;
+      initial_window_width = 1200;
       initial_window_height = 600;
 
       background = "#" + config.theme.colors.bg;
