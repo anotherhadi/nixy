@@ -1,5 +1,3 @@
-# Nixy
-
 <h1 align="center">
    <img src="https://image.nostr.build/70ebe2b5183879d8c0ffa682cd0089e030ad01909678b242ed86449517eac3a5.png" width="100px" />
    <br>
@@ -159,7 +157,6 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
 - [ ] Variable user & homeDir
 - [ ] Custom GTK based on the colorscheme
 - [ ] Obsidian.nvim on every markdown file
-- [ ] Caffeine & Night-Shift replace notif
 - [ ] Make hyprcursor working
 
 </details>

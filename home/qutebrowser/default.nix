@@ -1,7 +1,4 @@
-{ config, ... }:
-let
-
-in {
+{ config, ... }: {
 
   imports = [ ./duckduckgo-colorscheme.nix ];
 
@@ -109,6 +106,8 @@ in {
             border = "#${config.theme.colors.color1}";
           };
         };
+
+        webpage.darkmode.enabled = true;
       };
 
       fonts = { default_family = "${config.theme.font}"; };
@@ -164,6 +163,8 @@ in {
 
     keyBindings = {
       normal = {
+        "gh" = "open ${config.home.homeDirectory}/.config/startpage/index.html";
+
         ",p" = "tab-move -";
         ",n" = "tab-move +";
 
