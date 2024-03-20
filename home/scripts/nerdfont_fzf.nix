@@ -4,10 +4,10 @@ let
 
   nerdfont-fzf = pkgs.writeShellScriptBin "nerdfont-fzf" ''
     # Dependencies: jq, fzf, wl-copy, wget
-    icons=$(jq -r 'to_entries[] | "\(.key):\(.value.char)"' "${homedir}/.config/nerdfont_glyphnames.json" | awk -F: '{print "\033[95m"$2"\033[0m "$1}')
-    fzf_result=$(echo "$icons" | fzf --ansi | awk '{print $1}') || exit 1
+    icons=$(jq -r 'to_entries[] | "\(.key):\(.value.char)"' "${homedir}/.config/nerdfont_glyphnames.json" | awk -F: '{print "\033[95m "$2" \033[0m "$1}')
+    fzf_result=$(echo "$icons" | fzf --ansi | awk '{print $1}' || exit 1)
 
-    echo "Copied to clipboard: \033[95m$fzf_result\033[0m"
+    echo "Copied to clipboard: $fzf_result"
     printf "$fzf_result" | wl-copy 
   '';
 
