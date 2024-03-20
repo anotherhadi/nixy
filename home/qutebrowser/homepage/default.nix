@@ -10,6 +10,7 @@ let
       {text: "Nixvim", url: "https://nix-community.github.io/nixvim/", icon: ""},
       {text: "Hyprland Wiki", url: "https://wiki.hyprland.org/", icon: "󰖬"},
       {text: "Nerdfont", url: "https://www.nerdfonts.com/cheat-sheet", icon: ""},
+      {text: "Youtube", url: "https://youtube.com", icon: "󰗃"},
     ],
     Home: [
       {text: "Casa", url: "http://192.168.2.16:8081/#/", icon: "󰋜"},

@@ -136,6 +136,18 @@ Blue light filter, using wlsunset
 
 </details>
 
+### Nerdfont FZF
+
+<details>
+<summary>Click to expand</summary>
+
+Nerdfont fzf is a quick way to search for nerdfont icons locally.
+It will copy the selected icon to the clipboard.
+
+- `nerdfont-fzf`
+
+</details>
+
 ## Installation
 
 ```sh
