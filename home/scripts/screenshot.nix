@@ -18,7 +18,7 @@ let
       mode="output"
     fi
 
-    ${pkgs.hyprshot}/bin/hyprshot -m $mode -o $folder -f $filename -s
+    ${pkgs.hyprshot}/bin/hyprshot -m $mode -o $folder -f $filename -s || exit 1
 
     if [[ $2 == "swappy" ]];then
       ${pkgs.swappy}/bin/swappy -f "$folder/$filename" -o "$HOME/Pictures/screenshots/$filename"
