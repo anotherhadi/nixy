@@ -4,7 +4,7 @@
     ./hyprland
     ./nvim
     ./homepage
-       ./waybar # BROKEN
+    ./waybar
     ./kitty
     ./dunst
     ./wlogout
