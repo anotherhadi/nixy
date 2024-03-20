@@ -17,6 +17,7 @@
     };
 
     quickmarks = {
+      home = "${config.home.homeDirectory}/.config/startpage/index.html";
       mynixos = "https://mynixos.com";
       github = "https://github.com";
       outlook = "https://outlook.office.com/mail/";
@@ -107,7 +108,7 @@
           };
         };
 
-        webpage.darkmode.enabled = true;
+        #webpage.darkmode.enabled = true;
       };
 
       fonts = { default_family = "${config.theme.font}"; };

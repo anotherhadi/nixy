@@ -10,6 +10,8 @@
         nixd.enable = true;
         tailwindcss.enable = true;
         html.enable = true;
+        svelte.enable = true;
+        typescript.enable = true;
       };
       keymaps.lspBuf = {
         "gd" = "definition";
