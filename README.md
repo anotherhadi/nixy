@@ -160,5 +160,12 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
 - [ ] Custom GTK based on the colorscheme
 - [ ] Obsidian.nvim on every markdown file
 - [ ] Make hyprcursor working
+- [ ] Secret variables in my config (Private bookmarks)
+- [ ] Notif system
+  - [ ] Notify when battery is plugged/unplugged
+  - [x] Notify when battery is low
+  - [ ] Notify when battery is full
+  - [ ] Notify when USB key is plugged
+  - [ ] Notify when USB key is unplugged
 
 </details>
