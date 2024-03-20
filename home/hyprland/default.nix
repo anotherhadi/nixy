@@ -199,7 +199,6 @@
         ];
       };
 
-      debug = { disable_logs = false; };
     };
   };
 
