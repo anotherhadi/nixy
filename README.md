@@ -71,6 +71,8 @@ This is my dotfiles repo. It's a work in progress, and I'm still learning how to
 
 Themes and colors are managed by the `home/variable/theme` folder.
 
+To apply the theme to duckduckgo, follow the instructions in `$HOME/.config/duckduckgo-colorscheme.js`.
+
 ## Scripts
 
 ### Nix/NixOs shortcuts

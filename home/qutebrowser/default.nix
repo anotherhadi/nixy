@@ -30,6 +30,7 @@
       nixvim = "https://nix-community.github.io/nixvim/";
       hyprland = "https://wiki.hyprland.org/";
       nerdfont = "https://www.nerdfonts.com/cheat-sheet";
+      youtube = "https://youtube.com/";
     };
 
     settings = {
@@ -86,6 +87,8 @@
           normal.fg = "#${config.theme.colors.fg}";
           private.bg = "#${config.theme.colors.bg}";
           private.fg = "#${config.theme.colors.fg}";
+          insert.bg = "#${config.theme.colors.primary-bg}";
+          insert.fg = "#${config.theme.colors.primary-fg}";
           command = {
             bg = "#${config.theme.colors.alt-bg}";
             fg = "#${config.theme.colors.alt-fg}";
@@ -108,7 +111,9 @@
           };
         };
 
-        #webpage.darkmode.enabled = true;
+        #webpage.darkmode.enabled = true; # Enable dark mode for all websites (Weird on images)
+        webpage.preferred_color_scheme =
+          "dark"; # Enable dark mode for websites that support it
       };
 
       fonts = { default_family = "${config.theme.font}"; };
@@ -239,7 +244,7 @@
       config.unbind("tl")
       config.unbind("gt")
 
-      c.tabs.padding = {"bottom": 0, "left": 7, "right": 7, "top": 0}
+      c.tabs.padding = {"bottom": 6, "left": 7, "right": 7, "top": 6}
 
       config.load_autoconfig(True)
     '';
