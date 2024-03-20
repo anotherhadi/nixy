@@ -162,78 +162,68 @@
       zoom.default = "100%";
     };
 
-    keyMappings = {
-      "<Super-l>" = "o";
-      "<Super-t>" = "O";
-    };
-
     keyBindings = {
       normal = {
         "gh" = "open ${config.home.homeDirectory}/.config/startpage/index.html";
 
-        ",p" = "tab-move -";
-        ",n" = "tab-move +";
+        " p" = "tab-move -";
+        " n" = "tab-move +";
+        " w" = "tab-close";
 
-        "<Super-r>" = "config-source";
+        " 1" = "tab-focus 1";
+        " 2" = "tab-focus 2";
+        " 3" = "tab-focus 3";
+        " 4" = "tab-focus 4";
+        " 5" = "tab-focus 5";
+        " 6" = "tab-focus 6";
+        " 7" = "tab-focus 7";
+        " 8" = "tab-focus 8";
+        " 9" = "tab-focus 9";
+        " 0" = "tab-focus 10";
 
-        "<Super-c>" = "fake-key <Ctrl-c>";
+        "<Ctrl-w>" = "tab-close";
+        "<Ctrl-n>" = "open -w";
 
-        "<Super-Up>" = "scroll-to-perc 0";
-        "<Super-Down>" = "scroll-to-perc";
-        "<Super-Left>" = "back";
-        "<Super-Right>" = "forward";
-
-        "<Super-n>" = "open -w";
-        "<Super-Shift-p>" = "open -p";
-
-        "<Super-w>" = "tab-close";
-        "<Super-1>" = "tab-focus 1";
-        "<Super-2>" = "tab-focus 2";
-        "<Super-3>" = "tab-focus 3";
-        "<Super-4>" = "tab-focus 4";
-        "<Super-5>" = "tab-focus 5";
-        "<Super-6>" = "tab-focus 6";
-        "<Super-7>" = "tab-focus 7";
-        "<Super-8>" = "tab-focus 8";
-        "<Super-9>" = "tab-focus 9";
-        "<Super-0>" = "tab-focus 10";
+        "<Ctrl-1>" = "tab-focus 1";
+        "<Ctrl-2>" = "tab-focus 2";
+        "<Ctrl-3>" = "tab-focus 3";
+        "<Ctrl-4>" = "tab-focus 4";
+        "<Ctrl-5>" = "tab-focus 5";
+        "<Ctrl-6>" = "tab-focus 6";
+        "<Ctrl-7>" = "tab-focus 7";
+        "<Ctrl-8>" = "tab-focus 8";
+        "<Ctrl-9>" = "tab-focus 9";
+        "<Ctrl-0>" = "tab-focus 10";
       };
 
       command = {
-        "<Super-w>" = "tab-close";
-
-        "<Super-c>" = "completion-item-yank";
-        "<Super-v>" = "fake-key --global <Ctrl-v>";
-
-        "<Super-Left>" = "rl-beginning-of-line";
-        "<Super-Right>" = "rl-end-of-line";
-        "<Alt-Backspace>" = "rl-backward-kill-word";
-        "<Super-Backspace>" = "rl-unix-line-discard";
+        "<Ctrl-w>" = "tab-close";
+        "<Ctrl-n>" = "open -w";
+        "<Ctrl-1>" = "tab-focus 1";
+        "<Ctrl-2>" = "tab-focus 2";
+        "<Ctrl-3>" = "tab-focus 3";
+        "<Ctrl-4>" = "tab-focus 4";
+        "<Ctrl-5>" = "tab-focus 5";
+        "<Ctrl-6>" = "tab-focus 6";
+        "<Ctrl-7>" = "tab-focus 7";
+        "<Ctrl-8>" = "tab-focus 8";
+        "<Ctrl-9>" = "tab-focus 9";
+        "<Ctrl-0>" = "tab-focus 10";
       };
 
       insert = {
-        "<Super-w>" = "tab-close";
-
-        "<Super-c>" = "fake-key <Ctrl-c>";
-        "<Super-v>" = "fake-key <Ctrl-v>";
-        "<Super-x>" = "fake-key <Ctrl-x>";
-        "<Super-z>" = "fake-key <Ctrl-z>";
-
-        "<Super-Left>" = "fake-key <Home>";
-        "<Super-Right>" = "fake-key <End>";
-        "<Alt-Backspace>" = "fake-key <Ctrl-Backspace>";
-        "<Super-Backspace>" = "fake-key <Shift-Home><Delete>";
-
-        "<Super-1>" = "tab-focus 1";
-        "<Super-2>" = "tab-focus 2";
-        "<Super-3>" = "tab-focus 3";
-        "<Super-4>" = "tab-focus 4";
-        "<Super-5>" = "tab-focus 5";
-        "<Super-6>" = "tab-focus 6";
-        "<Super-7>" = "tab-focus 7";
-        "<Super-8>" = "tab-focus 8";
-        "<Super-9>" = "tab-focus 9";
-        "<Super-0>" = "tab-focus 10";
+        "<Ctrl-w>" = "tab-close";
+        "<Ctrl-n>" = "open -w";
+        "<Ctrl-1>" = "tab-focus 1";
+        "<Ctrl-2>" = "tab-focus 2";
+        "<Ctrl-3>" = "tab-focus 3";
+        "<Ctrl-4>" = "tab-focus 4";
+        "<Ctrl-5>" = "tab-focus 5";
+        "<Ctrl-6>" = "tab-focus 6";
+        "<Ctrl-7>" = "tab-focus 7";
+        "<Ctrl-8>" = "tab-focus 8";
+        "<Ctrl-9>" = "tab-focus 9";
+        "<Ctrl-0>" = "tab-focus 10";
       };
     };
 
