@@ -4,7 +4,7 @@
     ./hyprland
     ./nvim
     ./homepage
-    ./waybar
+       ./waybar # BROKEN
     ./kitty
     ./dunst
     ./wlogout
@@ -13,7 +13,6 @@
     ./git
     ./shell
     ./misc
-    ./nextcloud
     ./scripts
     ./neofetch
     ./spicetify
@@ -35,6 +34,7 @@
       btop
       xfce.thunar
       bitwarden
+      vlc
 
       # Dev
       go

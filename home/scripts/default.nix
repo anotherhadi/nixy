@@ -1,6 +1,6 @@
 {
   imports = [
-    ./scripts.nix
+    ./misc.nix
     ./nerdfetch.nix
     ./nixy.nix
     ./sounds.nix
@@ -8,5 +8,6 @@
     ./caffeine.nix
     ./night-shift.nix
     ./screenshot.nix
+    ./startup.nix
   ];
 }

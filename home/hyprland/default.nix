@@ -31,6 +31,7 @@
       "$shiftMod" = "SUPER_SHIFT";
 
       exec-once = [
+        "startup"
         "${pkgs.hypridle}/bin/hypridle"
         "${pkgs.hyprpaper}/bin/hyprpaper"
         "${pkgs.bitwarden}/bin/bitwarden"

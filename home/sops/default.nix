@@ -4,13 +4,13 @@
   sops = {
     age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
     defaultSopsFile = ../../secrets/secrets.yaml;
-    secrets = { sshconfig = { path = "/home/hadi/.ssh/config"; }; };
+    secrets = {
+      sshconfig = { path = "/home/hadi/.ssh/config"; };
+      oxk = { path = "/home/hadi/.ssh/oxserver"; };
+      gk = { path = "/home/hadi/.ssh/github"; };
+      glk = { path = "/home/hadi/.ssh/gitlab"; };
+    };
   };
 
   systemd.user.services.mbsync.Unit.After = [ "sops-nix.service" ];
-
-  # Make home-manager crash on boot, dafuk ?
-  #  home.activation.setupEtc = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-  #    /run/current-system/sw/bin/systemctl start --user sops-nix
-  #  '';
 }

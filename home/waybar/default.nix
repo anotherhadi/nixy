@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }: {
+{ pkgs, config, lib, waybar, ... }: {
   services = {
     blueman-applet.enable = true;
     network-manager-applet.enable = true;
@@ -6,6 +6,7 @@
 
   programs.waybar = {
     enable = true;
+    package = waybar.packages."${pkgs.system}".waybar;
     systemd.enable = true;
     settings = {
       mainBar = {

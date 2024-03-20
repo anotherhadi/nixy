@@ -17,14 +17,18 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    waybar.url =
+      "github:Alexays/Waybar"; # Fix broken waybar on current nixpkgs-unstable
   };
 
-  outputs =
-    inputs@{ nixpkgs, home-manager, sops-nix, nixvim, spicetify-nix, ... }: {
+  outputs = inputs@{ nixpkgs, waybar, home-manager, sops-nix, nixvim
+    , spicetify-nix, nixos-hardware, ... }: {
       nixosConfigurations = {
         nixy = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            nixos-hardware.nixosModules.omen-16-n0005ne # REMOVE
             ./nixos/configuration.nix
             ./hosts
             { _module.args = { inherit inputs; }; }
@@ -38,6 +42,7 @@
                   inherit inputs;
                   inherit spicetify-nix;
                   inherit sops-nix;
+                  inherit waybar;
                 };
               };
             }

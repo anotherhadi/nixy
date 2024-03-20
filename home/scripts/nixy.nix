@@ -11,6 +11,10 @@ let
     $EDITOR ${homedir}/.config/nixos/
   '';
 
+  nixy-upgrade = pkgs.writeShellScriptBin "nixy-upgrade" ''
+    sudo nixos-rebuild switch --upgrade --flake ${homedir}/.config/nixos#nixy
+  '';
+
   nixy-update = pkgs.writeShellScriptBin "nixy-update" ''
     cd ${homedir}/.config/nixos && sudo nix flake update
   '';
@@ -27,6 +31,7 @@ in {
   home.packages = with pkgs; [
     nixy-rebuild
     nixy-edit
+    nixy-upgrade
     nixy-update
     nixy-gc
     nixy-cb
