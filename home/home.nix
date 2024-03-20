@@ -3,7 +3,6 @@
   imports = [
     ./hyprland
     ./nvim
-    ./homepage
     ./waybar
     ./kitty
     ./dunst
@@ -16,7 +15,7 @@
     ./scripts
     ./neofetch
     ./spicetify
-    ./variables/theme
+    ./theme
     ./wallpapers
     ./lf
     ./sops # REMOVE

@@ -23,4 +23,8 @@ let
     nmcli connection import type wireguard file "$1"
   '';
 
-in { home.packages = with pkgs; [ menu wireguard-import powermenu ]; }
+  vault = pkgs.writeShellScriptBin "vault" ''
+    nvim $HOME/Nextcloud/obsidian
+  '';
+
+in { home.packages = with pkgs; [ menu wireguard-import powermenu vault ]; }

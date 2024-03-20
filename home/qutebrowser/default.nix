@@ -1,6 +1,6 @@
 { config, ... }: {
 
-  imports = [ ./duckduckgo-colorscheme.nix ];
+  imports = [ ./duckduckgo-colorscheme.nix ./homepage/default.nix ];
 
   programs.qutebrowser = {
     enable = true;

@@ -9,5 +9,6 @@
     ./night-shift.nix
     ./screenshot.nix
     ./startup.nix
+    ./nerdfont_fzf.nix
   ];
 }
