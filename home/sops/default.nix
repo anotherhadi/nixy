@@ -9,6 +9,7 @@
       oxk = { path = "/home/hadi/.ssh/oxserver"; };
       gk = { path = "/home/hadi/.ssh/github"; };
       glk = { path = "/home/hadi/.ssh/gitlab"; };
+      silicon = { path = "/home/hadi/.ssh/silicon"; };
     };
   };
 

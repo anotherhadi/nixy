@@ -1,4 +1,4 @@
-{ self, pkgs, config, ... }: {
+{ self, pkgs, config, hyprland, ... }: {
 
   imports = [ ./hyprlock.nix ./hypridle.nix ./hyprpaper.nix ./hyprcursor.nix ];
 
@@ -25,6 +25,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+    package = hyprland.packages."${pkgs.system}".hyprland;
 
     settings = {
       "$mod" = "SUPER";
@@ -97,7 +98,6 @@
         "LIBVA_DRIVER_NAME,nvidia"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "WLR_NO_HARDWARE_CURSORS,1"
-        "WLR_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1"
         "XDG_SESSION_TYPE,wayland"
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
