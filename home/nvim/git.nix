@@ -1,6 +1,6 @@
 {
   programs.nixvim.plugins.gitsigns = {
     enable = true;
-    currentLineBlame = false;
+    settings = { current_line_blame = false; };
   };
 }

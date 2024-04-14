@@ -55,6 +55,7 @@
       wget
       curl
       ripgrep
+      tree # temp
 
       # Just cool
       peaclock
