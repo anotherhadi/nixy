@@ -31,6 +31,7 @@
       hyprland = "https://wiki.hyprland.org/";
       nerdfont = "https://www.nerdfonts.com/cheat-sheet";
       youtube = "https://youtube.com/";
+      cloudflare = "https://dash.cloudflare.com/";
     };
 
     settings = {
@@ -160,6 +161,8 @@
       };
 
       zoom.default = "100%";
+
+      qt.force_software_rendering = "chromium";
     };
 
     keyBindings = {

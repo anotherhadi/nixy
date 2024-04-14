@@ -11,7 +11,6 @@
         tailwindcss.enable = true;
         html.enable = true;
         svelte.enable = true;
-        pylsp.enable = true;
       };
       keymaps.lspBuf = {
         "gd" = "definition";

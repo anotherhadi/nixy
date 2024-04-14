@@ -23,8 +23,10 @@
 
   programs.nixvim = {
     enable = true;
-    colorschemes.catppuccin.enable = true;
-    colorschemes.catppuccin.transparentBackground = true;
+    colorschemes.catppuccin = {
+      enable = true;
+      settings = { transparentBackground = true; };
+    };
   };
 
 }
