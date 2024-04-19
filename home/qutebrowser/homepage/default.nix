@@ -40,6 +40,7 @@ in {
         p {
           margin: 0;
           padding: 0;
+          font-family: '${config.theme.font}', sans-serif;
         }
 
         .w-screen {
