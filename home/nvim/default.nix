@@ -19,6 +19,9 @@
     ./whichkey.nix
     ./alpha.nix
     ./keymaps.nix
+    ./comment.nix
+    ./oil.nix
+    ./trouble.nix
   ];
 
   programs.nixvim = {
