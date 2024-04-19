@@ -162,22 +162,3 @@ git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```sh
 sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
 ```
-
-## TODOLIST
-
-<details>
-<summary>Click to expand</summary>
-
-- [ ] Variable user & homeDir
-- [ ] Custom GTK based on the colorscheme
-- [ ] Obsidian.nvim on every markdown file
-- [ ] Make hyprcursor working
-- [ ] Secret variables in my config (Private bookmarks)
-- [ ] Notif system
-  - [ ] Notify when battery is plugged/unplugged
-  - [ ] Notify when battery is low (system replace)
-  - [ ] Notify when battery is full
-  - [ ] Notify when USB key is plugged
-  - [ ] Notify when USB key is unplugged
-
-</details>
