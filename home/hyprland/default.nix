@@ -105,7 +105,7 @@
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_QPA_PLATFORM=wayland,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "GTK_THEME,Flat-Remix-GTK-White-Darkest-Solid:dark"
+        "GTK_THEME,Flat-Remix-GTK-Violet-Darkest-Solid:dark"
         # "HYPRCURSOR_THEME,rose-pine"
         # "HYPRCURSOR_SIZE,16"
       ];
@@ -212,7 +212,7 @@
     enable = true;
     theme = {
       package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-White-Darkest-Solid";
+      name = "Flat-Remix-GTK-Violet-Darkest-Solid";
     };
 
     iconTheme = {

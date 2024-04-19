@@ -18,12 +18,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    waybar.url =
-      "github:Alexays/Waybar"; # Fix broken waybar on current nixpkgs-unstable
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = inputs@{ nixpkgs, waybar, home-manager, sops-nix, nixvim, hyprland
+  outputs = inputs@{ nixpkgs, home-manager, sops-nix, nixvim, hyprland
     , spicetify-nix, nixos-hardware, ... }: {
       nixosConfigurations = {
         nixy = nixpkgs.lib.nixosSystem {
@@ -43,7 +41,6 @@
                   inherit inputs;
                   inherit spicetify-nix;
                   inherit sops-nix;
-                  inherit waybar;
                   inherit hyprland;
                 };
               };

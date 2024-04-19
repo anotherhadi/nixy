@@ -10,6 +10,11 @@ with lib;
       description = "Does waybar have a transparent background?";
     };
 
+    print-neofetch = mkOption {
+      type = types.bool;
+      description = "Does kitty launch neofetch?";
+    };
+
     wallpaper = mkOption {
       type = types.str;
       description = "Name of the wallpaper (from the wallpapers directory)";

@@ -4,6 +4,7 @@
   theme = {
     wallpaper = "default.png";
     waybar-transparent = true;
+    print-neofetch = true;
     font-mono = "FiraCode Nerd Font Mono";
     font = "SFProDisplay Nerd Font";
     rounding = 12;
