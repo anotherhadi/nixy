@@ -14,6 +14,7 @@
       "n" = "https://mynixos.com/search?q={}";
       "nixo" = "https://search.nixos.org/options?channel=unstable&query={}";
       "nixp" = "https://search.nixos.org/packages?channel=unstable&query={}";
+      "gt" = "https://github.com/search?q={}&type=repositories";
     };
 
     quickmarks = {
