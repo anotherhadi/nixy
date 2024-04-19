@@ -40,7 +40,7 @@
     dates = "04:00";
     flake = "${config.users.users.hadi.home}/.config/nixos"; # CHANGEME
     flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
-    allowReboot = true;
+    allowReboot = false;
   };
 
   ##############

@@ -48,7 +48,7 @@ let
 
     nextcloud-watch &
     battery-notif &
-    waybar &
+    ${pkgs.waybar}/bin/waybar &
   '';
 
 in {
