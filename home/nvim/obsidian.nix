@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       dir = "~/Nextcloud/obsidian";
-      disableFrontmatter = true;
+      disable_frontmatter = true;
     };
   };
 }
