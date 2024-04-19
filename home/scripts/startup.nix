@@ -48,6 +48,7 @@ let
 
     nextcloud-watch &
     battery-notif &
+    waybar &
   '';
 
 in {
