@@ -25,7 +25,7 @@
     enable = true;
     colorschemes.catppuccin = {
       enable = true;
-      settings = { transparentBackground = true; };
+      settings = { transparent_background = true; };
     };
   };
 
