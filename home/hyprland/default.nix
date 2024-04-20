@@ -38,11 +38,8 @@
         "${pkgs.bitwarden}/bin/bitwarden"
       ];
 
-      monitor = [
-        "eDP-2,highres,0x0,1"
-        "desc:AOC U34G2G1 0x00000E06,highrr,2560x0,1"
-        ",prefered,auto,1"
-      ];
+      monitor =
+        [ "eDP-2,highres,0x0,1" "DP-8,highrr,2560x0,1" ",prefered,auto,1" ];
 
       bind = [
         "$mod, RETURN, exec, ${pkgs.kitty}/bin/kitty"
@@ -204,7 +201,7 @@
 
   qt = {
     enable = true;
-    platformTheme = "gtk";
+    platformTheme.name = "gtk";
     style.name = "gtk2";
   };
 
