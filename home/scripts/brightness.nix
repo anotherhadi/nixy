@@ -1,7 +1,6 @@
 { pkgs, config, ... }:
 
 let
-  homedir = config.home.homeDirectory;
   increments = "5";
 
   brightness-change = pkgs.writeShellScriptBin "brightness-change" ''

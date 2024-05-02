@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [ pistol ];
 
   programs.lf = {

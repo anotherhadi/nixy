@@ -1,29 +1,12 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }:
+let variable = import ../variables.nix;
+in {
 
-  imports = [
-    ./hyprland
-    ./nvim
-    ./waybar
-    ./kitty
-    ./dunst
-    ./wlogout
-    ./wofi
-    ./qutebrowser
-    ./git
-    ./shell
-    ./misc
-    ./scripts
-    ./neofetch
-    ./spicetify
-    ./theme
-    ./wallpapers
-    ./lf
-    ./sops # REMOVE
-  ];
+  imports = [ ./themes ./system ./scripts ./apps ];
 
   home = {
-    username = "hadi"; # CHANGEME
-    homeDirectory = "/home/hadi"; # CHANGEME
+    username = variable.username;
+    homeDirectory = variable.homeDirectory;
 
     packages = with pkgs; [
       swappy
@@ -49,6 +32,7 @@
       bc
       gcc
       blueman
+      zip
       unzip
       xdg_utils
       tldr
@@ -68,7 +52,7 @@
       firefox
     ];
 
-    stateVersion = "23.11";
+    stateVersion = variable.stateVersion;
   };
   programs.home-manager.enable = true;
 }
