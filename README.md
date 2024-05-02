@@ -69,7 +69,7 @@ This is my dotfiles repo. It's a work in progress, and I'm still learning how to
 
 ## Themes & Colors
 
-Themes and colors are managed by the `home/variable/theme` folder.
+Themes and colors are managed by the `home/themes` folder.
 
 To apply the theme to duckduckgo, follow the instructions in `$HOME/.config/duckduckgo-colorscheme.js`.
 
@@ -154,8 +154,8 @@ It will copy the selected icon to the clipboard.
 git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```
 
-- Every things that you *must* change got a "CHANGEME" comment. You can search for it with ripgrep: `rg "CHANGEME"`
-- Every things that you *must* remove got a "REMOVE" comment. You can search for it with ripgrep: `rg "REMOVE"` (Secrets, own stuff..)
+- Change the `variables.nix` file to match your configuration
+- Remove the hardware module in flake.nix line 30
 - Change the `nixos/configuration.nix` file to match your system
 - Copy your `hardware-configuration.nix` file to the `nixos` folder
 
