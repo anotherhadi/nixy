@@ -1,5 +1,5 @@
 { config, ... }: {
-  imports = [ ./nixy.nix ];
+  imports = [ ./nixy.nix ./wallpapers ];
   config.theme.colors.primary-ansi-16-number =
     if config.theme.colors.primary-ansi-16 == "black" then
       0

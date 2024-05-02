@@ -1,9 +1,9 @@
-{ sops-nix, config, ... }: {
+{ sops-nix, ... }: {
   imports = [ sops-nix.homeManagerModules.sops ];
 
   sops = {
     age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
-    defaultSopsFile = ../../secrets/secrets.yaml;
+    defaultSopsFile = ../../../secrets/secrets.yaml;
     secrets = {
       sshconfig = { path = "/home/hadi/.ssh/config"; };
       oxk = { path = "/home/hadi/.ssh/oxserver"; };

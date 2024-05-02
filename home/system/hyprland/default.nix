@@ -1,4 +1,6 @@
-{ self, pkgs, config, hyprland, ... }: {
+{ self, pkgs, config, hyprland, ... }:
+let variable = import ../../../variables.nix;
+in {
 
   imports = [ ./hyprlock.nix ./hypridle.nix ./hyprpaper.nix ./hyprcursor.nix ];
 
@@ -142,7 +144,7 @@
       };
 
       input = {
-        kb_layout = "fr"; # CHANGEME
+        kb_layout = variable.keyboardLayout;
 
         kb_options = "caps:escape";
         follow_mouse = 1;

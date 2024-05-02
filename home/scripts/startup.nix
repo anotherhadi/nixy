@@ -2,6 +2,7 @@
 { pkgs, config, ... }:
 let
   homedir = config.home.homeDirectory;
+  variable = import ../../variables.nix;
 
   battery-notif = pkgs.writeShellScriptBin "battery-notif" ''
     # Send notifications when low on battery and not in charge
@@ -44,9 +45,12 @@ let
   startup = pkgs.writeShellScriptBin "startup" ''
     # Because HM enabling services suck.
 
-    systemctl --user start sops-nix
+    [[ ${
+      toString variable.enableSops
+    } == "true" ]] && systemctl --user start sops-nix
 
-    nextcloud-watch &
+    [[ ${toString variable.enableNextcloud} == "true" ]] && nextcloud-watch &
+
     battery-notif &
     ${pkgs.waybar}/bin/waybar &
   '';
