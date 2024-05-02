@@ -1,8 +1,5 @@
 { lib, ... }:
-
-with lib;
-
-{
+with lib; {
   options.theme = {
 
     waybar-transparent = mkOption {

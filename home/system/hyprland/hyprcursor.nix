@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [ hyprcursor ];
 
   #  home.file.".local/share/icons/rose-pine-hyprcursor" = {

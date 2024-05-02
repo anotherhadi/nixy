@@ -29,14 +29,15 @@
           modules = [
             nixos-hardware.nixosModules.omen-16-n0005ne # REMOVE
             ./nixos/configuration.nix
-            ./hosts
+            ./nixos/fonts.nix
+            ./nixos/tuigreet.nix
             { _module.args = { inherit inputs; }; }
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.hadi = import ./home/home.nix; # CHANGEME - replace "hadi"
+                users."hadi" = import ./home/home.nix;
                 extraSpecialArgs = {
                   inherit inputs;
                   inherit spicetify-nix;

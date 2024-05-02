@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }: {
+{ config, ... }: {
   services = {
     blueman-applet.enable = true;
     network-manager-applet.enable = true;
@@ -31,6 +31,7 @@
         "hyprland/window" = {
           "format" = "{title:30}";
           "max-length" = 30;
+          "separate-outputs" = true;
         };
 
         "hyprland/workspaces" = {

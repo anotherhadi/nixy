@@ -1,5 +1,16 @@
-{ pkgs, config, ... }: {
-  imports = [ ./hardware-configuration.nix ./nvidia.nix ];
+{ pkgs, ... }:
+let
+  variable = import ../variables.nix;
+  imports = [ ./hardware-configuration.nix ];
+  # Weird variable name to avoid conflict with the `imports` variable...
+  secondImports =
+    if variable.enableNvidia then imports ++ [ ./nvidia.nix ] else imports;
+  thirdImports = if variable.enablePrime then
+    secondImports ++ [ ./prime.nix ]
+  else
+    secondImports;
+in {
+  imports = thirdImports;
 
   # Bootloader.
   boot.loader.efi.canTouchEfiVariables = true;
@@ -12,36 +23,36 @@
 
   ##############
 
-  # CHANGEME
-  networking.hostName = "nixy";
-  time.timeZone = "Europe/Paris";
-  i18n.defaultLocale = "en_US.UTF-8";
+  networking.hostName = variable.hostName;
+
+  time.timeZone = variable.timeZone;
+  i18n.defaultLocale = variable.defaultLocale;
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "fr_FR.UTF-8";
-    LC_IDENTIFICATION = "fr_FR.UTF-8";
-    LC_MEASUREMENT = "fr_FR.UTF-8";
-    LC_MONETARY = "fr_FR.UTF-8";
-    LC_NAME = "fr_FR.UTF-8";
-    LC_NUMERIC = "fr_FR.UTF-8";
-    LC_PAPER = "fr_FR.UTF-8";
-    LC_TELEPHONE = "fr_FR.UTF-8";
-    LC_TIME = "fr_FR.UTF-8";
+    LC_ADDRESS = variable.extraLocale;
+    LC_IDENTIFICATION = variable.extraLocale;
+    LC_MEASUREMENT = variable.extraLocale;
+    LC_MONETARY = variable.extraLocale;
+    LC_NAME = variable.extraLocale;
+    LC_NUMERIC = variable.extraLocale;
+    LC_PAPER = variable.extraLocale;
+    LC_TELEPHONE = variable.extraLocale;
+    LC_TIME = variable.extraLocale;
   };
 
-  users.users.hadi = { # CHANGEME
+  users.users.${variable.username} = {
     isNormalUser = true;
-    description = "Hadi account";
+    description = "${variable.username} account";
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
   # Auto Update & Clean
-  system.autoUpgrade = {
-    enable = true;
-    dates = "04:00";
-    flake = "${config.users.users.hadi.home}/.config/nixos"; # CHANGEME
-    flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
-    allowReboot = false;
-  };
+  # system.autoUpgrade = {
+  #   enable = true;
+  #   dates = "04:00";
+  #   flake = "${config.users.users.${variable.username}.home}/.config/nixos";
+  #   flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
+  #   allowReboot = false;
+  # };
 
   ##############
 
@@ -110,5 +121,5 @@
 
   services.dbus.enable = true;
 
-  system.stateVersion = "23.11";
+  system.stateVersion = variable.stateVersion;
 }

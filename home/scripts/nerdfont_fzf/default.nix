@@ -29,7 +29,7 @@ in {
   home.packages = with pkgs; [ nerdfont-fzf nerdfont-fzf-fetch nerdfont-popup ];
 
   xdg.configFile."nerdfont_glyphnames.json" = {
-    source = ../misc/nerdfont_glyphnames.json;
+    source = ./nerdfont_glyphnames.json;
   };
 
 }

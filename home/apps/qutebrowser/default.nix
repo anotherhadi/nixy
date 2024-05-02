@@ -49,13 +49,21 @@
           odd.fg = "#${config.theme.colors.fg}";
           even.bg = "#${config.theme.colors.bg}";
           even.fg = "#${config.theme.colors.fg}";
-          selected.odd.bg = "#${config.theme.colors.primary-bg}";
-          selected.odd.fg = "#${config.theme.colors.primary-fg}";
-          selected.even.bg = "#${config.theme.colors.primary-bg}";
-          selected.even.fg = "#${config.theme.colors.primary-fg}";
-          indicator.error = "#${config.theme.colors.color1}";
-          indicator.start = "#${config.theme.colors.alt-bg}";
-          indicator.stop = "#${config.theme.colors.alt-bg}";
+          selected = {
+            odd = {
+              bg = "#${config.theme.colors.primary-bg}";
+              fg = "#${config.theme.colors.primary-fg}";
+            };
+            even = {
+              bg = "#${config.theme.colors.primary-bg}";
+              fg = "#${config.theme.colors.primary-fg}";
+            };
+          };
+          indicator = {
+            error = "#${config.theme.colors.color1}";
+            start = "#${config.theme.colors.alt-bg}";
+            stop = "#${config.theme.colors.alt-bg}";
+          };
         };
 
         hints = {
@@ -65,10 +73,14 @@
         };
 
         completion = {
-          category.bg = "#${config.theme.colors.bg}";
-          category.fg = "#${config.theme.colors.fg}";
-          category.border.top = "#${config.theme.colors.bg}";
-          category.border.bottom = "#${config.theme.colors.bg}";
+          category = {
+            bg = "#${config.theme.colors.bg}";
+            fg = "#${config.theme.colors.fg}";
+            border = {
+              top = "#${config.theme.colors.bg}";
+              bottom = "#${config.theme.colors.bg}";
+            };
+          };
 
           odd.bg = "#${config.theme.colors.bg}";
           even.bg = "#${config.theme.colors.bg}";
@@ -77,11 +89,13 @@
 
           match.fg = "#${config.theme.colors.primary-bg}";
 
-          item.selected.bg = "#${config.theme.colors.primary-bg}";
-          item.selected.border.top = "#${config.theme.colors.primary-bg}";
-          item.selected.border.bottom = "#${config.theme.colors.primary-bg}";
-          item.selected.fg = "#${config.theme.colors.primary-fg}";
-          item.selected.match.fg = "#${config.theme.colors.primary-fg}";
+          item.selected = {
+            bg = "#${config.theme.colors.primary-bg}";
+            border.top = "#${config.theme.colors.primary-bg}";
+            border.bottom = "#${config.theme.colors.primary-bg}";
+            fg = "#${config.theme.colors.primary-fg}";
+            match.fg = "#${config.theme.colors.primary-fg}";
+          };
         };
 
         statusbar = {
@@ -136,6 +150,7 @@
       content = {
         autoplay = false;
         javascript.clipboard = "access";
+        javascript.enabled = true;
         pdfjs = true;
       };
 

@@ -42,6 +42,8 @@
       sl = "ls";
       open = "${pkgs.xdg_utils}/bin/xdg-open";
       icat = "${pkgs.kitty}/bin/kitty +kitten icat";
+      note = "vim ~/Nextcloud/obsidian";
+      obs = "vim ~/Nextcloud/obsidian";
     };
   };
 }
