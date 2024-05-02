@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, pkgs, inputs, ... }: {
   services = {
     blueman-applet.enable = true;
     network-manager-applet.enable = true;
@@ -6,6 +6,7 @@
 
   programs.waybar = {
     enable = true;
+    package = inputs.waybar.packages."${pkgs.system}".waybar;
     settings = {
       mainBar = {
         layer = "top";
