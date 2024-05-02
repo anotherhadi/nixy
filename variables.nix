@@ -1,5 +1,4 @@
 {
-  # CHANGEME
   hostName = "nixy";
   username = "hadi";
   homeDirectory = "/home/hadi";
