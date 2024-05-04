@@ -13,10 +13,13 @@ in {
   imports = thirdImports;
 
   # Bootloader.
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot = {
-    enable = true;
-    consoleMode = "auto";
+  boot = {
+    loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot = {
+      enable = true;
+      consoleMode = "auto";
+    };
+    cleanTmpDir = true;
   };
 
   networking.networkmanager.enable = true;
