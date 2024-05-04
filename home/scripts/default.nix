@@ -1,14 +1,15 @@
 {
   imports = [
-    ./misc.nix
-    ./nerdfetch.nix
-    ./nixy.nix
-    ./sounds.nix
-    ./brightness.nix
-    ./caffeine.nix
-    ./night-shift.nix
-    ./screenshot.nix
-    ./startup.nix
+    ./nixy
+    ./nerdfetch
+    ./sounds
+    ./brightness
+    ./caffeine
+    ./night-shift
+    ./screenshot
+    ./startup
     ./nerdfont_fzf
+
+    ./misc.nix
   ];
 }
