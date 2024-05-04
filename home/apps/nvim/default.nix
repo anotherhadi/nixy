@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ inputs, ... }: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./auto-pairs.nix
@@ -22,6 +22,7 @@
     ./comment.nix
     ./oil.nix
     ./trouble.nix
+    ./tmux-navigator.nix
   ];
 
   programs.nixvim = {

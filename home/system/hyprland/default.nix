@@ -1,12 +1,13 @@
-{ self, pkgs, config, hyprland, ... }:
+{ pkgs, config, hyprland, ... }:
 let variable = import ../../../variables.nix;
 in {
 
-  imports = [ ./hyprlock.nix ./hypridle.nix ./hyprpaper.nix ./hyprcursor.nix ];
+  imports = [ ./hyprlock.nix ./hypridle.nix ./hyprpaper.nix ];
 
   home.packages = with pkgs; [
     hyprshot
     hyprpicker
+    hyprcursor
     xdg-desktop-portal-hyprland
     wlr-randr
     wl-clipboard
@@ -105,7 +106,7 @@ in {
         "QT_QPA_PLATFORM=wayland,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "GTK_THEME,Flat-Remix-GTK-Violet-Darkest-Solid:dark"
-        # "HYPRCURSOR_THEME,rose-pine"
+        # "HYPRCURSOR_THEME,rose-pine-hyprcursor"
         # "HYPRCURSOR_SIZE,16"
       ];
 

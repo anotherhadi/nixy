@@ -52,6 +52,7 @@ let
     [[ ${toString variable.enableNextcloud} == "true" ]] && nextcloud-watch &
 
     battery-notif &
+    sleep 2
     ${pkgs.waybar}/bin/waybar &
   '';
 
