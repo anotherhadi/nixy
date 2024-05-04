@@ -39,6 +39,7 @@ in {
       wget
       curl
       ripgrep
+      neovide
       tree # temp
 
       # Just cool
