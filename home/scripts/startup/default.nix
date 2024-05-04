@@ -2,7 +2,7 @@
 { pkgs, config, ... }:
 let
   homedir = config.home.homeDirectory;
-  variable = import ../../variables.nix;
+  variable = import ../../../variables.nix;
 
   battery-notif = pkgs.writeShellScriptBin "battery-notif" ''
     # Send notifications when low on battery and not in charge
