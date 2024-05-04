@@ -50,6 +50,7 @@ This is my dotfiles repo. It's a work in progress, and I'm still learning how to
 | Bar            | waybar        |
 | Terminal       | kitty         |
 | Shell          | zsh           |
+|                | tmux          |
 |                | starship      |
 |                | bat           |
 |                | eza           |

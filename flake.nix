@@ -19,11 +19,11 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprland.url = "github:hyprwm/Hyprland";
-    waybar.url = "github:Alexays/waybar";
+    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, sops-nix, nixvim, hyprland
-    , spicetify-nix, nixos-hardware, waybar, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, sops-nix, hyprland, spicetify-nix
+    , nixos-hardware, ... }: {
       nixosConfigurations = {
         nixy = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -44,7 +44,6 @@
                   inherit spicetify-nix;
                   inherit sops-nix;
                   inherit hyprland;
-                  inherit waybar;
                 };
               };
             }

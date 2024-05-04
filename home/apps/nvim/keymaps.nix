@@ -46,19 +46,19 @@
 
     {
       key = "<C-h>";
-      action = "<C-w>h";
+      action = "<cmd>TmuxNavigateLeft<cr>";
     }
     {
       key = "<C-j>";
-      action = "<C-w>j";
+      action = "<cmd>TmuxNavigateDown<cr>";
     }
     {
       key = "<C-k>";
-      action = "<C-w>k";
+      action = "<cmd>TmuxNavigateUp<cr>";
     }
     {
       key = "<C-l>";
-      action = "<C-w>l";
+      action = "<cmd>TmuxNavigateRight<cr>";
     }
 
     # Terminal Mappings
