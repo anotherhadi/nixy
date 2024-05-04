@@ -19,7 +19,7 @@ in {
       enable = true;
       consoleMode = "auto";
     };
-    cleanTmpDir = true;
+    tmp.cleanOnBoot = true;
   };
 
   networking.networkmanager.enable = true;
