@@ -10,7 +10,7 @@
     ./startup
     ./nerdfont_fzf
     ./system
-    ./zip
+    ./compress
 
     ./misc.nix
   ];

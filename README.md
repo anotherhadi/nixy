@@ -153,6 +153,18 @@ It will copy the selected icon to the clipboard.
 
 </details>
 
+### Compress/Extract
+
+<details>
+<summary>Click to expand</summary>
+
+Some shortcut to compress and extract files.
+
+- `compress` ...
+- `extract` ...
+
+</details>
+
 ## Installation
 
 ```sh
