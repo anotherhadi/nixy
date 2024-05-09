@@ -26,7 +26,7 @@
    </div>
 </h1>
 
-This is my dotfiles repo. It's a work in progress, and I'm still learning how to use nix.
+Hello there! This is my **NixOs (w/home-manager) dotfiles** repo. It's still a *work in progress*, and I'm still learning how to use nix.
 
 ## Gallery
 
@@ -70,7 +70,7 @@ This is my dotfiles repo. It's a work in progress, and I'm still learning how to
 
 ## Themes & Colors
 
-Themes and colors are managed by the `home/themes` folder.
+Themes and colors are managed by the `home/themes` folder. You can copy the default `nixy.nix` theme and make your own.
 
 To apply the theme to duckduckgo, follow the instructions in `$HOME/.config/duckduckgo-colorscheme.js`.
 
