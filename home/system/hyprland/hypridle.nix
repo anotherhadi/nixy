@@ -13,11 +13,11 @@
         on-resume = ${pkgs.libnotify}/bin/notify-send "Welcome back ${config.home.username}!"
     }
 
-    # Suspend
-    listener {
-        timeout = 660
-        on-timeout = systemctl suspend
-        # on-resume = ${pkgs.libnotify}/bin/notify-send "Welcome back to your desktop!"
-    }
+    # Suspend (not working on my laptop)
+    #listener {
+    #    timeout = 660
+    #    on-timeout = systemctl suspend
+    #    on-resume = ${pkgs.libnotify}/bin/notify-send "Welcome back to your desktop!"
+    #}
   '';
 }
