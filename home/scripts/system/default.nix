@@ -10,7 +10,6 @@ let
       done
     }
 
-
     minute &
   '';
 
@@ -19,9 +18,9 @@ let
     OLD_BATTERY_STATUS=$(cat /tmp/old_battery_status 2>/dev/null || echo "Unknown")
     if [[ $BATTERY_STATUS != $OLD_BATTERY_STATUS ]]; then
       if [[ $BATTERY_STATUS == "Discharging" ]]; then
-        ${pkgs.libnotify}/bin/notify-send "󰁻  " "Battery is unplugged"
+        ${pkgs.libnotify}/bin/notify-send "󰚦  " "Battery is unplugged"
       else
-        ${pkgs.libnotify}/bin/notify-send "󰁻  " "Battery is plugged in"
+        ${pkgs.libnotify}/bin/notify-send "󰚥  " "Battery is plugged in"
       fi
     fi
     echo $BATTERY_STATUS > /tmp/old_battery_status
@@ -34,6 +33,8 @@ let
       ${pkgs.libnotify}/bin/notify-send "󰁻  Low battery" "Battery level is $BATTERY_LEVEL%"
     elif [[ $BATTERY_LEVEL -le 10 ]] && [[ $BATTERY_STATUS == "Discharging" ]]; then
       ${pkgs.libnotify}/bin/notify-send --urgency=critical "󰁺  Very low battery" "Battery level is $BATTERY_LEVEL%"
+    elif [[ $BATTERY_LEVEL -eq 100 ]] && [[ $BATTERY_STATUS -ne "Discharging" ]]; then
+      ${pkgs.libnotify}/bin/notify-send "󰁹  Fully charged"
     fi
   '';
 

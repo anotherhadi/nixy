@@ -2,21 +2,21 @@
   imports = [ ./config/template.nix ];
 
   theme = {
-    wallpaper = "default.png";
+    wallpaper = "house-cloud.png";
 
     font-mono = "FiraCode Nerd Font Mono";
     font = "SFProDisplay Nerd Font";
 
-    rounding = 12;
-    gaps-in = 10;
-    gaps-out = 20;
-    border-size = 3;
+    rounding = 8;
+    gaps-in = 6;
+    gaps-out = 12;
+    border-size = 2;
 
     neofetch = "nerdfetch";
 
     waybar = {
-      transparent = true;
-      float = true;
+      transparent = false;
+      float = false;
     };
 
     colors = {
@@ -24,8 +24,8 @@
       fg = "FCFCFC";
       alt-bg = "101012";
       alt-fg = "ECECEC";
-      primary-ansi-16 = "magenta";
-      primary-bg = "a158ff";
+      primary-ansi-16 = "cyan";
+      primary-bg = "BBCDE5";
       primary-fg = "000000";
       secondary-bg = "4928B8";
       secondary-fg = "000000";

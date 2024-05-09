@@ -2,14 +2,21 @@
 with lib; {
   options.theme = {
 
-    waybar-transparent = mkOption {
-      type = types.bool;
-      description = "Does waybar have a transparent background?";
+    waybar = {
+      transparent = mkOption {
+        type = types.bool;
+        description = "Does waybar have a transparent background?";
+      };
+
+      float = mkOption {
+        type = types.bool;
+        description = "Floating mode for waybar (gap)";
+      };
     };
 
-    print-neofetch = mkOption {
-      type = types.bool;
-      description = "Does kitty launch neofetch?";
+    neofetch = mkOption {
+      type = types.str;
+      description = "Options: neofetch/nerdfetch/none";
     };
 
     wallpaper = mkOption {
