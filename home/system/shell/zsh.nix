@@ -9,11 +9,12 @@
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
 
-    # If the variable config.theme.print-neofetch is set to true, neofetch will be printed
     initExtraFirst = ''
       bindkey -e
-      ${if config.theme.print-neofetch then
+      ${if config.theme.neofetch == "neofetch" then
         pkgs.neofetch + "/bin/neofetch"
+      else if config.theme.neofetch == "nerdfetch" then
+        "nerdfetch"
       else
         ""}
     '';

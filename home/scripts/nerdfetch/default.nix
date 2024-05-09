@@ -1,8 +1,6 @@
+# Nerdfetch: https://github.com/ThatOneCalculator/NerdFetch
 { pkgs, config, ... }:
-
 let
-  homedir = config.home.homeDirectory;
-
   nerdfetch = pkgs.writeShellScriptBin "nerdfetch" ''
           ostype="$(uname)"
 
@@ -348,9 +346,9 @@ let
 
           ## USER VARIABLES -- YOU CAN CHANGE THESE
 
-          lc="$reset$bold$magenta" # labels
-          nc="$reset$bold$magenta" # user
-          hn="$reset$bold$magenta" # hostname
+          lc="$reset$bold''$${config.theme.colors.primary-ansi-16}" # labels
+          nc="$reset$bold''$${config.theme.colors.primary-ansi-16}" # labels
+          hn="$reset$bold''$${config.theme.colors.primary-ansi-16}" # labels
           ic="$reset$white"          # info
           c0="$reset$grey"           # first color
           c1="$reset$white"          # second color

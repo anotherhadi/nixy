@@ -106,6 +106,7 @@ in {
         "QT_QPA_PLATFORM=wayland,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "GTK_THEME,Flat-Remix-GTK-Violet-Darkest-Solid:dark"
+        # "GTK_THEME,Nixy-GTK"
         # "HYPRCURSOR_THEME,rose-pine-hyprcursor"
         # "HYPRCURSOR_SIZE,16"
       ];

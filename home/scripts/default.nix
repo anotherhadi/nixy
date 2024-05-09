@@ -9,6 +9,8 @@
     ./screenshot
     ./startup
     ./nerdfont_fzf
+    ./system
+    ./zip
 
     ./misc.nix
   ];

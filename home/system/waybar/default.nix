@@ -12,9 +12,12 @@
         layer = "top";
         position = "top";
         spacing = 0;
-        "margin-top" = config.theme.gaps-out;
-        "margin-left" = config.theme.gaps-out;
-        "margin-right" = config.theme.gaps-out;
+        "margin-top" =
+          if config.theme.waybar.float then config.theme.gaps-out else 0;
+        "margin-left" =
+          if config.theme.waybar.float then config.theme.gaps-out else 0;
+        "margin-right" =
+          if config.theme.waybar.float then config.theme.gaps-out else 0;
         height = 44;
         modules-left = [ "custom/logo" "hyprland/window" ];
         modules-center = [ "hyprland/workspaces" ];
@@ -129,19 +132,29 @@
 
       window#waybar {
         background-color: ${
-          if config.theme.waybar-transparent then
+          if config.theme.waybar.transparent then
             "rgba(0, 0, 0, 0)"
           else
             "#${config.theme.colors.bg}"
         };
         transition-property: background-color;
         transition-duration: 0.5s;
-        border-radius: ${toString config.theme.rounding}px;
+        border-radius: ${
+          if config.theme.waybar.float then
+            toString config.theme.rounding
+          else
+            "0"
+        }px;
         font-size: 13px;
       }
 
       .modules-left, .modules-center, .modules-right {
-        border-radius: ${toString config.theme.rounding}px;
+        border-radius: ${
+          if config.theme.waybar.float then
+            toString config.theme.rounding
+          else
+            "0"
+        }px;
         background-color: #${config.theme.colors.bg};
         padding: 2px 6px;
       }
