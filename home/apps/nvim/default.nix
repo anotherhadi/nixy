@@ -3,7 +3,8 @@
     inputs.nixvim.homeManagerModules.nixvim
     ./auto-pairs.nix
     ./options.nix
-    #./bufferline.nix
+    ./bufferline.nix
+    ./lazygit.nix
     ./telescope.nix
     ./nvim-tree.nix
     ./lightline.nix
