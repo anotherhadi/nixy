@@ -40,6 +40,7 @@ in {
       curl
       ripgrep
       neovide
+      wf-recorder
       tree # temp
 
       # Just cool

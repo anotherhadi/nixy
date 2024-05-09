@@ -1,22 +1,7 @@
 # File runned at startup by Hyprland
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 let
-  homedir = config.home.homeDirectory;
   variable = import ../../../variables.nix;
-
-  battery-notif = pkgs.writeShellScriptBin "battery-notif" ''
-    # Send notifications when low on battery and not in charge
-    while true; do
-      battery_level=$(cat /sys/class/power_supply/BAT*/capacity)
-      battery_status=$(cat /sys/class/power_supply/BAT*/status)
-      if [[ $battery_level -le 20 ]] && [[ $battery_status == "Discharging" ]]; then
-        ${pkgs.libnotify}/bin/notify-send "󰁻  Low battery" "Battery level is $battery_level%"
-      elif [[ $battery_level -le 10 ]] && [[ $battery_status == "Discharging" ]]; then
-        ${pkgs.libnotify}/bin/notify-send --urgency=critical "󰁺  Very low battery" "Battery level is $battery_level%"
-      fi
-      sleep 60
-    done
-  '';
 
   nextcloud-watch = pkgs.writeShellScriptBin "nextcloud-watch" ''
     # Start nextcloud if I'm on my networks
@@ -51,16 +36,9 @@ let
 
     [[ ${toString variable.enableNextcloud} == "true" ]] && nextcloud-watch &
 
-    battery-notif &
-    sleep 2
+    echo "${toString variable.enableNextcloud}" > /tmp/nextcloud-enable
+    system-notif &
     ${pkgs.waybar}/bin/waybar &
   '';
 
-in {
-  home.packages = with pkgs; [
-    startup
-    battery-notif
-    nextcloud-watch
-    nextcloud-client
-  ];
-}
+in { home.packages = with pkgs; [ startup nextcloud-watch nextcloud-client ]; }
