@@ -9,5 +9,6 @@
     ./wofi
     ./cava
     ./tmux
+    ./lazygit
   ];
 }
