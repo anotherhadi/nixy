@@ -28,6 +28,21 @@
 
 Hello there! This is my **NixOs (w/home-manager) dotfiles** repo. It's still a *work in progress*, and I'm still learning how to use nix.
 
+## Table of Contents
+
+- [Gallery](#gallery)
+- [Apps](#apps)
+- [Themes & Colors](#themes--colors)
+- [Scripts](#scripts)
+  - [Nix/NixOs shortcuts](#nixnixos-shortcuts)
+  - [Brightness control](#brightness-control)
+  - [Sound control](#sound-control)
+  - [Caffeine](#caffeine)
+  - [Night-Shift](#night-shift)
+  - [Nerdfont FZF](#nerdfont-fzf)
+  - [Compress/Extract](#compressextract)
+- [Installation](#installation)
+
 ## Gallery
 
 ![neofetch](https://image.nostr.build/c208c164ae04e4c58e01adb9fab584b163a565155865833851275f89c9270b7a.jpg)
