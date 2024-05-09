@@ -14,6 +14,11 @@ with lib; {
       };
     };
 
+    animation-speed = mkOption {
+      type = types.str;
+      description = "Options: slow/medium/fast";
+    };
+
     neofetch = mkOption {
       type = types.str;
       description = "Options: neofetch/nerdfetch/none";

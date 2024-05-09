@@ -52,6 +52,7 @@ in {
       # Backup
       vscode
       firefox
+      tor-browser
     ];
 
     stateVersion = variable.stateVersion;

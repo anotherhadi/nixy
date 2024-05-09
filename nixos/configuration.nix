@@ -48,17 +48,6 @@ in {
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  # Auto Update & Clean
-  # system.autoUpgrade = {
-  #   enable = true;
-  #   dates = "04:00";
-  #   flake = "${config.users.users.${variable.username}.home}/.config/nixos";
-  #   flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
-  #   allowReboot = false;
-  # };
-
-  ##############
-
   services = {
     xserver = {
       xkb.layout = "fr";
@@ -121,6 +110,15 @@ in {
       options = "--delete-older-than 7d";
     };
   };
+
+  # Auto Update
+  # system.autoUpgrade = {
+  #   enable = true;
+  #   dates = "04:00";
+  #   flake = "${config.users.users.${variable.username}.home}/.config/nixos";
+  #   flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
+  #   allowReboot = false;
+  # };
 
   services.dbus.enable = true;
 
