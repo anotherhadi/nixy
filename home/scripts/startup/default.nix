@@ -32,11 +32,10 @@ let
 
     [[ ${
       toString variable.enableSops
-    } == "true" ]] && systemctl --user start sops-nix
+    } == "1" ]] && systemctl --user start sops-nix
 
-    [[ ${toString variable.enableNextcloud} == "true" ]] && nextcloud-watch &
+    [[ ${toString variable.enableNextcloud} == "1" ]] && nextcloud-watch &
 
-    echo "${toString variable.enableNextcloud}" > /tmp/nextcloud-enable
     system-notif &
     ${pkgs.waybar}/bin/waybar &
   '';
