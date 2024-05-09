@@ -65,6 +65,10 @@ Hello there! This is my **NixOs (w/home-manager) dotfiles** repo. It's still a *
 | Launcher       | wofi          |
 | DM             | tuigreet      |
 | Secrets        | sops-nix      |
+| Misc           | lazygit       |
+|                | neofetch      |
+|                | cava          |
+|                | ...           |
 
 </details>
 
