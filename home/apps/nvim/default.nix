@@ -24,6 +24,7 @@
     ./oil.nix
     ./trouble.nix
     ./tmux-navigator.nix
+    ./noice.nix
   ];
 
   programs.nixvim = {
