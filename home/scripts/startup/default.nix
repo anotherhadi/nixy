@@ -4,11 +4,12 @@ let
   variable = import ../../../variables.nix;
 
   nextcloud-watch = pkgs.writeShellScriptBin "nextcloud-watch" ''
-    # Start nextcloud if I'm on my networks
+    # Start nextcloud if I'm on my local network
     while true;do
+      sleep 120
       ssid=$(nmcli -t -f name connection show --active | head -n1)
-      status=$(pgrep -n nextcloud)
-      if [[ -z $status ]]; then
+      nextcloud_status=$(ps -aux | grep -E "/bin/nextcloud --background$")
+      if [[ $nextcloud_status == "" ]]; then
         service_status="inactive"
       else
         service_status="active"
@@ -20,10 +21,10 @@ let
         fi
       else
         if [[ $service_status == "active" ]]; then
-            pkill nextcloud
+            nextcloud_pid=$(pgrep -n nextcloud)
+            kill $nextcloud_pid
         fi
       fi
-      sleep 120
     done
   '';
 
