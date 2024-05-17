@@ -1,8 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 let
-  homedir = config.home.homeDirectory;
-
+  # TODO: Broken - hypshot not working (jq error)
   screenshot = pkgs.writeShellScriptBin "screenshot" ''
     if [[ $2 == "swappy" ]];then
       folder="/tmp"
