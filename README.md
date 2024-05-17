@@ -187,8 +187,6 @@ git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```
 
 - Change the `variables.nix` file to match your configuration
-- Remove the hardware module in flake.nix line 30
-- Change the `nixos/configuration.nix` file to match your system
 - Copy your `hardware-configuration.nix` file to the `nixos` folder
 
 ```sh
