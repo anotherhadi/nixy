@@ -64,7 +64,10 @@ in {
 
   environment.systemPackages = with pkgs; [ networkmanagerapplet ];
 
-  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" "nix-2.16.2" ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+    "nix-2.16.2"
+  ]; # TODO: Remove this if not needed anymore
 
   hardware.bluetooth = {
     enable = true;

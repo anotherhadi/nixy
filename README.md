@@ -180,7 +180,7 @@ Some shortcut to compress and extract files.
 
 </details>
 
-## Installation
+## Installation/build
 
 ```sh
 git clone https://github.com/anotherhadi/nixy ~/.config/nixos
