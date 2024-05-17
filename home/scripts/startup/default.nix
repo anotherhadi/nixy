@@ -37,7 +37,7 @@ let
 
     [[ ${toString variable.enableNextcloud} == "1" ]] && nextcloud-watch &
 
-    system-notif &
+    notify-system &
     ${pkgs.waybar}/bin/waybar &
   '';
 
