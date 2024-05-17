@@ -17,18 +17,16 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, sops-nix, hyprland, spicetify-nix
-    , nixos-hardware, ... }: {
+  outputs =
+    inputs@{ nixpkgs, home-manager, sops-nix, hyprland, spicetify-nix, ... }: {
       nixosConfigurations = {
         nixy = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            nixos-hardware.nixosModules.omen-16-n0005ne # REMOVE
             ./nixos/configuration.nix
             ./nixos/fonts.nix
             ./nixos/tuigreet.nix
