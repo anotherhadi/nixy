@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   variable = import ../variables.nix;
   imports = [ ./hardware-configuration.nix ];
@@ -24,8 +24,6 @@ in {
 
   networking.networkmanager.enable = true;
 
-  ##############
-
   networking.hostName = variable.hostName;
 
   time.timeZone = variable.timeZone;
@@ -50,13 +48,13 @@ in {
 
   services = {
     xserver = {
-      xkb.layout = "fr";
+      xkb.layout = variable.keyboardLayout;
       xkb.variant = "";
     };
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
   };
-  console.keyMap = "fr";
+  console.keyMap = variable.keyboardLayout;
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
@@ -103,22 +101,23 @@ in {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
     };
-    gc = {
+    gc = if variable.enableAutoGarbageCollector then {
       automatic = true;
       persistent = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
-    };
+    } else
+      { };
   };
 
-  # Auto Update
-  # system.autoUpgrade = {
-  #   enable = true;
-  #   dates = "04:00";
-  #   flake = "${config.users.users.${variable.username}.home}/.config/nixos";
-  #   flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
-  #   allowReboot = false;
-  # };
+  system.autoUpgrade = if variable.enableAutoUpgrade then {
+    enable = true;
+    dates = "04:00";
+    flake = "${config.users.users.${variable.username}.home}/.config/nixos";
+    flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
+    allowReboot = false;
+  } else
+    { };
 
   services.dbus.enable = true;
 

@@ -14,6 +14,8 @@
   };
 
   stateVersion = "23.11";
+  enableAutoUpgrade = false;
+  enableAutoGarbageCollector = false;
   enableSops = true;
   enableNextcloud = true;
   enableNvidia = true;
