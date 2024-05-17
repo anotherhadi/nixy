@@ -10,7 +10,7 @@ let
       done
     }
 
-    minute &
+    minute
   '';
 
   battery-plugged = pkgs.writeShellScriptBin "battery-plugged" ''
