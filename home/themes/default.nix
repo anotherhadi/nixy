@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./nixy.nix ./wallpapers ./config/load_colors.nix ]; }
+{ ... }: { imports = [ ./wip.nix ./wallpapers ./config/load_colors.nix ]; }
