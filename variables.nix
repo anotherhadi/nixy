@@ -19,5 +19,5 @@
   enableSops = true;
   enableNextcloud = true;
   enableNvidia = true;
-  enablePrime = true;
+  enablePrime = false;
 }

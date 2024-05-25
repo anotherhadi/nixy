@@ -2,7 +2,7 @@
   imports = [ ./config/template.nix ];
 
   theme = {
-    wallpaper = "house_cloud.png";
+    wallpaper = "Fuji-Light.png";
 
     font-mono = "FiraCode Nerd Font Mono";
     font = "SFProDisplay Nerd Font";
