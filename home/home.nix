@@ -35,13 +35,10 @@ in {
       zip
       unzip
       xdg_utils
-      tldr
       wget
       curl
-      ripgrep
       neovide
       wf-recorder
-      tree # temp
 
       # Just cool
       peaclock
