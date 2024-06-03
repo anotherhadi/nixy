@@ -13,11 +13,11 @@
     email = "112569860+anotherhadi@users.noreply.github.com";
   };
 
-  stateVersion = "23.11";
+  stateVersion = "24.05";
   enableAutoUpgrade = false;
   enableAutoGarbageCollector = false;
   enableSops = true;
   enableNextcloud = true;
   enableNvidia = true;
-  enablePrime = false;
+  enablePrime = true;
 }

@@ -131,10 +131,7 @@ in {
         blur = { enabled = false; };
       };
 
-      master = {
-        new_is_master = true;
-        new_on_top = true;
-      };
+      master = { new_is_master = true; };
 
       gestures = { workspace_swipe = true; };
 

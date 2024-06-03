@@ -36,7 +36,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users."hadi" = import ./home/home.nix;
+                users."hadi" = import ./home/home.nix; # CHANGE ME
                 extraSpecialArgs = {
                   inherit inputs;
                   inherit spicetify-nix;

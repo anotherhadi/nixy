@@ -40,6 +40,7 @@
       e = "exit";
       cd = "z";
       ls = "${pkgs.eza}/bin/eza --icons=always";
+      tree = "${pkgs.eza}/bin/eza --icons=always --tree";
       sl = "ls";
       open = "${pkgs.xdg_utils}/bin/xdg-open";
       icat = "${pkgs.kitty}/bin/kitty +kitten icat";
