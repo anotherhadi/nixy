@@ -89,7 +89,7 @@
 
       #input,
       #entry:selected {
-        border-radius: ${toString (config.theme.rounding - 10)}px;
+        border-radius: ${toString config.theme.rounding}px;
       }
     '';
   };
