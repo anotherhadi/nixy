@@ -11,7 +11,6 @@
     ./nerdfont_fzf
     ./system
     ./compress
-
-    ./misc.nix
+    ./misc
   ];
 }

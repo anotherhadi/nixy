@@ -3,10 +3,10 @@ let variable = import ../variables.nix;
 in {
 
   imports = [
-    ./themes/laptop.nix
     ./system/laptop.nix
     ./scripts/laptop.nix
     ./apps/laptop.nix
+    ./themes/nixy.nix
   ];
 
   home = {
@@ -44,6 +44,7 @@ in {
       curl
       neovide
       wf-recorder
+      glow
 
       # Just cool
       peaclock

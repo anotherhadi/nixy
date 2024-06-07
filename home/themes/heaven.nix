@@ -2,21 +2,21 @@
   imports = [ ./config/template.nix ./config/load_colors.nix ];
 
   theme = {
-    wallpaper = "Fuji-Light.png";
+    wallpaper = "default.png";
 
     font-mono = "FiraCode Nerd Font Mono";
     font = "SFProDisplay Nerd Font";
 
-    rounding = 8;
-    gaps-in = 6;
-    gaps-out = 12;
-    border-size = 2;
+    rounding = 12;
+    gaps-in = 10;
+    gaps-out = 20;
+    border-size = 3;
 
     neofetch = "nerdfetch";
 
     waybar = {
-      transparent = false;
-      float = false;
+      transparent = true;
+      float = true;
     };
 
     colors = {
@@ -25,8 +25,8 @@
       alt-bg = "101012";
       alt-fg = "ECECEC";
 
-      primary-ansi-16 = "cyan";
-      primary-bg = "bbcde5";
+      primary-ansi-16 = "red";
+      primary-bg = "a158ff";
       primary-fg = "000000";
 
       secondary-bg = "4928B8";
@@ -43,9 +43,9 @@
       # Blue
       color4 = "7aa2f7";
       # Magenta
-      color5 = "9978F8";
+      color5 = "a158ff";
       # Cyan
-      color6 = "bbcde5";
+      color6 = "7dcfff";
       # White
       color7 = "E4E5E7";
 
@@ -56,7 +56,7 @@
       color11 = "f0bf78";
       color12 = "8ab2f7";
       color13 = "A988F8";
-      color14 = "ccdef6";
+      color14 = "8ddfff";
       color15 = "f4f5f7";
     };
   };
