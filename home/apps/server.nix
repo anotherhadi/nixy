@@ -1,1 +1,1 @@
-{ imports = [ ./lf ./neofetch ./nvim ]; }
+{ imports = [ ./lf ./neofetch ./nvim/server.nix ]; }

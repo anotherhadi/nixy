@@ -43,6 +43,10 @@ let
     sudo /run/current-system/bin/switch-to-configuration boot
   '';
 
+  remote-rebuild = pkgs.writeShellScriptBin "remote-rebuild" ''
+    ssh heaven "cd ~/.config/nixos && git pull && heaven-rebuild"
+  '';
+
 in {
   home.packages = with pkgs; [
     nixy-rebuild
@@ -55,5 +59,6 @@ in {
     heaven-update
     heaven-gc
     heaven-cb
+    remote-rebuild
   ];
 }
