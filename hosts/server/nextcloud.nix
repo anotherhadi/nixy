@@ -5,7 +5,7 @@
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud29;
-    hostName = "localhost";
+    hostName = "localhost:8081";
     config.adminpassFile = "/etc/nextcloudpwd";
   };
 }
