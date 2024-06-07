@@ -7,6 +7,7 @@
     secrets = {
       gts = { path = "/home/hadi/.ssh/github"; };
       sshconfigheaven = { path = "/home/hadi/.ssh/config"; };
+      nextcloudpwd = { path = "/home/hadi/nextcloud/pwd"; };
     };
   };
 
