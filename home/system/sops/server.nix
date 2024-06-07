@@ -5,11 +5,8 @@
     age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
     defaultSopsFile = ../../../secrets/secrets.yaml;
     secrets = {
-      sshconfig = { path = "/home/hadi/.ssh/config"; };
-      oxk = { path = "/home/hadi/.ssh/oxserver"; };
-      gk = { path = "/home/hadi/.ssh/github"; };
-      glk = { path = "/home/hadi/.ssh/gitlab"; };
-      silicon = { path = "/home/hadi/.ssh/silicon"; };
+      gts = { path = "/home/hadi/.ssh/gts"; };
+      sshconfigheaven = { path = "/home/hadi/.ssh/config"; };
     };
   };
 
