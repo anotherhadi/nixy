@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 let variable = import ../../variables.nix;
 in {
-  imports = [ ./hardware-configuration.nix ./openssh.nix ./nextcloud.nix ];
+  imports = [ ./hardware-configuration.nix ./openssh.nix ./nextcloud.nix ./firewall.nix ./nginx.nix ];
 
   boot = {
     loader.efi.canTouchEfiVariables = true;
