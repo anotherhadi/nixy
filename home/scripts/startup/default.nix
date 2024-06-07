@@ -39,6 +39,9 @@ let
 
     notify-system &
     ${pkgs.waybar}/bin/waybar &
+
+
+    wlr-randr --output "Unknown-1" --off # REMOVE WEIRD GHOST MONITOR
   '';
 
 in { home.packages = with pkgs; [ startup nextcloud-watch nextcloud-client ]; }
