@@ -9,7 +9,7 @@
     config.adminpassFile = "/etc/nextcloudpwd";
   };
 
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 8080 ];
 
   services.nginx.virtualHosts."localhost".listen = [{
     addr = "127.0.0.1";
