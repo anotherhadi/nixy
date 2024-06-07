@@ -2,7 +2,8 @@
   services.openssh = {
     enable = true;
     permitRootLogin = "no";
-    passwordAuthentication = true;
+    passwordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
     ports = [ 22 ];
     banner = ''
       HEAVEN:
