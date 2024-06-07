@@ -9,4 +9,6 @@
     config.adminpassFile = "/etc/nextcloudpwd";
     settings = { overwritehost = "localhost:8080"; };
   };
+
+  networking.firewall.allowedTCPPorts = [ 8080 ];
 }
