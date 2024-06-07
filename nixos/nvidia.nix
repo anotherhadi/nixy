@@ -1,8 +1,9 @@
-{
+{ config, pkgs, ... }: {
   hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    extraPackages = with pkgs; [ vaapiVdpau libvdpau-va-gl ];
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -11,9 +12,10 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = true;
+    powerManagement.enable = false;
     powerManagement.finegrained = false;
-    open = true;
+    open = false;
     nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 }
