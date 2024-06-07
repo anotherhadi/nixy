@@ -1,16 +1,17 @@
 { pkgs, config, ... }:
 let
   variable = import ../../variables.nix;
-  imports = [ ./hardware-configuration.nix ];
-  # Weird variable name to avoid conflict with the `imports` variable...
-  secondImports =
-    if variable.enableNvidia then imports ++ [ ./nvidia.nix ] else imports;
-  thirdImports = if variable.enablePrime then
-    secondImports ++ [ ./prime.nix ]
-  else
-    secondImports;
+  baseImports = [ ./hardware-configuration.nix ];
+
+  extraImports = [
+    (if variable.enableNvidia then ./nvidia.nix else null)
+    (if variable.enablePrime then ./prime.nix else null)
+  ];
+
+  filteredImports = builtins.filter (x: x != null) extraImports;
+
 in {
-  imports = thirdImports;
+  imports = baseImports ++ filteredImports;
 
   # Bootloader.
   boot = {
@@ -58,6 +59,20 @@ in {
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
+
+  loginShellInit = ''
+    dbus-update-activation-environment --systemd DISPLAY
+    eval $(gnome-keyring-daemon --start --components=ssh,secrets)
+    eval $(ssh-agent)
+  '';
+
+  # faster rebuilding
+  documentation = {
+    enable = true;
+    doc.enable = false;
+    man.enable = true;
+    dev.enable = false;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

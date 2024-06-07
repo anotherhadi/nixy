@@ -3,10 +3,10 @@ let variable = import ../variables.nix;
 in {
 
   imports = [
-    ./themes/server.nix
     ./system/server.nix
     ./scripts/server.nix
     ./apps/server.nix
+    ./themes/wip.nix
   ];
 
   home = {

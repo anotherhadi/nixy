@@ -1,5 +1,5 @@
 {
-  imports = [ ./config/template.nix ];
+  imports = [ ./config/template.nix ./config/load_colors.nix ];
 
   theme = {
     wallpaper = "default.png";
