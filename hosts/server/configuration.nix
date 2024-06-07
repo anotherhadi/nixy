@@ -8,6 +8,7 @@ in {
     ./firewall.nix
     ./nginx.nix
     ./cloudflared.nix
+    ./tailscale.nix
   ];
 
   boot = {
