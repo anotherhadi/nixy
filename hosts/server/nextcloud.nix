@@ -7,6 +7,6 @@
     package = pkgs.nextcloud29;
     hostName = "localhost";
     config.adminpassFile = "/etc/nextcloudpwd";
-    settings = { port = 8080; };
+    settings = { overwritehost = "localhost:8080"; };
   };
 }
