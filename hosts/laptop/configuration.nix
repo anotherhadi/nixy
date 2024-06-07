@@ -57,14 +57,15 @@ in {
   };
   console.keyMap = variable.keyboardLayout;
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    loginShellInit = ''
+      dbus-update-activation-environment --systemd DISPLAY
+      eval $(gnome-keyring-daemon --start --components=ssh,secrets)
+      eval $(ssh-agent)
+    '';
+  };
   users.defaultUserShell = pkgs.zsh;
-
-  loginShellInit = ''
-    dbus-update-activation-environment --systemd DISPLAY
-    eval $(gnome-keyring-daemon --start --components=ssh,secrets)
-    eval $(ssh-agent)
-  '';
 
   # faster rebuilding
   documentation = {
