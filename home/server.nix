@@ -2,21 +2,19 @@
 let variable = import ../variables.nix;
 in {
 
-  imports = [ ./themes ./system ./scripts ./apps ];
+  imports = [
+    ./themes/server.nix
+    ./system/server.nix
+    ./scripts/server.nix
+    ./apps/server.nix
+  ];
 
   home = {
     username = variable.username;
     homeDirectory = variable.homeDirectory;
 
     packages = with pkgs; [
-      swappy
-      imv
-      discord
-      obsidian
       btop
-      xfce.thunar
-      bitwarden
-      vlc
 
       # Dev
       go
@@ -31,28 +29,13 @@ in {
       fd
       bc
       gcc
-      blueman
       zip
       unzip
-      xdg_utils
       wget
       curl
-      neovide
-      wf-recorder
-
-      # Just cool
-      peaclock
-      cbonsai
-      pipes
-      cmatrix
-
-      # Backup
-      vscode
-      firefox
-      tor-browser
     ];
 
-    stateVersion = variable.stateVersion;
+    stateVersion = variable.server.stateVersion;
   };
   programs.home-manager.enable = true;
 }

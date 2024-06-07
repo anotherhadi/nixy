@@ -20,4 +20,11 @@
   enableNextcloud = true;
   enableNvidia = true;
   enablePrime = true;
+
+  server = {
+    hostName = "heaven";
+    stateVersion = "24.05";
+    enableAutoUpgrade = false;
+    enableAutoGarbageCollector = false;
+  };
 }
