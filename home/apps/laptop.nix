@@ -3,7 +3,7 @@
     ./kitty
     ./lf
     ./neofetch
-    ./nvim
+    ./nvim/laptop.nix
     ./qutebrowser
     ./spicetify
     ./wofi
