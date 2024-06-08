@@ -1,1 +1,1 @@
-{ imports = [ ./nixy ./nerdfetch ./compress ]; }
+{ imports = [ ./heaven ./nixy ./nerdfetch ./compress ]; }
