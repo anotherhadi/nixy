@@ -1,6 +1,6 @@
 {
   xdg.configFile."wallpapers" = {
     recursive = true;
-    source = ./wallpapers;
+    source = ../wallpapers;
   };
 }

@@ -1,6 +1,6 @@
 { config, ... }: {
 
-  imports = [ ./duckduckgo-colorscheme.nix ./homepage/default.nix ];
+  imports = [ ./duckduckgo-colorscheme.nix ./homepage ./serverpage ];
 
   programs.qutebrowser = {
     enable = true;
@@ -19,6 +19,7 @@
 
     quickmarks = {
       home = "${config.home.homeDirectory}/.config/startpage/index.html";
+      server = "${config.home.homeDirectory}/.config/serverpage/index.html";
       mynixos = "https://mynixos.com";
       github = "https://github.com";
       outlook = "https://outlook.office.com/mail/";
@@ -184,6 +185,8 @@
     keyBindings = {
       normal = {
         "gh" = "open ${config.home.homeDirectory}/.config/startpage/index.html";
+        "gs" =
+          "open ${config.home.homeDirectory}/.config/serverpage/index.html";
 
         " p" = "tab-move -";
         " n" = "tab-move +";
