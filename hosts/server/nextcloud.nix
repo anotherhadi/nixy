@@ -9,7 +9,7 @@
     config.adminpassFile = "/etc/nextcloudpwd";
   };
 
-  networking.firewall.allowedTCPPorts = [ 80 443 8083 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 8083 8080 ];
 
   services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
     forceSSL = false;
