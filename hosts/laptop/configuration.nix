@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 let
   variable = import ../../variables.nix;
-  baseImports = [ ./hardware-configuration.nix ];
+  baseImports = [ ./hardware-configuration.nix ./tailscale.nix ];
 
   extraImports = [
     (if variable.enableNvidia then ./nvidia.nix else null)

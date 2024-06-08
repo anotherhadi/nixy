@@ -7,6 +7,7 @@ in {
     ./scripts/laptop.nix
     ./apps/laptop.nix
     ./themes/nixy.nix
+    ./themes/config/load_wallpapers.nix
   ];
 
   home = {
