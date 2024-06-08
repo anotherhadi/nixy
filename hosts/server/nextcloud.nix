@@ -12,15 +12,11 @@
   networking.firewall.allowedTCPPorts = [ 80 443 8083 ];
 
   services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
-    forceSSL = true;
-    enableACME = true;
+    forceSSL = false;
+    enableACME = false;
     listen = [{
       addr = "localhost";
       port = 8083;
     }];
-  };
-  security.acme = {
-    defaults.email = "contact@anotherhadi.com";
-    acceptTerms = true;
   };
 }
