@@ -5,14 +5,18 @@
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud29;
-    hostName = "localhost";
+    hostName = "cloud.anotherhadi.com";
     config.adminpassFile = "/etc/nextcloudpwd";
   };
 
-  networking.firewall.allowedTCPPorts = [ 80 443 8080 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 8083 ];
 
-  services.nginx.virtualHosts."localhost".listen = [{
-    addr = "127.0.0.1";
-    port = 8080;
-  }];
+  services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
+    forceSSL = true;
+    enableACME = true;
+    listen = [{
+      addr = "localhost";
+      port = 8083;
+    }];
+  };
 }
