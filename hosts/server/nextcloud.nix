@@ -19,4 +19,5 @@
       port = 8083;
     }];
   };
+  security.acme.defaults.email = "contact@anotherhadi.com";
 }
