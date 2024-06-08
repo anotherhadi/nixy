@@ -10,7 +10,7 @@
   };
 
   services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
-    forceSSL = true;
+    forceSSL = false;
     enableACME = false;
   };
 }
