@@ -61,8 +61,6 @@ in {
     enable = true;
     loginShellInit = ''
       dbus-update-activation-environment --systemd DISPLAY
-      eval $(gnome-keyring-daemon --start --components=ssh,secrets)
-      eval $(ssh-agent)
     '';
   };
   users.defaultUserShell = pkgs.zsh;
