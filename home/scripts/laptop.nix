@@ -1,7 +1,6 @@
 {
   imports = [
     ./nixy
-    ./heaven
     ./nerdfetch
     ./sounds
     ./brightness
