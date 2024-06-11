@@ -28,7 +28,7 @@ let
   '';
 
   remote-rebuild = pkgs.writeShellScriptBin "remote-rebuild" ''
-    ssh -t heaven "cd ~/.config/heaven && git pull && heaven-rebuild"
+    ssh -t heaven "cd ~/.config/nixos && git pull && heaven-rebuild"
   '';
 
 in {
