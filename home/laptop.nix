@@ -18,7 +18,7 @@ in {
       swappy
       imv
       discord
-      obsidian
+      # obsidian # BROKEN
       btop
       xfce.thunar
       bitwarden

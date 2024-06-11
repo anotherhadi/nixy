@@ -4,16 +4,16 @@
     ./auto-pairs.nix
     ./options.nix
     ./bufferline.nix
-    ./lazygit.nix
+    # ./lazygit.nix
     ./telescope.nix
     ./nvim-tree.nix
     ./lightline.nix
     ./git.nix
-    ./cmp.nix
-    ./none-ls.nix
+     ./cmp.nix
+    # ./none-ls.nix
     ./wilder.nix
-    ./lsp.nix
-    ./treesitter.nix
+    # ./lsp.nix
+    # ./treesitter.nix
     ./toggleterm.nix
     ./copilot.nix
     ./obsidian.nix

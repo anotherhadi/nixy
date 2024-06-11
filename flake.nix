@@ -9,7 +9,7 @@
     };
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+#      inputs.nixpkgs.follows = "nixpkgs";
     };
 #    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
