@@ -1,17 +1,27 @@
 { config, ... }:
 let
   bookmarks = ''
-    Services: [
+    Apps: [
       {text: "TrueNAS", url: "https://heaven", icon: ""},
       {text: "Nextcloud", url: "https://cloud.anotherhadi.com/", icon: ""},
       {text: "Vaultwarden", url: "https://vault.anotherhadi.com/", icon: "󰟵"},
-      {text: "PiHole", url: "http://heaven:20720/admin", icon: "󰷱"},
+      {text: "Vaultwarden", url: "https://vault.anotherhadi.com/", icon: "󰟵"},
+      {text: "Jellyfin", url: "https://media.anotherhadi.com", icon: "󰕧"},
+    ],
+    Media: [
+      {text: "Overseerr", url: "https://heaven:30023", icon: "O"},
+      {text: "Radarr", url: "https://heaven:30025", icon: "R"},
+      {text: "Sonarr", url: "https://heaven:30027", icon: "S"},
+      {text: "Bazarr", url: "https://heaven:30046", icon: "B"},
+      {text: "Prowlarr", url: "https://heaven:30050", icon: "P"},
     ],
     Admin: [
       {text: "Vaultwarden", url: "https://vault.anotherhadi.com/admin", icon: "󰟵"},
       {text: "Cloudflare One", url: "https://one.dash.cloudflare.com/", icon: ""},
       {text: "Cloudflare", url: "https://cloudflare.com/", icon: ""},
       {text: "Tailscale", url: "https://login.tailscale.com/admin/machines", icon: "󰖂"},
+      {text: "PiHole", url: "http://heaven:20720/admin", icon: "󰷱"},
+      {text: "Unifi", url: "https://heaven:30072", icon: "󰌗"},
     ],
   '';
 in {
