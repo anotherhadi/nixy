@@ -3,7 +3,7 @@
 
   config.var = {
     hostname = "nixy";
-    username = "hadi";
+    username = "your username";
     homeDirectory = "/home/" + config.var.username;
 
     keyboardLayout = "fr";
@@ -13,16 +13,16 @@
     extraLocale = "fr_FR.UTF-8";
 
     git = {
-      username = "Hadi";
-      email = "112569860+anotherhadi@users.noreply.github.com";
+      username = "Github username";
+      email = "Github email";
     };
 
     stateVersion = "24.05";
 
     autoUpgrade = false;
     autoGarbageCollector = false;
-    sops = true;
-    nextcloud = true;
+    sops = false;
+    nextcloud = false;
 
     theme = {
       wallpaper = "Lofi-Computer.png";
