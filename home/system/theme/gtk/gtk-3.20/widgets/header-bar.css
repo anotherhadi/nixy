@@ -1,0 +1,47 @@
+/**************
+ * header-bar *
+ **************/
+
+headerbar {
+    padding: 4px;
+    border-width: 0;
+    border-style: none;
+    background-color: @bg_color;
+}
+
+headerbar title {
+    font-weight: bold;
+}
+
+headerbar subtitle {
+    font-size: smaller;
+}
+
+headerbar > stackswitcher > button {
+    margin-right: 1px;
+    border-radius: 0;
+}
+
+headerbar > stackswitcher > button:first-child {
+    border-radius: 3px 0 0 3px;
+}
+
+headerbar > stackswitcher > button:last-child {
+    border-radius: 0 3px 3px 0;
+}
+
+headerbar > stackswitcher > button.text-button {
+    padding: 4px 20px 4px 20px;
+}
+
+headerbar > stackswitcher > button.image-button {
+    padding: 6px 22px 6px 22px;
+}
+
+headerbar button.text-button {
+    padding: 4px;
+}
+
+headerbar button.image-button {
+    padding: 6px;
+}

@@ -1,0 +1,39 @@
+/***********
+ * toolbar *
+ ***********/
+toolbar {
+    padding: 4px;
+    border-style: none;
+    background-color: @tooltip_bg_color;
+    background-image: none;
+}
+
+toolbar button {
+    padding: 2px;
+}
+
+toolbar button.text-button {
+    padding: 2px 4px;
+}
+
+toolbar button.path-bar-button {
+	padding: 6px;
+}
+
+toolbar button.image-button {
+    padding: 2px;
+}
+
+toolbar:disabled {
+    background-color: @bg_color;
+}
+
+/* menubar toolbars */
+toolbar.menubar {
+    -GtkToolbar-button-relief: normal;
+}
+
+linked entry:active,
+linked entry:focus {
+    box-shadow: inset 4px 0 @selected_bg_color;
+}
