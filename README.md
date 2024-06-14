@@ -81,7 +81,7 @@ It's a simple way to manage your system configuration and dotfiles.
 |                | eza           |
 |                | zoxide        |
 |                | fzf           |
-| Editor         | nixvim        |
+| Editor         | neovim(nixvim)|
 | File manager   | lf            |
 |                | thunar        |
 | Browser        | qutebrowser   |
@@ -107,7 +107,7 @@ In your hosts configuration, you should add a `variables.nix` file to manage you
 - the theme: will be used in programs and for GTK and QT themes
 - ... (check the `hosts/guest/variables.nix` file for more information)
 
-PS: To apply the theme to duckduckgo, follow the instructions in `$HOME/.config/duckduckgo-colorscheme.js`.
+PS: To apply the theme to duckduckgo, follow the instructions in `$HOME/.duckduckgo-colorscheme.js`.
 
 ## Scripts
 
