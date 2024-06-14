@@ -35,8 +35,8 @@ It's a simple way to manage your system configuration and dotfiles.
 ## Table of Contents
 
 - [Gallery](#gallery)
-- [Apps](#apps)
-- [Themes & Colors](#themes--colors)
+- [Architechture](#architechture)
+- [Settings, Themes and colors](#settings-themes-and-colors)
 - [Scripts](#scripts)
   - [Nix/NixOs shortcuts](#nixnixos-shortcuts)
   - [Brightness control](#brightness-control)
@@ -45,7 +45,7 @@ It's a simple way to manage your system configuration and dotfiles.
   - [Night-Shift](#night-shift)
   - [Nerdfont FZF](#nerdfont-fzf)
   - [Compress/Extract](#compressextract)
-- [Installation](#installation)
+- [Installation/build](#installationbuild)
 
 ## Gallery
 
@@ -54,7 +54,7 @@ It's a simple way to manage your system configuration and dotfiles.
 ![spotify](https://image.nostr.build/76b18bcbcdf1d911a2dbdff7bfac6652044d45602a3dce9d9c53feb295d13245.jpg)
 ![wofi](https://image.nostr.build/90d69ffe6251c17e25b0fb44abadaeb0dfe6db8210d935fca14bf8b00be49fa6.jpg)
 
-## Apps && Architechture
+## Architechture
 
 - `home` are the dotfiles and configuration files for the user
 - `hosts` are the system configuration files
@@ -63,7 +63,7 @@ It's a simple way to manage your system configuration and dotfiles.
 - `secrets` are the secrets files encrypted with sops
 
 <details>
-<summary>Click to expand</summary>
+<summary>Click to show installed apps</summary>
 
 | Category       | Software      |
 |----------------|---------------|
