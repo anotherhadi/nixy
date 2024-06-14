@@ -1,0 +1,91 @@
+/**************
+ *spinbutton *
+ **************/
+spinbutton button {
+
+    color: @text_color_disabled;
+    padding: 2px 4px;
+    border-width: 2px;
+    border-color: transparent;
+    background-image: none;
+}
+
+spinbutton button:disabled {
+    color: mix(@text_color, @base_color, 0.55);
+}
+
+spinbutton button:active,
+spinbutton button:hover {
+    color: @fg_color;
+}
+
+spinbutton button:first-child {
+}
+
+spinbutton button:last-child {
+}
+
+spinbutton button:dir(rtl) {
+
+}
+
+spinbutton.vertical button {
+
+    border-width: 1px;
+    border-style: none;
+    color: @text_color_disabled;
+    background-image: none;
+    box-shadow: none;
+}
+
+spinbutton.vertical button:hover {
+    color: @fg_color;
+    background-image: none;
+}
+
+spinbutton.vertical button:active {
+    color: @fg_color;
+    background-image: none;
+}
+
+spinbutton.vertical button:active:hover {
+
+}
+
+spinbutton.vertical button:focus,
+spinbutton.vertical button:hover:focus,
+spinbutton.vertical button:active:focus,
+spinbutton.vertical button:active:hover:focus {
+
+}
+
+spinbutton.vertical button:disabled {
+    background-image: none;
+    color: @text_color_disabled;
+    background-image: none;
+}
+
+spinbutton.vertical button:first-child {
+    border-width: 1px 1px 0 1px;
+    border-bottom-width: 0;
+}
+
+spinbutton.vertical button:last-child {
+    border-width: 0 1px 1px 1px;
+    border-top-width: 0;
+}
+
+spinbutton.vertical.entry {
+    border-width: 0;
+    border-style: none;
+    border-top-color: @base_color;
+    border-bottom-color: @base_color;
+}
+spinbutton.vertical.entry:disabled {
+    border-top-color:  shade(@bg_color, 1.04);
+    border-bottom-color: shade(@bg_color, 1.04);
+}
+spinbutton.vertical.entry:active,
+spinbutton.vertical.entry:focus {
+    box-shadow: inset 4px 0 @selected_bg_color;
+}
