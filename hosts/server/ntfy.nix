@@ -1,1 +1,0 @@
-{ services.ntfy = { enable = true; }; }

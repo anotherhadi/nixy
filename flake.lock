@@ -423,6 +423,22 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1718349360,
+        "narHash": "sha256-SuPne4BMqh9/IkKIAG47Cu5qfmntAaqlHdX1yuFoDO0=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "ae5c8dcc4d0182d07d75df2dc97112de822cb9d6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1717786204,
@@ -530,6 +546,35 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1718310343,
+        "narHash": "sha256-jD2XqvofA5hdROv8OSTss/vjJi164Mjavgh2yJf2ej4=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "ca312c14ad9abbb8736b9f9fd6fa8b8f60b2f1b2",
+        "type": "github"
+      },
+      "original": {
+        "id": "nur",
+        "type": "indirect"
+      }
+    },
+    "nurpkgs": {
+      "locked": {
+        "lastModified": 1718310343,
+        "narHash": "sha256-jD2XqvofA5hdROv8OSTss/vjJi164Mjavgh2yJf2ej4=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "ca312c14ad9abbb8736b9f9fd6fa8b8f60b2f1b2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "ny": {
       "flake": false,
       "locked": {
@@ -547,8 +592,11 @@
         "apple-fonts": "apple-fonts",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
+        "nur": "nur",
+        "nurpkgs": "nurpkgs",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix"
       }

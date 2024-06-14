@@ -1,9 +1,8 @@
-let variable = import ../../../variables.nix;
-in {
+{ config, ... }: {
   programs.git = {
     enable = true;
-    userName = variable.git.username;
-    userEmail = variable.git.email;
+    userName = config.var.git.username;
+    userEmail = config.var.git.email;
     ignores = [
       ".cache/"
       ".DS_Store"

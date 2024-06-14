@@ -1,6 +1,4 @@
-{ pkgs, config, hyprland, ... }:
-let variable = import ../../../variables.nix;
-in {
+{ pkgs, config, hyprland, ... }: {
 
   imports = [ ./hyprlock.nix ./hypridle.nix ./hyprpaper.nix ];
 
@@ -41,8 +39,15 @@ in {
         "${pkgs.bitwarden}/bin/bitwarden"
       ];
 
-      monitor =
-        [ "eDP-2,highres,0x0,1" "DP-8,highrr,2560x0,1" ",prefered,auto,1" ];
+      monitor = [
+        "eDP-2,highres,0x0,1"
+        # "DP-9,highrr,2560x0,1"
+        # ",prefered,auto,1"
+        #"desc:,2560x1440@240.0,0x0,1.0"
+        #"desc:,2560x1440@60.0,645x4362,1.0"
+        "desc:AOC U34G2G1 0x00000E06,3440x1440@59.97,2560x0,1.0"
+        ",disable"
+      ];
 
       bind = [
         "$mod, RETURN, exec, ${pkgs.kitty}/bin/kitty"
@@ -101,6 +106,7 @@ in {
         "XDG_SESSION_TYPE,wayland"
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
+        "GBM_BACKEND,nvidia-drm"
         "XDG_SESSION_DESKTOP,Hyprland"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_QPA_PLATFORM=wayland,xcb"
@@ -113,17 +119,17 @@ in {
 
       general = {
         resize_on_border = true;
-        gaps_in = config.theme.gaps-in;
-        gaps_out = config.theme.gaps-out;
-        border_size = config.theme.border-size;
-        "col.active_border" = "rgba(${config.theme.colors.primary-bg}ff)";
+        gaps_in = config.var.theme.gaps-in;
+        gaps_out = config.var.theme.gaps-out;
+        border_size = config.var.theme.border-size;
+        "col.active_border" = "rgba(${config.var.theme.colors.accent}ff)";
         "col.inactive_border" = "rgba(00000055)";
         border_part_of_window = true;
         layout = "master";
       };
 
       decoration = {
-        rounding = config.theme.rounding;
+        rounding = config.var.theme.rounding;
         drop_shadow = true;
         shadow_range = 20;
         shadow_render_power = 3;
@@ -143,7 +149,7 @@ in {
       };
 
       input = {
-        kb_layout = variable.keyboardLayout;
+        kb_layout = config.var.keyboardLayout;
 
         kb_options = "caps:escape";
         follow_mouse = 1;
@@ -251,7 +257,7 @@ in {
     };
 
     font = {
-      name = config.theme.font;
+      name = config.var.theme.font;
       size = 11;
     };
   };
