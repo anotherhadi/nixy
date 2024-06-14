@@ -16,7 +16,7 @@ let
   battery-plugged = pkgs.writeShellScriptBin "battery-plugged" ''
     BATTERY_STATUS=$(cat /sys/class/power_supply/BAT*/status | head -n1)
     OLD_BATTERY_STATUS=$(cat /tmp/old_battery_status 2>/dev/null || echo "Unknown")
-    if [[ $BATTERY_STATUS != $OLD_BATTERY_STATUS ]]; then
+    if [[ $BATTERY_STATUS != $OLD_BATTERY_STATUS && $OLD_BATTERY_STATUS != "Unknown" ]]; then
       if [[ $BATTERY_STATUS == "Discharging" ]]; then
         ${pkgs.libnotify}/bin/notify-send "󰚦  " "Battery is unplugged"
       else
