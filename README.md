@@ -207,3 +207,7 @@ git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```sh
 sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
 ```
+
+## Contribute
+
+Feel free to contribute to this project by opening an issue or a pull request.
