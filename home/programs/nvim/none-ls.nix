@@ -12,6 +12,8 @@
         nixfmt.enable = true;
         markdownlint.enable = true;
         tidy.enable = true;
+        shellharden.enable = true;
+        shfmt.enable = true;
       };
     };
   };
