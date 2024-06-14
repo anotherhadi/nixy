@@ -34,6 +34,7 @@
       gaps-in = 12;
       gaps-out = config.var.theme.gaps-in * 2;
       border-size = 4;
+      animation-speed = "slow"; # "fast" | "medium" | "slow"
 
       fetch = "nerdfetch"; # "nerdfetch" | "neofetch" | "none"
 
