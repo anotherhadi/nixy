@@ -9,10 +9,16 @@
     # package = inputs.waybar.packages."${pkgs.system}".waybar;
     settings = {
       mainBar = {
-        layer = "top";
-        position = "top";
+        layer = config.var.theme.waybar.position;
+        position = config.var.theme.waybar.position;
         spacing = 0;
-        "margin-top" = if config.var.theme.waybar.float then
+        "margin-top" = if config.var.theme.waybar.float
+        && config.var.theme.waybar.position == "top" then
+          config.var.theme.gaps-out
+        else
+          0;
+        "margin-bottom" = if config.var.theme.waybar.float
+        && config.var.theme.waybar.position == "bottom" then
           config.var.theme.gaps-out
         else
           0;
