@@ -46,6 +46,19 @@
       icat = "${pkgs.kitty}/bin/kitty +kitten icat";
       note = "vim ~/Nextcloud/obsidian";
       obs = "vim ~/Nextcloud/obsidian";
+
+      # git
+      ga = "git add";
+      gc = "git commit";
+      gcm = "git commit -m";
+      gcu = "git commit -m 'Update'";
+      gp = "git push";
+      gpl = "git pull";
+      gs = "git status";
+      gd = "git diff";
+      gco = "git checkout";
+      gcb = "git checkout -b";
+      gbr = "git branch";
     };
   };
 }
