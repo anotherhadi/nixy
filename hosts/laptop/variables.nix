@@ -67,12 +67,12 @@
         bgalt = "131313";
         fgalt = config.var.theme.colors.c15;
 
-        accent = config.var.theme.colors.c4;
+        accent = config.var.theme.colors.c5;
         accentFg = config.var.theme.colors.c0;
 
         # Should make those automtic
-        accentName = "blue";
-        accentNumber = "4";
+        accentName = "magenta";
+        accentNumber = "5";
       };
     };
   };

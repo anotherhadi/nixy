@@ -111,8 +111,8 @@
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_QPA_PLATFORM=wayland,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "GTK_THEME,Flat-Remix-GTK-Violet-Darkest-Solid:dark"
-        # "GTK_THEME,Nixy-GTK"
+        "GTK_THEME,FlatColor:dark"
+        "GTK2_RC_FILES,/home/hadi/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
         # "HYPRCURSOR_THEME,rose-pine-hyprcursor"
         # "HYPRCURSOR_SIZE,16"
       ];
@@ -240,16 +240,14 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk";
+    platformTheme.name = "gtk2";
     style.name = "gtk2";
   };
 
   gtk = {
     enable = true;
-    theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Violet-Darkest-Solid";
-    };
+
+    theme = { name = "FlatColor"; };
 
     iconTheme = {
       package = pkgs.flat-remix-icon-theme;

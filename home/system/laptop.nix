@@ -8,5 +8,6 @@
     ./waybar
     ./wlogout
     ./wofi
+    ./theme
   ];
 }

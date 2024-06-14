@@ -1,0 +1,16 @@
+entry.chromium {
+	color: @selected_fg_color;
+	background-color: @selected_bg_color;
+}
+
+menu.chromium {
+	background-color: @theme_bg_color;
+	color: @theme_fg_color;
+	border: none 0px;
+}
+
+window.background.chromium {
+	border: none 0px;
+    background-color: @selected_bg_color;
+	color: @theme_fg_color;
+}
