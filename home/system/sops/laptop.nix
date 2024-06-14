@@ -1,16 +1,15 @@
-{ sops-nix, ... }: {
+{ pkgs, sops-nix, ... }: {
   imports = [ sops-nix.homeManagerModules.sops ];
+
+  home.packages = with pkgs; [ sops age ];
 
   sops = {
     age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
-    defaultSopsFile = ../../../secrets/secrets.yaml;
+    defaultSopsFile = ../../../secrets/laptop.yaml;
     secrets = {
       sshconfig = { path = "/home/hadi/.ssh/config"; };
-      oxk = { path = "/home/hadi/.ssh/oxserver"; };
-      gk = { path = "/home/hadi/.ssh/github"; };
-      glk = { path = "/home/hadi/.ssh/gitlab"; };
-      silicon = { path = "/home/hadi/.ssh/silicon"; };
-      heaven = { path = "/home/hadi/.ssh/heaven"; };
+      github-key = { path = "/home/hadi/.ssh/github"; };
+      gitlab-key = { path = "/home/hadi/.ssh/gitlab"; };
     };
   };
 

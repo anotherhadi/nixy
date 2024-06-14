@@ -12,12 +12,18 @@
         layer = "top";
         position = "top";
         spacing = 0;
-        "margin-top" =
-          if config.theme.waybar.float then config.theme.gaps-out else 0;
-        "margin-left" =
-          if config.theme.waybar.float then config.theme.gaps-out else 0;
-        "margin-right" =
-          if config.theme.waybar.float then config.theme.gaps-out else 0;
+        "margin-top" = if config.var.theme.waybar.float then
+          config.var.theme.gaps-out
+        else
+          0;
+        "margin-left" = if config.var.theme.waybar.float then
+          config.var.theme.gaps-out
+        else
+          0;
+        "margin-right" = if config.var.theme.waybar.float then
+          config.var.theme.gaps-out
+        else
+          0;
         height = 44;
         modules-left = [ "custom/logo" "hyprland/window" ];
         modules-center = [ "hyprland/workspaces" ];
@@ -125,23 +131,23 @@
         border: none;
         border-radius: 0;
         min-height: 0;
-        font-family: "${config.theme.font}";
-        color: #${config.theme.colors.fg};
+        font-family: "${config.var.theme.font}";
+        color: #${config.var.theme.colors.fg};
         font-weight: 700;
       }
 
       window#waybar {
         background-color: ${
-          if config.theme.waybar.transparent then
+          if config.var.theme.waybar.transparent then
             "rgba(0, 0, 0, 0)"
           else
-            "#${config.theme.colors.bg}"
+            "#${config.var.theme.colors.bg}"
         };
         transition-property: background-color;
         transition-duration: 0.5s;
         border-radius: ${
-          if config.theme.waybar.float then
-            toString config.theme.rounding
+          if config.var.theme.waybar.float then
+            toString config.var.theme.rounding
           else
             "0"
         }px;
@@ -150,12 +156,12 @@
 
       .modules-left, .modules-center, .modules-right {
         border-radius: ${
-          if config.theme.waybar.float then
-            toString config.theme.rounding
+          if config.var.theme.waybar.float then
+            toString config.var.theme.rounding
           else
             "0"
         }px;
-        background-color: #${config.theme.colors.bg};
+        background-color: #${config.var.theme.colors.bg};
         padding: 2px 6px;
       }
 
@@ -174,13 +180,13 @@
         padding: 6px 18px;
         margin: 6px 3px;
         border-radius: 4px;
-        background-color: #${config.theme.colors.alt-bg};
-        color: #${config.theme.colors.alt-fg};
+        background-color: #${config.var.theme.colors.bgalt};
+        color: #${config.var.theme.colors.fgalt};
       }
 
       #workspaces button.active {
-        color: #${config.theme.colors.primary-fg};
-        background-color: #${config.theme.colors.primary-bg};
+        color: #${config.var.theme.colors.accentFg};
+        background-color: #${config.var.theme.colors.accent};
       }
 
       #workspaces button:hover {
@@ -190,11 +196,11 @@
       }
 
       #workspaces button.urgent {
-        background-color: #${config.theme.colors.color1};
+        background-color: #${config.var.theme.colors.c1};
       }
 
       #window > * {
-        font-family: "${config.theme.font-mono}";
+        font-family: "${config.var.theme.font-mono}";
       }
 
       #memory,
@@ -209,19 +215,19 @@
         border-radius: 9px;
         margin: 6px 3px;
         padding: 6px 12px;
-        background-color: #${config.theme.colors.alt-bg};
-        color: #${config.theme.colors.alt-fg};
+        background-color: #${config.var.theme.colors.bgalt};
+        color: #${config.var.theme.colors.fgalt};
       }
 
       #tray menu {
-        background-color: #${config.theme.colors.alt-bg};
-        color: #${config.theme.colors.alt-fg};
+        background-color: #${config.var.theme.colors.bgalt};
+        color: #${config.var.theme.colors.fgalt};
       }
 
       #custom-logo {
         padding-right: 7px;
         font-size: 15px;
-        color: #${config.theme.colors.primary-bg};
+        color: #${config.var.theme.colors.accent};
       }
 
       @keyframes blink {
@@ -244,28 +250,28 @@
       }
 
       #battery.charging {
-        background-color: #${config.theme.colors.alt-bg};
-        color: #${config.theme.colors.alt-fg};
+        background-color: #${config.var.theme.colors.bgalt};
+        color: #${config.var.theme.colors.fgalt};
         animation: none;
       }
 
       #custom-power {
-        background-color: #${config.theme.colors.primary-bg};
-        color: #${config.theme.colors.primary-fg};
+        background-color: #${config.var.theme.colors.accent};
+        color: #${config.var.theme.colors.accentFg};
       }
 
 
       tooltip {
         border-radius: 8px;
         padding: 15px;
-        background-color: #${config.theme.colors.alt-bg};
-        color: #${config.theme.colors.alt-fg};
+        background-color: #${config.var.theme.colors.bgalt};
+        color: #${config.var.theme.colors.fgalt};
       }
 
       tooltip label {
         padding: 5px;
-        background-color: #${config.theme.colors.alt-bg};
-        color: #${config.theme.colors.alt-fg};
+        background-color: #${config.var.theme.colors.bgalt};
+        color: #${config.var.theme.colors.fgalt};
       }
     '';
   };

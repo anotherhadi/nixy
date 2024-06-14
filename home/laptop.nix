@@ -1,25 +1,21 @@
-{ pkgs, ... }:
-let variable = import ../variables.nix;
-in {
+{ pkgs, config, ... }: {
 
   imports = [
+    ../hosts/laptop/variables.nix
     ./system/laptop.nix
     ./scripts/laptop.nix
-    ./apps/laptop.nix
-    ./themes/nixy.nix
-    ./themes/config/load_wallpapers.nix
+    ./programs/laptop.nix
   ];
 
   home = {
-    username = variable.username;
-    homeDirectory = variable.homeDirectory;
+    inherit (config.var) username;
+    inherit (config.var) homeDirectory;
 
     packages = with pkgs; [
       swappy
       imv
       discord
-      # obsidian # BROKEN
-      btop
+      obsidian
       xfce.thunar
       bitwarden
       vlc
@@ -32,8 +28,6 @@ in {
       jq
 
       # Utils
-      sops # Secrets
-      age # Secrets
       fd
       bc
       gcc
@@ -43,9 +37,9 @@ in {
       xdg_utils
       wget
       curl
-      neovide
       wf-recorder
       glow
+      nwg-displays
 
       # Just cool
       peaclock
@@ -55,11 +49,19 @@ in {
 
       # Backup
       vscode
-      firefox
       tor-browser
+      firefox
+      neovide
     ];
 
-    stateVersion = variable.stateVersion;
+    file."wallpapers" = {
+      recursive = true;
+      source = ./wallpapers;
+    };
+
+    stateVersion = "24.05";
   };
+
   programs.home-manager.enable = true;
+
 }

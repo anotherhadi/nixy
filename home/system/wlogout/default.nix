@@ -43,7 +43,7 @@
 
     style = ''
             * {
-              font-family: "${config.theme.font}";
+              font-family: "${config.var.theme.font}";
               background-image: none;
       transition: 20ms;
             }
@@ -53,23 +53,23 @@
           }
 
           button {
-      color: #${config.theme.colors.fg};
+      color: #${config.var.theme.colors.fg};
              font-size:20px;
 
              background-repeat: no-repeat;
              background-position: center;
              background-size: 25%;
 
-              border: 3px solid #${config.theme.colors.bg};
-             background-color: #${config.theme.colors.bg};
+              border: 3px solid #${config.var.theme.colors.bg};
+             background-color: #${config.var.theme.colors.bg};
               box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
           }
 
       button:focus,
                button:active {
-      color: #${config.theme.colors.primary-fg};
-             background-color: #${config.theme.colors.primary-bg};
-      border: 3px solid #${config.theme.colors.primary-bg};
+      color: #${config.var.theme.colors.accentFg};
+             background-color: #${config.var.theme.colors.accent};
+      border: 3px solid #${config.var.theme.colors.accent};
                }
 
              /* 
@@ -80,7 +80,7 @@
 
       #lock,#logout,#suspend,#hibernate,#shutdown,#reboot {
         margin: 10px;
-        border-radius: ${toString config.theme.rounding}px;
+        border-radius: ${toString config.var.theme.rounding}px;
       }
 
       #lock {
