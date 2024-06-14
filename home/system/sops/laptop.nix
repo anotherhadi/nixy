@@ -1,5 +1,5 @@
-{ pkgs, sops-nix, ... }: {
-  imports = [ sops-nix.homeManagerModules.sops ];
+{ pkgs, inputs, ... }: {
+  imports = [ inputs.sops-nix.homeManagerModules.sops ];
 
   home.packages = with pkgs; [ sops age ];
 

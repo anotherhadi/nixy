@@ -1,4 +1,4 @@
-{ pkgs, config, hyprland, ... }: {
+{ pkgs, config, inputs, ... }: {
 
   imports = [ ./hyprlock.nix ./hypridle.nix ./hyprpaper.nix ];
 
@@ -26,7 +26,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    package = hyprland.packages."${pkgs.system}".hyprland;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
     settings = {
       "$mod" = "SUPER";

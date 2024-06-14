@@ -1,6 +1,9 @@
 {
-  description =
-    "My NixOs dotfiles - Home-manager, hyprland, nixvim, sops, kitty, wofi, waybar, lf, dunst, qutebrowser, tmux, ...";
+  # https://github.com/anotherhadi/nixy
+  description = ''
+    Nixy is a NixOS configuration with home-manager, secrets and custom theming all in one place.
+    It's a simple way to manage your system configuration and dotfiles.
+  '';
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -23,33 +26,28 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, sops-nix, hyprland, spicetify-nix
-    , nur, nixos-hardware, ... }: {
-      nixosConfigurations = {
+  outputs = inputs@{ nixpkgs, nur, ... }: {
+    nixosConfigurations = {
 
-        nixy = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            { nixpkgs.overlays = [ nur.overlay ]; }
-            ./hosts/laptop/configuration.nix
-            nixos-hardware.nixosModules.omen-16-n0005ne
-            { _module.args = { inherit inputs; }; }
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users."hadi" = import ./home/laptop.nix; # CHANGE ME
-                extraSpecialArgs = {
-                  inherit inputs;
-                  inherit spicetify-nix;
-                  inherit sops-nix;
-                  inherit hyprland;
-                };
-              };
-            }
-          ];
-        };
+      nixy = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/laptop/configuration.nix
+          inputs.nixos-hardware.nixosModules.omen-16-n0005ne
+          inputs.home-manager.nixosModules.home-manager
+          {
+            nixpkgs.overlays = [ nur.overlay ];
+            _module.args = { inherit inputs; };
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users."hadi" = import ./home/laptop.nix; # CHANGE ME
+              extraSpecialArgs = { inherit inputs; };
+            };
+          }
+        ];
       };
+
     };
+  };
 }
