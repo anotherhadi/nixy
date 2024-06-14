@@ -40,6 +40,7 @@
       waybar = {
         transparent = true;
         float = true;
+        position = "top";
       };
 
       colors = {

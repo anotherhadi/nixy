@@ -1,10 +1,12 @@
-{ pkgs, config, ... }: {
-  home.packages = with pkgs; [ hyprpaper ];
-
-  xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload = ~/wallpapers/${config.var.theme.wallpaper}
-    wallpaper = ,~/wallpapers/${config.var.theme.wallpaper}
-    ipc=true
-    splash=false
-  '';
+{ config, ... }: {
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      ipc = "on";
+      splash = false;
+      splash_offset = 2.0;
+      preload = [ "~/wallpapers/${config.var.theme.wallpaper}" ];
+      wallpaper = [ ",~/wallpapers/${config.var.theme.wallpaper}" ];
+    };
+  };
 }
