@@ -23,14 +23,6 @@ let
     sudo /run/current-system/bin/switch-to-configuration boot
   '';
 
-  heaven-push = pkgs.writeShellScriptBin "heaven-push" ''
-    cd ~/dev/heaven && git add . && git commit -m ''${1:-Update} && git push
-  '';
-
-  remote-rebuild = pkgs.writeShellScriptBin "remote-rebuild" ''
-    ssh -t heaven "cd ~/.config/nixos && git pull && heaven-rebuild"
-  '';
-
 in {
   home.packages = with pkgs; [
     nixy-rebuild
@@ -38,8 +30,5 @@ in {
     nixy-update
     nixy-gc
     nixy-cb
-
-    heaven-push
-    remote-rebuild
   ];
 }

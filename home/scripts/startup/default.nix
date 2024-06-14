@@ -1,8 +1,6 @@
 # File runned at startup by Hyprland
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
-  variable = import ../../../variables.nix;
-
   nextcloud-watch = pkgs.writeShellScriptBin "nextcloud-watch" ''
     # Start nextcloud if I'm on my local network
     while true;do
@@ -31,11 +29,9 @@ let
   startup = pkgs.writeShellScriptBin "startup" ''
     # Because HM enabling services suck.
 
-    [[ ${
-      toString variable.enableSops
-    } == "1" ]] && systemctl --user start sops-nix
+    [[ ${toString config.var.sops} == "1" ]] && systemctl --user start sops-nix
 
-    [[ ${toString variable.enableNextcloud} == "1" ]] && nextcloud-watch &
+    [[ ${toString config.var.nextcloud} == "1" ]] && nextcloud-watch &
 
     notify-system &
     ${pkgs.waybar}/bin/waybar &

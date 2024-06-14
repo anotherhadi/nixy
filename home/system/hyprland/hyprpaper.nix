@@ -2,8 +2,8 @@
   home.packages = with pkgs; [ hyprpaper ];
 
   xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload = ~/.config/wallpapers/${config.theme.wallpaper}
-    wallpaper = ,~/.config/wallpapers/${config.theme.wallpaper}
+    preload = ~/wallpapers/${config.var.theme.wallpaper}
+    wallpaper = ,~/wallpapers/${config.var.theme.wallpaper}
     ipc=true
     splash=false
   '';

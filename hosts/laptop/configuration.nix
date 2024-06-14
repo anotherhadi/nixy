@@ -1,17 +1,13 @@
-{ pkgs, config, ... }:
-let
-  variable = import ../../variables.nix;
-  baseImports = [ ./hardware-configuration.nix ];
-
-  extraImports = [
-    (if variable.enableNvidia then ./nvidia.nix else null)
-    (if variable.enablePrime then ./prime.nix else null)
+{ pkgs, config, ... }: {
+  imports = [
+    ./hardware-configuration.nix
+    ../shared/fonts.nix
+    # ../shared/nvidia.nix
+    # ../shared/prime.nix
+    ../shared/testnvidia.nix
+    ../shared/tuigreet.nix
+    ./variables.nix
   ];
-
-  filteredImports = builtins.filter (x: x != null) extraImports;
-
-in {
-  imports = baseImports ++ filteredImports;
 
   # Bootloader.
   boot = {
@@ -21,42 +17,48 @@ in {
       consoleMode = "auto";
     };
     tmp.cleanOnBoot = true;
+    kernelPackages =
+      pkgs.linuxPackages_latest; # _zen, _hardened, _rt, _rt_latest, etc.
   };
 
+  # Networking
   networking.networkmanager.enable = true;
+  networking.hostName = config.var.hostname;
 
-  networking.hostName = variable.hostName;
-
-  time.timeZone = variable.timeZone;
-  i18n.defaultLocale = variable.defaultLocale;
+  # Timezone and locale
+  time.timeZone = config.var.timeZone;
+  i18n.defaultLocale = config.var.defaultLocale;
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = variable.extraLocale;
-    LC_IDENTIFICATION = variable.extraLocale;
-    LC_MEASUREMENT = variable.extraLocale;
-    LC_MONETARY = variable.extraLocale;
-    LC_NAME = variable.extraLocale;
-    LC_NUMERIC = variable.extraLocale;
-    LC_PAPER = variable.extraLocale;
-    LC_TELEPHONE = variable.extraLocale;
-    LC_TIME = variable.extraLocale;
+    LC_ADDRESS = config.var.extraLocale;
+    LC_IDENTIFICATION = config.var.extraLocale;
+    LC_MEASUREMENT = config.var.extraLocale;
+    LC_MONETARY = config.var.extraLocale;
+    LC_NAME = config.var.extraLocale;
+    LC_NUMERIC = config.var.extraLocale;
+    LC_PAPER = config.var.extraLocale;
+    LC_TELEPHONE = config.var.extraLocale;
+    LC_TIME = config.var.extraLocale;
   };
 
-  users.users.${variable.username} = {
+  # Users
+  users.users.${config.var.username} = {
     isNormalUser = true;
-    description = "${variable.username} account";
+    description = "${config.var.username} account";
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
   services = {
     xserver = {
-      xkb.layout = variable.keyboardLayout;
+      enable = true;
+      xkb.layout = config.var.keyboardLayout;
       xkb.variant = "";
     };
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
   };
-  console.keyMap = variable.keyboardLayout;
+  console.keyMap = config.var.keyboardLayout;
 
+  # Shell
   programs.zsh = {
     enable = true;
     loginShellInit = ''
@@ -64,24 +66,6 @@ in {
     '';
   };
   users.defaultUserShell = pkgs.zsh;
-
-  # faster rebuilding
-  documentation = {
-    enable = true;
-    doc.enable = false;
-    man.enable = true;
-    dev.enable = false;
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [ networkmanagerapplet ];
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-    "nix-2.16.2"
-  ]; # TODO: Remove this if not needed anymore
 
   hardware.bluetooth = {
     enable = true;
@@ -118,8 +102,12 @@ in {
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      ];
     };
-    gc = if variable.enableAutoGarbageCollector then {
+    gc = if config.var.autoGarbageCollector then {
       automatic = true;
       persistent = true;
       dates = "weekly";
@@ -128,22 +116,37 @@ in {
       { };
   };
 
-  system.autoUpgrade = if variable.enableAutoUpgrade then {
+  nixpkgs.config.allowUnfree = true;
+  environment.systemPackages = with pkgs; [ networkmanagerapplet ];
+  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
+
+  system.autoUpgrade = if config.var.autoUpgrade then {
     enable = true;
     dates = "04:00";
-    flake = "${config.users.users.${variable.username}.home}/.config/nixos";
+    flake = "${config.users.users.${config.var.username}.home}/.config/nixos";
     flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
     allowReboot = false;
   } else
     { };
 
-  nix.settings = {
-    substituters = [ "https://hyprland.cachix.org" ];
-    trusted-public-keys =
-      [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+  xdg.portal = {
+    enable = true;
+    configPackages = with pkgs; [ xdg-desktop-portal-gtk ];
+  };
+
+  services.libinput.enable = true;
+  programs.dconf.enable = true;
+
+  # Faster rebuilding
+  documentation = {
+    enable = true;
+    doc.enable = false;
+    man.enable = true;
+    dev.enable = false;
   };
 
   services.dbus.enable = true;
 
-  system.stateVersion = variable.stateVersion;
+  # Don't touch this
+  system.stateVersion = "24.05";
 }

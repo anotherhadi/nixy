@@ -11,9 +11,9 @@
 
     initExtraFirst = ''
       bindkey -e
-      ${if config.theme.neofetch == "neofetch" then
+      ${if config.var.theme.fetch == "neofetch" then
         pkgs.neofetch + "/bin/neofetch"
-      else if config.theme.neofetch == "nerdfetch" then
+      else if config.var.theme.fetch == "nerdfetch" then
         "nerdfetch"
       else
         ""}

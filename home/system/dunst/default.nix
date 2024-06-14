@@ -34,17 +34,17 @@
         sticky_history = "yes";
         history_length = 20;
         always_run_script = true;
-        corner_radius = config.theme.rounding;
+        corner_radius = config.var.theme.rounding;
         follow = "mouse";
-        font = config.theme.font;
+        font = config.var.theme.font;
         format = "<b>%s</b>\\n%b";
-        progress_bar_corner_radius = config.theme.rounding - 10;
+        progress_bar_corner_radius = config.var.theme.rounding - 10;
         #format = ''
-        #  <span foreground='#${config.theme.colors.primary-bg}'><b>%s %p</b></span>
+        #  <span foreground='#${config.var.theme.colors.accent}'><b>%s %p</b></span>
         #  %b'';
-        frame_color = "#" + config.theme.colors.bg;
-        highlight = "#" + config.theme.colors.primary-bg;
-        foreground = "#" + config.theme.colors.fg;
+        frame_color = "#" + config.var.theme.colors.bg;
+        highlight = "#" + config.var.theme.colors.accent;
+        foreground = "#" + config.var.theme.colors.fg;
         frame_width = 1;
         offset = "0x10";
         horizontal_padding = 10;
@@ -67,16 +67,16 @@
       fullscreen_delay_everything = { fullscreen = "delay"; };
 
       urgency_critical = {
-        background = "#" + config.theme.colors.color1;
-        foreground = "#" + config.theme.colors.color0;
+        background = "#" + config.var.theme.colors.c1;
+        foreground = "#" + config.var.theme.colors.c0;
       };
       urgency_low = {
-        background = "#" + config.theme.colors.alt-bg;
-        foreground = "#" + config.theme.colors.alt-fg;
+        background = "#" + config.var.theme.colors.bgalt;
+        foreground = "#" + config.var.theme.colors.fgalt;
       };
       urgency_normal = {
-        background = "#" + config.theme.colors.alt-bg;
-        foreground = "#" + config.theme.colors.alt-fg;
+        background = "#" + config.var.theme.colors.bgalt;
+        foreground = "#" + config.var.theme.colors.fgalt;
       };
     };
   };
