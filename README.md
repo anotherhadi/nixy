@@ -100,11 +100,12 @@ It's a simple way to manage your system configuration and dotfiles.
 ## Settings, Themes and colors
 
 In your hosts configuration, you should add a `variables.nix` file to manage your settings, including:
-    - user information
-    - timezone and locale
-    - keyboard layout
-    - the theme: will be used in programs and for GTK *(and QT (TODO))* themes
-    - ... (check the `hosts/guest/variables.nix` file for more information)
+
+- user information
+- timezone and locale
+- keyboard layout
+- the theme: will be used in programs and for GTK *(and QT (TODO))* themes
+- ... (check the `hosts/guest/variables.nix` file for more information)
 
 PS: To apply the theme to duckduckgo, follow the instructions in `$HOME/.config/duckduckgo-colorscheme.js`.
 
