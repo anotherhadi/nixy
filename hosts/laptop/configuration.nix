@@ -2,9 +2,8 @@
   imports = [
     ./hardware-configuration.nix
     ../shared/fonts.nix
-    # ../shared/nvidia.nix
-    # ../shared/prime.nix
-    ../shared/testnvidia.nix
+    ../shared/nvidia.nix
+    ../shared/prime.nix
     ../shared/tuigreet.nix
     ./variables.nix
   ];
