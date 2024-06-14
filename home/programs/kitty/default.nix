@@ -13,8 +13,8 @@
       shell = "${pkgs.tmux}/bin/tmux";
       url_style = "curly";
       cursor_shape = "Underline";
-      cursor_underline_thickness = 1;
-      window_padding_width = config.var.theme.gaps-out;
+      cursor_underline_thickness = config.var.theme.border-size;
+      window_padding_width = config.var.theme.gaps-in;
 
       # Font
       font_family = config.var.theme.font-mono;
