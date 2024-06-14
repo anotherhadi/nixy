@@ -9,6 +9,9 @@
    <div align="center">
       <p></p>
       <div align="center">
+         <a href="https://github.com/anotherhadi/nixy">
+            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Version&message=2.0.0&colorA=040409&colorB=a158ff&logo=githubactions&logoColor=a158ff&"/>
+         </a>
          <a href="https://github.com/anotherhadi/nixy/stargazers">
             <img src="https://img.shields.io/github/stars/anotherhadi/nixy?color=a158ff&labelColor=040409&style=for-the-badge&logo=starship&logoColor=a158ff">
          </a>
@@ -26,7 +29,8 @@
    </div>
 </h1>
 
-Hello there! This is my **NixOs (w/home-manager) dotfiles** repo. It's still a *work in progress*, and I'm still learning how to use nix.
+**Nixy** is a NixOS configuration with home-manager, secrets and custom theming all in one place.
+It's a simple way to manage your system configuration and dotfiles.
 
 ## Table of Contents
 
@@ -50,7 +54,13 @@ Hello there! This is my **NixOs (w/home-manager) dotfiles** repo. It's still a *
 ![spotify](https://image.nostr.build/76b18bcbcdf1d911a2dbdff7bfac6652044d45602a3dce9d9c53feb295d13245.jpg)
 ![wofi](https://image.nostr.build/90d69ffe6251c17e25b0fb44abadaeb0dfe6db8210d935fca14bf8b00be49fa6.jpg)
 
-## Apps
+## Apps && Architechture
+
+- `home` are the dotfiles and configuration files for the user
+- `hosts` are the system configuration files
+  - `laptop` is mine
+  - `guest` is a template for you
+- `secrets` are the secrets files encrypted with sops
 
 <details>
 <summary>Click to expand</summary>
@@ -87,11 +97,16 @@ Hello there! This is my **NixOs (w/home-manager) dotfiles** repo. It's still a *
 
 </details>
 
-## Themes & Colors
+## Settings, Themes and colors
 
-Themes and colors are managed by the `home/themes` folder. You can copy the default `nixy.nix` theme and make your own.
+In your hosts configuration, you should add a `variables.nix` file to manage your settings, including:
+    - user information
+    - timezone and locale
+    - keyboard layout
+    - the theme: will be used in programs and for GTK *(and QT (TODO))* themes
+    - ... (check the `hosts/guest/variables.nix` file for more information)
 
-To apply the theme to duckduckgo, follow the instructions in `$HOME/.config/duckduckgo-colorscheme.js`.
+PS: To apply the theme to duckduckgo, follow the instructions in `$HOME/.config/duckduckgo-colorscheme.js`.
 
 ## Scripts
 
@@ -186,8 +201,7 @@ Some shortcut to compress and extract files.
 git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```
 
-- Change the `variables.nix` file to match your configuration
-- Copy your `hardware-configuration.nix` file to the `nixos` folder
+*let me cook this*
 
 ```sh
 sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
