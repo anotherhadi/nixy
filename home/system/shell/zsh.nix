@@ -15,6 +15,8 @@
         pkgs.neofetch + "/bin/neofetch"
       else if config.var.theme.fetch == "nerdfetch" then
         "nerdfetch"
+      else if config.var.theme.fetch == "pfetch" then
+        "echo; ${pkgs.pfetch}/bin/pfetch"
       else
         ""}
     '';
