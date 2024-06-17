@@ -1,6 +1,6 @@
-{
+{ config, ... }: {
   programs.nixvim.plugins.obsidian = {
-    enable = true;
+    enable = config.var.obsidian;
     settings = {
       dir = "~/nextcloud/Notes";
       disable_frontmatter = true;
