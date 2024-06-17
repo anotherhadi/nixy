@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-theme_name="nixy"
+[ "$1" = "" ] && echo "Usage: $0 <theme_name>" && exit 1
+theme_name=$1
 
 # Switch to workspace 1
 sleep 2
