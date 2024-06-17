@@ -18,7 +18,7 @@
 
       # Font
       font_family = config.var.theme.font-mono;
-      font_size = 13;
+      font_size = config.var.theme.font-size;
 
       # Colors
       background = "#" + config.var.theme.colors.bg;
