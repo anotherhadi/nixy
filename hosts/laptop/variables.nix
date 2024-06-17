@@ -25,6 +25,6 @@
     nextcloud = true;
     obsidian = true; # change the nvim's obsidian configuration if you want to enable that
 
-    theme = import ../themes/nixy.nix;
+    theme = import ../themes/nixy.nix; # select your theme here
   };
 }
