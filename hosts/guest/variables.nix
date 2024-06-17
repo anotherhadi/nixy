@@ -28,6 +28,6 @@
     # change the nvim's obsidian configuration if you want to enable that:
     obsidian = false;
 
-    theme = import ../themes/nixy.nix; # select your theme here
+    theme = import ../themes/catppuccin.nix; # select your theme here
   };
 }
