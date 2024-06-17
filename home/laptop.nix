@@ -2,9 +2,28 @@
 
   imports = [
     ../hosts/laptop/variables.nix
-    ./system/laptop.nix
-    ./scripts/laptop.nix
-    ./programs/laptop.nix
+
+    # Programs
+    ./programs/btop
+    ./programs/cava
+    ./programs/kitty
+    ./programs/nvim
+    ./programs/qutebrowser
+    ./programs/spicetify
+
+    # Scripts
+    ./scripts # All scripts
+
+    # System
+    ./system/dunst
+    ./system/git
+    ./system/gtk
+    ./system/hyprland
+    ./system/shell
+    ./system/sops/laptop.nix
+    ./system/waybar
+    ./system/wlogout
+    ./system/wofi
   ];
 
   home = {
@@ -57,6 +76,7 @@
       neovide
     ];
 
+    # Import wallpapers into $HOME/wallpapers
     file."wallpapers" = {
       recursive = true;
       source = ./wallpapers;
