@@ -26,6 +26,6 @@
     sops = true;
     obsidian = false;
 
-    theme = import ../themes/catppuccin.nix; # select your theme here
+    theme = import ../themes/windows.nix; # select your theme here
   };
 }
