@@ -1,6 +1,5 @@
 # Todolist
 
-- [ ] Readme generation
 - [ ] Installation script
 - [ ] Compress png docs/src
 - [ ] Find a new icon theme (White, flat)
@@ -14,6 +13,6 @@
 - [ ] Make hyprcursor work
 - [ ] Remove folder's laptop conf
 - [ ] Nixvim
-    - [ ] Telescope shortcut for file content
-    - [ ] Markdown snippets
-    - [ ] Make whichkey better
+  - [ ] Telescope shortcut for file content
+  - [ ] Markdown snippets
+  - [ ] Make whichkey better
