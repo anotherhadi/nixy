@@ -157,7 +157,7 @@
           else
             "0"
         }px;
-        font-size: 13px;
+        font-size: ${toString config.var.theme.waybar.font-size}px;
       }
 
       .modules-left, .modules-center, .modules-right {
@@ -232,7 +232,7 @@
 
       #custom-logo {
         padding-right: 7px;
-        font-size: 15px;
+        font-size: ${toString config.var.theme.waybar.font-size}px;
         color: #${config.var.theme.colors.accent};
       }
 
