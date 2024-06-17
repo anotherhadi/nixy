@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+[[ -d "./hosts" ]] || (exit 1; echo "Folder ./hosts not found")
+
 LAPTOP_CONFIG="./hosts/laptop"
 GUEST_CONFIG="./hosts/guest"
 
