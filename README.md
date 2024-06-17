@@ -60,6 +60,8 @@ It's a simple way to manage your system configuration and dotfiles.
 - `hosts` are the system configuration files
   - `laptop` is mine
   - `guest` is a template for you
+  - `themes` contains all the themes available (you can create your own)
+  - `shared` are some nix files that you can import (nvidia, prime, fonts, ...)
 - `secrets` are the secrets files encrypted with sops
 
 <details>
@@ -203,6 +205,8 @@ git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```
 
 *let me cook this*
+- Change the username in the flake.nix file
+- import your hardware-configuration.nix into the `hosts/guest` folder
 
 ```sh
 sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
