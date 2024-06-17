@@ -18,10 +18,11 @@ It's a simple way to manage your system configuration and dotfiles.
 
 - 🏠 `home` are the dotfiles and configuration files for the user
 - 💻 `hosts` are the system configuration files
-  - `laptop` is mine
-  - `guest` is a template that you can copy and modify for your own system
-  - `themes` contains all the themes available (see [THEMES.md](docs/THEMES.md))
-  - `shared` are some nix files that you can import (nvidia, prime, fonts, ...)
+  - 'laptop' is my own configuration for my laptop with nvidia
+  - 'server' is for my nixos server
+  - 'guest' is a *template* that you can copy and modify for *your own system*
+  - 'themes' contains all the *themes* available (see [THEMES.md](docs/THEMES.md))
+  - 'shared' are some nix modules that you can import (nvidia, prime, fonts, ...)
 - 🤫 `secrets` are the secrets files encrypted with sops
 
 ## Installation

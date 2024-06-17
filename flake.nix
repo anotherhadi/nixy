@@ -51,7 +51,7 @@
       jack = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/laptop/configuration.nix
+          ./hosts/server/configuration.nix
           inputs.home-manager.nixosModules.home-manager
           {
             nixpkgs.overlays = [ nur.overlay ];
