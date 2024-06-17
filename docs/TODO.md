@@ -1,5 +1,6 @@
 # Todolist
 
+- [ ] Nixy script v2 (with flake)
 - [ ] Installation script
 - [ ] Themes
   - [ ] MacOS theme
