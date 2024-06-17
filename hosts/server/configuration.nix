@@ -1,5 +1,10 @@
 { pkgs, config, ... }: {
-  imports = [ ./hardware-configuration.nix ./variables.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./variables.nix
+    ../shared/openssh.nix
+    ../shared/nginx.nix
+  ];
 
   # Bootloader.
   boot = {
