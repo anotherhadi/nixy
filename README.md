@@ -58,7 +58,7 @@ It's a simple way to manage your system configuration and dotfiles.
 - 💻 `hosts` are the system configuration files
   - `laptop` is mine
   - `guest` is a template that you can copy and modify for your own system
-  - `themes` contains all the themes available (see [[docs/THEMES.md]])
+  - `themes` contains all the themes available (see [docs/THEMES.md])
   - `shared` are some nix files that you can import (nvidia, prime, fonts, ...)
 - 🤫 `secrets` are the secrets files encrypted with sops
 
