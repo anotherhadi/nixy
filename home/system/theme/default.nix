@@ -1,4 +1,33 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
+
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk2";
+    style.name = "gtk2";
+  };
+
+  gtk = {
+    enable = true;
+
+    theme = { name = "FlatColor"; };
+
+    iconTheme = {
+      package = pkgs.flat-remix-icon-theme;
+      name = "Flat-Remix-Grey-Darkest";
+    };
+
+    font = {
+      name = config.var.theme.font;
+      size = 11;
+    };
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 14;
+  };
 
   home.file = {
     ".local/share/themes/FlatColor" = {
