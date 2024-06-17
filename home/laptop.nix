@@ -62,6 +62,7 @@
       wireguard-tools
       bitwarden-cli
       optipng
+      pfetch
 
       # Just cool
       peaclock
