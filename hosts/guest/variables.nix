@@ -3,7 +3,7 @@
 
   config.var = {
     hostname = "nixy";
-    username = "your username";
+    username = "your_username";
     homeDirectory = "/home/" + config.var.username;
 
     keyboardLayout = "fr";
@@ -13,8 +13,8 @@
     extraLocale = "fr_FR.UTF-8";
 
     git = {
-      username = "Github username";
-      email = "Github email";
+      username = "your_username";
+      email = "your_email";
     };
 
     stateVersion = "24.05";
