@@ -1,22 +1,20 @@
 { pkgs, config, ... }:
 
 let
-  homedir = config.home.homeDirectory;
-
   nixy-rebuild = pkgs.writeShellScriptBin "nixy-rebuild" ''
-    sudo nixos-rebuild switch --flake ${homedir}/.config/nixos#nixy
+    sudo nixos-rebuild switch --flake ${config.var.configDirectory}#nixy
   '';
 
   nixy-upgrade = pkgs.writeShellScriptBin "nixy-upgrade" ''
-    sudo nixos-rebuild switch --upgrade --flake ${homedir}/.config/nixos#nixy
+    sudo nixos-rebuild switch --upgrade --flake ${config.var.configDirectory}#nixy
   '';
 
   nixy-update = pkgs.writeShellScriptBin "nixy-update" ''
-    cd ${homedir}/.config/nixos && sudo nix flake update
+    cd ${config.var.configDirectory} && sudo nix flake update
   '';
 
   nixy-gc = pkgs.writeShellScriptBin "nixy-gc" ''
-    cd ${homedir}/.config/nixos && sudo nix-collect-garbage -d
+    cd ${config.var.configDirectory} && sudo nix-collect-garbage -d
   '';
 
   nixy-cb = pkgs.writeShellScriptBin "nixy-cb" ''

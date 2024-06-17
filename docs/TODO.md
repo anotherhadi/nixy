@@ -8,7 +8,6 @@
   - [ ] Windows theme
   - [ ] MacOS theme
 - [ ] Global variable for config location
-- [ ] Obsidian conditional import
 - [ ] Make hyprcursor work
 - [ ] Nixvim
   - [ ] Telescope shortcut for file content

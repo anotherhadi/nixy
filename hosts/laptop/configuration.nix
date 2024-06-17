@@ -122,7 +122,7 @@
   system.autoUpgrade = if config.var.autoUpgrade then {
     enable = true;
     dates = "04:00";
-    flake = "${config.users.users.${config.var.username}.home}/.config/nixos";
+    flake = "${config.var.configDirectory}";
     flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
     allowReboot = false;
   } else
