@@ -14,12 +14,12 @@ Wallpapers are loaded from the `home/wallpapers` folder.
 
 ### Nixy
 
-![nixy1](docs/src/nixy/1.png)
-![nixy2](docs/src/nixy/2.png)
-![nixy3](docs/src/nixy/3.png)
+![nixy1](src/nixy/1.png)
+![nixy2](src/nixy/2.png)
+![nixy3](src/nixy/3.png)
 
 ### Catppuccin
 
-![catppuccin1](docs/src/catppuccin/1.png)
-![catppuccin2](docs/src/catppuccin/2.png)
-![catppuccin3](docs/src/catppuccin/3.png)
+![catppuccin1](src/catppuccin/1.png)
+![catppuccin2](src/catppuccin/2.png)
+![catppuccin3](src/catppuccin/3.png)
