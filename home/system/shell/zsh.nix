@@ -51,7 +51,7 @@
       ga = "git add";
       gc = "git commit";
       gcm = "git commit -m";
-      gcu = "git commit -m 'Update'";
+      gcu = "git commit -am 'Update'";
       gp = "git push";
       gpl = "git pull";
       gs = "git status";
