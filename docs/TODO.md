@@ -2,7 +2,6 @@
 
 - [ ] Installation script
 - [ ] Themes
-  - [ ] Windows theme
   - [ ] MacOS theme
 - [ ] Make hyprcursor work
 - [ ] Nixvim
