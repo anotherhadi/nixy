@@ -16,7 +16,7 @@
     transparent = true;
     float = true;
     position = "top";
-    font-size = 11;
+    font-size = 15;
   };
 
   colors = {

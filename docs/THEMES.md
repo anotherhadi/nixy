@@ -9,3 +9,17 @@ You can change the selected theme by changing the import statement at the top of
 
 Create a copy of one of the existing theme and change the variables.
 Wallpapers are loaded from the `home/wallpapers` folder.
+
+## Gallery
+
+### Nixy
+
+![nixy1](docs/src/nixy/1.png)
+![nixy2](docs/src/nixy/2.png)
+![nixy3](docs/src/nixy/3.png)
+
+### Catppuccin
+
+![catppuccin1](docs/src/catppuccin/1.png)
+![catppuccin2](docs/src/catppuccin/2.png)
+![catppuccin3](docs/src/catppuccin/3.png)
