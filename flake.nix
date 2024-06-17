@@ -48,6 +48,24 @@
         ];
       };
 
+      jack = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/laptop/configuration.nix
+          inputs.home-manager.nixosModules.home-manager
+          {
+            nixpkgs.overlays = [ nur.overlay ];
+            _module.args = { inherit inputs; };
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users."hadi" = import ./home/server.nix; # CHANGE ME
+              extraSpecialArgs = { inherit inputs; };
+            };
+          }
+        ];
+      };
+
     };
   };
 }
