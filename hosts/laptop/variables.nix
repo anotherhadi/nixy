@@ -21,8 +21,9 @@
 
     autoUpgrade = false;
     autoGarbageCollector = false;
-    sops = true;
+    sops = true; # change the sops configuration if you want to enable that
     nextcloud = true;
+    obsidian = true; # change the nvim's obsidian configuration if you want to enable that
 
     theme = import ../themes/nixy.nix;
   };
