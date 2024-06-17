@@ -42,6 +42,7 @@
       nwg-displays
       wireguard-tools
       bitwarden-cli
+      optipng
 
       # Just cool
       peaclock

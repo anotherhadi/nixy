@@ -35,7 +35,7 @@ It's a simple way to manage your system configuration and dotfiles.
 ## Table of Contents
 
 - [Gallery](#gallery)
-- [Architechture](#architechture)
+- [Architecture](#architechture)
 - [Settings, Themes and colors](#settings-themes-and-colors)
 - [Scripts](#scripts)
   - [Nix/NixOs shortcuts](#nixnixos-shortcuts)
@@ -54,7 +54,7 @@ It's a simple way to manage your system configuration and dotfiles.
 ![spotify](https://image.nostr.build/76b18bcbcdf1d911a2dbdff7bfac6652044d45602a3dce9d9c53feb295d13245.jpg)
 ![wofi](https://image.nostr.build/90d69ffe6251c17e25b0fb44abadaeb0dfe6db8210d935fca14bf8b00be49fa6.jpg)
 
-## Architechture
+## Architecture
 
 - `home` are the dotfiles and configuration files for the user
 - `hosts` are the system configuration files
@@ -64,148 +64,14 @@ It's a simple way to manage your system configuration and dotfiles.
   - `shared` are some nix files that you can import (nvidia, prime, fonts, ...)
 - `secrets` are the secrets files encrypted with sops
 
-<details>
-<summary>Click to show installed apps</summary>
-
-| Category       | Software      |
-|----------------|---------------|
-| WM             | Hyprland      |
-|                | hyprlock      |
-|                | hyprpaper     |
-|                | hypridle      |
-|                | wlogout       |
-| Bar            | waybar        |
-| Terminal       | kitty         |
-| Shell          | zsh           |
-|                | tmux          |
-|                | starship      |
-|                | bat           |
-|                | eza           |
-|                | zoxide        |
-|                | fzf           |
-| Editor         | neovim(nixvim)|
-| File manager   | lf            |
-|                | thunar        |
-| Browser        | qutebrowser   |
-| Music          | spicetify     |
-| Notifications  | dunst         |
-| Launcher       | wofi          |
-| DM             | tuigreet      |
-| Secrets        | sops-nix      |
-| Misc           | lazygit       |
-|                | neofetch      |
-|                | cava          |
-|                | ...           |
-
-</details>
-
-## Settings, Themes and colors
-
-In your hosts configuration, you should add a `variables.nix` file to manage your settings, including:
-
-- user information
-- timezone and locale
-- keyboard layout
-- the theme: will be used in programs and for GTK and QT themes
-- ... (check the `hosts/guest/variables.nix` file for more information)
-
-PS: To apply the theme to duckduckgo, follow the instructions in `$HOME/.duckduckgo-colorscheme.js`.
-
-## Scripts
-
-### Nix/NixOs shortcuts
-
-<details>
-<summary>Click to expand</summary>
-
-- `nixy-edit`
-- `nixy-rebuild`
-- `nixy-update`
-- `nixy-gc` # garbage collection
-- `nixy-cb` # clean boot menu
-
-</details>
-
-### Brightness control
-
-<details>
-<summary>Click to expand</summary>
-
-- `brightness-up`
-- `brightness-down`
-- `brightness-change <up/down> <increment>`
-
-</details>
-
-### Sound control
-
-<details>
-<summary>Click to expand</summary>
-
-- `sound-up`
-- `sound-down`
-- `sound-toggle`
-- `sound-output`
-- `sound-change <up/down/mute> <increment>`
-
-</details>
-
-### Caffeine
-
-<details>
-<summary>Click to expand</summary>
-
-Caffeine is a simple script that toggles hypridle (disable suspend & screenlock).
-
-- `caffeine` # Toggle caffeine
-- `caffeine-status` # Return active/inactive
-
-</details>
-
-### Night-Shift
-
-<details>
-<summary>Click to expand</summary>
-
-Blue light filter, using wlsunset
-
-- `night-shift-on`
-- `night-shift-off`
-
-</details>
-
-### Nerdfont FZF
-
-<details>
-<summary>Click to expand</summary>
-
-Nerdfont fzf is a quick way to search for nerdfont icons locally.
-It will copy the selected icon to the clipboard.
-
-- `nerdfont-fzf`
-
-</details>
-
-### Compress/Extract
-
-<details>
-<summary>Click to expand</summary>
-
-Some shortcut to compress and extract files.
-
-- `compress` ...
-- `extract` ...
-
-</details>
-
 ## Installation/build
 
 ```sh
 git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```
 
-*let me cook this*
 - Change the username in the flake.nix file
+- import the guest configuration instead of the `hosts/laptop` one
 - import your hardware-configuration.nix into the `hosts/guest` folder
 
 ```sh
