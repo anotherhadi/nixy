@@ -37,7 +37,7 @@
       * {
         font-family: "${config.var.theme.font}";
         font-weight: 500;
-        font-size: 12px;
+        font-size: ${toString config.var.theme.font-size}px;
       }
 
       #window {

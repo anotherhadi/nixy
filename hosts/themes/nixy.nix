@@ -1,8 +1,9 @@
 {
   wallpaper = "lofi-computer.png";
 
-  font-mono = "FiraCode Nerd Font Mono";
   font = "SFProDisplay Nerd Font";
+  font-mono = "FiraCode Nerd Font Mono";
+  font-size = 13;
 
   rounding = 15;
   gaps-in = 12;
@@ -15,6 +16,7 @@
     transparent = true;
     float = true;
     position = "top";
+    font-size = 11;
   };
 
   colors = {

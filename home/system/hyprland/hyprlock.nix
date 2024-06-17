@@ -61,7 +61,7 @@
           text = ''
             Hey <span text_transform="capitalize" size="larger">$USER</span>'';
           color = "rgb(${config.var.theme.colors.fg})";
-          font_size = 20;
+          font_size = config.var.theme.font-size;
           font_family = config.var.theme.font;
           position = "0, 0";
           halign = "center";
@@ -72,7 +72,7 @@
           monitor = "";
           text = "Type to unlock!";
           color = "rgb(${config.var.theme.colors.fg})";
-          font_size = 16;
+          font_size = config.var.theme.font-size;
           font_family = config.var.theme.font;
           position = "0, 30";
           halign = "center";

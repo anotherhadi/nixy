@@ -5,6 +5,7 @@
     hostname = "nixy";
     username = "your_username";
     homeDirectory = "/home/" + config.var.username;
+    configDirectory = config.var.homeDirectory + "/.config/nixos";
 
     keyboardLayout = "fr";
 
@@ -21,9 +22,12 @@
 
     autoUpgrade = false;
     autoGarbageCollector = false;
-    sops = false;
     nextcloud = false;
+    # change the sops configuration if you want to enable that:
+    sops = false;
+    # change the nvim's obsidian configuration if you want to enable that:
+    obsidian = false;
 
-    theme = import ../themes/nixy.nix;
+    theme = import ../themes/nixy.nix; # select your theme here
   };
 }

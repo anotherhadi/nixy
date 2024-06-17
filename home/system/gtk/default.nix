@@ -12,13 +12,13 @@
     theme = { name = "FlatColor"; };
 
     iconTheme = {
-      package = pkgs.flat-remix-icon-theme;
-      name = "Flat-Remix-Grey-Darkest";
+      package = pkgs.moka-icon-theme;
+      name = "Moka";
     };
 
     font = {
       name = config.var.theme.font;
-      size = 11;
+      size = config.var.theme.font-size;
     };
   };
 
