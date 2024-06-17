@@ -1,9 +1,6 @@
-## Scripts
+# Scripts
 
-### Nix/NixOs shortcuts
-
-<details>
-<summary>Click to expand</summary>
+## Nix/NixOs shortcuts
 
 - `nixy-edit`
 - `nixy-rebuild`
@@ -11,23 +8,13 @@
 - `nixy-gc` # garbage collection
 - `nixy-cb` # clean boot menu
 
-</details>
-
-### Brightness control
-
-<details>
-<summary>Click to expand</summary>
+## Brightness control
 
 - `brightness-up`
 - `brightness-down`
 - `brightness-change <up/down> <increment>`
 
-</details>
-
-### Sound control
-
-<details>
-<summary>Click to expand</summary>
+## Sound control
 
 - `sound-up`
 - `sound-down`
@@ -35,52 +22,30 @@
 - `sound-output`
 - `sound-change <up/down/mute> <increment>`
 
-</details>
-
-### Caffeine
-
-<details>
-<summary>Click to expand</summary>
+## Caffeine
 
 Caffeine is a simple script that toggles hypridle (disable suspend & screenlock).
 
 - `caffeine` # Toggle caffeine
 - `caffeine-status` # Return active/inactive
 
-</details>
-
-### Night-Shift
-
-<details>
-<summary>Click to expand</summary>
+## Night-Shift
 
 Blue light filter, using wlsunset
 
 - `night-shift-on`
 - `night-shift-off`
 
-</details>
-
-### Nerdfont FZF
-
-<details>
-<summary>Click to expand</summary>
+## Nerdfont FZF
 
 Nerdfont fzf is a quick way to search for nerdfont icons locally.
 It will copy the selected icon to the clipboard.
 
 - `nerdfont-fzf`
 
-</details>
-
-### Compress/Extract
-
-<details>
-<summary>Click to expand</summary>
+## Compress/Extract
 
 Some shortcut to compress and extract files.
 
 - `compress` ...
 - `extract` ...
-
-</details>

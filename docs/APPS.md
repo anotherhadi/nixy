@@ -1,6 +1,6 @@
+# APPS
 
-<details>
-<summary>Click to show installed apps</summary>
+*non-exhaustive list*
 
 | Category       | Software      |
 |----------------|---------------|
@@ -31,6 +31,3 @@
 |                | neofetch      |
 |                | cava          |
 |                | ...           |
-
-</details>
-
