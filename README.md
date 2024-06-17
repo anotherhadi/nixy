@@ -45,6 +45,7 @@ It's a simple way to manage your system configuration and dotfiles.
   - [Gallery](#gallery)
   - [Architecture](#architecture)
   - [Installation](#installation)
+  - [Documentation](#documentation)
 
 ## Gallery
 
@@ -58,7 +59,7 @@ It's a simple way to manage your system configuration and dotfiles.
 - 💻 `hosts` are the system configuration files
   - `laptop` is mine
   - `guest` is a template that you can copy and modify for your own system
-  - `themes` contains all the themes available (see [docs/THEMES.md])
+  - `themes` contains all the themes available (see [THEMES.md](docs/THEMES.md))
   - `shared` are some nix files that you can import (nvidia, prime, fonts, ...)
 - 🤫 `secrets` are the secrets files encrypted with sops
 
@@ -75,3 +76,12 @@ git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```sh
 sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
 ```
+
+## Documentation
+
+- [THEMES.md](docs/THEMES.md): How themes work and how to create your own
+- [APPS.md](docs/APPS.md): Which apps are installed
+- [SCRIPTS.md](docs/SCRIPTS.md): Scripts that are available
+- [TODO.md](docs/TODO.md): What's next (feel free to contribute)
+- [CONTRIBUTING.md](docs/CONTRIBUTING.md): How to contribute
+- [LICENSE](LICENSE): MIT License
