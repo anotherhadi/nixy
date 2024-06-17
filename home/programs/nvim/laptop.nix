@@ -16,7 +16,7 @@
     ./treesitter.nix
     ./toggleterm.nix
     ./copilot.nix
-    ./obsidian.nix
+    ./obsidian.nix # make conditional
     ./whichkey.nix
     ./alpha.nix
     ./keymaps.nix

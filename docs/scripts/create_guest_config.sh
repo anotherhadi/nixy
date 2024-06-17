@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+# This script is used to copy my own configuration to the `./hosts/guest` one, and changing some settings
+
 [[ -d "./hosts" ]] || (
-  exit 1
   echo "Folder ./hosts not found"
+  exit 1
 )
 
 LAPTOP_CONFIG="./hosts/laptop"
@@ -23,4 +25,5 @@ variables=$(echo "$variables" | sed 's/hadi/your_username/')
 variables=$(echo "$variables" | sed 's/Hadi/your_username/')
 variables=$(echo "$variables" | sed 's/sops = true/sops = false/')
 variables=$(echo "$variables" | sed 's/nextcloud = true/nextcloud = false/')
+variables=$(echo "$variables" | sed 's/obsidian = true/obsidian = false/')
 echo "$variables" >"$GUEST_CONFIG/variables.nix"
