@@ -25,7 +25,7 @@
     nextcloud = true;
 
     theme = {
-      wallpaper = "Lofi-Computer.png";
+      wallpaper = "lofi-computer.png";
 
       font-mono = "FiraCode Nerd Font Mono";
       font = "SFProDisplay Nerd Font";
