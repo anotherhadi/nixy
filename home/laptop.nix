@@ -40,6 +40,8 @@
       wf-recorder
       glow
       nwg-displays
+      wireguard-tools
+      bitwarden-cli
 
       # Just cool
       peaclock
