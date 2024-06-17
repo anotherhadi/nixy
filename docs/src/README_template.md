@@ -31,9 +31,9 @@ It's a simple way to manage your system configuration and dotfiles.
 git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```
 
-- Change the username in the flake.nix file
-- import the guest configuration instead of the `hosts/laptop` one
-- import your hardware-configuration.nix into the `hosts/guest` folder
+- Copy the `hosts/guest` folder and rename it to your system name
+  - Change the variables inside your new hosts
+..
 
 ```sh
 sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
