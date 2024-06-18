@@ -14,6 +14,11 @@
         owner = "nextcloud";
         group = "nextcloud";
       };
+      cloudflare-apitoken = {
+        path = "/etc/cloudflare/apiToken";
+        owner = "cloudflare-dyndns";
+        group = "cloudflare-dyndns";
+      };
     };
   };
 
