@@ -2,8 +2,8 @@
   imports = [
     ./hardware-configuration.nix
     ./variables.nix
-    ../modules/openssh.nix
-    ../modules/nginx.nix
+    ../modules/server/openssh.nix
+    ../modules/server/nginx.nix
   ];
 
   # Bootloader.
