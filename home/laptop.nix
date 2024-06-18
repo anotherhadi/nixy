@@ -7,6 +7,7 @@
     ./programs/btop
     ./programs/cava
     ./programs/kitty
+    ./programs/nextcloud
     ./programs/nvim
     ./programs/qutebrowser
     ./programs/spicetify
