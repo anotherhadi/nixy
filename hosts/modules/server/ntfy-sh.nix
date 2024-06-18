@@ -1,3 +1,4 @@
+# Push Notification Server
 # https://mynixos.com/nixpkgs/options/services.ntfy-sh
 let
     hostname = "ntfy.anotherhadi.com";
@@ -9,7 +10,7 @@ in{
         settings = {
             base-url = url;
             listen-http = "${port}";
-            # auth-file
+            # auth-file = "/etc/ntfy-sh/authfile"
             auth-default-access = "deny-all";
             behind-proxy = true;
         };
