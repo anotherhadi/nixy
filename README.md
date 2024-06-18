@@ -31,7 +31,7 @@
 </div>
 <br>
 
-**Nixy** is a Hyprland NixOS configuration with home-manager, secrets, and custom theming all in one place.
+**Nixy** is a *Hyprland* NixOS configuration with *home-manager*, *secrets*, and *custom theming* all in one place.
 It's a simple way to manage your system configuration and dotfiles.
 
 ## Table of Content
@@ -55,7 +55,7 @@ It's a simple way to manage your system configuration and dotfiles.
   - 'laptop' is my configuration for my laptop with Nvidia
   - 'server' is for my Nixos server (w/nextcloud, nginx, vaultwarden, ... look `hosts/modules/server`)
   - 'guest' is a *template* that you can copy and modify for *your own system*
-  - 'themes' contains all the *themes* available (see [THEMES.md](docs/THEMES.md))
+  - 'themes' contains all the *themes* available *(see [THEMES.md](docs/THEMES.md))*
   - 'modules' are some nix modules that you can import (Nvidia, prime, fonts, ...)
 - 🤫 `secrets` are the secrets files encrypted with sops-nix
 
