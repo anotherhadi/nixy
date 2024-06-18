@@ -8,6 +8,8 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] MacOS theme
 - [ ] Make hyprcursor work
 - [ ] Homepage (web/qutebrowser) v2
+  - [ ] Compile the sveltejs project
+  - [ ] Different link on web/mobile (so it can open ios/android apps)
 - [ ] Nixvim
   - [ ] Telescope shortcut for file content
   - [ ] Markdown snippets
