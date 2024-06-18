@@ -15,5 +15,7 @@ header=${header//\{primarycolor\}/89b4fa}
 header=${header//\{backgroundcolor\}/181825}
 readme_content=${readme_content//\{md_table_of_content\}/$table_of_content}
 
-echo "$header" > "$README_FILE"
-echo "$readme_content" >> "$README_FILE"
+echo "$header" >"$README_FILE"
+echo "$readme_content" >>"$README_FILE"
+sed 's/\r//' "$README_FILE" >"/tmp/readme.md"
+mv "/tmp/readme.md" "$README_FILE"
