@@ -7,11 +7,7 @@
     <img src="https://image.nostr.build/70ebe2b5183879d8c0ffa682cd0089e030ad01909678b242ed86449517eac3a5.png" width="100px" />
 </div>
 
-<br>
-
-<div align="center">
-    <img src="https://image.nostr.build/aaf8cf0f3b9784c817f8cf328f19222db2e1886dfb89ae97de83ffa101d437b4.png" width="600px" />
-</div>
+<br><br>
 
 # Nixy
 
