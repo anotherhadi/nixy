@@ -33,14 +33,14 @@
     <img src="https://image.nostr.build/aaf8cf0f3b9784c817f8cf328f19222db2e1886dfb89ae97de83ffa101d437b4.png" width="600px" />
 </div>
 
-# Nixy
+# Nix
 
-**Nixy** is a Hyprland NixOS configuration with home-manager, secrets and custom theming all in one place.
+**Nixy** is a Hyprland NixOS configuration with home-manager, secrets, and custom theming all in one place.
 It's a simple way to manage your system configuration and dotfiles.
 
 ## Table of Content
 
-- [Nixy](#nixy)
+- [Nix](#nix)
   - [Table of Content](#table-of-content)
   - [Gallery](#gallery)
   - [Architecture](#architecture)
@@ -57,11 +57,11 @@ It's a simple way to manage your system configuration and dotfiles.
 
 - 🏠 `home` are the dotfiles and configuration files for the user
 - 💻 `hosts` are the system configuration files
-  - 'laptop' is my own configuration for my laptop with nvidia
-  - 'server' is for my nixos server (w/nextcloud, nginx, vaultwarden, ... look `hosts/modules/server`)
+  - 'laptop' is my configuration for my laptop with Nvidia
+  - 'server' is for my Nixos server (w/nextcloud, nginx, vaultwarden, ... look `hosts/modules/server`)
   - 'guest' is a *template* that you can copy and modify for *your own system*
   - 'themes' contains all the *themes* available (see [THEMES.md](docs/THEMES.md))
-  - 'modules' are some nix modules that you can import (nvidia, prime, fonts, ...)
+  - 'modules' are some nix modules that you can import (Nvidia, prime, fonts, ...)
 - 🤫 `secrets` are the secrets files encrypted with sops-nix
 
 ## Installation
@@ -70,8 +70,8 @@ It's a simple way to manage your system configuration and dotfiles.
 git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```
 
-- Copy the `hosts/guest` folder, rename it to your system name and change the variables inside the `variables.nix` file
-- Add your `hardware-configuration.nix` to your new hosts folder
+- Copy the `hosts/guest` folder, rename it to your system name, and change the variables inside the `variables.nix` file
+- Add your `hardware-configuration.nix` to your new host's folder
 - Add your 'nixosConfigurations' inside `flake.nix` (You can edit the "yourhostname" one and change the lines containing '# CHANGEME')
 
 ```sh
@@ -85,4 +85,4 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 - [SCRIPTS.md](docs/SCRIPTS.md): Scripts that are available
 - [TODO.md](docs/TODO.md): What's next (feel free to contribute)
 - [CONTRIBUTING.md](docs/CONTRIBUTING.md): How to contribute
-- [LICENSE](LICENSE): MIT License
+- [LICENSE](LICENSE): MIT Licensey
