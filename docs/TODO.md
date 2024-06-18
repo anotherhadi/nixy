@@ -1,6 +1,6 @@
 # Todolist
 
-feel free to contribute <3 ([CONTRIBUTING.md](docs/CONTRIBUTING.md))
+feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
 - [ ] Nixy script v2 (with flake)
 - [ ] Installation script
