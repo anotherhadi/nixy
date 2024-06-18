@@ -4,29 +4,29 @@
 [//]: # (Date: 06/18/24)
 
 <div align="center">
-
-![test](docs/src/logo.png)
-
+    <img src="https://raw.githubusercontent.com/anotherhadi/nixy/main/docs/src/logo.png" width="100px" />
 </div>
+
+<br>
 
 # Nixy
 
 <br>
 <div align="center">
     <a href="https://github.com/anotherhadi/nixy">
-        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Version&message=2.0.0&colorA=040409&colorB=a158ff&logo=githubactions&logoColor=a158ff&"/>
+        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Version&message=2.0.0&colorA=181825&colorB=89b4fa&logo=githubactions&logoColor=89b4fa"/>
     </a>
     <a href="https://github.com/anotherhadi/nixy/stargazers">
-        <img src="https://img.shields.io/github/stars/anotherhadi/nixy?color=a158ff&labelColor=040409&style=for-the-badge&logo=starship&logoColor=a158ff">
+        <img src="https://img.shields.io/github/stars/anotherhadi/nixy?color=89b4fa&labelColor=181825&style=for-the-badge&logo=starship&logoColor=89b4fa">
     </a>
     <a href="https://github.com/anotherhadi/nixy/">
-        <img src="https://img.shields.io/github/repo-size/anotherhadi/nixy?color=a158ff&labelColor=040409&style=for-the-badge&logo=github&logoColor=a158ff">
+        <img src="https://img.shields.io/github/repo-size/anotherhadi/nixy?color=89b4fa&labelColor=181825&style=for-the-badge&logo=github&logoColor=89b4fa">
     </a>
     <a href="https://nixos.org">
-        <img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&labelColor=040409&logo=NixOS&logoColor=a158ff&color=a158ff">
+        <img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&labelColor=181825&logo=NixOS&logoColor=89b4fa&color=89b4fa">
     </a>
     <a href="https://github.com/anotherhadi/nixy/blob/main/LICENSE">
-        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&colorA=040409&colorB=a158ff&logo=unlicense&logoColor=a158ff&"/>
+        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&colorA=181825&colorB=89b4fa&logo=unlicense&logoColor=89b4fa"/>
     </a>
 </div>
 <br>
