@@ -22,7 +22,6 @@
 
     autoUpgrade = false;
     autoGarbageCollector = false;
-    nextcloud = false;
     sops = true;
     obsidian = false;
 
