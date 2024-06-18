@@ -9,6 +9,11 @@
     secrets = {
       sshconfig = { path = "/home/hadi/.ssh/config"; };
       github-key = { path = "/home/hadi/.ssh/github"; };
+      nextcloud-adminpass = {
+        path = "/etc/nextcloud/adminpassFile";
+        owner = "nextcloud";
+        group = "nextcloud";
+      };
     };
   };
 
