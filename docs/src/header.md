@@ -4,7 +4,7 @@
 [//]: # (Date: {date})
 
 <div align="center">
-    <img src="https://image.nostr.build/70ebe2b5183879d8c0ffa682cd0089e030ad01909678b242ed86449517eac3a5.png" width="100px" />
+    <img src="https://raw.githubusercontent.com/anotherhadi/nixy/main/docs/src/logo.png" width="100px" />
 </div>
 
 <br>
