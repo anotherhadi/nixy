@@ -1,5 +1,5 @@
 { config, ... }: {
-  imports = [ ../shared/variables-config.nix ];
+  imports = [ ../modules/variables-config.nix ];
 
   config.var = {
     hostname = "jack-nixos";
