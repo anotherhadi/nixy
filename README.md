@@ -7,8 +7,15 @@
     <img src="https://image.nostr.build/70ebe2b5183879d8c0ffa682cd0089e030ad01909678b242ed86449517eac3a5.png" width="100px" />
 </div>
 
-<br><br>
+<br>
 
+<div align="center">
+    <img src="https://image.nostr.build/aaf8cf0f3b9784c817f8cf328f19222db2e1886dfb89ae97de83ffa101d437b4.png" width="600px" />
+</div>
+
+# Nixy
+
+<br>
 <div align="center">
     <a href="https://github.com/anotherhadi/nixy">
         <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Version&message=2.0.0&colorA=040409&colorB=a158ff&logo=githubactions&logoColor=a158ff&"/>
@@ -26,21 +33,13 @@
         <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&colorA=040409&colorB=a158ff&logo=unlicense&logoColor=a158ff&"/>
     </a>
 </div>
-
-<br><br>
-
-<div align="center">
-    <img src="https://image.nostr.build/aaf8cf0f3b9784c817f8cf328f19222db2e1886dfb89ae97de83ffa101d437b4.png" width="600px" />
-</div>
-
-# Nix
+<br>
 
 **Nixy** is a Hyprland NixOS configuration with home-manager, secrets, and custom theming all in one place.
 It's a simple way to manage your system configuration and dotfiles.
 
 ## Table of Content
 
-- [Nix](#nix)
   - [Table of Content](#table-of-content)
   - [Gallery](#gallery)
   - [Architecture](#architecture)
