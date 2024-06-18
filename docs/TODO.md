@@ -1,10 +1,13 @@
 # Todolist
 
+feel free to contribute <3 ([CONTRIBUTING.md](docs/CONTRIBUTING.md))
+
 - [ ] Nixy script v2 (with flake)
 - [ ] Installation script
 - [ ] Themes
   - [ ] MacOS theme
 - [ ] Make hyprcursor work
+- [ ] Homepage (web/qutebrowser) v2
 - [ ] Nixvim
   - [ ] Telescope shortcut for file content
   - [ ] Markdown snippets
