@@ -66,10 +66,10 @@
         ];
       };
 
-      yourhostname = nixpkgs.lib.nixosSystem { #CHANGEME
+      yourhostname = nixpkgs.lib.nixosSystem { # CHANGEME
         system = "x86_64-linux";
         modules = [
-          ./hosts/yourhostname/configuration.nix #CHANGEME
+          ./hosts/yourhostname/configuration.nix # CHANGEME
           inputs.home-manager.nixosModules.home-manager
           {
             nixpkgs.overlays = [ nur.overlay ];
@@ -77,7 +77,8 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users."yourusername" = import ./home/laptop.nix; #CHANGEME
+              users."yourusername" = import # CHANGEME
+                ./home/laptop.nix; # you can also create a new ./home/yourhostname.nix
               extraSpecialArgs = { inherit inputs; };
             };
           }

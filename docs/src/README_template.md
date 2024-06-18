@@ -10,9 +10,9 @@ It's a simple way to manage your system configuration and dotfiles.
 
 ## Gallery
 
-![nixy1](docs/src/nixy/1.png)
-![nixy2](docs/src/nixy/2.png)
-![nixy3](docs/src/nixy/3.png)
+![catppuccin1](docs/src/catppuccin/1.png)
+![catppuccin2](docs/src/catppuccin/2.png)
+![catppuccin3](docs/src/catppuccin/3.png)
 
 ## Architecture
 
@@ -23,7 +23,7 @@ It's a simple way to manage your system configuration and dotfiles.
   - 'guest' is a *template* that you can copy and modify for *your own system*
   - 'themes' contains all the *themes* available (see [THEMES.md](docs/THEMES.md))
   - 'modules' are some nix modules that you can import (nvidia, prime, fonts, ...)
-- 🤫 `secrets` are the secrets files encrypted with sops
+- 🤫 `secrets` are the secrets files encrypted with sops-nix
 
 ## Installation
 
@@ -33,10 +33,10 @@ git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 
 - Copy the `hosts/guest` folder, rename it to your system name and change the variables inside the `variables.nix` file
 - Add your `hardware-configuration.nix` to your new hosts folder
-- Add your 'nixosConfigurations' inside `flake.nix` (You can edit the "yourhostname" one and change the lines containing #CHANGEME)
+- Add your 'nixosConfigurations' inside `flake.nix` (You can edit the "yourhostname" one and change the lines containing '# CHANGEME')
 
 ```sh
-sudo nixos-rebuild switch --flake ~/.config/nixos#your_hostname
+sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 ```
 
 ## Documentation
