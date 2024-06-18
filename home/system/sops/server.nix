@@ -19,6 +19,11 @@
         owner = "cloudflare-dyndns";
         group = "cloudflare-dyndns";
       };
+      tailscaled-authKey = {
+        path = "/etc/tailscale/authKey";
+        owner = "tailscaled";
+        group = "tailscaled";
+      };
     };
   };
 
