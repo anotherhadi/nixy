@@ -24,6 +24,5 @@ variables=$(echo "$variables" | sed 's/112569860+anotherhadi@users.noreply.githu
 variables=$(echo "$variables" | sed 's/hadi/your_username/')
 variables=$(echo "$variables" | sed 's/Hadi/your_username/')
 variables=$(echo "$variables" | sed 's/sops = true/sops = false/')
-variables=$(echo "$variables" | sed 's/nextcloud = true/nextcloud = false/')
 variables=$(echo "$variables" | sed 's/obsidian = true/obsidian = false/')
 echo "$variables" >"$GUEST_CONFIG/variables.nix"
