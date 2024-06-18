@@ -10,5 +10,10 @@ header=$(cat "./docs/src/header.md")
 table_of_content=$(~/go/bin/md-table-of-contents ./docs/src/README_template.md)
 readme_content=$(cat "./docs/src/README_template.md")
 
-echo "${header//\{date\}/$(date '+%D')}" >"$README_FILE"
-echo "${readme_content//\{md_table_of_content\}/$table_of_content}" >>"$README_FILE"
+header=${header//\{date\}/$(date '+%D')}
+header=${header//\{primarycolor\}/89b4fa}
+header=${header//\{backgroundcolor\}/181825}
+readme_content=${readme_content//\{md_table_of_content\}/$table_of_content}
+
+echo "$header" > "$README_FILE"
+echo "$readme_content" >> "$README_FILE"
