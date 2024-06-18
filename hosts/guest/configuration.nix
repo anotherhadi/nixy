@@ -1,10 +1,10 @@
 { pkgs, config, ... }: {
   imports = [
     ./hardware-configuration.nix
-    ../shared/fonts.nix
-    # ../shared/nvidia.nix
-    # ../shared/prime.nix
-    ../shared/tuigreet.nix
+    ../modules/fonts.nix
+    # ../modules/nvidia.nix
+    # ../modules/prime.nix
+    ../modules/tuigreet.nix
     ./variables.nix
   ];
 
