@@ -19,7 +19,7 @@ It's a simple way to manage your system configuration and dotfiles.
 - 🏠 `home` are the dotfiles and configuration files for the user
 - 💻 `hosts` are the system configuration files
   - 'laptop' is my own configuration for my laptop with nvidia
-  - 'server' is for my nixos server (w/nextcloud, nginx, vaultwarden, ...)
+  - 'server' is for my nixos server (w/nextcloud, nginx, vaultwarden, ... look `hosts/modules/server`)
   - 'guest' is a *template* that you can copy and modify for *your own system*
   - 'themes' contains all the *themes* available (see [THEMES.md](docs/THEMES.md))
   - 'modules' are some nix modules that you can import (nvidia, prime, fonts, ...)
@@ -31,12 +31,12 @@ It's a simple way to manage your system configuration and dotfiles.
 git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```
 
-- Copy the `hosts/guest` folder and rename it to your system name
-  - Change the variables inside your new hosts
-..
+- Copy the `hosts/guest` folder, rename it to your system name and change the variables inside the `variables.nix` file
+- Add your `hardware-configuration.nix` to your new hosts folder
+- Add your 'nixosConfigurations' inside `flake.nix` (You can edit the "yourhostname" one and change the lines containing #CHANGEME)
 
 ```sh
-sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
+sudo nixos-rebuild switch --flake ~/.config/nixos#your_hostname
 ```
 
 ## Documentation
