@@ -9,3 +9,4 @@
   - [ ] Telescope shortcut for file content
   - [ ] Markdown snippets
   - [ ] Make whichkey better
+- [ ] Automount USB Key (And notify-send when it's done)
