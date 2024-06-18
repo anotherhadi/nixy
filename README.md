@@ -1,7 +1,7 @@
 [//]: # (Title: Nixy)  
-[//]: # (Description: Nixy is a NixOS configuration with home-manager, secrets and custom theming all in one place. It's a simple way to manage your system configuration and dotfiles.)  
+[//]: # (Description: Nixy is a Hyprland NixOS configuration with home-manager, secrets and custom theming all in one place. It's a simple way to manage your system configuration and dotfiles.)  
 [//]: # (Author: Hadi)  
-[//]: # (Date: 06/17/24)
+[//]: # (Date: 06/18/24)
 
 <div align="center">
     <img src="https://image.nostr.build/70ebe2b5183879d8c0ffa682cd0089e030ad01909678b242ed86449517eac3a5.png" width="100px" />
@@ -35,7 +35,7 @@
 
 # Nixy
 
-**Nixy** is a NixOS configuration with home-manager, secrets and custom theming all in one place.
+**Nixy** is a Hyprland NixOS configuration with home-manager, secrets and custom theming all in one place.
 It's a simple way to manage your system configuration and dotfiles.
 
 ## Table of Content
@@ -57,10 +57,11 @@ It's a simple way to manage your system configuration and dotfiles.
 
 - 🏠 `home` are the dotfiles and configuration files for the user
 - 💻 `hosts` are the system configuration files
-  - `laptop` is mine
-  - `guest` is a template that you can copy and modify for your own system
-  - `themes` contains all the themes available (see [THEMES.md](docs/THEMES.md))
-  - `modules` are some nix files that you can import (nvidia, prime, fonts, ...)
+  - 'laptop' is my own configuration for my laptop with nvidia
+  - 'server' is for my nixos server (w/nextcloud, nginx, vaultwarden, ... look `hosts/modules/server`)
+  - 'guest' is a *template* that you can copy and modify for *your own system*
+  - 'themes' contains all the *themes* available (see [THEMES.md](docs/THEMES.md))
+  - 'modules' are some nix modules that you can import (nvidia, prime, fonts, ...)
 - 🤫 `secrets` are the secrets files encrypted with sops
 
 ## Installation
@@ -69,12 +70,12 @@ It's a simple way to manage your system configuration and dotfiles.
 git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```
 
-- Change the username in the flake.nix file
-- import the guest configuration instead of the `hosts/laptop` one
-- import your hardware-configuration.nix into the `hosts/guest` folder
+- Copy the `hosts/guest` folder, rename it to your system name and change the variables inside the `variables.nix` file
+- Add your `hardware-configuration.nix` to your new hosts folder
+- Add your 'nixosConfigurations' inside `flake.nix` (You can edit the "yourhostname" one and change the lines containing #CHANGEME)
 
 ```sh
-sudo nixos-rebuild switch --flake ~/.config/nixos#nixy
+sudo nixos-rebuild switch --flake ~/.config/nixos#your_hostname
 ```
 
 ## Documentation
