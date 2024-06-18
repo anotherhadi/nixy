@@ -22,7 +22,6 @@
 
     autoUpgrade = false;
     autoGarbageCollector = false;
-    nextcloud = false;
     # change the sops configuration if you want to enable that:
     sops = false;
     # change the nvim's obsidian configuration if you want to enable that:
