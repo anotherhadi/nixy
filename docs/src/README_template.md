@@ -1,5 +1,5 @@
 
-**Nixy** is a *Hyprland* NixOS configuration with *home-manager*, *secrets*, and *custom theming* all in one place.
+**Nixy** is a **Hyprland** NixOS configuration with **home-manager**, **secrets**, and **custom theming** all in one place.
 It's a simple way to manage your system configuration and dotfiles.
 
 ## Table of Content
