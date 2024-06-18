@@ -45,7 +45,7 @@ It will copy the selected icon to the clipboard.
 
 ## Compress/Extract
 
-Some shortcut to compress and extract files.
+Some shortcuts to compress and extract files.
 
 - `compress` ...
 - `extract` ...
