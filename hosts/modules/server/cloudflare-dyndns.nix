@@ -1,3 +1,4 @@
+# CloudFlare Dynamic DNS client
 {
     services.cloudflare-dyndns = {
         enable = true;

@@ -25,7 +25,7 @@ let
   '';
 in {
 
-  ."startpage/index.html".text = ''
+  # fix "startpage/index.html".text = ''
     <!DOCTYPE html>
     <html lang="en">
 

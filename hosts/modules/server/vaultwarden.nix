@@ -1,3 +1,4 @@
+# Password manager
 let
     hostname = "vault.anotherhadi.com";
     url = "https://"+hostname;

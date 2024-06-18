@@ -1,3 +1,4 @@
+# Nginx Reverse Proxy & ACME certs
 {config, ...}:{
   services.nginx.enable = true;
   security.acme = {
