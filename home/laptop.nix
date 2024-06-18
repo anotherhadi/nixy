@@ -20,7 +20,7 @@
     ./system/gtk
     ./system/hyprland
     ./system/shell
-    ./system/sops/laptop.nix
+    ./system/sops/laptop.nix # You should probably remove this line
     ./system/waybar
     ./system/wlogout
     ./system/wofi
