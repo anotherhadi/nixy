@@ -56,7 +56,7 @@
           inputs.home-manager.nixosModules.home-manager
           {
             nixpkgs.overlays = [ nur.overlay ];
-            _module.args = { inherit inputs; };
+            specialArgs = { inherit inputs; };
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
