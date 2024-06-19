@@ -1,6 +1,6 @@
 { inputs, ... }: {
 
-  imports = [ inputs.sops-nix.nixosModule ];
+  imports = [ inputs.sops-nix.nixosModule.sops ];
 
   sops = {
     age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
