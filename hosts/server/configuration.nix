@@ -3,7 +3,6 @@
     ./hardware-configuration.nix
     ./variables.nix
     ../modules/server/openssh.nix
-    ../modules/server/nginx.nix
   ];
 
   # Bootloader.
