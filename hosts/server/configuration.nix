@@ -16,13 +16,7 @@
   };
 
   # Networking
-  networking = {
-    hostName = config.var.hostname;
-    interfaces.eth0.ipv4.addresses = [{
-      address = "192.168.2.100";
-      prefixLength = 24;
-    }];
-  };
+  networking = { hostName = config.var.hostname; };
 
   # Timezone and locale
   time.timeZone = config.var.timeZone;
