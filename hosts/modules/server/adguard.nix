@@ -7,4 +7,5 @@
     port = 3001;
     openFirewall = true; # Open port 53(dns) & 3000(webui)
   };
+  networking.firewall.allowedTCPPorts = [ 53 ];
 }
