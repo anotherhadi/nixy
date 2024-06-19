@@ -3,13 +3,13 @@
 let
   hostname = "ntfy.anotherhadi.com";
   port = 8082;
-  url = "https://" + hostname + ":${toString port}";
+  url = "https://" + hostname;
 in {
   services.ntfy-sh = {
     enable = true;
     settings = {
       base-url = url;
-      listen-http = "${toString port}";
+      listen-http = "127.0.0.1:${toString port}";
       # auth-file = "/etc/ntfy-sh/authfile"
       auth-default-access = "deny-all";
       behind-proxy = true;
