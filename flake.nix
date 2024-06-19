@@ -51,6 +51,7 @@
       jack = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          inputs.sops-nix.nixosModules.sops
           ./hosts/server/configuration.nix
           inputs.home-manager.nixosModules.home-manager
           {
