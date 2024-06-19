@@ -10,7 +10,7 @@
     ../modules/server/nextcloud.nix
     ../modules/server/vaultwarden.nix
 
-    # ../modules/server/homepage/default.nix
+    ../modules/server/www
     ../modules/server/adguard.nix
     ../modules/server/ntfy-sh.nix
     ../modules/server/tailscale.nix
