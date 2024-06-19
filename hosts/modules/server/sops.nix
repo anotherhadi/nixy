@@ -1,6 +1,6 @@
-{ sops-nix, ... }: {
+{ test-nix, ... }: {
 
-  imports = [ sops-nix.nixosModules.sops ];
+  imports = [ test-nix.nixosModules.sops ];
 
   sops = {
     age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
