@@ -12,6 +12,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Different link on web/mobile (so it can open ios/android apps)
   - [ ] Test services ? (ping)
 - [ ] Nixvim
+  - [ ] Nerdfont pluggins to search and paste in the code
   - [ ] Telescope shortcut for file content
   - [ ] Markdown snippets
   - [ ] Make whichkey better
