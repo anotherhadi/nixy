@@ -11,7 +11,7 @@ let
   '';
 in {
 
-  # fix "startpage/index.html".text = ''
+  environment.etc."www/home.anotherhadi.com".text = ''
     <!DOCTYPE html>
     <html lang="en">
 
