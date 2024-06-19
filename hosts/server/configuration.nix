@@ -8,6 +8,7 @@
     ../modules/server/cloudflare-dyndns.nix
     ../modules/server/nginx.nix
     ../modules/server/nextcloud.nix
+    ../modules/server/vaultwarden.nix
   ];
 
   # Bootloader.
