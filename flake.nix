@@ -37,10 +37,7 @@
           inputs.home-manager.nixosModules.home-manager
           {
             nixpkgs.overlays = [ nur.overlay ];
-            _module.args = {
-              inherit inputs;
-              inherit sops-nix;
-            };
+            _module.args = { inherit inputs; };
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
@@ -58,7 +55,10 @@
           inputs.home-manager.nixosModules.home-manager
           {
             nixpkgs.overlays = [ nur.overlay ];
-            _module.args = { inherit inputs; };
+            _module.args = {
+              inherit inputs;
+              inherit sops-nix;
+            };
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
