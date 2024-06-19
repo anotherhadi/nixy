@@ -15,8 +15,8 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Telescope shortcut for file content
   - [ ] Markdown snippets
   - [ ] Make whichkey better
-- [ ] Automount USB Key (And notify-send when it's done)
 - [ ] Backup system for some folders ($home/dev, $home/pictures, ...)
   - [ ] Exclude file pattern (nodes modules, ...)
 - [ ] Nextcloud exclude file pattern (nodes modules, ...)
-- [ ] Usb security for laptop & server, variable in variables.nix, disable for guest
+- [ ] Automount USB Key (And notify-send when it's done)
+  - [ ] Usb security for laptop & server, variable in variables.nix, disable for guest

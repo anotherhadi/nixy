@@ -1,8 +1,10 @@
-# APPS
+# Apps and services
 
 *non-exhaustive list*
 
-| Category       | Software      |
+## Laptop
+
+| Category       | Name          |
 |----------------|---------------|
 | WM             | Hyprland      |
 |                | hyprlock      |
@@ -31,3 +33,16 @@
 |                | neofetch      |
 |                | cava          |
 |                | ...           |
+
+## Server
+
+| Name       |
+|------------|
+| Nextcloud  |
+| Tailscale  |
+| AdGuard Home  |
+| Cloudflare DynDNS  |
+| Ntfy.sh |
+| Vaultwarden |
+| Nginx |
+| Unifi Controler |
