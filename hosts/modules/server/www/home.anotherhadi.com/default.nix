@@ -11,7 +11,7 @@ let
   '';
 in {
 
-  environment.etc."www/home.anotherhadi.com".text = ''
+  environment.etc."www/home.anotherhadi.com/index.html".text = ''
     <!DOCTYPE html>
     <html lang="en">
 

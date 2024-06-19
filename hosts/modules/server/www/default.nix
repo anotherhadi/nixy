@@ -9,5 +9,5 @@
     };
     "home.anotherhadi.com" = { root = "/etc/www/home.anotherhadi.com"; };
   };
-  environment.etc."www/anotherhadi.com" = { source = ./home.anotherhadi.com; };
+  environment.etc."www/anotherhadi.com" = { source = ./anotherhadi.com; };
 }
