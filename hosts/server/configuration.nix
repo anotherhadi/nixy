@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ./variables.nix
+    ../modules/server/security.nix
     ../modules/server/openssh.nix
   ];
 
