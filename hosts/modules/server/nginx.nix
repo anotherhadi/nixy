@@ -9,6 +9,7 @@
 
   # test
   services.nginx.virtualHosts."anotherhadi.com" = {
-    locations."/".root = "/var/www/default";
+    serverAliases = [ "www.anotherhadi.com" ];
+    root = "/var/www/default";
   };
 }

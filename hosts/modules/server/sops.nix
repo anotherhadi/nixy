@@ -13,11 +13,10 @@
         path = "/home/hadi/.ssh/github";
         owner = "hadi";
       };
-      # nextcloud-adminpass = {
-      #   path = "/etc/nextcloud/adminpassFile";
-      #   owner = "nextcloud";
-      #   group = "nextcloud";
-      # };
+      nextcloud-adminpass = {
+        mode = "0444"; # FIXME
+        path = "/etc/nextcloud/adminpassFile";
+      };
       cloudflare-apitoken = {
         mode = "0444"; # FIXME
         path = "/etc/cloudflare/apiToken";
