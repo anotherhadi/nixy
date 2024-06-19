@@ -6,7 +6,7 @@ in {
     hostName = hostname;
     https = true;
     config = {
-      adminUser = "jack";
+      adminuser = "jack";
       adminpassFile = "/etc/nextcloud/adminpassFile";
     };
     settings = {
