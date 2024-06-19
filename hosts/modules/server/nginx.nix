@@ -14,7 +14,7 @@
   };
 
   environment.etc = {
-    "www/home" = {
+    "www/home/index.html" = {
       text = ''
         <html>
           <head>
