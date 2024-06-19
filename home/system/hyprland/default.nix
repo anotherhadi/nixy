@@ -137,7 +137,7 @@
         blur = { enabled = false; };
       };
 
-      master = { new_is_master = true; };
+      master = { new_status = true; };
 
       gestures = { workspace_swipe = true; };
 
