@@ -18,11 +18,7 @@
       #   owner = "nextcloud";
       #   group = "nextcloud";
       # };
-      cloudflare-apitoken = {
-        path = "/etc/cloudflare/apiToken";
-        owner = "cloudflare-dyndns";
-        group = "cloudflare-dyndns";
-      };
+      cloudflare-apitoken = { path = "/etc/cloudflare/apiToken"; };
       # tailscaled-authKey = {
       #   path = "/etc/tailscale/authKey";
       #   owner = "tailscaled";
