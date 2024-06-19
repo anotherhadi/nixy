@@ -1,7 +1,7 @@
 [//]: # (Title: Nixy)  
 [//]: # (Description: Nixy is a Hyprland NixOS configuration with home-manager, secrets and custom theming all in one place. It's a simple way to manage your system configuration and dotfiles.)  
 [//]: # (Author: Hadi)  
-[//]: # (Date: 06/18/24)
+[//]: # (Date: 06/19/24)
 
 <div align="center">
     <img src="https://raw.githubusercontent.com/anotherhadi/nixy/main/docs/src/logo.png" width="100px" />
