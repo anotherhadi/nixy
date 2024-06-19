@@ -13,7 +13,6 @@
     # System
     ./system/git
     ./system/shell
-    # ./system/sops/server.nix # You should probably remove this line
   ];
 
   home = {
