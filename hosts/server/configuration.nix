@@ -8,9 +8,9 @@
 
   # Bootloader.
   boot = {
-  loader.grub.enable = true;
-  loader.grub.device = "/dev/sda";
-  loader.grub.useOSProber = true;
+    loader.grub.enable = true;
+    loader.grub.device = "/dev/sda";
+    loader.grub.useOSProber = true;
     tmp.cleanOnBoot = true;
     kernelPackages =
       pkgs.linuxPackages_latest; # _zen, _hardened, _rt, _rt_latest, etc.
@@ -38,7 +38,7 @@
   users.users.${config.var.username} = {
     isNormalUser = true;
     description = "${config.var.username} account";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "wheel" ];
   };
 
   services = {
