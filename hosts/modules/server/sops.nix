@@ -5,6 +5,7 @@
   sops = {
     age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
     defaultSopsFile = "../../../secrets/server.yaml";
+    defaultSopsFormat = "yaml";
     secrets = {
       sshconfig = {
         path = "/home/hadi/.ssh/config";
