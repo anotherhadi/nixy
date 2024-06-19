@@ -3,7 +3,7 @@
 let
   hostname = "ntfy.anotherhadi.com";
   port = 8082;
-  url = "https://" + hostname + ":" + port;
+  url = "https://" + hostname + ":${toString port}";
 in {
   services.ntfy-sh = {
     enable = true;
