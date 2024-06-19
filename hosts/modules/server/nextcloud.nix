@@ -16,7 +16,7 @@ in {
     nginx.recommendedHttpHeaders = true;
   };
   services.nginx.virtualHosts.${hostname} = {
-    forceSSL = true;
+    forceSSL = false;
     enableACME = true;
   };
 }
