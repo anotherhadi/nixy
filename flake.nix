@@ -53,6 +53,7 @@
         modules = [
           ./hosts/server/configuration.nix
           inputs.home-manager.nixosModules.home-manager
+          inputs.sops-nix.nixosModules.sops
           {
             nixpkgs.overlays = [ nur.overlay ];
             _module.args = { inherit inputs; };
