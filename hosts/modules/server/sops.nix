@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ ... }: {
 
   sops = {
     age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
