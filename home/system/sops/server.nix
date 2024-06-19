@@ -9,9 +9,21 @@
     secrets = {
       sshconfig = { path = "/home/hadi/.ssh/config"; };
       github-key = { path = "/home/hadi/.ssh/github"; };
-      nextcloud-adminpass = { path = "/etc/nextcloud/adminpassFile"; };
-      cloudflare-apitoken = { path = "/etc/cloudflare/apiToken"; };
-      tailscaled-authKey = { path = "/etc/tailscale/authKey"; };
+      # nextcloud-adminpass = {
+      #   path = "/etc/nextcloud/adminpassFile";
+      #   owner = "nextcloud";
+      #   group = "nextcloud";
+      # };
+      # cloudflare-apitoken = {
+      #   path = "/etc/cloudflare/apiToken";
+      #   owner = "cloudflare-dyndns";
+      #   group = "cloudflare-dyndns";
+      # };
+      # tailscaled-authKey = {
+      #   path = "/etc/tailscale/authKey";
+      #   owner = "tailscaled";
+      #   group = "tailscaled";
+      # };
     };
   };
 
