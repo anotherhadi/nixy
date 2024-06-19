@@ -4,6 +4,7 @@
     ./variables.nix
     ../modules/server/security.nix
     ../modules/server/openssh.nix
+    ../modules/server/sops.nix
   ];
 
   # Bootloader.
