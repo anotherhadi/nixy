@@ -46,6 +46,7 @@
       nodejs
       python3
       jq
+      git-ignore
 
       # Utils
       fd
@@ -64,6 +65,7 @@
       bitwarden-cli
       optipng
       pfetch
+      usbutils
 
       # Just cool
       peaclock
