@@ -7,6 +7,7 @@
     ../modules/server/sops.nix
     ../modules/server/cloudflare-dyndns.nix
     ../modules/server/nginx.nix
+    ../modules/server/nextcloud.nix
   ];
 
   # Bootloader.
