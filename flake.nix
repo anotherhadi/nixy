@@ -26,7 +26,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = inputs@{ nixpkgs, nur, ... }: {
+  outputs = inputs@{ nixpkgs, nur, sops-nix, ... }: {
     nixosConfigurations = {
 
       nixy = nixpkgs.lib.nixosSystem {
@@ -37,7 +37,10 @@
           inputs.home-manager.nixosModules.home-manager
           {
             nixpkgs.overlays = [ nur.overlay ];
-            _module.args = { inherit inputs; };
+            _module.args = {
+              inherit inputs;
+              inherit sops-nix;
+            };
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
