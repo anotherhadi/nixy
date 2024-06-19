@@ -11,5 +11,6 @@
     ./system
     ./compress
     ./misc
+    ./tofi
   ];
 }
