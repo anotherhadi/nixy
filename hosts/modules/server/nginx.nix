@@ -11,6 +11,6 @@
   services.nginx.virtualHosts."anotherhadi.com" = {
     forceSSL = true;
     enableACME = true;
-    locations."/".root = "/var/www/";
+    locations."/".root = "/var/www/default";
   };
 }
