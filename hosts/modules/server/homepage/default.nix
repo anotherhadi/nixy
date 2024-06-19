@@ -2,25 +2,11 @@
 let
   bookmarks = ''
     Bookmarks: [
-      {text: "MyNixOs", url: "https://mynixos.com", icon: "󱄅"},
-      {text: "Github", url: "https://github.com", icon: ""},
-      {text: "Proton", url: "https://mail.proton.me/u/0/inbox", icon: ""},
-      {text: "Cloudflare One", url: "https://one.dash.cloudflare.com/", icon: ""},
-      {text: "Chat GPT", url: "https://chat.openai.com/", icon: "󰭹"},
-      {text: "Nixvim", url: "https://nix-community.github.io/nixvim/", icon: ""},
-      {text: "Hyprland Wiki", url: "https://wiki.hyprland.org/", icon: "󰖬"},
-      {text: "Nerdfont", url: "https://www.nerdfonts.com/cheat-sheet", icon: ""},
-      {text: "Youtube", url: "https://youtube.com", icon: "󰗃"},
+      {text: "Outlook", url: "https://outlook.office.com/mail/", icon: "󰴢"},
     ],
     Home: [
-      {text: "Casa", url: "http://192.168.2.16:8081/#/", icon: "󰋜"},
-      {text: "Plex", url: "http://192.168.2.16:32400", icon: "󰚺"},
-      {text: "Nextcloud", url: "http://192.168.2.16:10081", icon: ""},
     ],
     Work: [
-      {text: "Outlook", url: "https://outlook.office.com/mail/", icon: "󰴢"},
-      {text: "Office", url: "https://www.office.com/?auth=2", icon: "󰏆"},
-      {text: "Teams", url: "https://teams.microsoft.com/_", icon: "󰊻"},
     ],
   '';
 in {

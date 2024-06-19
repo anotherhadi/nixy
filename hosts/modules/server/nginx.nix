@@ -10,6 +10,21 @@
   # test
   services.nginx.virtualHosts."anotherhadi.com" = {
     serverAliases = [ "www.anotherhadi.com" ];
-    root = "/var/www/default";
+    root = "/etc/www/home";
+  };
+
+  environment.etc = {
+    "www/home" = {
+      text = ''
+        <html>
+          <head>
+            <title>Another Hadi</title>
+          </head>
+          <body>
+            <h1>Another Hadi</h1>
+          </body>
+        </html>
+      '';
+    };
   };
 }
