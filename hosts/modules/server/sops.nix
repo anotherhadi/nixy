@@ -1,4 +1,4 @@
-{ ... }: {
+{
 
   sops = {
     age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
@@ -13,34 +13,21 @@
         path = "/home/hadi/.ssh/github";
         owner = "hadi";
       };
+      # nextcloud-adminpass = {
+      #   path = "/etc/nextcloud/adminpassFile";
+      #   owner = "nextcloud";
+      #   group = "nextcloud";
+      # };
       cloudflare-apitoken = {
-        path = "/home/hadi/test.txt";
-        owner = "hadii";
+        path = "/etc/cloudflare/apiToken";
+        owner = "cloudflare-dyndns";
+        group = "cloudflare-dyndns";
       };
+      # tailscaled-authKey = {
+      #   path = "/etc/tailscale/authKey";
+      #   owner = "tailscaled";
+      #   group = "tailscaled";
+      # };
     };
   };
 }
-
-# sops = {
-#   age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
-#   defaultSopsFile = ../../../secrets/server.yaml;
-#   secrets = {
-#     sshconfig = { path = "/home/hadi/.ssh/config"; };
-#     github-key = { path = "/home/hadi/.ssh/github"; };
-# nextcloud-adminpass = {
-#   path = "/etc/nextcloud/adminpassFile";
-#   owner = "nextcloud";
-#   group = "nextcloud";
-# };
-# cloudflare-apitoken = {
-#   path = "/etc/cloudflare/apiToken";
-#   owner = "cloudflare-dyndns";
-#   group = "cloudflare-dyndns";
-# };
-# tailscaled-authKey = {
-#   path = "/etc/tailscale/authKey";
-#   owner = "tailscaled";
-#   group = "tailscaled";
-# };
-# };
-# };
