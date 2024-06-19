@@ -2,7 +2,6 @@
 
 ## Nix/NixOs shortcuts
 
-- `nixy-edit`
 - `nixy-rebuild`
 - `nixy-update`
 - `nixy-gc` # garbage collection
