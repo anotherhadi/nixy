@@ -21,11 +21,10 @@
         mode = "0444"; # FIXME
         path = "/etc/cloudflare/apiToken";
       };
-      # tailscaled-authKey = {
-      #   path = "/etc/tailscale/authKey";
-      #   owner = "tailscaled";
-      #   group = "tailscaled";
-      # };
+      tailscaled-authKey = {
+        mode = "0444"; # FIXME
+        path = "/etc/tailscale/authKey";
+      };
     };
   };
 }
