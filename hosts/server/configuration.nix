@@ -6,6 +6,7 @@
     ../modules/server/openssh.nix
     ../modules/server/sops.nix
     ../modules/server/cloudflare-dyndns.nix
+    ../modules/server/nginx.nix
   ];
 
   # Bootloader.
