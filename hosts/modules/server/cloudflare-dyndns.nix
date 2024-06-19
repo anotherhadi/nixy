@@ -8,6 +8,7 @@
       "vault.anotherhadi.com"
       "anotherhadi.com"
       "www.anotherhadi.com"
+      "ntfy.anotherhadi.com"
     ];
     proxied = true;
     apiTokenFile = "/etc/cloudflare/apiToken";
