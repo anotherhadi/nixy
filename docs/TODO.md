@@ -2,7 +2,7 @@
 
 feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
-- [ ] Nixy script v2 (with flake)
+- [ ] Nixy script v2 (with nixosConfiguration's name variable)
 - [ ] Installation script
 - [ ] Themes
   - [ ] MacOS theme
@@ -19,3 +19,4 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Backup system for some folders ($home/dev, $home/pictures, ...)
   - [ ] Exclude file pattern (nodes modules, ...)
 - [ ] Nextcloud exclude file pattern (nodes modules, ...)
+- [ ] Usb security for laptop & server, variable in variables.nix, disable for guest
