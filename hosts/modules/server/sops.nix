@@ -1,6 +1,6 @@
-{ test-nix, ... }: {
+{ pkgs, inputs, config, ... }: {
 
-  imports = [ test-nix.nixosModules.sops ];
+  imports = [ inputs.sops-nix.nixosModules.sops ];
 
   sops = {
     age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
