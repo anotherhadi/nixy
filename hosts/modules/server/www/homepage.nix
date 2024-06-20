@@ -18,6 +18,6 @@
         description = "test";
         homepage = "https://text.com";
       };
-    } + "/build";
+    };
   };
 }
