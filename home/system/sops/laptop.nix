@@ -10,6 +10,7 @@
       sshconfig = { path = "/home/hadi/.ssh/config"; };
       github-key = { path = "/home/hadi/.ssh/github"; };
       gitlab-key = { path = "/home/hadi/.ssh/gitlab"; };
+      jack-key = { path = "/home/hadi/.ssh/jack"; };
     };
   };
 

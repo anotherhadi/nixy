@@ -52,6 +52,7 @@
     isNormalUser = true;
     description = "${config.var.username} account";
     extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keys = [ config.var.sshPublicKey ];
   };
 
   services = {
