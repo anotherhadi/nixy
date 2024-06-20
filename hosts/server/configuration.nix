@@ -9,12 +9,12 @@
     ../modules/server/nginx.nix
     ../modules/server/nextcloud.nix
     ../modules/server/vaultwarden.nix
-
     ../modules/server/www
     ../modules/server/adguard.nix
     ../modules/server/ntfy-sh.nix
     ../modules/server/tailscale.nix
     ../modules/server/kuma.nix
+    ../modules/server/bitcoin-git.nix
     # ../modules/server/unifi.nix # FIXME: unifi5 is deprecated
 
   ];
