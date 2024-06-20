@@ -5,12 +5,14 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Nixy script v2 (with nixosConfiguration's name variable)
 - [ ] Installation script
 - [ ] Themes
+  - [ ] Upload new wallpapers
   - [ ] MacOS theme
 - [ ] Make hyprcursor work
 - [ ] Homepage (web) v2
   - [ ] Compile the sveltejs project
   - [ ] Different link on web/mobile (so it can open ios/android apps)
   - [ ] Test services ? (ping)
+  - [ ] Manifest & favicon
 - [ ] Nixvim
   - [ ] Nerdfont pluggins to search and paste in the code
   - [ ] Telescope shortcut for file content
@@ -26,3 +28,4 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Remote push
 - [ ] Ntfy auth file
 - [ ] Uptime kuma or alt
+- [ ] Tailscale variable
