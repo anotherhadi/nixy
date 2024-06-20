@@ -12,6 +12,7 @@
         hash = "sha256-Z2TZ56I6lRmYkLRnnMscvmSCzGt5q9yX90lGPebJpe8=";
       };
 
+      npmBuildScript = "run build";
       npmDepsHash = "sha256-YxdrNTBbbgMHJ0WoSHePxdM7UJLbKsSbObW8M1uArUg=";
 
       # The prepack script runs the build script, which we'd rather do in the build phase.
