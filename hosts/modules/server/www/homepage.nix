@@ -1,8 +1,9 @@
 { pkgs, ... }: {
   services.nginx.virtualHosts."home.anotherhadi.com" = {
     enableACME = true;
-    root = pkgs.stdenv.mkDerivation {
-      name = "homepage";
+    root = pkgs.buildNpmPackage {
+      pname = "homepage";
+      version = "0.0.0";
 
       src = pkgs.fetchFromGitHub {
         owner = "anotherhadi";
@@ -11,17 +12,17 @@
         hash = "sha256-Z2TZ56I6lRmYkLRnnMscvmSCzGt5q9yX90lGPebJpe8=";
       };
 
-      buildInputs = with pkgs; [ nodejs ];
+      npmDepsHash = "sha256-tuEfyePwlOy2/mOPdXbqJskO6IowvAP4DWg8xSZwbJw=";
 
-      buildPhase = ''
-        npm install --legacy-peer-deps
-        npm run build
-      '';
+      # The prepack script runs the build script, which we'd rather do in the build phase.
+      npmPackFlags = [ "--ignore-scripts" ];
 
-      installPhase = ''
-        mkdir -p $out
-        cp -r build/* $out
-      '';
+      NODE_OPTIONS = "--openssl-legacy-provider";
+
+      meta = {
+        description = "test";
+        homepage = "https://text.com";
+      };
 
     };
   };
