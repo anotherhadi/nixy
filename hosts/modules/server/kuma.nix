@@ -6,4 +6,5 @@
       PORT = "3005";
     };
   };
+  networking.firewall.allowedTCPPorts = [ 3005 ];
 }
