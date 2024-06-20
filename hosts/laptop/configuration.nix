@@ -47,6 +47,7 @@
   };
 
   services = {
+    tailscale.enable = config.var.tailscale;
     xserver = {
       enable = true;
       xkb.layout = config.var.keyboardLayout;

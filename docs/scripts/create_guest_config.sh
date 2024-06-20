@@ -25,4 +25,5 @@ variables=$(echo "$variables" | sed 's/hadi/your_username/')
 variables=$(echo "$variables" | sed 's/Hadi/your_username/')
 variables=$(echo "$variables" | sed 's/sops = true/sops = false/')
 variables=$(echo "$variables" | sed 's/obsidian = true/obsidian = false/')
+variables=$(echo "$variables" | sed 's/tailscale = true/tailscale = false/')
 echo "$variables" >"$GUEST_CONFIG/variables.nix"

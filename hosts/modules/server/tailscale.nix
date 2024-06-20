@@ -1,6 +1,6 @@
-{
+{ config, ... }: {
   services.tailscale = {
-    enable = true;
+    enable = config.var.tailscale;
     useRoutingFeatures = "both";
     authKeyFile = "/etc/tailscale/authKey";
     openFirewall = true;
