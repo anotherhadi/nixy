@@ -10,8 +10,6 @@ in {
     settings = {
       base-url = url;
       listen-http = "127.0.0.1:${toString port}";
-      auth-file = "/var/lib/ntfy-sh/user.db";
-      auth-default-access = "deny-all";
       behind-proxy = true;
     };
   };
