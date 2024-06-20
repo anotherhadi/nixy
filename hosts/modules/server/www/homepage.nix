@@ -12,7 +12,7 @@
         hash = "sha256-Z2TZ56I6lRmYkLRnnMscvmSCzGt5q9yX90lGPebJpe8=";
       };
 
-      npmDepsHash = "sha256-tuEfyePwlOy2/mOPdXbqJskO6IowvAP4DWg8xSZwbJw=";
+      npmDepsHash = "sha256-YxdrNTBbbgMHJ0WoSHePxdM7UJLbKsSbObW8M1uArUg=";
 
       # The prepack script runs the build script, which we'd rather do in the build phase.
       npmPackFlags = [ "--ignore-scripts" ];
@@ -23,7 +23,6 @@
         description = "test";
         homepage = "https://text.com";
       };
-
-    };
+    } + "/build";
   };
 }
