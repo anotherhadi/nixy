@@ -11,7 +11,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Homepage (web) v2
   - [ ] Compile the sveltejs project
   - [ ] Different link on web/mobile (so it can open ios/android apps)
-  - [ ] Test services ? (ping)
   - [ ] Manifest & favicon
 - [ ] Nixvim
   - [ ] Nerdfont pluggins to search and paste in the code
