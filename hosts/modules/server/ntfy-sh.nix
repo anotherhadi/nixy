@@ -5,13 +5,12 @@ let
   port = 8082;
   url = "https://" + hostname;
 in {
-  environment.etc."ntfy-sh/auth" = { text = ""; };
   services.ntfy-sh = {
     enable = true;
     settings = {
       base-url = url;
       listen-http = "127.0.0.1:${toString port}";
-      auth-file = "/etc/ntfy-sh/authfile";
+      auth-file = "/var/lib/ntfy-sh/user.db";
       auth-default-access = "deny-all";
       behind-proxy = true;
     };
