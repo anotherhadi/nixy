@@ -12,6 +12,7 @@
       "jack.anotherhadi.com"
       "ntfy.anotherhadi.com"
       "home.anotherhadi.com"
+      "kuma.anotherhadi.com"
     ];
     proxied = true;
     apiTokenFile = "/etc/cloudflare/apiToken";
