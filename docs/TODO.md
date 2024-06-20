@@ -7,7 +7,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Themes
   - [ ] MacOS theme
 - [ ] Make hyprcursor work
-- [ ] Homepage (web/qutebrowser) v2
+- [ ] Homepage (web) v2
   - [ ] Compile the sveltejs project
   - [ ] Different link on web/mobile (so it can open ios/android apps)
   - [ ] Test services ? (ping)
@@ -21,3 +21,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Nextcloud exclude file pattern (nodes modules, ...)
 - [ ] Automount USB Key (And notify-send when it's done)
   - [ ] Usb security for laptop & server, variable in variables.nix, disable for guest
+- [ ] Bitcoin-git
+- [ ] server fetch
+- [ ] Remote push
+- [ ] Ntfy auth file
