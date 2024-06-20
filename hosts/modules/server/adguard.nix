@@ -2,7 +2,7 @@
 # Change your router primary DNS server to {this server IP} to make it network wide.
 {
   services.adguardhome = {
-    enable = true;
+    enable = false;
     host = "0.0.0.0";
     port = 3000;
   };
