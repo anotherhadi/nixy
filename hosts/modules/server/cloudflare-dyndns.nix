@@ -8,6 +8,8 @@
       "vault.anotherhadi.com"
       "anotherhadi.com"
       "www.anotherhadi.com"
+      "test.anotherhadi.com"
+      "jack.anotherhadi.com"
       "ntfy.anotherhadi.com"
       "home.anotherhadi.com"
     ];
