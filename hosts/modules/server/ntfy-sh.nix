@@ -5,6 +5,7 @@ let
   port = 8082;
   url = "https://" + hostname;
 in {
+  environment.etc."ntfy-sh/auth" = { text = ""; };
   services.ntfy-sh = {
     enable = true;
     settings = {
