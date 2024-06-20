@@ -10,7 +10,7 @@ in {
     settings = {
       base-url = url;
       listen-http = "127.0.0.1:${toString port}";
-      # auth-file = "/etc/ntfy-sh/authfile"
+      auth-file = "/etc/ntfy-sh/authfile";
       auth-default-access = "deny-all";
       behind-proxy = true;
     };
