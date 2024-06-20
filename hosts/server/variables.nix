@@ -24,6 +24,7 @@
     autoGarbageCollector = false;
     sops = true;
     obsidian = false;
+    tailscale = true;
 
     theme = import ../themes/jack.nix; # select your theme here
   };

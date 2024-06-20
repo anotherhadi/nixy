@@ -14,6 +14,7 @@
     ../modules/server/adguard.nix
     ../modules/server/ntfy-sh.nix
     ../modules/server/tailscale.nix
+    ../modules/server/kuma.nix
     # ../modules/server/unifi.nix # FIXME: unifi5 is deprecated
 
   ];
