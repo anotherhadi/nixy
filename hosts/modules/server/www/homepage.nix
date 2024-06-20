@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  nginx.virtualHosts."home.anotherhadi.com" = {
+  services.nginx.virtualHosts."home.anotherhadi.com" = {
     enableACME = true;
     root = pkgs.stdenv.mkDerivation {
       name = "homepage";
