@@ -50,6 +50,7 @@
       jq
       git-ignore
       node2nix
+      nurl
 
       # Utils
       fd

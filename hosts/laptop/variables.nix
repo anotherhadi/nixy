@@ -26,6 +26,7 @@
     sops = true;
     # change the nvim's obsidian configuration if you want to enable that:
     obsidian = true;
+    tailscale = true;
 
     theme = import ../themes/nixy.nix; # select your theme here
   };

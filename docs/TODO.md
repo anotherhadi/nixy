@@ -27,4 +27,3 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] server fetch
 - [ ] Remote push
 - [ ] Ntfy auth file
-- [ ] Uptime kuma or alt

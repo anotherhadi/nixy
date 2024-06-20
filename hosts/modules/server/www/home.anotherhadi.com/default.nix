@@ -4,6 +4,7 @@ let
     Home: [
       {text: "Nextcloud", url: "https://cloud.anotherhadi.com", icon: "󰅟"},
       {text: "Vaultwarden", url: "https://vault.anotherhadi.com", icon: ""},
+      {text: "Uptime Kuma", url: "https://kuma.anotherhadi.com", icon: "󱎫"},
     ],
     Admin: [
       {text: "Adguard Home", url: "http://192.168.2.24:3001", icon: "󰷱"},
