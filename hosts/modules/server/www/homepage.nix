@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   services.nginx.virtualHosts."home.anotherhadi.com" = {
     enableACME = true;
+
     root = pkgs.buildNpmPackage {
       pname = "homepage";
       version = "0.0.0";
@@ -14,10 +15,19 @@
 
       npmDepsHash = "sha256-YxdrNTBbbgMHJ0WoSHePxdM7UJLbKsSbObW8M1uArUg=";
 
+      buildPhase = ''
+        npm install
+        npm run build
+
+        mkdir $out
+        mv build $out
+      '';
+
       meta = {
         description = "test";
         homepage = "https://text.com";
-      };
+      } + "/build";
     };
+
   };
 }
