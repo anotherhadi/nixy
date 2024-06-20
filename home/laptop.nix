@@ -40,6 +40,7 @@
       bitwarden
       vlc
       nextcloud-client
+      tailscale
 
       # Dev
       go
