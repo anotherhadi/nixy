@@ -15,10 +15,12 @@
 
       npmDepsHash = "sha256-YxdrNTBbbgMHJ0WoSHePxdM7UJLbKsSbObW8M1uArUg=";
 
-      buildPhase = ''
+      installPhase = ''
         npm install
-        npm run build
+      '';
 
+      buildPhase = ''
+        npm run build
         mkdir $out
         mv build $out
       '';
