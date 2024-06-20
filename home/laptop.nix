@@ -39,6 +39,7 @@
       xfce.thunar
       bitwarden
       vlc
+      nextcloud-client
 
       # Dev
       go
@@ -47,6 +48,7 @@
       python3
       jq
       git-ignore
+      node2nix
 
       # Utils
       fd

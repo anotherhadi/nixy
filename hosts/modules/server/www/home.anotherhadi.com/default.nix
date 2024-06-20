@@ -2,14 +2,14 @@
 let
   bookmarks = ''
     Home: [
-      {text: "Nextcloud", url: "https://cloud.anotherhadi.com", icon: ""},
-      {text: "Vaultwarden", url: "https://vault.anotherhadi.com", icon: ""},
+      {text: "Nextcloud", url: "https://cloud.anotherhadi.com", icon: "󰅟"},
+      {text: "Vaultwarden", url: "https://vault.anotherhadi.com", icon: ""},
     ],
     Admin: [
-      {text: "Adguard Home", url: "http://192.168.2.24:3001", icon: ""},
-      {text: "Proxmox", url: "https://192.168.2.17:8006", icon: ""},
-      {text: "Cloudflare", url: "https://dash.cloudflare.com/", icon: ""},
-      {text: "Tailscale", url: "https://login.tailscale.com/admin/machines", icon: ""},
+      {text: "Adguard Home", url: "http://192.168.2.24:3001", icon: "󰷱"},
+      {text: "Proxmox", url: "https://192.168.2.17:8006", icon: ""},
+      {text: "Cloudflare", url: "https://dash.cloudflare.com/", icon: ""},
+      {text: "Tailscale", url: "https://login.tailscale.com/admin/machines", icon: "󰖂"},
     ],
   '';
 in {
