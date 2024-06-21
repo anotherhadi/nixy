@@ -9,7 +9,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] MacOS theme
 - [ ] Make hyprcursor work
 - [ ] Homepage (web) v2
-  - [ ] Compile the sveltejs project
   - [ ] Different link on web/mobile (so it can open ios/android apps)
   - [ ] Manifest & favicon
 - [ ] Nixvim
@@ -26,3 +25,4 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] server fetch
 - [ ] Remote push
 - [ ] Ntfy auth file
+- [ ] Fix adguard
