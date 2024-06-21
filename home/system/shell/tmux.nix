@@ -12,6 +12,7 @@
       bind-key j select-pane -D
       bind-key k select-pane -U
       bind-key l select-pane -R
+      set -gq allow-passthrough on
     '';
 
     plugins = with pkgs; [
