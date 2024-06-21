@@ -14,7 +14,7 @@
     ./modules/ntfy-sh.nix
     ./modules/tailscale.nix
     ./modules/kuma.nix
-    ./modules/bitcoin-git.nix
+    # ./modules/bitcoin-git.nix # FIXME: bitcoin-git is deprecated
     # ./modules/unifi.nix # FIXME: unifi5 is deprecated
 
   ];

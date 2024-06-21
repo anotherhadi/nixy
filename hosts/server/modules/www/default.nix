@@ -1,6 +1,5 @@
 {
-
-  imports = [ ./homepage.nix ];
+  imports = [ ./home.anotherhadi.com.nix ./start.anotherhadi.com.nix ];
 
   services.nginx.virtualHosts = {
     "anotherhadi.com" = {
