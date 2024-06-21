@@ -2,20 +2,20 @@
   imports = [
     ./hardware-configuration.nix
     ./variables.nix
-    ../modules/server/security.nix
-    ../modules/server/openssh.nix
-    ../modules/server/sops.nix
-    ../modules/server/cloudflare-dyndns.nix
-    ../modules/server/nginx.nix
-    ../modules/server/nextcloud.nix
-    ../modules/server/vaultwarden.nix
-    ../modules/server/www
-    ../modules/server/adguard.nix
-    ../modules/server/ntfy-sh.nix
-    ../modules/server/tailscale.nix
-    ../modules/server/kuma.nix
-    ../modules/server/bitcoin-git.nix
-    # ../modules/server/unifi.nix # FIXME: unifi5 is deprecated
+    ./modules/security.nix
+    ./modules/openssh.nix
+    ./modules/sops.nix
+    ./modules/cloudflare-dyndns.nix
+    ./modules/nginx.nix
+    ./modules/nextcloud.nix
+    ./modules/vaultwarden.nix
+    ./modules/www
+    ./modules/adguard.nix
+    ./modules/ntfy-sh.nix
+    ./modules/tailscale.nix
+    ./modules/kuma.nix
+    ./modules/bitcoin-git.nix
+    # ./modules/unifi.nix # FIXME: unifi5 is deprecated
 
   ];
 
