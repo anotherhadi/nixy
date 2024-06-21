@@ -74,6 +74,7 @@ let
       hash = "sha256-8IzXcQ/hm2ZDzFKUL4B3501PoWoEOiKIN7rP2UrvG84=";
     };
 
+    # npmDepsHash = lib.fakeHash;
     npmDepsHash = "sha256-bG+CHTq2Rst3JMxsjAC81KhK+G7WwsTVD1eyP87g0z4=";
 
     buildPhase = ''
@@ -93,7 +94,7 @@ let
   };
 
 in {
-  services.nginx.virtualHosts."home.anotherhadi.com" = {
+  services.nginx.virtualHosts."start.anotherhadi.com" = {
     enableACME = true;
     root = package + "/build";
   };
