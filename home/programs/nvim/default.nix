@@ -24,6 +24,7 @@
     ./plugins/tmux-navigator.nix
     ./plugins/noice.nix
     ./plugins/obsidian.nix
+    ./plugins/image.nix
     ./options.nix
     ./colorscheme.nix
   ];
