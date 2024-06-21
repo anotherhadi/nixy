@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   settings = ''
     {
@@ -74,7 +74,7 @@ let
       hash = "sha256-8IzXcQ/hm2ZDzFKUL4B3501PoWoEOiKIN7rP2UrvG84=";
     };
 
-    npmDepsHash = "sha256-YxdrNTBbbgMHJ0WoSHePxdM7UJLbKsSbObW8M1uArUg=";
+    npmDepsHash = lib.fakeHash;
 
     buildPhase = ''
       npm install
