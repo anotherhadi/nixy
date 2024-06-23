@@ -8,5 +8,5 @@
     allowDHCP = true;
     openFirewall = true;
   };
-  networking.firewall.allowedTCPPorts = [ 53 3000 ];
+  networking.firewall.allowedTCPPorts = [ 53 3000 3001 ];
 }
