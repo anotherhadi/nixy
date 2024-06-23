@@ -8,7 +8,7 @@ in {
     enable = true;
     config = {
       DOMAIN = url;
-      SIGNUPS_ALLOWED = false;
+      SIGNUPS_ALLOWED = true;
       ROCKET_ADDRESS = "127.0.0.1";
       ROCKET_PORT = port;
       ROCKET_LOG = "critical";
