@@ -25,7 +25,17 @@ let
                 "title": "Vaultwarden",
                 "url": "https://vault.anotherhadi.com",
                 "icon": ""
-              }
+              },
+              {
+                "title": "Jellyfin",
+                "url": "http://jack:8096",
+                "icon": "󰅟"
+              },
+              {
+                "title": "Overseerr",
+                "url": "http://jack:8096",
+                "icon": "󰅟"
+              },
             ]
           },
           {
@@ -38,7 +48,7 @@ let
               },
               {
                 "title": "Adguard Home",
-                "url": "http://192.168.2.24:3001",
+                "url": "http://jack:3001",
                 "icon": "󰷱"
               },
               {

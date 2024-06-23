@@ -22,7 +22,7 @@
     ./modules/www
 
     # jackflix
-    ./modules/jackflix/jellyfin.nix
+    ./modules/jackflix
   ];
 
   # Bootloader.
