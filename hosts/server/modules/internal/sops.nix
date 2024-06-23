@@ -25,6 +25,10 @@
         mode = "0444"; # FIXME
         path = "/etc/tailscale/authKey";
       };
+      transmission-script = {
+        mode = "0755";
+        path = "/home/hadi/transmission-script.sh";
+      };
     };
   };
 }
