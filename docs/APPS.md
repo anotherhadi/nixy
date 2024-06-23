@@ -38,7 +38,7 @@
 
 The server configuration is used by a home server running NixOS.
 The configurations files can be found in the `hosts/server` directory.
-I mainly use it for self hosting services like Nextcloud, Vaultwarden, ... and for hosting websites.
+I mainly use it for self hosting services like Nextcloud, Vaultwarden, etc and for hosting websites.
 I exposed some services to the internet using a reverse proxy (Nginx) and cloudflare dns. (Also configured cloudflare-dyndns)
 
 ### Apps
