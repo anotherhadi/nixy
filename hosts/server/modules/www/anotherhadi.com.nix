@@ -11,7 +11,7 @@ let
       hash = "sha256-fNt4IjfjhDtSEIC1MNWYkTIcHv+XnXFZTlw/dLoWhcY=";
     };
 
-    npmDepsHash = lib.fakeHash;
+    npmDepsHash = "sha256-KMILWgZ6GNKoe/+RZS1tVDTd3SxXl6YtOuCb5kSFeis=";
 
     buildPhase = ''
       npm install
