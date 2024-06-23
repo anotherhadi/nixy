@@ -10,7 +10,7 @@
   gaps-out = 15 * 2;
   border-size = 5;
   animation-speed = "medium"; # "fast" | "medium" | "slow"
-  fetch = "neofetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
+  fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
 
   waybar = {
     transparent = true;

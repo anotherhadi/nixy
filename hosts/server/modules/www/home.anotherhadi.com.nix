@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, config, ... }:
 let
   settings = ''
     {
@@ -7,10 +7,10 @@ let
         "openLinksInNewTab": false,
         "locale": "fr-FR",
         "colors": {
-          "primary": "#89b4fa",
-          "background": "#01010b",
-          "foreground": "#cdd6f4",
-          "muted": "#313244"
+          "primary": "#${config.var.theme.colors.accent}",
+          "background": "#${config.var.theme.colors.bg}",
+          "foreground": "#${config.var.theme.colors.fg}",
+          "muted": "#${config.var.theme.colors.c8}"
         },
         "folders": [
           {
