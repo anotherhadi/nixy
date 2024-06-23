@@ -1,1 +1,9 @@
-{ imports = [ ./jellyfin.nix ./jellyseerr.nix ./prowlarr.nix ]; }
+{
+  imports = [
+    ./jellyfin.nix
+    ./jellyseerr.nix
+    ./prowlarr.nix
+    ./radarr.nix
+    ./sonarr.nix
+  ];
+}
