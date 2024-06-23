@@ -4,6 +4,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
 - [ ] Nixy
   - [ ] Installation script (easy)
+  - [ ] Variables-template with defaults
   - [ ] Themes
     - [ ] Upload new wallpapers
     - [ ] MacOS theme
