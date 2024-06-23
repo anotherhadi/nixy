@@ -1,7 +1,7 @@
 { pkgs, config, ... }: {
 
   imports = [
-    ../hosts/laptop/variables.nix
+    ../hosts/laptop/variables.nix # CHANGEME, replace with your host
 
     # Programs
     ./programs/btop
