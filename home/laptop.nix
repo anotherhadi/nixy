@@ -49,8 +49,8 @@
       python3
       jq
       git-ignore
-      node2nix
       nurl
+      prefetch-npm-deps
 
       # Utils
       fd
