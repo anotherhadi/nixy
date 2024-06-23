@@ -51,6 +51,7 @@
       git-ignore
       nurl
       prefetch-npm-deps
+      figlet
 
       # Utils
       fd
