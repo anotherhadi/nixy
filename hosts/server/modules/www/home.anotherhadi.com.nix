@@ -38,27 +38,27 @@ let
               },
               {
                 "title": "Jellyseerr",
-                "url": "http://jack:8096",
+                "url": "http://jack:5055",
                 "icon": "󰅟"
               },
               {
                 "title": "Radarr",
-                "url": "http://jack:8096",
+                "url": "http://jack:7878",
                 "icon": "󰅟"
               },
               {
                 "title": "Sonarr",
-                "url": "http://jack:8096",
+                "url": "http://jack:8989",
                 "icon": "󰅟"
               },
               {
                 "title": "Bazarr",
-                "url": "http://jack:8096",
+                "url": "http://jack:6767",
                 "icon": "󰅟"
               },
               {
                 "title": "Prowlarr",
-                "url": "http://jack:8096",
+                "url": "http://jack:9696",
                 "icon": "󰅟"
               }
             ]
