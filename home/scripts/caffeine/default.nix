@@ -1,7 +1,5 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 let
-  homedir = config.home.homeDirectory;
-
   caffeine-status = pkgs.writeShellScriptBin "caffeine-status" ''
     [[ -f /tmp/caffeine ]] && echo "active" || echo "inactive"
   '';
@@ -20,4 +18,4 @@ let
       --replace-id="$(cat "/tmp/nixy-notification" 2>/dev/null || echo 0)" --print-id > "/tmp/nixy-notification"
   '';
 
-in { home.packages = with pkgs; [ caffeine-status caffeine ]; }
+in { home.packages = [ caffeine-status caffeine ]; }

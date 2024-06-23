@@ -26,10 +26,4 @@ let
     brightness-change down ${increments}
   '';
 
-in {
-  home.packages = with pkgs; [
-    brightness-change
-    brightness-up
-    brightness-down
-  ];
-}
+in { home.packages = [ brightness-change brightness-up brightness-down ]; }

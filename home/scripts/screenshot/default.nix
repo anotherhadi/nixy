@@ -30,4 +30,4 @@ let
                 --icon="$folder/$filename" \
                 --replace-id="$(cat "/tmp/nixy-notification" 2>/dev/null || echo 0)" --print-id > "/tmp/nixy-notification"
   '';
-in { home.packages = with pkgs; [ hyprshot screenshot ]; }
+in { home.packages = [ pkgs.hyprshot screenshot ]; }

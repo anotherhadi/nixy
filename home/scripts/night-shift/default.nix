@@ -17,4 +17,4 @@ let
       --replace-id="$(cat "/tmp/nixy-notification" 2>/dev/null || echo 0)" --print-id > "/tmp/nixy-notification"
   '';
 
-in { home.packages = with pkgs; [ night-shift-on night-shift-off ]; }
+in { home.packages = [ night-shift-on night-shift-off ]; }

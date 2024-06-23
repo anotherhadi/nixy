@@ -2,21 +2,27 @@
   imports = [
     ./hardware-configuration.nix
     ./variables.nix
-    ./modules/security.nix
-    ./modules/openssh.nix
-    ./modules/sops.nix
-    ./modules/cloudflare-dyndns.nix
-    ./modules/nginx.nix
-    ./modules/nextcloud.nix
-    ./modules/vaultwarden.nix
-    ./modules/www
-    ./modules/adguard.nix
-    ./modules/ntfy-sh.nix
-    ./modules/tailscale.nix
-    ./modules/kuma.nix
-    # ./modules/bitcoin-git.nix # FIXME: bitcoin-git is deprecated
-    # ./modules/unifi.nix # FIXME: unifi5 is deprecated
 
+    # internal
+    ./modules/internal/security.nix
+    ./modules/internal/openssh.nix
+    ./modules/internal/sops.nix
+    ./modules/internal/adguard.nix
+    # ./modules/internal/unifi.nix # FIXME: unifi5 is deprecated
+
+    # exposed
+    ./modules/exposed/ntfy-sh.nix
+    ./modules/exposed/tailscale.nix
+    ./modules/exposed/kuma.nix
+    ./modules/exposed/cloudflare-dyndns.nix
+    ./modules/exposed/nginx.nix
+    ./modules/exposed/nextcloud.nix
+    ./modules/exposed/vaultwarden.nix
+    # ./modules/exposed/bitcoin-git.nix # FIXME: bitcoin-git is deprecated
+    ./modules/www
+
+    # jackflix
+    ./modules/jackflix/jellyfin.nix
   ];
 
   # Bootloader.
