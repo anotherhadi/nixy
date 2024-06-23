@@ -70,8 +70,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "anotherhadi";
       repo = "homepage";
-      rev = "19f56771ae7ac04e2710cbde763f70bb097eb250";
-      hash = "sha256-8IzXcQ/hm2ZDzFKUL4B3501PoWoEOiKIN7rP2UrvG84=";
+      rev = "40286c5e03bcfb9993cce354b4f12c00a1b4966d";
+      hash = "sha256-zlJ/bzFWE64HpUCxiRT5E9wrjVVwSTSgIOrifWKxphU=";
     };
 
     # npmDepsHash = lib.fakeHash;
