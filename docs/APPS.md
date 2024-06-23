@@ -36,13 +36,18 @@
 
 ## Server
 
-| Name       |
-|------------|
-| Nextcloud  |
-| Tailscale  |
-| AdGuard Home  |
-| Cloudflare DynDNS  |
-| Ntfy.sh |
-| Vaultwarden |
-| Nginx |
-| Unifi Controler |
+The server configuration is used by a home server running NixOS.
+The configurations files can be found in the `hosts/server` directory.
+I mainly use it for self hosting services like Nextcloud, Vaultwarden, ... and for hosting websites.
+I exposed some services to the internet using a reverse proxy (Nginx) and cloudflare dns. (Also configured cloudflare-dyndns)
+
+### Apps
+
+- Nextcloud
+- Vaultwarden
+- Adguard Home
+- Unifi Controler
+- Uptime Kuma
+- "Jackflix"
+  - Jellyfin, Transmission, *arr
+- ...
