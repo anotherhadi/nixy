@@ -1,6 +1,78 @@
-{ config, ... }: {
+{ pkgs, config, ... }:
+let
+  settings = ''
+    {
+      "config": {
+        "title" : "Welcome Home",
+        "openLinksInNewTab": false,
+        "locale": "fr-FR",
+        "colors": {
+          "primary": "#${config.var.theme.colors.accent}",
+          "background": "#${config.var.theme.colors.bg}",
+          "foreground": "#${config.var.theme.colors.fg}",
+          "muted": "#${config.var.theme.colors.c8}"
+        },
+        "folders": [
+          {
+            "name": "Bookmarks",
+            "links": [
+              {"title": "Github", "url": "https://github.com", "icon": ""},
+              {"title": "Proton", "url": "https://mail.proton.me/u/0/inbox", "icon": ""},
+              {"title": "Cloudflare One", "url": "https://one.dash.cloudflare.com/", "icon": ""},
+              {"title": "Chat GPT", "url": "https://chat.openai.com/", "icon": "󰭹"},
+              {"title": "Nixvim", "url": "https://nix-community.github.io/nixvim/", "icon": ""},
+              {"title": "Hyprland Wiki", "url": "https://wiki.hyprland.org/", "icon": "󰖬"},
+              {"title": "Nerdfont", "url": "https://www.nerdfonts.com/cheat-sheet", "icon": ""},
+              {"title": "Youtube", "url": "https://youtube.com", "icon": "󰗃"},
+              {"title": "Server", "url": "https://home.anotherhadi.com", "icon": ""}
+            ]
+          },
+          {
+            "name": "Work",
+            "links": [
+              {"title": "Outlook", "url": "https://outlook.office.com/mail/", "icon": "󰴢"},
+              {"title": "Office", "url": "https://www.office.com/?auth=2", "icon": "󰏆"},
+              {"title": "Teams", "url": "https://teams.microsoft.com/_", "icon": "󰊻"}
+            ]
+          }
+        ]
+      }
+    }
+  '';
 
-  imports = [ ./duckduckgo-colorscheme.nix ./homepage ];
+  homepage = pkgs.buildNpmPackage {
+    pname = "homepage";
+    version = "0.0.0";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "anotherhadi";
+      repo = "homepage";
+      rev = "19f56771ae7ac04e2710cbde763f70bb097eb250";
+      hash = "sha256-8IzXcQ/hm2ZDzFKUL4B3501PoWoEOiKIN7rP2UrvG84=";
+    };
+
+    # npmDepsHash = lib.fakeHash;
+    npmDepsHash = "sha256-bG+CHTq2Rst3JMxsjAC81KhK+G7WwsTVD1eyP87g0z4=";
+
+    buildPhase = ''
+      npm install
+      cp ${
+        pkgs.writeText "src/routes/config.json" settings
+      } src/routes/config.json
+      npm run build
+      mkdir $out
+      mv build $out
+    '';
+
+    meta = {
+      description = "homepage";
+      homepage = "https://github.com/anotherhadi/homepage";
+    };
+  };
+
+in {
+
+  imports = [ ./duckduckgo-colorscheme.nix ];
 
   programs.qutebrowser = {
     enable = true;
@@ -18,8 +90,9 @@
     };
 
     quickmarks = {
-      home = "${config.var.homeDirectory}/.config/startpage/index.html";
-      server = "${config.var.homeDirectory}/.config/serverpage/index.html";
+      home = "${homepage}/build/index.html";
+      server = "https://home.anotherhadi.com";
+      jack = "https://home.anotherhadi.com";
       mynixos = "https://mynixos.com";
       github = "https://github.com";
       outlook = "https://outlook.office.com/mail/";
@@ -38,10 +111,8 @@
 
     settings = {
       url = {
-        default_page =
-          "${config.var.homeDirectory}/.config/startpage/index.html";
-        start_pages =
-          [ "${config.var.homeDirectory}/.config/startpage/index.html" ];
+        default_page = "${homepage}/build/index.html";
+        start_pages = [ "${homepage}/build/index.html" ];
       };
 
       colors = {
@@ -184,8 +255,8 @@
 
     keyBindings = {
       normal = {
-        "gh" = "open ${config.var.homeDirectory}/.config/startpage/index.html";
-        "gs" = "open ${config.var.homeDirectory}/.config/serverpage/index.html";
+        "gh" = "open ${homepage}/build/index.html";
+        "gs" = "open https://home.anotherhadi.com";
 
         " p" = "tab-move -";
         " n" = "tab-move +";
