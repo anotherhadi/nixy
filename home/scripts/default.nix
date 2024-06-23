@@ -12,5 +12,6 @@
     ./compress
     ./misc
     ./tofi
+    ./remote-rebuild
   ];
 }
