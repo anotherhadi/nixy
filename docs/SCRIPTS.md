@@ -2,6 +2,8 @@
 
 ## Nix/NixOs shortcuts
 
+The `hostname` variable in `hosts/yourhost/variables.nix` should be also the name of the `nixosConfiguration` in `flake.nix` file.
+
 - `nixy-rebuild`
 - `nixy-update`
 - `nixy-gc` # garbage collection

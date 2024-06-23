@@ -51,11 +51,11 @@ let
   '';
 
   nixy-rebuild = pkgs.writeShellScriptBin "nixy-rebuild" ''
-    sudo nixos-rebuild switch --flake ${config.var.configDirectory}#nixy
+    sudo nixos-rebuild switch --flake ${config.var.configDirectory}#${config.var.hostname}
   '';
 
   nixy-upgrade = pkgs.writeShellScriptBin "nixy-upgrade" ''
-    sudo nixos-rebuild switch --upgrade --flake ${config.var.configDirectory}#nixy
+    sudo nixos-rebuild switch --upgrade --flake ${config.var.configDirectory}#${config.var.hostname}
   '';
 
   nixy-update = pkgs.writeShellScriptBin "nixy-update" ''
