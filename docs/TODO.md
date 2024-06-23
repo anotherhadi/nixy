@@ -28,3 +28,4 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] server fetch
   - [ ] Ntfy auth file
   - [ ] Fix adguard
+  - [ ] Launch transmission-openvpn on boot (see hosts/server/modules/jackflix/transmission.nix)
