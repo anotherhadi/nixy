@@ -35,6 +35,8 @@
       pkgs.linuxPackages_latest; # _zen, _hardened, _rt, _rt_latest, etc.
   };
 
+  virtualisation.docker.enable = true;
+
   # Networking
   networking = { hostName = config.var.hostname; };
 
