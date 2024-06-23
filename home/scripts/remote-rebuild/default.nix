@@ -6,4 +6,9 @@ let
     ssh jack -S -C "cd /home/hadi/.config/nixos && git pull && sudo -S nixos-rebuild switch --flake ~/.config/nixos#jack"
   '';
 
-in { home.packages = with pkgs; [ remote-rebuild ]; }
+  remote-push = pkgs.writeShellScriptBin "remote-push" ''
+    cd ~/.config/nixos && git add . && git commit -m "update" && git push
+    remote-rebuild
+  '';
+
+in { home.packages = [ remote-rebuild remote-push ]; }

@@ -26,10 +26,9 @@ let
   '';
 
 in {
-  home.packages = with pkgs; [ nerdfont-fzf nerdfont-fzf-fetch nerdfont-popup ];
+  home.packages = [ nerdfont-fzf nerdfont-fzf-fetch nerdfont-popup ];
 
   xdg.configFile."nerdfont_glyphnames.json" = {
     source = ./nerdfont_glyphnames.json;
   };
-
 }

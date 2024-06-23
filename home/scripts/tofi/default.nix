@@ -35,4 +35,4 @@ let
     ui
   '';
 
-in { home.packages = with pkgs; [ tofi ]; }
+in { home.packages = [ tofi ]; }

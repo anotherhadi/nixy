@@ -13,4 +13,4 @@ let
     wlr-randr --output "Unknown-1" --off # FIX: REMOVE WEIRD GHOST MONITOR
   '';
 
-in { home.packages = with pkgs; [ startup ]; }
+in { home.packages = [ startup ]; }
