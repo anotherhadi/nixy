@@ -142,9 +142,12 @@
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
+        disable_autoreload = true;
         focus_on_activate = true;
         new_window_takes_over_fullscreen = 2;
       };
+
+      opengl = { nvidia_anti_flicker = false; };
 
       input = {
         kb_layout = config.var.keyboardLayout;
@@ -161,6 +164,8 @@
           clickfinger_behavior = true;
         };
       };
+
+      windowrule = [ "animation popin,^(wlogout)$" ];
 
       windowrulev2 = [
         "float, class:peaclock"
