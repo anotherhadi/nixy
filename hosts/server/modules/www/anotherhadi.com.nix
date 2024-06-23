@@ -7,11 +7,11 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "anotherhadi";
       repo = "portfolio";
-      rev = "2ae002e2393d5a29c0383ac51dfd32d7f423b1d3";
-      hash = "sha256-welRtqX5KXslhww7yRHtGPxCv8mCwcU/JhDrFGNr8ZE=";
+      rev = "1f30ea5d02f7a3831c7f3b2565c3bbfdddaac26e";
+      hash = "sha256-fNt4IjfjhDtSEIC1MNWYkTIcHv+XnXFZTlw/dLoWhcY=";
     };
 
-    npmDepsHash = "sha256-+CWPoDhTRxQaE83svj9Ms24lLpbwl4HqSOd2mUw99j4=";
+    npmDepsHash = lib.fakeHash;
 
     buildPhase = ''
       npm install
