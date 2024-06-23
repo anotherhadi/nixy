@@ -14,7 +14,7 @@ let
         },
         "folders": [
           {
-            "name": "Home",
+            "name": " Home",
             "links": [
               {
                 "title": "Nextcloud",
@@ -29,47 +29,47 @@ let
             ]
           },
           {
-            "name": "Streaming",
+            "name": "󰚺 Streaming",
             "links": [
               {
                 "title": "Jellyfin",
                 "url": "http://jack:8096",
-                "icon": "󰅟"
+                "icon": "󰼂"
               },
               {
                 "title": "Jellyseerr",
                 "url": "http://jack:5055",
-                "icon": "󰅟"
+                "icon": "󰼁"
               },
               {
                 "title": "Radarr",
                 "url": "http://jack:7878",
-                "icon": "󰅟"
+                "icon": "R"
               },
               {
                 "title": "Sonarr",
                 "url": "http://jack:8989",
-                "icon": "󰅟"
+                "icon": "S"
               },
               {
                 "title": "Bazarr",
                 "url": "http://jack:6767",
-                "icon": "󰅟"
+                "icon": "B"
               },
               {
                 "title": "Transmission",
                 "url": "http://jack:9091",
-                "icon": "󰅟"
+                "icon": "󰴾"
               },
               {
                 "title": "Prowlarr",
                 "url": "http://jack:9696",
-                "icon": "󰅟"
+                "icon": "󱖫"
               }
             ]
           },
           {
-            "name": "Admin",
+            "name": " Admin",
             "links": [
               {
                 "title": "Uptime Kuma",
