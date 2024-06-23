@@ -9,5 +9,5 @@
 
   # Fix DNS & IPv6 bugs
   networking.nftables.enable = true;
-  services.resolved.enable = true;
+  # services.resolved.enable = true;
 }
