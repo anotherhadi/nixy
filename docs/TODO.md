@@ -26,6 +26,5 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Server
   - [ ] Bitcoin-git
   - [ ] server fetch
-  - [ ] Remote push
   - [ ] Ntfy auth file
   - [ ] Fix adguard
