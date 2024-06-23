@@ -1,3 +1,5 @@
+# I'm using the transmission-openvpn docker image to be sure that my torrent traffic is going through a VPN.
+# Only to download legal stuff of course.
 {
   environment.etc."/etc/transmission.sh" = {
     text = ''
@@ -15,7 +17,8 @@
         haugene/transmission-openvpn
     '';
   };
-  # launch the container at boot
+  # TODO: launch the container at boot
+
   networking.firewall.allowedTCPPorts = [ 9091 ];
   networking.firewall.allowedUDPPorts = [ 9091 ];
 }
