@@ -1,7 +1,7 @@
 [//]: # (Title: Nixy)  
 [//]: # (Description: Nixy is a Hyprland NixOS configuration with home-manager, secrets and custom theming all in one place. It's a simple way to manage your system configuration and dotfiles.)  
 [//]: # (Author: Hadi)  
-[//]: # (Date: 06/23/24)
+[//]: # (Date: 06/24/24)
 
 <div align="center">
     <img src="https://raw.githubusercontent.com/anotherhadi/nixy/main/docs/src/logo.png" width="100px" />
@@ -68,6 +68,9 @@ git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 - Copy the `hosts/guest` folder, rename it to your system name, and change the variables inside the `variables.nix` file
 - Add your `hardware-configuration.nix` to your new host's folder
 - Add your 'nixosConfigurations' inside `flake.nix` (You can edit the "yourhostname" one and change the lines containing '# CHANGEME')
+
+> ![NOTE]
+> When you add new files, don't forget to run `git add .` to add them to the git repository
 
 ```sh
 sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname

@@ -78,7 +78,7 @@ let
               },
               {
                 "title": "Adguard Home",
-                "url": "http://jack:3001",
+                "url": "http://192.168.2.24:3001",
                 "icon": "󰷱"
               },
               {
