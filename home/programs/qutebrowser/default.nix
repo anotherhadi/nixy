@@ -16,6 +16,7 @@ let
           {
             "name": "Bookmarks",
             "links": [
+              {"title": "MyNixOs", "url": "https://mynixos.com", "icon": "󱄅"},
               {"title": "Github", "url": "https://github.com", "icon": ""},
               {"title": "Proton", "url": "https://mail.proton.me/u/0/inbox", "icon": ""},
               {"title": "Cloudflare One", "url": "https://one.dash.cloudflare.com/", "icon": ""},

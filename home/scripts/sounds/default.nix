@@ -83,11 +83,6 @@ let
   '';
 
 in {
-  home.packages = with pkgs; [
-    sound-output
-    sound-change
-    sound-up
-    sound-down
-    sound-toggle
-  ];
+  home.packages =
+    [ sound-output sound-change sound-up sound-down sound-toggle ];
 }

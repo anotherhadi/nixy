@@ -11,6 +11,7 @@ let
         echo "Wrong number of arguments..."
     fi
   '';
+
   extract = pkgs.writeShellScriptBin "extract" ''
      for i in "$@" ; do
         tar -xvzf $i
@@ -18,4 +19,4 @@ let
     done 
   '';
 
-in { home.packages = with pkgs; [ compress extract ]; }
+in { home.packages = [ compress extract ]; }

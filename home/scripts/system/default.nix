@@ -38,6 +38,4 @@ let
     fi
   '';
 
-in {
-  home.packages = with pkgs; [ notify-system battery-plugged battery-level ];
-}
+in { home.packages = [ notify-system battery-plugged battery-level ]; }

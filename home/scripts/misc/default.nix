@@ -1,8 +1,6 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 let
-  homedir = config.home.homeDirectory;
-
   menu = pkgs.writeShellScriptBin "menu" ''
     if pgrep wofi; then
     	pkill wofi
@@ -27,4 +25,4 @@ let
     nvim $HOME/Nextcloud/obsidian
   '';
 
-in { home.packages = with pkgs; [ menu wireguard-import powermenu vault ]; }
+in { home.packages = [ menu wireguard-import powermenu vault ]; }

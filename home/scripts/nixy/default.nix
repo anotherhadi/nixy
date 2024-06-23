@@ -71,12 +71,6 @@ let
   '';
 
 in {
-  home.packages = with pkgs; [
-    nixy
-    nixy-rebuild
-    nixy-upgrade
-    nixy-update
-    nixy-gc
-    nixy-cb
-  ];
+  home.packages =
+    [ nixy nixy-rebuild nixy-upgrade nixy-update nixy-gc nixy-cb ];
 }
