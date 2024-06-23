@@ -26,3 +26,4 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Remote push
 - [ ] Ntfy auth file
 - [ ] Fix adguard
+- [ ] Variable hostConfiguration name
