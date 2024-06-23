@@ -1,7 +1,7 @@
 {
   users.users.radarr = {
     isSystemUser = true;
-    home = "/var/lib/radarr";
+    home = "/var/lib/radarr-root";
   };
 
   services.radarr = {
