@@ -29,6 +29,6 @@
     sshPublicKey =
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPG9SE80ZyBcXZK/f5ypSKudaM5Jo3XtQikCnGo0jI5E hadi@nixy";
 
-    theme = import ../themes/jack.nix; # select your theme here
+    theme = import ../themes/jack.nix;
   };
 }
