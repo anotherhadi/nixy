@@ -25,17 +25,17 @@ let
                 "title": "Vaultwarden",
                 "url": "https://vault.anotherhadi.com",
                 "icon": ""
-              },
-              {
-                "title": "Uptime Kuma",
-                "url": "https://kuma.anotherhadi.com",
-                "icon": "󱎫"
               }
             ]
           },
           {
             "name": "Admin",
             "links": [
+              {
+                "title": "Uptime Kuma",
+                "url": "https://kuma.anotherhadi.com",
+                "icon": "󱎫"
+              },
               {
                 "title": "Adguard Home",
                 "url": "http://192.168.2.24:3001",
