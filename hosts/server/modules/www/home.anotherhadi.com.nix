@@ -57,6 +57,11 @@ let
                 "icon": "󰅟"
               },
               {
+                "title": "Transmission",
+                "url": "http://jack:9091",
+                "icon": "󰅟"
+              },
+              {
                 "title": "Prowlarr",
                 "url": "http://jack:9696",
                 "icon": "󰅟"
