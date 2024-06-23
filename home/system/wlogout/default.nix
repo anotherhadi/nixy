@@ -4,6 +4,18 @@
     enable = true;
     layout = [
       {
+        label = "shutdown";
+        action = "systemctl poweroff";
+        text = "Shutdown";
+        keybind = "s";
+      }
+      {
+        label = "reboot";
+        action = "systemctl reboot";
+        text = "Reboot";
+        keybind = "r";
+      }
+      {
         label = "lock";
         action = "${pkgs.hyprlock}/bin/hyprlock";
         text = "Lock";
@@ -22,22 +34,10 @@
         keybind = "e";
       }
       {
-        label = "shutdown";
-        action = "systemctl poweroff";
-        text = "Shutdown";
-        keybind = "s";
-      }
-      {
         label = "suspend";
         action = "systemctl suspend";
         text = "Suspend";
         keybind = "u";
-      }
-      {
-        label = "reboot";
-        action = "systemctl reboot";
-        text = "Reboot";
-        keybind = "r";
       }
     ];
 
@@ -45,7 +45,7 @@
             * {
               font-family: "${config.var.theme.font}";
               background-image: none;
-      transition: 20ms;
+              transition: 20ms;
             }
 
           window {
