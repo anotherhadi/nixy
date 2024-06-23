@@ -25,17 +25,42 @@ let
                 "title": "Vaultwarden",
                 "url": "https://vault.anotherhadi.com",
                 "icon": ""
-              },
+              }
+            ]
+          },
+          {
+            "name": "Streaming",
+            "links": [
               {
                 "title": "Jellyfin",
                 "url": "http://jack:8096",
                 "icon": "󰅟"
               },
               {
-                "title": "Overseerr",
+                "title": "Jellyseerr",
                 "url": "http://jack:8096",
                 "icon": "󰅟"
               },
+              {
+                "title": "Radarr",
+                "url": "http://jack:8096",
+                "icon": "󰅟"
+              },
+              {
+                "title": "Sonarr",
+                "url": "http://jack:8096",
+                "icon": "󰅟"
+              },
+              {
+                "title": "Bazarr",
+                "url": "http://jack:8096",
+                "icon": "󰅟"
+              },
+              {
+                "title": "Prowlarr",
+                "url": "http://jack:8096",
+                "icon": "󰅟"
+              }
             ]
           },
           {
