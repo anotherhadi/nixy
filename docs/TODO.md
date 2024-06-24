@@ -14,6 +14,10 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Lock script
   - [ ] Tofi (Wofi but terminal based)
 
+- [ ] Waybar
+  - [ ] Caffeine status
+  - [ ] Night-shift status
+
 - [ ] Hyprland
   - [ ] Make hyprcursor work
   - [ ] Animations based on app name
