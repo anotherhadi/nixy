@@ -13,9 +13,7 @@ let
 
     message="󰃠  Brightness: $brightness_level%"
 
-    ${pkgs.libnotify}/bin/notify-send "$message" \
-                -h int:value:"$brightness_level" \
-                --replace-id="$(cat "/tmp/nixy-notification" 2>/dev/null || echo 0)" --print-id > "/tmp/nixy-notification"
+    notif "brightness" "$message" "extraargs=-h int:value:$brightness_level"
   '';
 
   brightness-up = pkgs.writeShellScriptBin "brightness-up" ''

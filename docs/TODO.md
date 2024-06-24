@@ -23,6 +23,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Animations based on app name
     - [ ] Wofi: popin
     - [ ] Wlogout: fade in
+  - [ ] Fix screenshots
 
 - [ ] Nixvim
   - [ ] Telescope: find with file content

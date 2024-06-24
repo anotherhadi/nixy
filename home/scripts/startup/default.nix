@@ -7,7 +7,7 @@ let
 
     [[ ${toString config.var.sops} == "1" ]] && systemctl --user start sops-nix
 
-    notify-system &
+    battery-watch &
     ${pkgs.waybar}/bin/waybar &
 
 
