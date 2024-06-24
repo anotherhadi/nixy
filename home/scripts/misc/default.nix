@@ -17,12 +17,8 @@ let
     fi
   '';
 
-  wireguard-import = pkgs.writeShellScriptBin "wireguard-import" ''
-    nmcli connection import type wireguard file "$1"
+  lock = pkgs.writeShellScriptBin "lock" ''
+    ${pkgs.hyprlock}/bin/hyprlock
   '';
 
-  vault = pkgs.writeShellScriptBin "vault" ''
-    nvim $HOME/Nextcloud/obsidian
-  '';
-
-in { home.packages = [ menu wireguard-import powermenu vault ]; }
+in { home.packages = [ menu powermenu lock ]; }

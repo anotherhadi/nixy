@@ -14,8 +14,7 @@ let
       pkill hypridle
       message="󰅶  Caffeine Activated"
     fi
-    ${pkgs.libnotify}/bin/notify-send "$message" \
-      --replace-id="$(cat "/tmp/nixy-notification" 2>/dev/null || echo 0)" --print-id > "/tmp/nixy-notification"
+    notif "caffeine" "$message"
   '';
 
 in { home.packages = [ caffeine-status caffeine ]; }

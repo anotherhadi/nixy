@@ -49,6 +49,8 @@
       icat = "${pkgs.kitty}/bin/kitty +kitten icat";
       note = "vim ~/Nextcloud/obsidian";
       obs = "vim ~/Nextcloud/obsidian";
+      wireguard-import = "nmcli connection import type wireguard file";
+      vault = "nvim $HOME/nextcloud/Notes/";
 
       # git
       ga = "git add";

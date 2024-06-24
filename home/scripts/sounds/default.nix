@@ -26,9 +26,7 @@ let
       message="󰕾 Volume: $volume%"
     fi
 
-    ${pkgs.libnotify}/bin/notify-send "$message" \
-      -h int:value:"$volume" \
-      --replace-id="$(cat "/tmp/nixy-notification" 2>/dev/null || echo 0)" --print-id > "/tmp/nixy-notification"
+    notif "sound" "$message" "extraargs=-h int:value:$volume"
   '';
 
   sound-up = pkgs.writeShellScriptBin "sound-up" ''
