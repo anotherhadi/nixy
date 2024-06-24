@@ -1,31 +1,5 @@
 { pkgs, ... }:
-
 let
-
-  notif = pkgs.writeShellScriptBin "notif" ''
-    # Shell script to send custom notifications
-    NOTIF_FOLDER="/tmp/notif"
-    sender_id=$1 # To overwrite existing notifications
-    message=$2
-    extraargs=""
-    description=""
-    if [[ $3 == "extraargs="* ]]; then
-      extraargs=$(echo "$3" | sed 's/extraargs=//g')
-    else
-      description="$3"
-      extraargs="$4"
-    fi
-
-    [[ -d "$NOTIF_FOLDER" ]] || mkdir $NOTIF_FOLDER
-    [[ -f "$NOTIF_FOLDER/$sender_id" ]] || echo "0" > "$NOTIF_FOLDER/$sender_id"
-
-    old_notification_id=$(cat "$NOTIF_FOLDER/$sender_id")
-
-     ${pkgs.libnotify}/bin/notify-send "$message" \
-     $extraargs \
-    --replace-id="$old_notification_id" --print-id > "$NOTIF_FOLDER/$sender_id"
-  '';
-
   battery-watch = pkgs.writeShellScriptBin "battery-watch" ''
     while true;do
       battery-plugged &
@@ -54,9 +28,9 @@ let
       notif "battery" "󰁻  Low battery" "Battery level is $BATTERY_LEVEL%"
     elif [[ $BATTERY_LEVEL -le 10 ]] && [[ $BATTERY_STATUS == "Discharging" ]]; then
       notif "battery" "󰁺  Very low battery" "Battery level is $BATTERY_LEVEL%"
-    elif [[ $BATTERY_LEVEL -eq 100 ]] && [[ $BATTERY_STATUS -ne "Discharging" ]]; then
-      notif "battery" "󰁹 Fully charged"
+    # elif [[ $BATTERY_LEVEL -eq 100 ]] && [[ $BATTERY_STATUS -ne "Discharging" ]]; then
+    #   notif "battery" "󰁹 Fully charged"
     fi
   '';
 
-in { home.packages = [ notif battery-watch battery-plugged battery-level ]; }
+in { home.packages = [ battery-watch battery-plugged battery-level ]; }
