@@ -29,6 +29,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Telescope: find with file content
   - [ ] Markdown snippets
   - [ ] Whichkey: Description for keybindings
+  - [ ] Spelling
 
 - [ ] Backup system for some folders ($home/dev, $home/pictures, ...)
   - [ ] Exclude file pattern (nodes modules, ...)
