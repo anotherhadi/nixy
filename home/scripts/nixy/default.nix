@@ -5,7 +5,6 @@ let
   nixy = pkgs.writeShellScriptBin "nixy" ''
     function exec() {
       $@
-      # hyprctl dispatch exec $@
     }
 
     function ui(){
@@ -38,39 +37,24 @@ let
     [[ $1 == "" ]] && ui
 
     if [[ $1 == "rebuild" ]];then
-      nixy-rebuild
+      sudo nixos-rebuild switch --flake ${config.var.configDirectory}#${config.var.hostname}
     elif [[ $1 == "upgrade" ]];then
-      nixy-upgrade
+      sudo nixos-rebuild switch --upgrade --flake ${config.var.configDirectory}#${config.var.hostname}
     elif [[ $1 == "update" ]];then
-      nixy-update
+      cd ${config.var.configDirectory} && sudo nix flake update
     elif [[ $1 == "gc" ]];then
-      nixy-gc
+      cd ${config.var.configDirectory} && sudo nix-collect-garbage -d
     elif [[ $1 == "cb" ]];then
-      nixy-cb
+      sudo /run/current-system/bin/switch-to-configuration boot
+    elif [[ $1 == "remote" ]];then
+      cd ~/.config/nixos && git add . && git commit -m "update" && git push
+      ssh jack -S -C "cd /home/hadi/.config/nixos && git pull && sudo -S nixos-rebuild switch --flake ~/.config/nixos#jack"
+    else
+      echo "Unknown argument"
     fi
-  '';
-
-  nixy-rebuild = pkgs.writeShellScriptBin "nixy-rebuild" ''
-    sudo nixos-rebuild switch --flake ${config.var.configDirectory}#${config.var.hostname}
-  '';
-
-  nixy-upgrade = pkgs.writeShellScriptBin "nixy-upgrade" ''
-    sudo nixos-rebuild switch --upgrade --flake ${config.var.configDirectory}#${config.var.hostname}
-  '';
-
-  nixy-update = pkgs.writeShellScriptBin "nixy-update" ''
-    cd ${config.var.configDirectory} && sudo nix flake update
-  '';
-
-  nixy-gc = pkgs.writeShellScriptBin "nixy-gc" ''
-    cd ${config.var.configDirectory} && sudo nix-collect-garbage -d
-  '';
-
-  nixy-cb = pkgs.writeShellScriptBin "nixy-cb" ''
-    sudo /run/current-system/bin/switch-to-configuration boot
   '';
 
 in {
   home.packages =
-    [ nixy nixy-rebuild nixy-upgrade nixy-update nixy-gc nixy-cb ];
+    [ nixy ];
 }

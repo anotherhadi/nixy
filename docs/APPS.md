@@ -1,8 +1,12 @@
 # Apps and services
 
-*non-exhaustive list*
+*non-exhaustive lists*
 
 ## Laptop
+
+The laptop configuration is used by a Omen 16 laptop w/ nvidia and an amd gpu running NixOS.
+The configurations files can be found in the `hosts/laptop` directory.
+
 
 | Category       | Name          |
 |----------------|---------------|
@@ -32,14 +36,14 @@
 | Misc           | lazygit       |
 |                | neofetch      |
 |                | cava          |
-|                | ...           |
+| See [hosts/laptop](../hosts/laptop/)... | |
 
 ## Server
 
 The server configuration is used by a home server running NixOS.
 The configurations files can be found in the `hosts/server` directory.
-I mainly use it for self hosting services like Nextcloud, Vaultwarden, etc and for hosting websites.
-I exposed some services to the internet using a reverse proxy (Nginx) and cloudflare dns. (Also configured cloudflare-dyndns)
+I mainly use it for self hosting websites and services such as Nextcloud, Vaultwarden, ... 
+I exposed some services to the internet using a reverse proxy (Nginx) and cloudflare-dyndns, others are accessed through a tailscale network
 
 ### Apps
 
@@ -50,4 +54,4 @@ I exposed some services to the internet using a reverse proxy (Nginx) and cloudf
 - Uptime Kuma
 - "Jackflix"
   - Jellyfin, Transmission, *arr
-- ...
+- See [hosts/server](../hosts/server/)...
