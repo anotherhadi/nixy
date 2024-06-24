@@ -1,13 +1,18 @@
 # Scripts
 
+Scripts are located in the `home/scripts` folder. Home-manager add those in the path.
+
 ## Nix/NixOs shortcuts
 
-The `hostname` variable in `hosts/yourhost/variables.nix` should be also the name of the `nixosConfiguration` in `flake.nix` file.
+> [!TIP]
+> The `hostname` variable in `hosts/yourhost/variables.nix` should be also the name of the `nixosConfiguration` in `flake.nix` file.
 
-- `nixy-rebuild`
-- `nixy-update`
-- `nixy-gc` # garbage collection
-- `nixy-cb` # clean boot menu
+- `nixy` # UI
+- `nixy rebuild`
+- `nixy update`
+- `nixy upgrade`
+- `nixy gc` # garbage collection
+- `nixy cb` # clean boot menu
 
 ## Brightness control
 
@@ -21,7 +26,7 @@ The `hostname` variable in `hosts/yourhost/variables.nix` should be also the nam
 - `sound-down`
 - `sound-toggle`
 - `sound-output`
-- `sound-change <up/down/mute> <increment>`
+- `sound-change [up/down/mute] <increment>`
 
 ## Caffeine
 

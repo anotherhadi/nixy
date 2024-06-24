@@ -10,6 +10,7 @@ let
     ${pkgs.libnotify}/bin/notify-send "$message" \
       --replace-id="$(cat "/tmp/nixy-notification" 2>/dev/null || echo 0)" --print-id > "/tmp/nixy-notification"
   '';
+  
   night-shift-off = pkgs.writeShellScriptBin "night-shift-off" ''
     pkill wlsunset
     message="󰖔  Night-Shift Deactivated"

@@ -9,6 +9,10 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - [ ] Upload new wallpapers
     - [ ] MacOS theme
     - [ ] GithubFetch: Neofetch like, github calendar in the terminal
+  - [ ] Night shift Toggle
+  - [ ] Write a hyprland shortcuts markdown file
+  - [ ] Lock script
+  - [ ] Tofi (Wofi but terminal based)
 
 - [ ] Hyprland
   - [ ] Make hyprcursor work
