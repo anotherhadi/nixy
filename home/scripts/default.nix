@@ -8,7 +8,8 @@
     ./screenshot
     ./startup
     ./nerdfont_fzf
-    ./system
+    ./notification
+    ./battery
     ./compress
     ./misc
     ./tofi
