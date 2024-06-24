@@ -3,9 +3,9 @@
 let
 
   tofi = pkgs.writeShellScriptBin "tofi" ''
+    hyprexec="hyprctl dispatch exec"
     function exec() {
       $@
-      # hyprctl dispatch exec $@
     }
 
     function ui(){
@@ -14,7 +14,31 @@ let
       # "icon;name;command"[]
       apps=(
         ";Nixy;nixy"
-        ";Nerdfont;nerdfont-fzf"
+        ";Nerdfont FZF;nerdfont-fzf"
+        ";Brightness Up;brightness-up"
+        ";Brightness Down;brightness-down"
+        ";Sound Up;sound-up"
+        ";Sound Down;sound-down"
+        ";Sound Toggle Mute;sound-toggle"
+        ";Sound Change Output;sound-output"
+        ";Caffeine;caffeine"
+        ";Night Shift Toggle;night-shift-toggle"
+        ";Firefox;$hyprexec firefox"
+        ";Qutebrowser;$hyprexec qutebrowser"
+        ";Kitty;$hyprexec kitty"
+        ";Thunar;$hyprexec thunar"
+        ";Powermenu;powermenu"
+        ";Wofi;menu"
+        ";Lock;lock"
+        ";Bitwarden;$hyprexec bitwarden"
+        ";Clock; peaclock"
+        ";Nextcloud;$hyprexec nextcloud"
+        ";Spotify;$hyprexec spotify"
+        ";Btop;btop"
+        ";Cava;cava"
+        ";Discord;$hyprexec discord"
+        ";Vlc;$hyprexec vlc"
+        ";Obsidian;$hyprexec obsidian"
       )
 
       # Apply default icons if empty:

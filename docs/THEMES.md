@@ -1,7 +1,7 @@
 # Themes
 
 Themes are defined in `hosts/themes`. Those themes define the colors, fonts, icons, etc, used by Hyprland and the apps/programs installed.
-You can change the selected theme by changing the import statement of your host's variables file.
+You can change the selected theme by changing the import statement of your host's variables.nix file.
 
 > [!TIP]
 > To apply the theme to Duckduckgo, follow the instructions in `$HOME/.duckduckgo-colorscheme.js`
