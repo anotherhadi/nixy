@@ -8,11 +8,13 @@ README_FILE="./README.md"
 
 header=$(cat "./docs/src/header.md")
 table_of_content=$(~/go/bin/md-table-of-contents ./docs/src/README_template.md)
+version=$(git describe --tags --abbrev=0)
 readme_content=$(cat "./docs/src/README_template.md")
 
 header=${header//\{date\}/$(date '+%D')}
 header=${header//\{primarycolor\}/89b4fa}
 header=${header//\{backgroundcolor\}/181825}
+header=${header//\{version\}/$version}
 readme_content=${readme_content//\{md_table_of_content\}/$table_of_content}
 
 echo "$header" >"$README_FILE"
