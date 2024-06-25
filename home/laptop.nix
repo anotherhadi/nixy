@@ -11,6 +11,7 @@
     ./programs/nvim
     ./programs/qutebrowser
     ./programs/spicetify
+    ./programs/zathura
 
     # Scripts
     ./scripts # All scripts
@@ -25,6 +26,8 @@
     ./system/waybar
     ./system/wlogout
     ./system/wofi
+    ./system/mime
+    ./system/udiskie
   ];
 
   home = {
