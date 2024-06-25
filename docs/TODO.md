@@ -3,7 +3,7 @@
 feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
 - [ ] Nixy
-  - [ ] Installation script (easy)
+  - [ ] Installation script ([install.sh](./scripts/install.sh) to test on a fresh install)
   - [ ] Variables-template with defaults
   - [ ] Themes
     - [ ] Upload new wallpapers
@@ -33,8 +33,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Exclude file pattern (nodes modules, ...)
   - [ ] Auto backup when a specific usb key is plugged
 
-- [ ] Automount USB Key (And notify-send when it's done)
-  - [ ] Usb security for laptop & server, variable in variables.nix, disable for guest
+- [ ] Usb security for laptop & server, variable in variables.nix, disable for guest
 
 - [ ] Server
   - [ ] Bitcoin-git
