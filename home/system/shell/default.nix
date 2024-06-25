@@ -6,6 +6,7 @@
     ./zoxide.nix
     ./tmux.nix
     ./lazygit.nix
+    ./eza.nix
     ./fetch
     ./lf
   ];
