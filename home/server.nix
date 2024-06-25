@@ -6,13 +6,11 @@
     # Programs
     ./programs/btop
     ./programs/nvim
+    ./programs/git
+    ./programs/shell
 
     # Scripts
     ./scripts # All scripts
-
-    # System
-    ./system/git
-    ./system/shell
   ];
 
   home = {

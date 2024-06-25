@@ -32,7 +32,7 @@
   home.file = {
     ".local/share/themes/FlatColor" = {
       recursive = true;
-      source = ./gtk;
+      source = ./theme;
     };
 
     ".local/share/themes/FlatColor/colors2".text = ''

@@ -12,22 +12,23 @@
     ./programs/qutebrowser
     ./programs/spicetify
     ./programs/zathura
+    ./programs/shell
+    ./programs/git
 
     # Scripts
     ./scripts # All scripts
 
-    # System
+    # System (Desktop environment like stuff)
     ./system/dunst
-    ./system/git
     ./system/gtk
     ./system/hyprland
-    ./system/shell
-    ./system/sops/laptop.nix # You should probably remove this line
     ./system/waybar
     ./system/wlogout
     ./system/wofi
     ./system/mime
     ./system/udiskie
+
+    ./system/sops/laptop.nix # You should probably remove this line
   ];
 
   home = {
