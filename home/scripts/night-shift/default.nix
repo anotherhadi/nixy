@@ -15,4 +15,20 @@ let
     notif "night-shift" "$message"
   '';
 
-in { home.packages = [ night-shift-on night-shift-off ]; }
+  night-shift-toggle = pkgs.writeShellScriptBin "night-shift-toggle" ''
+    if pgrep wlsunset; then
+      night-shift-off
+    else
+      night-shift-on
+    fi
+  '';
+
+  night-shift-status = pkgs.writeShellScriptBin "night-shift-status" ''
+    if pgrep wlsunset; then
+      echo "1"
+    else
+      echo "0"
+    fi
+  '';
+
+in { home.packages = [ night-shift-on night-shift-off night-shift-toggle night-shift-status ]; }
