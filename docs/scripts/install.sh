@@ -61,3 +61,7 @@ variables=$(echo "$variables" | sed 's/sops = true/sops = false/')
 variables=$(echo "$variables" | sed 's/obsidian = true/obsidian = false/')
 variables=$(echo "$variables" | sed 's/tailscale = true/tailscale = false/')
 echo "$variables" >"$HOST_DIR/variables.nix"
+
+# printf "\n\e[0;92m✓ \e[0m\e[1;77mSucess Message\e[0m"
+# printf "\n\e[0;92m+ \e[0m\e[1;77mAdded Message\e[0m"
+# printf "\n\e[0;92m? \e[0m\e[1;77mAn issue? Open an issue/pull request at : \e[0;96mhttps://github.com/anotherhadi/nixy \e[0m"
