@@ -8,3 +8,6 @@ The process is straight-forward.
 - Fork Nixy [git repository](https://github.com/anotherhadi/nixy).
 - Write your changes (new theme, bug fixes, task in todo, ...).
 - Create a Pull Request against the main branch of Nixy.
+
+> [!WARNING]
+> Don't push your host's files, secrets, or home configuration
