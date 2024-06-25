@@ -5,6 +5,7 @@
     ../modules/nvidia.nix
     ../modules/prime.nix
     ../modules/tuigreet.nix
+    ../modules/usb.nix
     ./variables.nix
   ];
 

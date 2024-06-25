@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }: {
 
-  home.packages = with pkgs; [ eza bat ripgrep tldr ];
+  home.packages = with pkgs; [ bat ripgrep tldr ];
 
   programs.zsh = {
     enable = true;
@@ -42,8 +42,8 @@
       celar = "clear";
       e = "exit";
       cd = "z";
-      ls = "${pkgs.eza}/bin/eza --icons=always";
-      tree = "${pkgs.eza}/bin/eza --icons=always --tree";
+      ls = "eza --icons=always --no-quotes";
+      tree = "eza --icons=always --tree --no-quotes";
       sl = "ls";
       open = "${pkgs.xdg_utils}/bin/xdg-open";
       icat = "${pkgs.kitty}/bin/kitty +kitten icat";
