@@ -14,14 +14,17 @@ It's a simple way to manage your system configuration and dotfiles.
 
 ## Architecture
 
-- 🏠 `home` are the dotfiles and configuration files for the user
+- 🏠 `home` are the dotfiles and configuration files for the users
+  - 'programs' is a collection of apps configured with home-manager
+  - 'scripts' is a folder full of bash scripts (see [SCRIPTS.md](docs/SCRIPTS.md))
+  - 'system' is some desktop environment like configuration
+  - 'wallpapers' are... wallpapers
 - 💻 `hosts` are the system configuration files
   - 'laptop' is my configuration for my laptop with Nvidia
   - 'server' is for my homeserver (w/nextcloud, nginx, vaultwarden, ... look `hosts/server`)
   - 'guest' is a *template* that you can copy and modify for *your own system*
   - 'themes' contains all the *themes* available *(see [THEMES.md](docs/THEMES.md))*
   - 'modules' are some nix modules that you can import (Nvidia, prime, fonts, ...)
-- 🤫 `secrets` are the secrets files encrypted with sops-nix
 
 ## Installation
 

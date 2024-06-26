@@ -13,6 +13,8 @@
     ../../home/programs/spicetify
     ../../home/programs/zathura
     ../../home/programs/shell
+    ../../home/programs/fetch
+    ../../home/programs/lf
     ../../home/programs/git
 
     # Scripts
@@ -28,7 +30,7 @@
     ../../home/system/mime
     ../../home/system/udiskie
 
-    # ./sops.nix # You should probably remove this line
+    # ./secrets # You should probably remove this line
   ];
 
   home = {

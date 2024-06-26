@@ -50,34 +50,32 @@
       ];
 
       bind = [
-        "$mod, RETURN, exec, ${pkgs.kitty}/bin/kitty"
-        "$mod, E, exec, ${pkgs.xfce.thunar}/bin/thunar"
-        "$mod, B, exec, ${pkgs.qutebrowser}/bin/qutebrowser"
-        "$mod, K, exec, ${pkgs.bitwarden}/bin/bitwarden"
-        "$mod, C, exec, ${pkgs.kitty}/bin/kitty --class peaclock peaclock"
-        "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
-        "$mod, X, exec, powermenu"
-        "$mod, SPACE, exec, menu"
-        # Windows control
-        "$mod, Q, killactive,"
-        "$mod, T, togglefloating,"
-        "$mod, F, fullscreen"
-        "$mod, left, movefocus, l"
-        "$mod, right, movefocus, r"
-        "$mod, up, movefocus, u"
-        "$mod, down, movefocus, d"
-        # Screenshots
-        "$mod, PRINT, exec, screenshot window"
-        ", PRINT, exec, screenshot monitor"
-        "$shiftMod, PRINT, exec, screenshot region"
-        "ALT, PRINT, exec, screenshot region swappy"
-        # Night Shift
-        "$mod, F2, exec, night-shift-off"
-        "$mod, F3, exec, night-shift-on"
-        # Sound output
-        "$mod, F5, exec, ${pkgs.kitty}/bin/kitty --class floating zsh -c sound-output"
-        "$mod, F6, exec, ${pkgs.kitty}/bin/kitty --class floating zsh -c sound-output"
-        "$mod, F7, exec, ${pkgs.kitty}/bin/kitty --class floating zsh -c sound-output"
+        "$mod, RETURN, exec, ${pkgs.kitty}/bin/kitty" # Kitty
+        "$mod, E, exec, ${pkgs.xfce.thunar}/bin/thunar" # Thunar
+        "$mod, B, exec, ${pkgs.qutebrowser}/bin/qutebrowser" # Qutebrowser
+        "$mod, K, exec, ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
+        "$mod, C, exec, ${pkgs.kitty}/bin/kitty --class peaclock peaclock" # Peaclock
+        "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock
+        "$mod, X, exec, powermenu" # Powermenu
+        "$mod, SPACE, exec, menu" # Launcher
+
+        "$mod, Q, killactive," # Close window
+        "$mod, T, togglefloating," # Toggle Floating
+        "$mod, F, fullscreen" # Toggle Fullscreen
+        "$mod, left, movefocus, l" # Move focus left
+        "$mod, right, movefocus, r" # Move focus Right
+        "$mod, up, movefocus, u" # Move focus Up
+        "$mod, down, movefocus, d" # Move focus Down
+
+        "$mod, PRINT, exec, screenshot window" # Screenshot window
+        ", PRINT, exec, screenshot monitor" # Screenshot monitor
+        "$shiftMod, PRINT, exec, screenshot region" # Screenshot region
+        "ALT, PRINT, exec, screenshot region swappy" # Screenshot region then edit
+
+        "$mod, F2, exec, night-shift-off" # Turn off night shift
+        "$mod, F3, exec, night-shift-on" # Turn on night shift
+
+        "$mod, F5, exec, ${pkgs.kitty}/bin/kitty --class floating zsh -c sound-output" # Choose sound output
       ] ++ (builtins.concatLists (builtins.genList (i:
         let ws = i + 1;
         in [
@@ -85,18 +83,21 @@
           "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
         ]) 9));
 
-      bindm = [ "$mod, mouse:272, movewindow" "$mod, R, resizewindow" ];
+      bindm = [ 
+        "$mod, mouse:272, movewindow" # Move Window (mouse)
+        "$mod, R, resizewindow" # Resize Window (mouse)
+        ];
 
       bindl = [
-        ",XF86AudioMute, exec, sound-toggle"
-        ",switch:Lid Switch, exec, ${pkgs.hyprlock}/bin/hyprlock"
+        ",XF86AudioMute, exec, sound-toggle" # Toggle Mute
+        ",switch:Lid Switch, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock when closing Lid
       ];
 
       bindle = [
-        ", XF86AudioRaiseVolume, exec, sound-up"
-        ", XF86AudioLowerVolume, exec, sound-down"
-        ", XF86MonBrightnessUp, exec, brightness-up"
-        ", XF86MonBrightnessDown, exec, brightness-down"
+        ", XF86AudioRaiseVolume, exec, sound-up" # Sound Up
+        ", XF86AudioLowerVolume, exec, sound-down" # Sound Down
+        ", XF86MonBrightnessUp, exec, brightness-up" # Brightness Up
+        ", XF86MonBrightnessDown, exec, brightness-down" # Brightness Down
       ];
 
       env = [

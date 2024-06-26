@@ -1,11 +1,11 @@
 keys:
   - &primary age12yvtj49pfh3fqzqflscm0ek4yzrjhr6cqhn7x89gdxnlykq0xudq5c7334
 creation_rules:
-  - path_regex: secrets/laptop.yaml$
+  - path_regex: hosts/laptop/secrets/laptop.yaml$
     key_groups:
       - age:
         - *primary
-  - path_regex: secrets/server.yaml$
+  - path_regex: hosts/server/secrets/server.yaml$
     key_groups:
       - age:
         - *primary
