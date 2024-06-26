@@ -1,11 +1,16 @@
 { pkgs, config, inputs, ... }: {
 
-  imports = [ ./hyprlock.nix ./hypridle.nix ./hyprpaper.nix ];
+  imports = [
+    ./hyprlock.nix
+    ./hypridle.nix
+    ./hyprpaper.nix
+    # ./hyprcursor.nix
+  ];
 
   home.packages = with pkgs; [
     hyprshot
     hyprpicker
-    hyprcursor
+    # hyprcursor
     xdg-desktop-portal-hyprland
     wlr-randr
     wl-clipboard
@@ -83,10 +88,10 @@
           "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
         ]) 9));
 
-      bindm = [ 
+      bindm = [
         "$mod, mouse:272, movewindow" # Move Window (mouse)
         "$mod, R, resizewindow" # Resize Window (mouse)
-        ];
+      ];
 
       bindl = [
         ",XF86AudioMute, exec, sound-toggle" # Toggle Mute
@@ -112,8 +117,9 @@
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "GTK_THEME,FlatColor:dark"
         "GTK2_RC_FILES,/home/hadi/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
-        # "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+        # "HYPRCURSOR_THEME,macOS"
         # "HYPRCURSOR_SIZE,16"
+        # "XCURSOR_SIZE,16"
       ];
 
       general = {
