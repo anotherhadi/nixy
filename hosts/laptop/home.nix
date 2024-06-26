@@ -1,34 +1,34 @@
 { pkgs, config, ... }: {
 
   imports = [
-    ../hosts/laptop/variables.nix # CHANGEME, replace with your host
+    ./variables.nix
 
     # Programs
-    ./programs/btop
-    ./programs/cava
-    ./programs/kitty
-    ./programs/nextcloud
-    ./programs/nvim
-    ./programs/qutebrowser
-    ./programs/spicetify
-    ./programs/zathura
-    ./programs/shell
-    ./programs/git
+    ../../home/programs/btop
+    ../../home/programs/cava
+    ../../home/programs/kitty
+    ../../home/programs/nextcloud
+    ../../home/programs/nvim
+    ../../home/programs/qutebrowser
+    ../../home/programs/spicetify
+    ../../home/programs/zathura
+    ../../home/programs/shell
+    ../../home/programs/git
 
     # Scripts
-    ./scripts # All scripts
+    ../../home/scripts # All scripts
 
     # System (Desktop environment like stuff)
-    ./system/dunst
-    ./system/gtk
-    ./system/hyprland
-    ./system/waybar
-    ./system/wlogout
-    ./system/wofi
-    ./system/mime
-    ./system/udiskie
+    ../../home/system/dunst
+    ../../home/system/gtk
+    ../../home/system/hyprland
+    ../../home/system/waybar
+    ../../home/system/wlogout
+    ../../home/system/wofi
+    ../../home/system/mime
+    ../../home/system/udiskie
 
-    ./system/sops/laptop.nix # You should probably remove this line
+    ./sops.nix # You should probably remove this line
   ];
 
   home = {
@@ -92,12 +92,11 @@
     # Import wallpapers into $HOME/wallpapers
     file."wallpapers" = {
       recursive = true;
-      source = ./wallpapers;
+      source = ../../home/wallpapers;
     };
 
     stateVersion = "24.05";
   };
 
   programs.home-manager.enable = true;
-
 }
