@@ -10,13 +10,10 @@
 LAPTOP_CONFIG="./hosts/laptop"
 GUEST_CONFIG="./hosts/guest"
 
-cp "$LAPTOP_CONFIG/configuration.nix" "$GUEST_CONFIG/configuration.nix"
-cp "$LAPTOP_CONFIG/variables.nix" "$GUEST_CONFIG/variables.nix"
-
 # Remove the NVIDIA driver import
 config=$(cat "$LAPTOP_CONFIG/configuration.nix")
-config=$(echo "$config" | sed 's/..\/shared\/nvidia/# ..\/shared\/nvidia/')
-config=$(echo "$config" | sed 's/..\/shared\/prime/# ..\/shared\/prime/')
+config=$(echo "$config" | sed 's/..\/modules\/nvidia/# ..\/modules\/nvidia/')
+config=$(echo "$config" | sed 's/..\/modules\/prime/# ..\/modules\/prime/')
 echo "$config" >"$GUEST_CONFIG/configuration.nix"
 
 variables=$(cat "$LAPTOP_CONFIG/variables.nix")
@@ -27,3 +24,7 @@ variables=$(echo "$variables" | sed 's/sops = true/sops = false/')
 variables=$(echo "$variables" | sed 's/obsidian = true/obsidian = false/')
 variables=$(echo "$variables" | sed 's/tailscale = true/tailscale = false/')
 echo "$variables" >"$GUEST_CONFIG/variables.nix"
+
+home=$(cat "$LAPTOP_CONFIG/home.nix")
+home=$(echo "$config" | sed 's/\.\/sops.nix/# .\/sops.nix/')
+echo "$home" >"$GUEST_CONFIG/home.nix"

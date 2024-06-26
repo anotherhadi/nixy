@@ -1,16 +1,16 @@
 { pkgs, config, ... }: {
 
   imports = [
-    ../hosts/server/variables.nix
+    ./variables.nix
 
     # Programs
-    ./programs/btop
-    ./programs/nvim
-    ./programs/git
-    ./programs/shell
+    ../../home/programs/btop
+    ../../home/programs/nvim
+    ../../home/programs/git
+    ../../home/programs/shell
 
     # Scripts
-    ./scripts # All scripts
+    ../../home/scripts # All scripts
   ];
 
   home = {
@@ -42,5 +42,4 @@
   };
 
   programs.home-manager.enable = true;
-
 }

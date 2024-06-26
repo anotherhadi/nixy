@@ -8,7 +8,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Themes
     - [ ] Upload new wallpapers
     - [ ] MacOS theme
-    - [ ] GithubFetch: Neofetch like, github calendar in the terminal
   - [ ] Write a hyprland shortcuts markdown file (Parse the hyprland settings conf)
   - [ ] Tofi (Wofi but terminal based)
 

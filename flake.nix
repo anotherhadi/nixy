@@ -41,7 +41,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users."hadi" = import ./home/laptop.nix;
+              users."hadi" = import ./hosts/laptop/home.nix;
               extraSpecialArgs = { inherit inputs; };
             };
           }
@@ -60,7 +60,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users."hadi" = import ./home/server.nix;
+              users."hadi" = import ./hosts/server/home.nix;
               extraSpecialArgs = { inherit inputs; };
             };
           }
@@ -79,7 +79,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users."yourusername" = import # CHANGEME
-                ./home/laptop.nix; # you can also create a new ./home/yourhostname.nix
+                ./hosts/yourhostname/home.nix; # CHANGEME
               extraSpecialArgs = { inherit inputs; };
             };
           }
