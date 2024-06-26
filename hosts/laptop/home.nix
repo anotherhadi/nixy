@@ -16,6 +16,7 @@
     ../../home/programs/fetch
     ../../home/programs/lf
     ../../home/programs/git
+    ../../home/programs/yazi
 
     # Scripts
     ../../home/scripts # All scripts
