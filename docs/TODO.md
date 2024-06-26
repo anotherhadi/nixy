@@ -7,10 +7,13 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Variables-template with defaults
   - [ ] Themes
     - [ ] Upload new wallpapers
-    - [ ] MacOS theme
+    - [ ] macOS theme
   - [ ] Write a hyprland shortcuts markdown file (Parse the hyprland settings conf)
-  - [ ] Tofi (Wofi but terminal based)
+  - [ ] Tofi (Wofi, but terminal based)
   - [ ] add golang bin dir to path
+
+- [ ] Qutebrowser
+  - [ ] Bitwarden integration (I need this.)
 
 - [ ] Waybar
   - [ ] Caffeine status
@@ -28,6 +31,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Markdown snippets
   - [ ] Whichkey: Description for keybindings
   - [ ] Spelling
+  - [ ] Flash.nvim
 
 - [ ] Backup system for some folders ($home/dev, $home/pictures, ...)
   - [ ] Exclude file pattern (nodes modules, ...)

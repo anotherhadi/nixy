@@ -73,7 +73,10 @@ let
 
 in {
 
-  imports = [ ./duckduckgo-colorscheme.nix ];
+  imports = [
+    ./duckduckgo-colorscheme.nix
+    # ./userscripts.nix
+  ];
 
   programs.qutebrowser = {
     enable = true;
