@@ -7,7 +7,7 @@
 README_FILE="./README.md"
 
 header=$(cat "./docs/src/header.md")
-table_of_content=$(~/go/bin/md-table-of-contents ./docs/src/README_template.md)
+table_of_content=$(md-table-of-contents ./docs/src/README_template.md)
 version=$(git describe --tags --abbrev=0)
 readme_content=$(cat "./docs/src/README_template.md")
 

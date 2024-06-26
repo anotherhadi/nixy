@@ -6,7 +6,6 @@
     # internal
     ./modules/internal/security.nix
     ./modules/internal/openssh.nix
-    ./modules/internal/sops.nix
     ./modules/internal/adguard.nix
     # ./modules/internal/unifi.nix # FIXME: unifi5 is deprecated
 
@@ -23,6 +22,8 @@
 
     # jackflix
     ./modules/jackflix
+
+    ./secrets
   ];
 
   # Bootloader.
