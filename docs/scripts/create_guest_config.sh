@@ -26,5 +26,5 @@ variables=$(echo "$variables" | sed 's/tailscale = true/tailscale = false/')
 echo "$variables" >"$GUEST_CONFIG/variables.nix"
 
 home=$(cat "$LAPTOP_CONFIG/home.nix")
-home=$(echo "$config" | sed 's/\.\/sops.nix/# .\/sops.nix/')
+home=$(echo "$home" | sed 's/\.\/sops.nix/# .\/sops.nix/')
 echo "$home" >"$GUEST_CONFIG/home.nix"
