@@ -71,7 +71,7 @@
             type = "button";
             val = "  NixOs Config";
             on_press.__raw =
-              "function() vim.cmd[[e ${config.var.configDirectory}]] end";
+              "function() vim.cmd[[Neotree ${config.var.configDirectory}]] end";
             opts = {
               shortcut = "nc";
               position = "center";
