@@ -17,7 +17,7 @@ in {
     nginx.recommendedHttpHeaders = true;
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
-        contacts calendar tasks;
+        contacts calendar tasks notes;
     };
     extraAppsEnable = true;
   };
