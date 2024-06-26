@@ -17,7 +17,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Night-shift status
 
 - [ ] Hyprland
-  - [ ] Make hyprcursor work
+  - [ ] Implement Hyprcursor (see home/system/hyprland/hyprcursor.nix: Not working, small cursor on some apps, big one on others)
   - [ ] Animations based on app name
     - [ ] Wofi: popin
     - [ ] Wlogout: fade in
