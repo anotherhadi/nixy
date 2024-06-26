@@ -4,9 +4,8 @@
 
 ## Laptop
 
-The laptop configuration is used by a Omen 16 laptop w/ nvidia and an amd gpu running NixOS.
+The laptop configuration is used by an Omen 16 laptop w/ nvidia and an amd gpu running NixOS.
 The configurations files can be found in the `hosts/laptop` directory.
-
 
 | Category       | Name          |
 |----------------|---------------|
@@ -42,7 +41,7 @@ The configurations files can be found in the `hosts/laptop` directory.
 
 The server configuration is used by a home server running NixOS.
 The configurations files can be found in the `hosts/server` directory.
-I mainly use it for self hosting websites and services such as Nextcloud, Vaultwarden, ... 
+I mainly use it for self-hosting websites and services such as Nextcloud, Vaultwarden, ...
 I exposed some services to the internet using a reverse proxy (Nginx) and cloudflare-dyndns, others are accessed through a tailscale network
 
 ### Apps
