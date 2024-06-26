@@ -32,6 +32,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Whichkey: Description for keybindings
   - [ ] Spelling
   - [ ] Flash.nvim
+  - [ ] Alpha: Open keybindings.md
 
 - [ ] Backup system for some folders ($home/dev, $home/pictures, ...)
   - [ ] Exclude file pattern (nodes modules, ...)
