@@ -14,7 +14,7 @@ let
         },
         "folders": [
           {
-            "name": " Home",
+            "name": "  Home",
             "links": [
               {
                 "title": "Nextcloud",
@@ -29,7 +29,7 @@ let
             ]
           },
           {
-            "name": "󰚺 Streaming",
+            "name": "󰚺  Streaming",
             "links": [
               {
                 "title": "Jellyfin",
@@ -69,7 +69,7 @@ let
             ]
           },
           {
-            "name": " Admin",
+            "name": "  Admin",
             "links": [
               {
                 "title": "Uptime Kuma",
