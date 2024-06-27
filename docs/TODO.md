@@ -8,7 +8,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Themes
     - [ ] Upload new wallpapers
     - [ ] macOS theme
-  - [ ] Write a hyprland shortcuts markdown file (Parse the hyprland settings conf)
   - [ ] Tofi (Wofi, but terminal based)
   - [ ] add golang bin dir to path
 
