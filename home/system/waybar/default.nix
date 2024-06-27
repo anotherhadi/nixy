@@ -124,7 +124,14 @@
           tooltip = false;
           on-click = "powermenu";
         };
-
+        # "custom/caffeine": {
+        #  "format": "{}",
+        #  "max-length": 5,
+        #  "interval": 10,
+        #  "exec": "caffeine-status-icon",
+        #  "exec-if": "pgrep spotify",
+        #  "return-type": ""
+        #}
         backlight = {
           device = "nvidia_0";
           format = "{icon}";
