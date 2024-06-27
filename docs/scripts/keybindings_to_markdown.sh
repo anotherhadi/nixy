@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+[[ -f "./docs/scripts/install.sh" ]] || (
+  printf "\n\e[0;91mx \e[0m\e[1;77mNot in the project root directory\e[0m"
+  exit 1
+)
+
+KEYBINDINGS_FILE="./docs/KEYBINDINGS.md"
+
 function getList(){
     content=$1
     name=$2
@@ -17,38 +24,37 @@ config=$( cat "./home/system/hyprland/default.nix")
 
 # Bind
 bind=$(getList "$config" "bind")
-echo "$bind"
-
 # Bindm (mouse)
 bindm=$(getList "$config" "bindm")
-echo "$bindm"
-
 # Bindl (lock)
 bindl=$(getList "$config" "bindl")
-echo "$bindl"
-
 # Bindle (lock, repetition)
 bindle=$(getList "$config" "bindle")
-echo "$bindle"
 
 # Join the lists:
-# ...
+keybindings=$(echo -e "$bind\n$bindm\n$bindl\n$bindle" | grep '"')
 
-# Remove lines not containing a "
-# ...
+echo "# Keybindings" > "$KEYBINDINGS_FILE"
+echo "" >> "$KEYBINDINGS_FILE"
+echo "The list of the keybindings working on Hyprland:" >> "$KEYBINDINGS_FILE"
+echo "" >> "$KEYBINDINGS_FILE"
 
-# Parse the keybindings:
-# Example: "mod, key, dispatcher, params" # Description
-# 1. Get the description/remove it
-# 2. Remove the quotes
-# 3. Get mod /remove it (replace $mod and $shiftmod by SUPER and SUPER_SHIFT)
-# 4. Get key /remove it
-# 5. Get dispatcher /remove it
-# 6. Get params
+echo "| Description | Keybinding | Command |" >> "$KEYBINDINGS_FILE"
+echo "| -- | -- | -- |" >> "$KEYBINDINGS_FILE"
+echo "$keybindings" | while read line 
+do
+    comment=$(echo "$line" | cut -d\# -f2)
+    line=$(echo "$line" | cut -d\# -f1)
+    line=${line:1:${#line}-3}
+    mod=$(echo "$line" | cut -d, -f1)
+    key=$(echo "$line" | cut -d, -f2)
+    dispatcher=$(echo "$line" | cut -d, -f3)
+    params=$(echo "$line" | cut -d, -f4)
+
+    [[ $mod == '$mod' ]] && mod="SUPER"
+    [[ $mod == '$shiftMod' ]] && mod="SUPER SHIFT"
+
+    echo "| $comment | $mod + $key | $params |" >> "$KEYBINDINGS_FILE"
+done
 
 # Manually add workspace shortcuts
-
-# Markdown table:
-# | Description | keybinding | params |
-# | -- | -- | -- |
-# ...
