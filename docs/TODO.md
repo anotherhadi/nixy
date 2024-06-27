@@ -3,19 +3,19 @@
 feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
 - [ ] Nixy
-  - [ ] Installation script ([install.sh](./scripts/install.sh) to test on a fresh install)
-  - [ ] Variables-template with defaults
+  - [~] Installation script ([install.sh](./scripts/install.sh) to test on a fresh install)
+  - [~] Variables-template with defaults
   - [ ] Themes
     - [ ] Upload new wallpapers
     - [ ] macOS theme
-  - [ ] Tofi (Wofi, but terminal based)
+  - [~] Tofi (Wofi, but terminal based)
   - [ ] Add Vim Keybindings to KEYBINDINGS.md
 
 - [ ] Qutebrowser
-  - [ ] Bitwarden integration (I need this.)
+  - [~] Bitwarden integration (I need this.)
 
 - [ ] Waybar
-  - [ ] Caffeine status
+  - [~] Caffeine status
   - [ ] Night-shift status
 
 - [ ] Hyprland
@@ -28,7 +28,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Nixvim
   - [ ] Markdown snippets
   - [ ] Markdown fold
-  - [ ] Markdown better table (maybe lsp?)
+  - [~] Markdown better table (maybe lsp?)
   - [ ] Autosave when zen-mode is open
 
 - [ ] Backup system for some folders ($home/dev, $home/pictures, ...)
