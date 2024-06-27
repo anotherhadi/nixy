@@ -10,27 +10,26 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - [ ] macOS theme
   - [~] Tofi (Wofi, but terminal based)
   - [ ] Add Vim Keybindings to KEYBINDINGS.md
-  - [ ] Keybindings with Icons
+  - [+] Keybindings with Icons
 
 - [ ] Qutebrowser
   - [~] Bitwarden integration (I need this.)
 
-- [ ] Waybar
+- [+] Waybar
   - [ ] Caffeine status on click
   - [ ] Night-shift status on click
 
 - [ ] Hyprland
-  - [ ] Implement Hyprcursor (see home/system/hyprland/hyprcursor.nix: Not working, small cursor on some apps, big one on others)
+  - [-] Implement Hyprcursor (see home/system/hyprland/hyprcursor.nix: Not working, small cursor on some apps, big one on others)
   - [ ] Animations based on app name
     - [ ] Wofi: popin
     - [ ] Wlogout: fade in
   - [ ] Fix screenshots
 
 - [ ] Nixvim
-  - [ ] Markdown snippets
-  - [ ] Markdown fold
-  - [~] Markdown better table (maybe lsp?)
-  - [ ] Autosave when zen-mode is open
+  - [+] Markdown snippets
+  - [+] Markdown fold
+  - [+] Autosave when zen-mode is open
 
 - [ ] Backup system for some folders ($home/dev, $home/pictures, ...)
   - [ ] Exclude file pattern (nodes modules, ...)

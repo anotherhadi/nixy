@@ -7,8 +7,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "anotherhadi";
       repo = "portfolio";
-      rev = "48effd644da4d89921a4c1a3f5f6f5b6bd09eb6d";
-      hash = "sha256-cFoq957oKS2MbKm94sUwAbS6GZ+IYWslZmvqyvK25m0=";
+      rev = "5d54a2d204cdbf0f702173c1bf1279bca25eb736";
+      hash = "sha256-8vDm9YwZKpMujILZjXtRERUIxvDqddSxS/gdJfZdUdY=";
     };
 
     npmDepsHash = "sha256-KMILWgZ6GNKoe/+RZS1tVDTd3SxXl6YtOuCb5kSFeis=";
