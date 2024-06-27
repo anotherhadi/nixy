@@ -3,45 +3,54 @@
     {
       key = "<leader>e";
       action = "<CMD>Neotree toggle<CR>";
+      options.desc = "Neotree Toggle";
     }
     {
       key = "<space>fm";
       action = "<CMD>lua vim.lsp.buf.format()<CR>";
+      options.desc = "LSP Format";
     }
 
     {
       key = "<leader>ot";
       action = "<cmd>lua require('obsidian').util.toggle_checkbox()<cr>";
+      options.desc = "Toggle Checkbox";
     }
 
     {
       key = "<leader>oo";
       action = "<cmd>ObsidianQuickSwitch<cr>";
+      options.desc = "Quick Switch";
     }
 
     {
       key = "<leader>on";
       action = "<cmd>ObsidianNew<cr>";
+      options.desc = "New";
     }
 
     {
       key = "<leader>of";
       action = "<cmd>ObsidianSearch<cr>";
+      options.desc = "Search";
     }
 
     {
       key = "<leader>oi";
       action = "<cmd>ObsidianPasteImg<cr>";
+      options.desc = "Paste Image";
     }
 
     {
       key = "<leader>E";
       action = "<cmd>Oil<cr>";
+      options.desc = "Oil";
     }
 
     {
       key = "<leader>t";
       action = "<cmd>TroubleToggle<cr>";
+      options.desc = "Trouble";
     }
 
     {

@@ -9,6 +9,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - [ ] Upload new wallpapers
     - [ ] macOS theme
   - [ ] Tofi (Wofi, but terminal based)
+  - [ ] Add Vim Keybindings to KEYBINDINGS.md
 
 - [ ] Qutebrowser
   - [ ] Bitwarden integration (I need this.)
@@ -25,15 +26,10 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Fix screenshots
 
 - [ ] Nixvim
-  - [ ] Telescope: find with file content
   - [ ] Markdown snippets
-  - [ ] Whichkey: Description for keybindings
-  - [ ] Flash.nvim
-  - [ ] Alpha: Open keybindings.md
-  - [ ] Zen.nvim
   - [ ] Markdown fold
   - [ ] Markdown better table (maybe lsp?)
-  - [ ] Autosave with a shell command?
+  - [ ] Autosave when zen-mode is open
 
 - [ ] Backup system for some folders ($home/dev, $home/pictures, ...)
   - [ ] Exclude file pattern (nodes modules, ...)

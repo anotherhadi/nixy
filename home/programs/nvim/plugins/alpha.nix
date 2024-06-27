@@ -84,6 +84,21 @@
           }
           {
             type = "button";
+            val = "  Keybindings";
+            on_press.__raw =
+              "function() vim.cmd[[e ${config.var.configDirectory}/docs/KEYBINDINGS.md]] end";
+            opts = {
+              shortcut = "nc";
+              position = "center";
+              cursor = 3;
+              width = 50;
+              align_shortcut = "right";
+              hl_shortcut = "AlphaShortcutColor";
+              hl = "AlphaTextColor";
+            };
+          }
+          {
+            type = "button";
             val = "  Recently used";
             on_press.__raw = "function() vim.cmd[[Telescope oldfiles]] end";
             opts = {
