@@ -47,11 +47,11 @@
       monitor = [
         "eDP-2,highres,0x0,1"
         # "DP-9,highrr,2560x0,1"
-        # ",prefered,auto,1"
+        ",prefered,auto,1"
         #"desc:,2560x1440@240.0,0x0,1.0"
         #"desc:,2560x1440@60.0,645x4362,1.0"
-        "desc:AOC U34G2G1 0x00000E06,3440x1440@59.97,2560x0,1.0"
-        ",disable"
+        # "desc:AOC U34G2G1 0x00000E06,3440x1440@59.97,2560x0,1.0"
+        # ",disable"
       ];
 
       bind = [
@@ -115,8 +115,10 @@
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_QPA_PLATFORM=wayland,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "GTK_THEME,FlatColor:dark"
         "GTK2_RC_FILES,/home/hadi/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
+        #"WLR_DRM_DEVICES,$HOME/.config/hypr/card"
         # "HYPRCURSOR_THEME,macOS"
         # "HYPRCURSOR_SIZE,16"
         # "XCURSOR_SIZE,16"
@@ -147,6 +149,7 @@
       gestures = { workspace_swipe = true; };
 
       misc = {
+        vfr = true;
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         disable_autoreload = true;
