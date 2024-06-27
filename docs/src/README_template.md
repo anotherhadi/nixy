@@ -50,4 +50,4 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 - [SCRIPTS.md](docs/SCRIPTS.md): Scripts that are available
 - [TODO.md](docs/TODO.md): What's next (feel free to contribute)
 - [CONTRIBUTING.md](docs/CONTRIBUTING.md): How to contribute
-- [LICENSE](LICENSE): MIT Licensey
+- [LICENSE](LICENSE): MIT License
