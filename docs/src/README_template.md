@@ -48,6 +48,8 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 - [THEMES.md](docs/THEMES.md): How themes work and how to create your own
 - [APPS.md](docs/APPS.md): Which apps are installed
 - [SCRIPTS.md](docs/SCRIPTS.md): Scripts that are available
+- [KEYBINDINGS.md](docs/KEYBINDINGS.md): Keybindings available in Hyprland
+
 - [TODO.md](docs/TODO.md): What's next (feel free to contribute)
 - [CONTRIBUTING.md](docs/CONTRIBUTING.md): How to contribute
 - [LICENSE](LICENSE): MIT License
