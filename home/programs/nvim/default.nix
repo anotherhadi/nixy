@@ -24,7 +24,7 @@
     ./plugins/noice.nix
     ./plugins/obsidian.nix
     ./plugins/image.nix
-    ./plugins/ltex.nix
+    # ./plugins/ltex.nix
     ./plugins/flash.nix
     ./plugins/zen-mode.nix
     ./options.nix
