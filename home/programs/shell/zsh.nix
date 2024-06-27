@@ -27,6 +27,10 @@
       size = 1000000;
     };
 
+    home.sessionPath = [
+      "$HOME/go/bin"
+    ];
+
     profileExtra = lib.optionalString (config.home.sessionPath != [ ]) ''
       export PATH="$PATH''${PATH:+:}${
         lib.concatStringsSep ":" config.home.sessionPath
