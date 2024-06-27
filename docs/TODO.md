@@ -7,17 +7,20 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Variables-template with defaults
   - [ ] Themes
     - [ ] Upload new wallpapers
-    - [ ] MacOS theme
+    - [ ] macOS theme
   - [ ] Write a hyprland shortcuts markdown file (Parse the hyprland settings conf)
-  - [ ] Tofi (Wofi but terminal based)
+  - [ ] Tofi (Wofi, but terminal based)
   - [ ] add golang bin dir to path
+
+- [ ] Qutebrowser
+  - [ ] Bitwarden integration (I need this.)
 
 - [ ] Waybar
   - [ ] Caffeine status
   - [ ] Night-shift status
 
 - [ ] Hyprland
-  - [ ] Make hyprcursor work
+  - [ ] Implement Hyprcursor (see home/system/hyprland/hyprcursor.nix: Not working, small cursor on some apps, big one on others)
   - [ ] Animations based on app name
     - [ ] Wofi: popin
     - [ ] Wlogout: fade in
@@ -27,6 +30,8 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Telescope: find with file content
   - [ ] Markdown snippets
   - [ ] Whichkey: Description for keybindings
+  - [ ] Flash.nvim
+  - [ ] Alpha: Open keybindings.md
   - [ ] Zen.nvim
   - [ ] Markdown fold
   - [ ] Markdown better table (maybe lsp?)
