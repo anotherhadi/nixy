@@ -27,13 +27,18 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Telescope: find with file content
   - [ ] Markdown snippets
   - [ ] Whichkey: Description for keybindings
-  - [ ] Spelling
+  - [ ] Zen.nvim
+  - [ ] Markdown fold
+  - [ ] Markdown better table (maybe lsp?)
+  - [ ] Autosave with a shell command?
 
 - [ ] Backup system for some folders ($home/dev, $home/pictures, ...)
   - [ ] Exclude file pattern (nodes modules, ...)
   - [ ] Auto backup when a specific usb key is plugged
+  - [ ] Pika backup?
 
 - [ ] Usb security for laptop & server, variable in variables.nix, disable for guest
+- [ ] Markdown to pdf tool
 
 - [ ] Server
   - [ ] Bitcoin-git
