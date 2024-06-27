@@ -78,6 +78,7 @@
       optipng
       pfetch
       usbutils
+      pandoc
 
       # Just cool
       peaclock
