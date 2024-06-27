@@ -2,6 +2,8 @@
 
   home.packages = with pkgs; [ bat ripgrep tldr ];
 
+  home.sessionPath = [ "$HOME/go/bin" ];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -26,10 +28,6 @@
       save = 1000000;
       size = 1000000;
     };
-
-    home.sessionPath = [
-      "$HOME/go/bin"
-    ];
 
     profileExtra = lib.optionalString (config.home.sessionPath != [ ]) ''
       export PATH="$PATH''${PATH:+:}${
