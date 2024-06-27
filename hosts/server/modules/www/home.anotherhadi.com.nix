@@ -110,8 +110,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "anotherhadi";
       repo = "homepage";
-      rev = "b77d35ed3596eb451bd2ec78063d7cc6e73c773d";
-      hash = "sha256-j/40922kfAh6zqJ4IRYpr66YXNNYsxuXwZ0aiJFJea0=";
+      rev = "9553fc10221eb8568ca6999d73e48e9261447aa4";
+      hash = "sha256-vpiaBb0iDnbYQH69ZbMurHtOerWNPX7HC7Hx0vM31C4=";
     };
 
     # npmDepsHash = lib.fakeHash;
