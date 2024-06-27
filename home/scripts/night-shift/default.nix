@@ -24,11 +24,27 @@ let
   '';
 
   night-shift-status = pkgs.writeShellScriptBin "night-shift-status" ''
-    if pgrep wlsunset; then
+    if [[ $(pgrep wlsunset) ]]; then
       echo "1"
     else
       echo "0"
     fi
   '';
 
-in { home.packages = [ night-shift-on night-shift-off night-shift-toggle night-shift-status ]; }
+  night-shift-status-icon =
+    pkgs.writeShellScriptBin "night-shift-status-icon" ''
+      if [[ $(pgrep wlsunset) ]]; then
+        echo "󰖔"
+      else
+        echo "󰖕"
+      fi
+    '';
+in {
+  home.packages = [
+    night-shift-on
+    night-shift-off
+    night-shift-toggle
+    night-shift-status
+    night-shift-status-icon
+  ];
+}

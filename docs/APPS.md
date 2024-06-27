@@ -7,35 +7,35 @@
 The laptop configuration is used by an Omen 16 laptop w/ nvidia and an amd gpu running NixOS.
 The configurations files can be found in the `hosts/laptop` directory.
 
-| Category       | Name          |
-|----------------|---------------|
-| WM             | Hyprland      |
-|                | hyprlock      |
-|                | hyprpaper     |
-|                | hypridle      |
-|                | wlogout       |
-| Bar            | waybar        |
-| Terminal       | kitty         |
-| Shell          | zsh           |
-|                | tmux          |
-|                | starship      |
-|                | bat           |
-|                | eza           |
-|                | zoxide        |
-|                | fzf           |
-| Editor         | neovim(nixvim)|
-| File manager   | lf            |
-|                | thunar        |
-| Browser        | qutebrowser   |
-| Music          | spicetify     |
-| Notifications  | dunst         |
-| Launcher       | wofi          |
-| DM             | tuigreet      |
-| Secrets        | sops-nix      |
-| Misc           | lazygit       |
-|                | neofetch      |
-|                | cava          |
-| See [hosts/laptop](../hosts/laptop/)... | |
+| Category                                | Name           |
+|-----------------------------------------|----------------|
+| WM                                      | Hyprland       |
+|                                         | hyprlock       |
+|                                         | hyprpaper      |
+|                                         | hypridle       |
+|                                         | wlogout        |
+| Bar                                     | waybar         |
+| Terminal                                | kitty          |
+| Shell                                   | zsh            |
+|                                         | tmux           |
+|                                         | starship       |
+|                                         | bat            |
+|                                         | eza            |
+|                                         | zoxide         |
+|                                         | fzf            |
+| Editor                                  | neovim(nixvim) |
+| File manager                            | lf             |
+|                                         | thunar         |
+| Browser                                 | qutebrowser    |
+| Music                                   | spicetify      |
+| Notifications                           | dunst          |
+| Launcher                                | wofi           |
+| DM                                      | tuigreet       |
+| Secrets                                 | sops-nix       |
+| Misc                                    | lazygit        |
+|                                         | neofetch       |
+|                                         | cava           |
+| See [hosts/laptop](../hosts/laptop/)... |                |
 
 ## Server
 

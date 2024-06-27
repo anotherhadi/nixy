@@ -17,4 +17,13 @@ let
     notif "caffeine" "$message"
   '';
 
-in { home.packages = [ caffeine-status caffeine ]; }
+  caffeine-status-icon = pkgs.writeShellScriptBin "caffeine-status-icon" ''
+    status=$(caffeine-status)
+    if [[ $status == "active" ]]; then
+      echo "󰅶"
+    else
+      echo "󰾪"
+    fi
+  '';
+
+in { home.packages = [ caffeine-status caffeine caffeine-status-icon ]; }

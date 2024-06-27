@@ -33,8 +33,16 @@
         height = 44;
         modules-left = [ "custom/logo" "hyprland/window" ];
         modules-center = [ "hyprland/workspaces" ];
-        modules-right =
-          [ "tray" "backlight" "pulseaudio" "battery" "clock" "custom/power" ];
+        modules-right = [
+          "tray"
+          "backlight"
+          "pulseaudio"
+          "custom/caffeine"
+          "custom/night-shift"
+          "battery"
+          "clock"
+          "custom/power"
+        ];
 
         "wlr/taskbar" = {
           format = "{icon}";
@@ -124,14 +132,20 @@
           tooltip = false;
           on-click = "powermenu";
         };
-        # "custom/caffeine": {
-        #  "format": "{}",
-        #  "max-length": 5,
-        #  "interval": 10,
-        #  "exec": "caffeine-status-icon",
-        #  "exec-if": "pgrep spotify",
-        #  "return-type": ""
-        #}
+        "custom/caffeine" = {
+          format = "{}";
+          max-length = 5;
+          interval = 10;
+          exec = "caffeine-status-icon";
+          # exec-if = "pgrep spotify";
+          # return-type = "";
+        };
+        "custom/night-shift" = {
+          format = "{}";
+          max-length = 5;
+          interval = 10;
+          exec = "night-shift-status-icon";
+        };
         backlight = {
           device = "nvidia_0";
           format = "{icon}";
@@ -218,6 +232,8 @@
 
       #memory,
       #custom-power,
+      #custom-caffeine,
+      #custom-night-shift,
       #battery,
       #backlight,
       #pulseaudio,

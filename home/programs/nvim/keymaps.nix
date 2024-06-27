@@ -10,7 +10,11 @@
       action = "<CMD>lua vim.lsp.buf.format()<CR>";
       options.desc = "LSP Format";
     }
-
+    {
+      key = "<leader>ox";
+      action = "vip:!pandoc -t commonmark_x<cr>";
+      options.desc = "Format Markdown Tables";
+    }
     {
       key = "<leader>ot";
       action = "<cmd>lua require('obsidian').util.toggle_checkbox()<cr>";

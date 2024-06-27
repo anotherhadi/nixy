@@ -10,13 +10,14 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - [ ] macOS theme
   - [~] Tofi (Wofi, but terminal based)
   - [ ] Add Vim Keybindings to KEYBINDINGS.md
+  - [ ] Keybindings with Icons
 
 - [ ] Qutebrowser
   - [~] Bitwarden integration (I need this.)
 
 - [ ] Waybar
-  - [~] Caffeine status
-  - [ ] Night-shift status
+  - [ ] Caffeine status on click
+  - [ ] Night-shift status on click
 
 - [ ] Hyprland
   - [ ] Implement Hyprcursor (see home/system/hyprland/hyprcursor.nix: Not working, small cursor on some apps, big one on others)

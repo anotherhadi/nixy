@@ -1,19 +1,12 @@
 { lib, ... }: {
   options = {
     var = {
-
-      hostname = lib.mkOption {
-        type = lib.types.string;
-        default = "";
-        description = "";
-      };
-
       hostname = lib.mkOption {
         type = lib.types.string;
         default = "nixy";
         description = "Hostname";
       };
-    
+
       username = lib.mkOption {
         type = lib.types.string;
         default = "user";
@@ -25,7 +18,6 @@
         default = "/home/user";
         description = "Home directory (/home/user)";
       };
-
 
       configDirectory = lib.mkOption {
         type = lib.types.string;
@@ -78,13 +70,15 @@
       sops = lib.mkOption {
         type = lib.types.bool;
         default = false;
-        description = "Enable sops (You should set up sops for your own config)";
+        description =
+          "Enable sops (You should set up sops for your own config)";
       };
 
       obsidian = lib.mkOption {
         type = lib.types.bool;
         default = false;
-        description = "Enable obsidian.nvim (You should set up obsidian.nvim for your own config)";
+        description =
+          "Enable obsidian.nvim (You should set up obsidian.nvim for your own config)";
       };
 
       tailscale = lib.mkOption {
@@ -124,7 +118,7 @@
           type = lib.types.string;
           default = "FiraCode Nerd Font Mono";
           description = "Monospace Font";
-        };  
+        };
       };
 
     };

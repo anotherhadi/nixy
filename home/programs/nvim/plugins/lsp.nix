@@ -13,9 +13,9 @@
         svelte.enable = true;
         marksman.enable = true;
         ltex = {
-          enable = true;
+          enable = false;
           settings = {
-            enabled = true;
+            enabled = false;
             language = "en";
           };
         };
