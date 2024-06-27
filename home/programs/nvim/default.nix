@@ -25,6 +25,7 @@
     ./plugins/noice.nix
     ./plugins/obsidian.nix
     ./plugins/image.nix
+    ./plugins/ltex.nix
     ./options.nix
     ./colorscheme.nix
   ];

@@ -11,6 +11,13 @@
         tailwindcss.enable = true;
         html.enable = true;
         svelte.enable = true;
+        ltex = {
+          enable = true;
+          settings = {
+            enabled = true;
+            language = "en";
+          };
+        };
       };
       keymaps.lspBuf = {
         "gd" = "definition";
