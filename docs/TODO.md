@@ -9,7 +9,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - [ ] Upload new wallpapers
     - [ ] macOS theme
   - [ ] Tofi (Wofi, but terminal based)
-  - [ ] add golang bin dir to path
 
 - [ ] Qutebrowser
   - [ ] Bitwarden integration (I need this.)
