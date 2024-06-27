@@ -39,27 +39,27 @@ let
               {
                 "title": "Jellyseerr",
                 "url": "http://jack:5055",
-                "icon": "󰼁"
+                "icon": ""
               },
               {
                 "title": "Radarr",
                 "url": "http://jack:7878",
-                "icon": "R"
+                "icon": ""
               },
               {
                 "title": "Sonarr",
                 "url": "http://jack:8989",
-                "icon": "S"
+                "icon": ""
               },
               {
                 "title": "Bazarr",
                 "url": "http://jack:6767",
-                "icon": "B"
+                "icon": "󰨖"
               },
               {
                 "title": "Transmission",
                 "url": "http://jack:9091",
-                "icon": "󰴾"
+                "icon": "󰘡"
               },
               {
                 "title": "Prowlarr",
@@ -79,7 +79,7 @@ let
               {
                 "title": "Adguard Home",
                 "url": "http://192.168.2.24:3001",
-                "icon": "󰷱"
+                "icon": ""
               },
               {
                 "title": "Proxmox",
