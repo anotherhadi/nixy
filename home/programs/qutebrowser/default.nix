@@ -23,7 +23,6 @@ let
               {"title": "Chat GPT", "url": "https://chat.openai.com/", "icon": "󰭹"},
               {"title": "Nixvim", "url": "https://nix-community.github.io/nixvim/", "icon": ""},
               {"title": "Hyprland Wiki", "url": "https://wiki.hyprland.org/", "icon": "󰖬"},
-              {"title": "Nerdfont", "url": "https://www.nerdfonts.com/cheat-sheet", "icon": ""},
               {"title": "Youtube", "url": "https://youtube.com", "icon": "󰗃"},
               {"title": "Server", "url": "https://home.anotherhadi.com", "icon": ""}
             ]
