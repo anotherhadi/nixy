@@ -17,7 +17,6 @@
     ./plugins/copilot.nix
     ./plugins/whichkey.nix
     ./plugins/alpha.nix
-    ./plugins/keymaps.nix
     ./plugins/comment.nix
     ./plugins/oil.nix
     ./plugins/trouble.nix
@@ -26,7 +25,10 @@
     ./plugins/obsidian.nix
     ./plugins/image.nix
     ./plugins/ltex.nix
+    ./plugins/flash.nix
+    ./plugins/zen-mode.nix
     ./options.nix
     ./colorscheme.nix
+    ./keymaps.nix
   ];
 }
