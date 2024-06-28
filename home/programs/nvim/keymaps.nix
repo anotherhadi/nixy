@@ -1,7 +1,7 @@
 {
   programs.nixvim.keymaps = [
     {
-      key = "<leader>e";
+      key = "<leader>E";
       action = "<CMD>Neotree toggle<CR>";
       options.desc = "Neotree Toggle";
     }
@@ -46,7 +46,7 @@
     }
 
     {
-      key = "<leader>E";
+      key = "<leader>e";
       action = "<cmd>Oil<cr>";
       options.desc = "Oil";
     }

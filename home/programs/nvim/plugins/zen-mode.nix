@@ -16,14 +16,13 @@
           ruler = false;
           showcmd = false;
         };
-        tmux = { enabled = false; };
-        twilight = { enabled = false; };
+        tmux = { enabled = true; };
       };
       window = {
         backdrop = 0.95;
         height = 1;
         options = { signcolumn = "no"; };
-        width = 0.8;
+        width = 0.9;
       };
     };
   };
