@@ -24,6 +24,7 @@ let
               {"title": "Nixvim", "url": "https://nix-community.github.io/nixvim/", "icon": ""},
               {"title": "Hyprland Wiki", "url": "https://wiki.hyprland.org/", "icon": "󰖬"},
               {"title": "Youtube", "url": "https://youtube.com", "icon": "󰗃"},
+              {"title": "Figma", "url": "https://figma.com", "icon": ""},
               {"title": "Server", "url": "https://home.anotherhadi.com", "icon": ""}
             ]
           },
@@ -228,6 +229,7 @@ in {
         autoplay = false;
         javascript.clipboard = "access";
         javascript.enabled = true;
+        webgl = true;
         pdfjs = true;
       };
 

@@ -1,15 +1,15 @@
 {
-  wallpaper = "lofi-computer.png";
+  wallpaper = "magma.png";
 
   font = "SFProDisplay Nerd Font";
   font-mono = "FiraCode Nerd Font Mono";
-  font-size = 13;
+  font-size = 14;
 
   rounding = 15;
-  gaps-in = 12;
-  gaps-out = 12 * 2;
-  border-size = 4;
-  animation-speed = "slow"; # "fast" | "medium" | "slow"
+  gaps-in = 10;
+  gaps-out = 10 * 2;
+  border-size = 3;
+  animation-speed = "fast"; # "fast" | "medium" | "slow"
   fetch = "nerdfetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
 
   waybar = {
@@ -20,30 +20,30 @@
   };
 
   colors = {
-    c0 = "2F2F2F"; # black
-    c1 = "f7768e"; # red
-    c2 = "73daca"; # green
-    c3 = "e0af68"; # yellow
-    c4 = "4973CB"; # blue
+    c0 = "1e1e2e"; # black
+    c1 = "f38ba8"; # red
+    c2 = "a6e3a1"; # green
+    c3 = "fab387"; # yellow
+    c4 = "89b4fa"; # blue
     c5 = "A594FD"; # magenta
-    c6 = "7dcfff"; # cyan
-    c7 = "FFFFFF"; # white
-    c8 = "3F3F3F"; # bright black
-    c9 = "f7869e"; # bright red
-    c10 = "83eada"; # bright green
-    c11 = "f0bf78"; # bright yellow
-    c12 = "8ab2f7"; # bright blue
-    c13 = "A988F8"; # bright magenta
-    c14 = "8ddfff"; # bright cyan
-    c15 = "f4f5f7"; # bright white
+    c6 = "74c7ec"; # cyan
+    c7 = "cdd6f4"; # white
+    c8 = "313244"; # bright black
+    c9 = "eba0ac"; # bright red
+    c10 = "94e2d5"; # bright green
+    c11 = "f9e2af"; # bright yellow
+    c12 = "b4befe"; # bright blue
+    c13 = "f5c2e7"; # bright magenta
+    c14 = "94e2d5"; # bright cyan
+    c15 = "bac2de"; # bright white
 
-    bg = "040404";
-    fg = "FFFFFF";
-    bgalt = "131313";
-    fgalt = "f4f5f7";
+    bg = "0B0B0B";
+    fg = "EAF0F5";
+    bgalt = "121212";
+    fgalt = "EAF0F5";
 
     accent = "A594FD";
-    accentFg = "2F2F2F";
+    accentFg = "0B0B0B";
 
     # Should make those automtic
     accentName = "magenta";
