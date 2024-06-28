@@ -207,6 +207,8 @@ in {
           "dark"; # Enable dark mode for websites that support it
       };
 
+      statusbar.show = "in-mode";
+
       fonts = { default_family = "${config.var.theme.font}"; };
 
       completion = {
@@ -330,6 +332,7 @@ in {
       config.unbind("gt")
 
       c.tabs.padding = {"bottom": 6, "left": 7, "right": 7, "top": 6}
+      c.statusbar.padding = {"bottom": 6, "left": 7, "right": 7, "top": 6}
 
       config.load_autoconfig(True)
     '';

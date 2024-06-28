@@ -39,6 +39,8 @@ Caffeine is a simple script that toggles hypridle (disable suspend & screenlock)
 
 Blue light filter, using wlsunset
 
+- `night-shift` # Toggle night shift
+- `night-shift-status` # Return active/inactive
 - `night-shift-on`
 - `night-shift-off`
 
