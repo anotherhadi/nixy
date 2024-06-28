@@ -102,7 +102,7 @@
             "headphone" = "";
             "default" = [ "󰖀" "󰕾" "" ];
           };
-          "on-click" = "pamixer -t";
+          "on-click" = "sound-toggle";
           "scroll-step" = 1;
         };
 
@@ -137,6 +137,7 @@
           max-length = 5;
           interval = 10;
           exec = "caffeine-status-icon";
+          "on-click" = "caffeine";
           # exec-if = "pgrep spotify";
           # return-type = "";
         };
@@ -145,6 +146,7 @@
           max-length = 5;
           interval = 10;
           exec = "night-shift-status-icon";
+          "on-click" = "night-shift";
         };
         backlight = {
           device = "nvidia_0";

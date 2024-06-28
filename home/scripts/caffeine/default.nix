@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   caffeine-status = pkgs.writeShellScriptBin "caffeine-status" ''
-    [[ -f /tmp/caffeine ]] && echo "active" || echo "inactive"
+    [[ -f /tmp/caffeine ]] && echo "1" || echo "0"
   '';
 
   caffeine = pkgs.writeShellScriptBin "caffeine" ''
@@ -19,7 +19,7 @@ let
 
   caffeine-status-icon = pkgs.writeShellScriptBin "caffeine-status-icon" ''
     status=$(caffeine-status)
-    if [[ $status == "active" ]]; then
+    if [[ $status == "1" ]]; then
       echo "󰅶"
     else
       echo "󰾪"

@@ -15,7 +15,7 @@ let
     notif "night-shift" "$message"
   '';
 
-  night-shift-toggle = pkgs.writeShellScriptBin "night-shift-toggle" ''
+  night-shift = pkgs.writeShellScriptBin "night-shift" ''
     if pgrep wlsunset; then
       night-shift-off
     else
@@ -43,7 +43,7 @@ in {
   home.packages = [
     night-shift-on
     night-shift-off
-    night-shift-toggle
+    night-shift
     night-shift-status
     night-shift-status-icon
   ];
