@@ -12,11 +12,11 @@ let
 
       # "icon;name;command"[]
       apps=(
-        ";Rebuild;nixy-rebuild"
-        ";Upgrade;nixy-upgrade"
-        ";Update;nixy-update"
-        ";Collect Garbage;nixy-gc"
-        ";Clean Boot Menu;nixy-cb"
+        ";Rebuild;nixy rebuild"
+        ";Upgrade;nixy upgrade"
+        ";Update;nixy update"
+        ";Collect Garbage;nixy gc"
+        ";Clean Boot Menu;nixy cb"
       )
 
       # Apply default icons if empty:
@@ -54,7 +54,4 @@ let
     fi
   '';
 
-in {
-  home.packages =
-    [ nixy ];
-}
+in { home.packages = [ nixy ]; }
