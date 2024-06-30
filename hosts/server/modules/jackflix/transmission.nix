@@ -20,5 +20,4 @@
   # TODO: launch the container at boot
 
   networking.firewall.allowedTCPPorts = [ 9091 ];
-  networking.firewall.allowedUDPPorts = [ 9091 ];
 }
