@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ./variables.nix
+    ../modules/usb.nix
 
     # internal
     ./modules/internal/security.nix
