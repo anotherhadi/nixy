@@ -77,6 +77,11 @@ let
                 "icon": "󱎫"
               },
               {
+                "title": "Cockpit",
+                "url": "https://jack:3009",
+                "icon": ""
+              },
+              {
                 "title": "Adguard Home",
                 "url": "http://192.168.2.24:3001",
                 "icon": ""
