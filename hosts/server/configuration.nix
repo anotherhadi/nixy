@@ -7,6 +7,7 @@
     ./modules/internal/security.nix
     ./modules/internal/openssh.nix
     ./modules/internal/adguard.nix
+    ./modules/internal/cockpit.nix
     # ./modules/internal/unifi.nix # FIXME: unifi5 is deprecated
 
     # exposed
