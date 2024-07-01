@@ -29,7 +29,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Auto backup when a specific usb key is plugged
   - [ ] Pika backup?
 
-- [ ] Usb security for laptop & server, variable in variables.nix, disable for guest
 - [ ] Markdown to pdf tool
 
 - [ ] Server
