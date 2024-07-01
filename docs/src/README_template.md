@@ -49,6 +49,7 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 - [APPS.md](docs/APPS.md): Which apps are installed
 - [SCRIPTS.md](docs/SCRIPTS.md): Scripts that are available
 - [KEYBINDINGS.md](docs/KEYBINDINGS.md): Keybindings available in Hyprland
+- [WALLPAPERS.md](docs/WALLPAPERS.md): Preview of every wallpapers available
 
 - [TODO.md](docs/TODO.md): What's next (feel free to contribute)
 - [CONTRIBUTING.md](docs/CONTRIBUTING.md): How to contribute

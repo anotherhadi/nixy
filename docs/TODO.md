@@ -6,7 +6,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [~] Installation script ([install.sh](./scripts/install.sh) to test on a fresh install)
   - [~] Variables-template with defaults
   - [ ] Themes
-    - [ ] Upload new wallpapers
     - [ ] macOS theme
   - [ ] Tofi (Wofi, but terminal based)
   - [ ] Add Vim Keybindings to KEYBINDINGS.md
