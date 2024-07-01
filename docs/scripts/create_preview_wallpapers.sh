@@ -14,8 +14,8 @@ echo "| Name | Preview |" >>"$WALLPAPERS_MD"
 echo "| -- | -- |" >>"$WALLPAPERS_MD"
 
 for file in $WALLPAPERS_FOLDER/*.png; do
-
-  echo "| $(basename $file) | ![$(basename $file)]($file) |" >>"$WALLPAPERS_MD"
+  filename=$(basename $file)
+  echo "| $filename | ![$filename](../home/wallpapers/$filename) |" >>"$WALLPAPERS_MD"
 done
 
 pandoc -t commonmark_x "$WALLPAPERS_MD" -o "/tmp/wallpapers.md"
