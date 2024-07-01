@@ -1,6 +1,6 @@
 # Contributing to Nixy
 
-Everybody is invited and welcome to contribute to Nixy. There is a lot to do... Check the `docs/TODO.md` file!
+Everybody is invited and welcome to contribute to Nixy. There is a lot to do... Check the [TODO.md](./TODO.md) file!
 
 The process is straight-forward.
 
