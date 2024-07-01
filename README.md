@@ -1,7 +1,7 @@
 [//]: # (Title: Nixy)  
 [//]: # (Description: Nixy is a Hyprland NixOS configuration with home-manager, secrets and custom theming all in one place. It's a simple way to manage your system configuration and dotfiles.)  
 [//]: # (Author: Hadi)  
-[//]: # (Date: 06/27/24)
+[//]: # (Date: 07/01/24)
 [//]: # (Version: v2.0.1)
 
 <div align="center">
@@ -86,6 +86,7 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 - [APPS.md](docs/APPS.md): Which apps are installed
 - [SCRIPTS.md](docs/SCRIPTS.md): Scripts that are available
 - [KEYBINDINGS.md](docs/KEYBINDINGS.md): Keybindings available in Hyprland
+- [WALLPAPERS.md](docs/WALLPAPERS.md): Preview of every wallpapers available
 
 - [TODO.md](docs/TODO.md): What's next (feel free to contribute)
 - [CONTRIBUTING.md](docs/CONTRIBUTING.md): How to contribute

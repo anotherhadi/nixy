@@ -8,7 +8,7 @@ WALLPAPERS_MD="./docs/WALLPAPERS.md"
 
 echo "# Wallpapers" >"$WALLPAPERS_MD"
 echo "" >>"$WALLPAPERS_MD"
-echo "Wallpapers can be found in the ./home/wallpapers folder." >>"$WALLPAPERS_MD"
+echo "Wallpapers can be found in the /home/wallpapers folder." >>"$WALLPAPERS_MD"
 echo "" >>"$WALLPAPERS_MD"
 echo "| Name | Preview |" >>"$WALLPAPERS_MD"
 echo "| -- | -- |" >>"$WALLPAPERS_MD"
