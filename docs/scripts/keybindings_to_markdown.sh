@@ -41,10 +41,10 @@ echo "" >>"$KEYBINDINGS_FILE"
 echo "The list of the keybindings working on Hyprland:" >>"$KEYBINDINGS_FILE"
 echo "" >>"$KEYBINDINGS_FILE"
 
-echo "| Description | Keybinding | Command |" >>"$KEYBINDINGS_FILE"
-echo "| -- | -- | -- |" >>"$KEYBINDINGS_FILE"
-echo "| Switch Workspace | SUPER + {Number} | workspace {Number} |" >>"$KEYBINDINGS_FILE"
-echo "| Move app to Workspace | SUPER SHIFT + {Number} | movetoworkspace {Number} |" >>"$KEYBINDINGS_FILE"
+echo "| Description | Keybinding |" >>"$KEYBINDINGS_FILE"
+echo "| -- | -- |" >>"$KEYBINDINGS_FILE"
+echo "| Switch Workspace | SUPER + {Number} |" >>"$KEYBINDINGS_FILE"
+echo "| Move app to Workspace | SHIFT + SUPER + {Number} |" >>"$KEYBINDINGS_FILE"
 echo "$keybindings" | while read line; do
   comment=$(echo "$line" | cut -d\# -f2)
   line=$(echo "$line" | cut -d\# -f1)
@@ -55,9 +55,9 @@ echo "$keybindings" | while read line; do
   params=$(echo "$line" | cut -d, -f4)
 
   [[ $mod == '$mod' ]] && mod="SUPER + "
-  [[ $mod == '$shiftMod' ]] && mod="SUPER SHIFT + "
+  [[ $mod == '$shiftMod' ]] && mod="SHIFT + SUPER + "
 
-  echo "| $comment | $mod$key | $dispatcher $params |" >>"$KEYBINDINGS_FILE"
+  echo "| $comment | $mod$key |" >>"$KEYBINDINGS_FILE"
 done
 
 pandoc -t commonmark_x "$KEYBINDINGS_FILE" -o "/tmp/keybindings.md"
