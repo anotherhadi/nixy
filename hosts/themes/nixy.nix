@@ -1,5 +1,5 @@
 {
-  wallpaper = "magma.png";
+  wallpaper = "dark_cloud.png";
 
   font = "SFProDisplay Nerd Font";
   font-mono = "FiraCode Nerd Font Mono";
