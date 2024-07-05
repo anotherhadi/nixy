@@ -21,8 +21,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Fix screenshots
 
 - [ ] Nixvim
-  - [+] Markdown snippets
-  - [+] Markdown fold
   - [ ] Keymaps:
     - Toggle todos
     - Format tables

@@ -3,7 +3,7 @@
 The list of the keybindings working on Hyprland:
 
 | Description                 | Keybinding             | Command                                                            |
-|-----------------------------|------------------------|--------------------------------------------------------------------|
+| --------------------------- | ---------------------- | ------------------------------------------------------------------ |
 | Switch Workspace            | SUPER + {Number}       | workspace {Number}                                                 |
 | Move app to Workspace       | SUPER SHIFT + {Number} | movetoworkspace {Number}                                           |
 | Kitty                       | SUPER + RETURN         | exec \${pkgs.kitty}/bin/kitty                                      |
