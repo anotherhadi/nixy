@@ -1,4 +1,6 @@
-{
+{ pkgs, ... }: {
+  home.packages = with pkgs; [ vimPlugins.neorg ];
+
   programs.nixvim.plugins = {
     neorg = {
       enable = true;
