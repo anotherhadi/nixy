@@ -3,7 +3,7 @@
     ./hardware-configuration.nix
     ../modules/fonts.nix
     ../modules/nvidia.nix
-#    ../modules/prime.nix
+    #    ../modules/prime.nix
     ../modules/tuigreet.nix
     ../modules/usb.nix
     ./variables.nix
@@ -24,6 +24,7 @@
   # Networking
   networking.networkmanager.enable = true;
   networking.hostName = config.var.hostname;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Timezone and locale
   time.timeZone = config.var.timeZone;
