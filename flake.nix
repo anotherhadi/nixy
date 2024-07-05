@@ -24,9 +24,10 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     nurpkgs.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
   };
 
-  outputs = inputs@{ nixpkgs, nur, ... }: {
+  outputs = inputs@{ nixpkgs, ... }: {
     nixosConfigurations = {
 
       nixy = nixpkgs.lib.nixosSystem {
@@ -36,7 +37,8 @@
           inputs.nixos-hardware.nixosModules.omen-16-n0005ne
           inputs.home-manager.nixosModules.home-manager
           {
-            nixpkgs.overlays = [ nur.overlay ];
+            nixpkgs.overlays =
+              [ inputs.nurpkgs.overlay inputs.neorg-overlay.overlays.default ];
             _module.args = { inherit inputs; };
             home-manager = {
               useGlobalPkgs = true;
@@ -55,31 +57,12 @@
           ./hosts/server/configuration.nix
           inputs.home-manager.nixosModules.home-manager
           {
-            nixpkgs.overlays = [ nur.overlay ];
+            nixpkgs.overlays = [ inputs.nurpkgs.overlay ];
             _module.args = { inherit inputs; };
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               users."hadi" = import ./hosts/server/home.nix;
-              extraSpecialArgs = { inherit inputs; };
-            };
-          }
-        ];
-      };
-
-      yourhostname = nixpkgs.lib.nixosSystem { # CHANGEME
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/yourhostname/configuration.nix # CHANGEME
-          inputs.home-manager.nixosModules.home-manager
-          {
-            nixpkgs.overlays = [ nur.overlay ];
-            _module.args = { inherit inputs; };
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users."yourusername" = import # CHANGEME
-                ./hosts/yourhostname/home.nix; # CHANGEME
               extraSpecialArgs = { inherit inputs; };
             };
           }
