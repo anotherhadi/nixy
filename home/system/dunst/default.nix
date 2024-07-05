@@ -5,8 +5,8 @@
   services.dunst = {
     enable = true;
     iconTheme = {
-      name = "Adwaita-Dark";
-      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Moka";
+      package = pkgs.moka-icon-theme;
     };
     settings = {
       global = {
