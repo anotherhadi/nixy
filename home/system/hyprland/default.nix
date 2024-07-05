@@ -15,7 +15,7 @@
     wlr-randr
     wl-clipboard
     brightnessctl
-    gnome.gnome-themes-extra
+    gnome-themes-extra
     wlsunset
     xwayland
     xdg-desktop-portal-gtk
