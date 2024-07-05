@@ -40,6 +40,7 @@
 
           set -g @catppuccin_directory_text "#{pane_current_path}"
           set -g @catppuccin_status_background "default"
+          set-option -g default-terminal "screen-256color"
         '';
       }
     ];

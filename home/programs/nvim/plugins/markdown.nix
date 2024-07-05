@@ -3,22 +3,44 @@
     mkdnflow = {
       enable = true;
       mappings = {
-        MkdnCreateLink = false;
-        MkdnCreateLinkFromClipboard = {
-          key = "<leader>p";
-          modes = [ "n" "v" ];
-        };
-        MkdnDecreaseHeading = {
-          key = "-";
-          modes = "n";
-        };
-        MkdnDestroyLink = {
-          key = "<M-CR>";
-          modes = "n";
-        };
+
+        # Main
         MkdnEnter = {
           key = "<CR>";
           modes = [ "n" "v" "i" ];
+        };
+
+        # Links
+        MkdnCreateLink = false;
+        MkdnCreateLinkFromClipboard = {
+          key = "<leader>lc";
+          modes = [ "n" "v" ];
+        };
+        MkdnDestroyLink = {
+          key = "<leader>dl";
+          modes = "n";
+        };
+        MkdnFollowLink = false;
+        MkdnNextLink = {
+          key = "<Tab>";
+          modes = "n";
+        };
+        MkdnYankAnchorLink = {
+          key = "ya";
+          modes = "n";
+        };
+        MkdnYankFileAnchorLink = {
+          key = "yfa";
+          modes = "n";
+        };
+        MkdnPrevLink = {
+          key = "<S-Tab>";
+          modes = "n";
+        };
+
+        MkdnDecreaseHeading = {
+          key = "-";
+          modes = "n";
         };
         MkdnExtendList = false;
         MkdnFoldSection = {
@@ -29,7 +51,6 @@
           key = "<leader>fu";
           modes = "n";
         };
-        MkdnFollowLink = false;
         MkdnGoBack = {
           key = "<BS>";
           modes = "n";
@@ -59,20 +80,16 @@
           key = "]]";
           modes = "n";
         };
-        MkdnNextLink = {
-          key = "<Tab>";
-          modes = "n";
-        };
         MkdnPrevHeading = {
           key = "[[";
           modes = "n";
         };
-        MkdnPrevLink = {
-          key = "<S-Tab>";
-          modes = "n";
-        };
         MkdnSTab = false;
         MkdnTab = false;
+        MkdnTableFormat = {
+          key = "<leader>ft";
+          modes = "n";
+        };
         MkdnTableNewColAfter = {
           key = "<leader>ic";
           modes = "n";
@@ -108,14 +125,6 @@
         };
         MkdnUpdateNumbering = {
           key = "<leader>nn";
-          modes = "n";
-        };
-        MkdnYankAnchorLink = {
-          key = "ya";
-          modes = "n";
-        };
-        MkdnYankFileAnchorLink = {
-          key = "yfa";
           modes = "n";
         };
       };
