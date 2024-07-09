@@ -11,7 +11,7 @@
       bufferline.enable = true;
       trouble.enable = true;
       which-key.enable = true;
-      headlines.enable = true;
+      # headlines.enable = true;
       # tagbar.enable = true;
     };
     keymaps = [{
