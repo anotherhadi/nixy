@@ -7,6 +7,8 @@
           require("gitsigns.actions").toggle_current_line_blame()
           vim.opt.relativenumber = false
           vim.opt.signcolumn = "no"
+          vim.opt.wrap = true
+          vim.opt.linebreak = true
         end
       '';
       plugins = {
