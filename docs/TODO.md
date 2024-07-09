@@ -21,14 +21,8 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
 - [ ] Nixvim
   - [ ] Keymaps:
-    - Toggle todos
-    - Format tables
     - Trouble
-    - Telescope find file from filename, find file from content
-    - Neo Tree, Oil
-    - Dashboard
     - Tagbar
-    - Line wrapping
 
 - [ ] Backup system for some folders ($home/dev, $home/pictures, ...)
   - [ ] Exclude file pattern (nodes modules, ...)
