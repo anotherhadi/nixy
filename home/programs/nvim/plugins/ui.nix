@@ -12,7 +12,7 @@
       trouble.enable = true;
       which-key.enable = true;
       headlines.enable = true;
-      tagbar.enable = true;
+      # tagbar.enable = true;
     };
     keymaps = [{
       key = "<leader>t";
