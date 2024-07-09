@@ -1,5 +1,8 @@
-{
+{ config, ... }: {
   programs.nixvim = {
+    highlightOverride = {
+      FloatBorder.fg = "#${config.var.theme.colors.accent}";
+    };
     plugins = {
       copilot-vim.enable = true;
       flash.enable = true;
@@ -10,7 +13,10 @@
       friendly-snippets.enable = true;
       telescope = {
         enable = true;
-        keymaps = { "<leader>fg" = "live_grep"; };
+        keymaps = {
+          "<leader>fg" = "live_grep";
+          "<leader> " = "find_files";
+        };
         extensions.fzf-native = { enable = true; };
       };
       treesitter = {
