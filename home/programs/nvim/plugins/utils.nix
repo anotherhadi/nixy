@@ -3,16 +3,14 @@
     plugins = {
       copilot-vim.enable = true;
       flash.enable = true;
-      image.enable = true;
+      # image.enable = true;
       tmux-navigator.enable = true;
       comment.enable = true;
       nvim-autopairs.enable = true;
       friendly-snippets.enable = true;
       telescope = {
         enable = true;
-        keymaps = {
-          "<leader>fg" = "live_grep";
-        };
+        keymaps = { "<leader>fg" = "live_grep"; };
         extensions.fzf-native = { enable = true; };
       };
       treesitter = {

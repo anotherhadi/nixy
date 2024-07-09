@@ -107,12 +107,12 @@
           modes = "n";
         };
         MkdnTableNextCell = {
-          key = "<Tab>";
+          key = "<S-Tab>";
           modes = "i";
         };
         MkdnTableNextRow = false;
         MkdnTablePrevCell = {
-          key = "<S-Tab>";
+          key = "<M-Tab>";
           modes = "i";
         };
         MkdnTablePrevRow = {
