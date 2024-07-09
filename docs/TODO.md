@@ -8,8 +8,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Themes
     - [ ] macOS theme
   - [ ] Tofi (Wofi, but terminal based)
-  - [ ] Add Vim Keybindings to KEYBINDINGS.md
-  - [ ] Remove git warnings
 
 - [ ] Qutebrowser
   - [ ] !!! Bitwarden integration (I need this.)
