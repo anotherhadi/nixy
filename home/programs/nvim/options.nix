@@ -24,7 +24,7 @@
     wildmode = "list:longest";
     completeopt = [ "menuone" "noselect" ];
     signcolumn = "yes";
-    cursorline = true;
+    cursorline = false;
     scrolloff = 8;
     mouse = "a";
 
