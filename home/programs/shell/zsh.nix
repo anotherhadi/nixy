@@ -51,6 +51,7 @@
       icat = "${pkgs.kitty}/bin/kitty +kitten icat";
       note = "vim ~/nextcloud/Notes/index.md";
       wireguard-import = "nmcli connection import type wireguard file";
+      neorg = "cd ~/nextcloud/neorg && vim -c ':ZenMode' -c ':Telescope find_files' index.html";
 
       # git
       ga = "git add";
