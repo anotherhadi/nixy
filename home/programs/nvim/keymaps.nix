@@ -15,5 +15,10 @@
       action = "<cmd>set linebreak!<cr>";
       options.desc = "Toggle linebreak";
     }
+    {
+      key = "<leader>z";
+      action = "<cmd>ZenMode<cr>";
+      options.desc = "ZenMode";
+    }
   ];
 }
