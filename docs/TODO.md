@@ -21,6 +21,8 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - [ ] Wofi: popin
     - [ ] Wlogout: fade in
   - [ ] Fix screenshots
+  - [ ] Fix hyprlock
+  - [ ] Hyprlock tty theme
 
 - [ ] Nixvim
   - [ ] Keymaps:
