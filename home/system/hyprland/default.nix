@@ -1,7 +1,7 @@
 { pkgs, config, inputs, ... }: {
 
   imports = [
-    ./hyprlock.nix
+    ./hyprlocktty.nix
     ./hypridle.nix
     ./hyprpaper.nix
     # ./hyprcursor.nix
