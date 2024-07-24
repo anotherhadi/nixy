@@ -28,6 +28,6 @@
     obsidian = true;
     tailscale = true;
 
-    theme = import ../themes/nixy.nix; # select your theme here
+    theme = import ../themes/pink.nix; # select your theme here
   };
 }
