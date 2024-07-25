@@ -21,7 +21,7 @@
 
   colors = {
     c0 = "1e1e2e"; # black
-    c1 = "f38ba8"; # red
+    c1 = "dea2bd"; # red
     c2 = "a6e3a1"; # green
     c3 = "fab387"; # yellow
     c4 = "89b4fa"; # blue
@@ -46,7 +46,7 @@
     accentFg = "0B0B0B";
 
     # Should make those automtic
-    accentName = "bright red";
+    accentName = "red";
     accentNumber = "9";
   };
 }
