@@ -11,7 +11,15 @@
       bufferline.enable = true;
       trouble.enable = true;
       which-key.enable = true;
-      # headlines.enable = true;
+      headlines = {
+        enable = true;
+        settings = {
+          markdown = {
+            codeblock_highlight = false;
+          };
+        };
+      };
+      nvim-colorizer.enable = true;
       # tagbar.enable = true;
     };
     keymaps = [{
