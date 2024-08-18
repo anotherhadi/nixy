@@ -8,11 +8,12 @@ The laptop configuration is used by an Omen 16 laptop w/ nvidia and an amd gpu r
 The configurations files can be found in the `hosts/laptop` directory.
 
 | Category                                | Name           |
-|-----------------------------------------|----------------|
+| --------------------------------------- | -------------- |
 | WM                                      | Hyprland       |
 |                                         | hyprlock       |
 |                                         | hyprpaper      |
 |                                         | hypridle       |
+|                                         | hyprcursor     |
 |                                         | wlogout        |
 | Bar                                     | waybar         |
 | Terminal                                | kitty          |
@@ -49,7 +50,6 @@ I exposed some services to the internet using a reverse proxy (Nginx) and cloudf
 - Nextcloud
 - Vaultwarden
 - Adguard Home
-- Unifi Controler
 - Uptime Kuma
 - "Jackflix"
   - Jellyfin, Transmission, *arr

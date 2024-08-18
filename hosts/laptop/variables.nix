@@ -27,7 +27,7 @@
     # change the nvim's obsidian configuration if you want to enable that:
     obsidian = true;
     tailscale = true;
-    usbguard = false;
+    usbguard = false; # TODO: Add the allow list variable
 
     theme = import ../themes/nixy.nix; # select your theme here
   };

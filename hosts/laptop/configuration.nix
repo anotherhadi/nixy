@@ -5,48 +5,19 @@
     ../modules/nvidia.nix
     # ../modules/prime.nix
     ../modules/tuigreet.nix
+    ../modules/timezone.nix
     ../modules/usb.nix
+    ../modules/systemd-boot.nix
+    ../modules/users.nix
+    ../modules/audio.nix
+    ../modules/bluetooth.nix
     ./variables.nix
   ];
-
-  # Bootloader.
-  boot = {
-    loader.efi.canTouchEfiVariables = true;
-    loader.systemd-boot = {
-      enable = true;
-      consoleMode = "auto";
-    };
-    tmp.cleanOnBoot = true;
-    kernelPackages =
-      pkgs.linuxPackages_latest; # _zen, _hardened, _rt, _rt_latest, etc.
-  };
 
   # Networking
   networking.networkmanager.enable = true;
   networking.hostName = config.var.hostname;
   systemd.services.NetworkManager-wait-online.enable = false;
-
-  # Timezone and locale
-  time.timeZone = config.var.timeZone;
-  i18n.defaultLocale = config.var.defaultLocale;
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = config.var.extraLocale;
-    LC_IDENTIFICATION = config.var.extraLocale;
-    LC_MEASUREMENT = config.var.extraLocale;
-    LC_MONETARY = config.var.extraLocale;
-    LC_NAME = config.var.extraLocale;
-    LC_NUMERIC = config.var.extraLocale;
-    LC_PAPER = config.var.extraLocale;
-    LC_TELEPHONE = config.var.extraLocale;
-    LC_TIME = config.var.extraLocale;
-  };
-
-  # Users
-  users.users.${config.var.username} = {
-    isNormalUser = true;
-    description = "${config.var.username} account";
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
 
   services = {
     tailscale.enable = config.var.tailscale;
@@ -69,11 +40,6 @@
   };
   users.defaultUserShell = pkgs.zsh;
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-
   # Set environment variables
   environment.variables = {
     XDG_DATA_HOME = "$HOME/.local/share";
@@ -83,25 +49,6 @@
     ANKI_WAYLAND = "1";
     DISABLE_QT5_COMPAT = "0";
     NIXOS_OZONE_WL = "1";
-  };
-
-  security.rtkit.enable = true;
-  hardware.pulseaudio.enable = false;
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-    wireplumber = {
-      enable = true;
-      extraConfig = {
-        "10-disable-camera" = {
-          "wireplumber.profiles" = { main."monitor.libcamera" = "disabled"; };
-        };
-      };
-    };
   };
 
   nix = {
@@ -126,7 +73,8 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [ networkmanagerapplet ];
-  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
+  nixpkgs.config.permittedInsecurePackages =
+    [ "electron-25.9.0" ]; # TODO: test to remove
 
   system.autoUpgrade = {
     enable = config.var.autoUpgrade;
@@ -136,7 +84,7 @@
     allowReboot = false;
   };
 
-  xdg.portal = {
+  xdg.portal = { # TODO: test to remove
     enable = true;
     configPackages = with pkgs; [ xdg-desktop-portal-gtk ];
   };
