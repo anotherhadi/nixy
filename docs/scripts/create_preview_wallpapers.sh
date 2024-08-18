@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+[[ -d "./docs" ]] || (echo "Folder ./docs not found" && exit 1)
+
 # Create WALLPAPERS.md to preview wallpapers in ./home/wallpapers
 
 WALLPAPERS_FOLDER="./home/wallpapers"
