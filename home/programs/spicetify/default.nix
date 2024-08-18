@@ -1,5 +1,5 @@
 { pkgs, config, lib, inputs, ... }:
-let spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
+let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in {
 
   imports = [ inputs.spicetify-nix.homeManagerModules.default ];

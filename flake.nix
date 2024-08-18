@@ -16,7 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";

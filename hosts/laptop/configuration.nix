@@ -3,7 +3,7 @@
     ./hardware-configuration.nix
     ../modules/fonts.nix
     ../modules/nvidia.nix
-    #    ../modules/prime.nix
+    # ../modules/prime.nix
     ../modules/tuigreet.nix
     ../modules/usb.nix
     ./variables.nix
@@ -116,27 +116,25 @@
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
     };
-    gc = if config.var.autoGarbageCollector then {
-      automatic = true;
+    gc = {
+      automatic = config.var.autoGarbageCollector;
       persistent = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
-    } else
-      { };
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [ networkmanagerapplet ];
   nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
 
-  system.autoUpgrade = if config.var.autoUpgrade then {
-    enable = true;
+  system.autoUpgrade = {
+    enable = config.var.autoUpgrade;
     dates = "04:00";
     flake = "${config.var.configDirectory}";
     flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
     allowReboot = false;
-  } else
-    { };
+  };
 
   xdg.portal = {
     enable = true;
