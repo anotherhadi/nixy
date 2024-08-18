@@ -28,8 +28,8 @@ Wallpapers can be found in the `/home/wallpapers` folder.
 | mountains.png       | ![mountains.png](../home/wallpapers/mountains.png)             |
 | nix.png             | ![nix.png](../home/wallpapers/nix.png)                         |
 | problems.png        | ![problems.png](../home/wallpapers/problems.png)               |
+| sea2.png            | ![sea2.png](../home/wallpapers/sea2.png)                       |
 | sea.png             | ![sea.png](../home/wallpapers/sea.png)                         |
-| see.png             | ![see.png](../home/wallpapers/see.png)                         |
 | space2.png          | ![space2.png](../home/wallpapers/space2.png)                   |
 | space.png           | ![space.png](../home/wallpapers/space.png)                     |
 | street.png          | ![street.png](../home/wallpapers/street.png)                   |
