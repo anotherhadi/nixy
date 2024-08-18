@@ -14,7 +14,7 @@ bash ./docs/scripts/create_preview_wallpapers.sh
 echo "Creating README.md..."
 bash ./docs/scripts/create_readme.sh
 echo "Creating keybindings.md..."
-bash ./docs/scripts/create_keybindings.sh
+bash ./docs/scripts/keybindings_to_markdown.sh
 
 git add .
 git commit -m "Release $NEW_TAG"
