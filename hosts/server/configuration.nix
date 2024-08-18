@@ -9,7 +9,6 @@
     ./modules/internal/openssh.nix
     ./modules/internal/adguard.nix
     ./modules/internal/cockpit.nix
-    # ./modules/internal/unifi.nix # FIXME: unifi5 is deprecated
 
     # exposed
     ./modules/exposed/ntfy-sh.nix
@@ -19,7 +18,6 @@
     ./modules/exposed/nginx.nix
     ./modules/exposed/nextcloud.nix
     ./modules/exposed/vaultwarden.nix
-    # ./modules/exposed/bitcoin-git.nix # FIXME: bitcoin-git is deprecated
     ./modules/www
 
     # jackflix

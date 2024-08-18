@@ -28,7 +28,6 @@
 
     enableDefaultPackages = false;
 
-    # this fixes emoji stuff
     fontconfig = {
       defaultFonts = {
         monospace = [ "FiraCode Nerd Font Mono" "Noto Color Emoji" ];
@@ -37,6 +36,5 @@
         emoji = [ "Noto Color Emoji" ];
       };
     };
-
   };
 }
