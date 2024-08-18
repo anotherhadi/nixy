@@ -114,11 +114,14 @@
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "GTK_THEME,FlatColor:dark"
         "GTK2_RC_FILES,/home/hadi/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
+        "NVD_BACKEND,direct"
         #"WLR_DRM_DEVICES,$HOME/.config/hypr/card"
         # "HYPRCURSOR_THEME,macOS"
         # "HYPRCURSOR_SIZE,16"
         # "XCURSOR_SIZE,16"
       ];
+
+      cursor = { no_hardware_cursors = true; };
 
       general = {
         resize_on_border = true;

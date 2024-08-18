@@ -60,6 +60,9 @@
       prefetch-npm-deps
       figlet
 
+      # Infosec
+      exegol
+
       # Utils
       fd
       bc
