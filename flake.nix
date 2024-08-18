@@ -24,26 +24,24 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     nurpkgs.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
     nixosConfigurations = {
 
-      nixy = nixpkgs.lib.nixosSystem {
+      nixy = nixpkgs.lib.nixosSystem { # CHANGE ME
         system = "x86_64-linux";
         modules = [
-          ./hosts/laptop/configuration.nix
-          inputs.nixos-hardware.nixosModules.omen-16-n0005ne
+          ./hosts/laptop/configuration.nix # CHANGE ME
+          inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGE ME
           inputs.home-manager.nixosModules.home-manager
           {
-            nixpkgs.overlays =
-              [ inputs.nurpkgs.overlay inputs.neorg-overlay.overlays.default ];
+            nixpkgs.overlays = [ inputs.nurpkgs.overlay ];
             _module.args = { inherit inputs; };
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users."hadi" = import ./hosts/laptop/home.nix;
+              users."hadi" = import ./hosts/laptop/home.nix; # CHANGE ME
               extraSpecialArgs = { inherit inputs; };
             };
           }
