@@ -17,7 +17,7 @@ It's a simple way to manage your system configuration and dotfiles.
 - 🏠 `home` are the dotfiles and configuration files for the users
   - 'programs' is a collection of apps configured with home-manager
   - 'scripts' is a folder full of bash scripts (see [SCRIPTS.md](docs/SCRIPTS.md))
-  - 'system' is some desktop environment like configuration
+  - 'system' is some "desktop environment" configuration
   - 'wallpapers' are... wallpapers
 - 💻 `hosts` are the system configuration files
   - 'laptop' is my configuration for my laptop with Nvidia that you can copy

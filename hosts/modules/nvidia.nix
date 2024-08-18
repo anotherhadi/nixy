@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }:
 let
   nvidiaDriverChannel =
-    config.boot.kernelPackages.nvidiaPackages.beta; # stable, latest, etc.
+    config.boot.kernelPackages.nvidiaPackages.beta; # stable, latest, beta, etc.
 in {
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers =
@@ -14,7 +14,6 @@ in {
     ];
   environment.variables = {
     GBM_BACKEND = "nvidia-drm";
-    WLR_NO_HARDWARE_CURSORS = "1";
     LIBVA_DRIVER_NAME = "nvidia"; # hardware acceleration
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
