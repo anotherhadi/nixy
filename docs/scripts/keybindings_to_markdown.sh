@@ -2,10 +2,7 @@
 
 # A script to parse the Hyprland configuration to store keybindings in a table
 
-[[ -f "./docs/scripts/install.sh" ]] || (
-  printf "\n\e[0;91mx \e[0m\e[1;77mNot in the project root directory\e[0m"
-  exit 1
-)
+[[ -d "./docs" ]] || (echo "Folder ./docs not found" && exit 1)
 
 KEYBINDINGS_FILE="./docs/KEYBINDINGS.md"
 
