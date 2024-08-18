@@ -12,6 +12,5 @@
     ./battery
     ./compress
     ./misc
-    ./tofi
   ];
 }

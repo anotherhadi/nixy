@@ -33,6 +33,7 @@ in {
       lastfm
       historyShortcut
       hidePodcasts
+      adblock
       fullAppDisplay
       shuffle
     ];
