@@ -1,7 +1,7 @@
 [//]: # (Title: Nixy)  
 [//]: # (Description: Nixy is a Hyprland NixOS configuration with home-manager, secrets and custom theming all in one place. It's a simple way to manage your system configuration and dotfiles.)  
 [//]: # (Author: Hadi)  
-[//]: # (Date: 07/01/24)
+[//]: # (Date: 08/18/24)
 [//]: # (Version: v2.0.1)
 
 <div align="center">
@@ -57,9 +57,8 @@ It's a simple way to manage your system configuration and dotfiles.
   - 'system' is some desktop environment like configuration
   - 'wallpapers' are... wallpapers
 - 💻 `hosts` are the system configuration files
-  - 'laptop' is my configuration for my laptop with Nvidia
+  - 'laptop' is my configuration for my laptop with Nvidia that you can copy
   - 'server' is for my homeserver (w/nextcloud, nginx, vaultwarden, ... look `hosts/server`)
-  - 'guest' is a *template* that you can copy and modify for *your own system*
   - 'themes' contains all the *themes* available *(see [THEMES.md](docs/THEMES.md))*
   - 'modules' are some nix modules that you can import (Nvidia, prime, fonts, ...)
 
@@ -69,9 +68,9 @@ It's a simple way to manage your system configuration and dotfiles.
 git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```
 
-- Copy the `hosts/guest` folder, rename it to your system name, and change the variables inside the `variables.nix` file
+- Copy the `hosts/laptop` folder, rename it to your system name, and change the variables inside the `variables.nix` file
 - Add your `hardware-configuration.nix` to your new host's folder
-- Add your 'nixosConfigurations' inside `flake.nix` (You can edit the "yourhostname" one and change the lines containing '# CHANGEME')
+- Add your 'nixosConfigurations' inside `flake.nix` (You can edit your hostname one and change the lines containing '# CHANGEME')
 
 > [!NOTE]
 > When you add new files, don't forget to run `git add .` to add them to the git repository
