@@ -4,10 +4,9 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
 - [ ] Jackflix V2
   - Backup Radarr, Prowlarr, Sonarr config
+  - Bitcoin price
 
 - [ ] Nixy
-  - [~] Installation script ([install.sh](./scripts/install.sh) to test on a fresh install)
-  - [~] Variables-template with defaults
   - [ ] Themes
     - [ ] macOS theme
   - [ ] Tofi (Wofi, but terminal based)

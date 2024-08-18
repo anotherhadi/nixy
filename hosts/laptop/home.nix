@@ -10,7 +10,7 @@
     ../../home/programs/nextcloud
     ../../home/programs/nvim
     ../../home/programs/qutebrowser
-    # ../../home/programs/spicetify # TODO: Fix
+    ../../home/programs/spicetify
     ../../home/programs/zathura
     ../../home/programs/shell
     ../../home/programs/fetch
