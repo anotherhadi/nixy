@@ -2,7 +2,7 @@
   imports = [
     ../modules/fonts.nix
     ../modules/nvidia.nix
-    # ../modules/prime.nix
+    ../modules/prime.nix
     ../modules/zsh.nix
     ../modules/tuigreet.nix
     ../modules/auto-upgrade.nix

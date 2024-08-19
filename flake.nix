@@ -35,7 +35,7 @@
         system = "x86_64-linux";
         modules = [
           { _module.args = { inherit inputs; }; }
-          inputs.nixos-hardware.nixosModules.omen-16-n0280nd # CHANGEME
+          inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME
           inputs.home-manager.nixosModules.home-manager
           ./hosts/laptop/configuration.nix # CHANGEME
         ];
