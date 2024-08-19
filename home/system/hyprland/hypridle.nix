@@ -8,7 +8,7 @@
         timeout = 600;
         on-timeout = pkgs.hyprlock + "/bin/hyprlock";
       }
-      # FIXME
+
       # {
       #   timeout = 660;
       #   on-timeout = "systemctl suspend";

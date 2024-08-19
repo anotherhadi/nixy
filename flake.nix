@@ -25,7 +25,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    nurpkgs.url = "github:nix-community/NUR"; # TODO: test to remove
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
@@ -35,19 +34,10 @@
       nixy = nixpkgs.lib.nixosSystem { # CHANGEME
         system = "x86_64-linux";
         modules = [
-          ./hosts/laptop/configuration.nix # CHANGEME
+          { _module.args = { inherit inputs; }; }
           inputs.nixos-hardware.nixosModules.omen-16-n0280nd # CHANGEME
           inputs.home-manager.nixosModules.home-manager
-          {
-            nixpkgs.overlays = [ inputs.nurpkgs.overlay ];
-            _module.args = { inherit inputs; };
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users."hadi" = import ./hosts/laptop/home.nix; # CHANGEME
-              extraSpecialArgs = { inherit inputs; };
-            };
-          }
+          ./hosts/laptop/configuration.nix # CHANGEME
         ];
       };
 
