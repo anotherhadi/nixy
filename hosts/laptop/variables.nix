@@ -18,16 +18,23 @@
       email = "112569860+anotherhadi@users.noreply.github.com";
     };
 
-    stateVersion = "24.05";
-
     autoUpgrade = false;
     autoGarbageCollector = false;
+
+    # SOPS
+    # Sops is a tool to store secrets in git repositories encrypted with GPG.
     # change the sops configuration if you want to enable that:
     sops = true;
-    # change the nvim's obsidian configuration if you want to enable that:
-    obsidian = true;
+
+    # Enable tailscale
     tailscale = true;
-    usbguard = false; # TODO: Add the allow list variable
+
+    # USBGuard
+    # If usbguard enabled: set yours pref USB devices (change {id} to your trusted USB device), use `lsusb` command (from usbutils package) to get list 
+    # of all connected USB devices including integrated devices like camera, bluetooth, wifi, etc. with their IDs or just disable `usbguard`
+    # allow id {id} # device 1...
+    usbguard = false;
+    usbguardRules = "";
 
     theme = import ../themes/nixy.nix; # select your theme here
   };

@@ -6,7 +6,6 @@
 
   programs.waybar = {
     enable = true;
-    # package = inputs.waybar.packages."${pkgs.system}".waybar;
     settings = {
       mainBar = {
         layer = config.var.theme.waybar.position;

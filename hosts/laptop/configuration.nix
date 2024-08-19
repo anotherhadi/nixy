@@ -14,7 +14,6 @@
     ./variables.nix
   ];
 
-  # Networking
   networking.networkmanager.enable = true;
   networking.hostName = config.var.hostname;
   systemd.services.NetworkManager-wait-online.enable = false;
@@ -31,7 +30,6 @@
   };
   console.keyMap = config.var.keyboardLayout;
 
-  # Shell
   programs.zsh = {
     enable = true;
     loginShellInit = ''
@@ -40,15 +38,10 @@
   };
   users.defaultUserShell = pkgs.zsh;
 
-  # Set environment variables
   environment.variables = {
     XDG_DATA_HOME = "$HOME/.local/share";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
-    MOZ_ENABLE_WAYLAND = "1";
     EDITOR = "nvim";
-    ANKI_WAYLAND = "1";
-    DISABLE_QT5_COMPAT = "0";
-    NIXOS_OZONE_WL = "1";
   };
 
   nix = {
@@ -72,9 +65,20 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [ networkmanagerapplet ];
-  nixpkgs.config.permittedInsecurePackages =
-    [ "electron-25.9.0" ]; # TODO: test to remove
+
+  environment.systemPackages = with pkgs; [
+    networkmanagerapplet
+    fd
+    bc
+    gcc
+    git-ignore
+    xdg-utils
+    wget
+    curl
+  ];
+
+  # nixpkgs.config.permittedInsecurePackages =
+  #   [ "electron-25.9.0" ]; # TODO: test to remove
 
   system.autoUpgrade = {
     enable = config.var.autoUpgrade;
@@ -84,10 +88,10 @@
     allowReboot = false;
   };
 
-  xdg.portal = { # TODO: test to remove
-    enable = true;
-    configPackages = with pkgs; [ xdg-desktop-portal-gtk ];
-  };
+  # xdg.portal = { # TODO: test to remove
+  #   enable = true;
+  #   configPackages = with pkgs; [ xdg-desktop-portal-gtk ];
+  # };
 
   services.libinput.enable = true;
   programs.dconf.enable = true;

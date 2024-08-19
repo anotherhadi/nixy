@@ -6,7 +6,9 @@
   home.packages = with pkgs; [
     hyprshot
     hyprpicker
-    # hyprcursor
+    swappy
+    imv
+    wf-recorder
     xdg-desktop-portal-hyprland
     wlr-randr
     wl-clipboard
@@ -15,7 +17,6 @@
     wlsunset
     xwayland
     xdg-desktop-portal-gtk
-    wlroots
     qt5ct
     libva
     dconf
@@ -102,11 +103,13 @@
       ];
 
       env = [
-        "LIBVA_DRIVER_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
         "XDG_CURRENT_DESKTOP,Hyprland"
+        "MOZ_ENABLE_WAYLAND,1"
+        "ANKI_WAYLAND,1"
+        "DISABLE_QT5_COMPAT,0"
+        "NIXOS_OZONE_WL,1"
         "XDG_SESSION_TYPE,wayland"
-        "GBM_BACKEND,nvidia-drm"
         "XDG_SESSION_DESKTOP,Hyprland"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_QPA_PLATFORM=wayland,xcb"
@@ -115,10 +118,6 @@
         "GTK_THEME,FlatColor:dark"
         "GTK2_RC_FILES,/home/hadi/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
         "NVD_BACKEND,direct"
-        #"WLR_DRM_DEVICES,$HOME/.config/hypr/card"
-        # "HYPRCURSOR_THEME,macOS"
-        # "HYPRCURSOR_SIZE,16"
-        # "XCURSOR_SIZE,16"
       ];
 
       cursor = { no_hardware_cursors = true; };
