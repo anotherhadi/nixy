@@ -60,7 +60,7 @@
       ga = "git add";
       gc = "git commit";
       gcm = "git commit -m";
-      gcu = "git commit -am 'Update'";
+      gcu = "git add . && git commit -m 'Update'";
       gp = "git push";
       gpl = "git pull";
       gs = "git status";
