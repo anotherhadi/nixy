@@ -9,7 +9,7 @@
         gopls.enable = true;
         nixd.enable = true;
         tailwindcss.enable = true;
-        html.enable = true;
+        # html.enable = true; # FIXME: broken for some reason
         svelte.enable = true;
         marksman.enable = true;
         ltex = {
