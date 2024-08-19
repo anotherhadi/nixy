@@ -5,7 +5,7 @@
 
   sops = {
     age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
-    defaultSopsFile = ./laptop.yaml;
+    defaultSopsFile = ./secrets.yaml;
     secrets = {
       sshconfig = { path = "/home/hadi/.ssh/config"; };
       github-key = { path = "/home/hadi/.ssh/github"; };
