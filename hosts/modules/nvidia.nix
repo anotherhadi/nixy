@@ -13,9 +13,10 @@ in {
       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     ];
   environment.variables = {
-    GBM_BACKEND = "nvidia-drm";
+    # GBM_BACKEND = "nvidia-drm"; # If crash in firefox, remove this line
     LIBVA_DRIVER_NAME = "nvidia"; # hardware acceleration
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    NVD_BACKEND = "direct";
   };
   nixpkgs.config = {
     nvidia.acceptLicense = true;
@@ -45,6 +46,7 @@ in {
         vaapiVdpau
         libvdpau-va-gl
         mesa
+        egl-wayland
       ];
     };
   };
