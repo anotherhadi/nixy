@@ -5,6 +5,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Nixy
   - [ ] Themes
 
+- [ ] Clipse: clipboard manager
 - [ ] Walker launcher implementation
 
 - [ ] Qutebrowser
@@ -15,7 +16,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - [ ] wofi: popin
     - [ ] wlogout: fade in
   - [ ] Fix screenshots (screenshot region's border shows up in the screenshot, hyprshot jq error?)
-  - [ ] Hyprlock themes
+  - [ ] Hyprlock themes (repo hyprlock-styles on github)
   - [ ] Hypridle fix: suspend not working?
 
 - [ ] Nixvim

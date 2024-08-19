@@ -55,6 +55,12 @@
           "format" = "{title:30}";
           "max-length" = 30;
           "separate-outputs" = true;
+          rewrite = {
+            "\\s*(.*)\\s+" = "$1"; # Remove trailing whitespace
+            # "\\s*" = # TODO FIXME
+            #   "\${USER}@\${HOST}"; # Replace empty string with your username
+            ".* - LibreWolf" = "LibreWolf";
+          };
         };
 
         "hyprland/workspaces" = {
