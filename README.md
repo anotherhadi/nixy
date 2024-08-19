@@ -1,8 +1,8 @@
 [//]: # (Title: Nixy)  
 [//]: # (Description: Nixy is a Hyprland NixOS configuration with home-manager, secrets and custom theming all in one place. It's a simple way to manage your system configuration and dotfiles.)  
 [//]: # (Author: Hadi)  
-[//]: # (Date: 08/18/24)
-[//]: # (Version: v2.0.1)
+[//]: # (Date: 08/19/24)
+[//]: # (Version: v2.1.0)
 
 <div align="center">
     <img src="https://raw.githubusercontent.com/anotherhadi/nixy/main/docs/src/logo.png" width="100px" />
@@ -15,7 +15,7 @@
 <br>
 <div align="center">
     <a href="https://github.com/anotherhadi/nixy">
-        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Version&message=v2.0.1&colorA=181825&colorB=89b4fa&logo=githubactions&logoColor=89b4fa"/>
+        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Version&message=v2.1.0&colorA=181825&colorB=89b4fa&logo=githubactions&logoColor=89b4fa"/>
     </a>
     <a href="https://github.com/anotherhadi/nixy/stargazers">
         <img src="https://img.shields.io/github/stars/anotherhadi/nixy?color=89b4fa&labelColor=181825&style=for-the-badge&logo=starship&logoColor=89b4fa">
@@ -54,7 +54,7 @@ It's a simple way to manage your system configuration and dotfiles.
 - 🏠 `home` are the dotfiles and configuration files for the users
   - 'programs' is a collection of apps configured with home-manager
   - 'scripts' is a folder full of bash scripts (see [SCRIPTS.md](docs/SCRIPTS.md))
-  - 'system' is some desktop environment like configuration
+  - 'system' is some "desktop environment" configuration
   - 'wallpapers' are... wallpapers
 - 💻 `hosts` are the system configuration files
   - 'laptop' is my configuration for my laptop with Nvidia that you can copy

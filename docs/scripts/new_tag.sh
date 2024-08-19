@@ -7,8 +7,12 @@ echo "Current tag: $TAG"
 
 read -rp "Enter the new tag name: " NEW_TAG
 
-echo "Compresing png files..."
-bash ./docs/scripts/compress_png.sh
+read -rp "Do you want to compress the png files? [y/N]: " COMPRESS_PNG
+if [[ "$COMPRESS_PNG" == "y" || "$COMPRESS_PNG" == "Y" ]]; then
+  echo "Compresing png files..."
+  bash ./docs/scripts/compress_png.sh
+fi
+
 echo "Creating wallpapers preview..."
 bash ./docs/scripts/create_preview_wallpapers.sh
 echo "Creating README.md..."
