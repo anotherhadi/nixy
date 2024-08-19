@@ -5,13 +5,14 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Nixy
   - [ ] Themes
 
+- [ ] Walker launcher implementation
+
 - [ ] Qutebrowser
   - [ ] !!! Bitwarden integration (I need this.)
 
 - [ ] Hyprland
   - [ ] Implement Hyprcursor
-	echo "Compresing png files..."
-	  - [ ] wofi: popin
+    - [ ] wofi: popin
     - [ ] wlogout: fade in
   - [ ] Fix screenshots (screenshot region's border shows up in the screenshot, hyprshot jq error?)
   - [ ] Hyprlock themes
@@ -28,7 +29,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Server configuration is actually broken, need to update with the new modules
 - [ ] Jackflix V2
   - Backup Radarr, Prowlarr, Sonarr config
-  - Take a look into buildarr
+  - Take a look into buildarr or build a custom solution with *arr apis
 - [ ] Bitcoin-git: to test
 - [ ] Ntfy auth file
 - [ ] Secrets mode 0444: not secure
