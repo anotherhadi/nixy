@@ -41,15 +41,7 @@
         "${pkgs.bitwarden}/bin/bitwarden"
       ];
 
-      monitor = [
-        "eDP-2,highres,0x0,1"
-        # "DP-9,highrr,2560x0,1"
-        ",prefered,auto,1"
-        #"desc:,2560x1440@240.0,0x0,1.0"
-        #"desc:,2560x1440@60.0,645x4362,1.0"
-        # "desc:AOC U34G2G1 0x00000E06,3440x1440@59.97,2560x0,1.0"
-        # ",disable"
-      ];
+      monitor = [ "eDP-2,highres,0x0,1" ",prefered,auto,1" ];
 
       bind = [
         "$mod, RETURN, exec, ${pkgs.kitty}/bin/kitty" # Kitty
@@ -117,7 +109,6 @@
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "GTK_THEME,FlatColor:dark"
         "GTK2_RC_FILES,/home/hadi/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
-        "NVD_BACKEND,direct"
       ];
 
       cursor = { no_hardware_cursors = true; };
