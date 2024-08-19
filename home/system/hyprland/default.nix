@@ -1,7 +1,7 @@
 { pkgs, config, inputs, ... }: {
 
   imports =
-    [ ./hyprlocktty.nix ./hypridle.nix ./hyprpaper.nix ./hyprcursor.nix ];
+    [ ./hyprlock/macos.nix ./hypridle.nix ./hyprpaper.nix ./hyprcursor.nix ];
 
   home.packages = with pkgs; [
     hyprshot
