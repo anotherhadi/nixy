@@ -11,7 +11,6 @@
     ../../home/programs/nvim
     ../../home/programs/qutebrowser
     ../../home/programs/spicetify
-    ../../home/programs/zathura
     ../../home/programs/shell
     ../../home/programs/fetch
     ../../home/programs/lf
@@ -24,6 +23,7 @@
     # System (Desktop environment like stuff)
     ../../home/system/dunst
     ../../home/system/gtk
+    ../../home/system/zathura
     ../../home/system/hyprland
     ../../home/system/waybar
     ../../home/system/wlogout
@@ -39,10 +39,7 @@
     inherit (config.var) homeDirectory;
 
     packages = with pkgs; [
-      swappy
-      imv
       discord
-      obsidian
       xfce.thunar
       bitwarden
       vlc
@@ -55,32 +52,16 @@
       nodejs
       python3
       jq
-      git-ignore
       nurl
       prefetch-npm-deps
       figlet
 
-      # Infosec
-      exegol
-
       # Utils
-      fd
-      bc
-      gcc
-      blueman
       zip
       unzip
-      xdg_utils
-      wget
-      curl
-      wf-recorder
       glow
-      nwg-displays
-      wireguard-tools
-      bitwarden-cli
       optipng
       pfetch
-      usbutils
       pandoc
 
       # Just cool
@@ -91,7 +72,6 @@
 
       # Backup
       vscode
-      tor-browser
       firefox
       neovide
     ];
@@ -102,6 +82,7 @@
       source = ../../home/wallpapers;
     };
 
+    # Don't touch this
     stateVersion = "24.05";
   };
 
