@@ -74,6 +74,7 @@
       vscode
       firefox
       neovide
+      brave
     ];
 
     # Import wallpapers into $HOME/wallpapers
