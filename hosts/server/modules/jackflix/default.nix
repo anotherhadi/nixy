@@ -1,6 +1,6 @@
 {
   imports = [
-    # ./jellyfin.nix
+    ./jellyfin.nix
     # ./jellyseerr.nix
     # ./prowlarr.nix
     # ./radarr.nix

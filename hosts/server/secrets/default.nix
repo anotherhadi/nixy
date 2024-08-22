@@ -27,7 +27,7 @@
       };
       transmission-script = {
         mode = "0755";
-        path = "/home/hadi/transmission-script.sh";
+        path = "/home/jackflix/transmission-script.sh";
       };
     };
   };
