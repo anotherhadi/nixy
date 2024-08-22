@@ -12,7 +12,7 @@ in {
     };
     settings = {
       trusted_domains =
-        [ "localhost" "127.0.0.1" "192.168.2.23" "cloud.anotherhadi.com" ];
+        [ "localhost" "127.0.0.1" "192.168.1.99" "cloud.anotherhadi.com" ];
     };
     nginx.recommendedHttpHeaders = true;
     extraApps = {
