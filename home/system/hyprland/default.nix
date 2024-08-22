@@ -146,6 +146,8 @@
         new_window_takes_over_fullscreen = 2;
       };
 
+      render = { explicit_sync = "0"; };
+
       opengl = { nvidia_anti_flicker = false; };
 
       input = {
