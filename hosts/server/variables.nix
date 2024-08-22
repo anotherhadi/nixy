@@ -18,13 +18,13 @@
       email = "112569860+anotherhadi@users.noreply.github.com";
     };
 
-    stateVersion = "24.05";
-
     autoUpgrade = false;
     autoGarbageCollector = false;
     sops = true;
-    obsidian = false;
     tailscale = true;
+
+    usbguard = false;
+    usbguardRules = "";
 
     sshPublicKey =
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPG9SE80ZyBcXZK/f5ypSKudaM5Jo3XtQikCnGo0jI5E hadi@nixy";
