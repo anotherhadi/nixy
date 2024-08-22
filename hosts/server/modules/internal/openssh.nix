@@ -5,8 +5,9 @@
     ports = [ 22 ];
     settings = {
       PasswordAuthentication = true;
-      AllowUsers =
-        config.var.username; # Allows all users by default. Can be [ "user1" "user2" ]
+      AllowUsers = [
+        config.var.username
+      ]; # "null" allows all users by default. Can be [ "user1" "user2" ]
       UseDns = true;
       X11Forwarding = false;
       PermitRootLogin =
