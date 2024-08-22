@@ -35,6 +35,8 @@
 
   networking.networkmanager.enable = true;
 
+  home-manager.users."${config.var.username}" = import ./home.nix;
+
   users.users.${config.var.username} = {
     openssh.authorizedKeys.keys = [ config.var.sshPublicKey ];
   };
