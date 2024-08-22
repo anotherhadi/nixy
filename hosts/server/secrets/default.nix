@@ -29,6 +29,10 @@
         mode = "0755";
         path = "/home/jackflix/transmission-script.sh";
       };
+      pia-wg = {
+        mode = "0755";
+        path = "/data/.secret/wg.conf";
+      };
     };
   };
 }

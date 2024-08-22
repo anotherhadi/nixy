@@ -26,6 +26,7 @@
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixarr.url = "github:rasmus-kirk/nixarr";
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
@@ -47,6 +48,7 @@
           { _module.args = { inherit inputs; }; }
           inputs.sops-nix.nixosModules.sops
           inputs.home-manager.nixosModules.home-manager
+          inputs.nixarr.nixosModules.default
           ./hosts/server/configuration.nix
         ];
       };
