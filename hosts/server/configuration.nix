@@ -10,6 +10,7 @@
     ../modules/zsh.nix
     ../modules/nix.nix
     ../modules/auto-upgrade.nix
+    ../modules/home-manager.nix
 
     # internal
     ./modules/internal/security.nix

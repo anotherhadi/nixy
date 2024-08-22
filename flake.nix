@@ -44,19 +44,10 @@
       jack = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          { _module.args = { inherit inputs; }; }
           inputs.sops-nix.nixosModules.sops
-          ./hosts/server/configuration.nix
           inputs.home-manager.nixosModules.home-manager
-          {
-            nixpkgs.overlays = [ inputs.nurpkgs.overlay ];
-            _module.args = { inherit inputs; };
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users."hadi" = import ./hosts/server/home.nix;
-              extraSpecialArgs = { inherit inputs; };
-            };
-          }
+          ./hosts/server/configuration.nix
         ];
       };
 
