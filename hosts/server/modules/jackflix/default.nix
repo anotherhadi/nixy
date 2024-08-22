@@ -1,21 +1,34 @@
-{
-  imports = [
-    ./jellyfin.nix
-    # ./jellyseerr.nix
-    # ./prowlarr.nix
-    # ./radarr.nix
-    # ./sonarr.nix
-    # ./transmission.nix
-  ];
+{ config, ... }: {
+  nixarr = {
+    enable = true;
+    mediaDir = "/data/media";
+    stateDir = "/data/media/.state/nixarr";
 
-  users.groups = { jackflix = { }; };
+    vpn = {
+      enable = true;
+      wgConf = "/data/.secret/wg.conf";
+    };
 
-  users.users.jackflix = {
-    isNormalUser = true;
-    home = "/home/jackflix";
-    description = "My own netflix";
-    hashedPassword =
-      "$y$j9T$9.hOJCwwmryq3PzEOGtjZ.$hu/76TghEjongcbls7oDoN2GWRqg8AwCknq.CS0zB.8";
-    extraGroups = [ "docker" "jackflix" ];
+    jellyfin = {
+      enable = true;
+      expose.https = {
+        enable = true;
+        domainName = "media.anotherhadi.com";
+        acmeMail = config.var.git.email; # Required for ACME-bot
+      };
+    };
+
+    transmission = {
+      enable = true;
+      vpn.enable = true;
+      peerPort = 50000;
+    };
+
+    bazarr.enable = true;
+    lidarr.enable = true;
+    prowlarr.enable = true;
+    radarr.enable = true;
+    readarr.enable = true;
+    sonarr.enable = true;
   };
 }
