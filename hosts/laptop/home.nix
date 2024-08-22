@@ -45,6 +45,7 @@
       vlc
       nextcloud-client
       tailscale
+      wireguard-tools
 
       # Dev
       go
