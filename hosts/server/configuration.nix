@@ -33,6 +33,8 @@
 
   virtualisation.docker.enable = true;
 
+  networking.networkmanager.enable = true;
+
   users.users.${config.var.username} = {
     openssh.authorizedKeys.keys = [ config.var.sshPublicKey ];
   };
