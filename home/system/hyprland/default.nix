@@ -29,6 +29,7 @@
     enable = true;
     xwayland.enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    # plugins = [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo ]; # TODO: Fix, stack overflow
 
     settings = {
       "$mod" = "SUPER";
@@ -111,7 +112,10 @@
         "GTK2_RC_FILES,/home/hadi/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
       ];
 
-      cursor = { no_hardware_cursors = true; };
+      cursor = {
+        no_hardware_cursors = true;
+        default_monitor = "eDP-2";
+      };
 
       general = {
         resize_on_border = true;
@@ -133,7 +137,11 @@
         blur = { enabled = false; };
       };
 
-      master = { new_status = true; };
+      master = {
+        new_status = true;
+        allow_small_split = true;
+        mfact = 0.5;
+      };
 
       gestures = { workspace_swipe = true; };
 

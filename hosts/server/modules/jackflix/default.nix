@@ -1,34 +1,70 @@
-{ config, ... }: {
-  nixarr = {
+let
+  exposed = false; # Expose jellyfin to the internet
+
+  vpn = {
     enable = true;
-    mediaDir = "/data/media";
-    stateDir = "/data/media/.state/nixarr";
+    wg-config = "/etc/wireguard/wg0.conf";
+  };
 
-    vpn = {
-      enable = true;
-      wgConf = "/data/.secret/wg.conf";
+  root_folder = "/data";
+in {
+  systemd.tmpfiles.rules = [
+    "d /data 0755 nixarr nixarr"
+    "d /data/media 0755 nixarr nixarr"
+    "d /data/radarr 0755 nixarr nixarr"
+    "d /data/sonarr 0755 nixarr nixarr"
+  ];
+
+  users = {
+    groups.nixarr = { };
+    users.nixarr = {
+      isSystemUser = true;
+      home = root_folder;
+      hashedPassword =
+        "$y$j9T$9.hOJCwwmryq3PzEOGtjZ.$hu/76TghEjongcbls7oDoN2GWRqg8AwCknq.CS0zB.8";
     };
+  };
 
+  services = {
     jellyfin = {
       enable = true;
-      expose.https = {
-        enable = true;
-        domainName = "media.anotherhadi.com";
-        acmeMail = config.var.git.email; # Required for ACME-bot
-      };
+      user = "jackflix";
+      group = "media";
+      openFirewall = true;
+    };
+
+    jellyseerr = {
+      enable = true;
+      port = 5055;
+      openFirewall = true;
+    };
+
+    prowlarr = {
+      enable = true;
+      openFirewall = true;
+    };
+
+    radarr = {
+      enable = true;
+      user = "jackflix";
+      group = "media";
+      dataDir = "/data/media/radarr";
+      openFirewall = true;
+    };
+
+    sonarr = {
+      enable = true;
+      user = "jackflix";
+      group = "media";
+      dataDir = "/data/media/sonarr";
+      openFirewall = true;
     };
 
     transmission = {
       enable = true;
-      vpn.enable = true;
-      peerPort = 50000;
+      user = "jackflix";
+      group = "media";
+      openFirewall = true;
     };
-
-    bazarr.enable = true;
-    lidarr.enable = true;
-    prowlarr.enable = true;
-    radarr.enable = true;
-    readarr.enable = true;
-    sonarr.enable = true;
   };
 }
