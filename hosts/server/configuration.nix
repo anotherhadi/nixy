@@ -28,6 +28,8 @@
     ./modules/exposed/vaultwarden.nix
     ./modules/www
 
+    ./modules/jackflix
+
     ./secrets
   ];
 
