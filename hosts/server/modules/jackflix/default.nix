@@ -21,6 +21,7 @@ in {
     users.nixarr = {
       isSystemUser = true;
       home = root_folder;
+      group = "nixarr";
       hashedPassword =
         "$y$j9T$9.hOJCwwmryq3PzEOGtjZ.$hu/76TghEjongcbls7oDoN2GWRqg8AwCknq.CS0zB.8";
     };
