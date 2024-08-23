@@ -16,6 +16,9 @@ in {
     "d ${root_folder}/radarr 0755 nixarr nixarr"
     "d ${root_folder}/sonarr 0755 nixarr nixarr"
     "d ${root_folder}/jellyfin 0755 nixarr nixarr"
+    "d ${root_folder}/transmission-openvpn/data 0755 nixarr nixarr"
+    "d ${root_folder}/transmission-openvpn/data/completed 0755 nixarr nixarr"
+    "d ${root_folder}/transmission-openvpn/data/incompleted 0755 nixarr nixarr"
   ];
 
   users = {
