@@ -24,8 +24,9 @@ in {
   users = {
     groups.nixarr = { };
     users.nixarr = {
-      isSystemUser = true;
+      isNormalUser = true;
       group = "nixarr";
+      extraGroups = [ "docker" ];
       hashedPassword =
         "$y$j9T$9.hOJCwwmryq3PzEOGtjZ.$hu/76TghEjongcbls7oDoN2GWRqg8AwCknq.CS0zB.8";
     };
