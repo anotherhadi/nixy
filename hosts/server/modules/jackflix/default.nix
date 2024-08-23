@@ -18,7 +18,7 @@ in {
     "d ${root_folder}/jellyfin 0755 nixarr nixarr"
     "d ${root_folder}/transmission 0755 nixarr nixarr"
     "d ${root_folder}/completed 0755 nixarr nixarr"
-    "d ${root_folder}/incompleted 0755 nixarr nixarr"
+    "d ${root_folder}/incomplete 0755 nixarr nixarr"
   ];
 
   users = {
