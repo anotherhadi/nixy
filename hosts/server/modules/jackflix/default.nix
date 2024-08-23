@@ -9,10 +9,11 @@ let
   root_folder = "/data";
 in {
   systemd.tmpfiles.rules = [
-    "d /data 0755 nixarr nixarr"
-    "d /data/media 0755 nixarr nixarr"
-    "d /data/radarr 0755 nixarr nixarr"
-    "d /data/sonarr 0755 nixarr nixarr"
+    "d ${root_folder} 0755 nixarr nixarr"
+    "d ${root_folder}/media 0755 nixarr nixarr"
+    "d ${root_folder}/radarr 0755 nixarr nixarr"
+    "d ${root_folder}/sonarr 0755 nixarr nixarr"
+    "d ${root_folder}/jellyfin 0755 nixarr nixarr"
   ];
 
   users = {
@@ -28,9 +29,10 @@ in {
   services = {
     jellyfin = {
       enable = true;
-      user = "jackflix";
-      group = "media";
+      user = "nixarr";
+      group = "nixarr";
       openFirewall = true;
+      dataDir = "${root_folder}/jellyfin";
     };
 
     jellyseerr = {
@@ -46,25 +48,25 @@ in {
 
     radarr = {
       enable = true;
-      user = "jackflix";
-      group = "media";
-      dataDir = "/data/media/radarr";
+      user = "nixarr";
+      group = "nixarr";
+      dataDir = "${root_folder}/radarr";
       openFirewall = true;
     };
 
     sonarr = {
       enable = true;
-      user = "jackflix";
-      group = "media";
-      dataDir = "/data/media/sonarr";
+      user = "nixarr";
+      group = "nixarr";
+      dataDir = "${root_folder}/sonarr";
       openFirewall = true;
     };
 
-    transmission = {
-      enable = true;
-      user = "jackflix";
-      group = "media";
-      openFirewall = true;
-    };
+    # transmission = {
+    #   enable = true;
+    #   user = "jackflix";
+    #   group = "media";
+    #   openFirewall = true;
+    # };
   };
 }
