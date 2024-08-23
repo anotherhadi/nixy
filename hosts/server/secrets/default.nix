@@ -27,7 +27,7 @@
       };
       transmission-script = {
         mode = "0755";
-        path = "/home/jackflix/transmission-script.sh";
+        path = "/data/transmission-script.sh";
       };
       pia-wg = {
         mode = "0755";

@@ -30,10 +30,6 @@
       inputs.hyprland.follows = "hyprland";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    vpnconfinement = {
-      url = "github:Maroka-chan/VPN-Confinement";
-      follows = "nixpkgs";
-    };
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
@@ -55,7 +51,6 @@
           { _module.args = { inherit inputs; }; }
           inputs.sops-nix.nixosModules.sops
           inputs.home-manager.nixosModules.home-manager
-          inputs.vpnconfinement.nixosModules.default
           ./hosts/server/configuration.nix
         ];
       };
