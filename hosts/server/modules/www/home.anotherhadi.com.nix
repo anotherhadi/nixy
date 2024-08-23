@@ -33,37 +33,37 @@ let
             "links": [
               {
                 "title": "Jellyfin",
-                "url": "http://jack:8096",
+                "url": "http://192.168.1.99:8096",
                 "icon": "󰼂"
               },
               {
                 "title": "Jellyseerr",
-                "url": "http://jack:5055",
+                "url": "http://192.168.1.99:5055",
                 "icon": ""
               },
               {
                 "title": "Radarr",
-                "url": "http://jack:7878",
+                "url": "http://192.168.1.99:7878",
                 "icon": ""
               },
               {
                 "title": "Sonarr",
-                "url": "http://jack:8989",
+                "url": "http://192.168.1.99:8989",
                 "icon": ""
               },
               {
                 "title": "Bazarr",
-                "url": "http://jack:6767",
+                "url": "http://192.168.1.99:6767",
                 "icon": "󰨖"
               },
               {
                 "title": "Transmission",
-                "url": "http://jack:9091",
+                "url": "http://192.168.1.99:9091",
                 "icon": "󰘡"
               },
               {
                 "title": "Prowlarr",
-                "url": "http://jack:9696",
+                "url": "http://192.168.1.99:9696",
                 "icon": "󱖫"
               }
             ]
