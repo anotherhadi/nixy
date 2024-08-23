@@ -66,11 +66,35 @@ in {
       openFirewall = true;
     };
 
-    # transmission = {
-    #   enable = true;
-    #   user = "jackflix";
-    #   group = "media";
-    #   openFirewall = true;
-    # };
+    transmission = {
+      enable = true;
+      user = "nixarr";
+      group = "nixarr";
+      openFirewall = true;
+      settings = {
+        "rpc-bind-address" = "192.168.15.1"; # Bind RPC/WebUI to bridge address
+      };
+    };
+  };
+
+  # Define VPN network namespace
+  vpnnamespaces.wg = {
+    enable = true;
+    wireguardConfigFile = "/data/.secret/wg.conf";
+    accessibleFrom = [ "192.168.1.0/24" ];
+    portMappings = [{
+      from = 9091;
+      to = 9091;
+    }];
+    openVPNPorts = [{
+      port = 60729;
+      protocol = "both";
+    }];
+  };
+
+  # Add systemd service to VPN network namespace.
+  systemd.services.transmission.vpnconfinement = {
+    enable = true;
+    vpnnamespace = "wg";
   };
 }
