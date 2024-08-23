@@ -30,7 +30,10 @@
       inputs.hyprland.follows = "hyprland";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    vpnconfinement.url = "github:Maroka-chan/VPN-Confinement";
+    vpnconfinement = {
+      url = "github:Maroka-chan/VPN-Confinement";
+      follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
