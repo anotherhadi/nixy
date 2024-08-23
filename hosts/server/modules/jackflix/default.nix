@@ -11,6 +11,8 @@ in {
   systemd.tmpfiles.rules = [
     "d ${root_folder} 0755 nixarr nixarr"
     "d ${root_folder}/media 0755 nixarr nixarr"
+    "d ${root_folder}/media/shows 0755 nixarr nixarr"
+    "d ${root_folder}/media/movies 0755 nixarr nixarr"
     "d ${root_folder}/radarr 0755 nixarr nixarr"
     "d ${root_folder}/sonarr 0755 nixarr nixarr"
     "d ${root_folder}/jellyfin 0755 nixarr nixarr"
@@ -20,12 +22,13 @@ in {
     groups.nixarr = { };
     users.nixarr = {
       isSystemUser = true;
-      home = root_folder;
       group = "nixarr";
       hashedPassword =
         "$y$j9T$9.hOJCwwmryq3PzEOGtjZ.$hu/76TghEjongcbls7oDoN2GWRqg8AwCknq.CS0zB.8";
     };
   };
+
+  systemd.services.jellyfin.serviceConfig.IOSchedulingPriority = 0;
 
   services = {
     jellyfin = {
