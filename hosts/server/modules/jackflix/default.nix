@@ -65,13 +65,6 @@ in {
       dataDir = "${root_folder}/sonarr";
       openFirewall = true;
     };
-
-    transmission = {
-      enable = true;
-      user = "nixarr";
-      group = "nixarr";
-      openFirewall = true;
-    };
   };
 
   # Transmission port
