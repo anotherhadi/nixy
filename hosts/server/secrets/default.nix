@@ -28,6 +28,7 @@
       transmission-script = {
         mode = "0755";
         path = "/data/transmission-script.sh";
+        owner = "nixarr";
       };
       pia-wg = {
         mode = "0755";
