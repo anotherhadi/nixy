@@ -34,12 +34,13 @@
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [
           "tray"
-          "backlight"
-          "pulseaudio"
+          # "backlight"
+          # "pulseaudio"
           "custom/caffeine"
           "custom/night-shift"
           "battery"
           "clock"
+          "custom/notification"
           "custom/power"
         ];
 
@@ -115,6 +116,27 @@
           format = "  ";
           tooltip = false;
           on-click = "menu";
+        };
+
+        "custom/notification" = {
+          tooltip = false;
+          format = "{} {icon}";
+          "format-icons" = {
+            notification = "󱅫";
+            none = "";
+            "dnd-notification" = " ";
+            "dnd-none" = "󰂛";
+            "inhibited-notification" = " ";
+            "inhibited-none" = "";
+            "dnd-inhibited-notification" = " ";
+            "dnd-inhibited-none" = " ";
+          };
+          "return-type" = "json";
+          "exec-if" = "which swaync-client";
+          exec = "swaync-client -swb";
+          "on-click" = "sleep 0.1 && swaync-client -t -sw";
+          "on-click-right" = "sleep 0.1 && swaync-client -d -sw";
+          escape = true;
         };
 
         battery = {
@@ -239,6 +261,7 @@
 
       #memory,
       #custom-power,
+      #custom-notification,
       #custom-caffeine,
       #custom-night-shift,
       #battery,

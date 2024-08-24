@@ -1,5 +1,4 @@
-# Todolist
-
+# Todolist {
 feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
 - [ ] Nixy
@@ -7,6 +6,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
 - [ ] Clipse: clipboard manager
 - [ ] Walker launcher implementation
+- [ ] Swaync implementation
 
 - [ ] Qutebrowser
   - [ ] !!! Bitwarden integration (I need this.)
@@ -27,10 +27,8 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
 ## Server
 
-- [ ] Server configuration is actually broken, need to update with the new modules
 - [ ] Jackflix V2
   - Backup Radarr, Prowlarr, Sonarr config
   - Take a look into buildarr or build a custom solution with *arr apis
-- [ ] Bitcoin-git: to test
-- [ ] Ntfy auth file
+- [ ] Bitcoin-git: broken
 - [ ] Secrets mode 0444: not secure

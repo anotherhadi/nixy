@@ -21,7 +21,7 @@
     ../../home/scripts # All scripts
 
     # System (Desktop environment like stuff)
-    ../../home/system/dunst
+    # ../../home/system/dunst
     ../../home/system/gtk
     ../../home/system/zathura
     ../../home/system/hyprland
@@ -30,6 +30,7 @@
     ../../home/system/wofi
     ../../home/system/mime
     ../../home/system/udiskie
+    ../../home/system/swaync
 
     ./secrets # You should probably remove this line
   ];
@@ -48,6 +49,8 @@
       wireguard-tools
 
       # Dev
+      wails
+      pkg-config
       go
       cargo
       nodejs
