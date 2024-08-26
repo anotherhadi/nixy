@@ -61,6 +61,8 @@
         "$mod, right, movefocus, r" # Move focus Right
         "$mod, up, movefocus, u" # Move focus Up
         "$mod, down, movefocus, d" # Move focus Down
+        "$shiftMod, left, layoutmsg, addmaster" # Add to master
+        "$shiftMod, right, layoutmsg, removemaster" # Remove from master
 
         "$mod, PRINT, exec, screenshot window" # Screenshot window
         ", PRINT, exec, screenshot monitor" # Screenshot monitor
