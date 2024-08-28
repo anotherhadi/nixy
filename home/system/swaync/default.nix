@@ -1,4 +1,7 @@
-{ pkgs, config, ... }: {
+{ pkgs, ... }: {
+
+  imports = [ ./style.nix ];
+
   home.packages = with pkgs; [ libnotify ];
 
   services.swaync = {
@@ -33,7 +36,7 @@
       script-fail-notify = true;
 
       widgets = [
-        "inhibitors"
+        "menubar"
         "title"
         "buttons-grid"
         "mpris"
@@ -50,38 +53,46 @@
           button-text = "󰆴 Clear All";
         };
         dnd = { text = "Do Not Disturb"; };
-        # label = {
-        #   max-lines = 1;
-        #   text = "Notification Center";
-        # };
         mpris = {
           image-size = 96;
           image-radius = 7;
         };
         volume = { label = "󰕾"; };
-        backlight = { label = "󰃟"; };
+        backlight = {
+          label = "󰃟";
+          subsystem = "backlight";
+          device = "nvidia_0";
+        };
+        menubar = {
+          "menu#power-buttons" = {
+            label = "󰐥";
+            position = "right";
+            actions = [
+              {
+                label = "󰐥";
+                command = "systemctl poweroff";
+              }
+              {
+                label = "󰜉";
+                command = "systemctl reboot";
+              }
+              {
+                label = "󰒲";
+                command = "systemctl suspend";
+              }
+              {
+                "label" = "󰌾";
+                "command" = "${pkgs.hyprlock}/bin/hyprlock";
+              }
+              {
+                "label" = "󰍃";
+                "command" = "${pkgs.hyprland}/bin/hyprctl dispatch exit";
+              }
+            ];
+          };
+        };
         "buttons-grid" = {
           "actions" = [
-            {
-              "label" = "󰐥";
-              "command" = "systemctl poweroff";
-            }
-            {
-              "label" = "󰜉";
-              "command" = "systemctl reboot";
-            }
-            {
-              "label" = "󰒲";
-              "command" = "systemctl suspend";
-            }
-            {
-              "label" = "󰌾";
-              "command" = "${pkgs.hyprlock}/bin/hyprlock";
-            }
-            {
-              "label" = "󰍃";
-              "command" = "${pkgs.hyprland}/bin/hyprctl dispatch exit";
-            }
             {
               "label" = "󰕾";
               "command" =
@@ -110,10 +121,5 @@
       };
     };
 
-    style = ''
-      * {
-        font-family: ${config.var.theme.font};
-      }
-    '';
   };
 }
