@@ -1,4 +1,5 @@
 # Todolist {
+
 feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
 - [ ] Nixy
@@ -7,6 +8,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Clipse: clipboard manager
 - [ ] Walker launcher implementation
 - [ ] Swaync implementation
+- [ ] Fetch the gtk flatcolor theme from github to make nixy lighter
 
 - [ ] Qutebrowser
   - [ ] !!! Bitwarden integration (I need this.)
@@ -17,7 +19,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - [ ] wlogout: fade in
   - [ ] Fix screenshots (screenshot region's border shows up in the screenshot, hyprshot jq error?)
   - [ ] Hyprlock themes (repo hyprlock-styles on github)
-  - [ ] Hypridle fix: suspend not working?
 
 - [ ] Nixvim
   - [ ] Keymaps:
