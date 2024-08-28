@@ -21,6 +21,8 @@ The list of the keybindings working on Hyprland:
 | Move focus Right            | SUPER + right            |
 | Move focus Up               | SUPER + up               |
 | Move focus Down             | SUPER + down             |
+| Add to master               | SHIFT + SUPER + left     |
+| Remove from master          | SHIFT + SUPER + right    |
 | Screenshot window           | SUPER + PRINT            |
 | Screenshot monitor          | PRINT                    |
 | Screenshot region           | SHIFT + SUPER + PRINT    |
