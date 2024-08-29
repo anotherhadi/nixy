@@ -8,12 +8,6 @@ let
 
     [[ $1 == "up" ]] && ${pkgs.brightnessctl}/bin/brightnessctl set ${increments}%+
     [[ $1 == "down" ]] && ${pkgs.brightnessctl}/bin/brightnessctl set ${increments}%-
-
-    brightness_level=$(${pkgs.brightnessctl}/bin/brightnessctl get)
-
-    message="󰃠  Brightness: $brightness_level%"
-
-    notif "brightness" "$message" "extraargs=-h int:value:$brightness_level"
   '';
 
   brightness-up = pkgs.writeShellScriptBin "brightness-up" ''

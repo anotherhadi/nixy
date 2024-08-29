@@ -30,15 +30,18 @@
       inputs.hyprland.follows = "hyprland";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
     nixosConfigurations = {
-
       nixy = nixpkgs.lib.nixosSystem { # CHANGEME
         system = "x86_64-linux";
         modules = [
-          { _module.args = { inherit inputs; }; }
+          {
+            nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+            _module.args = { inherit inputs; };
+          }
           inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME
           inputs.home-manager.nixosModules.home-manager
           ./hosts/laptop/configuration.nix # CHANGEME

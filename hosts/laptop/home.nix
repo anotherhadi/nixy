@@ -21,16 +21,14 @@
     ../../home/scripts # All scripts
 
     # System (Desktop environment like stuff)
-    # ../../home/system/dunst
     ../../home/system/gtk
+    ../../home/system/batsignal
     ../../home/system/zathura
     ../../home/system/hyprland
-    ../../home/system/waybar
     ../../home/system/wlogout
     ../../home/system/wofi
     ../../home/system/mime
     ../../home/system/udiskie
-    ../../home/system/swaync
 
     ./secrets # You should probably remove this line
   ];
@@ -49,10 +47,7 @@
       wireguard-tools
 
       # Dev
-      wails
-      pkg-config
       go
-      cargo
       nodejs
       python3
       jq
@@ -78,7 +73,6 @@
       vscode
       firefox
       neovide
-      brave
     ];
 
     # Import wallpapers into $HOME/wallpapers

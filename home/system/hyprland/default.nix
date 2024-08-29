@@ -1,7 +1,12 @@
 { pkgs, config, inputs, ... }: {
 
-  imports =
-    [ ./hyprlock/macos.nix ./hypridle.nix ./hyprpaper.nix ./hyprcursor.nix ];
+  imports = [
+    ./hyprlock/macos.nix
+    ./hypridle.nix
+    ./hyprpaper.nix
+    ./hyprcursor.nix
+    ./hyprpanel.nix
+  ];
 
   home.packages = with pkgs; [
     hyprshot
@@ -9,14 +14,13 @@
     swappy
     imv
     wf-recorder
-    xdg-desktop-portal-hyprland
     wlr-randr
     wl-clipboard
     brightnessctl
     gnome-themes-extra
     wlsunset
-    xwayland
-    xdg-desktop-portal-gtk
+    # xwayland
+    # xdg-desktop-portal-gtk
     qt5ct
     libva
     dconf
@@ -29,20 +33,35 @@
     enable = true;
     xwayland.enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-    # plugins = [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo ]; # TODO: Fix, stack overflow
+    plugins = [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo ];
 
     settings = {
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
 
       exec-once = [
-        "startup"
-        "${pkgs.hypridle}/bin/hypridle"
-        "${pkgs.hyprpaper}/bin/hyprpaper"
         "${pkgs.bitwarden}/bin/bitwarden"
+        "[[ ${
+          toString config.var.sops
+        } == 1 ]] && systemctl --user start sops-nix"
       ];
 
       monitor = [ "eDP-2,highres,0x0,1" ",prefered,auto,1" ];
+
+      plugin = {
+        hyprexpo = {
+          columns = 2;
+          gap_size = 5;
+          bg_col = "rgb(111111)";
+          workspace_method =
+            "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
+
+          enable_gesture = true; # laptop touchpad
+          gesture_fingers = 3; # 3 or 4
+          gesture_distance = 300; # how far is the "max"
+          gesture_positive = true; # positive = swipe down. Negative = swipe up.
+        };
+      };
 
       bind = [
         "$mod, RETURN, exec, ${pkgs.kitty}/bin/kitty" # Kitty
@@ -53,6 +72,7 @@
         "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock
         "$mod, X, exec, powermenu" # Powermenu
         "$mod, SPACE, exec, menu" # Launcher
+        "$shiftMod, SPACE, hyprexpo:expo, toggle" # HyprExpo
 
         "$mod, Q, killactive," # Close window
         "$mod, T, togglefloating," # Toggle Floating
