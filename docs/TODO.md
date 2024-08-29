@@ -6,8 +6,8 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Themes
 
 - [ ] Clipse: clipboard manager
-- [ ] Walker launcher implementation
 - [ ] Swaync implementation
+- [ ] Rofi config
 
 - [ ] Qutebrowser
   - [ ] !!! Bitwarden integration (I need this.)
