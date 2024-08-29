@@ -19,8 +19,6 @@
     brightnessctl
     gnome-themes-extra
     wlsunset
-    # xwayland
-    # xdg-desktop-portal-gtk
     qt5ct
     libva
     dconf
@@ -68,7 +66,6 @@
         "$mod, E, exec, ${pkgs.xfce.thunar}/bin/thunar" # Thunar
         "$mod, B, exec, ${pkgs.qutebrowser}/bin/qutebrowser" # Qutebrowser
         "$mod, K, exec, ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
-        "$mod, C, exec, ${pkgs.kitty}/bin/kitty --class peaclock peaclock" # Peaclock
         "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock
         "$mod, X, exec, powermenu" # Powermenu
         "$mod, SPACE, exec, menu" # Launcher
@@ -91,8 +88,6 @@
 
         "$mod, F2, exec, night-shift-off" # Turn off night shift
         "$mod, F3, exec, night-shift-on" # Turn on night shift
-
-        "$mod, F5, exec, ${pkgs.kitty}/bin/kitty --class floating zsh -c sound-output" # Choose sound output
       ] ++ (builtins.concatLists (builtins.genList (i:
         let ws = i + 1;
         in [
@@ -196,13 +191,7 @@
         };
       };
 
-      windowrule = [ "animation popin,^(wlogout)$" ];
-
       windowrulev2 = [
-        "float, class:peaclock"
-        "move 2% 78%, class:peaclock"
-        "size 30% 20%, class:peaclock"
-
         "float, class:floating"
         "size 40% 40%, class:floating"
         "move 30% 30%, class:floating"

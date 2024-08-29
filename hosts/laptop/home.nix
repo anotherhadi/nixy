@@ -81,6 +81,9 @@
       source = ../../home/wallpapers;
     };
 
+    # Import or profile picture
+    file.".profile_picture.png" = { source = ./profile_picture.png; };
+
     # Don't touch this
     stateVersion = "24.05";
   };
