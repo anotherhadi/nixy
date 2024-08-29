@@ -12,11 +12,10 @@
   animation-speed = "fast"; # "fast" | "medium" | "slow"
   fetch = "nerdfetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
 
-  waybar = {
-    transparent = true;
-    float = true;
-    position = "top";
-    font-size = 15;
+  bar = {
+    transparent = false;
+    floating = true;
+    font-size = 16;
   };
 
   colors = {
@@ -44,6 +43,7 @@
 
     accent = "A594FD";
     accentFg = "0B0B0B";
+    accentalt = "f5c2e7";
 
     # Should make those automtic
     accentName = "magenta";
