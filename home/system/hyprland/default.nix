@@ -145,12 +145,14 @@
       };
 
       decoration = {
+        active_opacity = config.var.theme.active-opacity;
+        inactive_opacity = config.var.theme.inactive-opacity;
         rounding = config.var.theme.rounding;
         drop_shadow = true;
         shadow_range = 20;
         shadow_render_power = 3;
         "col.shadow" = "rgba(00000055)";
-        blur = { enabled = false; };
+        blur = { enabled = if config.var.theme.blur then "true" else "false"; };
       };
 
       master = {
