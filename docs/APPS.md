@@ -15,7 +15,7 @@ The configurations files can be found in the `hosts/laptop` directory.
 |                                         | hypridle       |
 |                                         | hyprcursor     |
 |                                         | wlogout        |
-| Bar                                     | waybar         |
+| Bar                                     | hyprpanel      |
 | Terminal                                | kitty          |
 | Shell                                   | zsh            |
 |                                         | tmux           |
@@ -25,32 +25,17 @@ The configurations files can be found in the `hosts/laptop` directory.
 |                                         | zoxide         |
 |                                         | fzf            |
 | Editor                                  | neovim(nixvim) |
-| File manager                            | lf             |
-|                                         | thunar         |
+| File manager                            | thunar         |
 | Browser                                 | qutebrowser    |
 | Music                                   | spicetify      |
-| Notifications                           | dunst          |
 | Launcher                                | wofi           |
 | DM                                      | tuigreet       |
 | Secrets                                 | sops-nix       |
-| Misc                                    | lazygit        |
-|                                         | neofetch       |
-|                                         | cava           |
 | See [hosts/laptop](../hosts/laptop/)... |                |
 
 ## Server
 
 The server configuration is used by a home server running NixOS.
 The configurations files can be found in the `hosts/server` directory.
-I mainly use it for self-hosting websites and services such as Nextcloud, Vaultwarden, ...
+I mainly use it for self-hosting websites and services such as Nextcloud, Vaultwarden, jellyfin, ...
 I exposed some services to the internet using a reverse proxy (Nginx) and cloudflare-dyndns, others are accessed through a tailscale network
-
-### Apps
-
-- Nextcloud
-- Vaultwarden
-- Adguard Home
-- Uptime Kuma
-- "Jackflix"
-  - Jellyfin, Transmission, *arr
-- See [hosts/server](../hosts/server/)...

@@ -2,11 +2,7 @@
 
 feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
-- [ ] Nixy
-  - [ ] Themes
-
 - [ ] Clipse: clipboard manager
-- [ ] Swaync implementation
 - [ ] Rofi config
 
 - [ ] Qutebrowser
@@ -14,10 +10,11 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
 - [ ] Hyprland
   - [ ] Implement Hyprcursor
+  - [ ] Animation based on app name
     - [ ] wofi: popin
     - [ ] wlogout: fade in
-  - [ ] Fix screenshots (screenshot region's border shows up in the screenshot, hyprshot jq error?)
-  - [ ] Hyprlock themes (repo hyprlock-styles on github)
+  - [ ] Fix screenshots (screenshot region's border shows up in the screenshot, hyprshot jq error?) and add in the scripts doc
+  - [ ] Fix Night Shift
 
 - [ ] Nixvim
   - [ ] Keymaps:
@@ -32,3 +29,4 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - Take a look into buildarr or build a custom solution with *arr apis
 - [ ] Bitcoin-git: broken
 - [ ] Secrets mode 0444: not secure
+- [ ] Adguard config

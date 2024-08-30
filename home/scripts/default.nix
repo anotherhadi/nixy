@@ -8,7 +8,6 @@
     ./screenshot
     ./nerdfont_fzf
     ./notification
-    ./compress
     ./system
   ];
 }
