@@ -8,6 +8,9 @@
   rounding = 10;
   gaps-in = 6;
   gaps-out = 6 * 2;
+  active-opacity = 0.95;
+  inactive-opacity = 0.9;
+  blur = true;
   border-size = 1;
   animation-speed = "medium"; # "fast" | "medium" | "slow"
   fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"

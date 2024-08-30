@@ -1,5 +1,5 @@
 {
-  wallpaper = "dark_cloud.png";
+  wallpaper = "nix.png";
 
   font = "SFProDisplay Nerd Font";
   font-mono = "FiraCode Nerd Font Mono";
@@ -8,6 +8,9 @@
   rounding = 15;
   gaps-in = 10;
   gaps-out = 10 * 2;
+  active-opacity = 0.95;
+  inactive-opacity = 0.9;
+  blur = true;
   border-size = 3;
   animation-speed = "fast"; # "fast" | "medium" | "slow"
   fetch = "nerdfetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
