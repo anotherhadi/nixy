@@ -16,7 +16,9 @@
     ../modules/nix.nix
     ../modules/network-manager.nix
     ../modules/home-manager.nix
+    ../modules/power-profiles.nix
     ../modules/utils.nix
+    ../modules/gvfs.nix
 
     ./hardware-configuration.nix
     ./variables.nix
