@@ -41,6 +41,7 @@ let
     '';
 in {
   home.packages = [
+    pkgs.wlsunset
     night-shift-on
     night-shift-off
     night-shift

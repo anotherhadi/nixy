@@ -18,7 +18,6 @@
     wl-clipboard
     brightnessctl
     gnome-themes-extra
-    wlsunset
     qt5ct
     libva
     dconf

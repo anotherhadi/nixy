@@ -15,7 +15,7 @@
     # internal
     ./modules/internal/security.nix
     ./modules/internal/openssh.nix
-    # ./modules/internal/adguard.nix # TODO
+    # ./modules/internal/adguard.nix
     # ./modules/internal/cockpit.nix
 
     # exposed

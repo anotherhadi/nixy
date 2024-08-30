@@ -4,10 +4,12 @@ let
   increments = "5";
 
   brightness-change = pkgs.writeShellScriptBin "brightness-change" ''
-    sleep 0.05
+    [[ $1 == "up" ]] && ${pkgs.brightnessctl}/bin/brightnessctl set ''${2-${increments}}%+
+    [[ $1 == "down" ]] && ${pkgs.brightnessctl}/bin/brightnessctl set ''${2-${increments}}%-
+  '';
 
-    [[ $1 == "up" ]] && ${pkgs.brightnessctl}/bin/brightnessctl set ${increments}%+
-    [[ $1 == "down" ]] && ${pkgs.brightnessctl}/bin/brightnessctl set ${increments}%-
+  brightness-set = pkgs.writeShellScriptBin "brightness-set" ''
+    ${pkgs.brightnessctl}/bin/brightnessctl set ''${1-100}%
   '';
 
   brightness-up = pkgs.writeShellScriptBin "brightness-up" ''
@@ -18,4 +20,12 @@ let
     brightness-change down ${increments}
   '';
 
-in { home.packages = [ brightness-change brightness-up brightness-down ]; }
+in {
+  home.packages = [
+    pkgs.brightnessctl
+    brightness-change
+    brightness-up
+    brightness-down
+    brightness-set
+  ];
+}

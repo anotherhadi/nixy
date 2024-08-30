@@ -1,29 +1,25 @@
 { pkgs, ... }:
 let
   caffeine-status = pkgs.writeShellScriptBin "caffeine-status" ''
-    [[ -f /tmp/caffeine ]] && echo "1" || echo "0"
-  '';
-
-  caffeine = pkgs.writeShellScriptBin "caffeine" ''
-    if [[ -f /tmp/caffeine ]]; then
-      rm /tmp/caffeine
-      ${pkgs.hyprland}/bin/hyprctl dispatch exec ${pkgs.hypridle}/bin/hypridle
-      message="󰾪  Caffeine Deactivated"
-    else
-      touch /tmp/caffeine
-      pkill hypridle
-      message="󰅶  Caffeine Activated"
-    fi
-    notif "caffeine" "$message"
+    [[ $(pidof "hypridle") ]] && echo "0" || echo "1"
   '';
 
   caffeine-status-icon = pkgs.writeShellScriptBin "caffeine-status-icon" ''
-    status=$(caffeine-status)
-    if [[ $status == "1" ]]; then
-      echo "󰅶"
+    [[ $(pidof "hypridle") ]] && echo "󰾪" || echo "󰅶"
+  '';
+
+  caffeine = pkgs.writeShellScriptBin "caffeine-toggle" ''
+    if [[ $(pidof "hypridle") ]]; then
+      pkill hypridle
+      title="󰅶  Caffeine Activated"
+      description="Caffeine is now active! Your screen will not turn off automatically."
     else
-      echo "󰾪"
+      ${pkgs.hyprland}/bin/hyprctl dispatch exec ${pkgs.hypridle}/bin/hypridle
+      title="󰾪  Caffeine Deactivated"
+      description="Caffeine is now deactivated! Your screen will turn off automatically."
     fi
+
+    notif "caffeine" "$title" "$description"
   '';
 
 in { home.packages = [ caffeine-status caffeine caffeine-status-icon ]; }
