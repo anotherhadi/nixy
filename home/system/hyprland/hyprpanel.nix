@@ -76,6 +76,9 @@
           "theme.bar.buttons.padding_x": "0.8rem",
           "theme.bar.buttons.padding_y": "0.4rem",
 
+          "theme.bar.buttons.workspaces.hover": "#${config.var.theme.colors.accentalt}",
+          "theme.bar.buttons.workspaces.active": "#${config.var.theme.colors.accent}",
+          "theme.bar.buttons.workspaces.available": "#${config.var.theme.colors.bg}",
 
           "theme.bar.margin_top": "1.0em",
           "theme.bar.margin_sides": "${toString config.var.theme.gaps-out}px",
