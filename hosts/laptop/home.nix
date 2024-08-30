@@ -41,7 +41,6 @@
       xfce.thunar
       bitwarden
       vlc
-      # nextcloud-client # TODO: test if needed
 
       # Dev
       go
