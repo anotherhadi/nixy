@@ -38,17 +38,32 @@
                 "media"
               ],
               "right": [
+                "systray",
+                "network",
                 "volume",
+                "bluetooth",
+                "battery",
                 "clock",
                 "notifications"
               ]
             },
             "2": {
               "left": [
+                "dashboard",
+                "workspaces",
+                "windowtitle"
               ],
               "middle": [
+                "media"
               ],
               "right": [
+                "systray",
+                "network",
+                "volume",
+                "bluetooth",
+                "battery",
+                "clock",
+                "notifications"
               ]
             }
           },
@@ -69,7 +84,12 @@
               "8"
           }px",
           "theme.bar.buttons.spacing": "0.3em",
-          "theme.bar.buttons.radius": "${toString config.var.theme.rounding}px",
+          "theme.bar.buttons.radius": "${
+            if config.var.theme.bar.transparent then
+              toString config.var.theme.rounding
+            else
+              toString (config.var.theme.rounding - 8)
+          }px",
           "theme.bar.floating": ${
             if config.var.theme.bar.floating then "true" else "false"
           },
@@ -83,7 +103,7 @@
           "theme.bar.margin_top": "1.0em",
           "theme.bar.margin_sides": "${toString config.var.theme.gaps-out}px",
           "theme.bar.margin_bottom": "0px",
-          "theme.bar.border_radius": "0.4em",
+          "theme.bar.border_radius": "${toString config.var.theme.rounding}px",
 
           "bar.launcher.icon": "",
           "theme.bar.transparent": ${
