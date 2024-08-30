@@ -16,7 +16,7 @@
   fetch = "nerdfetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
 
   bar = {
-    transparent = false;
+    transparent = true;
     floating = true;
     font-size = 16;
   };
@@ -46,7 +46,7 @@
 
     accent = "A594FD";
     accentFg = "0B0B0B";
-    accentalt = "f5c2e7";
+    accentalt = "917FF0";
 
     # Should make those automtic
     accentName = "magenta";
