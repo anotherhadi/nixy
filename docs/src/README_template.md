@@ -8,22 +8,34 @@ It's a simple way to manage your system configuration and dotfiles.
 
 ## Gallery
 
-![catppuccin1](docs/src/catppuccin/1.png)
-![catppuccin2](docs/src/catppuccin/2.png)
-![catppuccin3](docs/src/catppuccin/3.png)
+![nixy1](docs/src/nixy/1.png)
+![nixy2](docs/src/nixy/2.png)
+![nixy3](docs/src/nixy/3.png)
 
 ## Architecture
 
-- 🏠 `home` are the dotfiles and configuration files for the users
-  - 'programs' is a collection of apps configured with home-manager
-  - 'scripts' is a folder full of bash scripts (see [SCRIPTS.md](docs/SCRIPTS.md))
-  - 'system' is some "desktop environment" configuration
-  - 'wallpapers' are... wallpapers
-- 💻 `hosts` are the system configuration files
-  - 'laptop' is my configuration for my laptop with Nvidia that you can copy
-  - 'server' is for my homeserver (w/nextcloud, nginx, vaultwarden, ... look `hosts/server`)
-  - 'themes' contains all the *themes* available *(see [THEMES.md](docs/THEMES.md))*
-  - 'modules' are some nix modules that you can import (Nvidia, prime, fonts, ...)
+### 🏠 `home`
+
+Those are the dotfiles and configuration files for user-level configuration
+
+**Subfolders:**
+
+- `programs` is a collection of apps configured with home-manager
+- `scripts` is a folder full of bash scripts (see [SCRIPTS.md](docs/SCRIPTS.md))
+- `system` is some "desktop environment" configuration
+- `wallpapers` are... wallpapers
+
+### 💻 `hosts`
+
+Those are the host-specific configurations
+Each host contains a `configuration.nix` for system-level configuration, a `home.nix` for user-level configuration, and a `variables.nix` for config wide variables.
+
+**Subfolders:**
+
+- 🎨 `themes` are the themes available *(see [THEMES.md](docs/THEMES.md))*
+- 📦 `modules` are the nix modules that you can import
+- `laptop` is my configuration for my laptop with Nvidia that you can copy
+- `server` is for my homeserver (w/nextcloud, nginx, vaultwarden, ...)
 
 ## Installation
 

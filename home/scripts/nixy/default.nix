@@ -1,7 +1,5 @@
 { pkgs, config, ... }:
-
 let
-
   nixy = pkgs.writeShellScriptBin "nixy" ''
     function exec() {
       $@

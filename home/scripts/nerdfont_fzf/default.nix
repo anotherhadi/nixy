@@ -12,21 +12,15 @@ let
     fi
 
     echo "Copied to clipboard: $fzf_result"
-    echo "Paste it to close the window"
-    ${pkgs.wl-clipboard}/bin/wl-copy -o "$fzf_result" # wait for paste before exiting.. not cool
+    ${pkgs.wl-clipboard}/bin/wl-copy "$fzf_result" # wait for paste before exiting.. not cool
   '';
 
   nerdfont-fzf-fetch = pkgs.writeShellScriptBin "nerdfont-fzf-fetch" ''
     wget "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/glyphnames.json" -O "glyphnames.json" || exit 1
     jq 'del(.METADATA)' "glyphnames.json"
   '';
-
-  nerdfont-popup = pkgs.writeShellScriptBin "nerdfont-popup" ''
-    ${pkgs.kitty}/bin/kitty --class floating -o font_size=18 zsh -c nerdfont-fzf 2>/dev/null
-  '';
-
 in {
-  home.packages = [ nerdfont-fzf nerdfont-fzf-fetch nerdfont-popup ];
+  home.packages = [ nerdfont-fzf nerdfont-fzf-fetch ];
 
   xdg.configFile."nerdfont_glyphnames.json" = {
     source = ./nerdfont_glyphnames.json;
