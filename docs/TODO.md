@@ -3,7 +3,12 @@
 feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
 - [ ] Clipse: clipboard manager
-- [ ] Rofi config
+- [ ] Wofi config
+  - Search on internet
+  - Emoji picker
+  - Calculator
+  - Password picker (w/btui)
+- [ ] Wlogout config rewrite
 
 - [ ] Qutebrowser
   - [ ] !!! Bitwarden integration (I need this.)
@@ -21,6 +26,8 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - Trouble
     - Tagbar (actually not working)
   - [ ] Disable background color for headlines.nvim for titles
+
+- [ ] Update docs
 
 ## Server
 
