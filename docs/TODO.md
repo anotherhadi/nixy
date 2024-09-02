@@ -25,7 +25,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Keymaps:
     - Trouble
     - Tagbar (actually not working)
-  - [ ] Disable background color for headlines.nvim for titles
 
 - [ ] Update docs
 
