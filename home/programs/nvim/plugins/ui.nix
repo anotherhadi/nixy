@@ -1,6 +1,13 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   home.packages = with pkgs; [ ctags ];
+
   programs.nixvim = {
+    highlight = {
+      Headline.bg = "#${config.var.theme.colors.bgalt}";
+      Headline.bold = true;
+      Headline1.bg = "#${config.var.theme.colors.c0}";
+      Headline1.bold = true;
+    };
     plugins = {
       lualine.enable = true;
       noice.enable = true;
@@ -10,17 +17,22 @@
       };
       bufferline.enable = true;
       trouble.enable = true;
+      indent-blankline.enable = true;
       which-key.enable = true;
       headlines = {
         enable = true;
         settings = {
           markdown = {
-            codeblock_highlight = false;
+            headline_highlights = [ "Headline1" "Headline" ];
+            fat_headlines = false;
+            bullets = [ "" "◉" "○" "✸" ];
+            dash_string = "";
+            codeblock_highlight = "Headline";
           };
         };
       };
       nvim-colorizer.enable = true;
-      # tagbar.enable = true;
+      tagbar.enable = true; # FIXME: Tagbar is not working
     };
     keymaps = [{
       key = "<leader>t";
