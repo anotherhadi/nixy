@@ -27,6 +27,7 @@
     ../../home/system/zathura
     ../../home/system/mime
     ../../home/system/udiskie
+    ../../home/system/clipman
 
     ./secrets # You should probably remove this line
   ];
