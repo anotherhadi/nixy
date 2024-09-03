@@ -8,7 +8,7 @@ let
     [[ $(pidof "hypridle") ]] && echo "󰾪" || echo "󰅶"
   '';
 
-  caffeine = pkgs.writeShellScriptBin "caffeine-toggle" ''
+  caffeine = pkgs.writeShellScriptBin "caffeine" ''
     if [[ $(pidof "hypridle") ]]; then
       pkill hypridle
       title="󰅶  Caffeine Activated"
