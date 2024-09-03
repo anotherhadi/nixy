@@ -4,19 +4,23 @@ let
   default = "4000";
 
   night-shift-on = pkgs.writeShellScriptBin "night-shift-on" ''
-    ${pkgs.hyprland}/bin/hyprctl dispatch exec "${pkgs.wlsunset}/bin/wlsunset -t ${default}"
-    message="󰖔  Night-Shift Activated"
-    notif "night-shift" "$message"
+    ${pkgs.hyprland}/bin/hyprctl dispatch exec "${pkgs.gammastep}/bin/gammastep -O ${default}"
+    title="󰖔  Night-Shift Activated"
+    description="Night-Shift is now activated! Your screen will be warmer and easier on the eyes."
+
+    notif "night-shift" "$title" "$description"
   '';
 
   night-shift-off = pkgs.writeShellScriptBin "night-shift-off" ''
-    pkill wlsunset
-    message="󰖔  Night-Shift Deactivated"
-    notif "night-shift" "$message"
+    pkill gammastep
+    title="󰖕  Night-Shift Deactivated"
+    description="Night-Shift is now deactivated! Your screen will return to normal."
+
+    notif "night-shift" "$title" "$description"
   '';
 
   night-shift = pkgs.writeShellScriptBin "night-shift" ''
-    if pgrep wlsunset; then
+    if pgrep gammastep; then
       night-shift-off
     else
       night-shift-on
@@ -24,7 +28,7 @@ let
   '';
 
   night-shift-status = pkgs.writeShellScriptBin "night-shift-status" ''
-    if [[ $(pgrep wlsunset) ]]; then
+    if [[ $(pgrep gammastep) ]]; then
       echo "1"
     else
       echo "0"
@@ -33,7 +37,7 @@ let
 
   night-shift-status-icon =
     pkgs.writeShellScriptBin "night-shift-status-icon" ''
-      if [[ $(pgrep wlsunset) ]]; then
+      if [[ $(pgrep gammastep) ]]; then
         echo "󰖔"
       else
         echo "󰖕"
@@ -41,7 +45,7 @@ let
     '';
 in {
   home.packages = [
-    pkgs.wlsunset
+    pkgs.gammastep
     night-shift-on
     night-shift-off
     night-shift
