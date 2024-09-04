@@ -2,13 +2,11 @@
 
 feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
-- [ ] Clipse: clipboard manager
 - [ ] Wofi config
   - Search on internet
-  - Emoji picker
   - Calculator
-  - Password picker (w/btui)
-- [ ] Wlogout config rewrite
+
+- [ ] Test hyprshade (replacement for gammastep)
 
 - [ ] Qutebrowser
   - [ ] !!! Bitwarden integration (I need this.)
@@ -19,7 +17,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - [ ] wofi: popin
     - [ ] wlogout: fade in
   - [ ] Fix screenshots (screenshot region's border shows up in the screenshot, hyprshot jq error?) and add in the scripts doc
-  - [ ] Fix Night Shift
 
 - [ ] Nixvim
   - [ ] Keymaps:
