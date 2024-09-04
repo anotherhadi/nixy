@@ -39,7 +39,7 @@ let
     elif [[ $1 == "upgrade" ]];then
       sudo nixos-rebuild switch --upgrade --flake ${config.var.configDirectory}#${config.var.hostname}
     elif [[ $1 == "update" ]];then
-      cd ${config.var.configDirectory} && sudo nix flake update
+      cd ${config.var.configDirectory} && nix flake update
     elif [[ $1 == "gc" ]];then
       cd ${config.var.configDirectory} && sudo nix-collect-garbage -d
     elif [[ $1 == "cb" ]];then
