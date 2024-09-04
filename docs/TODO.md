@@ -3,7 +3,6 @@
 feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
 - [ ] Wofi config
-  - Search on internet
   - Calculator
 
 - [ ] Test hyprshade (replacement for gammastep)
@@ -12,10 +11,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] !!! Bitwarden integration (I need this.)
 
 - [ ] Hyprland
-  - [ ] Implement Hyprcursor
-  - [ ] Animation based on app name
-    - [ ] wofi: popin
-    - [ ] wlogout: fade in
   - [ ] Fix screenshots (screenshot region's border shows up in the screenshot, hyprshot jq error?) and add in the scripts doc
 
 - [ ] Nixvim
@@ -23,7 +18,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - Trouble
     - Tagbar (actually not working)
 
-- [ ] Manager my keyboard backlight
+- [ ] Change my keyboard backlight
   - Issue on nixos-hardware ig
 
 - [ ] Update docs

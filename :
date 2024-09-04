@@ -133,7 +133,6 @@
           "menus.clock.weather.unit": "metric",
           "menus.dashboard.powermenu.avatar.image": "${config.var.homeDirectory}/.profile_picture.png",
           "menus.dashboard.powermenu.confirmation": false,
-
           "menus.dashboard.shortcuts.left.shortcut1.icon": "",
           "menus.dashboard.shortcuts.left.shortcut1.command": "qutebrowser",
           "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Qutebrowser",
@@ -144,27 +143,45 @@
           "menus.dashboard.shortcuts.left.shortcut3.command": "night-shift",
           "menus.dashboard.shortcuts.left.shortcut3.tooltip": "Night-shift",
           "menus.dashboard.shortcuts.left.shortcut4.icon": "",
-          "menus.dashboard.shortcuts.left.shortcut4.command": "menu",
+          "menus.dashboard.shortcuts.left.shortcut4.command": "rofi -show drun",
           "menus.dashboard.shortcuts.left.shortcut4.tooltip": "Search Apps",
           "menus.dashboard.shortcuts.right.shortcut1.icon": "",
           "menus.dashboard.shortcuts.right.shortcut1.command": "hyprpicker -a",
           "menus.dashboard.shortcuts.right.shortcut1.tooltip": "Color Picker",
           "menus.dashboard.shortcuts.right.shortcut3.icon": "󰄀",
-          "menus.dashboard.shortcuts.right.shortcut3.command": "screenshot region swappy",
+          "menus.dashboard.shortcuts.right.shortcut3.command": "bash -c \"$HOME/.config/ags/services/snapshot.sh\"",
           "menus.dashboard.shortcuts.right.shortcut3.tooltip": "Screenshot",
 
-          "menus.dashboard.directories.left.directory1.label": "󰉍 Downloads",
-          "menus.dashboard.directories.left.directory1.command": "bash -c \"thunar $HOME/Downloads/\"",
-          "menus.dashboard.directories.left.directory2.label": "󰉏 Pictures",
-          "menus.dashboard.directories.left.directory2.command": "bash -c \"thunar $HOME/Pictures/\"",
-          "menus.dashboard.directories.left.directory3.label": "󱧶 Documents",
-          "menus.dashboard.directories.left.directory3.command": "bash -c \"thunar $HOME/Documents/\"",
-          "menus.dashboard.directories.right.directory1.label": "󱂵 Home",
-          "menus.dashboard.directories.right.directory1.command": "bash -c \"thunar $HOME/\"",
-          "menus.dashboard.directories.right.directory2.label": "󰚝 Projects",
-          "menus.dashboard.directories.right.directory2.command": "bash -c \"thunar $HOME/dev/\"",
-          "menus.dashboard.directories.right.directory3.label": " Config",
-          "menus.dashboard.directories.right.directory3.command": "bash -c \"thunar $HOME/.config/\"",
+          "menus.dashboard.directories": {
+            "left": {
+              "directory1": {
+                "label": "󰉍 Downloads",
+                "command": "bash -c \"dolphin $HOME/Downloads/\""
+              },
+              "directory2": {
+                "label": "󰉏 Videos",
+                "command": "bash -c \"dolphin $HOME/Videos/\""
+              },
+              "directory3": {
+                "label": "󰚝 Projects",
+                "command": "bash -c \"dolphin $HOME/Projects/\""
+              }
+            },
+            "right": {
+              "directory1": {
+                "label": "󱧶 Documents",
+                "command": "bash -c \"dolphin $HOME/Documents/\""
+              },
+              "directory2": {
+                "label": "󰉏 Pictures",
+                "command": "bash -c \"dolphin $HOME/Pictures/\""
+              },
+              "directory3": {
+                "label": "󱂵 Home",
+                "command": "bash -c \"dolphin $HOME/\""
+              }
+            }
+          },
 
           "theme.bar.menus.monochrome": true,
           "wallpaper.enable": false,
