@@ -31,6 +31,7 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    anotherhadi-portfolio.url = "github:anotherhadi/portfolio";
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
