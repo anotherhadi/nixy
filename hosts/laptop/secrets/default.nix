@@ -11,6 +11,7 @@
       github-key = { path = "/home/hadi/.ssh/github"; };
       gitlab-key = { path = "/home/hadi/.ssh/gitlab"; };
       jack-key = { path = "/home/hadi/.ssh/jack"; };
+      ovpn = { path = "/home/hadi/.ovpn.ovpn"; };
     };
   };
 
