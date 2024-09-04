@@ -19,6 +19,7 @@
     ../modules/power-profiles.nix
     ../modules/utils.nix
     ../modules/gvfs.nix
+    # ../modules/ovpn.nix
 
     ./hardware-configuration.nix
     ./variables.nix
