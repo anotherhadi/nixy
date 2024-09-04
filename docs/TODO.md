@@ -23,6 +23,9 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - Trouble
     - Tagbar (actually not working)
 
+- [ ] Manager my keyboard backlight
+  - Issue on nixos-hardware ig
+
 - [ ] Update docs
 
 ## Server
