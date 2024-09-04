@@ -1,8 +1,8 @@
 [//]: # (Title: Nixy)  
 [//]: # (Description: Nixy is a Hyprland NixOS configuration with home-manager, secrets and custom theming all in one place. It's a simple way to manage your system configuration and dotfiles.)  
 [//]: # (Author: Hadi)  
-[//]: # (Date: 08/28/24)
-[//]: # (Version: v2.2.0)
+[//]: # (Date: 09/04/24)
+[//]: # (Version: v2.3.0)
 
 <div align="center">
     <img src="https://raw.githubusercontent.com/anotherhadi/nixy/main/docs/src/logo.png" width="100px" />
@@ -15,7 +15,7 @@
 <br>
 <div align="center">
     <a href="https://github.com/anotherhadi/nixy">
-        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Version&message=v2.2.0&colorA=181825&colorB=89b4fa&logo=githubactions&logoColor=89b4fa"/>
+        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Version&message=v2.3.0&colorA=181825&colorB=89b4fa&logo=githubactions&logoColor=89b4fa"/>
     </a>
     <a href="https://github.com/anotherhadi/nixy/stargazers">
         <img src="https://img.shields.io/github/stars/anotherhadi/nixy?color=89b4fa&labelColor=181825&style=for-the-badge&logo=starship&logoColor=89b4fa">
@@ -40,27 +40,41 @@ It's a simple way to manage your system configuration and dotfiles.
   - [Table of Content](#table-of-content)
   - [Gallery](#gallery)
   - [Architecture](#architecture)
+    - [🏠 `home`](#-home)
+    - [💻 `hosts`](#-hosts)
   - [Installation](#installation)
   - [Documentation](#documentation)
 
 ## Gallery
 
-![catppuccin1](docs/src/catppuccin/1.png)
-![catppuccin2](docs/src/catppuccin/2.png)
-![catppuccin3](docs/src/catppuccin/3.png)
+![nixy1](docs/src/nixy/1.png)
+![nixy2](docs/src/nixy/2.png)
+![nixy3](docs/src/nixy/3.png)
 
 ## Architecture
 
-- 🏠 `home` are the dotfiles and configuration files for the users
-  - 'programs' is a collection of apps configured with home-manager
-  - 'scripts' is a folder full of bash scripts (see [SCRIPTS.md](docs/SCRIPTS.md))
-  - 'system' is some "desktop environment" configuration
-  - 'wallpapers' are... wallpapers
-- 💻 `hosts` are the system configuration files
-  - 'laptop' is my configuration for my laptop with Nvidia that you can copy
-  - 'server' is for my homeserver (w/nextcloud, nginx, vaultwarden, ... look `hosts/server`)
-  - 'themes' contains all the *themes* available *(see [THEMES.md](docs/THEMES.md))*
-  - 'modules' are some nix modules that you can import (Nvidia, prime, fonts, ...)
+### 🏠 `home`
+
+Those are the dotfiles and configuration files for user-level configuration
+
+**Subfolders:**
+
+- `programs` is a collection of apps configured with home-manager
+- `scripts` is a folder full of bash scripts (see [SCRIPTS.md](docs/SCRIPTS.md))
+- `system` is some "desktop environment" configuration
+- `wallpapers` are... wallpapers
+
+### 💻 `hosts`
+
+Those are the host-specific configurations
+Each host contains a `configuration.nix` for system-level configuration, a `home.nix` for user-level configuration, and a `variables.nix` for config wide variables.
+
+**Subfolders:**
+
+- 🎨 `themes` are the themes available *(see [THEMES.md](docs/THEMES.md))*
+- 📦 `modules` are the nix modules that you can import
+- `laptop` is my configuration for my laptop with Nvidia that you can copy
+- `server` is for my homeserver (w/nextcloud, nginx, vaultwarden, ...)
 
 ## Installation
 
