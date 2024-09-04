@@ -11,6 +11,7 @@
     ../modules/nix.nix
     ../modules/auto-upgrade.nix
     ../modules/home-manager.nix
+    ../modules/network-manager.nix
 
     # internal
     ./modules/internal/security.nix
