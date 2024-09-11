@@ -717,6 +717,22 @@
         "url": "https://devimages-cdn.apple.com/design/resources/download/NY.dmg"
       }
     },
+    "plugin-markdown": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725904000,
+        "narHash": "sha256-mbqX0+yGMjW3fHtDXVnVh6nUOG6waCW/sAXSQugc33Y=",
+        "owner": "MeanderingProgrammer",
+        "repo": "markdown.nvim",
+        "rev": "a5e2d0b1215814c3d033be1fd8eccf59ce366399",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MeanderingProgrammer",
+        "repo": "markdown.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "anotherhadi-portfolio": "anotherhadi-portfolio",
@@ -728,6 +744,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",
         "nixvim": "nixvim",
+        "plugin-markdown": "plugin-markdown",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix"
       }
