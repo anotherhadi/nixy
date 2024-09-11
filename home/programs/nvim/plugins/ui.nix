@@ -19,18 +19,6 @@
       trouble.enable = true;
       indent-blankline.enable = true;
       which-key.enable = true;
-      headlines = {
-        enable = true;
-        settings = {
-          markdown = {
-            headline_highlights = [ "Headline1" "Headline" ];
-            fat_headlines = false;
-            bullets = [ "" "◉" "○" "✸" ];
-            dash_string = "";
-            codeblock_highlight = "Headline";
-          };
-        };
-      };
       nvim-colorizer.enable = true;
       tagbar.enable = true; # FIXME: Tagbar is not working
     };

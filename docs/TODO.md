@@ -17,6 +17,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Keymaps:
     - Trouble
     - Tagbar (actually not working)
+    - Markdown
 
 - [ ] Change my keyboard backlight
   - Issue on nixos-hardware ig
