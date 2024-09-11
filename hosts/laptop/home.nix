@@ -42,7 +42,6 @@
       xfce.thunar
       bitwarden
       vlc
-      gnome-calendar
 
       # Dev
       go
