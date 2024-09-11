@@ -32,6 +32,10 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     anotherhadi-portfolio.url = "github:anotherhadi/portfolio";
+    plugin-markdown = {
+      url = "github:MeanderingProgrammer/markdown.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
