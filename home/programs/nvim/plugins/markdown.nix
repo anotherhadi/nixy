@@ -20,34 +20,25 @@
 
           # Links
           MkdnCreateLink = false;
-          MkdnCreateLinkFromClipboard = {
-            key = "<leader>lc";
-            modes = [ "n" "v" ];
-          };
-          MkdnDestroyLink = {
-            key = "<leader>dl";
-            modes = "n";
-          };
+          MkdnCreateLinkFromClipboard = false;
+          MkdnDestroyLink = false;
           MkdnFollowLink = false;
           MkdnNextLink = {
             key = "<Tab>";
-            modes = "n";
-          };
-          MkdnYankAnchorLink = {
-            key = "ya";
-            modes = "n";
-          };
-          MkdnYankFileAnchorLink = {
-            key = "yfa";
             modes = "n";
           };
           MkdnPrevLink = {
             key = "<S-Tab>";
             modes = "n";
           };
-
+          MkdnYankAnchorLink = false;
+          MkdnYankFileAnchorLink = false;
           MkdnDecreaseHeading = {
             key = "-";
+            modes = "n";
+          };
+          MkdnIncreaseHeading = {
+            key = "+";
             modes = "n";
           };
           MkdnExtendList = false;
@@ -63,18 +54,8 @@
             key = "<BS>";
             modes = "n";
           };
-          MkdnGoForward = {
-            key = "<Del>";
-            modes = "n";
-          };
-          MkdnIncreaseHeading = {
-            key = "+";
-            modes = "n";
-          };
-          MkdnMoveSource = {
-            key = "<F2>";
-            modes = "n";
-          };
+          MkdnGoForward = false;
+          MkdnMoveSource = false;
           MkdnNewListItem = false;
           MkdnNewListItemAboveInsert = {
             key = "O";
@@ -95,23 +76,23 @@
           MkdnSTab = false;
           MkdnTab = false;
           MkdnTableFormat = {
-            key = "<leader>ft";
+            key = "<leader>tf";
             modes = "n";
           };
           MkdnTableNewColAfter = {
-            key = "<leader>ic";
+            key = "<leader>tc";
             modes = "n";
           };
           MkdnTableNewColBefore = {
-            key = "<leader>iC";
+            key = "<leader>tC";
             modes = "n";
           };
           MkdnTableNewRowAbove = {
-            key = "<leader>iR";
+            key = "<leader>tR";
             modes = "n";
           };
           MkdnTableNewRowBelow = {
-            key = "<leader>ir";
+            key = "<leader>tr";
             modes = "n";
           };
           MkdnTableNextCell = {
