@@ -18,6 +18,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - Trouble
     - Tagbar (actually not working)
     - Markdown
+  - [ ] <https://github.com/0fie/Mika>
 
 - [ ] Change my keyboard backlight
   - Issue on nixos-hardware ig
