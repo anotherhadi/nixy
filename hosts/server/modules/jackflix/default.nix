@@ -16,6 +16,7 @@ in {
     "d ${root_folder}/radarr 0755 nixarr nixarr"
     "d ${root_folder}/sonarr 0755 nixarr nixarr"
     "d ${root_folder}/jellyfin 0755 nixarr nixarr"
+    "d ${root_folder}/bazarr 0755 nixarr nixarr"
     "d ${root_folder}/transmission 0755 nixarr nixarr"
     "d ${root_folder}/completed 0755 nixarr nixarr"
     "d ${root_folder}/incomplete 0755 nixarr nixarr"
@@ -67,6 +68,13 @@ in {
       user = "nixarr";
       group = "nixarr";
       dataDir = "${root_folder}/sonarr";
+      openFirewall = true;
+    };
+
+    bazarr = {
+      enable = true;
+      user = "nixarr";
+      group = "nixarr";
       openFirewall = true;
     };
   };
