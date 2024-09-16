@@ -1,5 +1,5 @@
 {
-  wallpaper = "20.png";
+  wallpaper = "the-road-black.png";
 
   font = "SFProDisplay Nerd Font";
   font-mono = "FiraCode Nerd Font Mono";
