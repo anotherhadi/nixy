@@ -9,6 +9,8 @@
   ];
 
   home.packages = with pkgs; [
+    qt5.qtwayland
+    qt6.qtwayland
     hyprshot
     hyprpicker
     swappy
