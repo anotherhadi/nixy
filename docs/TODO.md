@@ -2,9 +2,6 @@
 
 feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
-- [ ] Wofi config
-  - Calculator
-
 - [ ] Test hyprshade (replacement for gammastep)
 
 - [ ] Qutebrowser
@@ -19,9 +16,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - Tagbar (actually not working)
     - Markdown
   - [ ] <https://github.com/0fie/Mika>
-
-- [ ] Change my keyboard backlight
-  - Issue on nixos-hardware ig
 
 - [ ] Update docs
 

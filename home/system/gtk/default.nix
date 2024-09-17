@@ -12,8 +12,8 @@
     theme = { name = "FlatColor"; };
 
     iconTheme = {
-      package = pkgs.moka-icon-theme;
-      name = "Moka";
+      package = pkgs.kora-icon-theme;
+      name = "Kora";
     };
 
     font = {
