@@ -20,12 +20,10 @@
       indent-blankline.enable = true;
       which-key.enable = true;
       nvim-colorizer.enable = true;
-      tagbar.enable = true; # FIXME: Tagbar is not working
+      tagbar = {
+        enable = true;
+        tagsPackage = pkgs.universal-ctags;
+      };
     };
-    keymaps = [{
-      key = "<leader>t";
-      action = "<cmd>TroubleToggle<cr>";
-      options.desc = "Trouble";
-    }];
   };
 }
