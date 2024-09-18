@@ -131,7 +131,7 @@
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "GTK_THEME,FlatColor:dark"
         "GTK2_RC_FILES,/home/hadi/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
-        "AQ_DRM_DEVICES,/dev/dri/card2"
+        "AQ_DRM_DEVICES,/dev/dri/card2" # TODO: Why the fuck this is needed
       ];
 
       cursor = {
