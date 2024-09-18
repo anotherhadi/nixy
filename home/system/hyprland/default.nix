@@ -131,6 +131,7 @@
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "GTK_THEME,FlatColor:dark"
         "GTK2_RC_FILES,/home/hadi/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
+        "AQ_DRM_DEVICES,/dev/dri/card2"
       ];
 
       cursor = {
@@ -176,10 +177,6 @@
         focus_on_activate = true;
         new_window_takes_over_fullscreen = 2;
       };
-
-      render = { explicit_sync = "0"; };
-
-      opengl = { nvidia_anti_flicker = false; };
 
       input = {
         kb_layout = config.var.keyboardLayout;
