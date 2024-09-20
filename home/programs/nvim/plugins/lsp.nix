@@ -43,6 +43,8 @@
           tidy.enable = true;
           shellharden.enable = true;
           shfmt.enable = true;
+          golines.enable = true;
+          gofumpt.enable = true;
         };
       };
     };
