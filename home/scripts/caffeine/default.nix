@@ -10,11 +10,11 @@ let
 
   caffeine = pkgs.writeShellScriptBin "caffeine" ''
     if [[ $(pidof "hypridle") ]]; then
-      pkill hypridle
+      systemctl --user stop hypridle.service
       title="󰅶  Caffeine Activated"
       description="Caffeine is now active! Your screen will not turn off automatically."
     else
-      ${pkgs.hyprland}/bin/hyprctl dispatch exec ${pkgs.hypridle}/bin/hypridle
+      systemctl --user start hypridle.service
       title="󰾪  Caffeine Deactivated"
       description="Caffeine is now deactivated! Your screen will turn off automatically."
     fi
