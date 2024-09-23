@@ -10,6 +10,7 @@
     };
     plugins = {
       lualine.enable = true;
+      web-devicons.enable = true;
       noice.enable = true;
       gitsigns = {
         enable = true;
