@@ -45,7 +45,11 @@
         } == 1 ]] && systemctl --user start sops-nix"
       ];
 
-      monitor = [ "eDP-2,highres,0x0,1" ",prefered,auto,1" ];
+      monitor = [
+        "eDP-2,highres,0x0,1"
+        "HDMI-A-1,3440x1440@99.98,auto,1"
+        ",prefered,auto,1"
+      ];
 
       # plugin = {
       #   hyprexpo = {
