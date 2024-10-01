@@ -224,7 +224,8 @@
           "theme.bar.menus.menu.media.background.color": "#${config.var.theme.colors.bgalt}",
           "theme.bar.menus.menu.media.card.color": "#${config.var.theme.colors.bgalt}",
           "theme.bar.menus.menu.media.card.tint": 90,
-          "bar.customModules.updates.pollingInterval": 1440000
+          "bar.customModules.updates.pollingInterval": 1440000,
+          "bar.media.show_active_only": true
         }
       '';
   };
