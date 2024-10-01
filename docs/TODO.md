@@ -12,6 +12,8 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
     - Tagbar (actually not working)
     - Markdown
   - [ ] <https://github.com/0fie/Mika>
+- [ ] Scrips:
+  - [ ] Toggle hyprpanel
 - [ ] Update docs
 
 ## Server

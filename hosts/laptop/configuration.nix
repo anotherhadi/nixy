@@ -3,6 +3,7 @@
     ../modules/fonts.nix
     ../modules/nvidia.nix
     ../modules/prime.nix
+    ../modules/xorg.nix
     ../modules/zsh.nix
     ../modules/tuigreet.nix
     ../modules/auto-upgrade.nix

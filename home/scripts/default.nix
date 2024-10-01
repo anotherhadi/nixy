@@ -4,6 +4,7 @@
     ./sounds
     ./brightness
     ./caffeine
+    ./hyprpanel
     ./night-shift
     ./screenshot
     ./nerdfont_fzf
