@@ -22,10 +22,10 @@
         keybind = "l";
       }
       {
-        label = "hibernate";
-        action = "systemctl hibernate";
-        text = "Hibernate";
-        keybind = "h";
+        label = "suspend";
+        action = "systemctl suspend";
+        text = "Suspend";
+        keybind = "u";
       }
       {
         label = "logout";
@@ -34,10 +34,10 @@
         keybind = "e";
       }
       {
-        label = "suspend";
-        action = "systemctl suspend";
-        text = "Suspend";
-        keybind = "u";
+        label = "hibernate";
+        action = "systemctl hibernate";
+        text = "Hibernate";
+        keybind = "h";
       }
     ];
 
