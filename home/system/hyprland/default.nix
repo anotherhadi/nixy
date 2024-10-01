@@ -11,6 +11,9 @@
   home.packages = with pkgs; [
     qt5.qtwayland
     qt6.qtwayland
+    qt5ct
+    qt6ct
+
     hyprshot
     hyprpicker
     swappy
@@ -20,7 +23,6 @@
     wl-clipboard
     brightnessctl
     gnome-themes-extra
-    qt5ct
     libva
     dconf
     wayland-utils
