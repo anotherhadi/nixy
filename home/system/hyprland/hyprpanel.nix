@@ -115,7 +115,7 @@
           "bar.workspaces.hideUnoccupied": false,
           "bar.windowtitle.label": true,
           "bar.volume.label": false,
-          "bar.network.truncation_size": 7,
+          "bar.network.truncation_size": 12,
           "bar.bluetooth.label": false,
           "bar.clock.format": "%a %b %d  %I:%M %p",
           "bar.notifications.show_total": true,
