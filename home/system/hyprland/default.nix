@@ -27,14 +27,16 @@
     dconf
     wayland-utils
     wayland-protocols
+    direnv
     meson
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+    systemd.enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-    # plugins = [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo ]; TODO: broken
+    plugins = [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo ];
 
     settings = {
       "$mod" = "SUPER";
@@ -53,20 +55,20 @@
         ",prefered,auto,1"
       ];
 
-      # plugin = {
-      #   hyprexpo = {
-      #     columns = 2;
-      #     gap_size = 5;
-      #     bg_col = "rgb(111111)";
-      #     workspace_method =
-      #       "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
-      #
-      #     enable_gesture = true; # laptop touchpad
-      #     gesture_fingers = 3; # 3 or 4
-      #     gesture_distance = 300; # how far is the "max"
-      #     gesture_positive = true; # positive = swipe down. Negative = swipe up.
-      #   };
-      # };
+      plugin = {
+        hyprexpo = {
+          columns = 2;
+          gap_size = 5;
+          bg_col = "rgb(111111)";
+          workspace_method =
+            "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
+
+          enable_gesture = true; # laptop touchpad
+          gesture_fingers = 3; # 3 or 4
+          gesture_distance = 300; # how far is the "max"
+          gesture_positive = true; # positive = swipe down. Negative = swipe up.
+        };
+      };
 
       bind = [
         "$mod, RETURN, exec, ${pkgs.kitty}/bin/kitty" # Kitty
@@ -76,7 +78,7 @@
         "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock
         "$mod, X, exec, powermenu" # Powermenu
         "$mod, SPACE, exec, menu" # Launcher
-        # "$shiftMod, SPACE, hyprexpo:expo, toggle" # HyprExpo
+        "$shiftMod, SPACE, hyprexpo:expo, toggle" # HyprExpo
 
         "$mod, Q, killactive," # Close window
         "$mod, T, togglefloating," # Toggle Floating
@@ -137,6 +139,17 @@
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "GTK_THEME,FlatColor:dark"
         "GTK2_RC_FILES,/home/hadi/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
+        "__GL_GSYNC_ALLOWED,0"
+        "__GL_VRR_ALLOWED,0"
+        "DISABLE_QT5_COMPAT,0"
+        "DIRENV_LOG_FORMAT,"
+        "WLR_DRM_NO_ATOMIC,1"
+        "WLR_BACKEND,vulkan"
+        "WLR_RENDERER,vulkan"
+        "WLR_NO_HARDWARE_CURSORS,1"
+        "XDG_SESSION_TYPE,wayland"
+        "SDL_VIDEODRIVER,wayland"
+        "CLUTTER_BACKEND,wayland"
         "AQ_DRM_DEVICES,/dev/dri/card2" # TODO: Why the fuck this is needed
       ];
 
@@ -261,4 +274,7 @@
 
     };
   };
+  systemd.user.targets.hyprland-session.Unit.Wants =
+    [ "xdg-desktop-autostart.target" ];
+
 }
