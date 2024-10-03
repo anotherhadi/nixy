@@ -7,6 +7,9 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Hyprland
   - [ ] Fix screenshots (screenshot region's border shows up in the screenshot, hyprshot jq error?) and add in the scripts doc
 - [ ] Nixvim
+  - [ ] Harpoon
+  - [ ] UFO for folding
+  - [ ] neotest golang
   - [ ] Keymaps:
     - Trouble
     - Tagbar (actually not working)

@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }: {
 
-  home.packages = with pkgs; [ bat ripgrep tldr ];
+  home.packages = with pkgs; [ bat ripgrep tldr sesh ];
 
   home.sessionPath = [ "$HOME/go/bin" ];
 
