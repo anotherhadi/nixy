@@ -1,6 +1,14 @@
 { config, pkgs, ... }: {
   programs.kitty = {
     enable = true;
+    # Reset existing mappings
+    keybindings = {
+      "ctrl+alt+tab" = "next_tab";
+      "ctrl+alt+shift+tab" = "previous_tab";
+      # Send Ctrl Tab and Ctrl + Shift + Tab for Tmux navigation
+      "ctrl+tab" = "send_text all \\x1b[27;5;9~";
+      "ctrl+shift+tab" = "send_text all \\x1b[27;6;9~";
+    };
     settings = {
       scrollback_lines = 10000;
       initial_window_width = 1200;
