@@ -36,7 +36,6 @@
     xwayland.enable = true;
     systemd.enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-    plugins = [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo ];
 
     settings = {
       "$mod" = "SUPER";
@@ -55,21 +54,6 @@
         ",prefered,auto,1"
       ];
 
-      plugin = {
-        hyprexpo = {
-          columns = 2;
-          gap_size = 5;
-          bg_col = "rgb(111111)";
-          workspace_method =
-            "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
-
-          enable_gesture = true; # laptop touchpad
-          gesture_fingers = 3; # 3 or 4
-          gesture_distance = 300; # how far is the "max"
-          gesture_positive = true; # positive = swipe down. Negative = swipe up.
-        };
-      };
-
       bind = [
         "$mod, RETURN, exec, ${pkgs.kitty}/bin/kitty" # Kitty
         "$mod, E, exec, ${pkgs.xfce.thunar}/bin/thunar" # Thunar
@@ -78,7 +62,7 @@
         "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock
         "$mod, X, exec, powermenu" # Powermenu
         "$mod, SPACE, exec, menu" # Launcher
-        "$shiftMod, SPACE, hyprexpo:expo, toggle" # HyprExpo
+        "$shiftMod, SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
 
         "$mod, Q, killactive," # Close window
         "$mod, T, togglefloating," # Toggle Floating

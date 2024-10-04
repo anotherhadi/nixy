@@ -9,16 +9,9 @@
         gopls.enable = true;
         nixd.enable = true;
         tailwindcss.enable = true;
-        # html.enable = true; # FIXME: broken for some reason
+        html.enable = true;
         svelte.enable = true;
         marksman.enable = true;
-        ltex = {
-          enable = false;
-          settings = {
-            enabled = false;
-            language = "en";
-          };
-        };
       };
       keymaps.lspBuf = {
         "gd" = "definition";

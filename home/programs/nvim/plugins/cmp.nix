@@ -15,7 +15,10 @@
         sources = [
           { name = "nvim_lsp"; }
           { name = "luasnip"; }
-          { name = "buffer"; }
+          {
+            name = "buffer";
+            option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+          }
           { name = "nvim_lua"; }
           { name = "path"; }
         ];
@@ -80,7 +83,7 @@
           completion = {
             winhighlight =
               "FloatBorder:CmpBorder,Normal:CmpPmenu,Search:PmenuSel";
-            scrollbar = true;
+            scrollbar = false;
             sidePadding = 0;
             border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
           };
