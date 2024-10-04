@@ -18,6 +18,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] <https://github.com/redyf/Neve/blob/main/config/utils/whichkey.nix>
 - [ ] Update docs
 - [ ] Workflow README
+- [ ] Put wallpapers in a separate repo, with a flake.nix
 
 ## Server
 
