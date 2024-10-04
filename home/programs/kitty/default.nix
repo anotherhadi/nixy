@@ -1,13 +1,14 @@
-{ config, pkgs, ... }: {
+{ config, ... }: {
   programs.kitty = {
     enable = true;
-    # Reset existing mappings
     keybindings = {
+      # Reset existing mappings
       "ctrl+alt+tab" = "next_tab";
       "ctrl+alt+shift+tab" = "previous_tab";
       # Send Ctrl Tab and Ctrl + Shift + Tab for Tmux navigation
       "ctrl+tab" = "send_text all \\x1b[27;5;9~";
       "ctrl+shift+tab" = "send_text all \\x1b[27;6;9~";
+      "alt+tab" = "send_text all \\x1b[27;3;9~";
     };
     settings = {
       scrollback_lines = 10000;
@@ -18,7 +19,7 @@
       confirm_os_window_close = "0";
       remember_window_size = "no";
       disable_ligatures = "never";
-      shell = "${pkgs.tmux}/bin/tmux";
+      # shell = "${pkgs.tmux}/bin/tmux";
       url_style = "curly";
       cursor_shape = "Underline";
       cursor_underline_thickness = config.var.theme.border-size;
