@@ -2,7 +2,7 @@
   wallpaper = "the-road-black.png";
 
   font = "SFProDisplay Nerd Font";
-  font-mono = "FiraCode Nerd Font Mono";
+  font-mono = "MesloLGM Nerd Font Mono";
   font-size = 14;
 
   rounding = 15;
