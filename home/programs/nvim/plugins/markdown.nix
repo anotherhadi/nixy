@@ -9,7 +9,7 @@
     extraConfigLua = "require('render-markdown').setup({})";
     plugins = {
       mkdnflow = {
-        enable = true;
+        enable = false;
         mappings = {
 
           # Main

@@ -8,10 +8,11 @@
     ./plugins/tree.nix
     ./plugins/ui.nix
     ./plugins/utils.nix
-    ./plugins/zen-mode.nix
 
     ./options.nix
     ./colorscheme.nix
     ./keymaps.nix
   ];
+
+  programs.nixvim.enable = true;
 }

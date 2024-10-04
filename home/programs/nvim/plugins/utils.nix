@@ -13,10 +13,6 @@
       friendly-snippets.enable = true;
       telescope = {
         enable = true;
-        keymaps = {
-          "<leader>fg" = "live_grep";
-          "<leader> " = "find_files";
-        };
         extensions.fzf-native = { enable = true; };
       };
       treesitter = {
@@ -29,23 +25,5 @@
       };
       treesitter-context.enable = true;
     };
-    keymaps = [
-      {
-        key = "<C-h>";
-        action = "<cmd>TmuxNavigateLeft<cr>";
-      }
-      {
-        key = "<C-j>";
-        action = "<cmd>TmuxNavigateDown<cr>";
-      }
-      {
-        key = "<C-k>";
-        action = "<cmd>TmuxNavigateUp<cr>";
-      }
-      {
-        key = "<C-l>";
-        action = "<cmd>TmuxNavigateRight<cr>";
-      }
-    ];
   };
 }

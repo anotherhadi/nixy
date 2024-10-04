@@ -25,7 +25,8 @@
     plugins = with pkgs; [
       tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.resurrect
-      tmuxPlugins.nord
+      tmuxPlugins.sensible
+      tmuxPlugins.tokyo-night-tmux
     ];
   };
 }
