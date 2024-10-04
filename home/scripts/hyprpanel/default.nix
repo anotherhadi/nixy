@@ -6,8 +6,13 @@ let
     hyprpanel -t bar-2
     hyprpanel -t bar-3
   '';
+
   hyprpanel-reload = pkgs.writeShellScriptBin "hyprpanel-reload" ''
     [ $(pgrep "ags") ] && pkill ags
     hyprctl dispatch exec hyprpanel
   '';
-in { home.packages = [ hyprpanel-toggle hyprpanel-reload ]; }
+
+  hyprpanel-kill = pkgs.writeShellScriptBin "hyprpanel-kill" ''
+    [ $(pgrep "ags") ] && pkill ags
+  '';
+in { home.packages = [ hyprpanel-toggle hyprpanel-reload hyprpanel-kill ]; }

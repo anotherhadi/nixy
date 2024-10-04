@@ -21,12 +21,23 @@
         "echo; ${pkgs.pfetch}/bin/pfetch"
       else
         ""}
+
+      function sesh-sessions() {
+        session=$(sesh list -t -c | fzf --height 70% --reverse)
+        [[ -z "$session" ]] && return
+        sesh connect $session
+      }
+
+      zle     -N             sesh-sessions
+      bindkey -M emacs '\es' sesh-sessions
+      bindkey -M vicmd '\es' sesh-sessions
+      bindkey -M viins '\es' sesh-sessions
     '';
 
     history = {
       ignoreDups = true;
-      save = 1000000;
-      size = 1000000;
+      save = 10000;
+      size = 10000;
     };
 
     profileExtra = lib.optionalString (config.home.sessionPath != [ ]) ''
