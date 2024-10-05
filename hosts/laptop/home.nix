@@ -11,8 +11,6 @@
     ../../home/programs/fetch
     ../../home/programs/git
     ../../home/programs/spicetify
-    ../../home/programs/btop
-    ../../home/programs/cava
     ../../home/programs/nextcloud
 
     # Scripts
@@ -20,7 +18,7 @@
 
     # System (Desktop environment like stuff)
     ../../home/system/hyprland
-    ../../home/system/gtk
+    # ../../home/system/gtk
     ../../home/system/wlogout
     ../../home/system/wofi
     ../../home/system/batsignal
@@ -60,6 +58,8 @@
       pfetch
       pandoc
       tailscale
+      btop
+      cava
 
       # Just cool
       peaclock

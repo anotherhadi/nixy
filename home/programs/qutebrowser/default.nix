@@ -117,88 +117,88 @@ in {
       };
 
       colors = {
-        tabs = {
-          odd.bg = "#${config.var.theme.colors.bg}";
-          odd.fg = "#${config.var.theme.colors.fg}";
-          even.bg = "#${config.var.theme.colors.bg}";
-          even.fg = "#${config.var.theme.colors.fg}";
-          selected = {
-            odd = {
-              bg = "#${config.var.theme.colors.accent}";
-              fg = "#${config.var.theme.colors.accentFg}";
-            };
-            even = {
-              bg = "#${config.var.theme.colors.accent}";
-              fg = "#${config.var.theme.colors.accentFg}";
-            };
-          };
-          indicator = {
-            error = "#${config.var.theme.colors.c1}";
-            start = "#${config.var.theme.colors.bgalt}";
-            stop = "#${config.var.theme.colors.bgalt}";
-          };
-        };
-
-        hints = {
-          bg = "#${config.var.theme.colors.bgalt}";
-          fg = "#${config.var.theme.colors.fgalt}";
-          match.fg = "#${config.var.theme.colors.bg}";
-        };
-
-        completion = {
-          category = {
-            bg = "#${config.var.theme.colors.bg}";
-            fg = "#${config.var.theme.colors.fg}";
-            border = {
-              top = "#${config.var.theme.colors.bg}";
-              bottom = "#${config.var.theme.colors.bg}";
-            };
-          };
-
-          odd.bg = "#${config.var.theme.colors.bg}";
-          even.bg = "#${config.var.theme.colors.bg}";
-
-          fg = [ "#FFFFFF" "#FFFFFF" "#FFFFFF" ];
-
-          match.fg = "#${config.var.theme.colors.accent}";
-
-          item.selected = {
-            bg = "#${config.var.theme.colors.accent}";
-            border.top = "#${config.var.theme.colors.accent}";
-            border.bottom = "#${config.var.theme.colors.accent}";
-            fg = "#${config.var.theme.colors.accentFg}";
-            match.fg = "#${config.var.theme.colors.accentFg}";
-          };
-        };
-
-        statusbar = {
-          normal.bg = "#${config.var.theme.colors.bg}";
-          normal.fg = "#${config.var.theme.colors.fg}";
-          private.bg = "#${config.var.theme.colors.bg}";
-          private.fg = "#${config.var.theme.colors.fg}";
-          insert.bg = "#${config.var.theme.colors.accent}";
-          insert.fg = "#${config.var.theme.colors.accentFg}";
-          command = {
-            bg = "#${config.var.theme.colors.bgalt}";
-            fg = "#${config.var.theme.colors.fgalt}";
-            private.bg = "#${config.var.theme.colors.bgalt}";
-            private.fg = "#${config.var.theme.colors.fgalt}";
-          };
-        };
-
-        messages = {
-          info = {
-            bg = "#${config.var.theme.colors.bgalt}";
-            fg = "#${config.var.theme.colors.fgalt}";
-            border = "#${config.var.theme.colors.bgalt}";
-          };
-
-          error = {
-            bg = "#${config.var.theme.colors.c1}";
-            fg = "#${config.var.theme.colors.fgalt}";
-            border = "#${config.var.theme.colors.c1}";
-          };
-        };
+        #   tabs = {
+        #     odd.bg = "#${config.var.theme.colors.bg}";
+        #     odd.fg = "#${config.var.theme.colors.fg}";
+        #     even.bg = "#${config.var.theme.colors.bg}";
+        #     even.fg = "#${config.var.theme.colors.fg}";
+        #     selected = {
+        #       odd = {
+        #         bg = "#${config.var.theme.colors.accent}";
+        #         fg = "#${config.var.theme.colors.accentFg}";
+        #       };
+        #       even = {
+        #         bg = "#${config.var.theme.colors.accent}";
+        #         fg = "#${config.var.theme.colors.accentFg}";
+        #       };
+        #     };
+        #     indicator = {
+        #       error = "#${config.var.theme.colors.c1}";
+        #       start = "#${config.var.theme.colors.bgalt}";
+        #       stop = "#${config.var.theme.colors.bgalt}";
+        #     };
+        #   };
+        #
+        #   hints = {
+        #     bg = "#${config.var.theme.colors.bgalt}";
+        #     fg = "#${config.var.theme.colors.fgalt}";
+        #     match.fg = "#${config.var.theme.colors.bg}";
+        #   };
+        #
+        #   completion = {
+        #     category = {
+        #       bg = "#${config.var.theme.colors.bg}";
+        #       fg = "#${config.var.theme.colors.fg}";
+        #       border = {
+        #         top = "#${config.var.theme.colors.bg}";
+        #         bottom = "#${config.var.theme.colors.bg}";
+        #       };
+        #     };
+        #
+        #     odd.bg = "#${config.var.theme.colors.bg}";
+        #     even.bg = "#${config.var.theme.colors.bg}";
+        #
+        #     fg = [ "#FFFFFF" "#FFFFFF" "#FFFFFF" ];
+        #
+        #     match.fg = "#${config.var.theme.colors.accent}";
+        #
+        #     item.selected = {
+        #       bg = "#${config.var.theme.colors.accent}";
+        #       border.top = "#${config.var.theme.colors.accent}";
+        #       border.bottom = "#${config.var.theme.colors.accent}";
+        #       fg = "#${config.var.theme.colors.accentFg}";
+        #       match.fg = "#${config.var.theme.colors.accentFg}";
+        #     };
+        #   };
+        #
+        #   statusbar = {
+        #     normal.bg = "#${config.var.theme.colors.bg}";
+        #     normal.fg = "#${config.var.theme.colors.fg}";
+        #     private.bg = "#${config.var.theme.colors.bg}";
+        #     private.fg = "#${config.var.theme.colors.fg}";
+        #     insert.bg = "#${config.var.theme.colors.accent}";
+        #     insert.fg = "#${config.var.theme.colors.accentFg}";
+        #     command = {
+        #       bg = "#${config.var.theme.colors.bgalt}";
+        #       fg = "#${config.var.theme.colors.fgalt}";
+        #       private.bg = "#${config.var.theme.colors.bgalt}";
+        #       private.fg = "#${config.var.theme.colors.fgalt}";
+        #     };
+        #   };
+        #
+        #   messages = {
+        #     info = {
+        #       bg = "#${config.var.theme.colors.bgalt}";
+        #       fg = "#${config.var.theme.colors.fgalt}";
+        #       border = "#${config.var.theme.colors.bgalt}";
+        #     };
+        #
+        #     error = {
+        #       bg = "#${config.var.theme.colors.c1}";
+        #       fg = "#${config.var.theme.colors.fgalt}";
+        #       border = "#${config.var.theme.colors.c1}";
+        #     };
+        #   };
 
         #webpage.darkmode.enabled = true; # Enable dark mode for all websites (Weird on images)
         webpage.preferred_color_scheme =
@@ -207,7 +207,7 @@ in {
 
       statusbar.show = "in-mode";
 
-      fonts = { default_family = "${config.var.theme.font}"; };
+      # fonts = { default_family = "${config.var.theme.font}"; };
 
       completion = {
         height = "30%";
@@ -236,7 +236,7 @@ in {
       };
 
       hints = {
-        border = "none";
+        # border = "none";
         radius = 1;
       };
 
