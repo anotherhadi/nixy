@@ -36,6 +36,7 @@
       url = "github:MeanderingProgrammer/markdown.nvim";
       flake = false;
     };
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
@@ -49,6 +50,7 @@
           }
           inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME
           inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
           ./hosts/laptop/configuration.nix # CHANGEME
         ];
       };
