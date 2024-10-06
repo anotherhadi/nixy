@@ -166,14 +166,14 @@
         options.desc = "Spell Suggest";
       }
       {
-        key = "<leader>st";
-        action = "<cmd>lua require('telescope.builtin').treesitter()<cr>";
-        options.desc = "Treesitter";
-      }
-      {
         key = "<leader>sr";
         action = "<cmd>:noh<return><esc>";
         options.desc = "Reset search";
+      }
+      {
+        key = "<leader>st";
+        action = "<cmd>TodoTelescope<cr>";
+        options.desc = "Todos";
       }
 
       # Trouble

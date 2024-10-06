@@ -18,8 +18,7 @@
 
     # System (Desktop environment like stuff)
     ../../home/system/hyprland
-    # ../../home/system/gtk
-    ../../home/system/wlogout
+    ../../home/system/gtk
     ../../home/system/wofi
     ../../home/system/batsignal
     ../../home/system/zathura

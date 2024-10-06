@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 let
   nerdfetch = pkgs.writeShellScriptBin "nerdfetch" ''
           ostype="$(uname)"
@@ -345,9 +345,9 @@ let
 
           ## USER VARIABLES -- YOU CAN CHANGE THESE
 
-          lc="$reset$bold''$${config.var.theme.colors.accentName}" # labels
-          nc="$reset$bold''$${config.var.theme.colors.accentName}" # labels
-          hn="$reset$bold''$${config.var.theme.colors.accentName}" # labels
+          lc="$reset$bold$magenta" # labels
+          nc="$reset$bold$magenta" # labels
+          hn="$reset$bold$magenta" # labels
           ic="$reset$white"          # info
           c0="$reset$grey"           # first color
           c1="$reset$white"          # second color

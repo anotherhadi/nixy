@@ -7,10 +7,10 @@ let
         "openLinksInNewTab": false,
         "locale": "fr-FR",
         "colors": {
-          "primary": "#${config.var.theme.colors.accent}",
-          "background": "#${config.var.theme.colors.bg}",
-          "foreground": "#${config.var.theme.colors.fg}",
-          "muted": "#${config.var.theme.colors.c8}"
+          "primary": "#${config.lib.stylix.colors.base0D}",
+          "background": "#${config.lib.stylix.colors.base00}",
+          "foreground": "#${config.lib.stylix.colors.base05}",
+          "muted": "#${config.lib.stylix.colors.base03}"
         },
         "folders": [
           {
@@ -73,7 +73,7 @@ let
 
 in {
 
-  imports = [ ./duckduckgo-colorscheme.nix ];
+  # imports = [ ./duckduckgo-colorscheme.nix ];
 
   programs.qutebrowser = {
     enable = true;

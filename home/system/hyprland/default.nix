@@ -4,7 +4,7 @@
     ./hyprlock.nix
     ./hypridle.nix
     ./hyprpaper.nix
-    ./hyprcursor.nix
+    # ./hyprcursor.nix
     ./hyprpanel.nix
   ];
 

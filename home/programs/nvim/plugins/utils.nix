@@ -1,7 +1,7 @@
 { config, ... }: {
   programs.nixvim = {
     highlightOverride = {
-      FloatBorder.fg = "#${config.var.theme.colors.accent}";
+      FloatBorder.fg = "#${config.lib.stylix.colors.base0D}";
     };
     plugins = {
       copilot-vim.enable = true;
@@ -15,6 +15,7 @@
         enable = true;
         extensions.fzf-native = { enable = true; };
       };
+      todo-comments.enable = true;
       treesitter = {
         enable = true;
         nixGrammars = true;
