@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [ neofetch ];
 
   xdg.configFile."neofetch/ascii.txt".text = ''
@@ -109,9 +109,6 @@
     song_format="%artist% - %album% - %title%"
     song_shorthand="off"
     mpc_args=()
-    colors=(${toString config.var.theme.colors.accentNumber} 1 ${
-      toString config.var.theme.colors.accentNumber
-    } ${toString config.var.theme.colors.accentNumber} 7)
     bold="on"
     underline_enabled="on"
     underline_char="-"

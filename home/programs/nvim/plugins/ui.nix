@@ -3,9 +3,9 @@
 
   programs.nixvim = {
     highlight = {
-      Headline.bg = "#${config.var.theme.colors.bgalt}";
+      Headline.bg = "#${config.lib.stylix.colors.base0D}";
       Headline.bold = true;
-      Headline1.bg = "#${config.var.theme.colors.c0}";
+      Headline1.bg = "#${config.lib.stylix.colors.base01}";
       Headline1.bold = true;
     };
     plugins = {

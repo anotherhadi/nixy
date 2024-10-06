@@ -1,9 +1,9 @@
 { config, ... }: {
 
   programs.nixvim.highlight = {
-    AlphaHeaderColor.fg = "#${config.var.theme.colors.accent}";
-    AlphaTextColor.fg = "#${config.var.theme.colors.fg}";
-    AlphaShortcutColor.fg = "#${config.var.theme.colors.fgalt}";
+    AlphaHeaderColor.fg = "#${config.lib.stylix.colors.base0D}";
+    AlphaTextColor.fg = "#${config.lib.stylix.colors.base05}";
+    AlphaShortcutColor.fg = "#${config.lib.stylix.colors.base03}";
   };
 
   programs.nixvim.plugins.alpha = {
