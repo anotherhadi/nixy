@@ -2,28 +2,23 @@
 
   fonts = {
     packages = with pkgs; [
-      material-icons
-      material-design-icons
       roboto
       work-sans
       comic-neue
       source-sans
-      twemoji-color-font
       comfortaa
       inter
       lato
       lexend
       jost
       dejavu_fonts
-      iosevka-bin
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      jetbrains-mono
       (nerdfonts.override { fonts = [ "FiraCode" "Meslo" ]; })
-      inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
-      inputs.apple-fonts.packages.${pkgs.system}.sf-mono-nerd
       openmoji-color
+      twemoji-color-font
+      inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
     ];
 
     enableDefaultPackages = false;

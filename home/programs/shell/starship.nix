@@ -10,10 +10,10 @@
         "$git_status"
         "$character"
       ];
-      directory = { style = "#${config.var.theme.colors.accent}"; };
+      directory = { style = "#${config.lib.stylix.colors.base0D}"; };
 
       character = {
-        success_symbol = "[❯](#${config.var.theme.colors.accent})";
+        success_symbol = "[❯](#${config.lib.stylix.colors.base0D})";
         error_symbol = "[❯](red)";
         vimcmd_symbol = "[❮](cyan)";
       };
