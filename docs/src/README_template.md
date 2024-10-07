@@ -43,7 +43,7 @@ It's a simple way to manage your system configuration and dotfiles.
 
 ## Architecture
 
-### 🏠 `home`
+### 🏠 home
 
 Those are the dotfiles and configuration files for user-level configuration
 
@@ -52,13 +52,17 @@ Those are the dotfiles and configuration files for user-level configuration
 - `programs` is a collection of apps configured with home-manager
 - `scripts` is a folder full of bash scripts (see [SCRIPTS.md](docs/SCRIPTS.md))
 - `system` is some "desktop environment" configuration
-- `wallpapers` are... wallpapers
 
-### `nixos`
+### 🐧 nixos
 
-### `themes`
+Those are the system-level configurations.
 
-### 💻 `hosts`
+### 🎨 themes
+
+Those are the themes used in the system configuration.
+Those themes are based on [stylix](https://github.com/danth/stylix).
+
+### 💻 hosts
 
 Those are the host-specific configurations
 Each host contains a `configuration.nix` for system-level configuration, a `home.nix` for user-level configuration, and a `variables.nix` for config wide variables.
