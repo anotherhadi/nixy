@@ -5,7 +5,7 @@
 #- - `nixy` - UI wizard to manage the system.
 #- - `nixy rebuild` - Rebuild the system.
 #- - `nixy ...` - ... see the script for more commands.
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
 let
   nixy = pkgs.writeShellScriptBin "nixy"
     # bash
@@ -24,7 +24,8 @@ let
           "󰚰;Update;nixy update"
           ";Collect Garbage;nixy gc"
           "󰍜;Clean Boot Menu;nixy cb"
-          " ;Hyprland Keybindings;nvim ${config.var.configDirectory}/docs/KEYBINDINGS-HYPRLAND.md"
+          "󰌌;Hyprland Keybindings;nvim ${config.var.configDirectory}/docs/KEYBINDINGS-HYPRLAND.md"
+          "󰋩;Wallpapers;nvim ${inputs.nixy-wallpapers}/docs/MOBILE-VIEW.md"
         )
 
         # Apply default icons if empty:

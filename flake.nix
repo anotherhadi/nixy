@@ -28,7 +28,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     plugin-markdown = {
-      # TODO: Put the new url
+      # TODO: Put the new url (render-markdown.nvim)
       url = "github:MeanderingProgrammer/markdown.nvim";
       flake = false;
     };
@@ -41,19 +41,20 @@
 
   outputs = inputs@{ nixpkgs, ... }: {
     nixosConfigurations = {
-      nixy = nixpkgs.lib.nixosSystem { # CHANGEME
-        system = "x86_64-linux";
-        modules = [
-          {
-            nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
-            _module.args = { inherit inputs; };
-          }
-          inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME
-          inputs.home-manager.nixosModules.home-manager
-          inputs.stylix.nixosModules.stylix
-          ./hosts/laptop/configuration.nix # CHANGEME
-        ];
-      };
+      nixy = # CHANGEME
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            {
+              nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+              _module.args = { inherit inputs; };
+            }
+            inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME
+            inputs.home-manager.nixosModules.home-manager
+            inputs.stylix.nixosModules.stylix
+            ./hosts/laptop/configuration.nix # CHANGEME
+          ];
+        };
     };
   };
 }
