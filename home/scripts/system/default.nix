@@ -1,3 +1,10 @@
+# - ## System
+#- 
+#- Usefull quick scripts
+#-
+#- - `menu` - Open wofi with drun mode.
+#- - `powermenu` - Open power dropdown menu.
+#- - `lock` - Lock the screen.
 { pkgs, ... }:
 
 let
