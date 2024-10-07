@@ -10,9 +10,6 @@ The process is straight-forward.
 - Create a Pull Request against the main branch of Nixy.
 
 > [!TIP]
-> When wallpapers are added, run `./docs/scripts/compress_png.sh` and `./docs/scripts/create_preview_wallpapers.sh`
-
-> [!TIP]
 > To update the README, change the `./docs/src/README_template.md` and run `./docs/scripts/create_readme.sh`
 
 > [!IMPORTANT]

@@ -1,3 +1,11 @@
+# - ## Hyprfocus
+#-
+#- A simple script to toggle focus on few windows in Hyprland.
+#- (disable gaps, border, shadow, opacity, etc.)
+#-
+#- - `hyprfocus-on` - Enable hyprfocus.
+#- - `hyprfocus-off` - Disable hyprfocus.
+#- - `hyprfocus-toggle` - Toggle hyprfocus.
 { pkgs, ... }:
 let
   hyprfocus-on = pkgs.writeShellScriptBin "hyprfocus-on"

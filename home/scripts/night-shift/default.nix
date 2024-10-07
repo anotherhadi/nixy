@@ -1,3 +1,12 @@
+# - ## Night-Shift
+#-
+#- Night-Shift is a feature that reduces the amount of blue light emitted by your screen, which can help reduce eye strain and improve sleep quality. This module provides a set of scripts to control Night-Shift on your system.
+#-
+#- - `night-shift-on` activates Night-Shift.
+#- - `night-shift-off` deactivates Night-Shift.
+#- - `night-shift` toggles Night-Shift.
+#- - `night-shift-status` checks if Night-Shift is active. (0/1)
+#- - `night-shift-status-icon` checks if Night-Shift is active. (icon)
 { pkgs, ... }:
 
 let
