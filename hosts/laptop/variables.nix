@@ -21,11 +21,6 @@
     autoUpgrade = false;
     autoGarbageCollector = false;
 
-    # SOPS
-    # Sops is a tool to store secrets in git repositories encrypted with GPG.
-    # change the sops configuration if you want to enable that:
-    sops = true;
-
     theme = {
       rounding = 15;
       gaps-in = 10;

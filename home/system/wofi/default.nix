@@ -55,6 +55,7 @@
         #input {
           background-color: #${config.lib.stylix.colors.base00};
           border: 0px solid #${config.lib.stylix.colors.base0D};
+          color: #${config.lib.stylix.colors.base05};
           padding: 8px 12px;
         }
 
