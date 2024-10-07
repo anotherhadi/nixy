@@ -1,13 +1,7 @@
-{ pkgs, config, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [ ctags ];
 
   programs.nixvim = {
-    highlight = {
-      Headline.bg = "#${config.lib.stylix.colors.base0D}";
-      Headline.bold = true;
-      Headline1.bg = "#${config.lib.stylix.colors.base01}";
-      Headline1.bold = true;
-    };
     plugins = {
       lualine = {
         enable = true;
@@ -56,7 +50,6 @@
         enable = true;
         settings.current_line_blame = false;
       };
-      # bufferline.enable = true;
       trouble.enable = true;
       indent-blankline.enable = true;
       which-key.enable = true;

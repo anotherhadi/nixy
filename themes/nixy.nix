@@ -51,7 +51,7 @@
     };
 
     polarity = "dark";
-    image = inputs.nixy-wallpapers + "/magma.png";
+    image = inputs.nixy-wallpapers + "/wallpapers/degirled.png";
   };
 
 }
