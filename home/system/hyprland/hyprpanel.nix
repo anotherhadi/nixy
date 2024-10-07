@@ -131,7 +131,7 @@
           "menus.clock.weather.location": "${config.var.location}",
           "menus.clock.weather.key": "myapikey",
           "menus.clock.weather.unit": "metric",
-          "menus.dashboard.powermenu.avatar.image": "${config.var.homeDirectory}/.profile_picture.png",
+          "menus.dashboard.powermenu.avatar.image": "/home/${config.var.username}/.profile_picture.png",
           "menus.dashboard.powermenu.confirmation": false,
 
           "menus.dashboard.shortcuts.left.shortcut1.icon": "",
