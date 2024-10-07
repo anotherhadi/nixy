@@ -7,6 +7,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,12 +25,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     plugin-markdown = {
-      # TODO: Put the new url (render-markdown.nvim)
-      url = "github:MeanderingProgrammer/markdown.nvim";
+      url = "github:MeanderingProgrammer/render-markdown.nvim";
       flake = false;
     };
     nixy-wallpapers = {
@@ -37,6 +35,7 @@
       flake = false;
     };
     stylix.url = "github:danth/stylix";
+    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
