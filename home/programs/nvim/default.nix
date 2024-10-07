@@ -10,7 +10,6 @@
     ./plugins/utils.nix
 
     ./options.nix
-    ./colorscheme.nix
     ./keymaps.nix
   ];
 

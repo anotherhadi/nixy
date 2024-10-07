@@ -40,7 +40,7 @@
       bar = {
         transparent = false;
         floating = true;
-        font-size = 13;
+        font-size = 15;
       };
     };
   };
