@@ -45,18 +45,14 @@
       nodejs
       python3
       jq
-      nurl
-      prefetch-npm-deps
       figlet
 
       # Utils
       zip
       unzip
-      glow
       optipng
       pfetch
       pandoc
-      tailscale
       btop
       cava
 
@@ -71,12 +67,6 @@
       firefox
       neovide
     ];
-
-    # Import wallpapers into $HOME/wallpapers
-    file."wallpapers" = {
-      recursive = true;
-      source = ../../home/wallpapers;
-    };
 
     # Import my profile picture, used by the hyprpanel dashboard
     file.".profile_picture.png" = { source = ./profile_picture.png; };

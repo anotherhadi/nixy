@@ -1,15 +1,15 @@
-{ config, ... }: {
+{ config, lib, ... }: {
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
-    # colors = {
-    #   "fg+" = config.var.theme.colors.accentName;
-    #   "bg+" = "-1";
-    #   "fg" = "white";
-    #   "bg" = "-1";
-    #   "prompt" = "grey";
-    #   "pointer" = config.var.theme.colors.accentName;
-    # };
+    colors = lib.mkForce {
+      "fg+" = "#" + config.lib.stylix.colors.base0D;
+      "bg+" = "-1";
+      "fg" = "#" + config.lib.stylix.colors.base05;
+      "bg" = "-1";
+      "prompt" = "#" + config.lib.stylix.colors.base03;
+      "pointer" = "#" + config.lib.stylix.colors.base0D;
+    };
     defaultOptions = [
       "--margin=1"
       "--layout=reverse"

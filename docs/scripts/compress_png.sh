@@ -13,8 +13,3 @@ done
 for file in ./docs/src/*/*.png; do
   optipng "$file"
 done
-
-# Wallpapers
-for file in ./home/wallpapers/*.png; do
-  optipng "$file"
-done
