@@ -1,8 +1,6 @@
 { pkgs, inputs, ... }: {
   imports = [ inputs.sops-nix.homeManagerModules.sops ];
 
-  home.packages = with pkgs; [ sops age ];
-
   sops = {
     age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
     defaultSopsFile = ./secrets.yaml;
@@ -16,4 +14,5 @@
   };
 
   systemd.user.services.mbsync.Unit.After = [ "sops-nix.service" ];
+  home.packages = with pkgs; [ sops age ];
 }

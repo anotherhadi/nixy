@@ -12,6 +12,7 @@
     ../../home/programs/git
     ../../home/programs/spicetify
     ../../home/programs/nextcloud
+    ../../home/programs/yazi
 
     # Scripts
     ../../home/scripts # All scripts
@@ -31,7 +32,7 @@
 
   home = {
     inherit (config.var) username;
-    inherit (config.var) homeDirectory;
+    homeDirectory = "/home/" + config.var.username;
 
     packages = with pkgs; [
       # Apps

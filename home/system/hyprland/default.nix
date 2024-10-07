@@ -1,12 +1,6 @@
 { pkgs, config, inputs, ... }: {
 
-  imports = [
-    ./hyprlock.nix
-    ./hypridle.nix
-    ./hyprpaper.nix
-    # ./hyprcursor.nix
-    ./hyprpanel.nix
-  ];
+  imports = [ ./hyprlock.nix ./hypridle.nix ./hyprpaper.nix ./hyprpanel.nix ];
 
   home.packages = with pkgs; [
     qt5.qtwayland
