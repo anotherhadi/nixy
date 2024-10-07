@@ -1,3 +1,11 @@
+# - ## Caffeine
+#-
+#- Caffeine is a simple script that toggles hypridle (disable suspend & screenlock).
+#-
+#- - `caffeine-status` - Check if hypridle is running. (0/1)
+#- - `caffeine-status-icon` - Check if hypridle is running. (icon)
+#- - `caffeine` - Toggle hypridle.
+
 { pkgs, ... }:
 let
   caffeine-status = pkgs.writeShellScriptBin "caffeine-status" ''

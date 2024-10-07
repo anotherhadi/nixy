@@ -1,3 +1,10 @@
+# - ## Hyprpanel
+#- 
+#- Quick scripts to toggle, reload and kill hyprpanel.
+#-
+#- - `hyprpanel-toggle` - Toggle hyprpanel.
+#- - `hyprpanel-reload` - Reload hyprpanel.
+#- - `hyprpanel-kill` - Kill hyprpanel.
 { pkgs, ... }:
 let
   hyprpanel-toggle = pkgs.writeShellScriptBin "hyprpanel-toggle" ''

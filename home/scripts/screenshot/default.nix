@@ -1,5 +1,9 @@
+# - ## Screenshot
+#-
+#- This module provides a script to take screenshots using `hyprshot` and `swappy`.
+#-
+#- - `screenshot [region|window|monitor] [swappy]` - Take a screenshot of the region, window, or monitor. Optionally, use `swappy` to copy the screenshot to the clipboard.
 { pkgs, ... }:
-
 let
   screenshot = pkgs.writeShellScriptBin "screenshot" ''
     if [[ $2 == "swappy" ]];then

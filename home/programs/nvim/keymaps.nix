@@ -62,7 +62,7 @@
       }
       {
         key = "<leader>E";
-        action = "<cmd>Neotree<cr>";
+        action = "<cmd>Neotree toggle<cr>";
         options.desc = "Neotree";
       }
 

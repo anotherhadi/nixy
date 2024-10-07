@@ -1,3 +1,8 @@
+# - ## Nerdfont FZF
+#-
+#- This module provides a script to search for Nerd Fonts icons using fzf.
+#-
+#- - `nerdfont-fzf` - Search for Nerd Fonts icons using fzf.
 { pkgs, config, ... }:
 let
   homedir = config.home.homeDirectory;
