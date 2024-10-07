@@ -74,7 +74,7 @@ in {
         font_color = foreground;
         fade_on_empty = false;
         font_family = config.stylix.fonts.serif.name + " Bold";
-        placeholder_text = "<i>🔒 Enter Pass</i>";
+        placeholder_text = "<i>🔒 Enter Password</i>";
         hide_input = false;
         position = "0, -250";
         halign = "center";

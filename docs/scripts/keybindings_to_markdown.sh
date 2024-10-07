@@ -17,9 +17,9 @@ function getList() {
   echo "$list"
 }
 
-[[ -f "./home/system/hyprland/default.nix" ]] || (echo "File ./home/system/hyprland/default.nix not found" && exit 1)
+[[ -f "./home/system/hyprland/bindings.nix" ]] || (echo "File ./home/system/hyprland/bindings.nix not found" && exit 1)
 
-config=$(cat "./home/system/hyprland/default.nix")
+config=$(cat "./home/system/hyprland/bindings.nix")
 
 # Bind
 bind=$(getList "$config" "bind")

@@ -18,6 +18,7 @@
     ../../nixos/variables-config.nix
 
     ../../themes/nixy.nix
+
     ./hardware-configuration.nix
     ./variables.nix
   ];
