@@ -24,16 +24,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    anotherhadi-portfolio.url = "github:anotherhadi/portfolio";
     plugin-markdown = {
+      # TODO: Put the new url
       url = "github:MeanderingProgrammer/markdown.nvim";
+      flake = false;
+    };
+    nixy-wallpapers = {
+      url = "github:anotherhadi/nixy-wallpapers";
       flake = false;
     };
     stylix.url = "github:danth/stylix";
@@ -54,17 +54,6 @@
           ./hosts/laptop/configuration.nix # CHANGEME
         ];
       };
-
-      jack = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          { _module.args = { inherit inputs; }; }
-          inputs.sops-nix.nixosModules.sops
-          inputs.home-manager.nixosModules.home-manager
-          ./hosts/server/configuration.nix
-        ];
-      };
-
     };
   };
 }

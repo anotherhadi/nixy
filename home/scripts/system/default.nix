@@ -10,11 +10,7 @@ let
   '';
 
   powermenu = pkgs.writeShellScriptBin "powermenu" ''
-    if pgrep wlogout; then
-    	pkill wlogout
-    else
-      ${pkgs.wlogout}/bin/wlogout
-    fi
+    hyprpanel -t powerdropdownmenu
   '';
 
   lock = pkgs.writeShellScriptBin "lock" ''

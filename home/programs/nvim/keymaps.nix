@@ -61,6 +61,12 @@
         options.desc = "Oil";
       }
       {
+        key = "<leader>E";
+        action = "<cmd>Neotree<cr>";
+        options.desc = "Neotree";
+      }
+
+      {
         key = "<C-h>";
         action = "<cmd>TmuxNavigateLeft<cr>";
       }

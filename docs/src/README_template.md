@@ -1,6 +1,35 @@
+<div align="center">
+    <img src="https://raw.githubusercontent.com/anotherhadi/nixy/main/docs/src/logo.png" width="100px" />
+</div>
+
+<br>
+
+# Nixy
+
+<br>
+<div align="center">
+    <a href="https://github.com/anotherhadi/nixy/stargazers">
+        <img src="https://img.shields.io/github/stars/anotherhadi/nixy?color={primarycolor}&labelColor={backgroundcolor}&style=for-the-badge&logo=starship&logoColor={primarycolor}">
+    </a>
+    <a href="https://github.com/anotherhadi/nixy/">
+        <img src="https://img.shields.io/github/repo-size/anotherhadi/nixy?color={primarycolor}&labelColor={backgroundcolor}&style=for-the-badge&logo=github&logoColor={primarycolor}">
+    </a>
+    <a href="https://nixos.org">
+        <img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&labelColor={backgroundcolor}&logo=NixOS&logoColor={primarycolor}&color={primarycolor}">
+    </a>
+    <a href="https://github.com/anotherhadi/nixy/blob/main/LICENSE">
+        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&colorA={backgroundcolor}&colorB={primarycolor}&logo=unlicense&logoColor={primarycolor}"/>
+    </a>
+</div>
+<br>
 
 **Nixy** is a **Hyprland** NixOS configuration with **home-manager**, **secrets**, and **custom theming** all in one place.
 It's a simple way to manage your system configuration and dotfiles.
+
+*Key points:*
+
+- Hyprecosystem first (Hyprland, hyprlock, hyprpanel, hypridle, ...)
+- Stylix/base16 themes
 
 ## Table of Content
 
@@ -25,17 +54,14 @@ Those are the dotfiles and configuration files for user-level configuration
 - `system` is some "desktop environment" configuration
 - `wallpapers` are... wallpapers
 
+### `nixos`
+
+### `themes`
+
 ### 💻 `hosts`
 
 Those are the host-specific configurations
 Each host contains a `configuration.nix` for system-level configuration, a `home.nix` for user-level configuration, and a `variables.nix` for config wide variables.
-
-**Subfolders:**
-
-- 🎨 `themes` are the themes available *(see [THEMES.md](docs/THEMES.md))*
-- 📦 `modules` are the nix modules that you can import
-- `laptop` is my configuration for my laptop with Nvidia that you can copy
-- `server` is for my homeserver (w/nextcloud, nginx, vaultwarden, ...)
 
 ## Installation
 
@@ -57,10 +83,9 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 ## Documentation
 
 - [THEMES.md](docs/THEMES.md): How themes work and how to create your own
-- [APPS.md](docs/APPS.md): Which apps are installed
 - [SCRIPTS.md](docs/SCRIPTS.md): Scripts that are available
 - [KEYBINDINGS.md](docs/KEYBINDINGS.md): Keybindings available in Hyprland
-- [WALLPAPERS.md](docs/WALLPAPERS.md): Preview of every wallpapers available
+- [WALLPAPERS.md](https://github.com/anotherhadi/nixy-wallpapers): A collection of wallpapers for Nixy.
 
 - [TODO.md](docs/TODO.md): What's next (feel free to contribute)
 - [CONTRIBUTING.md](docs/CONTRIBUTING.md): How to contribute

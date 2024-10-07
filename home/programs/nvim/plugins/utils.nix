@@ -14,6 +14,10 @@
       telescope = {
         enable = true;
         extensions.fzf-native = { enable = true; };
+        settings = {
+          selection_caret = "/ ";
+          layout_config = { prompt_position = "top"; };
+        };
       };
       todo-comments.enable = true;
       treesitter = {

@@ -9,6 +9,13 @@ in {
     enable = true;
     theme = lib.mkForce spicePkgs.themes.text;
 
+    # TODO: Colors not working
+    customColorScheme = lib.mkForce {
+      button = "#${config.lib.stylix.colors.base0D}";
+      button-active = "#${config.lib.stylix.colors.base0D}";
+      tab-active = "#${config.lib.stylix.colors.base0D}";
+    };
+
     enabledExtensions = with spicePkgs.extensions; [
       playlistIcons
       lastfm
