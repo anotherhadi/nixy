@@ -7,7 +7,7 @@
       base00 = "0b0b0b"; # Default Background
       base01 =
         "1b1b1b"; # Lighter Background (Used for status bars, line number and folding marks)
-      base02 = "313244"; # Selection Background
+      base02 = "2b2b2b"; # Selection Background
       base03 = "45475a"; # Comments, Invisibles, Line Highlighting
       base04 = "585b70"; # Dark Foreground (Used for status bars)
       base05 = "fcfcfc"; # Default Foreground, Caret, Delimiters, Operators

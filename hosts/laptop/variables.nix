@@ -4,8 +4,7 @@
   config.var = {
     hostname = "nixy";
     username = "hadi";
-    homeDirectory = "/home/" + config.var.username;
-    configDirectory = config.var.homeDirectory + "/.config/nixos";
+    configDirectory = "/home/" + config.var.username + "/.config/nixos";
 
     keyboardLayout = "fr";
 
@@ -27,7 +26,6 @@
     # change the sops configuration if you want to enable that:
     sops = true;
 
-    # theme = import ../themes/nixy.nix; # select your theme here
     theme = {
       rounding = 15;
       gaps-in = 10;
@@ -36,13 +34,13 @@
       inactive-opacity = 0.89;
       blur = true;
       border-size = 3;
-      animation-speed = "fast"; # "fast" | "medium" | "slow"
+      animation-speed = "medium"; # "fast" | "medium" | "slow"
       fetch = "nerdfetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
 
       bar = {
         transparent = false;
         floating = true;
-        font-size = 16;
+        font-size = 13;
       };
     };
   };
