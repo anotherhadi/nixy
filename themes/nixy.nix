@@ -50,13 +50,8 @@
       };
     };
 
-    # targets.nixvim.transparentBackground = {
-    #   main = true;
-    #   signColumn = true;
-    # };
-
     polarity = "dark";
-    image = ../home/wallpapers/nix.png;
+    image = inputs.nixy-wallpapers + "/magma.png";
   };
 
 }

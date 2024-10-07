@@ -41,7 +41,7 @@
 
       bar = {
         transparent = false;
-        floating = false;
+        floating = true;
         font-size = 16;
       };
     };

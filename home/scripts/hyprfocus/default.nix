@@ -27,9 +27,9 @@ let
     # bash 
     ''
       if [ -f /tmp/hyprfocus ]; then
-        hyprfocus-kill
+        hyprfocus-off
       else
-        hyprfocus
+        hyprfocus-on
       fi
     '';
 in { home.packages = [ hyprfocus-on hyprfocus-off hyprfocus-toggle ]; }
