@@ -13,8 +13,7 @@ let
     ''
       hyprctl keyword "general:gaps_in" 0
       hyprctl keyword "general:gaps_out" 0
-      # TODO: Fix this:
-      hyprpanel-toggle
+      hyprpanel-hide
       hyprctl keyword "general:border_size" 1
       hyprctl keyword "decoration:rounding" 0
       hyprctl keyword "decoration:drop_shadow" false
@@ -27,7 +26,7 @@ let
     # bash
     ''
       hyprctl reload
-      hyprpanel-reload
+      hyprpanel-show
       rm /tmp/hyprfocus
     '';
 
