@@ -17,6 +17,8 @@
       "$mod, right, movefocus, r" # Move focus Right
       "$mod, up, movefocus, u" # Move focus Up
       "$mod, down, movefocus, d" # Move focus Down
+      "$shiftMod, up, focusmonitor, -1" # Focus previous monitor
+      "$shiftMod, down, focusmonitor, 1" # Focus next monitor
       "$shiftMod, left, layoutmsg, addmaster" # Add to master
       "$shiftMod, right, layoutmsg, removemaster" # Remove from master
 

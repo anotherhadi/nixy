@@ -67,6 +67,12 @@
       }
 
       {
+        key = "s";
+        action = "<cmd>lua require('flash').jump()<cr>";
+        options.desc = "Flash";
+      }
+
+      {
         key = "<C-h>";
         action = "<cmd>TmuxNavigateLeft<cr>";
       }
