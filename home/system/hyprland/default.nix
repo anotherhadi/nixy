@@ -68,7 +68,7 @@
         "XDG_SESSION_TYPE,wayland"
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
-        "AQ_DRM_DEVICES,/dev/dri/card2" # FIXME: Why the fuck this is needed
+        "AQ_DRM_DEVICES,/dev/dri/card2" # CHANGEME: Related to the GPU
       ];
 
       cursor = {

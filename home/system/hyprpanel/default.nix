@@ -100,7 +100,9 @@
           "theme.bar.buttons.workspaces.active": "#${config.lib.stylix.colors.base0D}",
           "theme.bar.buttons.workspaces.available": "#${config.lib.stylix.colors.base00}",
 
-          "theme.bar.margin_top": "1.0em",
+          "theme.bar.margin_top": "${
+            toString (config.var.theme.gaps-in * 2)
+          }px",
           "theme.bar.margin_sides": "${toString config.var.theme.gaps-out}px",
           "theme.bar.margin_bottom": "0px",
           "theme.bar.border_radius": "${toString config.var.theme.rounding}px",
