@@ -10,12 +10,10 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] OS Hardening with nix-mineral
 
 - [ ] Nixvim
+  - [ ] Change headings foreground
   - [ ] Markdown tab size 2
   - [ ] UFO for folding
   - [ ] neotest golang
   - [ ] nvim dap
-  - [ ] <https://github.com/0fie/Mika>
-  - [ ] <https://github.com/redyf/Neve/blob/main/config/utils/whichkey.nix>
 
-- [ ] Workflow README
 - [ ] Update config screenshots
