@@ -1,4 +1,5 @@
-{ ... }: {
+{
+  # The wallpaper is set by stylix
   services.hyprpaper = {
     enable = true;
     settings = {
