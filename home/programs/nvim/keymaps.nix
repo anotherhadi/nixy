@@ -7,6 +7,7 @@
           breadcrumb = "»";
           group = "+";
           separator = ""; # ➜
+          mappings = false;
         };
         spec = [
           # General Mappings
