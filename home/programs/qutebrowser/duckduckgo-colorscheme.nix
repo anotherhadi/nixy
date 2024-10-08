@@ -27,8 +27,6 @@
         });
       };
 
-      alert('The Nixy theme will be applied.');
-
       // Call set cookies, passing in formated cookie data
       setCookies(cookieToJSON(cookie));
 
