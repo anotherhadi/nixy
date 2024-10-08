@@ -243,7 +243,7 @@
         options.desc = "Close";
       }
 
-      # code
+      # Code
       {
         key = "<leader>cd";
         action = "<cmd>lua vim.lsp.buf.definition()<cr>";
@@ -255,24 +255,9 @@
         options.desc = "LSP References";
       }
       {
-        key = "<leader>ci";
-        action = "<cmd>lua vim.lsp.buf.implementation()<cr>";
-        options.desc = "LSP Implementation";
-      }
-      {
         key = "<leader>ct";
         action = "<cmd>lua vim.lsp.buf.type_definition()<cr>";
         options.desc = "LSP Type Definition";
-      }
-      {
-        key = "<leader>cs";
-        action = "<cmd>lua vim.lsp.buf.signature_help()<cr>";
-        options.desc = "LSP Signature Help";
-      }
-      {
-        key = "<leader>ch";
-        action = "<cmd>lua vim.lsp.buf.hover()<cr>";
-        options.desc = "LSP Hover";
       }
       {
         key = "<leader>ca";
@@ -285,11 +270,6 @@
         options.desc = "LSP Formatting";
       }
       {
-        key = "<leader>ce";
-        action = "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>";
-        options.desc = "LSP Line Diagnostics";
-      }
-      {
         key = "<leader>cn";
         action = "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>";
         options.desc = "LSP Next Diagnostic";
@@ -299,7 +279,16 @@
         action = "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>";
         options.desc = "LSP Previous Diagnostic";
       }
-
+      {
+        key = "<leader>cu";
+        action = "<cmd>lua require('dapui').toggle()<CR>";
+        options.desc = "Toggle Dapui";
+      }
+      {
+        key = "<leader>cb";
+        action = "<cmd>lua require('dap').toggle_breakpoint()<CR>";
+        options.desc = "Toggle breakpoint";
+      }
     ];
   };
 }

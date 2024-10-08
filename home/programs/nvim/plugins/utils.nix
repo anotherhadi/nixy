@@ -17,14 +17,6 @@
       comment.enable = true;
       nvim-autopairs.enable = true;
       friendly-snippets.enable = true;
-      telescope = {
-        enable = true;
-        extensions.fzf-native = { enable = true; };
-        settings = {
-          selection_caret = "/ ";
-          layout_config = { prompt_position = "top"; };
-        };
-      };
       todo-comments.enable = true;
       treesitter = {
         enable = true;
@@ -34,7 +26,6 @@
           highlight.enable = true;
         };
       };
-      # TODO: Add not working
       harpoon = {
         enable = true;
         enableTelescope = true;

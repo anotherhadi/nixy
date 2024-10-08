@@ -8,6 +8,8 @@
     ./plugins/tree.nix
     ./plugins/ui.nix
     ./plugins/utils.nix
+    ./plugins/dap.nix
+    ./plugins/telescope.nix
 
     ./options.nix
     ./keymaps.nix
