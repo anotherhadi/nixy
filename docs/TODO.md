@@ -10,6 +10,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] OS Hardening with nix-mineral
 
 - [ ] Nixvim
+  - [ ] Telescope Theme
   - [ ] Markdown tab size 2
   - [ ] Harpoon
   - [ ] UFO for folding
@@ -19,3 +20,4 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] <https://github.com/redyf/Neve/blob/main/config/utils/whichkey.nix>
 
 - [ ] Workflow README
+- [ ] Update config screenshots

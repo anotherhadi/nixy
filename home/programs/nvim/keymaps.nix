@@ -40,9 +40,14 @@
             mode = "n";
             group = "+windows";
           }
+          {
+            __unkeyed-1 = "<leader>h";
+            mode = "n";
+            group = "+harpoon";
+          }
         ];
         win = {
-          border = "none";
+          border = "rounded";
           wo.winblend = 0;
         };
       };
