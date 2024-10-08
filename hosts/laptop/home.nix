@@ -44,7 +44,6 @@
       xfce.thunar
       bitwarden
       vlc
-      figma-linux
 
       # Dev
       go
@@ -60,13 +59,13 @@
       pfetch
       pandoc
       btop
-      cava
 
       # Just cool
       peaclock
       cbonsai
       pipes
       cmatrix
+      cava
 
       # Backup
       vscode

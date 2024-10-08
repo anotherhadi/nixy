@@ -10,7 +10,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] OS Hardening with nix-mineral
 
 - [ ] Nixvim
-  - [ ] Telescope Theme
   - [ ] Markdown tab size 2
   - [ ] UFO for folding
   - [ ] neotest golang

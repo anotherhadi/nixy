@@ -6,6 +6,8 @@
       lualine = {
         enable = true;
         settings = {
+          options.disabled_filetypes.statusline =
+            [ "dashboard" "alpha" "neo-tree" ];
 
           alwaysDivideMiddle = true;
           globalstatus = true;
@@ -30,10 +32,12 @@
           };
         };
       };
-      dap.enable = true;
       web-devicons.enable = true;
       noice.enable = true;
-      notify.enable = true;
+      notify = {
+        enable = true;
+        level = "warn";
+      };
       gitsigns = {
         enable = true;
         settings.current_line_blame = false;
