@@ -57,6 +57,3 @@ echo "$keybindings" | while read line; do
 
   echo "| $comment | $mod$key |" >>"$KEYBINDINGS_FILE"
 done
-
-pandoc -t commonmark_x "$KEYBINDINGS_FILE" -o "/tmp/keybindings.md"
-mv "/tmp/keybindings.md" "$KEYBINDINGS_FILE"
