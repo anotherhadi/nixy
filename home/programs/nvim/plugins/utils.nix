@@ -6,7 +6,7 @@
     plugins = {
       copilot-vim.enable = true;
       flash.enable = true;
-      # image.enable = true;
+      image.enable = true;
       tmux-navigator.enable = true;
       comment.enable = true;
       nvim-autopairs.enable = true;
