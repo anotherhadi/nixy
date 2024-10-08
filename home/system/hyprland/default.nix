@@ -81,8 +81,6 @@
         gaps_in = config.var.theme.gaps-in;
         gaps_out = config.var.theme.gaps-out;
         border_size = config.var.theme.border-size;
-        # "col.active_border" = "rgba(${config.var.theme.colors.accent}ff)";
-        # "col.inactive_border" = "rgba(00000055)";
         border_part_of_window = true;
         layout = "master";
       };
@@ -94,7 +92,6 @@
         drop_shadow = true;
         shadow_range = 20;
         shadow_render_power = 3;
-        # "col.shadow" = "rgba(00000055)";
         blur = { enabled = if config.var.theme.blur then "true" else "false"; };
       };
 
