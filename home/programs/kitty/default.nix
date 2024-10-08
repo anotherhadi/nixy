@@ -19,7 +19,6 @@
       confirm_os_window_close = "0";
       remember_window_size = "no";
       disable_ligatures = "never";
-      # shell = "${pkgs.tmux}/bin/tmux";
       url_style = "curly";
       cursor_shape = "Underline";
       cursor_underline_thickness = config.var.theme.border-size;
