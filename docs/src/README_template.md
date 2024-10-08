@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://raw.githubusercontent.com/anotherhadi/nixy/main/docs/src/logo.png" width="100px" />
+    <img src="https://raw.githubusercontent.com/anotherhadi/nixy/main/docs/src/logo.png" width="120px" />
 </div>
 
 <br>
@@ -26,10 +26,15 @@
 **Nixy** is a **Hyprland** NixOS configuration with **home-manager**, **secrets**, and **custom theming** all in one place.
 It's a simple way to manage your system configuration and dotfiles.
 
-*Key points:*
+I'm Hadi, a french developer, student in infosec, enthusiastic about nix, golang & blockchains.
+This is my own, **keyboard-centric**, and **minimalistic** NixOS configuration.
+I enable vim-like keybindings everywhere I can, and I use a lot of custom scripts to make my life easier.
 
-- Hyprecosystem first (Hyprland, hyprlock, hyprpanel, hypridle, ...)
+**Nixy key points:**
+
+- Hyprecosystem first (hyprland, hyprlock, hyprpanel, hypridle, ...)
 - Stylix/base16 themes
+- Vim-like keybindings everywhere (hyprland, qutebrowser, nvim, ...)
 
 ## Table of Content
 
@@ -55,7 +60,7 @@ Those are the dotfiles and configuration files for user-level configuration
 
 ### 🐧 nixos
 
-Those are the system-level configurations.
+Those are the system-level configurations. (audio, bluetooth, gpu, bootloader, ...)
 
 ### 🎨 themes
 
@@ -64,7 +69,7 @@ Those themes are based on [stylix](https://github.com/danth/stylix).
 
 ### 💻 hosts
 
-Those are the host-specific configurations
+Those are the host-specific configurations.
 Each host contains a `configuration.nix` for system-level configuration, a `home.nix` for user-level configuration, and a `variables.nix` for config wide variables.
 
 ## Installation
@@ -75,10 +80,10 @@ git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 
 - Copy the `hosts/laptop` folder, rename it to your system name, and change the variables inside the `variables.nix` file
 - Add your `hardware-configuration.nix` to your new host's folder
-- Add your 'nixosConfigurations' inside `flake.nix` (You can edit your hostname one and change the lines containing '# CHANGEME')
+- Add your 'nixosConfigurations' inside `flake.nix`
 
 > [!INFO]
-> I added few `# CHANGEME` comments in the files to help you find what to change
+> I added few `# CHANGEME` comments in the files to help you find what to change. Be sure to check them up
 
 > [!NOTE]
 > When you add new files, don't forget to run `git add .` to add them to the git repository
