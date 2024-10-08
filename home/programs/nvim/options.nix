@@ -22,11 +22,13 @@
     hlsearch = true;
     smartcase = true;
     wildmode = "list:longest";
-    completeopt = [ "menuone" "noselect" ];
+    completeopt = [ "menuone" "noselect" "noinsert" ];
     signcolumn = "yes";
     cursorline = false;
     scrolloff = 8;
     mouse = "a";
+    termguicolors = true;
+    showmode = false;
 
     wrap = false;
 
