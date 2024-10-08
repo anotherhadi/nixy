@@ -19,8 +19,11 @@
       };
 
       git_branch = {
-        format = "[$branch]($style)";
-        style = "bright-black";
+        symbol = "[](#${config.lib.stylix.colors.base01}) ";
+        style =
+          "fg:#${config.lib.stylix.colors.base0D} bg:#${config.lib.stylix.colors.base01}";
+        format =
+          "on [$symbol$branch]($style)[](#${config.lib.stylix.colors.base01}) ";
       };
 
       git_status = {
