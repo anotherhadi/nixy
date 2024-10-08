@@ -44,6 +44,7 @@
       xfce.thunar
       bitwarden
       vlc
+      figma-linux
 
       # Dev
       go
