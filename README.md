@@ -94,10 +94,10 @@ git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 3. Add your `hardware-configuration.nix` to your new host's folder
 4. Add your 'nixosConfigurations' inside `flake.nix`
 
-> [!INFO]
+> [!Important]
 > I added few `# CHANGEME` comments in the files to help you find what to change. Be sure to check them up
 
-> [!NOTE]
+> [!TIP]
 > When you add new files, don't forget to run `git add .` to add them to the git repository
 
 5. Build the system
