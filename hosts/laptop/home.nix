@@ -14,6 +14,7 @@
     ../../home/programs/nextcloud
     ../../home/programs/yazi
     ../../home/programs/markdown
+    ../../home/programs/thunar
 
     # Scripts
     ../../home/scripts # All scripts
@@ -42,7 +43,6 @@
     packages = with pkgs; [
       # Apps
       discord
-      xfce.thunar
       bitwarden
       vlc
 
