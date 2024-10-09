@@ -13,6 +13,7 @@
     ../../home/programs/spicetify
     ../../home/programs/nextcloud
     ../../home/programs/yazi
+    ../../home/programs/markdown
 
     # Scripts
     ../../home/scripts # All scripts

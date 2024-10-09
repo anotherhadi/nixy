@@ -7,6 +7,10 @@
 #- - `nixy ...` - ... see the script for more commands.
 { pkgs, config, inputs, ... }:
 let
+
+  configDirectory = config.var.configDirectory;
+  hostname = config.var.hostname;
+
   nixy = pkgs.writeShellScriptBin "nixy"
     # bash
     ''
@@ -24,7 +28,7 @@ let
           "󰚰;Update;nixy update"
           ";Collect Garbage;nixy gc"
           "󰍜;Clean Boot Menu;nixy cb"
-          "󰌌;Hyprland Keybindings;nvim ${config.var.configDirectory}/docs/KEYBINDINGS-HYPRLAND.md"
+          "󰌌;Hyprland Keybindings;nvim ${configDirectory}/docs/KEYBINDINGS-HYPRLAND.md"
           "󰋩;Wallpapers;nvim ${inputs.nixy-wallpapers}/docs/MOBILE-VIEW.md"
         )
 
@@ -46,13 +50,13 @@ let
       [[ $1 == "" ]] && ui
 
       if [[ $1 == "rebuild" ]];then
-        sudo nixos-rebuild switch --flake ${config.var.configDirectory}#${config.var.hostname}
+        sudo nixos-rebuild switch --flake ${configDirectory}#${hostname}
       elif [[ $1 == "upgrade" ]];then
-        sudo nixos-rebuild switch --upgrade --flake ${config.var.configDirectory}#${config.var.hostname}
+        sudo nixos-rebuild switch --upgrade --flake ${configDirectory}#${hostname}
       elif [[ $1 == "update" ]];then
-        cd ${config.var.configDirectory} && nix flake update
+        cd ${configDirectory} && nix flake update
       elif [[ $1 == "gc" ]];then
-        cd ${config.var.configDirectory} && sudo nix-collect-garbage -d
+        cd ${configDirectory} && sudo nix-collect-garbage -d
       elif [[ $1 == "cb" ]];then
         sudo /run/current-system/bin/switch-to-configuration boot
       elif [[ $1 == "remote" ]];then

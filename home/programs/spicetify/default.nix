@@ -1,5 +1,7 @@
 { pkgs, config, lib, inputs, ... }:
-let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+let
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+  accent = "#${config.lib.stylix.colors.base0D}";
 in {
 
   imports = [ inputs.spicetify-nix.homeManagerModules.default ];
@@ -11,9 +13,9 @@ in {
 
     # TODO: Colors not working
     customColorScheme = lib.mkForce {
-      button = "#${config.lib.stylix.colors.base0D}";
-      button-active = "#${config.lib.stylix.colors.base0D}";
-      tab-active = "#${config.lib.stylix.colors.base0D}";
+      button = accent;
+      button-active = accent;
+      tab-active = accent;
     };
 
     enabledExtensions = with spicePkgs.extensions; [

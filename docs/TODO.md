@@ -16,4 +16,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] neotest golang
   - [ ] nvim dap
 
+- [ ] Find a good md2pdf
+
 - [ ] Update config screenshots

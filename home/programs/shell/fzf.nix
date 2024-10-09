@@ -1,14 +1,19 @@
-{ config, lib, ... }: {
+{ config, lib, ... }:
+let
+  accent = "#" + config.lib.stylix.colors.base0D;
+  foreground = "#" + config.lib.stylix.colors.base05;
+  muted = "#" + config.lib.stylix.colors.base03;
+in {
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
     colors = lib.mkForce {
-      "fg+" = "#" + config.lib.stylix.colors.base0D;
+      "fg+" = accent;
       "bg+" = "-1";
-      "fg" = "#" + config.lib.stylix.colors.base05;
+      "fg" = foreground;
       "bg" = "-1";
-      "prompt" = "#" + config.lib.stylix.colors.base03;
-      "pointer" = "#" + config.lib.stylix.colors.base0D;
+      "prompt" = muted;
+      "pointer" = accent;
     };
     defaultOptions = [
       "--margin=1"
