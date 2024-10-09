@@ -1,4 +1,15 @@
-{ pkgs, config, inputs, ... }: {
+{ pkgs, config, inputs, ... }:
+
+let
+  border-size = config.var.theme.border-size;
+  gaps-in = config.var.theme.gaps-in;
+  gaps-out = config.var.theme.gaps-out;
+  active-opacity = config.var.theme.active-opacity;
+  inactive-opacity = config.var.theme.inactive-opacity;
+  rounding = config.var.theme.rounding;
+  blur = config.var.theme.blur;
+  keyboardLayout = config.var.keyboardLayout;
+in {
 
   imports = [ ./animations.nix ./bindings.nix ];
 
@@ -78,21 +89,21 @@
 
       general = {
         resize_on_border = true;
-        gaps_in = config.var.theme.gaps-in;
-        gaps_out = config.var.theme.gaps-out;
-        border_size = config.var.theme.border-size;
+        gaps_in = gaps-in;
+        gaps_out = gaps-out;
+        border_size = border-size;
         border_part_of_window = true;
         layout = "master";
       };
 
       decoration = {
-        active_opacity = config.var.theme.active-opacity;
-        inactive_opacity = config.var.theme.inactive-opacity;
-        rounding = config.var.theme.rounding;
+        active_opacity = active-opacity;
+        inactive_opacity = inactive-opacity;
+        rounding = rounding;
         drop_shadow = true;
         shadow_range = 20;
         shadow_render_power = 3;
-        blur = { enabled = if config.var.theme.blur then "true" else "false"; };
+        blur = { enabled = if blur then "true" else "false"; };
       };
 
       master = {
@@ -113,7 +124,7 @@
       };
 
       input = {
-        kb_layout = config.var.keyboardLayout;
+        kb_layout = keyboardLayout;
 
         kb_options = "caps:escape";
         follow_mouse = 1;

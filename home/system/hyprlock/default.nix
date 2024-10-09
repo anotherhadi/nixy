@@ -1,5 +1,8 @@
 { config, ... }:
-let foreground = "rgba(216, 222, 233, 0.70)";
+let
+  foreground = "rgba(216, 222, 233, 0.70)";
+  imageStr = toString config.stylix.image;
+  font = config.stylix.fonts.serif.name;
 in {
   programs.hyprlock = {
     enable = true;
@@ -13,7 +16,7 @@ in {
       # BACKGROUND
       background = {
         monitor = "";
-        path = toString config.stylix.image;
+        path = imageStr;
         blur_passes = 0;
         contrast = 0.8916;
         brightness = 0.7172;
@@ -28,7 +31,7 @@ in {
           text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
           color = foreground;
           font_size = 28;
-          font_family = config.stylix.fonts.serif.name + " Bold";
+          font_family = font + " Bold";
           position = "0, 490";
           halign = "center";
           valign = "center";
@@ -54,7 +57,7 @@ in {
           dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
           dots_center = true;
           font_size = 18;
-          font_family = config.stylix.fonts.serif.name + " Bold";
+          font_family = font + " Bold";
           position = "0, -180";
           halign = "center";
           valign = "center";
@@ -73,7 +76,7 @@ in {
         inner_color = "rgba(255, 255, 255, 0.1)";
         font_color = foreground;
         fade_on_empty = false;
-        font_family = config.stylix.fonts.serif.name + " Bold";
+        font_family = font + " Bold";
         placeholder_text = "<i>🔒 Enter Password</i>";
         hide_input = false;
         position = "0, -250";

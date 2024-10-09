@@ -1,4 +1,4 @@
-{ config, ... }: {
+{
   programs.kitty = {
     enable = true;
     keybindings = {
@@ -21,8 +21,8 @@
       disable_ligatures = "never";
       url_style = "curly";
       cursor_shape = "Underline";
-      cursor_underline_thickness = config.var.theme.border-size;
-      window_padding_width = config.var.theme.gaps-in;
+      cursor_underline_thickness = 3;
+      window_padding_width = 10;
     };
   };
 }

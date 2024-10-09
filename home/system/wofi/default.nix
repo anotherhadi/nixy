@@ -1,4 +1,12 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }:
+let
+  accent = "#${config.lib.stylix.colors.base0D}";
+  background = "#${config.lib.stylix.colors.base00}";
+  background-alt = "#${config.lib.stylix.colors.base01}";
+  foreground = "#${config.lib.stylix.colors.base05}";
+  font = config.stylix.fonts.serif.name;
+  rounding = config.var.theme.rounding;
+in {
 
   home.packages = with pkgs; [ wofi-emoji ];
 
@@ -37,15 +45,15 @@
       # css
       ''
         * {
-          font-family: "${config.stylix.fonts.serif.name}";
+          font-family: "${font}";
           font-weight: 500;
           font-size: 13px;
         }
 
         #window {
-          background-color: #${config.lib.stylix.colors.base01};
-          color: #${config.lib.stylix.colors.base06};
-          border-radius: ${toString config.var.theme.rounding}px;
+          background-color: ${background};
+          color: ${foreground};
+          border-radius: ${toString rounding}px;
         }
 
         #outer-box {
@@ -53,9 +61,9 @@
         }
 
         #input {
-          background-color: #${config.lib.stylix.colors.base00};
-          border: 0px solid #${config.lib.stylix.colors.base0D};
-          color: #${config.lib.stylix.colors.base05};
+          background-color: ${background-alt};
+          border: 0px solid ${accent};
+          color: ${foreground};
           padding: 8px 12px;
         }
 
@@ -70,11 +78,11 @@
         }
 
         #text {
-          color: #${config.lib.stylix.colors.base05};
+          color: ${foreground};
         }
 
         #text:selected {
-          color: #${config.lib.stylix.colors.base05};
+          color: ${foreground};
         }
 
         #entry {
@@ -82,8 +90,8 @@
         }
 
         #entry:selected {
-          background-color: #${config.lib.stylix.colors.base0D};
-          color: #${config.lib.stylix.colors.base05};
+          background-color: ${accent};
+          color: ${foreground};
         }
 
         #unselected {}
@@ -92,7 +100,7 @@
 
         #input,
         #entry:selected {
-          border-radius: ${toString config.var.theme.rounding}px;
+          border-radius: ${toString rounding}px;
         }
       '';
   };

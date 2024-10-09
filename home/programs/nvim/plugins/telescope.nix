@@ -1,20 +1,25 @@
-{ config, ... }: {
+{ config, ... }:
+let
+  accent = "#${config.lib.stylix.colors.base0D}";
+  background = "#${config.lib.stylix.colors.base00}";
+  background-alt = "#${config.lib.stylix.colors.base01}";
+in {
   programs.nixvim = {
     highlight = {
-      TelescopePromptPrefix.fg = "#${config.lib.stylix.colors.base0D}";
+      TelescopePromptPrefix.fg = accent;
       TelescopeSelectionCaret = {
-        fg = "#${config.lib.stylix.colors.base0D}";
-        bg = "#${config.lib.stylix.colors.base01}";
+        fg = accent;
+        bg = background-alt;
       };
-      TelescopeSelection.bg = "#${config.lib.stylix.colors.base01}";
+      TelescopeSelection.bg = background-alt;
       TelescopePromptTitle = {
-        bg = "#${config.lib.stylix.colors.base00}";
-        fg = "#${config.lib.stylix.colors.base0D}";
+        bg = background;
+        fg = accent;
       };
-      TelescopePromptNormal.bg = "#${config.lib.stylix.colors.base00}";
+      TelescopePromptNormal.bg = background;
       TelescopePromptBorder = {
-        bg = "#${config.lib.stylix.colors.base00}";
-        fg = "#${config.lib.stylix.colors.base0D}";
+        bg = background;
+        fg = accent;
       };
     };
     plugins.telescope = {

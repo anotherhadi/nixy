@@ -8,7 +8,6 @@
 #- - `night-shift-status` checks if Night-Shift is active. (0/1)
 #- - `night-shift-status-icon` checks if Night-Shift is active. (icon)
 { pkgs, ... }:
-
 let
 
   night-shift-on = pkgs.writeShellScriptBin "night-shift-on" ''

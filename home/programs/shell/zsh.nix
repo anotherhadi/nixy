@@ -1,4 +1,6 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let fetch = config.var.theme.fetch; # neofetch, nerdfetch, pfetch
+in {
 
   home.packages = with pkgs; [ bat ripgrep tldr sesh ];
 
@@ -13,11 +15,11 @@
 
     initExtraFirst = ''
       bindkey -e
-      ${if config.var.theme.fetch == "neofetch" then
+      ${if fetch == "neofetch" then
         pkgs.neofetch + "/bin/neofetch"
-      else if config.var.theme.fetch == "nerdfetch" then
+      else if fetch == "nerdfetch" then
         "nerdfetch"
-      else if config.var.theme.fetch == "pfetch" then
+      else if fetch == "pfetch" then
         "echo; ${pkgs.pfetch}/bin/pfetch"
       else
         ""}
@@ -63,7 +65,8 @@
 
       wireguard-import = "nmcli connection import type wireguard file";
 
-      notes = "cd ~/nextcloud/Notes && -c ':Telescope find_files' index.md";
+      notes =
+        "cd ~/nextcloud/Notes && nvim -c ':Telescope find_files' index.md";
       note = "notes";
 
       # git

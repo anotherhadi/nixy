@@ -1,16 +1,20 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+let
+  hostname = config.var.hostname;
+  keyboardLayout = config.var.keyboardLayout;
+in {
 
-  networking.hostName = config.var.hostname;
+  networking.hostName = hostname;
 
   services = {
     xserver = {
       enable = true;
-      xkb.layout = config.var.keyboardLayout;
+      xkb.layout = keyboardLayout;
       xkb.variant = "";
     };
     gnome.gnome-keyring.enable = true;
   };
-  console.keyMap = config.var.keyboardLayout;
+  console.keyMap = keyboardLayout;
 
   environment.variables = {
     XDG_DATA_HOME = "$HOME/.local/share";

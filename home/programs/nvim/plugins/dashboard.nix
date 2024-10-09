@@ -1,9 +1,15 @@
-{ config, ... }: {
+{ config, ... }:
+let
+  accent = "#${config.lib.stylix.colors.base0D}";
+  muted = "#${config.lib.stylix.colors.base03}";
+  foreground = "#${config.lib.stylix.colors.base05}";
+  configDir = config.var.configDirectory;
+in {
 
   programs.nixvim.highlight = {
-    AlphaHeaderColor.fg = "#${config.lib.stylix.colors.base0D}";
-    AlphaTextColor.fg = "#${config.lib.stylix.colors.base05}";
-    AlphaShortcutColor.fg = "#${config.lib.stylix.colors.base03}";
+    AlphaHeaderColor.fg = accent;
+    AlphaTextColor.fg = foreground;
+    AlphaShortcutColor.fg = muted;
   };
 
   programs.nixvim.plugins.alpha = {
@@ -70,8 +76,7 @@
           {
             type = "button";
             val = "  NixOs Config";
-            on_press.__raw =
-              "function() vim.cmd[[Neotree ${config.var.configDirectory}]] end";
+            on_press.__raw = "function() vim.cmd[[Neotree ${configDir}]] end";
             opts = {
               shortcut = "nc";
               position = "center";
@@ -86,7 +91,7 @@
             type = "button";
             val = "  Keybindings";
             on_press.__raw =
-              "function() vim.cmd[[e ${config.var.configDirectory}/docs/KEYBINDINGS.md]] end";
+              "function() vim.cmd[[e ${configDir}/docs/KEYBINDINGS.md]] end";
             opts = {
               shortcut = "nc";
               position = "center";

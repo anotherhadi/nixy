@@ -1,4 +1,8 @@
-{ config, lib, ... }: {
+{ config, lib, ... }:
+let
+  accent = "#${config.lib.stylix.colors.base0D}";
+  background-alt = "#${config.lib.stylix.colors.base01}";
+in {
   programs.starship = {
     enable = true;
     settings = {
@@ -10,20 +14,18 @@
         "$git_status"
         "$character"
       ];
-      directory = { style = "#${config.lib.stylix.colors.base0D}"; };
+      directory = { style = accent; };
 
       character = {
-        success_symbol = "[❯](#${config.lib.stylix.colors.base0D})";
+        success_symbol = "[❯](${accent})";
         error_symbol = "[❯](red)";
         vimcmd_symbol = "[❮](cyan)";
       };
 
       git_branch = {
-        symbol = "[](#${config.lib.stylix.colors.base01}) ";
-        style =
-          "fg:#${config.lib.stylix.colors.base0D} bg:#${config.lib.stylix.colors.base01}";
-        format =
-          "on [$symbol$branch]($style)[](#${config.lib.stylix.colors.base01}) ";
+        symbol = "[](${background-alt}) ";
+        style = "fg:${accent} bg:${background-alt}";
+        format = "on [$symbol$branch]($style)[](${background-alt}) ";
       };
 
       git_status = {

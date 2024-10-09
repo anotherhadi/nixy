@@ -78,6 +78,11 @@
         action = "<cmd>lua require('flash').jump()<cr>";
         options.desc = "Flash";
       }
+      {
+        key = "K";
+        action = "<cmd>lua vim.lsp.buf.hover()<cr>";
+        options.desc = "LSP Hover";
+      }
 
       {
         key = "<C-h>";

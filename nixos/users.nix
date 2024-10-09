@@ -1,10 +1,12 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+let username = config.var.username;
+in {
   programs.zsh.enable = true;
   users = {
     defaultUserShell = pkgs.zsh;
-    users.${config.var.username} = {
+    users.${username} = {
       isNormalUser = true;
-      description = "${config.var.username} account";
+      description = "${username} account";
       extraGroups = [ "networkmanager" "wheel" ];
     };
   };

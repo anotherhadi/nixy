@@ -1,4 +1,6 @@
-{ config, ... }: {
+{ config, ... }:
+let autoGarbageCollector = config.var.autoGarbageCollector;
+in {
   nixpkgs.config = {
     allowUnfree = true;
     allowBroken = true;
@@ -16,7 +18,7 @@
       ];
     };
     gc = {
-      automatic = config.var.autoGarbageCollector;
+      automatic = autoGarbageCollector;
       persistent = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
