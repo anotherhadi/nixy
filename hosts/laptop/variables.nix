@@ -35,7 +35,6 @@
       bar = {
         transparent = false;
         floating = true;
-        font-size = 15;
       };
     };
   };

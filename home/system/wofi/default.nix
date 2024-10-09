@@ -6,6 +6,7 @@ let
   foreground = "#${config.lib.stylix.colors.base05}";
   font = config.stylix.fonts.serif.name;
   rounding = config.var.theme.rounding;
+  font-size = config.stylix.fonts.sizes.popups;
 in {
 
   home.packages = with pkgs; [ wofi-emoji ];
@@ -47,7 +48,7 @@ in {
         * {
           font-family: "${font}";
           font-weight: 500;
-          font-size: 13px;
+          font-size: ${toString font-size}px;
         }
 
         #window {

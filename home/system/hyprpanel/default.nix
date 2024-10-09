@@ -6,7 +6,7 @@ let
   background-alt = "#${config.lib.stylix.colors.base01}";
   foreground = "#${config.lib.stylix.colors.base05}";
   font = "${config.stylix.fonts.serif.name}";
-  fontSize = "${toString config.var.theme.bar.font-size}";
+  fontSize = "${toString config.stylix.fonts.sizes.desktop}";
 
   rounding = config.var.theme.rounding;
   border-size = config.var.theme.border-size;
