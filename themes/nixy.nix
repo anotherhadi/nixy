@@ -48,6 +48,16 @@
         package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd;
         name = "SFProDisplay Nerd Font";
       };
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+      sizes = {
+        applications = 13;
+        desktop = 13;
+        popups = 10;
+        terminal = 13;
+      };
     };
 
     polarity = "dark";
