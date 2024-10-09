@@ -1,5 +1,11 @@
 # The render-markdown.nvim plugin is a plugin that renders markdown files in a neovim in a more readable way.
-{ pkgs, config, inputs, ... }: {
+{ pkgs, config, inputs, ... }:
+let
+  accent = "#${config.lib.stylix.colors.base0D}";
+  muted = "#${config.lib.stylix.colors.base03}";
+  background = "#${config.lib.stylix.colors.base00}";
+in {
+
   programs.nixvim = {
     extraFiles = {
       "ftplugin/markdown.lua".text = ''
@@ -8,13 +14,13 @@
       '';
     };
     highlight = {
-      RenderMarkdownBg.bg = "#${config.lib.stylix.colors.base00}";
-      RenderMarkdownH1.fg = "#${config.lib.stylix.colors.base0D}";
-      RenderMarkdownH2.fg = "#${config.lib.stylix.colors.base0D}";
-      RenderMarkdownH3.fg = "#${config.lib.stylix.colors.base05}";
-      RenderMarkdownH4.fg = "#${config.lib.stylix.colors.base05}";
-      RenderMarkdownH5.fg = "#${config.lib.stylix.colors.base03}";
-      RenderMarkdownH6.fg = "#${config.lib.stylix.colors.base03}";
+      RenderMarkdownBg.bg = background;
+      RenderMarkdownH1.fg = accent;
+      RenderMarkdownH2.fg = muted;
+      RenderMarkdownH3.fg = muted;
+      RenderMarkdownH4.fg = muted;
+      RenderMarkdownH5.fg = muted;
+      RenderMarkdownH6.fg = muted;
     };
     extraPlugins = [
       (pkgs.vimUtils.buildVimPlugin {

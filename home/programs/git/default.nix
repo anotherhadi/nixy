@@ -1,8 +1,12 @@
-{ config, ... }: {
+{ config, ... }:
+let
+  username = config.var.git.username;
+  email = config.var.git.email;
+in {
   programs.git = {
     enable = true;
-    userName = config.var.git.username;
-    userEmail = config.var.git.email;
+    userName = username;
+    userEmail = email;
     ignores = [
       ".cache/"
       ".DS_Store"
