@@ -9,6 +9,9 @@ in {
   programs.nixvim = {
     plugins.mkdnflow = {
       enable = true;
+      modules = { conceal = false; };
+
+      toDo.symbols = [ " " "-" "x" "!" "/" ];
       mappings = {
         MkdnCreateLink = false;
         MkdnCreateLinkFromClipboard = {
@@ -22,7 +25,7 @@ in {
         MkdnDestroyLink = false;
         MkdnEnter = {
           key = "<CR>";
-          modes = [ "n" "v" "i" ];
+          modes = [ "v" ];
         };
         MkdnExtendList = false;
         MkdnFoldSection = {
@@ -127,6 +130,8 @@ in {
       RenderMarkdownH4.fg = muted;
       RenderMarkdownH5.fg = muted;
       RenderMarkdownH6.fg = muted;
+      RenderMarkdownTodo.fg = muted;
+      RenderMarkdownWarning.fg = accent;
     };
     extraPlugins = [
       (pkgs.vimUtils.buildVimPlugin {
@@ -153,10 +158,12 @@ in {
             },
           },
           checkbox = {
+            unchecked = { highlight = 'RenderMarkdownTodo' },
+            checked = { highlight = 'RenderMarkdownTodo' },
             custom = {
               pending = { raw = '[-]', rendered = '󰥔 ', highlight = 'RenderMarkdownTodo' },
-              important = { raw = '[!]', rendered = ' ', highlight = 'RenderMarkdownTodo' },
-              cancle = { raw = '[/]', rendered = '󱋬 ', highlight = 'RenderMarkdownTodo' },
+              important = { raw = '[!]', rendered = ' ', highlight = 'RenderMarkdownWarning' },
+              cancel = { raw = '[/]', rendered = '󱋬 ', highlight = 'RenderMarkdownTodo' },
             },
           },
         })

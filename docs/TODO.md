@@ -12,7 +12,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Nixvim
   - [ ] Change headings foreground
   - [ ] Markdown tab size 2
-  - [ ] UFO for folding
   - [ ] neotest golang
   - [ ] nvim dap
 
