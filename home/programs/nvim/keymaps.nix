@@ -28,6 +28,11 @@
             group = "+search";
           }
           {
+            __unkeyed-1 = "<leader>m";
+            mode = "n";
+            group = "+markdown";
+          }
+          {
             __unkeyed-1 = "<leader>t";
             mode = "n";
             group = "+trouble";

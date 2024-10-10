@@ -7,7 +7,113 @@ let
 in {
 
   programs.nixvim = {
+    plugins.mkdnflow = {
+      enable = true;
+      mappings = {
+        MkdnCreateLink = false;
+        MkdnCreateLinkFromClipboard = {
+          key = "<leader>ml";
+          modes = [ "n" "v" ];
+        };
+        MkdnDecreaseHeading = {
+          key = "<leader>m-";
+          modes = "n";
+        };
+        MkdnDestroyLink = false;
+        MkdnEnter = {
+          key = "<CR>";
+          modes = [ "n" "v" "i" ];
+        };
+        MkdnExtendList = false;
+        MkdnFoldSection = {
+          key = "<leader>mf";
+          modes = "n";
+        };
+        MkdnUnfoldSection = {
+          key = "<leader>mF";
+          modes = "n";
+        };
+        MkdnFollowLink = false;
+        MkdnGoBack = false;
+        MkdnGoForward = false;
+        MkdnIncreaseHeading = {
+          key = "<leader>m+";
+          modes = "n";
+        };
+        MkdnMoveSource = false;
+        MkdnNewListItem = false;
+        MkdnNewListItemAboveInsert = {
+          key = "O";
+          modes = "n";
+        };
+        MkdnNewListItemBelowInsert = {
+          key = "o";
+          modes = "n";
+        };
+        MkdnNextHeading = {
+          key = "<leader>m#";
+          modes = "n";
+        };
+        MkdnNextLink = {
+          key = "<Tab>";
+          modes = "n";
+        };
+        MkdnPrevHeading = {
+          key = "<leader>m*";
+          modes = "n";
+        };
+        MkdnPrevLink = {
+          key = "<S-Tab>";
+          modes = "n";
+        };
+        MkdnSTab = false;
+        MkdnTab = false;
+        MkdnTableNewColAfter = {
+          key = "<leader>mc";
+          modes = "n";
+        };
+        MkdnTableNewColBefore = {
+          key = "<leader>mC";
+          modes = "n";
+        };
+        MkdnTableNewRowAbove = {
+          key = "<leader>mR";
+          modes = "n";
+        };
+        MkdnTableNewRowBelow = {
+          key = "<leader>mr";
+          modes = "n";
+        };
+        MkdnTableNextCell = {
+          key = "<Tab>";
+          modes = "i";
+        };
+        MkdnTableNextRow = false;
+        MkdnTablePrevCell = {
+          key = "<S-Tab>";
+          modes = "i";
+        };
+        MkdnTablePrevRow = false;
+        MkdnToggleToDo = {
+          key = "<C-Space>";
+          modes = [ "n" "v" ];
+        };
+        MkdnUpdateNumbering = {
+          key = "<leader>mn";
+          modes = "n";
+        };
+        MkdnYankAnchorLink = {
+          key = "ya";
+          modes = "n";
+        };
+        MkdnYankFileAnchorLink = {
+          key = "yfa";
+          modes = "n";
+        };
+      };
+    };
     extraFiles = {
+      # TODO: Not working for some reasons
       "ftplugin/markdown.lua".text = ''
         vim.opt.tabstop = 2
         vim.opt.shiftwidth = 2
