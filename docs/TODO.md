@@ -16,6 +16,7 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Markdown tab size 2
   - [ ] neotest golang
   - [ ] nvim dap
+  - [ ] Zen mode: linebreak, word wrapping
 
 - [ ] Find a good md2pdf
 

@@ -108,6 +108,11 @@
 
       # UI
       {
+        key = "<leader>uz";
+        action = "<cmd>ZenMode<cr>";
+        options.desc = "Toggle ZenMode";
+      }
+      {
         key = "<leader>uw";
         action = "<cmd>set wrap!<cr>";
         options.desc = "Toggle word wrapping";
