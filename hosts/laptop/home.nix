@@ -25,6 +25,7 @@
     ../../home/system/hyprlock
     ../../home/system/hyprpanel
     ../../home/system/hyprpaper
+    # ../../home/system/hyprswitch
     ../../home/system/gtk
     ../../home/system/wofi
     ../../home/system/batsignal
