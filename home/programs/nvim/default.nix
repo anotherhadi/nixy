@@ -10,6 +10,7 @@
     ./plugins/utils.nix
     ./plugins/dap.nix
     ./plugins/telescope.nix
+    ./plugins/zenmode.nix
 
     ./options.nix
     ./keymaps.nix
