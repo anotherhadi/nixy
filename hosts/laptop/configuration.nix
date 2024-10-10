@@ -1,5 +1,8 @@
 { config, ... }: {
   imports = [
+    ../../nixos/nvidia.nix # CHANGEME: Remove this line if you don't have an Nvidia GPU
+    ../../nixos/prime.nix # CHANGEME: Remove this line if you don't have an Nvidia GPU
+
     ../../nixos/audio.nix
     ../../nixos/auto-upgrade.nix
     ../../nixos/bluetooth.nix
@@ -7,8 +10,6 @@
     ../../nixos/home-manager.nix
     ../../nixos/network-manager.nix
     ../../nixos/nix.nix
-    ../../nixos/nvidia.nix
-    ../../nixos/prime.nix
     ../../nixos/systemd-boot.nix
     ../../nixos/timezone.nix
     ../../nixos/tuigreet.nix

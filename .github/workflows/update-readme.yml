@@ -1,0 +1,24 @@
+on:
+  push:
+     paths:
+       - 'docs/src/README_template.md'
+permissions:
+  contents: write
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+      - name: Check out the repository to the runner
+        uses: actions/checkout@v4  
+      - name: Run a script
+        run: |
+          chmod +x ./docs/scripts/create_readme.sh
+          ./docs/scripts/create_readme.sh
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "Update README.md (auto)"
+          git push

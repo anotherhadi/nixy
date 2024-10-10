@@ -85,7 +85,8 @@ git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 4. Add your 'nixosConfigurations' inside `flake.nix`
 
 > [!Important]
-> I added few `# CHANGEME` comments in the files to help you find what to change. Be sure to check them up
+> I added few `# CHANGEME` comments in the files to help you find what to change. Be sure to check them up.
+> You can use `rg "CHANGEME"` to find them all with ripgrep.
 
 > [!TIP]
 > When you add new files, don't forget to run `git add .` to add them to the git repository
@@ -98,11 +99,11 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 
 ## Documentation
 
-- [THEMES.md](docs/THEMES.md): How themes work and how to create your own
-- [SCRIPTS.md](docs/SCRIPTS.md): Scripts that are available
-- [KEYBINDINGS-HYPRLAND.md](docs/KEYBINDINGS-HYPRLAND.md): Keybindings available in Hyprland
-- [WALLPAPERS.md](https://github.com/anotherhadi/nixy-wallpapers): A collection of wallpapers for Nixy.
+- [THEMES](docs/THEMES.md): How themes work and how to create your own
+- [SCRIPTS](docs/SCRIPTS.md): Scripts that are available
+- [KEYBINDINGS-HYPRLAND](docs/KEYBINDINGS-HYPRLAND.md): Keybindings available in Hyprland
+- [WALLPAPERS](https://github.com/anotherhadi/nixy-wallpapers): A collection of wallpapers for Nixy.
 
-- [TODO.md](docs/TODO.md): What's next (feel free to contribute)
-- [CONTRIBUTING.md](docs/CONTRIBUTING.md): How to contribute
+- [TODO](docs/TODO.md): What's next (feel free to contribute)
+- [CONTRIBUTING](docs/CONTRIBUTING.md): How to contribute
 - [LICENSE](LICENSE): MIT License
