@@ -36,7 +36,10 @@ in {
           key = "<leader>mF";
           modes = "n";
         };
-        MkdnFollowLink = false;
+        MkdnFollowLink = {
+          key = "gd";
+          modes = "n";
+        };
         MkdnGoBack = false;
         MkdnGoForward = false;
         MkdnIncreaseHeading = {
