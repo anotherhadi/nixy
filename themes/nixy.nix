@@ -61,7 +61,7 @@
     };
 
     polarity = "dark";
-    image = inputs.nixy-wallpapers + "/wallpapers/degirled.png";
+    image = inputs.nixy-wallpapers + "/wallpapers/black-oil.png";
   };
 
 }

@@ -33,7 +33,7 @@
       fetch = "nerdfetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
 
       bar = {
-        transparent = false;
+        transparent = true;
         floating = true;
       };
     };
