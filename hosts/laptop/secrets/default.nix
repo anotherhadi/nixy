@@ -1,3 +1,5 @@
+# Those are my secrets, encrypted with sops
+# You shouldn't import this file, unless you edit it
 { pkgs, inputs, ... }: {
   imports = [ inputs.sops-nix.homeManagerModules.sops ];
 
