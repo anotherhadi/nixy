@@ -61,17 +61,14 @@ in {
           modes = "n";
         };
         MkdnNextLink = {
-          key = "<Tab>";
+          key = "<S-Tab>";
           modes = "n";
         };
         MkdnPrevHeading = {
           key = "<leader>m*";
           modes = "n";
         };
-        MkdnPrevLink = {
-          key = "<S-Tab>";
-          modes = "n";
-        };
+        MkdnPrevLink = false;
         MkdnSTab = false;
         MkdnTab = false;
         MkdnTableNewColAfter = {
