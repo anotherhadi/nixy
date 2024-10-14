@@ -44,9 +44,10 @@
 
     packages = with pkgs; [
       # Apps
-      discord
-      bitwarden
-      vlc
+      discord # Chat
+      bitwarden # Password manager
+      vlc # Video player
+      blanket # White-noise app
 
       # Dev
       go
