@@ -2,9 +2,9 @@
 #- 
 #- Usefull quick scripts
 #-
-#- - `menu` - Open wofi with drun mode.
-#- - `powermenu` - Open power dropdown menu.
-#- - `lock` - Lock the screen.
+#- - `menu` - Open wofi with drun mode. (wofi)
+#- - `powermenu` - Open power dropdown menu. (wofi)
+#- - `lock` - Lock the screen. (hyprlock)
 { pkgs, ... }:
 
 let
