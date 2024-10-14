@@ -6,7 +6,7 @@
 
 README_FILE="./README.md"
 
-table_of_content=$(md-table-of-contents ./docs/src/README_template.md) # https://github.com/anotherhadi/md-table-of-contents
+table_of_content=$(markdown-table-of-contents --start-by 2 ./docs/src/README_template.md) # https://github.com/anotherhadi/markdown-table-of-contents
 readme_content=$(cat "./docs/src/README_template.md")
 
 # Replace variables

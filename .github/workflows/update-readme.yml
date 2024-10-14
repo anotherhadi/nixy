@@ -13,6 +13,11 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4  
+      - name: Install required dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y go
+          go install github.com/anotherhadi/markdown-table-of-contents@latest
       - name: Run a script
         run: |
           chmod +x ./docs/scripts/create_readme.sh
