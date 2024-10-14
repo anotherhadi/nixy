@@ -15,8 +15,8 @@ jobs:
         uses: actions/checkout@v4  
       - name: Install required dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y golang-go
+          rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.2.linux-amd64.tar.gz
+          export PATH=$PATH:/usr/local/go/bin
           go install github.com/anotherhadi/markdown-table-of-contents@latest
       - name: Run a script
         run: |
