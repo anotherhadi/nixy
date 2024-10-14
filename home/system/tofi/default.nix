@@ -1,14 +1,16 @@
-{ config, ... }:
+# TODO: Tofi configuration
+{ config, lib, ... }:
 let
-  background = "#${config.lib.stylix.colors.base00}";
-  font = "${config.stylix.fonts.serif.name}";
+  background = "#${config.lib.stylix.colors.base00}70";
+  accent = "#${config.lib.stylix.colors.base0D}";
 in {
-  programs.tofi = {
+  programs.tofi = lib.mkForce {
     enable = true;
     settings = {
-      background-color = background;
       border-width = 0;
-      font = font;
+      background-color = background;
+      prompt-color = accent;
+      selection-color = accent;
       height = "100%";
       num-results = 5;
       outline-width = 0;
