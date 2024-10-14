@@ -41,10 +41,10 @@ in {
               ],
               "right": [
                 "systray",
-                "network",
                 "volume",
                 "bluetooth",
                 "battery",
+                "network",
                 "clock",
                 "notifications"
               ]
@@ -60,10 +60,10 @@ in {
               ],
               "right": [
                 "systray",
-                "network",
                 "volume",
                 "bluetooth",
                 "battery",
+                "network",
                 "clock",
                 "notifications"
               ]
@@ -79,10 +79,10 @@ in {
               ],
               "right": [
                 "systray",
-                "network",
                 "volume",
                 "bluetooth",
                 "battery",
+                "network",
                 "clock",
                 "notifications"
               ]
