@@ -22,8 +22,8 @@ jobs:
           go install github.com/anotherhadi/markdown-table-of-contents@latest
       - name: Run a script
         run: |
-          chmod +x ./docs/scripts/create_readme.sh
-          ./docs/scripts/create_readme.sh
+          chmod +x ./.github/scripts/create_readme.sh
+          ./.github/scripts/create_readme.sh
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
