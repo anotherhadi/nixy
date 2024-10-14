@@ -33,7 +33,7 @@ I enable vim-like keybindings everywhere I can, and I use a lot of custom script
 **Nixy key points:**
 
 - Hypr-ecosystem first (hyprland, hyprlock, hyprpanel, hypridle, ...)
-- Stylix/base16.nix themes
+- Stylix/base16 themes
 - Vim-like keybindings everywhere (hyprland, qutebrowser, nvim, ...)
 
 ## Table of Content
