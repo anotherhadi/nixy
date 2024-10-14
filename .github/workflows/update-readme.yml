@@ -13,11 +13,12 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4  
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '^1.23'
       - name: Install required dependencies
         run: |
-          wget https://go.dev/dl/go1.23.2.linux-amd64.tar.gz
-          rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.2.linux-amd64.tar.gz
-          export PATH=$PATH:/usr/local/go/bin
           go install github.com/anotherhadi/markdown-table-of-contents@latest
       - name: Run a script
         run: |
