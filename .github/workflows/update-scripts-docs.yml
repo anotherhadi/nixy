@@ -1,7 +1,7 @@
 on:
   push:
      paths:
-       - 'home/system/hyprland/bindings.nix'
+       - 'home/scripts'
 permissions:
   contents: write
 jobs:
@@ -15,10 +15,10 @@ jobs:
         uses: actions/checkout@v4  
       - name: Run a script
         run: |
-          chmod +x ./.github/scripts/keybindings_to_markdown.sh
-          ./docs/.github/keybindings_to_markdown.sh
+          chmod +x ./.github/scripts/create_scripts_docs.sh
+          ./.github/scripts/create_scripts_docs.sh
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "Update KEYBINDINGS-HYPRLAND.md (auto)"
+          git commit -m "Update SCRIPTS.md (auto)"
           git push
