@@ -30,8 +30,7 @@
       url = "github:anotherhadi/nixy-wallpapers";
       flake = false;
     };
-    # FIXME: Solve build error until this is fixed
-    stylix.url = "github:danth/stylix/32dba263f63f830d2f11fb079f8796cdec73d3ce";
+    stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     hyprswitch.url = "github:h3rmt/hyprswitch/release";
   };
