@@ -1,7 +1,5 @@
 { config, lib, ... }:
 let
-  transparentButtons = config.var.theme.bar.transparentButtons;
-
   accent = "#${config.lib.stylix.colors.base0D}";
   muted = "#${config.lib.stylix.colors.base03}";
 in {

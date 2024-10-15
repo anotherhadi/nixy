@@ -1,3 +1,5 @@
+# Hyprpanel is the bar on top of the screen
+# Display informations like workspaces, battery, wifi, ...
 { pkgs, config, ... }:
 let
   transparentButtons = config.var.theme.bar.transparentButtons;

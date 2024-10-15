@@ -1,3 +1,4 @@
+# Hyprlock is a lockscreen for Hyprland
 { config, ... }:
 let
   foreground = "rgba(216, 222, 233, 0.70)";

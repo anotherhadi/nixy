@@ -1,3 +1,4 @@
+# Tofi is a dmeny-like application launcher
 # TODO: Tofi configuration
 { config, lib, ... }:
 let
