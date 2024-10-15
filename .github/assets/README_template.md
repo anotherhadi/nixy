@@ -42,10 +42,10 @@ I enable vim-like keybindings everywhere I can, and I use a lot of custom script
 
 ## Gallery
 
-![nixy1](.github/assets/nixy/1.png)
-![nixy2](.github/assets/nixy/2.png)
-![nixy3](.github/assets/nixy/3.png)
-![nixy4](.github/assets/nixy/4.png)
+![Nixy helper, peaclock](.github/assets/nixy/1.png)
+![Qutebrowser, pipes, shell](.github/assets/nixy/2.png)
+![nvim, lazygit](.github/assets/nixy/3.png)
+![spotify, cava](.github/assets/nixy/4.png)
 
 ## Architecture
 
