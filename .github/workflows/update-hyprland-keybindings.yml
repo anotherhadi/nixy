@@ -16,7 +16,7 @@ jobs:
       - name: Run a script
         run: |
           chmod +x ./.github/scripts/keybindings_to_markdown.sh
-          ./docs/.github/keybindings_to_markdown.sh
+          ./.github/scripts/keybindings_to_markdown.sh
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
