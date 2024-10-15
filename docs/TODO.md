@@ -4,9 +4,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 
 - [!] Qutebrowser Bitwarden integration (I need this.)
 
-- [ ] Hyprland
-  - [ ] Fix screenshots (screenshot region's border shows up in the screenshot, hyprshot jq error?) and add in the scripts doc
-
 - [ ] Nixvim
   - [ ] Change headings foreground
   - [ ] Markdown tab size 2
@@ -14,3 +11,4 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] nvim dap
 
 - [ ] OS Hardening with nix-mineral
+- [ ] Move from hyprshot
