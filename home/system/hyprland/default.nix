@@ -50,6 +50,8 @@ in {
 
       exec-once = [ "${pkgs.bitwarden}/bin/bitwarden" ];
 
+      plugin = { overview = { autoDrag = false; }; };
+
       monitor = [
         "eDP-2,highres,0x0,1"
         "HDMI-A-1,3440x1440@99.98,auto,1"
