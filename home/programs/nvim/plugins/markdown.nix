@@ -1,5 +1,5 @@
 # The render-markdown.nvim plugin is a plugin that renders markdown files in a neovim in a more readable way.
-{ pkgs, config, inputs, ... }:
+{ config, ... }:
 let
   accent = "#${config.lib.stylix.colors.base0D}";
   muted = "#${config.lib.stylix.colors.base03}";
@@ -85,13 +85,13 @@ in {
           modes = "n";
         };
         MkdnTableNextCell = {
-          key = "<Tab>";
-          modes = "i";
+          key = "<S-Tab>";
+          modes = "n";
         };
         MkdnTableNextRow = false;
         MkdnTablePrevCell = {
           key = "<S-Tab>";
-          modes = "i";
+          modes = "n";
         };
         MkdnTablePrevRow = false;
         MkdnToggleToDo = {
@@ -117,6 +117,7 @@ in {
       "ftplugin/markdown.lua".text = ''
         vim.opt.tabstop = 2
         vim.opt.shiftwidth = 2
+        vim.opt.expandtab = true 
       '';
     };
     highlight = {
@@ -130,40 +131,43 @@ in {
       RenderMarkdownTodo.fg = muted;
       RenderMarkdownWarning.fg = accent;
     };
-    extraPlugins = [
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "markdown.nvim";
-        src = inputs.plugin-markdown;
-      })
-    ];
-    extraConfigLua =
-      # lua
-      ''
-        require('render-markdown').setup({
-          heading = {
-            icons = { '# ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
-            backgrounds = {
-                'RenderMarkdownBg',
-            },
-            foregrounds = {
-                'RenderMarkdownH1',
-                'RenderMarkdownH2',
-                'RenderMarkdownH3',
-                'RenderMarkdownH4',
-                'RenderMarkdownH5',
-                'RenderMarkdownH6',
-            },
-          },
-          checkbox = {
-            unchecked = { highlight = 'RenderMarkdownTodo' },
-            checked = { highlight = 'RenderMarkdownTodo' },
-            custom = {
-              pending = { raw = '[-]', rendered = '󰥔 ', highlight = 'RenderMarkdownTodo' },
-              important = { raw = '[!]', rendered = ' ', highlight = 'RenderMarkdownWarning' },
-              cancel = { raw = '[/]', rendered = '󱋬 ', highlight = 'RenderMarkdownTodo' },
-            },
-          },
-        })
-      '';
+    plugins.render-markdown = {
+      enable = true;
+      settings = {
+        heading = {
+          icons = [ "# " "󰲣 " "󰲥 " "󰲧 " "󰲩 " "󰲫 " ];
+          backgrounds = [ "RenderMarkdownBg" ];
+          foregrounds = [
+            "RenderMarkdownH1"
+            "RenderMarkdownH2"
+            "RenderMarkdownH3"
+            "RenderMarkdownH4"
+            "RenderMarkdownH5"
+            "RenderMarkdownH6"
+          ];
+        };
+        checkbox = {
+          unchecked = { highlight = "RenderMarkdownTodo"; };
+          checked = { highlight = "RenderMarkdownTodo"; };
+          custom = {
+            pending = {
+              raw = "[-]";
+              rendered = "󰥔 ";
+              highlight = "RenderMarkdownTodo";
+            };
+            important = {
+              raw = "[!]";
+              rendered = " ";
+              highlight = "RenderMarkdownWarning";
+            };
+            cancel = {
+              raw = "[/]";
+              rendered = "󱋬 ";
+              highlight = "RenderMarkdownTodo";
+            };
+          };
+        };
+      };
+    };
   };
 }

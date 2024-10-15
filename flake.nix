@@ -26,10 +26,6 @@
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    plugin-markdown = {
-      url = "github:MeanderingProgrammer/render-markdown.nvim";
-      flake = false;
-    };
     nixy-wallpapers = {
       url = "github:anotherhadi/nixy-wallpapers";
       flake = false;
