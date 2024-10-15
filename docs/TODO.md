@@ -12,6 +12,5 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] Markdown tab size 2
   - [ ] neotest golang
   - [ ] nvim dap
-  - [ ] Tab for github copilot (markdown file only)
 
 - [ ] OS Hardening with nix-mineral
