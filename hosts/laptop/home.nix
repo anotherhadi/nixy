@@ -56,6 +56,7 @@
       python3
       jq
       figlet
+      lazygit
 
       # Utils
       zip
