@@ -67,6 +67,7 @@ Those are the system-level configurations. (audio, bluetooth, gpu, bootloader, .
 
 Those are the themes used in the system configuration.
 Those themes are based on [stylix](https://github.com/danth/stylix).
+See avaiable themes in [THEMES.md](docs/THEMES.md)
 
 ### 💻 hosts
 
