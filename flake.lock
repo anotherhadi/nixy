@@ -961,22 +961,6 @@
         "url": "https://devimages-cdn.apple.com/design/resources/download/NY.dmg"
       }
     },
-    "plugin-markdown": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1728851430,
-        "narHash": "sha256-0OhVFwIJkpi4HucfyRZ4sJjxyR7vSHGy7+cuzsYW1LM=",
-        "owner": "MeanderingProgrammer",
-        "repo": "render-markdown.nvim",
-        "rev": "317df8708ce0238b142317a42ab55a66a2fa8650",
-        "type": "github"
-      },
-      "original": {
-        "owner": "MeanderingProgrammer",
-        "repo": "render-markdown.nvim",
-        "type": "github"
-      }
-    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -1012,7 +996,6 @@
         "nixpkgs": "nixpkgs_6",
         "nixvim": "nixvim",
         "nixy-wallpapers": "nixy-wallpapers",
-        "plugin-markdown": "plugin-markdown",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix"
