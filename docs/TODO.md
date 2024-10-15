@@ -9,4 +9,5 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] neotest golang
   - [ ] nvim dap
 
+- [ ] Tofi configuration
 - [ ] OS Hardening with nix-mineral
