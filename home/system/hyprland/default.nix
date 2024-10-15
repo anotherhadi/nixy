@@ -31,6 +31,7 @@ in {
     dconf
     wayland-utils
     wayland-protocols
+    glib
     direnv
     meson
   ];
