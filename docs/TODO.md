@@ -9,3 +9,9 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] nvim dap
 
 - [ ] OS Hardening with nix-mineral
+
+- [ ] Quick menu:
+  - Cafeine
+  - NightShift
+  - Nixy
+  - Hyprpicker
