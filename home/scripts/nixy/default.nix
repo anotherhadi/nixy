@@ -65,8 +65,9 @@ let
       elif [[ $1 == "loop" ]];then
         while true; do
           nixy
-          read -p "Press enter to continue, e to exit" -n 1 REPLY
-          echo
+          echo "Press enter to continue, e to exit" 
+          read -n 1 REPLY
+          clear
           [[ $REPLY == "e" ]] && exit 0
         done
       else
