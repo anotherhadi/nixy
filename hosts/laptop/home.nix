@@ -15,6 +15,7 @@
     ../../home/programs/yazi
     ../../home/programs/markdown
     ../../home/programs/thunar
+    ../../home/programs/lazygit
 
     # Scripts
     ../../home/scripts # All scripts
@@ -56,7 +57,6 @@
       python3
       jq
       figlet
-      lazygit
 
       # Utils
       zip
