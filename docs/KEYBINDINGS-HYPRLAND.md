@@ -15,6 +15,7 @@
 | Lock | SUPER + L |
 | Powermenu | SUPER + X |
 | Launcher | SUPER + SPACE |
+| Quickmenu | SUPER + C |
 | Toggle HyprFocus | SHIFT + SUPER + SPACE |
 | Overview | SUPER + TAB |
 | Close window | SUPER + Q |
