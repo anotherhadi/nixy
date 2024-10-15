@@ -1,7 +1,7 @@
 on:
   push:
      paths:
-       - 'docs/src/README_template.md'
+       - '.github/assets/README_template.md'
 permissions:
   contents: write
 jobs:
