@@ -206,7 +206,8 @@ in {
           "theme.bar.buttons.monochrome": true,
           "theme.bar.buttons.text": "${foreground}",
           "theme.bar.buttons.background": "${
-            background-alt + (if transparentButtons then "00" else "")
+            (if transparent then background else background-alt)
+            + (if transparentButtons then "00" else "")
           }",
           "theme.bar.buttons.icon": "${accent}",
           "theme.bar.buttons.notifications.background": "${background-alt}",
