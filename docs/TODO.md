@@ -14,5 +14,4 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
   - [ ] nvim dap
   - [ ] Tab for github copilot (markdown file only)
 
-- [ ] Update config screenshots
 - [ ] OS Hardening with nix-mineral
