@@ -81,6 +81,9 @@ in {
       gco = "git checkout";
       gcb = "git checkout -b";
       gbr = "git branch";
+
+      gaa = "git add .";
+      gcc = "git commit -m";
     };
   };
 }
