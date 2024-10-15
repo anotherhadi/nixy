@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-# Create the README.md file from the docs/src/README_template.md file
+# Create the README.md file from the .github/assets/README_template.md file
 
 [[ -d "./docs" ]] || (echo "Folder ./docs not found" && exit 1)
 
 README_FILE="./README.md"
 
-table_of_content=$(markdown-table-of-contents --start-by 2 ./docs/src/README_template.md) # https://github.com/anotherhadi/markdown-table-of-contents
-readme_content=$(cat "./docs/src/README_template.md")
+table_of_content=$(markdown-table-of-contents --start-by 2 ./.github/assets/README_template.md) # https://github.com/anotherhadi/markdown-table-of-contents
+readme_content=$(cat "./.github/assets/README_template.md")
 
 # Replace variables
 readme_content=${readme_content//\{primarycolor\}/A594FD}
