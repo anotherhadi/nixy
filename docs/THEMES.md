@@ -15,6 +15,7 @@ Wallpapers are loaded from the [nixy-wallpapers](https://github.com/anotherhadi/
 
 ### Nixy
 
-![nixy1](src/nixy/1.png)
-![nixy2](src/nixy/2.png)
-![nixy3](src/nixy/3.png)
+![nixy1](../.github/assets/nixy/1.png)
+![nixy2](../.github/assets/nixy/2.png)
+![nixy3](../.github/assets/nixy/3.png)
+![nixy4](../.github/assets/nixy/4.png)
