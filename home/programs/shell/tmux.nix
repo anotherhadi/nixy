@@ -1,5 +1,31 @@
 # Tmux is a terminal multiplexer that allows you to run multiple terminal sessions in a single window.
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  Config = pkgs.writeShellScriptBin "Config" ''
+    SESSION="Nixy Config"
+    NIXY_SCRIPT="while true; do nixy; read; done"
+
+    tmux has-session -t "$SESSION" 2>/dev/null
+
+    if [ $? == 0 ]; then
+      tmux attach -t "$SESSION"
+      exit 0
+    fi
+
+    tmux new-session -d -s "$SESSION"
+    tmux send-keys -t "$SESSION" "sleep 0.2 && clear && cd ~/.config/nixos/ && vim" C-m
+
+    tmux new-window -t "$SESSION" -n "nixy"
+    tmux send-keys -t "$SESSION":1 "sleep 0.2 && clear && cd ~/.config/nixos/ && $NIXY_SCRIPT" C-m
+
+    tmux new-window -t "$SESSION" -n "lazygit"
+    tmux send-keys -t "$SESSION":2 "sleep 0.2 && clear && cd ~/.config/nixos/ && lazygit" C-m
+
+    tmux select-window -t "$SESSION":0
+    tmux select-pane -t 0
+    tmux attach -t "$SESSION"
+  '';
+in {
   programs.tmux = {
     enable = true;
     mouse = true;
@@ -16,7 +42,6 @@
 
       set -gq allow-passthrough on
       bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
-      set -g detach-on-destroy off  # don't exit from tmux when closing a session
 
       bind-key -n C-Tab next-window
       bind-key -n C-S-Tab previous-window
@@ -30,4 +55,5 @@
       tmuxPlugins.tokyo-night-tmux
     ];
   };
+  home.packages = [ Config ];
 }
