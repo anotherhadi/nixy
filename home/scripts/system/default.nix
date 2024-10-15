@@ -14,7 +14,7 @@ let
       if pgrep wofi; then
       	pkill wofi
       else
-      	wofi --show drun
+      	wofi -p " Apps" --show drun
       fi
       # if pgrep tofi; then
       # 	pkill tofi
@@ -39,7 +39,7 @@ let
           "󰿅 Shutdown"
         )
 
-        selected=$(printf '%s\n' "''${options[@]}" | wofi --dmenu)
+        selected=$(printf '%s\n' "''${options[@]}" | wofi -p " Powermenu" --dmenu)
         # selected=$(printf '%s\n' "''${options[@]}" | tofi --prompt-text "> ")
         selected=''${selected:2}
 
