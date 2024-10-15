@@ -113,7 +113,6 @@ in {
       };
     };
     extraFiles = {
-      # TODO: Not working for some reasons
       "after/ftplugin/markdown.lua".text = ''
         vim.bo.tabstop = 2
         vim.bo.shiftwidth = 2
