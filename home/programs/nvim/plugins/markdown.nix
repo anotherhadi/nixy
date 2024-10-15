@@ -114,10 +114,10 @@ in {
     };
     extraFiles = {
       # TODO: Not working for some reasons
-      "ftplugin/markdown.lua".text = ''
-        vim.opt.tabstop = 2
-        vim.opt.shiftwidth = 2
-        vim.opt.expandtab = true 
+      "after/ftplugin/markdown.lua".text = ''
+        vim.bo.tabstop = 2
+        vim.bo.shiftwidth = 2
+        vim.bo.expandtab = true 
       '';
     };
     highlight = {
