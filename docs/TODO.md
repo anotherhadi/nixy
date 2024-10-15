@@ -7,9 +7,6 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Hyprland
   - [ ] Fix screenshots (screenshot region's border shows up in the screenshot, hyprshot jq error?) and add in the scripts doc
 
-- [ ] OS Hardening with nix-mineral
-- [ ] Transparent bar
-
 - [ ] Nixvim
   - [ ] Change headings foreground
   - [ ] Markdown tab size 2
@@ -20,3 +17,5 @@ feel free to contribute <3 ([CONTRIBUTING.md](CONTRIBUTING.md))
 - [ ] Update config screenshots
 - [ ] Move images to .github
 - [ ] Github actions: Add md-table-of-contents
+- [ ] OS Hardening with nix-mineral
+- [ ] Transparent bar
