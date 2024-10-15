@@ -62,6 +62,13 @@ let
       elif [[ $1 == "remote" ]];then
         cd ~/.config/nixos && git add . && git commit -m "update" && git push
         ssh jack -S -C "cd /home/hadi/.config/nixos && git pull && sudo -S nixos-rebuild switch --flake ~/.config/nixos#jack"
+      elif [[ $1 == "loop" ]];then
+        while true; do
+          nixy
+          read -p "Press enter to continue, e to exit" -n 1 REPLY
+          echo
+          [[ $REPLY == "e" ]] && exit 0
+        done
       else
         echo "Unknown argument"
       fi
