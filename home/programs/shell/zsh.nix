@@ -70,9 +70,9 @@ in {
       note = "notes";
 
       # git
+      g = "lazygit";
       ga = "git add";
       gc = "git commit";
-      gcm = "git commit -m";
       gcu = "git add . && git commit -m 'Update'";
       gp = "git push";
       gpl = "git pull";
@@ -83,7 +83,7 @@ in {
       gbr = "git branch";
 
       gaa = "git add .";
-      gcc = "git commit -m";
+      gcm = "git commit -m";
     };
   };
 }
