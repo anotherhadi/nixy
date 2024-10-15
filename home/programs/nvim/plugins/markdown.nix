@@ -2,6 +2,7 @@
 { config, ... }:
 let
   accent = "#${config.lib.stylix.colors.base0D}";
+  accent-alt = "#${config.lib.stylix.colors.base08}";
   muted = "#${config.lib.stylix.colors.base03}";
   background = "#${config.lib.stylix.colors.base00}";
 in {
@@ -122,13 +123,29 @@ in {
     highlight = {
       RenderMarkdownBg.bg = background;
       RenderMarkdownH1.fg = accent;
-      RenderMarkdownH2.fg = muted;
-      RenderMarkdownH3.fg = muted;
-      RenderMarkdownH4.fg = muted;
-      RenderMarkdownH5.fg = muted;
-      RenderMarkdownH6.fg = muted;
+      RenderMarkdownH2.fg = accent;
+      RenderMarkdownH3.fg = accent-alt;
+      RenderMarkdownH4.fg = accent-alt;
+      RenderMarkdownH5.fg = accent-alt;
+      RenderMarkdownH6.fg = accent-alt;
       RenderMarkdownTodo.fg = muted;
       RenderMarkdownWarning.fg = accent;
+    };
+    plugins.headlines = {
+      enable = true;
+      settings = {
+        markdown = {
+          headline_highlights = [
+            "RenderMarkdownH1"
+            "RenderMarkdownH2"
+            "RenderMarkdownH3"
+            "RenderMarkdownH4"
+            "RenderMarkdownH5"
+            "RenderMarkdownH6"
+          ];
+          fat_headlines = false;
+        };
+      };
     };
     plugins.render-markdown = {
       enable = true;
