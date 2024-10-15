@@ -16,6 +16,11 @@ let
       else
       	wofi --show drun
       fi
+      # if pgrep tofi; then
+      # 	pkill tofi
+      # else
+      # 	hyprctl dispatch exec $(tofi-drun)
+      # fi
     '';
 
   powermenu = pkgs.writeShellScriptBin "powermenu"
@@ -23,6 +28,8 @@ let
     ''
       if pgrep wofi; then
       	pkill wofi
+      # if pgrep tofi; then
+      #   pkill tofi
       else
         options=(
           "󰌾 Lock"
@@ -33,6 +40,7 @@ let
         )
 
         selected=$(printf '%s\n' "''${options[@]}" | wofi --dmenu)
+        # selected=$(printf '%s\n' "''${options[@]}" | tofi --prompt-text "> ")
         selected=''${selected:2}
 
         case $selected in
