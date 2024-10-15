@@ -1,11 +1,1 @@
-keys:
-  - &primary age12yvtj49pfh3fqzqflscm0ek4yzrjhr6cqhn7x89gdxnlykq0xudq5c7334
-creation_rules:
-  - path_regex: hosts/laptop/secrets/secrets.yaml$
-    key_groups:
-      - age:
-        - *primary
-  - path_regex: hosts/server/secrets/secrets.yaml$
-    key_groups:
-      - age:
-        - *primary
+/nix/store/5a86f59f5kryqma59kkvvzgal5ahdjqp-home-manager-files/.config/nixos/.sops.yaml

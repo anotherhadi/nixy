@@ -15,6 +15,20 @@
     };
   };
 
+  home.file.".config/nixos/.sops.yaml".text = ''
+    keys:
+      - &primary age12yvtj49pfh3fqzqflscm0ek4yzrjhr6cqhn7x89gdxnlykq0xudq5c7334
+    creation_rules:
+      - path_regex: hosts/laptop/secrets/secrets.yaml$
+        key_groups:
+          - age:
+            - *primary
+      - path_regex: hosts/server/secrets/secrets.yaml$
+        key_groups:
+          - age:
+            - *primary
+  '';
+
   systemd.user.services.mbsync.Unit.After = [ "sops-nix.service" ];
   home.packages = with pkgs; [ sops age ];
 
