@@ -1,3 +1,4 @@
+# Yazi is a TUI file explorer
 {
   programs.yazi = {
     enable = true;

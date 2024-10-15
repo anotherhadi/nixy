@@ -1,3 +1,5 @@
+# Qutebrowser is a keyboard-focused browser with a minimal GUI.
+# My homepage is generated using https://github.com/anotherhadi/homepage
 { pkgs, config, ... }:
 let
 

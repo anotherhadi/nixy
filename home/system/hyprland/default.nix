@@ -1,5 +1,5 @@
+# So best window tiling manager
 { pkgs, config, inputs, ... }:
-
 let
   border-size = config.var.theme.border-size;
   gaps-in = config.var.theme.gaps-in;

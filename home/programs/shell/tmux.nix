@@ -1,3 +1,4 @@
+# Tmux is a terminal multiplexer that allows you to run multiple terminal sessions in a single window.
 { pkgs, ... }: {
   programs.tmux = {
     enable = true;

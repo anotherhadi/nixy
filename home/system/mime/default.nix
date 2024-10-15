@@ -1,3 +1,4 @@
+# Mime allows us to configure the default applications for each file type
 {
   xdg.mimeApps = {
     enable = true;
