@@ -35,6 +35,7 @@
 
       bar = {
         transparent = true;
+        transparentButtons = false;
         floating = true;
       };
     };
