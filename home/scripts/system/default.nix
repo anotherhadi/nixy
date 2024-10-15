@@ -63,10 +63,46 @@ let
       fi
     '';
 
+  quickmenu = pkgs.writeShellScriptBin "quickmenu"
+    # bash
+    ''
+      if pgrep wofi; then
+      	pkill wofi
+      # if pgrep tofi; then
+      #   pkill tofi
+      else
+        options=(
+          "󰅶 Caffeine"
+          "󰖔 Night-shift"
+          " Nixy"
+          "󰈊 Hyprpicker"
+        )
+
+        selected=$(printf '%s\n' "''${options[@]}" | wofi -p " Quickmenu" --dmenu)
+        # selected=$(printf '%s\n' "''${options[@]}" | tofi --prompt-text "> ")
+        selected=''${selected:2}
+
+        case $selected in
+          "Caffeine")
+            caffeine
+            ;;
+          "Night-shift")
+            night-shift
+            ;;
+          "Nixy")
+            kitty zsh -c nixy
+            ;;
+          "Hyprpicker")
+            sleep 0.2 && ${pkgs.hyprpicker}/bin/hyprpicker -a
+            ;;
+        esac
+      fi
+    '';
+
   lock = pkgs.writeShellScriptBin "lock"
     # bash
     ''
       ${pkgs.hyprlock}/bin/hyprlock
     '';
 
-in { home.packages = [ menu powermenu lock ]; }
+in { home.packages = [ menu powermenu lock quickmenu ]; }

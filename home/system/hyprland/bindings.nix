@@ -8,6 +8,7 @@
       "$mod,L, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock
       "$mod,X, exec, powermenu" # Powermenu
       "$mod,SPACE, exec, menu" # Launcher
+      "$mod,C, exec, quickmenu" # Quickmenu
       "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
       "$mod,TAB, overview:toggle" # Overview
 
