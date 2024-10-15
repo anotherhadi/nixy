@@ -1,3 +1,4 @@
+# GTK & QT theme configuration
 { config, pkgs, lib, ... }:
 let
   accent = "#${config.lib.stylix.colors.base0D}";

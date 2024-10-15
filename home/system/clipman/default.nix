@@ -1,3 +1,4 @@
+# Clipman allows you to save and retrieve clipboard history.
 { pkgs, ... }:
 let
   clipboard-clear = pkgs.writeShellScriptBin "clipboard-clear" ''

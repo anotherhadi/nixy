@@ -1,3 +1,4 @@
+# Thunar is a file explorer
 { pkgs, ... }: {
   # ctrl + m to toggle the menubar
   home.packages = with pkgs.xfce; [
