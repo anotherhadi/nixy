@@ -1,5 +1,7 @@
 { pkgs, config, ... }:
 let
+  transparentButtons = config.var.theme.bar.transparentButtons;
+
   accent = "#${config.lib.stylix.colors.base0D}";
   accent-alt = "#${config.lib.stylix.colors.base03}";
   background = "#${config.lib.stylix.colors.base00}";
@@ -195,11 +197,15 @@ in {
           "theme.bar.menus.tooltip.text": "${foreground}",
           "theme.bar.menus.dropdownmenu.background":"${background-alt}",
           "theme.bar.menus.dropdownmenu.text": "${foreground}",
-          "theme.bar.background": "${background}",
+          "theme.bar.background": "${
+            background + (if transparentButtons then "00" else "")
+          }",
           "theme.bar.buttons.style": "default",
           "theme.bar.buttons.monochrome": true,
           "theme.bar.buttons.text": "${foreground}",
-          "theme.bar.buttons.background": "${background-alt}",
+          "theme.bar.buttons.background": "${
+            background-alt + (if transparentButtons then "00" else "")
+          }",
           "theme.bar.buttons.icon": "${accent}",
           "theme.bar.buttons.notifications.background": "${background-alt}",
           "theme.bar.buttons.hover": "${background}",
