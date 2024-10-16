@@ -26,15 +26,6 @@
 
   home-manager.users."${config.var.username}" = import ./home.nix;
 
-  # For KDEConnect (Remove this if not needed)
-  networking.firewall = rec {
-    allowedTCPPortRanges = [{
-      from = 1714;
-      to = 1764;
-    }];
-    allowedUDPPortRanges = allowedTCPPortRanges;
-  };
-
   # Don't touch this
   system.stateVersion = "24.05";
 }
