@@ -82,6 +82,8 @@ in {
       gco = "git checkout";
       gcb = "git checkout -b";
       gbr = "git branch";
+      grs = "git reset HEAD~1";
+      grh = "git reset --hard HEAD~1";
 
       gaa = "git add .";
       gcm = "git commit -m";
