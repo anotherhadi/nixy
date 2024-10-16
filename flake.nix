@@ -24,19 +24,19 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    nixy-wallpapers = {
-      url = "github:anotherhadi/nixy-wallpapers";
-      flake = false;
-    };
-    stylix.url = "github:danth/stylix";
-    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
-    hyprswitch.url = "github:h3rmt/hyprswitch/release";
     hyprspace = {
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";
     };
+    nixy-wallpapers = {
+      url = "github:anotherhadi/nixy-wallpapers";
+      flake = false;
+    };
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    stylix.url = "github:danth/stylix";
+    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
+    hyprswitch.url = "github:h3rmt/hyprswitch/release";
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
