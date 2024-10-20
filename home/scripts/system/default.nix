@@ -19,7 +19,7 @@ let
       # if pgrep tofi; then
       # 	pkill tofi
       # else
-      # 	hyprctl dispatch exec $(tofi-drun)
+      # 	tofi-drun --drun-launch=true
       # fi
     '';
 
