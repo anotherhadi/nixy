@@ -48,7 +48,10 @@ in {
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
 
-      exec-once = [ "${pkgs.bitwarden}/bin/bitwarden" ];
+      exec-once = [
+        "${pkgs.bitwarden}/bin/bitwarden"
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+      ];
 
       plugin = { overview = { autoDrag = false; }; };
 
@@ -130,6 +133,11 @@ in {
         focus_on_activate = true;
         new_window_takes_over_fullscreen = 2;
       };
+
+      windowrulev2 =
+        [ "float, tag:modal" "pin, tag:modal" "center, tag:modal" ];
+
+      layerrule = [ "noanim, launcher" "noanim, ^ags-.*" ];
 
       input = {
         kb_layout = keyboardLayout;
