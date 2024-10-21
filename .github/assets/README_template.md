@@ -65,8 +65,7 @@ Those are the system-level configurations. (audio, bluetooth, gpu, bootloader, .
 
 ### 🎨 themes
 
-Those are the themes used in the system configuration.
-Those themes are based on [stylix](https://github.com/danth/stylix).
+Those are the themes used in the system configuration. The `stylix` folder contains the [stylix](https://github.com/danth/stylix) defined themes, the `var` folder contains the variables not handled by stylix.
 See avaiable themes in [THEMES.md](docs/THEMES.md)
 
 ### 💻 hosts
