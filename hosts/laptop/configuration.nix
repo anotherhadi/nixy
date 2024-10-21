@@ -18,7 +18,7 @@
     ../../nixos/xdg-portal.nix
     ../../nixos/variables-config.nix
 
-    ../../themes/nixy.nix
+    ../../themes/stylix/nixy.nix
 
     ./hardware-configuration.nix
     ./variables.nix
