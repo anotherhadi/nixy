@@ -20,6 +20,7 @@ let
 
   floating = config.var.theme.bar.floating;
   transparent = config.var.theme.bar.transparent;
+  position = config.var.theme.bar.position;
 
   location = config.var.location;
   username = config.var.username;
@@ -112,9 +113,13 @@ in {
           "theme.bar.buttons.workspaces.active": "${accent}",
           "theme.bar.buttons.workspaces.available": "${background}",
 
-          "theme.bar.margin_top": "${toString (gaps-in * 2)}px",
+          "theme.bar.margin_top": "${
+            if position == "top" then toString (gaps-in * 2) else "0"
+          }px",
+          "theme.bar.margin_bottom": "${
+            if position == "top" then "0" else toString (gaps-in * 2)
+          }px",
           "theme.bar.margin_sides": "${toString gaps-out}px",
-          "theme.bar.margin_bottom": "0px",
           "theme.bar.border_radius": "${toString rounding}px",
 
           "bar.launcher.icon": "",
@@ -232,7 +237,8 @@ in {
           "theme.bar.menus.menu.media.card.color": "${background-alt}",
           "theme.bar.menus.menu.media.card.tint": 90,
           "bar.customModules.updates.pollingInterval": 1440000,
-          "bar.media.show_active_only": true
+          "bar.media.show_active_only": true,
+          "theme.bar.location": "${position}"
         }
       '';
   };
