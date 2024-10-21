@@ -34,6 +34,7 @@
       fetch = "nerdfetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
 
       bar = {
+        position = "top"; # "top" | "bottom"
         transparent = true;
         transparentButtons = false;
         floating = true;
