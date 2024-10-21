@@ -55,6 +55,7 @@
       python3
       jq
       figlet
+      just
 
       # Utils
       zip
