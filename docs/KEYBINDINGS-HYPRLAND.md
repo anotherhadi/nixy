@@ -41,6 +41,9 @@
 | Move Window (mouse) | SUPER + mouse:272 |
 | Resize Window (mouse) | SUPER + R |
 | Toggle Mute | XF86AudioMute |
+| Play/Pause Song | XF86AudioPlay |
+| Next Song | XF86AudioNext |
+| Previous Song | XF86AudioPrev |
 | Lock when closing Lid | switch:Lid Switch |
 | Sound Up | XF86AudioRaiseVolume |
 | Sound Down | XF86AudioLowerVolume |
