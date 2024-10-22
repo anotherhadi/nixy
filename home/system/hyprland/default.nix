@@ -16,7 +16,7 @@ in {
   home.packages = with pkgs; [
     qt5.qtwayland
     qt6.qtwayland
-    qt5ct
+    libsForQt5.qt5ct
     qt6ct
     hyprshot
     hyprpicker
