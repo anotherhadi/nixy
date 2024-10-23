@@ -7,7 +7,7 @@
 #- - `night-shift` toggles Night-Shift.
 #- - `night-shift-status` checks if Night-Shift is active. (0/1)
 #- - `night-shift-status-icon` checks if Night-Shift is active. (icon)
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
 
   night-shift-on = pkgs.writeShellScriptBin "night-shift-on" ''
@@ -52,6 +52,7 @@ let
     '';
 in {
   home.packages = [
+    inputs.hyprsunset.packages."${pkgs.system}".hyprsunset
     night-shift-on
     night-shift-off
     night-shift
