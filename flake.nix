@@ -33,6 +33,7 @@
       url = "github:anotherhadi/nixy-wallpapers";
       flake = false;
     };
+    hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     stylix.url = "github:danth/stylix";
