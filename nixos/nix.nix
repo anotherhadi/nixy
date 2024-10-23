@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, inputs, ... }:
 let autoGarbageCollector = config.var.autoGarbageCollector;
 in {
   nixpkgs.config = {
@@ -6,6 +6,7 @@ in {
     allowBroken = true;
   };
   nix = {
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     extraOptions = ''
       warn-dirty = false
     '';
