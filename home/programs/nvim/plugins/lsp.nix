@@ -7,7 +7,10 @@
         bashls.enable = true;
         clangd.enable = true;
         gopls.enable = true;
-        nixd.enable = true;
+        nixd = {
+          enable = true;
+          extraOptions = { expr = "import <nixpkgs> {}"; };
+        };
         tailwindcss.enable = true;
         html.enable = true;
         svelte.enable = true;
