@@ -25,8 +25,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprspace = {
-      # BUG: This is a temporary fix for the flake issue
-      url = "github:KZDKM/Hyprspace/0a41e37c9112a752ac2a7b9afbbdac5d14c536c6";
+      url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";
     };
     nixy-wallpapers = {
