@@ -25,7 +25,9 @@ let
         apps=(
           "󰑓;Rebuild;nixy rebuild"
           "󰦗;Upgrade;nixy upgrade"
-          "󰍜;Clean;nixy clean"
+          "󰚰;Update;nixy update"
+          ";Collect Garbage;nixy gc"
+          "󰍜;Clean Boot Menu;nixy cb"
           "󰌌;Hyprland Keybindings;nvim ${configDirectory}/docs/KEYBINDINGS-HYPRLAND.md"
           "󰋩;Wallpapers;nvim ${inputs.nixy-wallpapers}/docs/MOBILE-VIEW.md"
         )
@@ -48,14 +50,26 @@ let
       [[ $1 == "" ]] && ui
 
       if [[ $1 == "rebuild" ]];then
-        ${pkgs.nh}/bin/nh os switch ${configDirectory} --hostname ${hostname}
+        sudo nixos-rebuild switch --flake ${configDirectory}#${hostname}
       elif [[ $1 == "upgrade" ]];then
-        ${pkgs.nh}/bin/nh os switch ${configDirectory} --hostname ${hostname} --update
-      elif [[ $1 == "clean" ]];then
-        cd ${configDirectory} && ${pkgs.nh}/bin/nh clean all
+        sudo nixos-rebuild switch --upgrade --flake '${configDirectory}#${hostname}'
+      elif [[ $1 == "update" ]];then
+        cd ${configDirectory} && nix flake update
+      elif [[ $1 == "gc" ]];then
+        cd ${configDirectory} && sudo nix-collect-garbage -d
+      elif [[ $1 == "cb" ]];then
+        sudo /run/current-system/bin/switch-to-configuration boot
       elif [[ $1 == "remote" ]];then
         cd ~/.config/nixos && git add . && git commit -m "update" && git push
         ssh jack -S -C "cd /home/hadi/.config/nixos && git pull && sudo -S nixos-rebuild switch --flake ~/.config/nixos#jack"
+      elif [[ $1 == "loop" ]];then
+        while true; do
+          nixy
+          echo "Press enter to continue, e to exit" 
+          read -n 1 REPLY
+          clear
+          [[ $REPLY == "e" ]] && exit 0
+        done
       else
         echo "Unknown argument"
       fi

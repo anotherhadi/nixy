@@ -16,6 +16,7 @@
     ../../home/programs/markdown
     ../../home/programs/thunar
     ../../home/programs/lazygit
+    ../../home/programs/nh
 
     # Scripts
     ../../home/scripts # All scripts
