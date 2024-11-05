@@ -18,6 +18,7 @@
     ../../nixos/xdg-portal.nix
     ../../nixos/variables-config.nix
     ../../nixos/docker.nix
+    ../../nixos/pia.nix
 
     ../../themes/stylix/nixy.nix
 
