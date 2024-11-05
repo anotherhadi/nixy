@@ -22,6 +22,7 @@ in {
     extraConfig = {
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
+      color.ui = "1";
     };
     aliases = {
       essa = "push --force";
