@@ -22,7 +22,7 @@ in {
     hyprpicker
     swappy
     imv
-    wf-recorder
+    # wf-recorder # FIXME: Broken on unstable
     wlr-randr
     wl-clipboard
     brightnessctl
