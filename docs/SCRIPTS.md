@@ -31,11 +31,12 @@ A simple script to toggle focus on few windows in Hyprland.
 
 ## Hyprpanel
 
-Quick scripts to toggle, reload and kill hyprpanel.
+Quick scripts to toggle, reload, hide & show hyprpanel.
 
-- `hyprpanel-toggle` - Toggle hyprpanel.
+- `hyprpanel-toggle` - Toggle hyprpanel (hide/show).
+- `hyprpanel-show` - Show hyprpanel.
+- `hyprpanel-hide` - Hide hyprpanel.
 - `hyprpanel-reload` - Reload hyprpanel.
-- `hyprpanel-kill` - Kill hyprpanel.
 
 ## Nerdfont FZF
 
@@ -46,6 +47,7 @@ This module provides a script to search for Nerd Fonts icons using fzf.
 ## Night-Shift
 
 Night-Shift is a feature that reduces the amount of blue light emitted by your screen, which can help reduce eye strain and improve sleep quality. This module provides a set of scripts to control Night-Shift on your system.
+It use hyprsunset to control the screen temperature.
 
 - `night-shift-on` activates Night-Shift.
 - `night-shift-off` deactivates Night-Shift.
@@ -65,7 +67,7 @@ Nixy is a simple script that I use to manage my NixOS system. It's a simple scri
 
 ## Screenshot
 
-This module provides a script to take screenshots using `hyprshot` and `swappy`.
+This module provides a script to take screenshots using `grimblast` and `swappy`.
 
 - `screenshot [region|window|monitor] [swappy]` - Take a screenshot of the region, window, or monitor. Optionally, use `swappy` to copy the screenshot to the clipboard.
 
@@ -82,7 +84,7 @@ This module provides a set of scripts to control the volume of the default audio
 
 Usefull quick scripts
 
-- `menu` - Open wofi with drun mode.
-- `powermenu` - Open power dropdown menu.
-- `lock` - Lock the screen.
+- `menu` - Open wofi with drun mode. (wofi)
+- `powermenu` - Open power dropdown menu. (wofi)
+- `lock` - Lock the screen. (hyprlock)
 
