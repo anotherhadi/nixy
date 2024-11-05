@@ -34,7 +34,6 @@
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
-    hyprsunset.url = "github:hyprwm/hyprsunset";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
