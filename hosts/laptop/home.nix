@@ -12,7 +12,7 @@
     ../../home/programs/git
     ../../home/programs/spicetify
     ../../home/programs/nextcloud
-    ../../home/programs/yazi
+    # ../../home/programs/yazi # FIXME: Fail to build on unstable
     ../../home/programs/markdown
     ../../home/programs/thunar
     ../../home/programs/lazygit
