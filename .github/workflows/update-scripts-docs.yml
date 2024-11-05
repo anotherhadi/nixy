@@ -1,7 +1,7 @@
 on:
   push:
      paths:
-       - 'home/scripts'
+       - 'home/scripts/**'
 permissions:
   contents: write
 jobs:
