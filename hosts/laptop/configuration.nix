@@ -20,6 +20,7 @@
     ../../nixos/docker.nix
     ../../nixos/pia.nix
 
+    # Choose your theme here
     ../../themes/stylix/pinky.nix
 
     ./hardware-configuration.nix
