@@ -22,6 +22,7 @@
     autoUpgrade = false;
     autoGarbageCollector = false;
 
+    # Choose your theme variables here
     theme = import ../../themes/var/pinky.nix;
   };
 }
