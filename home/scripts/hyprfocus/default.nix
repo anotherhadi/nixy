@@ -11,9 +11,9 @@ let
   hyprfocus-on = pkgs.writeShellScriptBin "hyprfocus-on"
     # bash
     ''
+      hyprpanel-hide
       hyprctl keyword "general:gaps_in" 0
       hyprctl keyword "general:gaps_out" 0
-      hyprpanel-hide
       hyprctl keyword "general:border_size" 1
       hyprctl keyword "decoration:rounding" 0
       hyprctl keyword "decoration:drop_shadow" false
