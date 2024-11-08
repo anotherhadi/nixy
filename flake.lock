@@ -977,11 +977,11 @@
     "nixy-wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1729534389,
-        "narHash": "sha256-VlPfWXRtIfJKDaGqbjThqooa1cYV/+jzv2Tx+YN4JXY=",
+        "lastModified": 1731070848,
+        "narHash": "sha256-S442EyHMfESe2g0+IopKHzudNYTr9Hq7uYo+BK05DvI=",
         "owner": "anotherhadi",
         "repo": "nixy-wallpapers",
-        "rev": "3e2ba1a817c45e8a54b26101983ed3a0c57a3ea6",
+        "rev": "14bec3f4e46d6dd9458b9844d2377ddd65e97dd3",
         "type": "github"
       },
       "original": {
