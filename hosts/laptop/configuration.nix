@@ -20,7 +20,7 @@
     ../../nixos/docker.nix
     ../../nixos/pia.nix
 
-    ../../themes/stylix/nixy.nix
+    ../../themes/stylix/pinky.nix
 
     ./hardware-configuration.nix
     ./variables.nix
