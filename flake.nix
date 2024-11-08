@@ -35,7 +35,8 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    stylix.url = "github:danth/stylix";
+    # FIXME: This is a temporary fix until the PR is merged
+    stylix.url = "github:danth/stylix/9cad2b044a6de7502235b66d78a9df6efcf0ddcf";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     pia = {
       url = "github:Fuwn/pia.nix";
