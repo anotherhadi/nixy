@@ -35,8 +35,7 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    # FIXME: This is a temporary fix until the PR is merged
-    stylix.url = "github:danth/stylix/9cad2b044a6de7502235b66d78a9df6efcf0ddcf";
+    stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     pia = {
       url = "github:Fuwn/pia.nix";
@@ -52,7 +51,37 @@
           system = "x86_64-linux";
           modules = [
             {
-              nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+              nixpkgs.overlays = [
+                inputs.hyprpanel.overlay
+                # FIXME: Temp fix
+                (final: prev: {
+                  matugen = final.rustPlatform.buildRustPackage rec {
+                    pname = "matugen";
+                    version = "2.4.0";
+
+                    src = final.fetchFromGitHub {
+                      owner = "InioX";
+                      repo = "matugen";
+                      rev = "refs/tags/v${version}";
+                      hash =
+                        "sha256-l623fIVhVCU/ylbBmohAtQNbK0YrWlEny0sC/vBJ+dU=";
+                    };
+
+                    cargoHash =
+                      "sha256-FwQhhwlldDskDzmIOxhwRuUv8NxXCxd3ZmOwqcuWz64=";
+
+                    meta = {
+                      description = "Material you color generation tool";
+                      homepage = "https://github.com/InioX/matugen";
+                      changelog =
+                        "https://github.com/InioX/matugen/blob/${src.rev}/CHANGELOG.md";
+                      license = final.lib.licenses.gpl2Only;
+                      maintainers = with final.lib.maintainers; [ lampros ];
+                      mainProgram = "matugen";
+                    };
+                  };
+                })
+              ];
               _module.args = { inherit inputs; };
             }
             inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME: check https://github.com/NixOS/nixos-hardware
