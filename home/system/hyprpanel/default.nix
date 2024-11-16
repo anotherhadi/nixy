@@ -111,7 +111,8 @@ in {
 
           "theme.bar.buttons.workspaces.hover": "${accent-alt}",
           "theme.bar.buttons.workspaces.active": "${accent}",
-          "theme.bar.buttons.workspaces.available": "${background}",
+          "theme.bar.buttons.workspaces.available": "${accent-alt}",
+          "theme.bar.buttons.workspaces.occupied": "${accent}",
 
           "theme.bar.margin_top": "${
             if position == "top" then toString (gaps-in * 2) else "0"
