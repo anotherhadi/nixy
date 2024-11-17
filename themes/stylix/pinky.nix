@@ -60,6 +60,12 @@
       };
     };
 
+    targets.nixvim.transparentBackground = {
+      main = true;
+      signColumn = true;
+    };
+    targets.nixvim.plugin = "base16-nvim";
+
     polarity = "dark";
     image = inputs.nixy-wallpapers + "/wallpapers/4.png";
   };
