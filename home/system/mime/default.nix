@@ -23,10 +23,10 @@
       "image/jpeg" = "imv.desktop";
       "image/jpg" = "imv.desktop";
       "image/webp" = "imv.desktop";
-      "image/gif" = "org.qutebrowser.qutebrowser.desktop";
-      "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
-      "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
-      "text/html" = "org.qutebrowser.qutebrowser.desktop";
+      "image/gif" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "text/html" = "firefox.desktop";
       "application/pdf" = "zathura.desktop";
     };
   };
