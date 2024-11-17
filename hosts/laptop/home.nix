@@ -17,6 +17,7 @@
     ../../home/programs/thunar
     ../../home/programs/lazygit
     ../../home/programs/nh
+    ../../home/programs/firefox
 
     # Scripts
     ../../home/scripts # All scripts
@@ -75,7 +76,6 @@
 
       # Backup
       vscode
-      firefox
       neovide
     ];
 
