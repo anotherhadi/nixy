@@ -72,11 +72,10 @@
       cbonsai
       pipes
       cmatrix
-      cava
+      # cava
 
       # Backup
       vscode
-      neovide
     ];
 
     # Import my profile picture, used by the hyprpanel dashboard
