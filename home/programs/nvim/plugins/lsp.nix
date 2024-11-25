@@ -9,7 +9,11 @@
         gopls.enable = true;
         nixd = {
           enable = true;
-          extraOptions = { expr = "import <nixpkgs> {}"; };
+          extraOptions = {
+            expr = "import <nixpkgs> {}";
+            # FIX: Encoding: https://github.com/nix-community/nixvim/issues/2390
+            offset_encoding = "utf-8";
+          };
         };
         tailwindcss.enable = true;
         html.enable = true;
