@@ -11,7 +11,12 @@ let
   keyboardLayout = config.var.keyboardLayout;
 in {
 
-  imports = [ ./animations.nix ./bindings.nix ./polkitagent.nix ];
+  imports = [
+    ./animations.nix
+    ./bindings.nix
+    ./polkitagent.nix
+    # ./hyprspace.nix
+  ];
 
   home.packages = with pkgs; [
     qt5.qtwayland
@@ -42,8 +47,6 @@ in {
     systemd.enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
-    plugins = [ inputs.hyprspace.packages.${pkgs.system}.Hyprspace ];
-
     settings = {
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
@@ -52,8 +55,6 @@ in {
         "${pkgs.bitwarden}/bin/bitwarden"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       ];
-
-      plugin = { overview = { autoDrag = false; }; };
 
       monitor = [
         "eDP-2,highres,0x0,1"
