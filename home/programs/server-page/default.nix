@@ -8,8 +8,8 @@ let
   settings = ''
         {
           "config": {
-            "title" : "Welcome Home",
-            "openLinksInNewTab": false,
+            "title" : "Jack",
+            "openLinksInNewTab": true,
             "locale": "fr-FR",
             "colors": {
               "primary": "${accent}",
@@ -21,24 +21,8 @@ let
               {
                 "name": "Bookmarks",
                 "links": [
-                  {"title": "MyNixOs", "url": "https://mynixos.com", "icon": "󱄅"},
-                  {"title": "Github", "url": "https://github.com", "icon": ""},
-                  {"title": "Proton", "url": "https://mail.proton.me/u/0/inbox", "icon": ""},
-                  {"title": "Cloudflare One", "url": "https://one.dash.cloudflare.com/", "icon": ""},
-                  {"title": "Chat GPT", "url": "https://chat.openai.com/", "icon": "󰭹"},
-                  {"title": "Nixvim", "url": "https://nix-community.github.io/nixvim/", "icon": ""},
-                  {"title": "Hyprland Wiki", "url": "https://wiki.hyprland.org/", "icon": "󰖬"},
-                  {"title": "Youtube", "url": "https://youtube.com", "icon": "󰗃"},
-                  {"title": "Figma", "url": "https://figma.com", "icon": ""},
-                  {"title": "Server", "url": "https://home.anotherhadi.com", "icon": ""}
-                ]
-              },
-              {
-                "name": "Work",
-                "links": [
-                  {"title": "Outlook", "url": "https://outlook.office.com/mail/", "icon": "󰴢"},
-                  {"title": "Office", "url": "https://www.office.com/?auth=2", "icon": "󰏆"},
-                  {"title": "Teams", "url": "https://teams.microsoft.com/_", "icon": "󰊻"}
+                  {"title": "Bitwarden", "url": "https://bw.anotherhadi.com", "icon": "󰟵"},
+                  {"title": "CasaOS", "url": "https://casa.anotherhadi.com", "icon": "󰋜"}
                 ]
               }
             ]
@@ -75,4 +59,15 @@ let
       homepage = "https://github.com/anotherhadi/homepage";
     };
   };
-in { home.file.".config/serverhomepage" = { source = homepage; }; }
+
+  update-homepage = pkgs.writeShellScriptBin "update-homepage"
+    # bash
+    ''
+      ssh jack@192.168.1.75 -S -C "sudo rm -rf /DATA/AppData/nginxproxymanager/data/homepage"
+      scp -r ~/.config/serverhomepage/build jack@192.168.1.75:/DATA/AppData/nginxproxymanager/data/homepage
+    '';
+in {
+  home.file.".config/serverhomepage" = { source = homepage; };
+
+  home.packages = [ update-homepage ];
+}
