@@ -18,6 +18,7 @@
     ../../home/programs/lazygit
     ../../home/programs/nh
     ../../home/programs/firefox
+    ../../home/programs/server-page
 
     # Scripts
     ../../home/scripts # All scripts
