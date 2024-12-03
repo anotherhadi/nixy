@@ -17,7 +17,7 @@
 | Launcher | SUPER + SPACE |
 | Quickmenu | SUPER + C |
 | Toggle HyprFocus | SHIFT + SUPER + SPACE |
-| Overview | SUPER + TAB |
+| "$mod,TAB, overview:toggle"  |  |
 | Close window | SUPER + Q |
 | Toggle Floating | SUPER + T |
 | Toggle Fullscreen | SUPER + F |
