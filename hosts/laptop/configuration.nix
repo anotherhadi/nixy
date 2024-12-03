@@ -29,6 +29,11 @@
 
   home-manager.users."${config.var.username}" = import ./home.nix;
 
+  # FIXME: Temporary, for a course on Kubernetes
+  networking.extraHosts = ''
+    127.0.0.1 super-ai-croquette.local
+  '';
+
   # Don't touch this
   system.stateVersion = "24.05";
 }
