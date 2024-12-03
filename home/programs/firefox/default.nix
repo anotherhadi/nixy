@@ -1,3 +1,4 @@
+# Not using this file anymore, but keeping it for reference
 { pkgs, config, ... }:
 let
   accent = "#${config.lib.stylix.colors.base0D}";
@@ -76,6 +77,12 @@ let
     };
   };
 in {
+
+  home.file."homepage" = {
+    source = "${homepage}/build";
+    recursive = true;
+  };
+
   stylix.targets.firefox.profileNames = [ "default" ];
   programs.firefox = {
     enable = true;
