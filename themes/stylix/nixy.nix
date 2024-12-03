@@ -30,8 +30,8 @@
     };
 
     cursor = {
-      package = pkgs.lyra-cursors;
-      name = "Bibata-Modern-Ice";
+      package = pkgs.posy-cursors;
+      name = "Posy-Cursor-Mono";
       size = 24;
     };
 
