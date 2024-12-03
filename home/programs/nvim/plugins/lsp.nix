@@ -7,6 +7,7 @@
         bashls.enable = true;
         clangd.enable = true;
         gopls.enable = true;
+        eslint.enable = true;
         nixd = {
           enable = true;
           extraOptions = {
