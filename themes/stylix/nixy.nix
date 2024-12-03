@@ -30,14 +30,14 @@
     };
 
     cursor = {
-      package = pkgs.bibata-cursors;
+      package = pkgs.lyra-cursors;
       name = "Bibata-Modern-Ice";
       size = 24;
     };
 
     fonts = {
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrains Mono Nerd Font";
       };
       sansSerif = {
