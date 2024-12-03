@@ -98,10 +98,5 @@
     stateVersion = "24.05";
   };
 
-  # FIXME: Temporary, for a course on Kubernetes
-  networking.extraHosts = ''
-    127.0.0.1 super-ai-croquette.local
-  '';
-
   programs.home-manager.enable = true;
 }
