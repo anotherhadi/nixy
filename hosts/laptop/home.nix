@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, inputs, ... }: {
 
   imports = [
     ./variables.nix
@@ -17,7 +17,7 @@
     ../../home/programs/thunar
     ../../home/programs/lazygit
     ../../home/programs/nh
-    ../../home/programs/firefox
+    ../../home/programs/zen
     ../../home/programs/server-page
 
     # Scripts
@@ -76,7 +76,19 @@
       # cava
 
       # Backup
+      firefox
       vscode
+
+      # Temp
+      mpv
+      pnpm
+
+      # FIXME: Temporary, for a course on Kubernetes
+      terraform
+      ansible
+      azure-cli
+      k3d
+      kubectl
     ];
 
     # Import my profile picture, used by the hyprpanel dashboard
@@ -85,6 +97,11 @@
     # Don't touch this
     stateVersion = "24.05";
   };
+
+  # FIXME: Temporary, for a course on Kubernetes
+  networking.extraHosts = ''
+    127.0.0.1 super-ai-croquette.local
+  '';
 
   programs.home-manager.enable = true;
 }
