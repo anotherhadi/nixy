@@ -67,7 +67,8 @@
     targets.nixvim.plugin = "base16-nvim";
 
     polarity = "dark";
-    image = inputs.nixy-wallpapers + "/wallpapers/4.png";
+    image = inputs.nixy-wallpapers
+      + "/wallpapers/a_lake_surrounded_by_mountains.png";
   };
 
 }
