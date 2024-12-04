@@ -492,11 +492,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733299177,
-        "narHash": "sha256-TvDEljXVpgJ7mPLyh9KKJLZkOypF+LCkcvJq/jBz9MU=",
+        "lastModified": 1733317578,
+        "narHash": "sha256-anN/LcP5IuqEARvhPETg1vnbyG3IQ0wdvSAYEJfIQzA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "70803283187c8f775ff561be4117e5b1a11b296e",
+        "rev": "ad48eb25cd0b00ce730da00fa1f8e6e6c27b397d",
         "type": "github"
       },
       "original": {
@@ -1241,11 +1241,11 @@
     "nixy-wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1733299916,
-        "narHash": "sha256-fcx8NCgj6zJ5EcEXM48/W4CccJL1nzhQieAKFEtput4=",
+        "lastModified": 1733327389,
+        "narHash": "sha256-GCZoayY+DX0jrVuRjShkQUbPqGGJMpp5IeZmILHh1HE=",
         "owner": "anotherhadi",
         "repo": "nixy-wallpapers",
-        "rev": "6ddbb9b2cae528eb3936a306607c4ad4a77055fc",
+        "rev": "af96cd912570755381c5f42fd1ba41a5878ac17b",
         "type": "github"
       },
       "original": {
@@ -1256,11 +1256,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1733299806,
-        "narHash": "sha256-l+2vcVPguRAD9rDqbkIUYIJLPslJQPwT4AP6jFD8kgE=",
+        "lastModified": 1733327348,
+        "narHash": "sha256-C9cakd/zcXDhzIeHjjzToBx8bEVqWVB53RUzpUcKboM=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "0e00c4bab72a69d3b3deebb7bbbec0d30f5993e7",
+        "rev": "81acc5a20ba2d84d206f61d2784147900965cd9f",
         "type": "github"
       },
       "original": {
