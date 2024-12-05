@@ -17,6 +17,7 @@
     ../../home/programs/thunar
     ../../home/programs/lazygit
     ../../home/programs/nh
+    ../../home/programs/zen
 
     # Scripts
     ../../home/scripts # All scripts
@@ -33,6 +34,8 @@
     ../../home/system/mime
     ../../home/system/udiskie
     ../../home/system/clipman
+
+    ./secrets
   ];
 
   home = {
