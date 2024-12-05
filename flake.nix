@@ -41,7 +41,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
-    zen-browser.url = "git+https://git.sr.ht/~canasta/zen-browser-flake/"; # updated flake
+    zen-browser.url =
+      "git+https://git.sr.ht/~canasta/zen-browser-flake/"; # updated flake
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
@@ -62,6 +63,19 @@
             ./hosts/laptop/configuration.nix # CHANGEME: change the path to match your host folder
           ];
         };
+
+      desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          {
+            nixpkgs.overlays = [ inputs.hyprpanel.overlay inputs.nur.overlay ];
+            _module.args = { inherit inputs; };
+          }
+          inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+          ./hosts/desktop/configuration.nix
+        ];
+      };
     };
   };
 }
