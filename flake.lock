@@ -1782,17 +1782,17 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "lastModified": 1727721329,
-        "narHash": "sha256-QYlWZwUSwrM7BuO+dXclZIwoPvBIuJr6GpFKv9XKFPI=",
-        "owner": "MarceColl",
-        "repo": "zen-browser-flake",
-        "rev": "e6ab73f405e9a2896cce5956c549a9cc359e5fcc",
-        "type": "github"
+        "lastModified": 1732806311,
+        "narHash": "sha256-UvZDSClFz4fLxe5liee8frky19L7oA7H4r0boGi2q2Q=",
+        "ref": "refs/heads/main",
+        "rev": "a0e30733b36dda1d9d59378d648f7cd7d85fef99",
+        "revCount": 58,
+        "type": "git",
+        "url": "https://git.sr.ht/~canasta/zen-browser-flake/"
       },
       "original": {
-        "owner": "MarceColl",
-        "repo": "zen-browser-flake",
-        "type": "github"
+        "type": "git",
+        "url": "https://git.sr.ht/~canasta/zen-browser-flake/"
       }
     }
   },
