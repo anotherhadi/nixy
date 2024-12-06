@@ -82,13 +82,6 @@
       # Temp
       mpv
       pnpm
-
-      # FIXME: Temporary, for a course on Kubernetes
-      terraform
-      ansible
-      azure-cli
-      k3d
-      kubectl
     ];
 
     # Import my profile picture, used by the hyprpanel dashboard
