@@ -22,7 +22,7 @@
       base0C =
         "94e2d5"; # Support, Regular Expressions, Escape Characters, Markup Quotes
       base0D =
-        "c6a0f6"; # Functions, Methods, Attribute IDs, Headings, Accent color
+        "8492EB"; # Functions, Methods, Attribute IDs, Headings, Accent color
       base0E =
         "cba6f7"; # Keywords, Storage, Selector, Markup Italic, Diff Changed
       base0F =
@@ -67,7 +67,7 @@
     targets.nixvim.plugin = "base16-nvim";
 
     polarity = "dark";
-    image = inputs.nixy-wallpapers + "/wallpapers/4.png";
+    image = inputs.nixy-wallpapers + "/wallpapers/zywgxy.png";
   };
 
 }
