@@ -8,6 +8,7 @@
         clangd.enable = true;
         gopls.enable = true;
         eslint.enable = true;
+        ts_ls.enable = true;
         nixd = {
           enable = true;
           extraOptions = {
