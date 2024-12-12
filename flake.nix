@@ -29,9 +29,7 @@
       url = "github:anotherhadi/nixy-wallpapers";
       flake = false;
     };
-    # FIXME: This is a temporary fix until the flake is fixed
-    hyprland.url =
-      "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/heads/main&rev=6a8c756ba1f2b3ccb0cfa8192ccdb2f6490b0512";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     stylix.url = "github:danth/stylix";
