@@ -48,6 +48,18 @@ in {
         lib.concatStringsSep ":" config.home.sessionPath
       }"
     '';
+    
+    #NOTE: for btop to show gpu usage 
+    #may want to check the driver version with:
+    #nix path-info -r /run/current-system | grep nvidia-x11
+    #and 
+    #nix search nixpkgs nvidia_x11
+    sessionVariables = {
+        LD_LIBRARY_PATH = lib.concatStringsSep ":" [
+        "${pkgs.linuxPackages_latest.nvidia_x11_beta}/lib" #change the package name according to nix search result
+        "$LD_LIBRARY_PATH"
+        ];
+      };
 
     shellAliases = {
       vim = "nvim";
