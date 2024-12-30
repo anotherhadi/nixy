@@ -6,19 +6,19 @@
     # Programs
     ../../home/programs/kitty
     ../../home/programs/nvim
-    ../../home/programs/qutebrowser
+    # ../../home/programs/qutebrowser
     ../../home/programs/shell
     ../../home/programs/fetch
     ../../home/programs/git
     ../../home/programs/spicetify
-    ../../home/programs/nextcloud
-    ../../home/programs/yazi
+    # ../../home/programs/nextcloud
+    # ../../home/programs/yazi
     ../../home/programs/markdown
     ../../home/programs/thunar
     ../../home/programs/lazygit
-    ../../home/programs/nh
+    # ../../home/programs/nh
     ../../home/programs/zen
-    ../../home/programs/server-page
+    # ../../home/programs/server-page
 
     # Scripts
     ../../home/scripts # All scripts
@@ -29,14 +29,13 @@
     ../../home/system/hyprlock
     ../../home/system/hyprpanel
     ../../home/system/hyprpaper
-    ../../home/system/gtk
     ../../home/system/wofi
     ../../home/system/batsignal
     ../../home/system/zathura
     ../../home/system/mime
     ../../home/system/udiskie
     ../../home/system/clipman
-    ../../home/system/tofi
+    # ../../home/system/tofi
 
     ./secrets # CHANGEME: You should probably remove this line, this is where I store my secrets
   ];
