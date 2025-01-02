@@ -699,11 +699,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1735838085,
-        "narHash": "sha256-WDOKtn5WBsqfJ1t8qQRAw6FSHabdtptCtmJ/+be3dsY=",
+        "lastModified": 1735838950,
+        "narHash": "sha256-zNb6bch2hJpkrcrXMElEE4OfEfvs8G9Hfcn4cp+fYSA=",
         "ref": "refs/heads/main",
-        "rev": "1697171fc003d26dace4a7d70e2f8038df60a196",
-        "revCount": 5619,
+        "rev": "4971725b69768d156047289b7606e470c6963f59",
+        "revCount": 5620,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -1293,7 +1293,7 @@
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -1345,11 +1345,11 @@
     "nixy-wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1733499879,
-        "narHash": "sha256-ZzA766i4o0D4DWkuVOn5J3oBqTclFcz3gigwD5Bp+FM=",
+        "lastModified": 1735840681,
+        "narHash": "sha256-mcIBe7oY/1Bt9hxP/uFIDP0uOZX1lG2FITtnHUzryLU=",
         "owner": "anotherhadi",
         "repo": "nixy-wallpapers",
-        "rev": "713754b59d42225588b3818defe7ed05238c83af",
+        "rev": "4a768e4d7e8237e253646220b021d60a7e705ca3",
         "type": "github"
       },
       "original": {
@@ -1609,11 +1609,11 @@
         "tinted-tmux": "tinted-tmux"
       },
       "locked": {
-        "lastModified": 1735764504,
-        "narHash": "sha256-shMdOkQzR9jIK3TW6XaesOea1rHwxWIFFOhIRhuCF4Y=",
+        "lastModified": 1735840530,
+        "narHash": "sha256-4O+KR6WSb40pcIPO9QboI59eH3/oxNEvCwXkFi6QvvM=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "911c07f40f816fd2d12a7dd750ca8bc421db9dd2",
+        "rev": "90f95c5d8408360fc38cb3a862565bcb08ae6aa8",
         "type": "github"
       },
       "original": {
