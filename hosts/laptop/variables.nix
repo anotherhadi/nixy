@@ -20,7 +20,7 @@
     };
 
     autoUpgrade = false;
-    autoGarbageCollector = false;
+    autoGarbageCollector = true;
 
     # Choose your theme variables here
     theme = import ../../themes/var/whitish.nix;
