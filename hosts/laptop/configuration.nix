@@ -21,7 +21,7 @@
     ../../nixos/pia.nix
 
     # Choose your theme here
-    ../../themes/stylix/whitish.nix
+    ../../themes/stylix/2025.nix
 
     ./hardware-configuration.nix
     ./variables.nix
