@@ -22,8 +22,11 @@
         enable = true;
         nixGrammars = true;
         settings = {
+          ensure_installed = "all";
+          incremental_selection.enable = true;
           indent.enable = true;
           highlight.enable = true;
+          highlight.additional_vim_regex_highlighting = true;
         };
       };
       harpoon = {
@@ -43,7 +46,6 @@
           };
         };
       };
-      # treesitter-context.enable = true;
     };
   };
 }
