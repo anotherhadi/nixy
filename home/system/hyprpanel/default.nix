@@ -1,6 +1,6 @@
 # Hyprpanel is the bar on top of the screen
 # Display informations like workspaces, battery, wifi, ...
-{ inputs, pkgs, config, ... }:
+{ inputs, config, ... }:
 let
   transparentButtons = config.var.theme.bar.transparentButtons;
 
@@ -33,6 +33,7 @@ in {
     systemd.enable = true;
     hyprland.enable = true;
     overwrite.enable = true;
+    overlay.enable = true;
     layout = {
       "bar.layouts" = {
         "0" = {
