@@ -12,7 +12,7 @@
   bar = {
     position = "top"; # "top" | "bottom"
     transparent = false;
-    transparentButtons = false;
+    transparentButtons = true;
     floating = false;
   };
 }
