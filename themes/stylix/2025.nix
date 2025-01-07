@@ -61,7 +61,7 @@
     };
 
     polarity = "dark";
-    image = inputs.nixy-wallpapers + "/wallpapers/Aurora_Mac.png";
+    image = inputs.nixy-wallpapers + "/wallpapers/vanilla.png";
   };
 
 }
