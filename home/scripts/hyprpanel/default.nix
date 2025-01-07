@@ -16,22 +16,22 @@ let
   '';
 
   hyprpanel-hide = pkgs.writeShellScriptBin "hyprpanel-hide" ''
-    status=$(hyprpanel -r "isWindowVisible('bar-0')")
+    status=$(hyprpanel isWindowVisible bar-0)
     if [[ $status == "true" ]]; then
       hyprpanel -t bar-0
     fi
-    status=$(hyprpanel -r "isWindowVisible('bar-1')")
+    status=$(hyprpanel isWindowVisible bar-1)
     if [[ $status == "true" ]]; then
       hyprpanel -t bar-1
     fi
   '';
 
   hyprpanel-show = pkgs.writeShellScriptBin "hyprpanel-show" ''
-    status=$(hyprpanel -r "isWindowVisible('bar-0')")
+    status=$(hyprpanel isWindowVisible bar-0)
     if [[ $status == "false" ]]; then
       hyprpanel -t bar-0
     fi
-    status=$(hyprpanel -r "isWindowVisible('bar-1')")
+    status=$(hyprpanel isWindowVisible bar-1)
     if [[ $status == "false" ]]; then
       hyprpanel -t bar-1
     fi
