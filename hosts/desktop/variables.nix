@@ -2,21 +2,21 @@
   imports = [ ../../nixos/variables-config.nix ];
 
   config.var = {
-    hostname = "desktop";
-    username = "hadi";
+    hostname = "Nexus";
+    username = "galileo";
     configDirectory = "/home/" + config.var.username
       + "/.config/nixos"; # The path of the nixos configuration directory
 
-    keyboardLayout = "fr";
+    keyboardLayout = "us";
 
-    location = "Paris";
-    timeZone = "Europe/Paris";
-    defaultLocale = "en_US.UTF-8";
-    extraLocale = "fr_FR.UTF-8";
+    location = "Dublin";
+    timeZone = "Europe/Dublin";
+    defaultLocale = "en_UK.UTF-8";
+    extraLocale = "en_IE.UTF-8";
 
     git = {
-      username = "Hadi";
-      email = "112569860+anotherhadi@users.noreply.github.com";
+      username = "Galileo-dev";
+      email = "32818066+Galileo-dev@users.noreply.github.com";
     };
 
     autoUpgrade = false;
