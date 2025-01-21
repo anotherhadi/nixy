@@ -1,18 +1,18 @@
 {
-  rounding = 10;
-  gaps-in = 8;
-  gaps-out = 8 * 2;
+  rounding = 16;
+  gaps-in = 9;
+  gaps-out = 9 * 2;
   active-opacity = 1;
-  inactive-opacity = 0.89;
-  blur = false;
-  border-size = 3;
+  inactive-opacity = 0.93;
+  blur = true;
+  border-size = 5;
   animation-speed = "fast"; # "fast" | "medium" | "slow"
   fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
 
   bar = {
     position = "top"; # "top" | "bottom"
-    transparent = false;
-    transparentButtons = true;
-    floating = false;
+    transparent = true;
+    transparentButtons = false;
+    floating = true;
   };
 }
