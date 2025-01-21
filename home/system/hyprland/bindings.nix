@@ -29,6 +29,7 @@
       "$shiftMod,PRINT, exec, screenshot region" # Screenshot region
       "ALT,PRINT, exec, screenshot region swappy" # Screenshot region then edit
 
+      "$shiftMod,T, exec, hyprpanel-toggle" # Toggle hyprpanel
       "$shiftMod,S, exec, ${pkgs.qutebrowser}/bin/qutebrowser :open $(wofi --show dmenu -L 1 -p ' Search on internet')" # Search on internet with wofi
       "$shiftMod,C, exec, clipboard" # Clipboard picker with wofi
       "$shiftMod,E, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji" # Emoji picker with wofi
