@@ -33,6 +33,7 @@
 | Screenshot monitor | PRINT |
 | Screenshot region | SHIFT + SUPER + PRINT |
 | Screenshot region then edit | ALTPRINT |
+| Toggle hyprpanel | SHIFT + SUPER + T |
 | Search on internet with wofi | SHIFT + SUPER + S |
 | Clipboard picker with wofi | SHIFT + SUPER + C |
 | Emoji picker with wofi | SHIFT + SUPER + E |
