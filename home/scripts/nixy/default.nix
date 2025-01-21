@@ -29,7 +29,7 @@ let
           ";Collect Garbage;nixy gc"
           "󰍜;Clean Boot Menu;nixy cb"
           "󰌌;Hyprland Keybindings;nvim ${configDirectory}/docs/KEYBINDINGS-HYPRLAND.md"
-          "󰋩;Wallpapers;nvim ${inputs.nixy-wallpapers}/docs/MOBILE-VIEW.md"
+          "󰋩;Wallpapers;zen https://github.com/anotherhadi/nixy-wallpapers"
         )
 
         # Apply default icons if empty:
