@@ -13,7 +13,7 @@
           enable = true;
           extraOptions = {
             expr = "import <nixpkgs> {}";
-            # FIX: Encoding: https://github.com/nix-community/nixvim/issues/2390
+            # fix- encoding: https://github.com/nix-community/nixvim/issues/2390
             offset_encoding = "utf-8";
           };
         };
