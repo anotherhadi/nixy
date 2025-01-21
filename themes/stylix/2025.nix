@@ -4,9 +4,9 @@
 
     # Edited catppuccin
     base16Scheme = {
-      base00 = "0a0a0a"; # Default Background
+      base00 = "10101a"; # Default Background
       base01 =
-        "1a1a1a"; # Lighter Background (Used for status bars, line number and folding marks)
+        "16161f"; # Lighter Background (Used for status bars, line number and folding marks)
       base02 = "2b2b2b"; # Selection Background
       base03 = "45475a"; # Comments, Invisibles, Line Highlighting
       base04 = "585b70"; # Dark Foreground (Used for status bars)
@@ -61,7 +61,13 @@
     };
 
     polarity = "dark";
-    image = inputs.nixy-wallpapers + "/wallpapers/vanilla.png";
+    image = pkgs.fetchurl {
+      url =
+        "https://github.com/anotherhadi/nixy-wallpapers/blob/main/wallpapers/"
+        + "3.png" + "?raw=true";
+      sha256 = "sha256-fT2ah18IAxoy3hzlLl9SkqhchzfVvZneUrZWzntMo40=";
+    };
+
   };
 
 }
