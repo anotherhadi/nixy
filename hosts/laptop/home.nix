@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, ... }: {
+{ pkgs, config, ... }: {
 
   imports = [
     ./variables.nix
@@ -11,14 +11,14 @@
     ../../home/programs/fetch
     ../../home/programs/git
     ../../home/programs/spicetify
-    # ../../home/programs/nextcloud
+    ../../home/programs/nextcloud
     # ../../home/programs/yazi
     ../../home/programs/markdown
     ../../home/programs/thunar
     ../../home/programs/lazygit
     # ../../home/programs/nh
     ../../home/programs/zen
-    # ../../home/programs/server-page
+    ../../home/programs/duckduckgo-colorscheme
 
     # Scripts
     ../../home/scripts # All scripts
@@ -50,6 +50,11 @@
       bitwarden # Password manager
       vlc # Video player
       blanket # White-noise app
+      obsidian # Note taking app
+      planify
+      gnome-calendar
+      textpieces
+      curtail
 
       # Dev
       go
