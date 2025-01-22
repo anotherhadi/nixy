@@ -65,6 +65,14 @@ Nixy is a simple script that I use to manage my NixOS system. It's a simple scri
 
 
 
+## OpenVPN
+
+OpenVPN allows you to connect/disconnect quickly to a openVPN server
+
+- `openvpn-up` turn on the vpn
+- `openvpn-down` turn down the vpn
+- `openvpn-toggle` toggle the vpn
+
 ## Screenshot
 
 This module provides a script to take screenshots using `grimblast` and `swappy`.
