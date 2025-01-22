@@ -76,6 +76,7 @@ let
           "󰖔 Night-shift"
           " Nixy"
           "󰈊 Hyprpicker"
+          "󰖂 Toggle VPN"
         )
 
         selected=$(printf '%s\n' "''${options[@]}" | wofi -p " Quickmenu" --dmenu)
@@ -94,6 +95,9 @@ let
             ;;
           "Hyprpicker")
             sleep 0.2 && ${pkgs.hyprpicker}/bin/hyprpicker -a
+            ;;
+          "Toggle VPN")
+            openvpn-toggle
             ;;
         esac
       fi
