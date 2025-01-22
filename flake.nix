@@ -30,10 +30,6 @@
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
-    pia = {
-      url = "github:Fuwn/pia.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nur.url = "github:nix-community/NUR";
     zen-browser.url =
       "git+https://git.sr.ht/~canasta/zen-browser-flake/"; # updated flake
@@ -53,24 +49,10 @@
             inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME: check https://github.com/NixOS/nixos-hardware
             inputs.home-manager.nixosModules.home-manager
             inputs.stylix.nixosModules.stylix
-            inputs.pia.nixosModules."x86_64-linux".default
             ./hosts/laptop/configuration.nix # CHANGEME: change the path to match your host folder
           ];
         };
 
-      desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          {
-            nixpkgs.overlays =
-              [ inputs.hyprpanel.overlay inputs.nur.overlays.default ];
-            _module.args = { inherit inputs; };
-          }
-          inputs.home-manager.nixosModules.home-manager
-          inputs.stylix.nixosModules.stylix
-          ./hosts/desktop/configuration.nix
-        ];
-      };
     };
   };
 }
