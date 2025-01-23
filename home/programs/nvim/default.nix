@@ -2,19 +2,19 @@
 { inputs, ... }: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./plugins/cmp.nix
-    ./plugins/dashboard.nix
     ./plugins/lsp.nix
-    ./plugins/markdown.nix
     ./plugins/tree.nix
-    ./plugins/ui.nix
-    ./plugins/utils.nix
-    ./plugins/dap.nix
     ./plugins/telescope.nix
-    ./plugins/zenmode.nix
+    ./plugins/cmp.nix
+    ./plugins/ui.nix
+    ./plugins/lualine.nix
+    ./plugins/utils.nix
+    ./plugins/dashboard.nix
+    ./plugins/markdown.nix
 
     ./options.nix
     ./keymaps.nix
+    ./autocmds.nix
   ];
 
   programs.nixvim.enable = true;
