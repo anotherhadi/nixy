@@ -12,11 +12,8 @@
     ../../home/programs/git
     ../../home/programs/spicetify
     ../../home/programs/nextcloud
-    # ../../home/programs/yazi
-    ../../home/programs/markdown
     ../../home/programs/thunar
     ../../home/programs/lazygit
-    # ../../home/programs/nh
     ../../home/programs/zen
     ../../home/programs/duckduckgo-colorscheme
 
@@ -35,7 +32,6 @@
     ../../home/system/mime
     ../../home/system/udiskie
     ../../home/system/clipman
-    # ../../home/system/tofi
 
     ./secrets # CHANGEME: You should probably remove this line, this is where I store my secrets
   ];
@@ -77,7 +73,6 @@
       cbonsai
       pipes
       cmatrix
-      # cava
 
       # Backup
       firefox
