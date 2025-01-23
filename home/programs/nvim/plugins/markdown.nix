@@ -1,4 +1,3 @@
-# The render-markdown.nvim plugin is a plugin that renders markdown files in a neovim in a more readable way.
 { config, ... }:
 let
   accent = "#${config.lib.stylix.colors.base0D}";
@@ -11,7 +10,6 @@ in {
     plugins.mkdnflow = {
       enable = true;
       modules = { conceal = false; };
-
       toDo.symbols = [ " " "-" "x" "!" "/" ];
       mappings = {
         MkdnCreateLink = false;
@@ -29,14 +27,17 @@ in {
           modes = [ "v" ];
         };
         MkdnExtendList = false;
+
         MkdnFoldSection = {
           key = "<leader>mf";
           modes = "n";
         };
+
         MkdnUnfoldSection = {
           key = "<leader>mF";
           modes = "n";
         };
+
         MkdnFollowLink = {
           key = "gd";
           modes = "n";
@@ -128,30 +129,16 @@ in {
       RenderMarkdownH4.fg = accent-alt;
       RenderMarkdownH5.fg = accent-alt;
       RenderMarkdownH6.fg = accent-alt;
-      RenderMarkdownTodo.fg = muted;
-      RenderMarkdownWarning.fg = accent;
-    };
-    plugins.headlines = {
-      enable = true;
-      settings = {
-        markdown = {
-          headline_highlights = [
-            "RenderMarkdownH1"
-            "RenderMarkdownH2"
-            "RenderMarkdownH3"
-            "RenderMarkdownH4"
-            "RenderMarkdownH5"
-            "RenderMarkdownH6"
-          ];
-          fat_headlines = false;
-        };
-      };
+      RenderMarkdownTodo.fg = "#f78c6c";
+      RenderMarkdownWarning.fg = "#ff5370";
+      RenderMarkdownDone.fg = muted;
     };
     plugins.render-markdown = {
       enable = true;
       settings = {
         heading = {
           icons = [ "# " "󰲣 " "󰲥 " "󰲧 " "󰲩 " "󰲫 " ];
+          sign = false;
           backgrounds = [ "RenderMarkdownBg" ];
           foregrounds = [
             "RenderMarkdownH1"
@@ -164,22 +151,22 @@ in {
         };
         checkbox = {
           unchecked = { highlight = "RenderMarkdownTodo"; };
-          checked = { highlight = "RenderMarkdownTodo"; };
+          checked = { highlight = "RenderMarkdownDone"; };
           custom = {
             pending = {
               raw = "[-]";
-              rendered = "󰥔 ";
+              rendered = " ";
               highlight = "RenderMarkdownTodo";
             };
             important = {
               raw = "[!]";
-              rendered = " ";
+              rendered = "󰰱 ";
               highlight = "RenderMarkdownWarning";
             };
             cancel = {
               raw = "[/]";
               rendered = "󱋬 ";
-              highlight = "RenderMarkdownTodo";
+              highlight = "RenderMarkdownWarning";
             };
           };
         };
