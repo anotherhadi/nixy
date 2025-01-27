@@ -76,10 +76,11 @@ let
     };
   };
 in {
-  home.file."homepage" = {
+  home.file.".config/homepage" = {
     source = "${homepage}/build";
     recursive = true;
   };
 
-  home.packages = with pkgs; [ inputs.zen-browser.packages."${system}".default ];
+  home.packages = with pkgs;
+    [ inputs.zen-browser.packages."${system}".default ];
 }
