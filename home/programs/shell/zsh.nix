@@ -80,7 +80,7 @@ in {
       wireguard-import = "nmcli connection import type wireguard file";
 
       notes =
-        "nvim ~/nextcloud/Notes/index.md --cmd 'cd ~/nextcloud/Notes' -c ':Telescope find_files'";
+        "nvim ~/nextcloud/notes/index.md --cmd 'cd ~/nextcloud/notes' -c ':Telescope find_files'";
       note = "notes";
 
       # git
