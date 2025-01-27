@@ -10,7 +10,8 @@
     ../../home/programs/shell
     ../../home/programs/fetch
     ../../home/programs/git
-    ../../home/programs/spicetify
+    # FIXME: Broken
+    # ../../home/programs/spicetify
     ../../home/programs/nextcloud
     ../../home/programs/thunar
     ../../home/programs/lazygit
@@ -81,6 +82,7 @@
       # Temp
       mpv
       pnpm
+      realvnc-vnc-viewer
     ];
 
     # Import my profile picture, used by the hyprpanel dashboard
