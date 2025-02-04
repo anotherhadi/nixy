@@ -19,7 +19,6 @@
       "text/x-dockerfile" = "nvim.desktop";
       "text/x-xml" = "nvim.desktop";
       "text/x-php" = "nvim.desktop";
-      "image/png" = "imv.desktop";
       "image/jpeg" = "imv.desktop";
       "image/jpg" = "imv.desktop";
       "image/webp" = "imv.desktop";
@@ -28,7 +27,7 @@
       "x-scheme-handler/https" = "zen.desktop";
       "text/html" = "zen.desktop";
       "application/pdf" = "zathura.desktop";
-
+      "image/png" = "imv-dir.desktop";
       "x-scheme-handler/chrome" = "zen.desktop";
       "application/x-extension-htm" = "zen.desktop";
       "application/x-extension-html" = "zen.desktop";
