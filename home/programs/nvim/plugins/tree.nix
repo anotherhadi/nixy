@@ -7,6 +7,11 @@
         settings = {
           default_file_explorer = false;
           skip_confirm_for_simple_edits = true;
+          view_options.is_hidden_file = ''
+            function(name, bufnr)
+              return vim.startswith(name, ".") or name == "img"
+            end
+          '';
           win_options = {
             concealcursor = "ncv";
             conceallevel = 3;

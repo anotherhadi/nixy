@@ -3,17 +3,10 @@
     highlightOverride = {
       FloatBorder.fg = "#${config.lib.stylix.colors.base0D}";
     };
+    nixpkgs.config = { allowUnfree = true; };
     plugins = {
-      # FIXME: broken on unstable
-      # copilot-vim.enable = true;
+      copilot-vim.enable = true;
       flash.enable = true;
-      image = {
-        enable = true;
-        integrations.markdown = {
-          clearInInsertMode = true;
-          onlyRenderImageAtCursor = true;
-        };
-      };
       tmux-navigator.enable = true;
       comment.enable = true;
       nvim-autopairs.enable = true;
