@@ -21,7 +21,7 @@ let
       mode="output"
     fi
 
-    ${pkgs.grimblast}/bin/grimblast --notify --freeze save $mode "$folder/$filename" || exit 1
+    ${pkgs.grimblast}/bin/grimblast --notify --freeze copy $mode "$folder/$filename" || exit 1
 
     if [[ $2 == "swappy" ]];then
       ${pkgs.swappy}/bin/swappy -f "$folder/$filename" -o "$HOME/Pictures/$filename"
