@@ -6,18 +6,16 @@
   '';
 
   inputs = {
-    # FIX: Temp fix for nvidia drivers
-    nixpkgs.url =
-      "github:Bot-wxt1221/nixpkgs/dd9e0be762e4c60fe5d1d37be667daeec8f17fc1";
-    # "github:nixos/nixpkgs/nixos-unstable";
-
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim";
+      # FIXME: temporary until fixed
+      url =
+        "github:nix-community/nixvim/719fa865425ea0740085f23f4fa5c442e99a37d6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
