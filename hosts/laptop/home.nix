@@ -10,8 +10,7 @@
     ../../home/programs/shell
     ../../home/programs/fetch
     ../../home/programs/git
-    # FIXME: Broken
-    # ../../home/programs/spicetify
+    ../../home/programs/spicetify
     ../../home/programs/nextcloud
     ../../home/programs/thunar
     ../../home/programs/lazygit
@@ -48,10 +47,8 @@
       vlc # Video player
       blanket # White-noise app
       obsidian # Note taking app
-      planify
+      planify # Todolists
       gnome-calendar
-      textpieces
-      curtail
 
       # Dev
       go
@@ -68,6 +65,8 @@
       pfetch
       pandoc
       btop
+      textpieces # Manipulate texts
+      curtail # Compress images
 
       # Just cool
       peaclock
@@ -78,11 +77,6 @@
       # Backup
       firefox
       vscode
-
-      # Temp
-      mpv
-      pnpm
-      realvnc-vnc-viewer
     ];
 
     # Import my profile picture, used by the hyprpanel dashboard
