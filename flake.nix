@@ -13,9 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      # FIXME: temporary until fixed
-      url =
-        "github:nix-community/nixvim/719fa865425ea0740085f23f4fa5c442e99a37d6";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
