@@ -29,9 +29,9 @@
 | Focus next monitor | SHIFT + SUPER + down |
 | Add to master | SHIFT + SUPER + left |
 | Remove from master | SHIFT + SUPER + right |
-| Screenshot window | SUPER + PRINT |
+| Screenshot region | SUPER + PRINT |
 | Screenshot monitor | PRINT |
-| Screenshot region | SHIFT + SUPER + PRINT |
+| Screenshot window | SHIFT + SUPER + PRINT |
 | Screenshot region then edit | ALTPRINT |
 | Toggle hyprpanel | SHIFT + SUPER + T |
 | Search on internet with wofi | SHIFT + SUPER + S |
