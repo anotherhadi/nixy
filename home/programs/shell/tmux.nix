@@ -49,7 +49,7 @@ in {
 
     plugins = with pkgs; [
       tmuxPlugins.vim-tmux-navigator
-      tmuxPlugins.resurrect
+      # tmuxPlugins.resurrect
       tmuxPlugins.sensible
       tmuxPlugins.tokyo-night-tmux
     ];
