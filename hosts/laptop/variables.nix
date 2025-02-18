@@ -23,6 +23,6 @@
     autoGarbageCollector = true;
 
     # Choose your theme variables here
-    theme = import ../../themes/var/2025.nix;
+    theme = import ../../themes/var/yoru.nix;
   };
 }

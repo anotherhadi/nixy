@@ -1,5 +1,5 @@
 {
-  rounding = 16;
+  rounding = 12;
   gaps-in = 9;
   gaps-out = 9 * 2;
   active-opacity = 1;
@@ -12,7 +12,7 @@
   bar = {
     position = "top"; # "top" | "bottom"
     transparent = false;
-    transparentButtons = false;
+    transparentButtons = true;
     floating = true;
   };
 }
