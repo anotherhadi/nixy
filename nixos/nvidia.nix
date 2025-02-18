@@ -4,8 +4,13 @@ let
     config.boot.kernelPackages.nvidiaPackages.beta; # stable, latest, beta, etc.
 in {
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers =
-    [ "nvidia" "displayLink" ]; # or "nvidiaLegacy470 etc.
+  services.xserver.videoDrivers = [
+    "nvidia"
+    "displayLink"
+    "nvidia_modeset"
+    "nvidia_uvm"
+    "nvidia_drm"
+  ]; # or "nvidiaLegacy470 etc.
   boot.kernelParams =
     lib.optionals (lib.elem "nvidia" config.services.xserver.videoDrivers) [
       "nvidia-drm.modeset=1"
