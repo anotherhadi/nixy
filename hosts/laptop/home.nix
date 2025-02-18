@@ -48,7 +48,9 @@
       blanket # White-noise app
       obsidian # Note taking app
       planify # Todolists
-      gnome-calendar
+      gnome-calendar # Calendar
+      textpieces # Manipulate texts
+      curtail # Compress images
 
       # Dev
       go
@@ -57,6 +59,8 @@
       jq
       figlet
       just
+      pnpm
+      lazydocker
 
       # Utils
       zip
@@ -65,8 +69,7 @@
       pfetch
       pandoc
       btop
-      textpieces # Manipulate texts
-      curtail # Compress images
+      fastfetch
 
       # Just cool
       peaclock
