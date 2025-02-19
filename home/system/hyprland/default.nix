@@ -11,12 +11,8 @@ let
   keyboardLayout = config.var.keyboardLayout;
 in {
 
-  imports = [
-    ./animations.nix
-    ./bindings.nix
-    ./polkitagent.nix
-    # ./hyprspace.nix 
-  ];
+  imports =
+    [ ./animations.nix ./bindings.nix ./polkitagent.nix ./hyprspace.nix ];
 
   home.packages = with pkgs; [
     qt5.qtwayland
@@ -45,6 +41,7 @@ in {
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
+    # withUWSM = true; # One day, but not today
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
     settings = {
@@ -92,6 +89,13 @@ in {
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
         "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1" # CHANGEME: Related to the GPU
+      ];
+
+      windowrule = [
+        "workspace 6, discord"
+        "workspace 7, spotify"
+        "workspace 8, planify"
+        "workspace 8, calendar"
       ];
 
       cursor = {
