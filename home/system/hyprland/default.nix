@@ -91,12 +91,6 @@ in {
         "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1" # CHANGEME: Related to the GPU
       ];
 
-      windowrule = [
-        "workspace 6, discord"
-        "workspace 7, spotify"
-        "workspace 8, io.github.alainm23.planify"
-      ];
-
       cursor = {
         no_hardware_cursors = true;
         default_monitor = "eDP-2";
@@ -142,6 +136,13 @@ in {
 
       windowrulev2 =
         [ "float, tag:modal" "pin, tag:modal" "center, tag:modal" ];
+
+      windowrule = [
+        "workspace 6, discord"
+        "workspace 7, spotify"
+        "workspace 8, io.github.alainm23.planify"
+        "fullscreen, io.github.alainm23.planify"
+      ];
 
       layerrule = [ "noanim, launcher" "noanim, ^ags-.*" ];
 
