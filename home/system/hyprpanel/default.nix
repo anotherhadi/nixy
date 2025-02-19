@@ -180,6 +180,10 @@ in {
       "bar.workspaces.showApplicationIcons" = true;
       "bar.workspaces.showWsIcons" = true;
       "theme.bar.dropdownGap" = "4.5em";
+      "theme.bar.menus.shadow" = "${if transparent then
+        "0 0 0 0"
+      else
+        "0px 0px 3px 1px #16161e"}";
     };
   };
 }
