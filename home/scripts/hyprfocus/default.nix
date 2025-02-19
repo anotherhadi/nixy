@@ -12,13 +12,18 @@ let
     # bash
     ''
       hyprpanel-hide
-      hyprctl keyword "general:gaps_in" 0
-      hyprctl keyword "general:gaps_out" 0
-      hyprctl keyword "general:border_size" 1
-      hyprctl keyword "decoration:rounding" 0
-      hyprctl keyword "decoration:drop_shadow" false
-      hyprctl keyword "decoration:inactive_opacity" 0.98
-      hyprctl keyword "decoration:active_opacity" 1
+
+      hyprctl --batch "\
+          keyword animations:enabled 0;\
+          keyword decoration:shadow:enabled 0;\
+          keyword decoration:blur:enabled 0;\
+          keyword general:gaps_in 0;\
+          keyword general:gaps_out 0;\
+          keyword general:border_size 1;\
+          keyword decoration:rounding 0;\
+          keyword decoration:inactive_opacity 1;\
+          keyword decoration:active_opacity 1"
+
       echo "1" > /tmp/hyprfocus
     '';
 
