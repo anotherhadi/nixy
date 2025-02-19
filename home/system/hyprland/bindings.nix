@@ -3,14 +3,14 @@
     bind = [
       "$mod,RETURN, exec, ${pkgs.kitty}/bin/kitty" # Kitty
       "$mod,E, exec, ${pkgs.xfce.thunar}/bin/thunar" # Thunar
-      "$mod,B, exec, zen" # Qutebrowser
+      "$mod,B, exec, zen" # Zen Browser
       "$mod,K, exec, ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
       "$mod,L, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock
       "$mod,X, exec, powermenu" # Powermenu
       "$mod,SPACE, exec, menu" # Launcher
       "$mod,C, exec, quickmenu" # Quickmenu
       "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
-      # "$mod,TAB, overview:toggle" # Overview
+      "$mod,P, exec, ${pkgs.planify}/bin/io.github.alainm23.planify" # Planify
 
       "$mod,Q, killactive," # Close window
       "$mod,T, togglefloating," # Toggle Floating
@@ -30,7 +30,6 @@
       "ALT,PRINT, exec, screenshot region swappy" # Screenshot region then edit
 
       "$shiftMod,T, exec, hyprpanel-toggle" # Toggle hyprpanel
-      "$shiftMod,S, exec, ${pkgs.qutebrowser}/bin/qutebrowser :open $(wofi --show dmenu -L 1 -p ' Search on internet')" # Search on internet with wofi
       "$shiftMod,C, exec, clipboard" # Clipboard picker with wofi
       "$shiftMod,E, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji" # Emoji picker with wofi
       "$mod,F2, exec, night-shift" # Toggle night shift
