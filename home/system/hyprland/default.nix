@@ -94,8 +94,7 @@ in {
       windowrule = [
         "workspace 6, discord"
         "workspace 7, spotify"
-        "workspace 8, planify"
-        "workspace 8, calendar"
+        "workspace 8, io.github.alainm23.planify"
       ];
 
       cursor = {
