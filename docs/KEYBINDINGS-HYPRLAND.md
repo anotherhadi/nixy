@@ -10,14 +10,14 @@
 | Move app to Workspace | SHIFT + SUPER + {Number} |
 | Kitty | SUPER + RETURN |
 | Thunar | SUPER + E |
-| Qutebrowser | SUPER + B |
+| Zen Browser | SUPER + B |
 | Bitwarden | SUPER + K |
 | Lock | SUPER + L |
 | Powermenu | SUPER + X |
 | Launcher | SUPER + SPACE |
 | Quickmenu | SUPER + C |
 | Toggle HyprFocus | SHIFT + SUPER + SPACE |
-| "$mod,TAB, overview:toggle"  |  |
+| Planify | SUPER + P |
 | Close window | SUPER + Q |
 | Toggle Floating | SUPER + T |
 | Toggle Fullscreen | SUPER + F |
@@ -34,7 +34,6 @@
 | Screenshot window | SHIFT + SUPER + PRINT |
 | Screenshot region then edit | ALTPRINT |
 | Toggle hyprpanel | SHIFT + SUPER + T |
-| Search on internet with wofi | SHIFT + SUPER + S |
 | Clipboard picker with wofi | SHIFT + SUPER + C |
 | Emoji picker with wofi | SHIFT + SUPER + E |
 | Toggle night shift | SUPER + F2 |
