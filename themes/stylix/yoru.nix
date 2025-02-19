@@ -63,9 +63,9 @@
     polarity = "dark";
     image = pkgs.fetchurl {
       url =
-        "https://raw.githubusercontent.com/D3Ext/aesthetic-wallpapers/refs/heads/main/images/"
-        + "tech.png" + "?raw=true";
-      sha256 = "sha256-fT2ah18IAxoy3hzlLl9SkqhchzfVvZneUrZWzntMo40=";
+        "https://github.com/anotherhadi/nixy-wallpapers/blob/main/wallpapers/"
+        + "wave-dark.png" + "?raw=true";
+      sha256 = "sha256-FjvbyAA2xLLZez/0aj43DPlbyrNfhjBTBPsUBywri5k=";
     };
 
   };
