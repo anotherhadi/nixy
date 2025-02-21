@@ -142,6 +142,8 @@ in {
         "workspace 7, spotify"
         "workspace 8, io.github.alainm23.planify"
         "fullscreen, io.github.alainm23.planify"
+        "workspace 9, Proton Mail"
+        "fullscreen, Proton Mail"
       ];
 
       layerrule = [ "noanim, launcher" "noanim, ^ags-.*" ];
