@@ -114,7 +114,10 @@ in {
           range = 20;
           render_power = 3;
         };
-        blur = { enabled = if blur then "true" else "false"; };
+        blur = {
+          enabled = if blur then "true" else "false";
+          size = 16;
+        };
       };
 
       master = {
