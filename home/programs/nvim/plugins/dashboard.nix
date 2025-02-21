@@ -50,6 +50,16 @@ in {
             val = "󰭎  Find file";
             on_press.__raw = "function() vim.cmd[[Telescope find_files]] end";
             opts = {
+              keymap = [
+                "n"
+                "nf"
+                ":Telescope find_files <CR>"
+                {
+                  noremap = true;
+                  silent = true;
+                  nowait = true;
+                }
+              ];
               shortcut = "nf";
               position = "center";
               cursor = 3;
@@ -64,6 +74,16 @@ in {
             val = "  New file";
             on_press.__raw = "function() vim.cmd[[ene]] end";
             opts = {
+              keymap = [
+                "n"
+                "nn"
+                ":ene <CR>"
+                {
+                  noremap = true;
+                  silent = true;
+                  nowait = true;
+                }
+              ];
               shortcut = "nn";
               position = "center";
               cursor = 3;
@@ -78,6 +98,16 @@ in {
             val = "  NixOs Config";
             on_press.__raw = "function() vim.cmd[[Neotree ${configDir}]] end";
             opts = {
+              keymap = [
+                "n"
+                "nc"
+                ":Neotree ${configDir} <CR>"
+                {
+                  noremap = true;
+                  silent = true;
+                  nowait = true;
+                }
+              ];
               shortcut = "nc";
               position = "center";
               cursor = 3;
@@ -93,7 +123,17 @@ in {
             on_press.__raw =
               "function() vim.cmd[[e ${configDir}/docs/KEYBINDINGS.md]] end";
             opts = {
-              shortcut = "nc";
+              shortcut = "nk";
+              keymap = [
+                "n"
+                "nk"
+                ":e ${configDir}/docs/KEYBINDINGS-HYPRLAND.md <CR>"
+                {
+                  noremap = true;
+                  silent = true;
+                  nowait = true;
+                }
+              ];
               position = "center";
               cursor = 3;
               width = 50;
@@ -108,6 +148,16 @@ in {
             on_press.__raw = "function() vim.cmd[[Telescope oldfiles]] end";
             opts = {
               shortcut = "no";
+              keymap = [
+                "n"
+                "no"
+                ":Telescope oldfiles <CR>"
+                {
+                  noremap = true;
+                  silent = true;
+                  nowait = true;
+                }
+              ];
               position = "center";
               cursor = 3;
               width = 50;
@@ -121,7 +171,17 @@ in {
             val = "󰱽  Find text";
             on_press.__raw = "function() vim.cmd[[Telescope live_grep]] end";
             opts = {
-              shortcut = "nt";
+              shortcut = "ng";
+              keymap = [
+                "n"
+                "ng"
+                ":Telescope live_grep <CR>"
+                {
+                  noremap = true;
+                  silent = true;
+                  nowait = true;
+                }
+              ];
               position = "center";
               cursor = 3;
               width = 50;
@@ -136,6 +196,16 @@ in {
             on_press.__raw = "function() vim.cmd[[qa]] end";
             opts = {
               shortcut = "nq";
+              keymap = [
+                "n"
+                "nq"
+                ":qa <CR>"
+                {
+                  noremap = true;
+                  silent = true;
+                  nowait = true;
+                }
+              ];
               position = "center";
               cursor = 3;
               width = 50;
