@@ -38,7 +38,7 @@ let
   '';
 
   hyprpanel-reload = pkgs.writeShellScriptBin "hyprpanel-reload" ''
-    [ $(pgrep "ags") ] && pkill ags
+    [ $(pgrep "hyprpanel") ] && pkill hyprpanel
     hyprctl dispatch exec hyprpanel
   '';
 in {
