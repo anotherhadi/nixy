@@ -184,6 +184,7 @@ in {
         "${if transparent then "0 0 0 0" else "0px 0px 3px 1px #16161e"}";
       "bar.customModules.cava.showIcon" = false;
       "bar.customModules.cava.stereo" = true;
+      "bar.customModules.cava.showActiveOnly" = false;
     };
   };
 }
