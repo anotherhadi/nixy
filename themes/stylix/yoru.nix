@@ -64,8 +64,8 @@
     image = pkgs.fetchurl {
       url =
         "https://github.com/anotherhadi/nixy-wallpapers/blob/main/wallpapers/"
-        + "wave-dark.png" + "?raw=true";
-      sha256 = "sha256-FjvbyAA2xLLZez/0aj43DPlbyrNfhjBTBPsUBywri5k=";
+        + "Rocks-misty.png" + "?raw=true";
+      sha256 = "sha256-xX/lbesJAxeogKURSlQO65wvMxAnN7KOe3LzZukvFlg=";
     };
 
   };
