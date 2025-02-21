@@ -64,8 +64,8 @@
     image = pkgs.fetchurl {
       url =
         "https://github.com/anotherhadi/nixy-wallpapers/blob/main/wallpapers/"
-        + "Grey-mountains.png" + "?raw=true";
-      sha256 = "sha256-9MmgwPAyKjLc0s2mO9r3HqoctXeLWQJ2JAFOLsRUDIU=";
+        + "pink-sky-mountains.png" + "?raw=true";
+      sha256 = "sha256-EF/tjNSpFHVei78HN7etXqsuBeA+PnxSKXw8HSPypys=";
     };
 
   };
