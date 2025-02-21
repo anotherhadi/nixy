@@ -34,9 +34,9 @@ in {
     overlay.enable = true;
     layout = {
       "bar.layouts" = {
-        "0" = {
+        "*" = {
           "left" = [ "dashboard" "workspaces" "windowtitle" ];
-          "middle" = [ "media" ];
+          "middle" = [ "media" "cava" ];
           "right" = [
             "systray"
             "volume"
@@ -180,10 +180,10 @@ in {
       "bar.workspaces.showApplicationIcons" = true;
       "bar.workspaces.showWsIcons" = true;
       "theme.bar.dropdownGap" = "4.5em";
-      "theme.bar.menus.shadow" = "${if transparent then
-        "0 0 0 0"
-      else
-        "0px 0px 3px 1px #16161e"}";
+      "theme.bar.menus.shadow" =
+        "${if transparent then "0 0 0 0" else "0px 0px 3px 1px #16161e"}";
+      "bar.customModules.cava.showIcon" = false;
+      "bar.customModules.cava.stereo" = true;
     };
   };
 }
