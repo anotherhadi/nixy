@@ -43,6 +43,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    hyprland-qtutils
     fd
     bc
     gcc
