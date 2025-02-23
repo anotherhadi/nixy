@@ -50,7 +50,7 @@ in {
 
       exec-once = [
         "${pkgs.bitwarden}/bin/bitwarden"
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "dbus-update-activation-environment --systemd --all"
       ];
 
       monitor = [
