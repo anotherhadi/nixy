@@ -1,16 +1,13 @@
 { config, ... }: {
   programs.nixvim = {
+    nixpkgs.config.allowUnfree = true; # For copilot
     highlightOverride = {
       FloatBorder.fg = "#${config.lib.stylix.colors.base0D}";
     };
-    nixpkgs.config = { allowUnfree = true; };
     plugins = {
       copilot-vim.enable = true;
       flash.enable = true;
       tmux-navigator.enable = true;
-      comment.enable = true;
-      nvim-autopairs.enable = true;
-      todo-comments.enable = true;
       treesitter = {
         enable = true;
         nixGrammars = true;

@@ -7,10 +7,9 @@
     ./plugins/telescope.nix
     ./plugins/cmp.nix
     ./plugins/ui.nix
-    ./plugins/lualine.nix
     ./plugins/utils.nix
-    ./plugins/dashboard.nix
     ./plugins/markdown.nix
+    ./plugins/mini.nix
 
     ./options.nix
     ./keymaps.nix

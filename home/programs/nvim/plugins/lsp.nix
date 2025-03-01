@@ -5,22 +5,12 @@
       enable = true;
       servers = {
         bashls.enable = true;
-        clangd.enable = true;
         gopls.enable = true;
-        eslint.enable = true;
         ts_ls.enable = true;
-        nixd = {
-          enable = true;
-          extraOptions = {
-            expr = "import <nixpkgs> {}";
-            # fix- encoding: https://github.com/nix-community/nixvim/issues/2390
-            offset_encoding = "utf-8";
-          };
-        };
+        nixd.enable = true;
         tailwindcss.enable = true;
         html.enable = true;
         svelte.enable = true;
-        marksman.enable = true;
       };
       keymaps.lspBuf = {
         "gd" = "definition";

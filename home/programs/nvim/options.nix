@@ -38,11 +38,6 @@
       # Highlight current line
       cursorline = true;
 
-      # Enable linematch diff algorithm
-      diffopt.__raw = ''
-        vim.list_extend(vim.opt.diffopt:get(), { "algorithm:histogram", "linematch:60" })
-      '';
-
       # Expand <Tab> to spaces
       expandtab = true;
 
@@ -92,11 +87,6 @@
       # Number of spaces to use for indentation
       shiftwidth = 2;
 
-      # Disable search count wrap and startup messages
-      shortmess.__raw = ''
-        vim.tbl_deep_extend("force", vim.opt.shortmess:get(), { s = true, I = true })
-      '';
-
       # Disable showing modes in command line
       showmode = false;
 
@@ -132,10 +122,6 @@
 
       # Save undo history to undo file (in $XDG_STATE_HOME/nvim/undo)
       undofile = true;
-
-      viewoptions.__raw = ''
-        vim.tbl_filter(function(val) return val ~= "curdir" end, vim.opt.viewoptions:get())
-      '';
 
       # Enable virtual edit in visual block mode
       # This has the effect of selecting empty cells beyond lines boundaries
