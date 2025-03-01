@@ -37,59 +37,6 @@ in {
 
     # Plugins
     plugins = {
-      # Paste images from clipboard
-      clipboard-image = {
-        enable = true;
-        settings = { default.img_dir = [ "%:p:h" "img" ]; };
-      };
-
-      # Zen mode
-      zen-mode = {
-        enable = true;
-        settings = {
-          on_close = ''
-            function()
-            end
-          '';
-          on_open = ''
-            function()
-            end
-          '';
-          plugins = {
-            gitsigns = { enabled = false; };
-            options = {
-              enabled = true;
-              ruler = false;
-              showcmd = false;
-              laststatus = "0";
-              kitty = {
-                enabled = true;
-                font = "+4";
-              };
-            };
-          };
-          window = {
-            backdrop = 0.95;
-            height = 1;
-            options = {
-              signcolumn = "no";
-              number = false;
-              relativenumber = false;
-            };
-            width = 0.8;
-          };
-        };
-      };
-
-      # Display images in markdown
-      image = {
-        enable = true;
-        integrations.markdown = {
-          clearInInsertMode = true;
-          onlyRenderImageAtCursor = true;
-        };
-      };
-
       # This one takes care of the markdown titles
       headlines = {
         enable = true;

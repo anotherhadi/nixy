@@ -77,6 +77,11 @@
         action = "<cmd>Neotree toggle<cr>";
         options.desc = "Neotree";
       }
+      {
+        key = "<leader>g";
+        action = "<cmd>LazyGit<cr>";
+        options.desc = "LazyGit";
+      }
 
       {
         key = "s";
@@ -107,11 +112,6 @@
       }
 
       # UI
-      {
-        key = "<leader>uz";
-        action = "<cmd>ZenMode<cr>";
-        options.desc = "Toggle ZenMode";
-      }
       {
         key = "<leader>uw";
         action = "<cmd>set wrap!<cr>";
