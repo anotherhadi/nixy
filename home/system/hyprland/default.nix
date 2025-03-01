@@ -101,7 +101,6 @@ in {
         gaps_in = gaps-in;
         gaps_out = gaps-out;
         border_size = border-size;
-        border_part_of_window = true;
         layout = "master";
       };
 
