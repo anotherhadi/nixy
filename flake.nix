@@ -36,11 +36,13 @@
     nur.url = "github:nix-community/NUR";
     zen-browser.url =
       "git+https://git.sr.ht/~canasta/zen-browser-flake/"; # updated flake
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
     nixosConfigurations = {
-      nixy = # CHANGEME: This should match the 'hostname' in your variables.nix file
+      nixy =
+        # CHANGEME: This should match the 'hostname' in your variables.nix file
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
@@ -55,7 +57,6 @@
             ./hosts/laptop/configuration.nix # CHANGEME: change the path to match your host folder
           ];
         };
-
     };
   };
 }
