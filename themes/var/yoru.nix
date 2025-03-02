@@ -11,8 +11,8 @@
 
   bar = {
     position = "top"; # "top" | "bottom"
-    transparent = false;
-    transparentButtons = true;
+    transparent = true;
+    transparentButtons = false;
     floating = true;
   };
 }
