@@ -3,10 +3,7 @@
     plugins.mini = {
       enable = true;
       mockDevIcons = true;
-
       modules = {
-
-        animate = { cursor = { enable = false; }; };
         icons = { };
         # TODO: Learn how to use this
         bracketed = { };
