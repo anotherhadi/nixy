@@ -2,9 +2,35 @@
 let
   hostname = config.var.hostname;
   keyboardLayout = config.var.keyboardLayout;
+  configDir = config.var.configDirectory;
 in {
 
   networking.hostName = hostname;
+
+  networking.networkmanager.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
+
+  system.autoUpgrade = {
+    enable = config.var.autoUpgrade;
+    dates = "04:00";
+    flake = "${configDir}";
+    flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
+    allowReboot = false;
+  };
+
+  time.timeZone = config.var.timeZone;
+  i18n.defaultLocale = config.var.defaultLocale;
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = config.var.extraLocale;
+    LC_IDENTIFICATION = config.var.extraLocale;
+    LC_MEASUREMENT = config.var.extraLocale;
+    LC_MONETARY = config.var.extraLocale;
+    LC_NAME = config.var.extraLocale;
+    LC_NUMERIC = config.var.extraLocale;
+    LC_PAPER = config.var.extraLocale;
+    LC_TELEPHONE = config.var.extraLocale;
+    LC_TIME = config.var.extraLocale;
+  };
 
   services = {
     xserver = {
