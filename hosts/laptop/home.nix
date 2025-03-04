@@ -1,13 +1,12 @@
 { pkgs, config, ... }: {
 
   imports = [
+    # Mostly user-specific configuration
     ./variables.nix
 
     # Programs
     ../../home/programs/kitty
     ../../home/programs/nvim
-    # ../../home/programs/nvf
-    # ../../home/programs/qutebrowser
     ../../home/programs/shell
     ../../home/programs/fetch
     ../../home/programs/git
@@ -17,7 +16,6 @@
     ../../home/programs/lazygit
     ../../home/programs/zen
     ../../home/programs/duckduckgo-colorscheme
-    ../../home/programs/superfile
     ../../home/programs/discord
 
     # Scripts
@@ -35,8 +33,6 @@
     ../../home/system/mime
     ../../home/system/udiskie
     ../../home/system/clipman
-
-    # ../../themes/stylix/yoru.nix
 
     ./secrets # CHANGEME: You should probably remove this line, this is where I store my secrets
   ];
@@ -62,17 +58,14 @@
       nodejs
       python3
       jq
-      figlet
       just
       pnpm
-      lazydocker
 
       # Utils
       zip
       unzip
       optipng
       pfetch
-      pandoc
       btop
       fastfetch
 
