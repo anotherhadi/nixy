@@ -11,7 +11,7 @@
         statusline = { };
         starter = { };
         pairs = { };
-        notify = { };
+        notify = { lsp_progress.enable = false; };
         indentscope = { };
         git = { };
         cursorword = { };
