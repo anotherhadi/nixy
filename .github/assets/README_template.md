@@ -105,6 +105,5 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 - [KEYBINDINGS-HYPRLAND](docs/KEYBINDINGS-HYPRLAND.md): Keybindings available in Hyprland
 - [WALLPAPERS](https://github.com/anotherhadi/nixy-wallpapers): A collection of wallpapers for Nixy.
 
-- [TODO](docs/TODO.md): What's next (feel free to contribute)
 - [CONTRIBUTING](docs/CONTRIBUTING.md): How to contribute
 - [LICENSE](LICENSE): MIT License
