@@ -1,5 +1,5 @@
 { config, ... }: {
-  imports = [ ../../nixos/variables-config.nix ];
+  imports = [ ../../nixos/variables-config.nix ../../themes/yoru.nix ];
 
   config.var = {
     hostname = "nixy";
@@ -23,6 +23,6 @@
     autoGarbageCollector = true;
 
     # Choose your theme variables here
-    theme = import ../../themes/var/yoru.nix;
+    # theme = import ../../themes/var/2025.nix;
   };
 }

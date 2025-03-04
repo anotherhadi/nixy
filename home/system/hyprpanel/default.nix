@@ -2,7 +2,7 @@
 # Display informations like workspaces, battery, wifi, ...
 { inputs, config, ... }:
 let
-  transparentButtons = config.var.theme.bar.transparentButtons;
+  transparentButtons = config.theme.bar.transparentButtons;
 
   accent = "#${config.lib.stylix.colors.base0D}";
   accent-alt = "#${config.lib.stylix.colors.base03}";
@@ -12,15 +12,15 @@ let
   font = "${config.stylix.fonts.serif.name}";
   fontSize = "${toString config.stylix.fonts.sizes.desktop}";
 
-  rounding = config.var.theme.rounding;
-  border-size = config.var.theme.border-size;
+  rounding = config.theme.rounding;
+  border-size = config.theme.border-size;
 
-  gaps-out = config.var.theme.gaps-out;
-  gaps-in = config.var.theme.gaps-in;
+  gaps-out = config.theme.gaps-out;
+  gaps-in = config.theme.gaps-in;
 
-  floating = config.var.theme.bar.floating;
-  transparent = config.var.theme.bar.transparent;
-  position = config.var.theme.bar.position;
+  floating = config.theme.bar.floating;
+  transparent = config.theme.bar.transparent;
+  position = config.theme.bar.position;
 
   location = config.var.location;
 in {

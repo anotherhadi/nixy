@@ -17,6 +17,8 @@
     ../../home/programs/lazygit
     ../../home/programs/zen
     ../../home/programs/duckduckgo-colorscheme
+    ../../home/programs/superfile
+    ../../home/programs/discord
 
     # Scripts
     ../../home/scripts # All scripts
@@ -34,6 +36,8 @@
     ../../home/system/udiskie
     ../../home/system/clipman
 
+    # ../../themes/stylix/yoru.nix
+
     ./secrets # CHANGEME: You should probably remove this line, this is where I store my secrets
   ];
 
@@ -43,7 +47,6 @@
 
     packages = with pkgs; [
       # Apps
-      discord # Chat
       bitwarden # Password manager
       vlc # Video player
       blanket # White-noise app
