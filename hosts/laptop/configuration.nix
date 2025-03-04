@@ -19,7 +19,7 @@
     ../../nixos/variables-config.nix
 
     # Choose your theme here
-    ../../themes/stylix/yoru.nix
+    # ../../themes/stylix/yoru.nix
 
     ./hardware-configuration.nix
     ./variables.nix

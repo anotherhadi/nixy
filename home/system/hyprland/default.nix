@@ -1,13 +1,13 @@
 # So best window tiling manager
 { pkgs, config, inputs, ... }:
 let
-  border-size = config.var.theme.border-size;
-  gaps-in = config.var.theme.gaps-in;
-  gaps-out = config.var.theme.gaps-out;
-  active-opacity = config.var.theme.active-opacity;
-  inactive-opacity = config.var.theme.inactive-opacity;
-  rounding = config.var.theme.rounding;
-  blur = config.var.theme.blur;
+  border-size = config.theme.border-size;
+  gaps-in = config.theme.gaps-in;
+  gaps-out = config.theme.gaps-out;
+  active-opacity = config.theme.active-opacity;
+  inactive-opacity = config.theme.inactive-opacity;
+  rounding = config.theme.rounding;
+  blur = config.theme.blur;
   keyboardLayout = config.var.keyboardLayout;
 in {
 
@@ -59,6 +59,7 @@ in {
         "DP-8, disable"
         "DP-9, disable"
         "HDMI-A-1,3440x1440@99.98,auto,1"
+        "desc:United Microelectr Corporation UMC SHARP,3840x2160,auto,2"
         ",prefered,auto,1"
       ];
 
