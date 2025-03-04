@@ -38,6 +38,7 @@
       "git+https://git.sr.ht/~canasta/zen-browser-flake/"; # updated flake
     nvf.url = "github:notashelf/nvf";
     superfile = { url = "github:yorukot/superfile"; };
+    nixcord = { url = "github:kaylorben/nixcord"; };
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
