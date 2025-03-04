@@ -1,5 +1,8 @@
-{ config, ... }: {
-  imports = [ ../../nixos/variables-config.nix ../../themes/yoru.nix ];
+{ config, lib, ... }: {
+  imports = [
+    # Choose your theme here:
+    ../../themes/yoru.nix
+  ];
 
   config.var = {
     hostname = "nixy";
@@ -21,8 +24,13 @@
 
     autoUpgrade = false;
     autoGarbageCollector = true;
+  };
 
-    # Choose your theme variables here
-    # theme = import ../../themes/var/2025.nix;
+  # Let this here
+  options = {
+    var = lib.mkOption {
+      type = lib.types.attrs;
+      default = { };
+    };
   };
 }
