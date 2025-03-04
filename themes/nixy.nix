@@ -1,13 +1,13 @@
-{ lib, pkgs, inputs, config, ... }: {
+{ lib, pkgs, inputs, ... }: {
 
   options.theme = lib.mkOption {
     type = lib.types.attrs;
     default = {
-      rounding = 12;
-      gaps-in = 9;
-      gaps-out = 9 * 2;
-      active-opacity = 0.96;
-      inactive-opacity = 0.96;
+      rounding = 10;
+      gaps-in = 10;
+      gaps-out = 10 * 2;
+      active-opacity = 0.97;
+      inactive-opacity = 0.95;
       blur = true;
       border-size = 3;
       animation-speed = "fast"; # "fast" | "medium" | "slow"
@@ -27,32 +27,32 @@
     stylix = {
       enable = true;
 
-      # Edited catppuccin
+      # See https://tinted-theming.github.io/tinted-gallery/ for more schemes
       base16Scheme = {
         base00 = "0c0e0f"; # Default Background
         base01 =
-          "141617"; # Lighter Background (Used for status bars, line number and folding marks)
-        base02 = "161819"; # Selection Background
-        base03 = "1f2122"; # Comments, Invisibles, Line Highlighting
-        base04 = "27292a"; # Dark Foreground (Used for status bars)
-        base05 = "edeff0"; # Default Foreground, Caret, Delimiters, Operators
-        base06 = "e4e6e7"; # Light Foreground (Not often used)
-        base07 = "f2f4f5"; # Light Background (Not often used)
+          "101314"; # Lighter Background (Used for status bars, line number and folding marks)
+        base02 = "313244"; # Selection Background
+        base03 = "45475a"; # Comments, Invisibles, Line Highlighting
+        base04 = "585b70"; # Dark Foreground (Used for status bars)
+        base05 = "cdd6f4"; # Default Foreground, Caret, Delimiters, Operators
+        base06 = "f5e0dc"; # Light Foreground (Not often used)
+        base07 = "b4befe"; # Light Background (Not often used)
         base08 =
-          "f26e74"; # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+          "f38ba8"; # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
         base09 =
-          "ecd28b"; # Integers, Boolean, Constants, XML Attributes, Markup Link Url
-        base0A = "e79881"; # Classes, Markup Bold, Search Text Background
+          "fab387"; # Integers, Boolean, Constants, XML Attributes, Markup Link Url
+        base0A = "f9e2af"; # Classes, Markup Bold, Search Text Background
         base0B =
-          "82c29c"; # Strings, Inherited Class, Markup Code, Diff Inserted
+          "a6e3a1"; # Strings, Inherited Class, Markup Code, Diff Inserted
         base0C =
-          "6791c9"; # Support, Regular Expressions, Escape Characters, Markup Quotes
+          "94e2d5"; # Support, Regular Expressions, Escape Characters, Markup Quotes
         base0D =
-          "709ad2"; # Functions, Methods, Attribute IDs, Headings, Accent color
+          "89b4fa"; # Functions, Methods, Attribute IDs, Headings, Accent color
         base0E =
-          "c58cec"; # Keywords, Storage, Selector, Markup Italic, Diff Changed
+          "cba6f7"; # Keywords, Storage, Selector, Markup Italic, Diff Changed
         base0F =
-          "759fcB"; # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+          "f2cdcd"; # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
       };
 
       cursor = {
@@ -90,8 +90,8 @@
       image = pkgs.fetchurl {
         url =
           "https://github.com/anotherhadi/nixy-wallpapers/blob/main/wallpapers/"
-          + "pink-sky-mountains.png" + "?raw=true";
-        sha256 = "sha256-EF/tjNSpFHVei78HN7etXqsuBeA+PnxSKXw8HSPypys=";
+          + "a-lake-surrounded-by-mountains.png" + "?raw=true";
+        sha256 = "sha256-5VHprxEVOkqyecnsurUx1tmhwE+3v0dhwmhpBPDTOgU=";
       };
 
     };
