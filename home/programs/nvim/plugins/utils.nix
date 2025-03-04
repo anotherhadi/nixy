@@ -8,6 +8,7 @@
       copilot-vim.enable = true;
       flash.enable = true;
       tmux-navigator.enable = true;
+      todo-comments.enable = true;
       treesitter = {
         enable = true;
         nixGrammars = true;
