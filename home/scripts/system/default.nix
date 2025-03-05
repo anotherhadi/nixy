@@ -14,13 +14,18 @@ let
       if pgrep wofi; then
       	pkill wofi
       else
-      	wofi -p " Apps" --show drun
+      	wofi -p " Apps" --show drun &
+      	# Quit when not focused anymore
+      	sleep 0.2
+      	while true; do
+      		window=$(hyprctl activewindow | grep "wofi")
+      		if [[ ! $window ]]; then
+      			pkill wofi
+      			break
+      		fi
+      		sleep 0.2
+      	done
       fi
-      # if pgrep tofi; then
-      # 	pkill tofi
-      # else
-      # 	tofi-drun --drun-launch=true
-      # fi
     '';
 
   powermenu = pkgs.writeShellScriptBin "powermenu"
