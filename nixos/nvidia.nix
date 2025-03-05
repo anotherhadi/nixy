@@ -18,10 +18,11 @@ in {
       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     ];
   environment.variables = {
-    # GBM_BACKEND = "nvidia-drm"; # If crash in firefox, remove this line
+    GBM_BACKEND = "nvidia-drm"; # If crash in firefox, remove this line
     LIBVA_DRIVER_NAME = "nvidia"; # hardware acceleration
-    # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     NVD_BACKEND = "direct";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    __GL_GSYNC_ALLOWED = "1"; # GSync
   };
   nixpkgs.config = {
     nvidia.acceptLicense = true;
@@ -71,5 +72,10 @@ in {
       ];
     };
   };
-
+  nix.settings = {
+    substituters = [ "https://cuda-maintainers.cachix.org" ];
+    trusted-public-keys = [
+      "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+    ];
+  };
 }
