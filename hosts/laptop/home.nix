@@ -49,7 +49,6 @@
       obsidian # Note taking app
       planify # Todolists
       gnome-calendar # Calendar
-      protonmail-desktop
       textpieces # Manipulate texts
       curtail # Compress images
 
