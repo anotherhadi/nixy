@@ -12,8 +12,7 @@
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
-    zen-browser.url =
-      "git+https://git.sr.ht/~canasta/zen-browser-flake/"; # updated flake
+    zen-browser.url = "git+https://git.sr.ht/~canasta/zen-browser-flake/";
     nixcord.url = "github:kaylorben/nixcord";
     home-manager = {
       url = "github:nix-community/home-manager";
