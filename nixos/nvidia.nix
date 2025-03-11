@@ -3,6 +3,7 @@ let
   nvidiaDriverChannel =
     config.boot.kernelPackages.nvidiaPackages.beta; # stable, latest, beta, etc.
 in {
+
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [
     "nvidia"
@@ -50,6 +51,7 @@ in {
         };
 
         # sync.enable = true;
+        # reverseSync.enable = true;
 
         # CHANGEME: Change those values to match your hardware (if prime is imported)
         amdgpuBusId =
