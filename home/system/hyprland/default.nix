@@ -48,16 +48,14 @@ in {
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
 
-      exec-once = [
-        "${pkgs.bitwarden}/bin/bitwarden"
-        "dbus-update-activation-environment --systemd --all"
-      ];
+      exec-once = [ "dbus-update-activation-environment --systemd --all" ];
 
       monitor = [
         "eDP-2,highres,0x0,1"
         "DP-7, disable"
         "DP-8, disable"
         "DP-9, disable"
+        "DP-2, 1920x1080@60, auto, 1"
         "HDMI-A-1,3440x1440@99.98,auto,1"
         "desc:United Microelectr Corporation UMC SHARP,3840x2160,auto,2"
         ",prefered,auto,1"
@@ -138,14 +136,7 @@ in {
       windowrulev2 =
         [ "float, tag:modal" "pin, tag:modal" "center, tag:modal" ];
 
-      windowrule = [
-        "workspace 6, discord"
-        "workspace 7, spotify"
-        "workspace 8, io.github.alainm23.planify"
-        "fullscreen, io.github.alainm23.planify"
-        "workspace 9, Proton Mail"
-        "fullscreen, Proton Mail"
-      ];
+      windowrule = [ "fullscreen, io.github.alainm23.planify" ];
 
       layerrule = [ "noanim, launcher" "noanim, ^ags-.*" ];
 
@@ -167,6 +158,4 @@ in {
 
     };
   };
-  systemd.user.targets.hyprland-session.Unit.Wants =
-    [ "xdg-desktop-autostart.target" ];
 }
