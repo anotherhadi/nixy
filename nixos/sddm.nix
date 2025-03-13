@@ -24,6 +24,12 @@ in {
     };
   };
 
+  services.getty = {
+    autologinUser = null;
+    helpLine = lib.mkForce "";
+  };
+  systemd.services."getty@tty1".enable = false;
+
   environment.systemPackages = [ sddm-astronaut ];
 
   # To prevent getting stuck at shutdown
