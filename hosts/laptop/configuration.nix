@@ -8,7 +8,7 @@
     ../../nixos/home-manager.nix
     ../../nixos/nix.nix
     ../../nixos/systemd-boot.nix
-    ../../nixos/tuigreet.nix
+    ../../nixos/sddm.nix
     ../../nixos/users.nix
     ../../nixos/utils.nix
     # ../../nixos/docker.nix
