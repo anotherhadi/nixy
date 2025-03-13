@@ -89,9 +89,8 @@
       polarity = "dark";
       image = pkgs.fetchurl {
         url =
-          "https://github.com/anotherhadi/nixy-wallpapers/blob/main/wallpapers/"
-          + "a-lake-surrounded-by-mountains.png" + "?raw=true";
-        sha256 = "sha256-5VHprxEVOkqyecnsurUx1tmhwE+3v0dhwmhpBPDTOgU=";
+          "https://raw.githubusercontent.com/Keyitdev/sddm-astronaut-theme/refs/heads/master/Backgrounds/pixel_sakura_static.png";
+        sha256 = "sha256-y6AJu7RXnI5vPLPVts6tflb9XukDkgiL+J6vUPj4lbs=";
       };
 
     };
