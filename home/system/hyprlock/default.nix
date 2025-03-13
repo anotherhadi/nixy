@@ -2,7 +2,6 @@
 { config, lib, ... }:
 let
   foreground = "rgba(216, 222, 233, 0.70)";
-  imageStr = toString config.stylix.image;
   font = config.stylix.fonts.serif.name;
 in {
   programs.hyprlock = {
@@ -17,7 +16,6 @@ in {
       # BACKGROUND
       background = {
         monitor = "";
-        path = imageStr;
         blur_passes = 0;
         contrast = 0.8916;
         brightness = 0.7172;
