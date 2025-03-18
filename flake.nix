@@ -53,6 +53,15 @@
             ./hosts/laptop/configuration.nix # CHANGEME: change the path to match your host folder
           ];
         };
+      jack = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          { _module.args = { inherit inputs; }; }
+          inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+          ./hosts/server/configuration.nix
+        ];
+      };
     };
   };
 }
