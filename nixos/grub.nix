@@ -1,7 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
+  stylix.targets.grub.enable = false;
+
   boot = {
     bootspec.enable = true;
-
     loader = {
       efi.canTouchEfiVariables = true;
       grub = {
@@ -9,7 +10,29 @@
         devices = [ "nodev" ];
         efiSupport = true;
         useOSProber = true;
-        gfxmodeEfi = "1280x720";
+      };
+
+      grub2-theme = {
+        enable = true;
+        theme = "whitesur";
+        icon = "whitesur";
+        splashImage = config.stylix.image;
+        bootMenuConfig = ''
+          item_color = "#333333"
+          selected_item_color = "#000000"
+          left = 30%
+          top = 30%
+          width = 40%
+          height = 40%
+          item_font = "Unifont Regular 24"
+          icon_width = 48
+          icon_height = 48
+          item_icon_space = 24
+          item_height = 56
+          item_padding = 8
+          item_spacing = 16
+          selected_item_pixmap_style = "select_*.png"
+        '';
       };
     };
 
