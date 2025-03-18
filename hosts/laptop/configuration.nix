@@ -13,6 +13,7 @@
     ../../nixos/users.nix
     ../../nixos/utils.nix
     # ../../nixos/docker.nix
+    ../../nixos/tailscale.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix

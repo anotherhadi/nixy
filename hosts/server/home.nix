@@ -35,6 +35,7 @@
       pfetch
       btop
       fastfetch
+      tailscale
     ];
 
     # Don't touch this
