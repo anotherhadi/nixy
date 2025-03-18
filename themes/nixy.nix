@@ -3,14 +3,14 @@
   options.theme = lib.mkOption {
     type = lib.types.attrs;
     default = {
-      rounding = 10;
-      gaps-in = 10;
-      gaps-out = 10 * 2;
-      active-opacity = 0.97;
+      rounding = 12;
+      gaps-in = 12;
+      gaps-out = 12 * 2;
+      active-opacity = 0.96;
       inactive-opacity = 0.95;
       blur = true;
-      border-size = 3;
-      animation-speed = "fast"; # "fast" | "medium" | "slow"
+      border-size = 4;
+      animation-speed = "medium"; # "fast" | "medium" | "slow"
       fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
 
       bar = { # Hyprpanel
@@ -56,9 +56,9 @@
       };
 
       cursor = {
-        # package = pkgs.bibata-cursors;
-        # name = "Bibata-Modern-Ice";
-        size = 24;
+        name = "phinger-cursors-light";
+        package = pkgs.phinger-cursors;
+        size = 20;
       };
 
       fonts = {
@@ -92,7 +92,6 @@
           "https://raw.githubusercontent.com/Keyitdev/sddm-astronaut-theme/refs/heads/master/Backgrounds/pixel_sakura_static.png";
         sha256 = "sha256-y6AJu7RXnI5vPLPVts6tflb9XukDkgiL+J6vUPj4lbs=";
       };
-
     };
   };
 
