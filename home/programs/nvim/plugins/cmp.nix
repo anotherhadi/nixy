@@ -21,6 +21,7 @@
           }
           { name = "nvim_lua"; }
           { name = "mkdnflow"; }
+          { name = "render-markdown"; }
           { name = "path"; }
         ];
 
