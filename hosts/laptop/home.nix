@@ -17,6 +17,7 @@
     ../../home/programs/zen
     ../../home/programs/duckduckgo-colorscheme
     ../../home/programs/discord
+    ../../home/programs/tailscale
 
     # Scripts
     ../../home/scripts # All scripts
