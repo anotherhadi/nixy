@@ -136,8 +136,6 @@ in {
       windowrulev2 =
         [ "float, tag:modal" "pin, tag:modal" "center, tag:modal" ];
 
-      windowrule = [ "fullscreen, io.github.alainm23.planify" ];
-
       layerrule = [ "noanim, launcher" "noanim, ^ags-.*" ];
 
       input = {
