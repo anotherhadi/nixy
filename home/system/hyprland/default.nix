@@ -112,7 +112,7 @@ in {
         };
         blur = {
           enabled = if blur then "true" else "false";
-          size = 16;
+          size = 18;
         };
       };
 
