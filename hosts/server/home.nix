@@ -27,6 +27,7 @@
       jq
       just
       pnpm
+      wireguard-tools
 
       # Utils
       zip
