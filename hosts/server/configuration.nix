@@ -13,6 +13,8 @@
     ../../server-modules/firewall.nix
     ../../server-modules/nginx.nix
     ../../server-modules/nextcloud.nix
+    ../../server-modules/glance.nix
+    ../../server-modules/adguardhome.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
