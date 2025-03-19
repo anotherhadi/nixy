@@ -14,6 +14,8 @@
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     zen-browser.url = "git+https://git.sr.ht/~canasta/zen-browser-flake/";
     nixcord.url = "github:kaylorben/nixcord";
+    sops-nix.url = "github:Mic92/sops-nix";
+    nixarr.url = "github:rasmus-kirk/nixarr";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,10 +26,6 @@
     };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprspace = {
@@ -60,6 +58,7 @@
           inputs.home-manager.nixosModules.home-manager
           inputs.stylix.nixosModules.stylix
           inputs.sops-nix.nixosModules.sops
+          inputs.nixarr.nixosModules.default
           ./hosts/server/configuration.nix
         ];
       };
