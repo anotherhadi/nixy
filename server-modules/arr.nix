@@ -28,7 +28,10 @@ in {
       vpn.enable = true;
     };
 
-    recyclarr.enable = true;
+    recyclarr = {
+      enable = true;
+      configFile = config.sops.secrets.recyclarr.path;
+    };
   };
 
   services.nginx.virtualHosts = {
