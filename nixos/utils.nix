@@ -82,6 +82,7 @@ in {
     xdg-utils
     wget
     curl
+    vim
   ];
 
   services.logind.extraConfig = ''

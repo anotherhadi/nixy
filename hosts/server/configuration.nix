@@ -15,6 +15,7 @@
     ../../server-modules/nextcloud.nix
     ../../server-modules/glance.nix
     ../../server-modules/adguardhome.nix
+    ../../server-modules/hoarder.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
