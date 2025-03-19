@@ -6,5 +6,16 @@
     defaults.email = config.var.git.email;
   };
 
+  security.acme.certs."hadi.diy" = {
+    domain = "hadi.diy";
+    extraDomainNames = [ "*.hadi.diy" ];
+    group = "nginx";
+
+    dnsProvider = "cloudflare";
+    dnsPropagationCheck = true;
+    credentialsFile = config.sops.secrets.cloudflare-dns-token.path;
+  };
+
   networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedUDPPorts = [ 80 443 ];
 }
