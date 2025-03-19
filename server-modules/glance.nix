@@ -127,6 +127,43 @@ in {
                   ];
                 }
                 {
+                  type = "monitor";
+                  title = "*arr";
+                  cache = "1m";
+                  sites = [
+                    {
+                      title = "Jellyfin";
+                      url = "https://jellyfin.hadi.diy";
+                      icon = "si:jellyfin";
+                    }
+                    {
+                      title = "Radarr";
+                      url = "https://radarr.hadi.diy";
+                      icon = "si:radarr";
+                    }
+                    {
+                      title = "Sonarr";
+                      url = "https://sonarr.hadi.diy";
+                      icon = "si:sonarr";
+                    }
+                    {
+                      title = "Prowlarr";
+                      url = "https://prowlarr.hadi.diy";
+                      icon = "si:prowlarr";
+                    }
+                    {
+                      title = "SABnzbd";
+                      url = "https://sabnzbd.hadi.diy";
+                      icon = "si:sabnzbd";
+                    }
+                    {
+                      title = "Transmission";
+                      url = "https://transmission.hadi.diy";
+                      icon = "si:transmission";
+                    }
+                  ];
+                }
+                {
                   type = "repository";
                   repository = "anotherhadi/nixy";
                   pull-requests-limit = 5;
