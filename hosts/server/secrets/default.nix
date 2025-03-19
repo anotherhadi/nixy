@@ -10,10 +10,10 @@
       };
       github-key = {
         owner = "hadi";
-        path = "/home/hadi/.ssh/jack";
+        path = "/home/hadi/.ssh/github";
         mode = "0600";
       };
-      cloudflare-dns-token = { path = "/etc/cloudflare/dnskey.txt"; };
+      # cloudflare-dns-token = { path = "/etc/cloudflare/dnskey.txt"; };
     };
   };
 }
