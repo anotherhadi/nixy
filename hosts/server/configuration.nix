@@ -9,6 +9,9 @@
     ../../nixos/tailscale.nix
 
     ../../server-modules/ssh.nix
+    ../../server-modules/bitwarden.nix
+    ../../server-modules/firewall.nix
+    ../../server-modules/nginx.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix

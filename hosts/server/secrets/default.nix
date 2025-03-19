@@ -13,6 +13,7 @@
         path = "/home/hadi/.ssh/jack";
         mode = "0600";
       };
+      cloudflare-dns-token = { path = "/etc/cloudflare/dnskey.txt"; };
     };
   };
 }
