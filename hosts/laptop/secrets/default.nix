@@ -23,10 +23,6 @@
         key_groups:
           - age:
             - *primary
-      - path_regex: hosts/desktop/secrets/secrets.yaml$
-        key_groups:
-          - age:
-            - *primary
       - path_regex: hosts/server/secrets/secrets.yaml$
         key_groups:
           - age:
