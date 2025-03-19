@@ -119,6 +119,11 @@ in {
                       url = "https://adguard.hadi.diy";
                       icon = "si:adguard";
                     }
+                    {
+                      title = "Hoarder";
+                      url = "https://hoarder.hadi.diy";
+                      icon = "si:bookstack";
+                    }
                   ];
                 }
                 {
