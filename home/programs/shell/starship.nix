@@ -9,6 +9,7 @@ in {
     settings = {
       add_newline = true;
       format = lib.concatStrings [
+        "$hostname"
         "$directory"
         "$git_branch"
         "$git_state"
