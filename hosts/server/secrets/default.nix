@@ -17,7 +17,8 @@
       nextcloud-pwd = { path = "/etc/nextcloud/pwd.txt"; };
       adguard-pwd = { };
       hoarder = { };
-      wireguard-pia = { };
+      wireguard-pia = { owner = "torrenter"; };
+      recyclarr = { owner = "recyclarr"; };
     };
   };
 }
