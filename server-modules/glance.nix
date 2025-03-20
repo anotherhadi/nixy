@@ -137,6 +137,11 @@ in {
                       icon = "si:jellyfin";
                     }
                     {
+                      title = "Jellyseerr";
+                      url = "https://jellyseerr.hadi.diy";
+                      icon = "si:odysee";
+                    }
+                    {
                       title = "Radarr";
                       url = "https://radarr.hadi.diy";
                       icon = "si:radarr";
@@ -149,12 +154,12 @@ in {
                     {
                       title = "Prowlarr";
                       url = "https://prowlarr.hadi.diy";
-                      icon = "si:prowlarr";
+                      icon = "si:podcastindex";
                     }
                     {
                       title = "SABnzbd";
                       url = "https://sabnzbd.hadi.diy";
-                      icon = "si:sabnzbd";
+                      icon = "si:sabanci";
                     }
                     {
                       title = "Transmission";
