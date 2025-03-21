@@ -17,13 +17,12 @@ in {
 
     settings = {
       allow_markup = true;
-      width = 450;
+      width = 650;
       show = "drun";
       prompt = "Apps";
       normal_window = true;
       layer = "top";
-      term = "foot";
-      height = "305px";
+      height = "325px";
       orientation = "vertical";
       halign = "fill";
       line_wrap = "off";
@@ -48,7 +47,7 @@ in {
       ''
         * {
           font-family: "${font}";
-          font-weight: 500;
+          font-weight: 600;
           font-size: ${toString font-size}px;
         }
 
