@@ -21,9 +21,12 @@ in {
       mkdnflow = {
         enable = true;
         mappings = {
-
+          MkdnNextLink = {
+            key = "<S-Tab>";
+            modes = "n";
+          };
+          MkdnPrevLink = false;
         };
-
       };
     };
   };
