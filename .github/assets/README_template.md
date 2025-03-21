@@ -45,9 +45,9 @@ It includes *home-manager*, *secrets*, and *custom theming* all in one place.
 
 ## Architecture
 
-### 🏠 home (User-level configuration)
+### 🏠 /home (User-level configuration)
 
-Contains dotfiles and settings that apply to your user environment.
+Contains **dotfiles and settings** that apply to your user environment.
 
 **Subfolders:**
 
@@ -55,16 +55,16 @@ Contains dotfiles and settings that apply to your user environment.
 - `scripts` is a folder full of bash scripts (see [SCRIPTS.md](docs/SCRIPTS.md))
 - `system` is some "desktop environment" configuration
 
-### 🐧 nixos
+### 🐧 /nixos
 
 Those are the system-level configurations. (audio, bluetooth, gpu, bootloader, ...)
 
-### 🎨 themes
+### 🎨 /themes
 
-This folder contains all system themes.
+This folder contains all system themes. Mainly [stylix](https://stylix.danth.me/) configurations.
 Check out the available themes and learn how to create your own in [THEMES.md](docs/THEMES.md)
 
-### 💻 hosts
+### 💻 /hosts
 
 This directory contains host-specific configurations.
 Each host includes:
