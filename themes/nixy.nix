@@ -3,13 +3,13 @@
   options.theme = lib.mkOption {
     type = lib.types.attrs;
     default = {
-      rounding = 12;
-      gaps-in = 12;
-      gaps-out = 12 * 2;
-      active-opacity = 0.96;
-      inactive-opacity = 0.95;
+      rounding = 10;
+      gaps-in = 10;
+      gaps-out = 10 * 2;
+      active-opacity = 0.98;
+      inactive-opacity = 0.96;
       blur = true;
-      border-size = 4;
+      border-size = 3;
       animation-speed = "medium"; # "fast" | "medium" | "slow"
       fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
 
