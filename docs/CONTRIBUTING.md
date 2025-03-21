@@ -10,7 +10,7 @@ The process is straight-forward.
 - Create a Pull Request against the main branch of Nixy.
 
 > [!TIP]
-> To update the README, change the `./docs/src/README_template.md` and run `./docs/scripts/create_readme.sh`
+> To update the README, change the `./.github/assets/README_template.md`
 
 > [!IMPORTANT]
 > Don't push your host's folder
