@@ -52,6 +52,7 @@
       gnome-calendar # Calendar
       textpieces # Manipulate texts
       curtail # Compress images
+      resources
 
       # Dev
       go
