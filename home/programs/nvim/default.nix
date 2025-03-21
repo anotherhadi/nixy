@@ -2,14 +2,15 @@
 { inputs, ... }: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./plugins/lsp.nix
-    ./plugins/tree.nix
-    ./plugins/telescope.nix
     ./plugins/cmp.nix
-    ./plugins/ui.nix
-    ./plugins/utils.nix
+    ./plugins/git.nix
+    ./plugins/lsp.nix
     ./plugins/markdown.nix
     ./plugins/mini.nix
+    ./plugins/picker.nix
+    ./plugins/snacks.nix
+    ./plugins/trouble.nix
+    ./plugins/utils.nix
 
     ./options.nix
     ./keymaps.nix

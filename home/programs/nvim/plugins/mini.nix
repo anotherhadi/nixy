@@ -15,14 +15,7 @@
         indentscope = { };
         git = { };
         cursorword = { };
-        comment = {
-          mappings = {
-            comment = "<leader>/";
-            comment_line = "<leader>/";
-            comment_visual = "<leader>/";
-            textobject = "<leader>/";
-          };
-        };
+        comment = { };
         starter = { };
       };
     };
