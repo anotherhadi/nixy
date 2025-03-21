@@ -3,6 +3,7 @@
 let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
   accent = "${config.lib.stylix.colors.base0D}";
+  background = "${config.lib.stylix.colors.base00}";
 in {
   imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
@@ -10,7 +11,7 @@ in {
 
   programs.spicetify = {
     enable = true;
-    theme = lib.mkForce spicePkgs.themes.text;
+    theme = lib.mkForce spicePkgs.themes.dribbblish;
 
     colorScheme = "custom";
 
@@ -18,6 +19,9 @@ in {
       button = accent;
       button-active = accent;
       tab-active = accent;
+      player = background;
+      main = background;
+      sidebar = background;
     };
 
     enabledExtensions = with spicePkgs.extensions; [
@@ -27,7 +31,7 @@ in {
       hidePodcasts
       adblock
       fullAppDisplay
-      shuffle
+      keyboardShortcut
     ];
   };
 }
