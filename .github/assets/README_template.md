@@ -23,18 +23,14 @@
 </div>
 <br>
 
-**Nixy** is a **Hyprland** NixOS configuration with **home-manager**, **secrets**, and **custom theming** all in one place.
-It's a simple way to manage your system configuration and dotfiles.
+**Nixy simplifies and unifies** the Hyprland ecosystem with a modular, easily customizable setup. It provides a structured way to manage your system configuration and dotfiles with minimal effort.
+It includes *home-manager*, *secrets*, and *custom theming* all in one place.
 
-I'm Hadi, a french developer, student in infosec, enthusiastic about nix, golang & blockchains.
-This is my own, **keyboard-centric**, and **minimalistic** NixOS configuration.
-I enable vim-like keybindings everywhere I can, and I use a lot of custom scripts to make my life easier.
+**Features:**
 
-**Nixy key points:**
-
-- Hypr-ecosystem first (hyprland, hyprlock, hyprpanel, hypridle, ...)
-- Stylix/base16 themes
-- Vim-like keybindings everywhere (hyprland, qutebrowser, nvim, ...)
+- 💻 Hyprland-centric: Preconfigured Hyprland ecosystem (Hyprlock, Hyprpanel, etc.)
+- 🎨 Consistent Theming: Base16 & Stylix-powered themes
+- ⌨️  Vim-like Everywhere: Unified keybindings (Hyprland, nvim, vimium, etc.)
 
 ## Table of Content
 
@@ -49,9 +45,9 @@ I enable vim-like keybindings everywhere I can, and I use a lot of custom script
 
 ## Architecture
 
-### 🏠 home
+### 🏠 home (User-level configuration)
 
-Those are the dotfiles and configuration files for user-level configuration
+Contains dotfiles and settings that apply to your user environment.
 
 **Subfolders:**
 
@@ -65,13 +61,18 @@ Those are the system-level configurations. (audio, bluetooth, gpu, bootloader, .
 
 ### 🎨 themes
 
-Those are the themes used in the system configuration. The `stylix` folder contains the [stylix](https://github.com/danth/stylix) defined themes, the `var` folder contains the variables not handled by stylix.
-See avaiable themes in [THEMES.md](docs/THEMES.md)
+This folder contains all system themes.
+Check out the available themes and learn how to create your own in [THEMES.md](docs/THEMES.md)
 
 ### 💻 hosts
 
-Those are the host-specific configurations.
-Each host contains a `configuration.nix` for system-level configuration, a `home.nix` for user-level configuration, and a `variables.nix` for config wide variables.
+This directory contains host-specific configurations.
+Each host includes:
+
+- `configuration.nix` for system-wide settings
+- `home.nix` for user-level configuration
+- `variables.nix` for global variables
+- `secrets/` for sensitive data
 
 ## Installation
 
@@ -81,13 +82,17 @@ Each host contains a `configuration.nix` for system-level configuration, a `home
 git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```
 
-2. Copy the `hosts/laptop` folder, rename it to your system name, and change the variables inside the `variables.nix` file
-3. Add your `hardware-configuration.nix` to your new host's folder
-4. Add your 'nixosConfigurations' inside `flake.nix`
+2. Copy the `hosts/laptop` folder, rename it to match your system’s hostname, and update `variables.nix` with your machine’s settings.
+3. Copy your `hardware-configuration.nix` into your new host's folder to ensure proper hardware support.
+4. Register your new host in `flake.nix` by adding it under nixosConfigurations.
 
 > [!Important]
-> I added few `# CHANGEME` comments in the files to help you find what to change. Be sure to check them up.
-> You can use `rg "CHANGEME"` to find them all with ripgrep.
+> `# CHANGEME` comments are placed throughout the config to indicate necessary modifications.
+> Use the following command to quickly locate them:
+>
+> ```sh
+> rg "CHANGEME" ~/.config/nixos
+> ```
 
 > [!TIP]
 > When you add new files, don't forget to run `git add .` to add them to the git repository
@@ -100,8 +105,9 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 
 ## Documentation
 
+- [SERVER](docs/SERVER.md): Check out the server documentation
 - [THEMES](docs/THEMES.md): How themes work and how to create your own
-- [SCRIPTS](docs/SCRIPTS.md): Scripts that are available
+- [SCRIPTS](docs/SCRIPTS.md): A list of available scripts and their usage
 - [KEYBINDINGS-HYPRLAND](docs/KEYBINDINGS-HYPRLAND.md): Keybindings available in Hyprland
 - [WALLPAPERS](https://github.com/anotherhadi/nixy-wallpapers): A collection of wallpapers for Nixy.
 
