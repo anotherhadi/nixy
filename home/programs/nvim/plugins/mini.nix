@@ -7,13 +7,12 @@
         icons = { };
         # TODO: Learn how to use this
         bracketed = { };
-        tabline = { };
-        statusline = { };
+        git = { };
+        diff = { };
         starter = { };
         pairs = { };
         notify = { lsp_progress.enable = false; };
         indentscope = { };
-        git = { };
         cursorword = { };
         comment = { };
         starter = { };
