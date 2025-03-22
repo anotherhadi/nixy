@@ -1,12 +1,26 @@
 # Thunar is a file explorer
-{ pkgs, ... }: {
+{ pkgs, config, ... }:
+let user = config.var.username;
+in {
   # ctrl + m to toggle the menubar
-  home.packages = with pkgs.xfce; [
-    thunar
-    xfconf
-    tumbler
-    thunar-archive-plugin
-    thunar-volman
+  home.packages = with pkgs; [
+    xfce.thunar
+    xfce.xfconf
+    xfce.tumbler
+    xfce.thunar-archive-plugin
+    xfce.thunar-volman
+    xfce.thunar-media-tags-plugin
+    p7zip
+    unar
+  ];
+
+  # bookmarks for the side pane
+  gtk.gtk3.bookmarks = [
+    "file:///home/${user}/Downloads Downloads"
+    "file:///home/${user}/Pictures Pictures"
+    "file:///home/${user}/nextcloud Nextcloud"
+    "file:///home/${user}/.config/nixos NixOS"
+    "file:///home/${user}/dev Development"
   ];
 
   home.file.".config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml".text = ''
