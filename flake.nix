@@ -1,8 +1,8 @@
 {
   # https://github.com/anotherhadi/nixy
   description = ''
-    Nixy is a NixOS configuration with home-manager, secrets and custom theming all in one place.
-    It's a simple way to manage your system configuration and dotfiles.
+    Nixy simplifies and unifies the Hyprland ecosystem with a modular, easily customizable setup.
+    It provides a structured way to manage your system configuration and dotfiles with minimal effort. 
   '';
 
   inputs = {
@@ -51,6 +51,7 @@
             ./hosts/laptop/configuration.nix # CHANGEME: change the path to match your host folder
           ];
         };
+      # Jack is my server
       jack = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
