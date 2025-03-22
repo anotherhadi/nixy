@@ -10,6 +10,7 @@
         quickfile.enable = true;
         statuscolumn.enable = true;
         zen.enable = true;
+        bufdelete.enable = true;
       };
     };
 
@@ -28,6 +29,11 @@
         key = "<leader>uD";
         action = "<cmd>lua Snacks.dim.disable()<cr>";
         options.desc = "Undim";
+      }
+      {
+        key = "<leader>wc";
+        action = "<cmd>lua Snacks.bufdelete.all()<cr>";
+        options.desc = "Close all buffers";
       }
     ];
   };

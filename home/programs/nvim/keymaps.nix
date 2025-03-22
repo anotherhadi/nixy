@@ -42,7 +42,13 @@
         action = "<cmd>lua vim.lsp.buf.hover()<cr>";
         options.desc = "LSP Hover";
       }
+      {
+        key = "<C-tab>";
+        action = "<cmd>bnext<cr>";
+        options.desc = "Next Buffer";
+      }
 
+      # Tmux
       {
         key = "<C-h>";
         action = "<cmd>TmuxNavigateLeft<cr>";

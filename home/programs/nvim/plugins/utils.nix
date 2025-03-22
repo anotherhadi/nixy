@@ -2,13 +2,15 @@
   programs.nixvim = {
     nixpkgs.config.allowUnfree = true; # For copilot
     highlightOverride = {
-      FloatBorder.fg = "#${config.lib.stylix.colors.base0D}";
+      WhichKeySeparator.bg = "#${config.lib.stylix.colors.base00}";
     };
     plugins = {
+      bufferline.enable = true;
       copilot-vim.enable = true;
       flash.enable = true;
       tmux-navigator.enable = true;
       todo-comments.enable = true;
+      lualine = { enable = true; };
       treesitter = {
         enable = true;
         nixGrammars = true;
