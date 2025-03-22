@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, ... }: {
+{ lib, pkgs, config, ... }: {
 
   options.theme = lib.mkOption {
     type = lib.types.attrs;
@@ -67,13 +67,10 @@
           name = "JetBrains Mono Nerd Font";
         };
         sansSerif = {
-          package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd;
-          name = "SFProDisplay Nerd Font";
+          package = pkgs.source-sans-pro;
+          name = "Source Sans Pro";
         };
-        serif = {
-          package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd;
-          name = "SFProDisplay Nerd Font";
-        };
+        serif = config.stylix.fonts.sansSerif;
         emoji = {
           package = pkgs.noto-fonts-emoji;
           name = "Noto Color Emoji";
