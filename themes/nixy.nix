@@ -6,8 +6,8 @@
       rounding = 10;
       gaps-in = 10;
       gaps-out = 10 * 2;
-      active-opacity = 0.98;
-      inactive-opacity = 0.96;
+      active-opacity = 0.96;
+      inactive-opacity = 0.94;
       blur = true;
       border-size = 3;
       animation-speed = "medium"; # "fast" | "medium" | "slow"
@@ -86,8 +86,8 @@
       polarity = "dark";
       image = pkgs.fetchurl {
         url =
-          "https://raw.githubusercontent.com/Keyitdev/sddm-astronaut-theme/refs/heads/master/Backgrounds/pixel_sakura_static.png";
-        sha256 = "sha256-y6AJu7RXnI5vPLPVts6tflb9XukDkgiL+J6vUPj4lbs=";
+          "https://raw.githubusercontent.com/AlexandrosLiaskos/Awesome_Wallpapers/main/images/pastel-window.png";
+        sha256 = "sha256-KMYVs4hSs+e66q4o15aVJ4mbTMDqIKEH4tBv9zZ7J2o=";
       };
     };
   };

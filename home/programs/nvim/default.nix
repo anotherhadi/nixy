@@ -3,6 +3,7 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./plugins/cmp.nix
+    ./plugins/floaterm.nix
     ./plugins/git.nix
     ./plugins/lsp.nix
     ./plugins/markdown.nix

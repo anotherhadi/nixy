@@ -1,5 +1,5 @@
 # So best window tiling manager
-{ pkgs, config, inputs, ... }:
+{ pkgs, config, inputs, lib, ... }:
 let
   border-size = config.theme.border-size;
   gaps-in = config.theme.gaps-in;
@@ -9,6 +9,7 @@ let
   rounding = config.theme.rounding;
   blur = config.theme.blur;
   keyboardLayout = config.var.keyboardLayout;
+  background = "rgb(" + config.lib.stylix.colors.base00 + ")";
 in {
 
   imports =
@@ -55,7 +56,6 @@ in {
         "DP-7, disable"
         "DP-8, disable"
         "DP-9, disable"
-        "DP-2, 1920x1080@60, auto, 1"
         "HDMI-A-1,3440x1440@99.98,auto,1"
         "desc:United Microelectr Corporation UMC SHARP,3840x2160,auto,2"
         ",prefered,auto,1"
@@ -99,6 +99,7 @@ in {
         gaps_out = gaps-out;
         border_size = border-size;
         layout = "master";
+        "col.inactive_border" = lib.mkForce background;
       };
 
       decoration = {
