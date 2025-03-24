@@ -22,6 +22,11 @@
             mode = "n";
             group = "+windows";
           }
+          {
+            __unkeyed-1 = "<leader>c";
+            mode = "n";
+            group = "+code";
+          }
         ];
         win = {
           border = "rounded";
