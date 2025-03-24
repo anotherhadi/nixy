@@ -17,6 +17,7 @@
     ../../server-modules/adguardhome.nix
     ../../server-modules/hoarder.nix
     ../../server-modules/arr.nix
+    ../../server-modules/mealie.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
