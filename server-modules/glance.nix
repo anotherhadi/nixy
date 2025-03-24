@@ -124,6 +124,11 @@ in {
                       url = "https://hoarder.hadi.diy";
                       icon = "si:bookstack";
                     }
+                    {
+                      title = "Mealie";
+                      url = "https://mealie.hadi.diy";
+                      icon = "si:mealie";
+                    }
                   ];
                 }
                 {
