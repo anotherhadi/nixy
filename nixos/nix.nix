@@ -1,6 +1,13 @@
 { config, inputs, ... }:
 let autoGarbageCollector = config.var.autoGarbageCollector;
 in {
+  security.sudo.extraRules = [{
+    users = [ config.var.username ];
+    commands = [{
+      command = "/run/current-system/sw/bin/nixos-rebuild";
+      options = [ "NOPASSWD" ];
+    }];
+  }];
   nixpkgs.config = {
     allowUnfree = true;
     allowBroken = true;
