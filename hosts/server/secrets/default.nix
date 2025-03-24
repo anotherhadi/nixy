@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ pkgs, ... }: {
   sops = {
     age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
     defaultSopsFile = ./secrets.yaml;
@@ -17,8 +17,13 @@
       nextcloud-pwd = { path = "/etc/nextcloud/pwd.txt"; };
       adguard-pwd = { };
       hoarder = { };
-      wireguard-pia = { owner = "torrenter"; };
-      recyclarr = { owner = "recyclarr"; };
+      recyclarr = {
+        owner = "recyclarr";
+        mode = "0777";
+      };
+      wireguard-pia = { };
     };
   };
+
+  environment.systemPackages = with pkgs; [ sops age ];
 }
