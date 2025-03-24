@@ -156,13 +156,6 @@ in {
       "theme.bar.buttons.notifications.hover" = "${background}";
       "theme.bar.buttons.notifications.total" = "${accent}";
       "theme.bar.buttons.notifications.icon" = "${accent}";
-      "theme.notification.background" = "${background-alt}";
-      "theme.notification.actions.background" = "${accent}";
-      "theme.notification.actions.text" = "${foreground}";
-      "theme.notification.label" = "${accent}";
-      "theme.notification.border" = "${background-alt}";
-      "theme.notification.text" = "${foreground}";
-      "theme.notification.labelicon" = "${accent}";
       "theme.osd.bar_color" = "${accent}";
       "theme.osd.bar_overflow_color" = "${accent-alt}";
       "theme.osd.icon" = "${background}";
@@ -186,6 +179,20 @@ in {
       "bar.customModules.cava.showIcon" = false;
       "bar.customModules.cava.stereo" = true;
       "bar.customModules.cava.showActiveOnly" = true;
+      "menus.power.lowBatteryNotification" = true;
+      "notifications.position" = "top right";
+      "notifications.showActionsOnHover" = true;
+      "theme.notification.enableShadow" = true;
+      "theme.notification.opacity" = 85;
+      "theme.notification.background" = "${background-alt}";
+      "theme.notification.actions.background" = "${accent}";
+      "theme.notification.actions.text" = "${foreground}";
+      "theme.notification.label" = "${accent}";
+      "theme.notification.border" = "${background-alt}";
+      "theme.notification.text" = "${foreground}";
+      "theme.notification.labelicon" = "${accent}";
+      "theme.notification.close_button.background" = "${background-alt}";
+      "theme.notification.close_button.label" = "#f38ba8";
     };
   };
 }
