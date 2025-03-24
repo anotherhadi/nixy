@@ -52,3 +52,11 @@ The server hosts several key applications:
 4. **Access Control**  
    - Only devices within the Tailscale network can reach the services.  
    - Firewall rules restrict access further based on necessity.
+
+## What's Next?
+
+I want to self-host:
+
+- **A great todolist app**: One that is compatible with markdown & IOS
+- **Cyberchef**
+- **Maybe**: An app to manage finances
