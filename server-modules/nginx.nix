@@ -16,6 +16,11 @@
     credentialsFile = config.sops.secrets.cloudflare-dns-token.path;
   };
 
+  services.nginx.virtualHosts."default" = {
+    default = true;
+    locations."/" = { return = 444; };
+  };
+
   networking.firewall.allowedTCPPorts = [ 80 443 ];
   networking.firewall.allowedUDPPorts = [ 80 443 ];
 }
