@@ -3,6 +3,10 @@ let
   hostname = config.var.hostname;
   keyboardLayout = config.var.keyboardLayout;
   configDir = config.var.configDirectory;
+  timeZone = config.var.timeZone;
+  defaultLocale = config.var.defaultLocale;
+  extraLocale = config.var.extraLocale;
+  autoUpgrade = config.var.autoUpgrade;
 in {
   networking.hostName = hostname;
 
@@ -10,7 +14,7 @@ in {
   systemd.services.NetworkManager-wait-online.enable = false;
 
   system.autoUpgrade = {
-    enable = config.var.autoUpgrade;
+    enable = autoUpgrade;
     dates = "04:00";
     flake = "${configDir}";
     flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
@@ -18,20 +22,20 @@ in {
   };
 
   time = {
-    timeZone = config.var.timeZone;
+    timeZone = timeZone;
     hardwareClockInLocalTime = true;
   };
-  i18n.defaultLocale = config.var.defaultLocale;
+  i18n.defaultLocale = defaultLocale;
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = config.var.extraLocale;
-    LC_IDENTIFICATION = config.var.extraLocale;
-    LC_MEASUREMENT = config.var.extraLocale;
-    LC_MONETARY = config.var.extraLocale;
-    LC_NAME = config.var.extraLocale;
-    LC_NUMERIC = config.var.extraLocale;
-    LC_PAPER = config.var.extraLocale;
-    LC_TELEPHONE = config.var.extraLocale;
-    LC_TIME = config.var.extraLocale;
+    LC_ADDRESS = extraLocale;
+    LC_IDENTIFICATION = extraLocale;
+    LC_MEASUREMENT = extraLocale;
+    LC_MONETARY = extraLocale;
+    LC_NAME = extraLocale;
+    LC_NUMERIC = extraLocale;
+    LC_PAPER = extraLocale;
+    LC_TELEPHONE = extraLocale;
+    LC_TIME = extraLocale;
   };
 
   services = {
