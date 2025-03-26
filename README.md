@@ -85,7 +85,7 @@ Each host includes:
 
 ## Installation
 
-1. Clone the repo
+1. [Fork](https://github.com/anotherhadi/nixy/fork) this repo and clone it to your system:
 
 ```sh
 git clone https://github.com/anotherhadi/nixy ~/.config/nixos
