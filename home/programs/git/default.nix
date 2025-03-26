@@ -1,3 +1,4 @@
+# Git configuration
 { config, ... }:
 let
   username = config.var.git.username;

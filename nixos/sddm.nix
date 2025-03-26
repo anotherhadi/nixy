@@ -1,3 +1,4 @@
+# SDDM is a display manager for X11 and Wayland
 { pkgs, inputs, config, lib, ... }:
 let
   foreground = config.theme.textColorOnWallpaper;
