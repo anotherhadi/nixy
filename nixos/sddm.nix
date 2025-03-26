@@ -1,11 +1,26 @@
 { pkgs, inputs, config, lib, ... }:
 let
+  foreground = config.theme.textColorOnWallpaper;
   sddm-astronaut = pkgs.sddm-astronaut.override {
     embeddedTheme = "pixel_sakura";
     themeConfig = if lib.hasSuffix "sakura_static.png" config.stylix.image then
       { }
     else {
       Background = "${toString config.stylix.image}";
+      HeaderTextColor = "#${foreground}";
+      DateTextColor = "#${foreground}";
+      TimeTextColor = "#${foreground}";
+      LoginFieldTextColor = "#${foreground}";
+      PasswordFieldTextColor = "#${foreground}";
+      UserIconColor = "#${foreground}";
+      PasswordIconColor = "#${foreground}";
+      WarningColor = "#${foreground}";
+      LoginButtonBackgroundColor = "#${foreground}";
+      SystemButtonsIconsColor = "#${foreground}";
+      SessionButtonTextColor = "#${foreground}";
+      VirtualKeyboardButtonTextColor = "#${foreground}";
+      DropdownBackgroundColor = "#${foreground}";
+      HighlightBackgroundColor = "#${foreground}";
     };
   };
 in {
