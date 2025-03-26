@@ -44,7 +44,7 @@ let
         command=$(echo "$line" | sed 's/^[^;]*;//;s/^[^;]*;//')
 
         exec "$command"
-        exit 0
+        exit $?
       }
 
       [[ $1 == "" ]] && ui
