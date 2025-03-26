@@ -6,7 +6,7 @@
     };
     keymaps = [{
       key = "<leader>cn";
-      action = "<cmd>FloatermNew --title=nixy nixy<cr>";
+      action = "<cmd>FloatermNew --title=nixy nixy || sleep 10<cr>";
       options.desc = "Nixy";
     }];
   };
