@@ -3,14 +3,14 @@
   options.theme = lib.mkOption {
     type = lib.types.attrs;
     default = {
-      rounding = 10;
+      rounding = 8;
       gaps-in = 10;
       gaps-out = 10 * 2;
-      active-opacity = 0.96;
-      inactive-opacity = 0.94;
+      active-opacity = 0.92;
+      inactive-opacity = 0.88;
       blur = true;
-      border-size = 3;
-      animation-speed = "medium"; # "fast" | "medium" | "slow"
+      border-size = 2;
+      animation-speed = "fast"; # "fast" | "medium" | "slow"
       fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
       textColorOnWallpaper =
         config.lib.stylix.colors.base06; # Color of the text displayed on the wallpaper (Lockscreen, display manager, ...)
@@ -32,7 +32,7 @@
     base16Scheme = {
       base00 = "0c0e0f"; # Default Background
       base01 =
-        "202324"; # Lighter Background (Used for status bars, line number and folding marks)
+        "1c1e1f"; # Lighter Background (Used for status bars, line number and folding marks)
       base02 = "313244"; # Selection Background
       base03 = "45475a"; # Comments, Invisibles, Line Highlighting
       base04 = "585b70"; # Dark Foreground (Used for status bars)
@@ -48,7 +48,7 @@
       base0C =
         "94e2d5"; # Support, Regular Expressions, Escape Characters, Markup Quotes
       base0D =
-        "89b4fa"; # Functions, Methods, Attribute IDs, Headings, Accent color
+        "BB96F5"; # Functions, Methods, Attribute IDs, Headings, Accent color
       base0E =
         "cba6f7"; # Keywords, Storage, Selector, Markup Italic, Diff Changed
       base0F =
@@ -86,8 +86,8 @@
     polarity = "dark";
     image = pkgs.fetchurl {
       url =
-        "https://raw.githubusercontent.com/AlexandrosLiaskos/Awesome_Wallpapers/main/images/pastel-window.png";
-      sha256 = "sha256-KMYVs4hSs+e66q4o15aVJ4mbTMDqIKEH4tBv9zZ7J2o=";
+        "https://raw.githubusercontent.com/anotherhadi/nixy-wallpapers/refs/heads/main/wallpapers/studio.png";
+      sha256 = "sha256-+YUsGNHsgiFW8y7n9HYLdf/qWlNXyQAOGaAQSIeptsY=";
     };
   };
 }
