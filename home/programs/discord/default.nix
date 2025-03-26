@@ -1,3 +1,4 @@
+# Discord is a popular chat application.
 { inputs, ... }: {
   imports = [ inputs.nixcord.homeManagerModules.nixcord ];
 

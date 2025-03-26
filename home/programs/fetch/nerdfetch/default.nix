@@ -1,3 +1,5 @@
+# Nerdfetch, a simple system info script written in bash
+# Source: https://github.com/ThatOneCalculator/NerdFetch
 { pkgs, ... }:
 let
   nerdfetch = pkgs.writeShellScriptBin "nerdfetch" ''

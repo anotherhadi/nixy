@@ -1,3 +1,5 @@
+# TUIGreet is a display manager.
+# Legacy, I'm now using SDDM
 { pkgs, ... }: {
   services.greetd = {
     enable = true;

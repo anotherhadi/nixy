@@ -1,3 +1,4 @@
+# Tailscale is a VPN service that makes it easy to connect your devices between each other.
 { config, ... }: {
   security.sudo.extraRules = [{
     users = [ config.var.username ];
