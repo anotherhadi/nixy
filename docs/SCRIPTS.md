@@ -94,5 +94,6 @@ Usefull quick scripts
 
 - `menu` - Open wofi with drun mode. (wofi)
 - `powermenu` - Open power dropdown menu. (wofi)
+- `quickmenu` - Open a dropdown menu with shortcuts and scripts. (wofi)
 - `lock` - Lock the screen. (hyprlock)
 
