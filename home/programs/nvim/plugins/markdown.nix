@@ -21,11 +21,11 @@ in {
       mkdnflow = {
         enable = true;
         mappings = {
-          MkdnNextLink = {
+          MkdnTableNextCell = {
             key = "<S-Tab>";
-            modes = "n";
+            modes = "i";
           };
-          MkdnPrevLink = false;
+          MkdnTablePrevCell = false;
         };
       };
     };
