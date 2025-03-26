@@ -23,6 +23,8 @@ let
   transparent = config.theme.bar.transparent;
   position = config.theme.bar.position;
 
+  notificationOpacity = 90;
+
   location = config.var.location;
 in {
 
@@ -187,7 +189,7 @@ in {
       "notifications.position" = "top right";
       "notifications.showActionsOnHover" = true;
       "theme.notification.enableShadow" = true;
-      "theme.notification.opacity" = 85;
+      "theme.notification.opacity" = notificationOpacity;
       "theme.notification.background" = "${background-alt}";
       "theme.notification.actions.background" = "${accent}";
       "theme.notification.actions.text" = "${foreground}";
