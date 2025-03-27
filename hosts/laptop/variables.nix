@@ -1,7 +1,7 @@
 { config, lib, ... }: {
   imports = [
     # Choose your theme here:
-    ../../themes/blue.nix
+    ../../themes/nixy.nix
   ];
 
   config.var = {
