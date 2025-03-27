@@ -14,6 +14,20 @@ in {
     unar
   ];
 
+  gtk = {
+    iconTheme = {
+      name = "WhiteSur";
+      package = pkgs.whitesur-icon-theme.override {
+        boldPanelIcons = true;
+        alternativeIcons = true;
+      };
+    };
+  };
+
+  home.sessionVariables = {
+    XDG_ICON_DIR = "${pkgs.whitesur-icon-theme}/share/icons/WhiteSur";
+  };
+
   # bookmarks for the side pane
   gtk.gtk3.bookmarks = [
     "file:///home/${user}/Downloads Downloads"
