@@ -118,7 +118,7 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 - [THEMES](docs/THEMES.md): How themes work and how to create your own
 - [SCRIPTS](docs/SCRIPTS.md): A list of available scripts and their usage
 - [KEYBINDINGS-HYPRLAND](docs/KEYBINDINGS-HYPRLAND.md): Keybindings available in Hyprland
-- [WALLPAPERS](https://github.com/anotherhadi/nixy-wallpapers): A collection of wallpapers for Nixy.
+- [WALLPAPERS](https://github.com/anotherhadi/awesome-wallpapers): An awesome collection of wallpapers
 
 - [CONTRIBUTING](docs/CONTRIBUTING.md): How to contribute
 - [LICENSE](LICENSE): MIT License
