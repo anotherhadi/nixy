@@ -18,6 +18,7 @@
     ../../home/programs/duckduckgo-colorscheme
     ../../home/programs/discord
     ../../home/programs/tailscale
+    ../../home/programs/anyrun
 
     # Scripts
     ../../home/scripts # All scripts
