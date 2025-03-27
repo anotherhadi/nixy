@@ -22,6 +22,7 @@ in {
     ];
     extraConfig = {
       init.defaultBranch = "main";
+      pull.rebase = "false";
       push.autoSetupRemote = true;
       color.ui = "1";
     };
