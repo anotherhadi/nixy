@@ -179,6 +179,12 @@ in {
                   pull-requests-limit = 5;
                   issues-limit = 3;
                 }
+                {
+                  type = "repository";
+                  repository = "anotherhadi/awesome-wallpapers";
+                  pull-requests-limit = 5;
+                  issues-limit = 3;
+                }
                 { type = "hacker-news"; }
               ];
             }
