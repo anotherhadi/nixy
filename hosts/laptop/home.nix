@@ -30,7 +30,6 @@
     ../../home/system/hyprpanel
     ../../home/system/hyprpaper
     ../../home/system/wofi
-    # ../../home/system/batsignal # Now with-in hyprpanel
     ../../home/system/zathura
     ../../home/system/mime
     ../../home/system/udiskie
