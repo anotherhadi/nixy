@@ -6,7 +6,7 @@
     };
     plugins = {
       bufferline.enable = true;
-      copilot-vim.enable = true;
+      # copilot-vim.enable = true;
       flash.enable = true;
       tmux-navigator.enable = true;
       todo-comments.enable = true;
