@@ -61,6 +61,7 @@
       jq
       just
       pnpm
+      air
 
       # Utils
       zip
