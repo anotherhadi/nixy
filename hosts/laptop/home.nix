@@ -66,6 +66,7 @@
       zip
       unzip
       optipng
+      jpegoptim
       pfetch
       btop
       fastfetch
