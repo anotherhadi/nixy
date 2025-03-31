@@ -3,11 +3,11 @@
   options.theme = lib.mkOption {
     type = lib.types.attrs;
     default = {
-      rounding = 8;
+      rounding = 16;
       gaps-in = 10;
       gaps-out = 10 * 2;
-      active-opacity = 0.92;
-      inactive-opacity = 0.88;
+      active-opacity = 0.94;
+      inactive-opacity = 0.9;
       blur = true;
       border-size = 2;
       animation-speed = "fast"; # "fast" | "medium" | "slow"
