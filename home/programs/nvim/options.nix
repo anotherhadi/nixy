@@ -2,8 +2,8 @@
   programs.nixvim = {
     globals.mapleader = " ";
     diagnostics = {
-      virtual_lines = { only_current_line = true; };
       virtual_text = true;
+      virtual_improved = { current_line = "only"; };
     };
     opts = {
       autoindent = true;
