@@ -3,6 +3,7 @@
     lsp-format.enable = true;
     lsp = {
       enable = true;
+      inlayHints = true;
       servers = {
         bashls.enable = true;
         gopls.enable = true;
@@ -16,6 +17,7 @@
     none-ls = {
       enable = true;
       sources = {
+        completion = { luasnip.enable = true; };
         diagnostics = {
           golangci_lint.enable = true;
           statix.enable = true;
