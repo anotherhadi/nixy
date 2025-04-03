@@ -18,6 +18,7 @@
     ../../server-modules/hoarder.nix
     ../../server-modules/arr.nix
     ../../server-modules/mealie.nix
+    ../../server-modules/meilisearch.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
