@@ -51,7 +51,8 @@ let
       [[ $1 == "" ]] && ui
 
       if [[ $1 == "rebuild" ]];then
-        git add . && sudo nixos-rebuild switch --flake ${configDirectory}#${hostname}
+        cd ${configDirectory} && git add .
+        sudo nixos-rebuild switch --flake ${configDirectory}#${hostname}
       elif [[ $1 == "upgrade" ]];then
         sudo nixos-rebuild switch --upgrade --flake '${configDirectory}#${hostname}'
       elif [[ $1 == "update" ]];then
