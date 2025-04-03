@@ -1,5 +1,5 @@
 { config, ... }:
-let domain = "mealie.hadi.diy";
+let domain = "meilisearch.hadi.diy";
 in {
   services = {
     meilisearch = {
