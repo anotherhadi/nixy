@@ -34,6 +34,7 @@
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";
     };
+    nixos-search-api.url = "github:anotherhadi/nixos-search-api";
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
