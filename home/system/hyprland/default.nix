@@ -43,7 +43,12 @@ in {
     xwayland.enable = true;
     systemd.enable = true;
     # withUWSM = true; # One day, but not today
+    systemd.variables = [
+      "--all"
+    ]; # https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    portalPackage =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
     settings = {
       "$mod" = "SUPER";
@@ -132,8 +137,39 @@ in {
         new_window_takes_over_fullscreen = 2;
       };
 
-      windowrulev2 =
-        [ "float, tag:modal" "pin, tag:modal" "center, tag:modal" ];
+      windowrulev2 = [
+        "float, tag:modal"
+        "pin, tag:modal"
+        "center, tag:modal"
+        # telegram media viewer
+        "float, title:^(Media viewer)$"
+
+        # Bitwarden extension
+        "float, title:^(.*Bitwarden Password Manager.*)$"
+
+        # gnome calculator
+        "float, class:^(org.gnome.Calculator)$"
+        "size 360 490, class:^(org.gnome.Calculator)$"
+
+        # make Firefox/Zen PiP window floating and sticky
+        "float, title:^(Picture-in-Picture)$"
+        "pin, title:^(Picture-in-Picture)$"
+
+        # idle inhibit while watching videos
+        "idleinhibit focus, class:^(mpv|.+exe|celluloid)$"
+        "idleinhibit focus, class:^(zen)$, title:^(.*YouTube.*)$"
+        "idleinhibit fullscreen, class:^(zen)$"
+
+        "dimaround, class:^(gcr-prompter)$"
+        "dimaround, class:^(xdg-desktop-portal-gtk)$"
+        "dimaround, class:^(polkit-gnome-authentication-agent-1)$"
+        "dimaround, class:^(zen)$, title:^(File Upload)$"
+
+        # fix xwayland apps
+        "rounding 0, xwayland:1"
+        "center, class:^(.*jetbrains.*)$, title:^(Confirm Exit|Open Project|win424|win201|splash)$"
+        "size 640 400, class:^(.*jetbrains.*)$, title:^(splash)$"
+      ];
 
       layerrule = [ "noanim, launcher" "noanim, ^ags-.*" ];
 
