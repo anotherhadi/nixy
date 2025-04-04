@@ -22,7 +22,9 @@ in {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
       substituters = [
-        "https://cache.nixos.org/"
+        # high priority since it's almost always used
+        "https://cache.nixos.org?priority=10"
+
         "https://hyprland.cachix.org"
         "https://nix-community.cachix.org"
         "https://cache.garnix.io"
