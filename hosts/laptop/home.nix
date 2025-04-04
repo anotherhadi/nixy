@@ -53,6 +53,7 @@
       textpieces # Manipulate texts
       curtail # Compress images
       resources
+      gnome-clocks
 
       # Dev
       go
