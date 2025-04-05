@@ -34,7 +34,7 @@
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";
     };
-    nixos-search-api.url = "github:anotherhadi/nixos-search-api";
+    search-nixos-api.url = "github:anotherhadi/search-nixos-api";
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
@@ -63,7 +63,7 @@
           inputs.stylix.nixosModules.stylix
           inputs.sops-nix.nixosModules.sops
           inputs.nixarr.nixosModules.default
-          inputs.nixos-search-api.nixosModules.nixos-search-api
+          inputs.search-nixos-api.nixosModules.search-nixos-api
           ./hosts/server/configuration.nix
         ];
       };
