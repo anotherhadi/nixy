@@ -100,90 +100,112 @@ in {
                   }];
                 }
                 {
-                  type = "monitor";
-                  title = "Services";
-                  cache = "1m";
-                  sites = [
+                  type = "group";
+                  widgets = [
                     {
-                      title = "Vaultwarden";
-                      url = "https://vault.hadi.diy";
-                      icon = "si:bitwarden";
+                      type = "monitor";
+                      title = "Services";
+                      cache = "1m";
+                      sites = [
+                        {
+                          title = "Vaultwarden";
+                          url = "https://vault.hadi.diy";
+                          icon = "si:bitwarden";
+                        }
+                        {
+                          title = "Nextcloud";
+                          url = "https://cloud.hadi.diy";
+                          icon = "si:nextcloud";
+                        }
+                        {
+                          title = "Adguard";
+                          url = "https://adguard.hadi.diy";
+                          icon = "si:adguard";
+                        }
+                        {
+                          title = "Hoarder";
+                          url = "https://hoarder.hadi.diy";
+                          icon = "si:bookstack";
+                        }
+                        {
+                          title = "Mealie";
+                          url = "https://mealie.hadi.diy";
+                          icon = "si:mealie";
+                        }
+                      ];
                     }
                     {
-                      title = "Nextcloud";
-                      url = "https://cloud.hadi.diy";
-                      icon = "si:nextcloud";
-                    }
-                    {
-                      title = "Adguard";
-                      url = "https://adguard.hadi.diy";
-                      icon = "si:adguard";
-                    }
-                    {
-                      title = "Hoarder";
-                      url = "https://hoarder.hadi.diy";
-                      icon = "si:bookstack";
-                    }
-                    {
-                      title = "Mealie";
-                      url = "https://mealie.hadi.diy";
-                      icon = "si:mealie";
+                      type = "monitor";
+                      title = "*arr";
+                      cache = "1m";
+                      sites = [
+                        {
+                          title = "Jellyfin";
+                          url = "https://jellyfin.hadi.diy";
+                          icon = "si:jellyfin";
+                        }
+                        {
+                          title = "Jellyseerr";
+                          url = "https://jellyseerr.hadi.diy";
+                          icon = "si:odysee";
+                        }
+                        {
+                          title = "Radarr";
+                          url = "https://radarr.hadi.diy";
+                          icon = "si:radarr";
+                        }
+                        {
+                          title = "Sonarr";
+                          url = "https://sonarr.hadi.diy";
+                          icon = "si:sonarr";
+                        }
+                        {
+                          title = "Prowlarr";
+                          url = "https://prowlarr.hadi.diy";
+                          icon = "si:podcastindex";
+                        }
+                        {
+                          title = "SABnzbd";
+                          url = "https://sabnzbd.hadi.diy";
+                          icon = "si:sabanci";
+                        }
+                        {
+                          title = "Transmission";
+                          url = "https://transmission.hadi.diy";
+                          icon = "si:transmission";
+                        }
+                      ];
                     }
                   ];
                 }
                 {
-                  type = "monitor";
-                  title = "*arr";
-                  cache = "1m";
-                  sites = [
+                  type = "split-column";
+                  widgets = [
                     {
-                      title = "Jellyfin";
-                      url = "https://jellyfin.hadi.diy";
-                      icon = "si:jellyfin";
+                      type = "repository";
+                      repository = "anotherhadi/nixy";
+                      pull-requests-limit = 5;
+                      issues-limit = 3;
                     }
                     {
-                      title = "Jellyseerr";
-                      url = "https://jellyseerr.hadi.diy";
-                      icon = "si:odysee";
+                      type = "repository";
+                      repository = "anotherhadi/awesome-wallpapers";
+                      pull-requests-limit = 5;
+                      issues-limit = 3;
                     }
                     {
-                      title = "Radarr";
-                      url = "https://radarr.hadi.diy";
-                      icon = "si:radarr";
+                      type = "repository";
+                      repository = "anotherhadi/search-nixos";
+                      pull-requests-limit = 5;
+                      issues-limit = 3;
                     }
                     {
-                      title = "Sonarr";
-                      url = "https://sonarr.hadi.diy";
-                      icon = "si:sonarr";
-                    }
-                    {
-                      title = "Prowlarr";
-                      url = "https://prowlarr.hadi.diy";
-                      icon = "si:podcastindex";
-                    }
-                    {
-                      title = "SABnzbd";
-                      url = "https://sabnzbd.hadi.diy";
-                      icon = "si:sabanci";
-                    }
-                    {
-                      title = "Transmission";
-                      url = "https://transmission.hadi.diy";
-                      icon = "si:transmission";
+                      type = "repository";
+                      repository = "anotherhadi/search-nixos-api";
+                      pull-requests-limit = 5;
+                      issues-limit = 3;
                     }
                   ];
-                }
-                {
-                  type = "repository";
-                  repository = "anotherhadi/nixy";
-                  pull-requests-limit = 5;
-                  issues-limit = 3;
-                }
-                {
-                  type = "repository";
-                  repository = "anotherhadi/awesome-wallpapers";
-                  pull-requests-limit = 5;
-                  issues-limit = 3;
                 }
                 { type = "hacker-news"; }
               ];
