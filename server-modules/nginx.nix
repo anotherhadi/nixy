@@ -19,6 +19,9 @@
   services.nginx.virtualHosts."default" = {
     default = true;
     locations."/" = { return = 444; };
+    extraConfig = ''
+      server_name _;  
+    '';
   };
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
