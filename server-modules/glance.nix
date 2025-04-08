@@ -36,8 +36,7 @@ in {
         theme = {
           background-color = rgb-to-hsl "base00";
           primary-color = rgb-to-hsl "base0D";
-          positive-color = rgb-to-hsl "base01";
-          negative-color = rgb-to-hsl "base04";
+          positive-color = rgb-to-hsl "base0C";
           contrast-multiplier = 1.4;
         };
         pages = [{
