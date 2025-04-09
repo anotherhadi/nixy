@@ -40,6 +40,7 @@ in {
           contrast-multiplier = 1.4;
         };
         pages = [{
+          hide-desktop-navigation = true;
           columns = [
             {
               size = "small";
