@@ -100,6 +100,8 @@ in {
         "nvim ~/nextcloud/notes/index.md --cmd 'cd ~/nextcloud/notes' -c ':Telescope find_files'";
       note = "notes";
 
+      nix-shell = "nix-shell --command zsh";
+
       # git
       g = "lazygit";
       ga = "git add";
