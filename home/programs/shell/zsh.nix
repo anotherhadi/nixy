@@ -46,6 +46,11 @@ in {
           done
         }
 
+
+        function n4c() {
+          nix develop --no-write-lock-file --refresh "github:anotherhadi/nix2cyber#$1"
+        }
+
         zle     -N             sesh-sessions
         bindkey -M emacs '\es' sesh-sessions
         bindkey -M vicmd '\es' sesh-sessions
