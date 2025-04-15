@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
 let
   hostname = config.var.hostname;
   keyboardLayout = config.var.keyboardLayout;
@@ -108,7 +108,10 @@ in {
       hyprland.default = [ "gtk" "hyprland" ];
     };
 
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland
+    ];
   };
 
   security = {
