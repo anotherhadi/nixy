@@ -1,66 +1,74 @@
 { lib, pkgs, config, ... }:
-let
-  nvidiaDriverChannel =
-    config.boot.kernelPackages.nvidiaPackages.beta; # stable, latest, beta, etc.
-in {
 
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [
-    "nvidia"
-    "displayLink"
-    "nvidia_modeset"
-    "nvidia_uvm"
-    "nvidia_drm"
-  ]; # or "nvidiaLegacy470 etc.
-  boot.kernelParams =
-    lib.optionals (lib.elem "nvidia" config.services.xserver.videoDrivers) [
-      "nvidia-drm.modeset=1"
-      "nvidia_drm.fbdev=1"
-      "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-    ];
+let
+  # Using beta driver for recent GPUs like RTX 4070
+  nvidiaDriverChannel = config.boot.kernelPackages.nvidiaPackages.beta;
+in {
+  # Video drivers configuration for Xorg and Wayland
+  services.xserver.videoDrivers =
+    [ "nvidia" ]; # Simplified - other modules are loaded automatically
+
+  # Kernel parameters for better Wayland and Hyprland integration
+  boot.kernelParams = [
+    "nvidia-drm.modeset=1" # Enable mode setting for Wayland
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=1" # Improves resume after sleep
+    "nvidia.NVreg_RegistryDwords=PowerMizerEnable=0x1;PerfLevelSrc=0x2222;PowerMizerLevel=0x3;PowerMizerDefault=0x3;PowerMizerDefaultAC=0x3" # Performance/power optimizations
+  ];
+
+  # Blacklist nouveau to avoid conflicts
+  boot.blacklistedKernelModules = [ "nouveau" ];
+
+  # Environment variables for better compatibility
   environment.variables = {
-    GBM_BACKEND = "nvidia-drm"; # If crash in firefox, remove this line
-    LIBVA_DRIVER_NAME = "nvidia"; # hardware acceleration
-    NVD_BACKEND = "direct";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    __GL_GSYNC_ALLOWED = "1"; # GSync
+    LIBVA_DRIVER_NAME = "nvidia"; # Hardware video acceleration
+    XDG_SESSION_TYPE = "wayland"; # Force Wayland
+    GBM_BACKEND = "nvidia-drm"; # Graphics backend for Wayland
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia"; # Use Nvidia driver for GLX
+    WLR_NO_HARDWARE_CURSORS = "1"; # Fix for cursors on Wayland
+    NIXOS_OZONE_WL = "1"; # Wayland support for Electron apps
+    __GL_GSYNC_ALLOWED = "1"; # Enable G-Sync if available
+    __GL_VRR_ALLOWED = "1"; # Enable VRR (Variable Refresh Rate)
+    WLR_DRM_NO_ATOMIC = "1"; # Fix for some issues with Hyprland
+    NVD_BACKEND = "direct"; # Configuration for new driver
+    MOZ_ENABLE_WAYLAND = "1"; # Wayland support for Firefox
   };
+
+  # Configuration for proprietary packages
   nixpkgs.config = {
     nvidia.acceptLicense = true;
-    allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) [
-        "cudatoolkit"
-        "nvidia-persistenced"
-        "nvidia-settings"
-        "nvidia-x11"
-      ];
+    allowUnfree = true; # Simplified from specific allowUnfreePredicate
   };
+
+  # Nvidia configuration
   hardware = {
     nvidia = {
-      open = false;
-      nvidiaSettings = true;
-      powerManagement.enable =
-        true; # This can cause sleep/suspend to fail and saves entire VRAM to /tmp/
-      modesetting.enable = true;
+      open = false; # Proprietary driver for better performance
+      nvidiaSettings = true; # Nvidia settings utility
+      powerManagement = {
+        enable = true; # Power management
+        finegrained = true; # More precise power consumption control
+      };
+      modesetting.enable = true; # Required for Wayland
       package = nvidiaDriverChannel;
+      forceFullCompositionPipeline = true; # Prevents screen tearing
 
+      # Configuration for hybrid AMD+Nvidia laptop
       prime = {
+        # Optimized configuration for switchable graphics laptops
         offload = {
-          enable = true;
-          enableOffloadCmd = true;
+          enable = true; # Mode optimized for power saving
+          enableOffloadCmd =
+            true; # Allows running applications with dedicated GPU
         };
-
-        # sync.enable = true;
-        # reverseSync.enable = true;
-
-        # CHANGEME: Change those values to match your hardware (if prime is imported)
-        amdgpuBusId =
-          "PCI:5:0:0"; # Set this to the bus ID of your AMD GPU if you have one
-        # intelBusId = "PCI:0:2:0"; # Set this to the bus ID of your Intel GPU if you have one
-        nvidiaBusId =
-          "PCI:1:0:0"; # Set this to the bus ID of your Nvidia GPU if you have one
+        # sync.enable disabled as offload is generally better for laptops
+        sync.enable = false;
+        # PCI IDs verified for your hardware
+        amdgpuBusId = "PCI:5:0:0"; # Integrated AMD GPU
+        nvidiaBusId = "PCI:1:0:0"; # Dedicated Nvidia GPU
       };
     };
+
+    # Enhanced graphics support
     graphics = {
       enable = true;
       package = nvidiaDriverChannel;
@@ -71,13 +79,25 @@ in {
         libvdpau-va-gl
         mesa
         egl-wayland
+        vulkan-loader
+        vulkan-validation-layers
+        libva
       ];
     };
   };
+
+  # Nix cache for CUDA
   nix.settings = {
     substituters = [ "https://cuda-maintainers.cachix.org" ];
     trusted-public-keys = [
       "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
     ];
   };
+
+  # Additional useful packages
+  environment.systemPackages = with pkgs; [
+    vulkan-tools
+    glxinfo
+    libva-utils # VA-API debugging tools
+  ];
 }
