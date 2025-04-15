@@ -99,6 +99,8 @@ in {
       cat =
         "bat --theme=base16 --color=always --paging=never --tabs=2 --wrap=never --plain";
 
+      obsidian-no-gpu =
+        "env ELECTRON_OZONE_PLATFORM_HINT=auto obsidian --ozone-platform=x11";
       wireguard-import = "nmcli connection import type wireguard file";
 
       notes =
