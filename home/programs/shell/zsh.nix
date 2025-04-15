@@ -48,7 +48,7 @@ in {
 
 
         function n4c() {
-          nix develop --no-write-lock-file --refresh "github:anotherhadi/nix2cyber#$1"
+          nix develop --no-write-lock-file --refresh "github:anotherhadi/nix4cyber#''${1:-all}"
         }
 
         zle     -N             sesh-sessions
