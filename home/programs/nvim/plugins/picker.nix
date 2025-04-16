@@ -174,6 +174,11 @@
         action = "<cmd>lua Snacks.picker.grep_word()<cr>";
         options.desc = "Visual selection or word";
       }
+      {
+        key = "<leader>sr";
+        action = "<cmd>nohlsearch<cr>";
+        options.desc = "Reset search";
+      }
 
       # LSP
       {
