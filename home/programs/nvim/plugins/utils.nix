@@ -15,6 +15,7 @@
       tmux-navigator.enable = true;
       todo-comments.enable = true;
       lualine = { enable = true; };
+      aerial.enable = true;
       treesitter = {
         enable = true;
         nixGrammars = true;
@@ -25,5 +26,12 @@
         };
       };
     };
+    keymaps = [
+      {
+        key = "<leader>ct";
+        action = "<cmd>AerialToggle<cr>";
+        options.desc = "Aerial (tags)";
+      }
+    ];
   };
 }
