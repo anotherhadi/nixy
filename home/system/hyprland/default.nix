@@ -12,8 +12,13 @@ let
   background = "rgb(" + config.lib.stylix.colors.base00 + ")";
 in {
 
-  imports =
-    [ ./animations.nix ./bindings.nix ./polkitagent.nix ./hyprspace.nix ];
+  imports = [
+    ./animations.nix
+    ./bindings.nix
+    ./polkitagent.nix
+    # FIXME: Broken on unstable
+    # ./hyprspace.nix
+  ];
 
   home.packages = with pkgs; [
     qt5.qtwayland
