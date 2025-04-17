@@ -80,7 +80,7 @@
       cmatrix
 
       # Backup
-      firefox
+      brave
       vscode
     ];
 
