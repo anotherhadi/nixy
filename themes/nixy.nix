@@ -3,22 +3,22 @@
   options.theme = lib.mkOption {
     type = lib.types.attrs;
     default = {
-      rounding = 16;
-      gaps-in = 10;
-      gaps-out = 10 * 2;
-      active-opacity = 0.94;
-      inactive-opacity = 0.9;
+      rounding = 20;
+      gaps-in = 12;
+      gaps-out = 12 * 2;
+      active-opacity = 0.96;
+      inactive-opacity = 0.92;
       blur = true;
-      border-size = 2;
+      border-size = 4;
       animation-speed = "fast"; # "fast" | "medium" | "slow"
       fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
       textColorOnWallpaper =
-        config.lib.stylix.colors.base06; # Color of the text displayed on the wallpaper (Lockscreen, display manager, ...)
+        config.lib.stylix.colors.base01; # Color of the text displayed on the wallpaper (Lockscreen, display manager, ...)
 
       bar = { # Hyprpanel
         position = "top"; # "top" | "bottom"
-        transparent = true;
-        transparentButtons = false;
+        transparent = false;
+        transparentButtons = true;
         floating = true;
       };
     };
@@ -48,7 +48,7 @@
       base0C =
         "94e2d5"; # Support, Regular Expressions, Escape Characters, Markup Quotes
       base0D =
-        "BB96F5"; # Functions, Methods, Attribute IDs, Headings, Accent color
+        "c4a7e7"; # Functions, Methods, Attribute IDs, Headings, Accent color
       base0E =
         "cba6f7"; # Keywords, Storage, Selector, Markup Italic, Diff Changed
       base0F =
@@ -86,8 +86,8 @@
     polarity = "dark";
     image = pkgs.fetchurl {
       url =
-        "https://raw.githubusercontent.com/anotherhadi/nixy-wallpapers/refs/heads/main/wallpapers/studio.png";
-      sha256 = "sha256-+YUsGNHsgiFW8y7n9HYLdf/qWlNXyQAOGaAQSIeptsY=";
+        "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/vanilla_pink_purple.png";
+      sha256 = "sha256-JJIsoC3MaUB378RfogU7BDuXOuy7Vk048CwfyNe9FYg=";
     };
   };
 }
