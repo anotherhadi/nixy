@@ -61,7 +61,12 @@ in {
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
 
-      exec-once = [ "dbus-update-activation-environment --systemd --all" ];
+      exec-once = [
+        "dbus-update-activation-environment --systemd --all &"
+        "systemctl --user enable --now hyprpaper.service &"
+        "systemctl --user enable --now hypridle.service &"
+        "systemctl --user enable --now nextcloud-client.service  &"
+      ];
 
       monitor = [
         "eDP-2,highres,0x0,1" # My internal laptop screen
