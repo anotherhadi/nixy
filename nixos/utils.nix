@@ -23,7 +23,6 @@ in {
 
   time = {
     timeZone = timeZone;
-    hardwareClockInLocalTime = true;
   };
   i18n.defaultLocale = defaultLocale;
   i18n.extraLocaleSettings = {
