@@ -8,12 +8,12 @@
     ../../nixos/home-manager.nix
     ../../nixos/nix.nix
     ../../nixos/systemd-boot.nix
-    # ../../nixos/grub.nix
     ../../nixos/sddm.nix
     ../../nixos/users.nix
     ../../nixos/utils.nix
-    # ../../nixos/docker.nix
     ../../nixos/tailscale.nix
+    ../../nixos/hyprland.nix
+
     ../../nixos/omen.nix # For my laptop only
 
     # You should let those lines as is
