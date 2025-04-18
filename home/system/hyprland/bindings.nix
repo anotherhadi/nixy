@@ -1,16 +1,16 @@
 { pkgs, ... }: {
   wayland.windowManager.hyprland.settings = {
     bind = [
-      "$mod,RETURN, exec, ${pkgs.kitty}/bin/kitty" # Kitty
-      "$mod,E, exec, ${pkgs.xfce.thunar}/bin/thunar" # Thunar
-      "$mod,B, exec, zen" # Zen Browser
-      "$mod,K, exec, ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
-      "$mod,L, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock
+      "$mod,RETURN, exec, uwsm app -- ${pkgs.kitty}/bin/kitty" # Kitty
+      "$mod,E, exec,  uwsm app -- ${pkgs.xfce.thunar}/bin/thunar" # Thunar
+      "$mod,B, exec,  uwsm app -- zen-beta" # Zen Browser
+      "$mod,K, exec,  uwsm app -- ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
+      "$mod,L, exec,  uwsm app -- ${pkgs.hyprlock}/bin/hyprlock" # Lock
       "$mod,X, exec, powermenu" # Powermenu
       "$mod,SPACE, exec, menu" # Launcher
       "$mod,C, exec, quickmenu" # Quickmenu
       "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
-      "$mod,P, exec, ${pkgs.planify}/bin/io.github.alainm23.planify" # Planify
+      "$mod,P, exec,  uwsm app -- ${pkgs.planify}/bin/io.github.alainm23.planify" # Planify
 
       "$mod,Q, killactive," # Close window
       "$mod,T, togglefloating," # Toggle Floating

@@ -105,10 +105,7 @@ in {
       hyprland.default = [ "gtk" "hyprland" ];
     };
 
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland
-    ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   security = {
