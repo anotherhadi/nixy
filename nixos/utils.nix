@@ -21,9 +21,7 @@ in {
     allowReboot = false;
   };
 
-  time = {
-    timeZone = timeZone;
-  };
+  time = { timeZone = timeZone; };
   i18n.defaultLocale = defaultLocale;
   i18n.extraLocaleSettings = {
     LC_ADDRESS = extraLocale;
@@ -57,7 +55,7 @@ in {
     EDITOR = "nvim";
     TERMINAL = "kitty";
     TERM = "kitty";
-    BROWSER = "zen";
+    BROWSER = "zen-beta";
   };
 
   services.libinput.enable = true;
