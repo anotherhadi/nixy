@@ -10,6 +10,7 @@ let
         echo $color > /sys/devices/platform/hp-wmi/rgb_zones/zone03
     }
     state="white"
+    set_keyboard_backlight ${config.lib.stylix.colors.base0D}
     while true; do
       BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT*/capacity)
       if [[ $BATTERY_LEVEL -le 10 ]]; then
