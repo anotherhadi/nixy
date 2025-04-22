@@ -20,6 +20,7 @@
     ../../server-modules/mealie.nix
     ../../server-modules/meilisearch.nix
     ../../server-modules/search-nixos-api.nix
+    ../../server-modules/headscale.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
