@@ -1,7 +1,31 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   derpPort = 3478;
   domain = "hadi.diy";
+  headscale-ui-src = pkgs.fetchFromGitHub {
+    owner = "gurucomputing";
+    repo = "headscale-ui";
+    rev = "63041fd673d81da56e60d2b528a4991981eab746";
+    sha256 = "pz7oDRfBf/dN+PMEqbMe+es6deQ4QP3pC191ASlyV7U=";
+  };
+  headscale-ui = pkgs.buildNpmPackage {
+    pname = "headscale-ui";
+    version = "0.0.1";
+    src = headscale-ui-src;
+    npmDepsHash = "MePNbOPSe5wB8/6T3DLs+4+Qlr8f+7cCPs301il7iX8=";
+    buildPhase = ''
+      runHook preBuild
+      mkdir -p $out
+      npm run build
+      runHook postBuild
+    '';
+    installPhase = ''
+      mv ./build $out/dist
+    '';
+    makeCacheWritable = true;
+    dontFixup = true;
+    dontNpmBuild = true;
+  };
 in {
   services = {
     headscale = {
@@ -46,6 +70,11 @@ in {
           "/metrics" = {
             proxyPass =
               "http://${config.services.headscale.settings.metrics_listen_addr}/metrics";
+          };
+          "/web" = {
+            root = "${headscale-ui}/dist";
+            index = "index.html";
+            tryFiles = [ "$uri" "/index.html" ];
           };
         };
       };
