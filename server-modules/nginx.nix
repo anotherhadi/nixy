@@ -16,12 +16,21 @@
     credentialsFile = config.sops.secrets.cloudflare-dns-token.path;
   };
 
-  services.nginx.virtualHosts."default" = {
-    default = true;
-    locations."/" = { return = 444; };
-    extraConfig = ''
-      server_name _;  
-    '';
+  services.nginx.virtualHosts = {
+    "default" = {
+      default = true;
+      locations."/" = { return = 444; };
+    };
+    "*.hadi.diy" = {
+      useACMEHost = "hadi.diy";
+      forceSSL = true;
+      locations."/" = { return = 444; };
+    };
+    "aaaaaa.hadi.diy" = {
+      useACMEHost = "hadi.diy";
+      forceSSL = true;
+      locations."/" = { return = 444; };
+    };
   };
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
