@@ -37,11 +37,11 @@ in {
     "w /sys/devices/platform/hp-wmi/rgb_zones/zone01 0660 root omen-rgb -"
     "w /sys/devices/platform/hp-wmi/rgb_zones/zone02 0660 root omen-rgb -"
     "w /sys/devices/platform/hp-wmi/rgb_zones/zone03 0660 root omen-rgb -"
-
   ];
 
   services.udev.extraRules = ''
     SUBSYSTEM=="platform", KERNEL=="hp-wmi", ACTION=="add", \
+    RUN+="${pkgs.coreutils-full}/bin/sleep 2", \
     RUN+="${pkgs.coreutils}/bin/chgrp omen-rgb /sys/devices/platform/hp-wmi/rgb_zones/zone00", \
     RUN+="${pkgs.coreutils}/bin/chmod 0660 /sys/devices/platform/hp-wmi/rgb_zones/zone00", \
     RUN+="${pkgs.coreutils}/bin/chgrp omen-rgb /sys/devices/platform/hp-wmi/rgb_zones/zone01", \
