@@ -28,6 +28,6 @@ let
       sleep 2
     done
   '';
-in {
-  wayland.windowManager.hyprland.settings.exec-once = [ keyboard-backlight ];
-}
+
+  command = "bash ${keyboard-backlight}/bin/keyboard-backlight &";
+in { wayland.windowManager.hyprland.settings.exec-once = [ command ]; }
