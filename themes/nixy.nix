@@ -4,12 +4,12 @@
     type = lib.types.attrs;
     default = {
       rounding = 20;
-      gaps-in = 12;
-      gaps-out = 12 * 2;
+      gaps-in = 10;
+      gaps-out = 10 * 2;
       active-opacity = 0.96;
       inactive-opacity = 0.92;
       blur = true;
-      border-size = 4;
+      border-size = 3;
       animation-speed = "fast"; # "fast" | "medium" | "slow"
       fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
       textColorOnWallpaper =
@@ -17,8 +17,8 @@
 
       bar = { # Hyprpanel
         position = "top"; # "top" | "bottom"
-        transparent = false;
-        transparentButtons = true;
+        transparent = true;
+        transparentButtons = false;
         floating = true;
       };
     };
@@ -30,7 +30,7 @@
 
     # See https://tinted-theming.github.io/tinted-gallery/ for more schemes
     base16Scheme = {
-      base00 = "0c0e0f"; # Default Background
+      base00 = "09090B"; # Default Background
       base01 =
         "1c1e1f"; # Lighter Background (Used for status bars, line number and folding marks)
       base02 = "313244"; # Selection Background
@@ -48,7 +48,7 @@
       base0C =
         "94e2d5"; # Support, Regular Expressions, Escape Characters, Markup Quotes
       base0D =
-        "c4a7e7"; # Functions, Methods, Attribute IDs, Headings, Accent color
+        "c5afd4"; # Functions, Methods, Attribute IDs, Headings, Accent color
       base0E =
         "cba6f7"; # Keywords, Storage, Selector, Markup Italic, Diff Changed
       base0F =
