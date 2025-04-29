@@ -16,16 +16,16 @@ let
       	pkill wofi
       else
       	wofi -p " Apps" --show drun &
-      	# Quit when not focused anymore
-      	sleep 0.2
-      	while true; do
-      		window=$(hyprctl activewindow | grep "wofi")
-      		if [[ ! $window ]]; then
-      			pkill wofi
-      			break
-      		fi
-      		sleep 0.2
-      	done
+      	# # Quit when not focused anymore
+      	# sleep 0.2
+      	# while true; do
+      	# 	window=$(hyprctl activewindow | grep "wofi")
+      	# 	if [[ ! $window ]]; then
+      	# 		pkill wofi
+      	# 		break
+      	# 	fi
+      	# 	sleep 0.2
+      	# done
       fi
     '';
 
