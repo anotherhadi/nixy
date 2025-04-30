@@ -11,7 +11,7 @@ in {
     xfce.thunar-volman
     xfce.thunar-media-tags-plugin
     p7zip
-    unar
+    xarchiver
   ];
 
   gtk = {
