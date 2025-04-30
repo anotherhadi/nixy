@@ -12,6 +12,7 @@ let
     pdf = [ "zathura.desktop" ];
     terminal = [ "kitty.desktop" ];
     discord = [ "discord.desktop" ];
+    archive = [ "xarchiver.desktop" ];
   };
 
   mimeMap = {
@@ -68,12 +69,12 @@ let
     ];
     pdf = [ "application/pdf" ];
     terminal = [ "terminal" ];
-    # archive = [
-    #   "application/zip"
-    #   "application/rar"
-    #   "application/7z"
-    #   "application/*tar"
-    # ];
+    archive = [
+      "application/zip"
+      "application/rar"
+      "application/7z"
+      "application/*tar"
+    ];
     discord = [ "x-scheme-handler/discord" ];
   };
 
