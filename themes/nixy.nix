@@ -86,8 +86,8 @@
     polarity = "dark";
     image = pkgs.fetchurl {
       url =
-        "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/vanilla_pink_purple.png";
-      sha256 = "sha256-JJIsoC3MaUB378RfogU7BDuXOuy7Vk048CwfyNe9FYg=";
+        "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/black-grey-and-white.png";
+      sha256 = "sha256-NQo6sEt7qt82sI8yCxNwSs0+NnWx17oko7MHSap34DI=";
     };
   };
 }
