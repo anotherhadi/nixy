@@ -34,10 +34,8 @@ in {
       enable = true;
       settings = {
         theme = {
-          # background-color = rgb-to-hsl "base00";
-          # primary-color = rgb-to-hsl "base0D";
-          # positive-color = rgb-to-hsl "base0C";
-          # contrast-multiplier = 1.4;
+          primary-color = lib.mkForce rgb-to-hsl "base0D";
+          contrast-multiplier = lib.mkForce 1.4;
         };
         pages = [{
           hide-desktop-navigation = true;
@@ -97,6 +95,7 @@ in {
                   groups = [
                     {
                       title = "";
+                      same-tab = true;
                       color = "200 50 50";
                       links = [
                         {
@@ -119,6 +118,7 @@ in {
                     }
                     {
                       title = "Docs";
+                      same-tab = true;
                       color = "200 50 50";
                       links = [
                         {
@@ -141,6 +141,7 @@ in {
                     }
                     {
                       title = "Homelab";
+                      same-tab = true;
                       color = "100 50 50";
                       links = [
                         {
@@ -155,6 +156,7 @@ in {
                     }
                     {
                       title = "Work";
+                      same-tab = true;
                       color = "50 50 50";
                       links = [
                         {
@@ -173,6 +175,7 @@ in {
                     }
                     {
                       title = "Cyber";
+                      same-tab = true;
                       color = rgb-to-hsl "base09";
                       links = [
                         {
@@ -199,6 +202,7 @@ in {
                     }
                     {
                       title = "Misc";
+                      same-tab = true;
                       color = rgb-to-hsl "base01";
                       links = [
                         {
