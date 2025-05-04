@@ -17,10 +17,10 @@
     ../../server-modules/adguardhome.nix
     ../../server-modules/hoarder.nix
     ../../server-modules/arr.nix
-    ../../server-modules/mealie.nix
-    ../../server-modules/meilisearch.nix
+    # ../../server-modules/mealie.nix # FIXME: Broken on unstable
+    # ../../server-modules/meilisearch.nix
     ../../server-modules/search-nixos-api.nix
-    ../../server-modules/headscale.nix
+    # ../../server-modules/headscale.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
