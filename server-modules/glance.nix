@@ -34,10 +34,10 @@ in {
       enable = true;
       settings = {
         theme = {
-          background-color = rgb-to-hsl "base00";
-          primary-color = rgb-to-hsl "base0D";
-          positive-color = rgb-to-hsl "base0C";
-          contrast-multiplier = 1.4;
+          # background-color = rgb-to-hsl "base00";
+          # primary-color = rgb-to-hsl "base0D";
+          # positive-color = rgb-to-hsl "base0C";
+          # contrast-multiplier = 1.4;
         };
         pages = [{
           hide-desktop-navigation = true;
@@ -100,10 +100,6 @@ in {
                       color = "200 50 50";
                       links = [
                         {
-                          title = "Search NixOS";
-                          url = "https://search-nixos.hadi.diy";
-                        }
-                        {
                           title = "ProtonMail";
                           url = "https://proton.me/mail";
                         }
@@ -118,6 +114,28 @@ in {
                         {
                           title = "Figma";
                           url = "https://figma.com";
+                        }
+                      ];
+                    }
+                    {
+                      title = "Docs";
+                      color = "200 50 50";
+                      links = [
+                        {
+                          title = "Nixpkgs repo";
+                          url = "https://github.com/NixOS/nixpkgs";
+                        }
+                        {
+                          title = "Nixvim";
+                          url = "https://nix-community.github.io/nixvim/";
+                        }
+                        {
+                          title = "Hyprland wiki";
+                          url = "https://wiki.hyprland.org/";
+                        }
+                        {
+                          title = "Search NixOS";
+                          url = "https://search-nixos.hadi.diy";
                         }
                       ];
                     }
