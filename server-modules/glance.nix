@@ -140,6 +140,64 @@ in {
                       ];
                     }
                     {
+                      title = "Homelab";
+                      color = "200 50 50";
+                      links = [
+                        {
+                          title = "Router";
+                          url = "http://192.168.1.254/";
+                        }
+                        {
+                          title = "Cloudflare";
+                          url = "https://dash.cloudflare.com/";
+                        }
+                      ];
+                    }
+                    {
+                      title = "Work";
+                      color = "200 50 50";
+                      links = [
+                        {
+                          title = "Outlook";
+                          url = "https://outlook.office.com/";
+                        }
+                        {
+                          title = "Teams";
+                          url = "https://teams.microsoft.com/";
+                        }
+                        {
+                          title = "Office";
+                          url = "https://www.office.com/";
+                        }
+                      ];
+                    }
+                    {
+                      title = "Cyber";
+                      color = "200 50 50";
+                      links = [
+                        {
+                          title = "CyberChef";
+                          url = "https://cyberchef.org/";
+                        }
+                        {
+                          title = "TryHackMe";
+                          url = "https://tryhackme.com/";
+                        }
+                        {
+                          title = "RootMe";
+                          url = "https://www.root-me.org/";
+                        }
+                        {
+                          title = "Exploit-DB";
+                          url = "https://www.exploit-db.com/";
+                        }
+                        {
+                          title = "CrackStation";
+                          url = "https://crackstation.net/";
+                        }
+                      ];
+                    }
+                    {
                       title = "Misc";
                       color = "200 50 50";
                       links = [
