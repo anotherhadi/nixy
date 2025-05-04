@@ -93,6 +93,52 @@ in {
                   search-engine = "duckduckgo";
                 }
                 {
+                  type = "bookmarks";
+                  groups = [
+                    {
+                      title = "";
+                      color = "200 50 50";
+                      links = [
+                        {
+                          title = "Search NixOS";
+                          url = "https://search-nixos.hadi.diy";
+                        }
+                        {
+                          title = "ProtonMail";
+                          url = "https://proton.me/mail";
+                        }
+                        {
+                          title = "Github";
+                          url = "https://github.com";
+                        }
+                        {
+                          title = "Youtube";
+                          url = "https://youtube.com";
+                        }
+                        {
+                          title = "Figma";
+                          url = "https://figma.com";
+                        }
+                      ];
+                    }
+                    {
+                      title = "Misc";
+                      color = "200 50 50";
+                      links = [
+                        {
+                          title = "Cobalt (Downloader)";
+                          url = "https://cobalt.tools/";
+                        }
+                        {
+                          title = "Mazanoke (Image optimizer)";
+                          url = "https://mazanoke.com/";
+                        }
+                      ];
+                    }
+
+                  ];
+                }
+                {
                   type = "server-stats";
                   servers = [{
                     type = "local";
@@ -178,36 +224,6 @@ in {
                     }
                   ];
                 }
-                {
-                  type = "split-column";
-                  widgets = [
-                    {
-                      type = "repository";
-                      repository = "anotherhadi/nixy";
-                      pull-requests-limit = 5;
-                      issues-limit = 3;
-                    }
-                    {
-                      type = "repository";
-                      repository = "anotherhadi/awesome-wallpapers";
-                      pull-requests-limit = 5;
-                      issues-limit = 3;
-                    }
-                    {
-                      type = "repository";
-                      repository = "anotherhadi/search-nixos";
-                      pull-requests-limit = 5;
-                      issues-limit = 3;
-                    }
-                    {
-                      type = "repository";
-                      repository = "anotherhadi/search-nixos-api";
-                      pull-requests-limit = 5;
-                      issues-limit = 3;
-                    }
-                  ];
-                }
-                { type = "hacker-news"; }
               ];
             }
           ];
