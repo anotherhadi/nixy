@@ -141,7 +141,7 @@ in {
                     }
                     {
                       title = "Homelab";
-                      color = "200 50 50";
+                      color = "100 50 50";
                       links = [
                         {
                           title = "Router";
@@ -155,7 +155,7 @@ in {
                     }
                     {
                       title = "Work";
-                      color = "200 50 50";
+                      color = "50 50 50";
                       links = [
                         {
                           title = "Outlook";
@@ -173,7 +173,7 @@ in {
                     }
                     {
                       title = "Cyber";
-                      color = "200 50 50";
+                      color = rgb-to-hsl "base09";
                       links = [
                         {
                           title = "CyberChef";
@@ -199,7 +199,7 @@ in {
                     }
                     {
                       title = "Misc";
-                      color = "200 50 50";
+                      color = rgb-to-hsl "base01";
                       links = [
                         {
                           title = "Cobalt (Downloader)";
