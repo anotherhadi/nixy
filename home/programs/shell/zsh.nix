@@ -17,46 +17,6 @@ in {
     };
     historySubstringSearch.enable = true;
 
-    initExtraFirst =
-      #bash 
-      ''
-        bindkey -e
-        ${if fetch == "neofetch" then
-          pkgs.neofetch + "/bin/neofetch"
-        else if fetch == "nerdfetch" then
-          "nerdfetch"
-        else if fetch == "pfetch" then
-          "echo; ${pkgs.pfetch}/bin/pfetch"
-        else
-          ""}
-
-        function sesh-sessions() {
-          session=$(sesh list -t -c | fzf --height 70% --reverse)
-          [[ -z "$session" ]] && return
-          sesh connect $session
-        }
-
-        function chatgptlist(){
-          for arg in "$@"; do 
-              echo "$arg:"
-              echo "\`\`\`"
-              cat "$arg"
-              echo "\`\`\`" 
-              echo 
-          done
-        }
-
-
-        function n4c() {
-          nix develop --no-write-lock-file --refresh "github:anotherhadi/nix4cyber#''${1:-all}"
-        }
-
-        zle     -N             sesh-sessions
-        bindkey -M emacs '\es' sesh-sessions
-        bindkey -M vicmd '\es' sesh-sessions
-        bindkey -M viins '\es' sesh-sessions
-      '';
-
     history = {
       ignoreDups = true;
       save = 10000;
@@ -95,7 +55,6 @@ in {
       sl = "ls";
       open = "${pkgs.xdg-utils}/bin/xdg-open";
       icat = "${pkgs.kitty}/bin/kitty +kitten icat";
-      ssh = "kitty +kitten ssh";
       cat =
         "bat --theme=base16 --color=always --paging=never --tabs=2 --wrap=never --plain";
 
@@ -104,8 +63,9 @@ in {
       wireguard-import = "nmcli connection import type wireguard file";
 
       notes =
-        "nvim ~/nextcloud/notes/index.md --cmd 'cd ~/nextcloud/notes' -c ':Telescope find_files'";
+        "nvim ~/nextcloud/notes/index.md --cmd 'cd ~/nextcloud/notes' -c ':lua Snacks.picker.smart()'";
       note = "notes";
+      tmp = "nvim /tmp/$(date | sed 's/ //g;s/\\.//g').md";
 
       nix-shell = "nix-shell --command zsh";
 
@@ -128,77 +88,114 @@ in {
       gcm = "git commit -m";
     };
 
-    initExtra = ''
-      # search history based on what's typed in the prompt
-      autoload -U history-search-end
-      zle -N history-beginning-search-backward-end history-search-end
-      zle -N history-beginning-search-forward-end history-search-end
-      bindkey "^[OA" history-beginning-search-backward-end
-      bindkey "^[OB" history-beginning-search-forward-end
+    initContent = # bash
+      ''
+        bindkey -e
+        ${if fetch == "neofetch" then
+          pkgs.neofetch + "/bin/neofetch"
+        else if fetch == "nerdfetch" then
+          "nerdfetch"
+        else if fetch == "pfetch" then
+          "echo; ${pkgs.pfetch}/bin/pfetch"
+        else
+          ""}
 
-      # General completion behavior
-      zstyle ':completion:*' completer _extensions _complete _approximate
+        function sesh-sessions() {
+          session=$(sesh list -t -c | fzf --height 70% --reverse)
+          [[ -z "$session" ]] && return
+          sesh connect $session
+        }
 
-      # Use cache
-      zstyle ':completion:*' use-cache on
-      zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+        function chatgptlist(){
+          for arg in "$@"; do 
+              echo "$arg:"
+              echo "\`\`\`"
+              cat "$arg"
+              echo "\`\`\`" 
+              echo 
+          done
+        }
 
-      # Complete the alias
-      zstyle ':completion:*' complete true
 
-      # Autocomplete options
-      zstyle ':completion:*' complete-options true
+        function n4c() {
+          nix develop --no-write-lock-file --refresh "github:nix4cyber/n4c#''${1:-all}" -c zsh
+        }
 
-      # Completion matching control
-      zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-      zstyle ':completion:*' keep-prefix true
+        zle     -N             sesh-sessions
+        bindkey -M emacs '\es' sesh-sessions
+        bindkey -M vicmd '\es' sesh-sessions
+        bindkey -M viins '\es' sesh-sessions
 
-      # Group matches and describe
-      zstyle ':completion:*' menu select
-      zstyle ':completion:*' list-grouped false
-      zstyle ':completion:*' list-separator '''
-      zstyle ':completion:*' group-name '''
-      zstyle ':completion:*' verbose yes
-      zstyle ':completion:*:matches' group 'yes'
-      zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
-      zstyle ':completion:*:messages' format '%d'
-      zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
-      zstyle ':completion:*:descriptions' format '[%d]'
+        # search history based on what's typed in the prompt
+        autoload -U history-search-end
+        zle -N history-beginning-search-backward-end history-search-end
+        zle -N history-beginning-search-forward-end history-search-end
+        bindkey "^[OA" history-beginning-search-backward-end
+        bindkey "^[OB" history-beginning-search-forward-end
 
-      # Colors
-      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+        # General completion behavior
+        zstyle ':completion:*' completer _extensions _complete _approximate
 
-      # case insensitive tab completion
-      zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
-      zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
-      zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
-      zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions commands
-      zstyle ':completion:*' special-dirs true
-      zstyle ':completion:*' squeeze-slashes true
+        # Use cache
+        zstyle ':completion:*' use-cache on
+        zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 
-      # Sort
-      zstyle ':completion:*' sort false
-      zstyle ":completion:*:git-checkout:*" sort false
-      zstyle ':completion:*' file-sort modification
-      zstyle ':completion:*:eza' sort false
-      zstyle ':completion:complete:*:options' sort false
-      zstyle ':completion:files' sort false
+        # Complete the alias
+        zstyle ':completion:*' complete true
 
-      ${lib.optionalString config.services.gpg-agent.enable ''
-        gnupg_path=$(ls $XDG_RUNTIME_DIR/gnupg)
-        export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/$gnupg_path/S.gpg-agent.ssh"
-      ''}
+        # Autocomplete options
+        zstyle ':completion:*' complete-options true
 
-      # Allow foot to pipe command output
-      function precmd {
-        if ! builtin zle; then
-            print -n "\e]133;D\e\\"
-        fi
-      }
-      function preexec {
-        print -n "\e]133;C\e\\"
-      }
+        # Completion matching control
+        zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+        zstyle ':completion:*' keep-prefix true
 
-    '';
+        # Group matches and describe
+        zstyle ':completion:*' menu select
+        zstyle ':completion:*' list-grouped false
+        zstyle ':completion:*' list-separator '''
+        zstyle ':completion:*' group-name '''
+        zstyle ':completion:*' verbose yes
+        zstyle ':completion:*:matches' group 'yes'
+        zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
+        zstyle ':completion:*:messages' format '%d'
+        zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+        zstyle ':completion:*:descriptions' format '[%d]'
+
+        # Colors
+        zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+
+        # case insensitive tab completion
+        zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
+        zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
+        zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
+        zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions commands
+        zstyle ':completion:*' special-dirs true
+        zstyle ':completion:*' squeeze-slashes true
+
+        # Sort
+        zstyle ':completion:*' sort false
+        zstyle ":completion:*:git-checkout:*" sort false
+        zstyle ':completion:*' file-sort modification
+        zstyle ':completion:*:eza' sort false
+        zstyle ':completion:complete:*:options' sort false
+        zstyle ':completion:files' sort false
+
+        ${lib.optionalString config.services.gpg-agent.enable ''
+          gnupg_path=$(ls $XDG_RUNTIME_DIR/gnupg)
+          export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/$gnupg_path/S.gpg-agent.ssh"
+        ''}
+
+        # Allow foot to pipe command output
+        function precmd {
+          if ! builtin zle; then
+              print -n "\e]133;D\e\\"
+          fi
+        }
+        function preexec {
+          print -n "\e]133;C\e\\"
+        }
+
+      '';
   };
 }
