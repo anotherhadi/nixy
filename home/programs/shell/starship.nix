@@ -25,6 +25,12 @@ in {
         vimcmd_symbol = "[❮](cyan)";
       };
 
+      nix_shell = {
+        format = "[$symbol]($style) ";
+        symbol = "🐚";
+        style = "";
+      };
+
       git_branch = {
         symbol = "[](${background-alt}) ";
         style = "fg:${accent} bg:${background-alt}";
