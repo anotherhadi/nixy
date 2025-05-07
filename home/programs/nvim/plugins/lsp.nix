@@ -12,6 +12,7 @@
         tailwindcss.enable = true;
         html.enable = true;
         svelte.enable = true;
+        astro.enable = true;
       };
     };
     none-ls = {
