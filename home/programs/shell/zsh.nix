@@ -29,7 +29,7 @@ in {
       }"
     '';
 
-    #NOTE- for btop to show gpu usage 
+    # CHANGEME: for btop to show gpu usage 
     #may want to check the driver version with:
     #nix path-info -r /run/current-system | grep nvidia-x11
     #and 
