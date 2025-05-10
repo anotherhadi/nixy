@@ -37,6 +37,38 @@ in {
     "file:///home/${user}/dev Development"
   ];
 
+  home.file.".config/xarchiver/xarchiverrc".text = ''
+    [xarchiver]
+    preferred_format=0
+    prefer_unzip=true
+    confirm_deletion=true
+    sort_filename_content=false
+    advanced_isearch=true
+    auto_expand=true
+    store_output=false
+    icon_size=2
+    show_archive_comment=false
+    show_sidebar=true
+    show_location_bar=true
+    show_toolbar=true
+    preferred_custom_cmd=
+    preferred_temp_dir=/tmp
+    preferred_extract_dir=/home/${user}/Downloads
+    allow_sub_dir=0
+    ensure_directory=true
+    overwrite=false
+    full_path=2
+    touch=false
+    fresh=false
+    update=false
+    store_path=false
+    updadd=true
+    freshen=false
+    recurse=true
+    solid_archive=false
+    remove_files=false
+  '';
+
   home.file.".config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml".text = ''
     <?xml version="1.0" encoding="UTF-8"?>
 
