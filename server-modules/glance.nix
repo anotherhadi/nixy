@@ -206,6 +206,14 @@ in {
                       color = rgb-to-hsl "base01";
                       links = [
                         {
+                          title = "Svgl";
+                          url = "https://svgl.app/";
+                        }
+                        {
+                          title = "Excalidraw";
+                          url = "https://excalidraw.com/";
+                        }
+                        {
                           title = "Cobalt (Downloader)";
                           url = "https://cobalt.tools/";
                         }
