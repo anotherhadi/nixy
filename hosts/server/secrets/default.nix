@@ -31,7 +31,10 @@
         owner = "recyclarr";
         mode = "0777";
       };
-      wireguard-pia = { };
+      wireguard-pia = {
+        # owner = "torrenter";
+        mode = "0600";
+      };
     };
   };
 
