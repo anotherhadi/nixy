@@ -21,7 +21,6 @@ in {
     prowlarr.enable = true;
     radarr.enable = true;
     sonarr.enable = true;
-    sabnzbd.enable = true;
     transmission = {
       enable = true;
       extraSettings = { trash-original-torrent-files = true; };
