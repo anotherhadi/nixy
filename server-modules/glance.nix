@@ -34,7 +34,7 @@ in {
       enable = true;
       settings = {
         theme = {
-          primary-color = lib.mkForce rgb-to-hsl "base0D";
+          # primary-color = rgb-to-hsl "base0D";
           contrast-multiplier = lib.mkForce 1.4;
         };
         pages = [{
