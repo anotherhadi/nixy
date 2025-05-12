@@ -9,10 +9,10 @@ let
 in {
   nixarr = {
     enable = true;
-    # vpn = {
-    #   enable = true;
-    #   wgConf = config.sops.secrets.wireguard-pia.path;
-    # };
+    vpn = {
+      enable = true;
+      wgConf = config.sops.secrets.wireguard-pia.path;
+    };
     mediaDir = "/data/media";
     stateDir = "/data/.state/nixarr";
 
@@ -22,11 +22,11 @@ in {
     radarr.enable = true;
     sonarr.enable = true;
     bazarr.enable = true;
-    # transmission = {
-    #   enable = true;
-    #   extraSettings = { trash-original-torrent-files = true; };
-    #   vpn.enable = true;
-    # };
+    transmission = {
+      enable =true;
+      extraSettings = { trash-original-torrent-files = true; };
+      vpn.enable = true;
+    };
 
     recyclarr = {
       enable = true;
