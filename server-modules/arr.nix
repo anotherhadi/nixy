@@ -21,7 +21,6 @@ in {
     prowlarr.enable = true;
     radarr.enable = true;
     sonarr.enable = true;
-    sabnzbd.enable = true;
     bazarr.enable = true;
     # transmission = {
     #   enable = true;
@@ -42,7 +41,6 @@ in {
     "prowlarr.${domain}" = mkVirtualHost "prowlarr" 9696;
     "radarr.${domain}" = mkVirtualHost "radarr" 7878;
     "sonarr.${domain}" = mkVirtualHost "sonarr" 8989;
-    "sabnzbd.${domain}" = mkVirtualHost "sabnzbd" 8080;
     "transmission.${domain}" = mkVirtualHost "transmission" 9091;
   };
 }
