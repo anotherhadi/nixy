@@ -13,7 +13,8 @@ let
     set_keyboard_backlight ${config.lib.stylix.colors.base0D}
     while true; do
       BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT*/capacity)
-      if [[ $BATTERY_LEVEL -le 10 ]]; then
+      IS_CHARGING=$(cat /sys/class/power_supply/BAT*/status)
+      if [[ $BATTERY_LEVEL -le 10 && $IS_CHARGING != "Charging" ]]; then
         if [[ $state == "red" ]];then
           state="white"
           set_keyboard_backlight "000000"
