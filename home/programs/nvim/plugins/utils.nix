@@ -8,7 +8,6 @@
       bufferline.enable = true;
       copilot-vim = {
         enable = true;
-        # FIXME: Temp issue solving
         settings.node_command = lib.getExe pkgs.nodejs_20;
       };
       flash.enable = true;
@@ -26,12 +25,10 @@
         };
       };
     };
-    keymaps = [
-      {
-        key = "<leader>ct";
-        action = "<cmd>AerialToggle<cr>";
-        options.desc = "Aerial (tags)";
-      }
-    ];
+    keymaps = [{
+      key = "<leader>ct";
+      action = "<cmd>AerialToggle<cr>";
+      options.desc = "Aerial (tags)";
+    }];
   };
 }
