@@ -17,8 +17,7 @@ in {
     ./bindings.nix
     ./polkitagent.nix
     ./keyboard-backlight.nix # CHANGEME: This is for my laptop only
-    # FIXME: Broken on unstable
-    # ./hyprspace.nix
+    ./hyprspace.nix
   ];
 
   home.packages = with pkgs; [
