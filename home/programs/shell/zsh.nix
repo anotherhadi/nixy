@@ -3,7 +3,7 @@
 let fetch = config.theme.fetch; # neofetch, nerdfetch, pfetch
 in {
 
-  home.packages = with pkgs; [ bat ripgrep tldr sesh ];
+  home.packages = with pkgs; [ bat ripgrep tldr sesh rmtrash trash-cli];
 
   home.sessionPath = [ "$HOME/go/bin" ];
 
@@ -57,6 +57,9 @@ in {
       icat = "${pkgs.kitty}/bin/kitty +kitten icat";
       cat =
         "bat --theme=base16 --color=always --paging=never --tabs=2 --wrap=never --plain";
+      mkdir = "mkdir -p";
+      rm = "${pkgs.rmtrash}/bin/rmtrash";
+      rmdir = "${pkgs.rmtrash}/bin/rmdirtrash";
 
       obsidian-no-gpu =
         "env ELECTRON_OZONE_PLATFORM_HINT=auto obsidian --ozone-platform=x11";
