@@ -17,7 +17,7 @@
 | Launcher | SUPER + SPACE |
 | Quickmenu | SUPER + C |
 | Toggle HyprFocus | SHIFT + SUPER + SPACE |
-| Planify | SUPER + P |
+| "$mod,P, exec,  uwsm app -- ${pkgs.planify}/bin/io.github.alainm23.planify"  |  |
 | Close window | SUPER + Q |
 | Toggle Floating | SUPER + T |
 | Toggle Fullscreen | SUPER + F |
