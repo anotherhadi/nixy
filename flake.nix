@@ -41,7 +41,6 @@
       nixy =
         # CHANGEME: This should match the 'hostname' in your variables.nix file
         nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
           modules = [
             {
               nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
@@ -55,7 +54,6 @@
         };
       # Jack is my server
       jack = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         modules = [
           { _module.args = { inherit inputs; }; }
           inputs.home-manager.nixosModules.home-manager
