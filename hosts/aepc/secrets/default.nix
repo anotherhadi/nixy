@@ -1,19 +1,16 @@
-# Those are my secrets, encrypted with sops
-# You shouldn't import this file, unless you edit it
+# Secrets encrypted with sops
 { pkgs, inputs, ... }: {
   imports = [ inputs.sops-nix.homeManagerModules.sops ];
 
   sops = {
-    age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
+    age.keyFile = "/home/ilbumi/.config/sops/age/keys.txt";
     defaultSopsFile = ./secrets.yaml;
     secrets = {
-      sshconfig = { path = "/home/hadi/.ssh/config"; };
-      github-key = { path = "/home/hadi/.ssh/github"; };
-      gitlab-key = { path = "/home/hadi/.ssh/gitlab"; };
-      jack-key = { path = "/home/hadi/.ssh/jack"; };
-      signing-key = { path = "/home/hadi/.ssh/key"; };
-      signing-pub-key = { path = "/home/hadi/.ssh/key.pub"; };
-      pia = { path = "/home/hadi/.config/pia/pia.ovpn"; };
+      sshconfig = { path = "/home/ilbumi/.ssh/config"; };
+      github-key = { path = "/home/ilbumi/.ssh/github"; };
+      gitlab-key = { path = "/home/ilbumi/.ssh/gitlab"; };
+      signing-key = { path = "/home/ilbumi/.ssh/key"; };
+      signing-pub-key = { path = "/home/ilbumi/.ssh/key.pub"; };
     };
   };
 
