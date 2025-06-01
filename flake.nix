@@ -53,6 +53,18 @@
             ./hosts/laptop/configuration.nix # CHANGEME: change the path to match your host folder
           ];
         };
+      aepc = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          {
+            nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+            _module.args = { inherit inputs; };
+          }
+          inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+          ./hosts/aepc/configuration.nix
+        ];
+      };
       # Jack is my server
       jack = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
