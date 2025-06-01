@@ -4,16 +4,15 @@
   imports = [ inputs.sops-nix.homeManagerModules.sops ];
 
   sops = {
-    age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
+    age.keyFile = "/home/ilbumi/.config/sops/age/keys.txt";
     defaultSopsFile = ./secrets.yaml;
     secrets = {
-      sshconfig = { path = "/home/hadi/.ssh/config"; };
-      github-key = { path = "/home/hadi/.ssh/github"; };
-      gitlab-key = { path = "/home/hadi/.ssh/gitlab"; };
-      jack-key = { path = "/home/hadi/.ssh/jack"; };
-      signing-key = { path = "/home/hadi/.ssh/key"; };
-      signing-pub-key = { path = "/home/hadi/.ssh/key.pub"; };
-      pia = { path = "/home/hadi/.config/pia/pia.ovpn"; };
+      sshconfig = { path = "/home/ilbumi/.ssh/config"; };
+      github-key = { path = "/home/ilbumi/.ssh/github"; };
+      gitlab-key = { path = "/home/ilbumi/.ssh/gitlab"; };
+      home-key = { path = "/home/ilbumi/.ssh/home"; };
+      signing-key = { path = "/home/ilbumi/.ssh/key"; };
+      signing-pub-key = { path = "/home/ilbumi/.ssh/key.pub"; };
     };
   };
 
