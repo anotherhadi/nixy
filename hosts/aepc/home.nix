@@ -36,7 +36,7 @@
     ../../home/system/udiskie
     ../../home/system/clipman
 
-    ./secrets # CHANGEME: You should probably remove this line, this is where I store my secrets
+    # ./secrets # CHANGEME: You should probably remove this line, this is where I store my secrets
   ];
 
   home = {
@@ -47,32 +47,21 @@
       # Apps
       bitwarden # Password manager
       vlc # Video player
-      blanket # White-noise app
       obsidian # Note taking app
       # planify # Todolists
       gnome-calendar # Calendar
       textpieces # Manipulate texts
-      curtail # Compress images
       resources
       gnome-clocks
       gnome-text-editor
-      mpv # Video player
       figma-linux
 
       # Dev
-      go
-      nodejs
-      python3
       jq
-      just
-      pnpm
-      air
 
       # Utils
       zip
       unzip
-      optipng
-      jpegoptim
       pfetch
       btop
       fastfetch
