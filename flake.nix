@@ -25,10 +25,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hyprspace = {
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";

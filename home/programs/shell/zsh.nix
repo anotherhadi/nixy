@@ -65,8 +65,6 @@ in {
         "env ELECTRON_OZONE_PLATFORM_HINT=auto obsidian --ozone-platform=x11";
       wireguard-import = "nmcli connection import type wireguard file";
 
-      notes =
-        "nvim ~/nextcloud/notes/index.md --cmd 'cd ~/nextcloud/notes' -c ':lua Snacks.picker.smart()'";
       note = "notes";
       tmp = "nvim /tmp/$(date | sed 's/ //g;s/\\.//g').md";
 

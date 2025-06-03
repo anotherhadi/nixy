@@ -5,13 +5,10 @@ let
     browser = [ "zen-beta.desktop" ];
     text = [ "org.gnome.TextEditor.desktop" ];
     image = [ "imv-dir.desktop" ];
-    audio = [ "mpv.desktop" ];
-    video = [ "mpv.desktop" ];
     directory = [ "thunar.desktop" ];
     office = [ "libreoffice.desktop" ];
     pdf = [ "zathura.desktop" ];
     terminal = [ "kitty.desktop" ];
-    discord = [ "discord.desktop" ];
     archive = [ "xarchiver.desktop" ];
   };
 
@@ -75,7 +72,6 @@ let
       "application/7z"
       "application/*tar"
     ];
-    discord = [ "x-scheme-handler/discord" ];
   };
 
   associations = with lists;
