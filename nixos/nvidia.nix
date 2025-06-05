@@ -94,6 +94,15 @@ in {
     ];
   };
 
+  programs.zsh = {
+    sessionVariables = {
+      LD_LIBRARY_PATH = lib.concatStringsSep ":" [
+        "$LD_LIBRARY_PATH"
+        "${nvidiaDriverChannel}/lib" # change the package name according to nix search result
+      ];
+    };
+  };
+
   # Additional useful packages
   environment.systemPackages = with pkgs; [
     vulkan-tools
