@@ -7,6 +7,7 @@
       "ctrl+shift+h" = "neighboring_window left";
       "ctrl+shift+l" = "neighboring_window right";
       "ctrl+shift+k" = "neighboring_window up";
+      "ctrl+shift+tab" = "new_tab";
     };
     settings = {
       scrollback_lines = 10000;
