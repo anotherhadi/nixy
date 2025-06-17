@@ -1,221 +1,256 @@
-{ config, ... }: {
-  programs.nixvim = {
-    highlightOverride = {
-      SnacksPicker = {
-        bg = "none";
-        nocombine = true;
+{
+  programs.nvf.settings.vim = {
+    utility = {
+      oil-nvim.enable = true;
+      snacks-nvim = {
+        setupOpts = {
+          picker.enabled = true;
+          explorer.enabled = true;
+        };
       };
-      SnacksPickerBorder = {
-        bg = "none";
-        fg = "#${config.lib.stylix.colors.base0D}";
-      };
-      SnacksPickerTree = { bg = "#${config.lib.stylix.colors.base00}"; };
-      FloatBorder = {
-        bg = "#${config.lib.stylix.colors.base00}";
-        fg = "#${config.lib.stylix.colors.base0D}";
-      };
-      NormalFloat = { bg = "#${config.lib.stylix.colors.base00}"; };
-    };
-    plugins = {
-      snacks.settings = {
-        picker.enable = true;
-        explorer.enable = true;
-      };
-      oil.enable = true;
-      which-key.settings.spec = [
-        {
-          __unkeyed-1 = "<leader>f";
-          mode = "n";
-          group = "+find";
-        }
-        {
-          __unkeyed-1 = "<leader>g";
-          mode = "n";
-          group = "+git";
-        }
-        {
-          __unkeyed-1 = "<leader>s";
-          mode = "n";
-          group = "+search";
-        }
-      ];
     };
     keymaps = [
       # Top Pickers & Explorer
       {
         key = "<leader> ";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.smart()<cr>";
-        options.desc = "Smart Find Files";
+        desc = "Smart Find Files";
       }
       {
         key = "<leader>,";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.buffers()<cr>";
-        options.desc = "Buffers";
+        desc = "Buffers";
       }
       {
         key = "<leader>/";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.grep()<cr>";
-        options.desc = "Grep";
+        desc = "Grep";
       }
       {
         key = "<leader>:";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.command_history()<cr>";
-        options.desc = "Command History";
+        desc = "Command History";
       }
       {
         key = "<leader>e";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.explorer()<cr>";
-        options.desc = "File Explorer";
+        desc = "File Explorer";
       }
       {
         key = "-";
+        mode = "n";
+        silent = true;
         action = "<cmd>Oil<cr>";
-        options.desc = "Oil";
+        desc = "Oil";
       }
 
       # Find
       {
         key = "<leader>fb";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.buffers()<cr>";
-        options.desc = "Buffers";
+        desc = "Buffers";
       }
       {
         key = "<leader>fc";
+        mode = "n";
+        silent = true;
         action = ''
           <cmd>lua Snacks.picker.files({ cwd = vim.fn.stdpath("config") })<cr>'';
-        options.desc = "Find Config File";
+        desc = "Find Config File";
       }
       {
         key = "<leader>ff";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.files()<cr>";
-        options.desc = "Find Files";
+        desc = "Find Files";
       }
       {
         key = "<leader>fg";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.git_files()<cr>";
-        options.desc = "Find Git Files";
+        desc = "Find Git Files";
       }
       {
         key = "<leader>fp";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.projects()<cr>";
-        options.desc = "Projects";
+        desc = "Projects";
       }
       {
         key = "<leader>fr";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.recent()<cr>";
-        options.desc = "Recent";
+        desc = "Recent";
       }
       {
         key = "<leader>fn";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.notifications()<cr>";
-        options.desc = "Notification History";
+        desc = "Notification History";
       }
       {
         key = "<leader>fe";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.icons()<cr>";
-        options.desc = "Emoji";
+        desc = "Emoji";
       }
 
       # Git
       {
         key = "<leader>gb";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.git_branches()<cr>";
-        options.desc = "Git Branches";
+        desc = "Git Branches";
       }
       {
         key = "<leader>gL";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.git_log()<cr>";
-        options.desc = "Git Log Line";
+        desc = "Git Log Line";
       }
       {
         key = "<leader>gs";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.git_status()<cr>";
-        options.desc = "Git Status";
+        desc = "Git Status";
       }
       {
         key = "<leader>gS";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.git_stash()<cr>";
-        options.desc = "Git Stash";
+        desc = "Git Stash";
       }
       {
         key = "<leader>gd";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.git_diff()<cr>";
-        options.desc = "Git Diff (Hunks)";
+        desc = "Git Diff (Hunks)";
       }
       {
         key = "<leader>gf";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.git_log_file()<cr>";
-        options.desc = "Git Log File";
+        desc = "Git Log File";
       }
 
       # Grep
       {
         key = "<leader>sb";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.lines()<cr>";
-        options.desc = "Buffer Lines";
+        desc = "Buffer Lines";
       }
       {
         key = "<leader>st";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.todo_comments()<cr>";
-        options.desc = "Todos";
+        desc = "Todos";
       }
       {
         key = "<leader>sB";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.grep_buffers()<cr>";
-        options.desc = "Grep Open Buffers";
+        desc = "Grep Open Buffers";
       }
       {
         key = "<leader>sg";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.grep()<cr>";
-        options.desc = "Grep";
+        desc = "Grep";
       }
       {
         key = "<leader>sw";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.grep_word()<cr>";
-        options.desc = "Visual selection or word";
+        desc = "Visual selection or word";
       }
       {
         key = "<leader>sr";
+        mode = "n";
+        silent = true;
         action = "<cmd>nohlsearch<cr>";
-        options.desc = "Reset search";
+        desc = "Reset search";
       }
 
       # LSP
       {
         key = "gd";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.lsp_definitions()<cr>";
-        options.desc = "Goto Definition";
+        desc = "Goto Definition";
       }
       {
         key = "gD";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.lsp_declarations()<cr>";
-        options.desc = "Goto Declaration";
+        desc = "Goto Declaration";
       }
       {
         key = "gr";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.lsp_references()<cr>";
-        options.desc = "References";
-        options.nowait = true;
+        desc = "References";
+        nowait = true;
       }
       {
         key = "gI";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.lsp_implementations()<cr>";
-        options.desc = "Goto Implementation";
+        desc = "Goto Implementation";
       }
       {
         key = "gy";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.lsp_type_definitions()<cr>";
-        options.desc = "Goto Type Definition";
+        desc = "Goto Type Definition";
       }
       {
         key = "<leader>ss";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.lsp_symbols()<cr>";
-        options.desc = "LSP Symbols";
+        desc = "LSP Symbols";
       }
       {
         key = "<leader>sS";
+        mode = "n";
+        silent = true;
         action = "<cmd>lua Snacks.picker.lsp_workspace_symbols()<cr>";
-        options.desc = "LSP Workspace Symbols";
+        desc = "LSP Workspace Symbols";
       }
     ];
   };
