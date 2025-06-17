@@ -32,7 +32,8 @@
         mode = "0777";
       };
       wireguard-pia = {
-        owner = "torrenter";
+        # owner = "media";
+        group = "media";
         mode = "0600";
       };
     };
