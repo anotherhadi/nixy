@@ -5,7 +5,7 @@
     ./variables.nix
 
     # Programs
-    ../../home/programs/nvim
+    ../../home/programs/nvf
     ../../home/programs/shell
     ../../home/programs/fetch
     ../../home/programs/git

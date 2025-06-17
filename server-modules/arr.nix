@@ -21,13 +21,15 @@ in {
     prowlarr.enable = true;
     radarr.enable = true;
     sonarr.enable = true;
-    bazarr.enable = true;
+    bazarr = {
+      enable = true;
+      vpn.enable = true;
+    };
     transmission = {
-      enable =true;
+      enable = true;
       extraSettings = { trash-original-torrent-files = true; };
       vpn.enable = true;
     };
-
     recyclarr = {
       enable = true;
       configFile = config.sops.secrets.recyclarr.path;
