@@ -26,7 +26,10 @@
     };
     terminal.toggleterm = {
       enable = true;
-      lazygit.enable = true;
+      lazygit = {
+        enable = true;
+        mappings.open = "<leader>gl";
+      };
     };
     formatter.conform-nvim.enable = true;
   };
