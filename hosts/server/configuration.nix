@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   imports = [
     ../../nixos/home-manager.nix
     ../../nixos/nix.nix
