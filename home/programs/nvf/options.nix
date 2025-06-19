@@ -30,14 +30,10 @@
       registers = "unnamedplus";
       providers.wl-copy.enable = true;
     };
-    spellcheck = {
-      enable = true;
-      programmingWordlist.enable = true;
-    };
     theme = {
       enable = true;
       name = lib.mkForce "catppuccin";
-      style = "mocha";
+      style = lib.mkForce "mocha";
       transparent = lib.mkForce true;
     };
   };
