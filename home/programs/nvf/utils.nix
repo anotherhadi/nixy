@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   programs.nvf.settings.vim = {
     utility = {
       motion.flash-nvim.enable = true;
@@ -11,10 +11,21 @@
       cmp.enable = true;
     };
     statusline.lualine.enable = true;
-    autocomplete.blink-cmp = {
-      enable = true;
-      friendly-snippets.enable = true;
+
+    autocomplete = {
+      nvim-cmp = {
+        enable = true;
+        sources = {
+          buffer = "[Buffer]";
+          nvim-cmp = null;
+          path = "[Path]";
+        };
+        sourcePlugins = [
+          pkgs.vimPlugins.cmp-cmdline
+        ];
+      };
     };
+
     snippets.luasnip.enable = true;
     ui = {
       noice.enable = true;
@@ -31,6 +42,11 @@
         mappings.open = "<leader>gl";
       };
     };
-    formatter.conform-nvim.enable = true;
+    visuals = {
+      rainbow-delimiters.enable = true;
+      nvim-scrollbar = {
+        enable = false;
+      };
+    };
   };
 }
