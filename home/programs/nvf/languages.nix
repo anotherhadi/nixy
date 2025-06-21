@@ -29,13 +29,6 @@
       };
       nvim-lint = {
         enable = true;
-        linters = {
-        };
-        linters_by_ft = {
-          c = [
-            "cppcheck"
-          ];
-        };
       };
     };
     syntaxHighlighting = true;
@@ -70,7 +63,7 @@
         enable = true;
         setupOpts = {
           ui = {
-            code_action = "🟅";
+            code_action = "";
           };
           lightbulb = {
             sign = false;
