@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   programs.nvf.settings.vim = {
+    undoFile.enable = true;
     utility = {
       motion.flash-nvim.enable = true;
       outline.aerial-nvim.enable = true;
