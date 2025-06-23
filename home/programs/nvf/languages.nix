@@ -84,7 +84,7 @@
       markdown = {
         enable = true;
         extensions = {
-          render-markdown-nvim = {
+          markview-nvim = {
             enable = true;
           };
         };
