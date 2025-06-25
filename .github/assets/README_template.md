@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://raw.githubusercontent.com/anotherhadi/nixy/main/.github/assets/logo.png" width="120px" />
+    <img alt="nixy logo" src="https://raw.githubusercontent.com/anotherhadi/nixy/main/.github/assets/logo.png" width="120px" />
 </div>
 
 <br>
@@ -23,14 +23,17 @@
 </div>
 <br>
 
-**Nixy simplifies and unifies** the Hyprland ecosystem with a modular, easily customizable setup. It provides a structured way to manage your system configuration and dotfiles with minimal effort.
-It includes *home-manager*, *secrets*, and *custom theming* all in one place.
+**Nixy simplifies and unifies** the Hyprland ecosystem with a modular, easily
+customizable setup. It provides a structured way to manage your system
+configuration and dotfiles with minimal effort. It includes _home-manager_,
+_secrets_, and _custom theming_ all in one place.
 
 **Features:**
 
-- 💻 Hyprland-centric: Preconfigured Hyprland ecosystem (Hyprlock, Hyprpanel, etc.)
+- 💻 Hyprland-centric: Preconfigured Hyprland ecosystem (Hyprlock, Hyprpanel,
+  etc.)
 - 🎨 Consistent Theming: Base16 & Stylix-powered themes
-- ⌨️  Vim-like Everywhere: Unified keybindings (Hyprland, nvim, vimium, etc.)
+- ⌨️ Vim-like Everywhere: Unified keybindings (Hyprland, nvim, vimium, etc.)
 
 ## Table of Content
 
@@ -57,45 +60,54 @@ Contains **dotfiles and settings** that apply to your user environment.
 
 ### 🐧 /nixos
 
-Those are the system-level configurations. (audio, bluetooth, gpu, bootloader, ...)
+Those are the system-level configurations. (audio, bluetooth, gpu, bootloader,
+...)
 
 ### 🎨 /themes
 
-This folder contains all system themes. Mainly [stylix](https://stylix.danth.me/) configurations.
-Check out the available themes and learn how to create your own in [THEMES.md](docs/THEMES.md)
+This folder contains all system themes. Mainly
+[stylix](https://stylix.danth.me/) configurations. Check out the available
+themes and learn how to create your own in [THEMES.md](docs/THEMES.md)
 
 ### 💻 /hosts
 
-This directory contains host-specific configurations.
-Each host includes:
+This directory contains host-specific configurations. Each host includes:
 
 - `configuration.nix` for system-wide settings
 - `home.nix` for user-level configuration
 - `variables.nix` for global variables
 - `secrets/` for sensitive data
 
+### 🖥️ /server-modules
+
+This folder contains server-related nixos modules. (bitwarden, nextcloud, ...)
+
 ## Installation
 
-1. [Fork](https://github.com/anotherhadi/nixy/fork) this repo and clone it to your system:
+1. [Fork](https://github.com/anotherhadi/nixy/fork) this repo and clone it to
+   your system:
 
 ```sh
 git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```
 
-2. Copy the `hosts/laptop` folder, rename it to match your system’s hostname, and update `variables.nix` with your machine’s settings.
-3. Copy your `hardware-configuration.nix` into your new host's folder to ensure proper hardware support.
+2. Copy the `hosts/laptop` folder, rename it to match your system’s hostname,
+   and update `variables.nix` with your machine’s settings.
+3. Copy your `hardware-configuration.nix` into your new host's folder to ensure
+   proper hardware support.
 4. Register your new host in `flake.nix` by adding it under nixosConfigurations.
 
-> [!Important]
-> `# CHANGEME` comments are placed throughout the config to indicate necessary modifications.
-> Use the following command to quickly locate them:
+> [!Important] `# CHANGEME` comments are placed throughout the config to
+> indicate necessary modifications. Use the following command to quickly locate
+> them:
 >
 > ```sh
 > rg "CHANGEME" ~/.config/nixos
 > ```
 
 > [!TIP]
-> When you add new files, don't forget to run `git add .` to add them to the git repository
+> When you add new files, don't forget to run `git add .` to add them to the git
+> repository
 
 5. Build the system
 
@@ -108,8 +120,10 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 - [SERVER](docs/SERVER.md): Check out the server documentation
 - [THEMES](docs/THEMES.md): How themes work and how to create your own
 - [SCRIPTS](docs/SCRIPTS.md): A list of available scripts and their usage
-- [KEYBINDINGS-HYPRLAND](docs/KEYBINDINGS-HYPRLAND.md): Keybindings available in Hyprland
-- [WALLPAPERS](https://github.com/anotherhadi/awesome-wallpapers): An awesome collection of wallpapers
+- [KEYBINDINGS-HYPRLAND](docs/KEYBINDINGS-HYPRLAND.md): Keybindings available in
+  Hyprland
+- [WALLPAPERS](https://github.com/anotherhadi/awesome-wallpapers): An awesome
+  collection of wallpapers
 
 - [CONTRIBUTING](docs/CONTRIBUTING.md): How to contribute
 - [LICENSE](LICENSE): MIT License
