@@ -1,14 +1,30 @@
 # Zen is a minimalistic web browser.
-{ pkgs, inputs, ... }:
-let
-  # Create a wrapper script for zen-browser with Wayland enabled
-  zenWithWayland = pkgs.symlinkJoin {
-    name = "zen-browser-wayland";
-    paths = [ inputs.zen-browser.packages."${pkgs.system}".default ];
-    buildInputs = [ pkgs.makeWrapper ];
-    postBuild = ''
-      wrapProgram $out/bin/zen \
-        --set MOZ_ENABLE_WAYLAND 1
-    '';
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    inputs.zen-browser.homeModules.beta
+  ];
+
+  programs.zen-browser = {
+    enable = true;
+    policies = {
+      DisableAppUpdate = true;
+      DisableTelemetry = true;
+
+      AutofillAddressesEnabled = false;
+      AutoFillCreditCardEnabled = false;
+      DisablePocket = true;
+      DisableProfileImport = true;
+      DisableSetDesktopBackground = true;
+      DontCheckDefaultBrowser = true;
+      HomepageURL = "https://start.hadi.diy";
+      StartPage = "homepage";
+      NewTabPage = true;
+      OfferToSaveLogins = false;
+      # find more options here: https://mozilla.github.io/policy-templates/
+    };
   };
-in { home.packages = [ zenWithWayland ]; }
+}
