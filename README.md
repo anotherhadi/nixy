@@ -107,7 +107,8 @@ git clone https://github.com/anotherhadi/nixy ~/.config/nixos
    proper hardware support.
 4. Register your new host in `flake.nix` by adding it under nixosConfigurations.
 
-> [!IMPORTANT] `# CHANGEME` comments are placed throughout the config to
+> [!IMPORTANT]
+> `# CHANGEME` comments are placed throughout the config to
 > indicate necessary modifications. Use the following command to quickly locate
 > them:
 >
