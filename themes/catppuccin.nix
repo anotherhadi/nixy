@@ -10,7 +10,7 @@
       rounding = 15;
       gaps-in = 8;
       gaps-out = 8 * 2;
-      active-opacity = 0.98;
+      active-opacity = 0.97;
       inactive-opacity = 0.94;
       blur = true;
       border-size = 3;
