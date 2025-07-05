@@ -8,7 +8,7 @@
 #- - `lock` - Lock the screen. (hyprlock)
 { pkgs, ... }:
 
-let
+let 
   menu = pkgs.writeShellScriptBin "menu"
     # bash
     ''
@@ -115,4 +115,4 @@ let
       ${pkgs.hyprlock}/bin/hyprlock
     '';
 
-in { home.packages = [ menu powermenu lock quickmenu ]; }
+in { home.packages = [ menu powermenu lock quickmenu]; }

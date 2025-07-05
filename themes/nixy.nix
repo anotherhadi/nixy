@@ -3,23 +3,24 @@
   options.theme = lib.mkOption {
     type = lib.types.attrs;
     default = {
-      rounding = 20;
+      rounding = 10;
       gaps-in = 10;
       gaps-out = 10 * 2;
       active-opacity = 0.96;
       inactive-opacity = 0.92;
       blur = true;
       border-size = 3;
-      animation-speed = "fast"; # "fast" | "medium" | "slow"
+      animation-speed = "medium"; # "fast" | "medium" | "slow"
       fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
       textColorOnWallpaper =
         config.lib.stylix.colors.base01; # Color of the text displayed on the wallpaper (Lockscreen, display manager, ...)
 
+      textColorHyprlock = config.lib.stylix.colors.base10;
       bar = { # Hyprpanel
         position = "top"; # "top" | "bottom"
         transparent = true;
         transparentButtons = false;
-        floating = true;
+        floating = false;
       };
     };
     description = "Theme configuration options";
@@ -34,7 +35,7 @@
       base01 =
         "1c1e1f"; # Lighter Background (Used for status bars, line number and folding marks)
       base02 = "313244"; # Selection Background
-      base03 = "45475a"; # Comments, Invisibles, Line Highlighting
+      base03 = "393944"; # Comments, Invisibles, Line Highlighting
       base04 = "585b70"; # Dark Foreground (Used for status bars)
       base05 = "cdd6f4"; # Default Foreground, Caret, Delimiters, Operators
       base06 = "f5e0dc"; # Light Foreground (Not often used)
@@ -43,6 +44,7 @@
         "f38ba8"; # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
       base09 =
         "fab387"; # Integers, Boolean, Constants, XML Attributes, Markup Link Url
+      base10 = "99A3A4";
       base0A = "f9e2af"; # Classes, Markup Bold, Search Text Background
       base0B = "a6e3a1"; # Strings, Inherited Class, Markup Code, Diff Inserted
       base0C =
@@ -84,10 +86,5 @@
     };
 
     polarity = "dark";
-    image = pkgs.fetchurl {
-      url =
-        "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/black-and-white-forest_minimalist_black-and-white.png";
-      sha256 = "sha256-MOlLRQonZ6UAaSJlysjL8snxnMrSFH9VOLrjXaU82Kw=";
-    };
   };
 }

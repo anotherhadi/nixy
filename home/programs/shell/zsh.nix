@@ -3,7 +3,7 @@
 let fetch = config.theme.fetch; # neofetch, nerdfetch, pfetch
 in {
 
-  home.packages = with pkgs; [ bat ripgrep tldr sesh rmtrash trash-cli ];
+  home.packages = with pkgs; [ bat ripgrep tldr sesh ];
 
   home.sessionPath = [ "$HOME/go/bin" ];
 
@@ -16,6 +16,10 @@ in {
       highlighters = [ "main" "brackets" "pattern" "regexp" "root" "line" ];
     };
     historySubstringSearch.enable = true;
+    shellAliases = {
+      u = "nh os switch /etc/nixos";
+      u-full = "cd /etc/nixos; sudo nix flake update; nh os switch /etc/nixos";
+    };
 
     history = {
       ignoreDups = true;
@@ -28,6 +32,18 @@ in {
         lib.concatStringsSep ":" config.home.sessionPath
       }"
     '';
+
+    # CHANGEME: for btop to show gpu usage 
+    #may want to check the driver version with:
+    #nix path-info -r /run/current-system | grep nvidia-x11
+    #and 
+    #nix search nixpkgs nvidia_x11
+    sessionVariables = {
+      LD_LIBRARY_PATH = lib.concatStringsSep ":" [
+        "${pkgs.linuxPackages_latest.nvidia_x11_beta}/lib" # change the package name according to nix search result
+        "$LD_LIBRARY_PATH"
+      ];
+    };
 
     shellAliases = {
       vim = "nvim";
@@ -45,9 +61,6 @@ in {
       icat = "${pkgs.kitty}/bin/kitty +kitten icat";
       cat =
         "bat --theme=base16 --color=always --paging=never --tabs=2 --wrap=never --plain";
-      mkdir = "mkdir -p";
-      rm = "${pkgs.rmtrash}/bin/rmtrash";
-      rmdir = "${pkgs.rmtrash}/bin/rmdirtrash";
 
       obsidian-no-gpu =
         "env ELECTRON_OZONE_PLATFORM_HINT=auto obsidian --ozone-platform=x11";
@@ -97,19 +110,13 @@ in {
           sesh connect $session
         }
 
-        function chatgptfolder(){
-          echo "################################"
-          echo "###         TREE             ###"
-          echo "################################"
-          ${pkgs.eza}/bin/eza --tree -aF --icons never
-          echo -e "\n\n"
-          echo "##############################"
-          echo "###        CONTENT         ###"
-          echo "##############################"
-          find . -type f -not -path '*/.git/*' -print0 | while IFS= read -r -d "" file; do
-              echo -e "\n--- DEBUT: $file ---\n"
-              cat "$file"
-              echo -e "\n--- FIN: $file ---\n"
+        function chatgptlist(){
+          for arg in "$@"; do 
+              echo "$arg:"
+              echo "\`\`\`"
+              cat "$arg"
+              echo "\`\`\`" 
+              echo 
           done
         }
 

@@ -5,46 +5,46 @@ let
   sddm-astronaut = pkgs.sddm-astronaut.override {
     embeddedTheme = "pixel_sakura";
     # TODO: Cleaner version for static vs .gif, just a string.replace
-    themeConfig = if lib.hasSuffix "sakura_static.png" config.stylix.image then
-      { }
-    else if lib.hasSuffix "studio.png" config.stylix.image then {
-      Background = pkgs.fetchurl {
-        url =
-          "https://raw.githubusercontent.com/anotherhadi/nixy-wallpapers/refs/heads/main/wallpapers/studio.gif";
-        sha256 = "sha256-qySDskjmFYt+ncslpbz0BfXiWm4hmFf5GPWF2NlTVB8=";
-      };
-      HeaderTextColor = "#${foreground}";
-      DateTextColor = "#${foreground}";
-      TimeTextColor = "#${foreground}";
-      LoginFieldTextColor = "#${foreground}";
-      PasswordFieldTextColor = "#${foreground}";
-      UserIconColor = "#${foreground}";
-      PasswordIconColor = "#${foreground}";
-      WarningColor = "#${foreground}";
-      LoginButtonBackgroundColor = "#${foreground}";
-      SystemButtonsIconsColor = "#${foreground}";
-      SessionButtonTextColor = "#${foreground}";
-      VirtualKeyboardButtonTextColor = "#${foreground}";
-      DropdownBackgroundColor = "#${foreground}";
-      HighlightBackgroundColor = "#${foreground}";
-    } else {
-      Background = "${toString config.stylix.image}";
-      HeaderTextColor = "#${foreground}";
-      DateTextColor = "#${foreground}";
-      TimeTextColor = "#${foreground}";
-      LoginFieldTextColor = "#${foreground}";
-      PasswordFieldTextColor = "#${foreground}";
-      UserIconColor = "#${foreground}";
-      PasswordIconColor = "#${foreground}";
-      WarningColor = "#${foreground}";
-      LoginButtonBackgroundColor = "#${foreground}";
-      SystemButtonsIconsColor = "#${foreground}";
-      SessionButtonTextColor = "#${foreground}";
-      VirtualKeyboardButtonTextColor = "#${foreground}";
-      DropdownBackgroundColor = "#${foreground}";
-      HighlightBackgroundColor = "#${foreground}";
-    };
-  };
+    #themeConfig = if lib.hasSuffix "sakura_static.png" then
+    #  { }
+    #else if lib.hasSuffix "studio.png" then {
+     # Background = pkgs.fetchurl {
+     #   url =
+     #     "https://raw.githubusercontent.com/anotherhadi/nixy-wallpapers/refs/heads/main/wallpapers/studio.gif";
+     #   sha256 = "sha256-qySDskjmFYt+ncslpbz0BfXiWm4hmFf5GPWF2NlTVB8=";
+    #  };
+    #  HeaderTextColor = "#${foreground}";
+    #  DateTextColor = "#${foreground}";
+    #  TimeTextColor = "#${foreground}";
+    #  LoginFieldTextColor = "#${foreground}";
+    #  PasswordFieldTextColor = "#${foreground}";
+    #  UserIconColor = "#${foreground}";
+    #  PasswordIconColor = "#${foreground}";
+    #  WarningColor = "#${foreground}";
+    #  LoginButtonBackgroundColor = "#${foreground}";
+    #  SystemButtonsIconsColor = "#${foreground}";
+    #  SessionButtonTextColor = "#${foreground}";
+    #  VirtualKeyboardButtonTextColor = "#${foreground}";
+    #  DropdownBackgroundColor = "#${foreground}";
+    #  HighlightBackgroundColor = "#${foreground}";
+    #} else {
+      #Background = "${toString config.stylix.image}";
+    #  HeaderTextColor = "#${foreground}";
+    #  DateTextColor = "#${foreground}";
+    #  TimeTextColor = "#${foreground}";
+    #  LoginFieldTextColor = "#${foreground}";
+    #  PasswordFieldTextColor = "#${foreground}";
+    #  UserIconColor = "#${foreground}";
+    #  PasswordIconColor = "#${foreground}";
+    #  WarningColor = "#${foreground}";
+    #  LoginButtonBackgroundColor = "#${foreground}";
+    #  SystemButtonsIconsColor = "#${foreground}";
+    #  SessionButtonTextColor = "#${foreground}";
+    #  VirtualKeyboardButtonTextColor = "#${foreground}";
+    #  DropdownBackgroundColor = "#${foreground}"; 
+    #HighlightBackgroundColor = "#${foreground}";
+   # };
+ };
 in {
   services.displayManager = {
     sddm = {

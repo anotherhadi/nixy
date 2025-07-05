@@ -3,7 +3,7 @@
 let
   username = config.var.git.username;
   email = config.var.git.email;
-in {
+in {  
   programs.git = {
     enable = true;
     userName = username;
@@ -54,4 +54,20 @@ in {
         "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; hx `f`";
     };
   };
+  home.file.".gitconfig".text = ''
+  [init]
+    defaultBranch = main
+
+  [pull]
+    rebase = false
+
+  [push]
+    autoSetupRemote = true
+
+  [color]
+    ui = auto
+
+  [credential]
+    helper = store
+'';
 }

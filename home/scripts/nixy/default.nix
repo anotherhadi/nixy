@@ -30,7 +30,7 @@ let
           "󰍜;Clean Boot Menu;nixy cb"
           ";List generation;nixy listgen"
           "󰌌;Hyprland Keybindings;nvim ${configDirectory}/docs/KEYBINDINGS-HYPRLAND.md"
-          "󰋩;Wallpapers;zen https://github.com/anotherhadi/nixy-wallpapers"
+          "󰋩;Wallpapers;firefox https://wallpapers.hadi.diy/"
         )
 
         # Apply default icons if empty:
@@ -52,14 +52,14 @@ let
 
       if [[ $1 == "rebuild" ]];then
         cd ${configDirectory} && git add .
-        sudo nixos-rebuild switch --flake ${configDirectory}#${hostname}
+        nh os switch /home/nixos/.config/nixos/flake.nix
       elif [[ $1 == "upgrade" ]];then
-        sudo nixos-rebuild switch --upgrade --flake '${configDirectory}#${hostname}'
+       cd ~/.config/nixos sudo nix flake upgrade; nh os switch ~/.config/nixos
+
       elif [[ $1 == "update" ]];then
-        cd ${configDirectory} && nix flake update
+        cd ~/.config/nixos sudo nix flake update; nh os switch ~/.config/nixos
       elif [[ $1 == "gc" ]];then
         cd ${configDirectory} && sudo nix-collect-garbage -d
-        cd ${configDirectory} && nix-collect-garbage -d
       elif [[ $1 == "cb" ]];then
         sudo /run/current-system/bin/switch-to-configuration boot
       elif [[ $1 == "listgen" ]];then

@@ -2,12 +2,12 @@
 with lib;
 let
   defaultApps = {
-    browser = [ "zen-beta.desktop" ];
+    browser = [ "firefox.desktop" ];
     text = [ "org.gnome.TextEditor.desktop" ];
-    image = [ "imv-dir.desktop" ];
+    #image = [ "imv-dir.desktop" ];
     audio = [ "mpv.desktop" ];
     video = [ "mpv.desktop" ];
-    directory = [ "thunar.desktop" ];
+    directory = [ "nautilus.desktop" ];
     office = [ "libreoffice.desktop" ];
     pdf = [ "zathura.desktop" ];
     terminal = [ "kitty.desktop" ];
@@ -17,17 +17,17 @@ let
 
   mimeMap = {
     text = [ "text/plain" ];
-    image = [
-      "image/bmp"
-      "image/gif"
-      "image/jpeg"
-      "image/jpg"
-      "image/png"
-      "image/svg+xml"
-      "image/tiff"
-      "image/vnd.microsoft.icon"
-      "image/webp"
-    ];
+    #image = [
+    #  "image/bmp"
+    #  "image/gif"
+    #  "image/jpeg"
+    #  "image/jpg"
+    #  "image/png"
+    #  "image/svg+xml"
+    #  "image/tiff"
+    #  "image/vnd.microsoft.icon"
+    #  "image/webp"
+    #];
     audio = [
       "audio/aac"
       "audio/mpeg"

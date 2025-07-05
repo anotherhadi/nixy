@@ -2,19 +2,22 @@
   wayland.windowManager.hyprland.settings = {
     bind = [
       "$mod,RETURN, exec, uwsm app -- ${pkgs.kitty}/bin/kitty" # Kitty
-      "$mod,E, exec,  uwsm app -- ${pkgs.xfce.thunar}/bin/thunar" # Thunar
-      "$mod,B, exec,  uwsm app -- zen-beta" # Zen Browser
+      "$mod,E, exec,  nautilus"
+      "$mod,B, exec,  uwsm app -- firefox" # Browser
       "$mod,K, exec,  uwsm app -- ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
       "$mod,L, exec,  uwsm app -- ${pkgs.hyprlock}/bin/hyprlock" # Lock
       "$mod,X, exec, powermenu" # Powermenu
       "$mod,SPACE, exec, menu" # Launcher
       "$mod,C, exec, quickmenu" # Quickmenu
+      "$mod,I, exec, ${../../scripts/swww/swww.sh} "
       "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
+      "$mod,Y, exec, ${../../scripts/yazi/yazi.sh}"
       # "$mod,P, exec,  uwsm app -- ${pkgs.planify}/bin/io.github.alainm23.planify" # Planify
-
+      "$mod, S, togglespecialworkspace, magic"
+      "$mod SHIFT, S, movetoworkspace, special:magic"
       "$mod,Q, killactive," # Close window
-      "$mod,T, togglefloating," # Toggle Floating
-      "$mod,F, fullscreen" # Toggle Fullscreen
+      "$mod,W, togglefloating," # Toggle Floating
+      "$mod,G, fullscreen" # Toggle Fullscreen
       "$mod,left, movefocus, l" # Move focus left
       "$mod,right, movefocus, r" # Move focus Right
       "$mod,up, movefocus, u" # Move focus Up
@@ -24,10 +27,10 @@
       "$shiftMod,left, layoutmsg, addmaster" # Add to master
       "$shiftMod,right, layoutmsg, removemaster" # Remove from master
 
-      "$mod,PRINT, exec, screenshot region" # Screenshot region
-      ",PRINT, exec, screenshot monitor" # Screenshot monitor
-      "$shiftMod,PRINT, exec, screenshot window" # Screenshot window
-      "ALT,PRINT, exec, screenshot region swappy" # Screenshot region then edit
+      "$mod,P, exec, screenshot region" # Screenshot region
+      "$shiftMod,P, exec, screenshot monitor" # Screenshot monitor
+      "$shiftMod,O, exec, screenshot window" # Screenshot window
+      "ALT,P, exec, screenshot region swappy" # Screenshot region then edit
 
       "$shiftMod,T, exec, hyprpanel-toggle" # Toggle hyprpanel
       "$shiftMod,C, exec, clipboard" # Clipboard picker with wofi

@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{ pkgs, ... }: {
   boot = {
     bootspec.enable = true;
     loader = {
@@ -21,22 +17,12 @@
     kernelParams = [
       "quiet"
       "splash"
+      "vga=current"
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
-      "boot.shell_on_fail"
     ];
     consoleLogLevel = 0;
     initrd.verbose = false;
-
-    plymouth = {
-      enable = true;
-      theme = lib.mkForce "cuts_alt";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = ["cuts_alt"];
-        })
-      ];
-    };
   };
 }

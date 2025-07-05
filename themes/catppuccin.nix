@@ -19,6 +19,8 @@
       textColorOnWallpaper =
         config.lib.stylix.colors.base05; # Color of the text displayed on the wallpaper (Lockscreen, display manager, ...)
 
+      textColorHyprlock = config.lib.stylix.colors.base10;
+
       bar = {
         # Hyprpanel
         position = "top"; # "top" | "bottom"
@@ -83,9 +85,5 @@
     };
 
     polarity = "dark";
-    image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/master/cat-vibin.png";
-      sha256 = "sha256-Hg27Gp4JBrYIC5B1Uaz8QkUskwD3pBhgEwE1FW7VBYo=";
-    };
   };
 }

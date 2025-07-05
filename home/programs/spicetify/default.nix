@@ -1,4 +1,3 @@
-# Spicetify is a spotify client customizer
 { pkgs, config, lib, inputs, ... }:
 let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
@@ -11,18 +10,30 @@ in {
 
   programs.spicetify = {
     enable = true;
-    theme = lib.mkForce spicePkgs.themes.dribbblish;
+    theme =  {
+      name = "text";
+      src = spicePkgs.themes.text.src;
+      additionalCss = ''
+        .main-trackList-rowImage {
+          display: var(--display-tracklist-image);
+          padding-top: 10px !important;
+          padding-bottom: 10px !important;
+        }
+      '';
+    };
 
     colorScheme = "custom";
 
     customColorScheme = {
-      button = accent;
-      button-active = accent;
+      accent = accent;
+      accent-active = accent;
+      border-active = accent;
       tab-active = accent;
       player = background;
-      main = background;
       sidebar = background;
+      highlight = accent;
     };
+
 
     enabledExtensions = with spicePkgs.extensions; [
       playlistIcons

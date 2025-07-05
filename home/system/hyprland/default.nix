@@ -16,7 +16,7 @@ in {
     ./animations.nix
     ./bindings.nix
     ./polkitagent.nix
-    ./keyboard-backlight.nix # CHANGEME: This is for my laptop only
+    #    ./keyboard-backlight.nix # CHANGEME: This is for my laptop only
     ./hyprspace.nix
   ];
 
@@ -41,6 +41,7 @@ in {
     glib
     direnv
     meson
+    nautilus
   ];
 
   wayland.windowManager.hyprland = {
@@ -60,17 +61,19 @@ in {
       "$shiftMod" = "SUPER_SHIFT";
 
       exec-once = [
+        "swww-daemon"
+        "obsidian"
+        "discord"
         "dbus-update-activation-environment --systemd --all &"
-        "systemctl --user enable --now hyprpaper.service &"
+        #"systemctl --user enable --now hyprpaper.service &"
         "systemctl --user enable --now hypridle.service &"
         "systemctl --user enable --now nextcloud-client.service  &"
       ];
 
       monitor = [
-        "eDP-2,highres,0x0,1" # My internal laptop screen
-        "desc:AOC U34G2G1 0x00000E06,3440x1440@99.98,auto,1" # My external monitor
-        "desc:United Microelectr Corporation UMC SHARP,3840x2160,auto,2" # TV
-        ",prefered,auto,1" # default
+        "DP-1,1920x1080@60Hz,-1920x0, 1" # My internal laptop screen
+        "HDMI-A-1,1920x1080@120.00Hz,0x0,1" # My external monitor
+        "DP-2,1920x1080@60Hz,0x-1080,1" # TV
       ];
 
       env = [
@@ -93,14 +96,15 @@ in {
         "WLR_BACKEND,vulkan"
         "WLR_RENDERER,vulkan"
         "WLR_NO_HARDWARE_CURSORS,1"
-        "SDL_VIDEODRIVER,wayland"
+        "XCURSOR_SIZE,28"
+       # "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
         "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1" # CHANGEME: Related to the GPU
       ];
 
       cursor = {
         no_hardware_cursors = true;
-        default_monitor = "eDP-2";
+        default_monitor = "HDMI-A-1";
       };
 
       general = {
@@ -181,9 +185,9 @@ in {
       layerrule = [ "noanim, launcher" "noanim, ^ags-.*" ];
 
       input = {
-        kb_layout = keyboardLayout;
+        kb_layout = "us,ru";
 
-        kb_options = "caps:escape";
+        kb_options = "grp:alt_shift_toggle";
         follow_mouse = 1;
         sensitivity = 0.5;
         repeat_delay = 300;

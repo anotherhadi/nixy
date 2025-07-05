@@ -1,7 +1,7 @@
 # Hyprlock is a lockscreen for Hyprland
 { config, lib, ... }:
 let
-  foreground = "rgba(${config.theme.textColorOnWallpaper}ee)";
+  foreground = "rgba(${config.theme.textColorHyprlock}ee)";
   font = config.stylix.fonts.serif.name;
 in {
   programs.hyprlock = {
@@ -28,7 +28,7 @@ in {
           # Day-Month-Date
           monitor = "";
           text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
-          color = foreground;
+          color = "566573";
           font_size = 28;
           font_family = font + " Bold";
           position = "0, 490";
