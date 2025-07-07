@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.nvf.settings.vim = {
     diagnostics = {
       enable = true;
@@ -37,6 +41,9 @@
       autotagHtml = true;
       context.enable = true;
       highlight.enable = true;
+      grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+        typescript # in language settings only tsx gets enabled, not typescript
+      ];
     };
     lsp = {
       enable = true;
