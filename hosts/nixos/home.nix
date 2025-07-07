@@ -60,7 +60,7 @@
       lutris
       bottles
       steam
-      eww
+
       # Dev
       go
       nodejs
