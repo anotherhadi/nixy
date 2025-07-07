@@ -8,13 +8,19 @@
 
     plugins = with pkgs.vimPlugins; [
       onedark-nvim
+      cord-nvim
       lualine-nvim
       bufferline-nvim
       nvim-tree-lua
+      nvim-web-devicons
       telescope-nvim
       nvim-lspconfig
       nvim-cmp
       cmp-nvim-lsp
+      cmp-buffer
+      cmp-path
+      cmp_luasnip
+      lspkind-nvim
       (nvim-treesitter.withPlugins (plugins: [
         plugins.tree-sitter-python
         plugins.tree-sitter-rust
@@ -36,7 +42,6 @@
     ];
 
     extraLuaConfig = ''
-      vim.opt.termguicolors = true
       require('onedark').setup({
         style = 'dark',
         highlights = {
@@ -44,6 +49,7 @@
           CursorLineNr = { fg = '#e5c07b', bg = 'none' }, 
         }
       })
+
       vim.cmd.colorscheme("onedark")
       
       vim.opt.number = true
@@ -56,40 +62,55 @@
       vim.opt.updatetime = 300
       vim.g.mapleader = ' '
 
-      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-      vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-      vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
-      
-      vim.api.nvim_set_hl(0, "VertSplit", { bg = "none", fg = "#3b4252" })
-      vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none", fg = "#3b4252" })
+      vim.keymap.set("n", "<C-n>",     ":NvimTreeToggle<CR>")
+      vim.keymap.set("n", "<leader>e", ":NvimTreeFocus<CR>")
+      vim.keymap.set("n", "<leader>bd", ":bd<CR>") 
+      vim.keymap.set("n", "<leader>bo", ":%bd|e#|bd#<CR>")
+      vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
+      vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>")
+      vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>")
+      vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>")
 
       require("bufferline").setup({
-        highlights = {
-          fill = { bg = "none" },
-          background = { bg = "none" },
-          tab = { bg = "none" },
-          tab_selected = { bg = "none" },
-          tab_close = { bg = "none" },
-          separator = { fg = "#3b4252", bg = "none" },
-          separator_selected = { fg = "#3b4252", bg = "none" },
-          separator_visible = { fg = "#3b4252", bg = "none" },
-          indicator_selected = { fg = "#61afef", bg = "none" },
-        },
         options = {
-          mode = "tabs",
-          separator_style = "slant",
-          always_show_bufferline = true,
-          show_close_icon = false,
+          numbers = "ordinal",        
+          closable = true,             
+          close_icon = '',            
+          left_trunc_marker = '',     
+          right_trunc_marker = '',    
+          indicator = {
+            style = 'underline',       
+            icon = '▎',
+          },
+          tab_size = 18,
+          max_name_length = 18,
+          max_prefix_length = 15,
           offsets = {
             {
               filetype = "NvimTree",
-              text = "File Explorer",
-              highlight = "Directory",
-              text_align = "left"
-            }
-          }
-        }
+              text = "Explorer",
+              text_align = "center",
+              separator = true,
+            },
+          },
+          diagnostics = "nvim_lsp",    
+          diagnostics_update_in_insert = false,
+          diagnostic_indicator = function(count, level)
+          local icon = level:match("error") and " "
+                    or level:match("warn")  and " "
+                    or level:match("info")  and " "
+                    or " "
+          return icon .. count
+          end,
+          show_buffer_icons = true,
+          show_buffer_close_icons = true,
+          show_close_icon = true,
+          show_tab_indicators = true,
+          persist_buffer_sort = true,
+          separator_style = "thin",     
+          enforce_regular_tabs = false,
+          always_show_bufferline = true,
+        },
       })
 
       require('lualine').setup({
@@ -109,6 +130,144 @@
         },
       })
 
+      require("nvim-tree").setup({
+	      disable_netrw = true,
+		    hijack_netrw = true,
+		    open_on_tab = false,
+		    update_cwd = true,
+		    diagnostics = {
+				  enable = true,
+				  icons = { hint = "", info = "", warning = "", error = "" },
+		    },
+		    filters = { dotfiles = false, custom = { "node_modules", ".cache" } },
+      })
+
+      require("telescope").setup({
+	      defaults = {
+	        prompt_prefix = "❯ ",
+				  selection_caret = "❯ ",
+				  path_display = { "smart" },
+				  file_ignore_patterns = { "node_modules", ".git/" },
+				  mappings = {
+						i = {
+								["<C-j>"] = require("telescope.actions").move_selection_next,
+								["<C-k>"] = require("telescope.actions").move_selection_previous,
+								["<C-c>"] = require("telescope.actions").close,
+						},
+						n = {
+								["q"] = require("telescope.actions").close,
+						},
+				  },
+		    },
+		    pickers = {
+				  find_files = { theme = "dropdown", hidden = true },
+				  live_grep = { theme = "dropdown" },
+				  buffers = { theme = "dropdown", sort_lastused = true },
+				  help_tags = { theme = "dropdown" },
+		    },
+		    extensions = {
+				  fzf = {
+						  fuzzy = true,
+						  override_generic_sorter = true,
+						  override_file_sorter    = true,
+						  case_mode = "smart_case",
+				  },
+		    },
+      })
+
+      require("nvim-web-devicons").setup({
+		    default = true,
+		    color_icons = true,
+		    safe = true,
+		    override = {
+				  [".gitignore"] = { icon = "", color = "#f1502f", name = "GitIgnore" },
+				  ["Dockerfile"] = { icon = "", color = "#384d54", name = "Dockerfile" },
+				  ["Makefile"] = { icon = "", color = "#6d8086", name = "Makefile" },
+				  ["README.md"] = { icon = "", color = "#6d8086", name = "ReadmeMd" },
+				  ["LICENSE"] = { icon = "", color = "#cbcb41", name = "License" },
+		    },
+		    override_by_extension = {
+				  ["lua"] = { icon = "", color = "#51a0cf", name = "Lua" },
+				  ["js"] = { icon = "", color = "#f1e05a", name = "JS" },
+				  ["ts"] = { icon = "", color = "#2b7489", name = "TS" },
+				  ["jsx"] = { icon = "", color = "#61dafb", name = "JSX" },
+				  ["tsx"] = { icon = "", color = "#61dafb", name = "TSX" },
+				  ["css"] = { icon = "", color = "#563d7c", name = "CSS" },
+				  ["html"] = { icon = "", color = "#e34c26", name = "HTML" },
+				  ["json"] = { icon = "", color = "#cbcb41", name = "JSON" },
+				  ["md"] = { icon = "", color = "#519aba", name = "Markdown" },
+				  ["py"] = { icon = "", color = "#3572A5", name = "Python" },
+				  ["go"] = { icon = "", color = "#00ADD8", name = "Go" },
+				  ["rs"] = { icon = "", color = "#dea584", name = "Rust" },
+				  ["yml"] = { icon = "", color = "#cb171e", name = "YAML" },
+				  ["toml"] = { icon = "", color = "#9c4221", name = "TOML" },
+				  ["lock"] = { icon = "", color = "#ccb29b", name = "Lock" },
+				  ["env"] = { icon = "", color = "#ffffff", name = "Env" },
+				  ["sh"] = { icon = "", color = "#89e051", name = "Shell" },
+				  ["zsh"] = { icon = "", color = "#89e051", name = "Zsh" },
+				  ["bash"] = { icon = "", color = "#89e051", name = "Bash" },
+				  ["Dockerfile"] = { icon = "", color = "#384d54", name = "Dockerfile" },
+				  ["yarn.lock"] = { icon = "", color = "#2c8ebb", name = "YarnLock" },
+				  ["package.json"] = { icon = "", color = "#cbcb41", name = "PackageJSON" },
+		    },
+		    override_by_filename = {
+				  [".bashrc"] = { icon = "", color = "#89e051", name = "Bashrc" },
+				  [".zshrc"] = { icon = "", color = "#89e051", name = "Zshrc" },
+				  [".gitconfig"] = { icon = "", color = "#f1502f", name = "GitConfig" },
+				  [".prettierrc"] = { icon = "", color = "#f7b93e", name = "PrettierConfig" },
+				  [".eslintrc.js"] = { icon = "", color = "#4b32c3", name = "EslintConfig" },
+		    },
+	    })
+      
+        require("cmp").setup({
+          snippet = {
+            expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end
+          },
+          mapping = require("cmp").mapping.preset.insert({
+            ["<C-Space>"] = require("cmp").mapping.complete(),
+            ["<CR>"] = require("cmp").mapping.confirm({ select = true }),
+            ["<Tab>"] = require("cmp").mapping.select_next_item(),
+            ["<S-Tab>"] = require("cmp").mapping.select_prev_item()
+          }),
+          sources = {
+            { name = "nvim_lsp" },
+            { name = "luasnip" },
+            { name = "buffer" },
+            { name = "path" }
+          },
+          formatting = {
+            format = require("lspkind").cmp_format({
+            with_text = true,
+            maxwidth = 50,
+            menu = {
+              nvim_lsp = "[LSP]",
+              luasnip = "[Snip]",
+              buffer = "[Buf]",
+              path = "[Path]"
+            }
+          })
+        },
+        window = {
+          completion = require("cmp").config.window.bordered(),
+          documentation = require("cmp").config.window.bordered()
+        }
+      })
+
+      require("nvim-autopairs").setup({
+        disable_filetype = { "TelescopePrompt", "spectre_panel" },
+        check_ts = true,
+        ts_config = {
+          lua = {"string"},
+          javascript = {"template_string"},
+          typescript = {"template_string"},
+          vue = {"template_string"},
+        }
+      })
+
+      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+      require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
     '';
     
     extraConfig = ''

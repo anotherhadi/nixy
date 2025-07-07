@@ -27,10 +27,7 @@
       "$shiftMod,left, layoutmsg, addmaster" # Add to master
       "$shiftMod,right, layoutmsg, removemaster" # Remove from master
 
-      "$mod,P, exec, screenshot region" # Screenshot region
-      "$shiftMod,P, exec, screenshot monitor" # Screenshot monitor
-      "$shiftMod,O, exec, screenshot window" # Screenshot window
-      "ALT,P, exec, screenshot region swappy" # Screenshot region then edit
+      "$mod, P, exec, hyprshot -z -m region -r d | swappy -f -"
 
       "$shiftMod,T, exec, hyprpanel-toggle" # Toggle hyprpanel
       "$shiftMod,C, exec, clipboard" # Clipboard picker with wofi
