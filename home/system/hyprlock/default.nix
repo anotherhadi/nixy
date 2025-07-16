@@ -1,6 +1,9 @@
 # Hyprlock is a lockscreen for Hyprland
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   foreground = "rgba(${config.theme.textColorOnWallpaper}ee)";
   font = config.stylix.fonts.serif.name;
 in {
@@ -13,7 +16,6 @@ in {
         disable_loading_bar = false;
       };
 
-      # BACKGROUND
       background = {
         monitor = "";
         blur_passes = 0;

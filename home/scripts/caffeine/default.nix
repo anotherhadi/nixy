@@ -5,9 +5,7 @@
 #- - `caffeine-status` - Check if hypridle is running. (0/1)
 #- - `caffeine-status-icon` - Check if hypridle is running. (icon)
 #- - `caffeine` - Toggle hypridle.
-
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   caffeine-status = pkgs.writeShellScriptBin "caffeine-status" ''
     [[ $(pidof "hypridle") ]] && echo "0" || echo "1"
   '';
@@ -29,5 +27,4 @@ let
 
     notif "caffeine" "$title" "$description"
   '';
-
-in { home.packages = [ caffeine-status caffeine caffeine-status-icon ]; }
+in {home.packages = [caffeine-status caffeine caffeine-status-icon];}

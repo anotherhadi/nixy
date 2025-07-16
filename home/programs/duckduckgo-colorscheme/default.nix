@@ -1,6 +1,5 @@
 # A duckduckgo colorscheme generated for the Stylix theme used.
-{ config, ... }:
-let
+{config, ...}: let
   accent = config.lib.stylix.colors.base0D;
   background = config.lib.stylix.colors.base00;
   foreground = config.lib.stylix.colors.base05;

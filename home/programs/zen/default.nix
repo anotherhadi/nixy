@@ -1,9 +1,5 @@
 # Zen is a minimalistic web browser.
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.zen-browser.homeModules.beta
   ];

@@ -1,15 +1,14 @@
 # - ## System
-#- 
+#-
 #- Usefull quick scripts
 #-
 #- - `menu` - Open wofi with drun mode. (wofi)
 #- - `powermenu` - Open power dropdown menu. (wofi)
 #- - `quickmenu` - Open a dropdown menu with shortcuts and scripts. (wofi)
 #- - `lock` - Lock the screen. (hyprlock)
-{ pkgs, ... }:
-
-let
-  menu = pkgs.writeShellScriptBin "menu"
+{pkgs, ...}: let
+  menu =
+    pkgs.writeShellScriptBin "menu"
     # bash
     ''
       if pgrep wofi; then
@@ -29,7 +28,8 @@ let
       fi
     '';
 
-  powermenu = pkgs.writeShellScriptBin "powermenu"
+  powermenu =
+    pkgs.writeShellScriptBin "powermenu"
     # bash
     ''
       if pgrep wofi; then
@@ -69,7 +69,8 @@ let
       fi
     '';
 
-  quickmenu = pkgs.writeShellScriptBin "quickmenu"
+  quickmenu =
+    pkgs.writeShellScriptBin "quickmenu"
     # bash
     ''
       if pgrep wofi; then
@@ -109,10 +110,10 @@ let
       fi
     '';
 
-  lock = pkgs.writeShellScriptBin "lock"
+  lock =
+    pkgs.writeShellScriptBin "lock"
     # bash
     ''
       ${pkgs.hyprlock}/bin/hyprlock
     '';
-
-in { home.packages = [ menu powermenu lock quickmenu ]; }
+in {home.packages = [menu powermenu lock quickmenu];}

@@ -1,7 +1,6 @@
 # Nerdfetch, a simple system info script written in bash
 # Source: https://github.com/ThatOneCalculator/NerdFetch
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   nerdfetch = pkgs.writeShellScriptBin "nerdfetch" ''
           ostype="$(uname)"
 
@@ -197,9 +196,7 @@ let
           flatpak) packages="$(flatpak list --app | wc -l)" ;;
           brew) packages="$(printf '%s\n' "$(brew --cellar)/"* | wc -l)" ;;
           port) packages="$(port installed | wc -l)" ;;
-          dpkg-query) packages="$(dpkg-query -f '${
-            "binary:Package"
-          }\n' -W | wc -l)" ;;
+          dpkg-query) packages="$(dpkg-query -f '${"binary:Package"}\n' -W | wc -l)" ;;
           rpm) packages="$(rpm -qa --last | wc -l)" ;;
           yum) packages="$(yum list installed | wc -l)" ;;
           dnf) packages="$(dnf list installed | wc -l)" ;;
@@ -358,7 +355,7 @@ let
           ## OUTPUT
 
     echo """
-        ''${c0}      ___     ''${nc}''${USER}''${grey}@''${reset}''${hn}''${host}''${reset} 
+        ''${c0}      ___     ''${nc}''${USER}''${grey}@''${reset}''${hn}''${host}''${reset}
         ''${c0}     (''${c1}.. ''${c0}\    ''${lc}''${osi}  ''${ic}''${os}''${reset}
         ''${c0}     (''${c2}<> ''${c0}|    ''${lc}''${ki}  ''${ic}''${kernel}''${reset}
         ''${c0}    /''${c1}/  \\ ''${c0}\\   ''${lc}''${ri}  ''${ic}''${RAM}''${memstat} ''${mempercent}
@@ -367,5 +364,4 @@ let
         ''${c2}  \/''${c0}-____''${c2}\/''${reset}   ''${lc}''${ci}  ''${red}███''${green}███''${yellow}███''${blue}███''${magenta}███''${cyan}███''${reset}
         """
   '';
-
-in { home.packages = [ nerdfetch ]; }
+in {home.packages = [nerdfetch];}

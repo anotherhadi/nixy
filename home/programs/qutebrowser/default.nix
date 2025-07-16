@@ -1,7 +1,11 @@
 # Qutebrowser is a keyboard-focused browser with a minimal GUI.
 # My homepage is generated using https://github.com/anotherhadi/homepage
-{ pkgs, config, ... }:
-let
+# Legacy
+{
+  pkgs,
+  config,
+  ...
+}: let
   accent = "#${config.lib.stylix.colors.base0D}";
   background = "#${config.lib.stylix.colors.base00}";
   foreground = "#${config.lib.stylix.colors.base05}";
@@ -77,10 +81,8 @@ let
       homepage = "https://github.com/anotherhadi/homepage";
     };
   };
-
 in {
-
-  imports = [ ../duckduckgo-colorscheme ];
+  imports = [../duckduckgo-colorscheme];
 
   programs.qutebrowser = {
     enable = true;
@@ -120,19 +122,18 @@ in {
     settings = {
       url = {
         default_page = "${homepage}/build/index.html";
-        start_pages = [ "${homepage}/build/index.html" ];
+        start_pages = ["${homepage}/build/index.html"];
       };
 
       colors = {
-        webpage.preferred_color_scheme =
-          "dark"; # Enable dark mode for websites that support it
+        webpage.preferred_color_scheme = "dark"; # Enable dark mode for websites that support it
       };
 
       statusbar.show = "in-mode";
 
       completion = {
         height = "30%";
-        open_categories = [ "history" ];
+        open_categories = ["history"];
         scrollbar = {
           padding = 0;
           width = 0;
@@ -156,7 +157,7 @@ in {
         remove_finished = 0;
       };
 
-      hints = { radius = 1; };
+      hints = {radius = 1;};
 
       scrolling = {
         bar = "never";

@@ -1,6 +1,10 @@
-# So best window tiling manager
-{ pkgs, config, inputs, lib, ... }:
-let
+# Hyprland is a dynamic tiling Wayland compositor that is highly customizable and performant.
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
   border-size = config.theme.border-size;
   gaps-in = config.theme.gaps-in;
   gaps-out = config.theme.gaps-out;
@@ -11,12 +15,11 @@ let
   keyboardLayout = config.var.keyboardLayout;
   background = "rgb(" + config.lib.stylix.colors.base00 + ")";
 in {
-
   imports = [
     ./animations.nix
     ./bindings.nix
     ./polkitagent.nix
-    ./keyboard-backlight.nix # CHANGEME: This is for my laptop only
+    ./keyboard-backlight.nix # CHANGEME: This is for omen laptop only
     ./hyprspace.nix
   ];
 
@@ -122,7 +125,10 @@ in {
           render_power = 3;
         };
         blur = {
-          enabled = if blur then "true" else "false";
+          enabled =
+            if blur
+            then "true"
+            else "false";
           size = 18;
         };
       };
@@ -133,7 +139,7 @@ in {
         mfact = 0.5;
       };
 
-      gestures = { workspace_swipe = true; };
+      gestures = {workspace_swipe = true;};
 
       misc = {
         vfr = true;
@@ -178,7 +184,7 @@ in {
         "size 640 400, class:^(.*jetbrains.*)$, title:^(splash)$"
       ];
 
-      layerrule = [ "noanim, launcher" "noanim, ^ags-.*" ];
+      layerrule = ["noanim, launcher" "noanim, ^ags-.*"];
 
       input = {
         kb_layout = keyboardLayout;
@@ -195,7 +201,6 @@ in {
           clickfinger_behavior = true;
         };
       };
-
     };
   };
 }

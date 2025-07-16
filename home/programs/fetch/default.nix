@@ -1,1 +1,2 @@
-{ imports = [ ./neofetch ./nerdfetch ]; }
+# Import all fetch scripts
+{imports = [./neofetch ./nerdfetch];}

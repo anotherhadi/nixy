@@ -22,7 +22,6 @@
     ../../home/programs/duckduckgo-colorscheme
     ../../home/programs/discord
     ../../home/programs/tailscale
-    ../../home/programs/anyrun
 
     # Scripts
     ../../home/scripts # All scripts
@@ -52,15 +51,14 @@
       vlc # Video player
       blanket # White-noise app
       obsidian # Note taking app
-      # planify # Todolists
+      planify # Todolists
       gnome-calendar # Calendar
       textpieces # Manipulate texts
       curtail # Compress images
-      resources
-      gnome-clocks
-      gnome-text-editor
+      resources # Ressource monitor
+      gnome-clocks # Clocks app
+      gnome-text-editor # Basic graphic text editor
       mpv # Video player
-      figma-linux
 
       # Dev
       go
