@@ -8,11 +8,6 @@
 | -- | -- |
 | Switch Workspace | SUPER + {Number} |
 | Move app to Workspace | SHIFT + SUPER + {Number} |
-| Kitty | SUPER + RETURN |
-| Thunar | SUPER + E |
-| Zen Browser | SUPER + B |
-| Bitwarden | SUPER + K |
-| Lock | SUPER + L |
 | Powermenu | SUPER + X |
 | Launcher | SUPER + SPACE |
 | Quickmenu | SUPER + C |
