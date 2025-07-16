@@ -33,6 +33,7 @@
   in
     lib.concatMapStringsSep " " roundToString [h s l];
 in {
+  # TODO: Add tailscale custom widget
   services = {
     glance = {
       enable = true;
