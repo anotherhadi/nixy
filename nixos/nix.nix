@@ -28,6 +28,7 @@ in {
       warn-dirty = false
     '';
     settings = {
+      download-buffer-size = 262144000; # 250 MB (250 * 1024 * 1024)
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
       substituters = [
