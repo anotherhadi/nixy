@@ -1,18 +1,14 @@
 # SDDM is a display manager for X11 and Wayland
-{ pkgs, inputs, config, lib, ... }:
-let
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}: let
   foreground = config.theme.textColorOnWallpaper;
   sddm-astronaut = pkgs.sddm-astronaut.override {
     embeddedTheme = "pixel_sakura";
-    # TODO: Cleaner version for static vs .gif, just a string.replace
-    themeConfig = if lib.hasSuffix "sakura_static.png" config.stylix.image then
-      { }
-    else if lib.hasSuffix "studio.png" config.stylix.image then {
-      Background = pkgs.fetchurl {
-        url =
-          "https://raw.githubusercontent.com/anotherhadi/nixy-wallpapers/refs/heads/main/wallpapers/studio.gif";
-        sha256 = "sha256-qySDskjmFYt+ncslpbz0BfXiWm4hmFf5GPWF2NlTVB8=";
-      };
+    themeConfig = {
       HeaderTextColor = "#${foreground}";
       DateTextColor = "#${foreground}";
       TimeTextColor = "#${foreground}";
@@ -27,42 +23,37 @@ let
       VirtualKeyboardButtonTextColor = "#${foreground}";
       DropdownBackgroundColor = "#${foreground}";
       HighlightBackgroundColor = "#${foreground}";
-    } else {
-      Background = "${toString config.stylix.image}";
-      HeaderTextColor = "#${foreground}";
-      DateTextColor = "#${foreground}";
-      TimeTextColor = "#${foreground}";
-      LoginFieldTextColor = "#${foreground}";
-      PasswordFieldTextColor = "#${foreground}";
-      UserIconColor = "#${foreground}";
-      PasswordIconColor = "#${foreground}";
-      WarningColor = "#${foreground}";
-      LoginButtonBackgroundColor = "#${foreground}";
-      SystemButtonsIconsColor = "#${foreground}";
-      SessionButtonTextColor = "#${foreground}";
-      VirtualKeyboardButtonTextColor = "#${foreground}";
-      DropdownBackgroundColor = "#${foreground}";
-      HighlightBackgroundColor = "#${foreground}";
+      Background =
+        if "sakura_pixelart_light_static.png" == config.stylix.image
+        then
+          pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/sakura_pixelart_light_animated.gif";
+            sha256 = "sha256-qySDskjmFYt+ncslpbz0BfXiWm4hmFf5GPWF2NlTVB8=";
+          }
+        else if "cat-watching-the-star_pixelart_purple_static.png" == config.stylix.image
+        then
+          pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/cat-watching-the-star_pixelart_purple_animated.gif";
+            sha256 = "";
+          }
+        else "${toString config.stylix.image}";
     };
   };
 in {
   services.displayManager = {
     sddm = {
       package = pkgs.kdePackages.sddm;
-      extraPackages = [ sddm-astronaut ];
+      extraPackages = [sddm-astronaut];
       enable = true;
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
       settings = {
         Wayland.SessionDir = "${
-            inputs.hyprland.packages."${pkgs.system}".hyprland
-          }/share/wayland-sessions";
+          inputs.hyprland.packages."${pkgs.system}".hyprland
+        }/share/wayland-sessions";
       };
     };
   };
 
-  environment.systemPackages = [ sddm-astronaut ];
-
-  # To prevent getting stuck at shutdown
-  systemd.extraConfig = "DefaultTimeoutStopSec=10s";
+  environment.systemPackages = [sddm-astronaut];
 }

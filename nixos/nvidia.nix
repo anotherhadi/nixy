@@ -1,12 +1,13 @@
-{ lib, pkgs, config, ... }:
-
-let
+{
+  pkgs,
+  config,
+  ...
+}: let
   # Using beta driver for recent GPUs like RTX 4070
   nvidiaDriverChannel = config.boot.kernelPackages.nvidiaPackages.beta;
 in {
   # Video drivers configuration for Xorg and Wayland
-  services.xserver.videoDrivers =
-    [ "nvidia" ]; # Simplified - other modules are loaded automatically
+  services.xserver.videoDrivers = ["nvidia"]; # Simplified - other modules are loaded automatically
 
   # Kernel parameters for better Wayland and Hyprland integration
   boot.kernelParams = [
@@ -16,7 +17,7 @@ in {
   ];
 
   # Blacklist nouveau to avoid conflicts
-  boot.blacklistedKernelModules = [ "nouveau" ];
+  boot.blacklistedKernelModules = ["nouveau"];
 
   # Environment variables for better compatibility
   environment.variables = {
@@ -88,7 +89,7 @@ in {
 
   # Nix cache for CUDA
   nix.settings = {
-    substituters = [ "https://cuda-maintainers.cachix.org" ];
+    substituters = ["https://cuda-maintainers.cachix.org"];
     trusted-public-keys = [
       "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
     ];

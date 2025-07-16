@@ -1,5 +1,6 @@
-{ config, ... }:
-let domain = "vault.hadi.diy";
+# Bitwarden (or vaultwarden) is a self-hosted password manager.
+{config, ...}: let
+  domain = "vault.hadi.diy";
 in {
   services = {
     vaultwarden = {
@@ -18,8 +19,8 @@ in {
       forceSSL = true;
       locations."/" = {
         proxyPass = "http://127.0.0.1:${
-            toString config.services.vaultwarden.config.ROCKET_PORT
-          }";
+          toString config.services.vaultwarden.config.ROCKET_PORT
+        }";
       };
     };
   };

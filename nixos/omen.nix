@@ -1,8 +1,15 @@
-{ config, pkgs, ... }:
-
-let
-  hp-omen-linux-module = pkgs.callPackage
-    ({ kernel ? config.boot.kernelPackages.kernel, stdenv, fetchFromGitHub }:
+{
+  config,
+  pkgs,
+  ...
+}: let
+  hp-omen-linux-module =
+    pkgs.callPackage
+    ({
+      kernel ? config.boot.kernelPackages.kernel,
+      stdenv,
+      fetchFromGitHub,
+    }:
       stdenv.mkDerivation (finalAttrs: {
         pname = "hp-omen-linux-module";
         version = "rebase-6.14";
@@ -24,13 +31,13 @@ let
           install hp-wmi.ko -Dm444 -t $out/lib/modules/${kernel.modDirVersion}/kernel/drivers/platform/x86/hp/
           runHook postInstall
         '';
-      })) { kernel = config.boot.kernelPackages.kernel; };
+      })) {kernel = config.boot.kernelPackages.kernel;};
 in {
-  boot.extraModulePackages = [ hp-omen-linux-module ];
-  boot.kernelModules = [ "hp-wmi" ];
+  boot.extraModulePackages = [hp-omen-linux-module];
+  boot.kernelModules = ["hp-wmi"];
 
-  users.groups.omen-rgb = { };
-  users.users.${config.var.username}.extraGroups = [ "omen-rgb" ];
+  users.groups.omen-rgb = {};
+  users.users.${config.var.username}.extraGroups = ["omen-rgb"];
 
   systemd.tmpfiles.rules = [
     "w /sys/devices/platform/hp-wmi/rgb_zones/zone00 0660 root omen-rgb -"
@@ -51,22 +58,4 @@ in {
     RUN+="${pkgs.coreutils}/bin/chgrp omen-rgb /sys/devices/platform/hp-wmi/rgb_zones/zone03", \
     RUN+="${pkgs.coreutils}/bin/chmod 0660 /sys/devices/platform/hp-wmi/rgb_zones/zone03"
   '';
-  # systemd.services.fix-hp-omen-perms = {
-  #   description = "Fix HP Omen keyboard RGB zone permissions";
-  #   after = [ "systemd-modules-load.service" ];
-  #   wantedBy = [ "multi-user.target" ];
-  #   serviceConfig = {
-  #     Type = "oneshot";
-  #     ExecStart = ''
-  #       ${pkgs.coreutils}/bin/chgrp omen-rgb /sys/devices/platform/hp-wmi/rgb_zones/zone00
-  #       ${pkgs.coreutils}/bin/chmod 0660 /sys/devices/platform/hp-wmi/rgb_zones/zone00
-  #       ${pkgs.coreutils}/bin/chgrp omen-rgb /sys/devices/platform/hp-wmi/rgb_zones/zone01
-  #       ${pkgs.coreutils}/bin/chmod 0660 /sys/devices/platform/hp-wmi/rgb_zones/zone01
-  #       ${pkgs.coreutils}/bin/chgrp omen-rgb /sys/devices/platform/hp-wmi/rgb_zones/zone02
-  #       ${pkgs.coreutils}/bin/chmod 0660 /sys/devices/platform/hp-wmi/rgb_zones/zone02
-  #       ${pkgs.coreutils}/bin/chgrp omen-rgb /sys/devices/platform/hp-wmi/rgb_zones/zone03
-  #       ${pkgs.coreutils}/bin/chmod 0660 /sys/devices/platform/hp-wmi/rgb_zones/zone03
-  #     '';
-  #   };
-  # };
 }
