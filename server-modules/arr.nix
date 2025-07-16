@@ -15,10 +15,10 @@ in {
 
   # Add my secrets
   sops.secrets = {
-    recyclarr = {
-      owner = "recyclarr";
-      mode = "0777";
-    };
+    # recyclarr = {
+    # owner = "recyclarr";
+    # mode = "0777";
+    # };
     wireguard-pia = {
       group = "media";
       mode = "0600";
@@ -45,7 +45,8 @@ in {
       vpn.enable = true;
     };
     recyclarr = {
-      enable = true;
+      # TODO: fix recyclarr
+      enable = false;
       configFile = config.sops.secrets.recyclarr.path;
     };
   };
