@@ -1,3 +1,6 @@
+# *arr is a collection of media management applications.
+# See https://github.com/rasmus-kirk/nixarr
+# Setup guide: https://nixarr.com/wiki/setup/
 {config, ...}: let
   domain = "hadi.diy";
   mkVirtualHost = port: {
@@ -5,10 +8,10 @@
     forceSSL = true;
     locations."/" = {proxyPass = "http://127.0.0.1:${toString port}";};
   };
-  my-username = config.var.username;
+  username = config.var.username;
 in {
   # Add my user to the media group
-  users.users."${my-username}".extraGroups = ["media"];
+  users.users."${username}".extraGroups = ["media"];
 
   # Add my secrets
   sops.secrets = {

@@ -1,3 +1,4 @@
+# Audio configuration for NixOS using PipeWire
 {
   security.rtkit.enable = true;
   services.pulseaudio.enable = false;

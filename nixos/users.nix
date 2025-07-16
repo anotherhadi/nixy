@@ -1,3 +1,4 @@
+# Users configuration for NixOS
 {
   config,
   pkgs,

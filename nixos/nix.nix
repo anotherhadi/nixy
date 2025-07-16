@@ -1,3 +1,4 @@
+# Nix configuration for NixOS
 {
   config,
   inputs,

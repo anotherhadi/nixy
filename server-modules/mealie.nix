@@ -1,5 +1,6 @@
-{ config, ... }:
-let domain = "mealie.hadi.diy";
+# Mealie is a recipe management and meal planning application.
+{config, ...}: let
+  domain = "mealie.hadi.diy";
 in {
   services = {
     mealie = {

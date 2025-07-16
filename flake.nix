@@ -16,14 +16,9 @@
     nixcord.url = "github:kaylorben/nixcord";
     sops-nix.url = "github:Mic92/sops-nix";
     nixarr.url = "github:rasmus-kirk/nixarr";
-    anyrun.url = "github:fufexan/anyrun/launch-prefix";
     nvf.url = "github:notashelf/nvf";
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixvim = {
-      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {

@@ -1,3 +1,4 @@
+# Misc
 {
   pkgs,
   config,

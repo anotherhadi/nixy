@@ -1,3 +1,4 @@
+# Home-manager configuration for NixOS
 {inputs, ...}: {
   home-manager = {
     useGlobalPkgs = true;
