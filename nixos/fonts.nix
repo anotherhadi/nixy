@@ -1,3 +1,4 @@
+# Fonts configuration for NixOS
 {pkgs, ...}: {
   fonts = {
     packages = with pkgs; [

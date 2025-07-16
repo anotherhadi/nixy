@@ -1,3 +1,5 @@
+# Nvidia configuration for NixOS with Wayland and Hyprland support
+# Import this module only if you have an Nvidia GPU
 {
   pkgs,
   config,
