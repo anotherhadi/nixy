@@ -323,4 +323,26 @@ in {
       };
     };
   };
+
+  systemd.services.glance = {
+    serviceConfig = {
+      DynamicUser = lib.mkForce false;
+      User = "glance";
+      Group = "glance";
+    };
+  };
+
+  users = {
+    groups.glance = {};
+    users.glance = {
+      isSystemUser = true;
+      description = "Glance user";
+      group = "glance";
+    };
+  };
+
+  sops.secrets.adguard-pwd = {
+    owner = "glance";
+    mode = "0600";
+  };
 }
