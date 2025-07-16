@@ -1,6 +1,10 @@
 # Turn the keyboard red/off when the battery is low
-{ pkgs, config, ... }:
-let
+# Include this one only if you have a omen laptop with RGB keyboard
+{
+  pkgs,
+  config,
+  ...
+}: let
   keyboard-backlight = pkgs.writeShellScriptBin "keyboard-backlight" ''
     function set_keyboard_backlight {
       local color=$1
@@ -31,4 +35,4 @@ let
   '';
 
   command = "bash ${keyboard-backlight}/bin/keyboard-backlight &";
-in { wayland.windowManager.hyprland.settings.exec-once = [ command ]; }
+in {wayland.windowManager.hyprland.settings.exec-once = [command];}

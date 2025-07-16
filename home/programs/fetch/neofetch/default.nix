@@ -1,6 +1,6 @@
 # Legacy
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ neofetch ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [neofetch];
 
   xdg.configFile."neofetch/ascii.txt".text = ''
     ''${c6}
@@ -28,7 +28,7 @@
 
   xdg.configFile."neofetch/config.conf".text = ''
     # From: https://github.com/Chick2D/neofetch-themes/
-    # Made by https://github.com/Dan1jel 
+    # Made by https://github.com/Dan1jel
 
     print_info() {
         prin "\n"

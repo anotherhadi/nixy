@@ -1,6 +1,12 @@
-{ pkgs, ... }:
-let
-  notif = pkgs.writeShellScriptBin "notif" # bash
+# - ## Notif
+#-
+# This file provides a script to send custom notifications using `notify-send`.
+#-
+#- - `notif {id} {title} {description}` - Sends a notification
+{pkgs, ...}: let
+  notif =
+    pkgs.writeShellScriptBin "notif" # bash
+    
     ''
       # Shell script to send custom notifications
       # Usage: notif "sender_id" "message" ["description"]
@@ -22,5 +28,4 @@ let
       "$description" \
       > "$NOTIF_FOLDER/$sender_id"
     '';
-
-in { home.packages = [ pkgs.libnotify notif ]; }
+in {home.packages = [pkgs.libnotify notif];}

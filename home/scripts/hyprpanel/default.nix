@@ -1,13 +1,12 @@
 # - ## Hyprpanel
-#- 
+#-
 #- Quick scripts to toggle, reload, hide & show hyprpanel.
 #-
 #- - `hyprpanel-toggle` - Toggle hyprpanel (hide/show).
 #- - `hyprpanel-show` - Show hyprpanel.
 #- - `hyprpanel-hide` - Hide hyprpanel.
 #- - `hyprpanel-reload` - Reload hyprpanel.
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   hyprpanel-toggle = pkgs.writeShellScriptBin "hyprpanel-toggle" ''
     hyprpanel toggleWindow bar-0
     hyprpanel toggleWindow bar-1
@@ -42,6 +41,5 @@ let
     hyprctl dispatch exec hyprpanel
   '';
 in {
-  home.packages =
-    [ hyprpanel-toggle hyprpanel-reload hyprpanel-hide hyprpanel-show ];
+  home.packages = [hyprpanel-toggle hyprpanel-reload hyprpanel-hide hyprpanel-show];
 }

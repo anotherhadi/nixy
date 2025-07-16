@@ -1,11 +1,16 @@
 # My shell configuration
-{ pkgs, lib, config, ... }:
-let fetch = config.theme.fetch; # neofetch, nerdfetch, pfetch
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
+  fetch = config.theme.fetch; # neofetch, nerdfetch, pfetch
 in {
+  home.packages = with pkgs; [bat ripgrep tldr sesh rmtrash trash-cli];
 
-  home.packages = with pkgs; [ bat ripgrep tldr sesh rmtrash trash-cli ];
-
-  home.sessionPath = [ "$HOME/go/bin" ];
+  # Add go binaries to the PATH
+  home.sessionPath = ["$HOME/go/bin"];
 
   programs.zsh = {
     enable = true;
@@ -13,7 +18,7 @@ in {
     autosuggestion.enable = true;
     syntaxHighlighting = {
       enable = true;
-      highlighters = [ "main" "brackets" "pattern" "regexp" "root" "line" ];
+      highlighters = ["main" "brackets" "pattern" "regexp" "root" "line"];
     };
     historySubstringSearch.enable = true;
 
@@ -23,7 +28,7 @@ in {
       size = 10000;
     };
 
-    profileExtra = lib.optionalString (config.home.sessionPath != [ ]) ''
+    profileExtra = lib.optionalString (config.home.sessionPath != []) ''
       export PATH="$PATH''${PATH:+:}${
         lib.concatStringsSep ":" config.home.sessionPath
       }"
@@ -43,18 +48,15 @@ in {
       sl = "ls";
       open = "${pkgs.xdg-utils}/bin/xdg-open";
       icat = "${pkgs.kitty}/bin/kitty +kitten icat";
-      cat =
-        "bat --theme=base16 --color=always --paging=never --tabs=2 --wrap=never --plain";
+      cat = "bat --theme=base16 --color=always --paging=never --tabs=2 --wrap=never --plain";
       mkdir = "mkdir -p";
       rm = "${pkgs.rmtrash}/bin/rmtrash";
       rmdir = "${pkgs.rmtrash}/bin/rmdirtrash";
 
-      obsidian-no-gpu =
-        "env ELECTRON_OZONE_PLATFORM_HINT=auto obsidian --ozone-platform=x11";
+      obsidian-no-gpu = "env ELECTRON_OZONE_PLATFORM_HINT=auto obsidian --ozone-platform=x11";
       wireguard-import = "nmcli connection import type wireguard file";
 
-      notes =
-        "nvim ~/nextcloud/notes/index.md --cmd 'cd ~/nextcloud/notes' -c ':lua Snacks.picker.smart()'";
+      notes = "nvim ~/nextcloud/notes/index.md --cmd 'cd ~/nextcloud/notes' -c ':lua Snacks.picker.smart()'";
       note = "notes";
       tmp = "nvim /tmp/$(date | sed 's/ //g;s/\\.//g').md";
 
@@ -79,17 +81,19 @@ in {
       gcm = "git commit -m";
     };
 
-    initContent = # bash
+    initContent =
+      # bash
       ''
         bindkey -e
-        ${if fetch == "neofetch" then
-          pkgs.neofetch + "/bin/neofetch"
-        else if fetch == "nerdfetch" then
-          "nerdfetch"
-        else if fetch == "pfetch" then
-          "echo; ${pkgs.pfetch}/bin/pfetch"
-        else
-          ""}
+        ${
+          if fetch == "neofetch"
+          then pkgs.neofetch + "/bin/neofetch"
+          else if fetch == "nerdfetch"
+          then "nerdfetch"
+          else if fetch == "pfetch"
+          then "echo; ${pkgs.pfetch}/bin/pfetch"
+          else ""
+        }
 
         function sesh-sessions() {
           session=$(sesh list -t -c | fzf --height 70% --reverse)

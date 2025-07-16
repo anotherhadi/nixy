@@ -11,6 +11,5 @@
     ./nerdfont-fzf
     ./notification
     ./system
-    ./openvpn
   ];
 }
