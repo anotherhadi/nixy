@@ -99,6 +99,8 @@ in {
     wget
     curl
     vim
+    go
+    comma
   ];
 
   xdg.portal = {
