@@ -10,15 +10,12 @@
   };
   username = config.var.username;
 in {
-  # Add my user to the media group
-  users.users."${username}".extraGroups = ["media"];
-
   # Add my secrets
   sops.secrets = {
-    # recyclarr = {
-    # owner = "recyclarr";
-    # mode = "0777";
-    # };
+    recyclarr = {
+      owner = "recyclarr";
+      mode = "0777";
+    };
     wireguard-pia = {
       group = "media";
       mode = "0600";
@@ -27,6 +24,10 @@ in {
 
   nixarr = {
     enable = true;
+
+    mediaUsers = [username];
+    mediaDir = "/mnt/data/media";
+    stateDir = "/mnt/data/.state/nixarr";
 
     vpn = {
       enable = true;
@@ -45,8 +46,7 @@ in {
       vpn.enable = true;
     };
     recyclarr = {
-      # TODO: fix recyclarr
-      enable = false;
+      enable = true;
       configFile = config.sops.secrets.recyclarr.path;
     };
   };
