@@ -8,6 +8,7 @@
     enable = true;
     port = 8080;
     leakPath = "/mnt/ssd/leaks";
+    cachePath = "/var/lib/eleakxir-backend";
   };
 
   services.nginx = {
@@ -16,13 +17,21 @@
       forceSSL = true;
 
       root = "${
-        inputs.socme.packages.${pkgs.system}.eleakxir-frontend
+        inputs.eleakxir.packages.${pkgs.system}.frontend
       }/eleakxir-frontend";
 
       locations."/api/" = {
         proxyPass = "http://127.0.0.1:${toString config.services.eleakxir-backend.port}/";
-        recommendedProxySettings = true;
         extraConfig = ''
+          # Crucial for SSE: Disable buffering
+          proxy_buffering off;
+          proxy_cache off;
+          proxy_http_version 1.1;
+          proxy_set_header Connection ""; # Required for HTTP/1.1 persistent connections
+          proxy_read_timeout 36000s; # Long timeout, adjust as needed. SSE connections are long-lived.
+          proxy_send_timeout 36000s; # Also important for sending data
+
+          # Your existing rewrite rule (make sure this doesn't cause issues with SSE paths specifically)
           rewrite ^/api/(.*) /$1 break;
         '';
       };
