@@ -20,6 +20,7 @@
     ../../server-modules/arr.nix
     ../../server-modules/mealie.nix
     ../../server-modules/search-nixos-api.nix
+    ../../server-modules/eleakxir.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
