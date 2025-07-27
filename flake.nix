@@ -34,6 +34,10 @@
       url = "github:abenz1267/walker";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    eleakxir = {
+      url = "github:anotherhadi/eleakxir-temp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {nixpkgs, ...}: {
@@ -61,6 +65,7 @@
           inputs.sops-nix.nixosModules.sops
           inputs.nixarr.nixosModules.default
           inputs.search-nixos-api.nixosModules.search-nixos-api
+          inputs.eleakxir.nixosModules.eleakxir-backend
           ./hosts/server/configuration.nix
         ];
       };

@@ -31,6 +31,7 @@
       just
       pnpm
       wireguard-tools
+      duckdb
 
       # Utils
       zip
