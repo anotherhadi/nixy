@@ -70,6 +70,7 @@
       just
       pnpm
       air
+      duckdb
 
       # Utils
       zip
