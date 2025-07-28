@@ -22,6 +22,11 @@
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
+  fileSystems."/mnt/data" = {
+    device = "/dev/disk/by-uuid/0b055155-0134-448c-b1ca-e81030ff064e";
+    fsType = "btrfs";
+    options = ["subvol=/" "compress=zstd"]; # adapte selon si t'as des subvolumes
+  };
   swapDevices = [];
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
