@@ -7,7 +7,7 @@
   services.eleakxir-backend = {
     enable = true;
     port = 8080;
-    leakPath = "/mnt/ssd/leaks";
+    leakPath = "/home/hadi/leaks";
     cachePath = "/var/lib/eleakxir-backend";
   };
 
