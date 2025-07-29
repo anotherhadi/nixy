@@ -186,11 +186,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1753651297,
-        "narHash": "sha256-/Dz8nKg5zVs8Kd8GxijfU0+hTvH5aD+V07jInrRN1mM=",
+        "lastModified": 1753711230,
+        "narHash": "sha256-MVAnPbToIjpG3ysqTB/0vuhTiQc+vPa2+eM1JEyAcKo=",
         "owner": "anotherhadi",
         "repo": "eleakxir-temp",
-        "rev": "ec4e181cf9a9e83a95a626224d3820fe27ec0387",
+        "rev": "1405222414c6ded1c33d86f085b3813fa1d4348f",
         "type": "github"
       },
       "original": {
