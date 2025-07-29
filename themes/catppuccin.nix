@@ -7,7 +7,7 @@
   options.theme = lib.mkOption {
     type = lib.types.attrs;
     default = {
-      rounding = 15;
+      rounding = 17;
       gaps-in = 8;
       gaps-out = 8 * 2;
       active-opacity = 0.97;
@@ -17,7 +17,7 @@
       animation-speed = "fast"; # "fast" | "medium" | "slow"
       fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
       textColorOnWallpaper =
-        config.lib.stylix.colors.base05; # Color of the text displayed on the wallpaper (Lockscreen, display manager, ...)
+        config.lib.stylix.colors.base01; # Color of the text displayed on the wallpaper (Lockscreen, display manager, ...)
 
       bar = {
         # Hyprpanel
@@ -84,8 +84,8 @@
 
     polarity = "dark";
     image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/master/cat-vibin.png";
-      sha256 = "sha256-Hg27Gp4JBrYIC5B1Uaz8QkUskwD3pBhgEwE1FW7VBYo=";
+      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/railroad-cat.png";
+      sha256 = "sha256-1fSJFS/Nco9Nse650ywLBW6c5UO9l6CbfQGJUfrvsx4=";
     };
   };
 }
