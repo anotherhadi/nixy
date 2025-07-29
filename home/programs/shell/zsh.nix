@@ -7,7 +7,7 @@
 }: let
   fetch = config.theme.fetch; # neofetch, nerdfetch, pfetch
 in {
-  home.packages = with pkgs; [bat ripgrep tldr sesh rmtrash trash-cli];
+  home.packages = with pkgs; [bat ripgrep tldr sesh];
 
   # Add go binaries to the PATH
   home.sessionPath = ["$HOME/go/bin"];
@@ -50,8 +50,6 @@ in {
       icat = "${pkgs.kitty}/bin/kitty +kitten icat";
       cat = "bat --theme=base16 --color=always --paging=never --tabs=2 --wrap=never --plain";
       mkdir = "mkdir -p";
-      rm = "${pkgs.rmtrash}/bin/rmtrash";
-      rmdir = "${pkgs.rmtrash}/bin/rmdirtrash";
 
       obsidian-no-gpu = "env ELECTRON_OZONE_PLATFORM_HINT=auto obsidian --ozone-platform=x11";
       wireguard-import = "nmcli connection import type wireguard file";
