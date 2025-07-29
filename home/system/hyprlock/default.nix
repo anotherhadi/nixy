@@ -11,7 +11,6 @@ in {
     enable = true;
     settings = {
       general = {
-        grace = 5;
         no_fade_in = false;
         disable_loading_bar = false;
       };
