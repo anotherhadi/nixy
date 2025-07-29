@@ -7,8 +7,8 @@
   services.eleakxir-backend = {
     enable = true;
     port = 8080;
-    leakPath = "/home/hadi/leaks";
-    cachePath = "/var/lib/eleakxir-backend";
+    leakPath = "/var/lib/eleakxir-backend/leaks";
+    cachePath = "/var/lib/eleakxir-backend/cache";
   };
 
   services.nginx = {
