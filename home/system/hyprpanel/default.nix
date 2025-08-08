@@ -35,28 +35,20 @@ in {
     enable = true;
 
     settings = {
-      layout = {
-        bar.layouts = {
-          "*" = {
-            "left" = [
-              "dashboard"
-              "workspaces"
-              "windowtitle"
-            ];
-            "middle" = [
-              "media"
-              "cava"
-            ];
-            "right" = [
-              "systray"
-              "volume"
-              "bluetooth"
-              "battery"
-              "network"
-              "clock"
-              "notifications"
-            ];
-          };
+
+      bar.layouts = {
+        "*" = {
+          left = [ "dashboard" "workspaces" "windowtitle" ];
+          middle = [ "media" "cava" ];
+          right = [
+            "systray"
+            "volume"
+            "bluetooth"
+            "battery"
+            "network"
+            "clock"
+            "notifications"
+          ];
         };
       };
 
