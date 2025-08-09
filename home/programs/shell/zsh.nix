@@ -120,7 +120,7 @@ in {
           category=''${1:-all}
           shift
           args=''${*}
-          nix develop "github:nix4cyber/n4c#''${category}" ''${args}
+          nix develop "github:nix4cyber/n4c#''${category}" ''${args} -c zsh
         }
 
         zle     -N             sesh-sessions
