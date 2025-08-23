@@ -35,7 +35,7 @@
     ../../home/system/wofi
     ../../home/system/zathura
     ../../home/system/mime
-    ../../home/system/walker
+    # ../../home/system/walker # FIXME: Broken for now
     ../../home/system/udiskie
     # ../../home/system/clipman
 
@@ -60,6 +60,7 @@
       gnome-clocks # Clocks app
       gnome-text-editor # Basic graphic text editor
       mpv # Video player
+      session-desktop # Session app, private messages
 
       # Dev
       go
