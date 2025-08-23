@@ -223,6 +223,10 @@ in {
                             title = "Mazanoke (Image optimizer)";
                             url = "https://mazanoke.com/";
                           }
+                          {
+                            title = "Vert (File converter)";
+                            url = "https://vert.sh/";
+                          }
                         ];
                       }
                     ];
