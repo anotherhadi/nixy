@@ -57,21 +57,16 @@ It use hyprsunset to control the screen temperature.
 
 ## Nixy
 
-Nixy is a simple script that I use to manage my NixOS system. It's a simple script that provides a menu to rebuild, upgrade, update, collect garbage, clean boot menu, etc. 
+Nixy is a simple script that I use to manage my NixOS system. It's a simple script that provides a menu to rebuild, test, update, collect garbage, clean boot menu, etc.
 
 - `nixy` - UI wizard to manage the system.
 - `nixy rebuild` - Rebuild the system.
 - `nixy ...` - ... see the script for more commands.
 
+## Notif
 
 
-## OpenVPN
-
-OpenVPN allows you to connect/disconnect quickly to a openVPN server
-
-- `openvpn-up` turn on the vpn
-- `openvpn-down` turn down the vpn
-- `openvpn-toggle` toggle the vpn
+- `notif {id} {title} {description}` - Sends a notification
 
 ## Screenshot
 
