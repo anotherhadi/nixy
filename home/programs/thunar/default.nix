@@ -108,4 +108,31 @@ in {
       <property name="last-toolbar-items" type="string" value="menu:1,back:1,forward:0,open-parent:0,open-home:0,undo:0,redo:0,zoom-in:0,zoom-out:0,zoom-reset:0,view-as-icons:0,view-as-detailed-list:0,view-as-compact-list:0,toggle-split-view:0,location-bar:1,reload:0,search:1,uca-action-1710183590071525-1:0,new-tab:0,new-window:0,view-switcher:0"/>
     </channel>
   '';
+
+  xdg.configFile."Thunar/uca.xml".text = ''
+    <?xml version="1.0" encoding="UTF-8"?>
+    <actions>
+    <action>
+        <icon>utilities-terminal</icon>
+        <name>Open Terminal Here</name>
+        <unique-id>1700000000000001</unique-id> 
+        <command>kitty -d %f</command>
+        <description>Opens Kitty terminal in the selected folder</description>
+        <patterns>*</patterns>
+        <startup-notify/>
+        <directories/>
+    </action>
+    <action>
+        <icon></icon> 
+        <name>Extract here</name>
+        <submenu></submenu>
+        <unique-id>1689618425925956-3</unique-id> 
+        <command>xarchiver -x . %f</command> 
+        <description>Extracts the archive into the directory it is located in.</description>
+        <range>*</range>
+        <patterns>*.tar.bz2;*.tar.gz;*.tar.xz;*.tar.Z;*.tar;*.taz;*.tb2;*.tbz;*.tbz2;*.tgz;*.txz;*.zip;*.bz2;*.docx;*.apk;*.gz;*.odt;</patterns>
+        <other-files/>
+    </action>
+    </actions>
+  '';
 }
