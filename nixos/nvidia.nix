@@ -39,7 +39,6 @@ in {
   # Configuration for proprietary packages
   nixpkgs.config = {
     nvidia.acceptLicense = true;
-    allowUnfree = true; # Simplified from specific allowUnfreePredicate
   };
 
   # Nvidia configuration
