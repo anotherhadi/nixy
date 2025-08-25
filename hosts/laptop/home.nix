@@ -15,7 +15,7 @@
     ../../home/programs/git
     ../../home/programs/git/signing.nix
     ../../home/programs/spicetify
-    ../../home/programs/nextcloud
+    # ../../home/programs/nextcloud
     ../../home/programs/thunar
     ../../home/programs/lazygit
     ../../home/programs/zen
@@ -60,7 +60,13 @@
       gnome-clocks # Clocks app
       gnome-text-editor # Basic graphic text editor
       mpv # Video player
+
+      # Privacy
       session-desktop # Session app, private messages
+      protonvpn-gui
+      protonvpn-cli
+      proton-pass
+      protonmail-desktop
 
       # Dev
       go
