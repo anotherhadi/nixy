@@ -67,6 +67,7 @@
       protonvpn-cli
       proton-pass
       protonmail-desktop
+      proton-authenticator
 
       # Dev
       go

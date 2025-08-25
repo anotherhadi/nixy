@@ -6,6 +6,9 @@
         "$mod,E, exec,  uwsm app -- ${pkgs.xfce.thunar}/bin/thunar" # Thunar
         "$mod,B, exec,  uwsm app -- ${pkgs.brave}/bin/brave" # Brave Browser
         "$mod,K, exec,  uwsm app -- ${pkgs.proton-pass}/bin/proton-pass" # Proton Pass
+        "$mod,M, exec,  uwsm app -- ${pkgs.protonmail-desktop}/bin/proton-mail" # Proton Mail
+        "$mod,V, exec,  uwsm app -- ${pkgs.protonvpn-gui}/bin/protonvpn-app" # Proton VPN
+        "$mod,A, exec,  uwsm app -- ${pkgs.proton-authenticator}/bin/proton-authenticator" # Proton Authenticator
         "$mod,L, exec,  uwsm app -- ${pkgs.hyprlock}/bin/hyprlock" # Lock
         "$mod,X, exec, powermenu" # Powermenu
         "$mod,SPACE, exec, menu" # Launcher
