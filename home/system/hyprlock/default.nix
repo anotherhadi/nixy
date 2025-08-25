@@ -1,9 +1,6 @@
 # Hyprlock is a lockscreen for Hyprland
-{
-  config,
-  lib,
-  ...
-}: let
+{ config, lib, ... }:
+let
   foreground = "rgba(${config.theme.textColorOnWallpaper}ee)";
   font = config.stylix.fonts.serif.name;
 in {
@@ -11,18 +8,11 @@ in {
     enable = true;
     settings = {
       general = {
-        no_fade_in = false;
-        disable_loading_bar = false;
+        ignore_empty_input = true;
+        hide_cursor = true;
       };
 
-      background = {
-        monitor = "";
-        blur_passes = 0;
-        contrast = 0.8916;
-        brightness = 0.7172;
-        vibrancy = 0.1696;
-        vibrancy_darkness = 0.0;
-      };
+      background = { brightness = 0.7172; };
 
       label = [
         {
@@ -52,10 +42,6 @@ in {
           monitor = "";
           text = "    $USER";
           color = foreground;
-          outline_thickness = 2;
-          dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
-          dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
-          dots_center = true;
           font_size = 18;
           font_family = font + " Bold";
           position = "0, -180";
@@ -66,7 +52,6 @@ in {
 
       # INPUT FIELD
       input-field = lib.mkForce {
-        monitor = "";
         size = "300, 60";
         outline_thickness = 2;
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
@@ -78,7 +63,6 @@ in {
         fade_on_empty = false;
         font_family = font + " Bold";
         placeholder_text = "<i>🔒 Enter Password</i>";
-        hide_input = false;
         position = "0, -250";
         halign = "center";
         valign = "center";
