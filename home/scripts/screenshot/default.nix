@@ -28,5 +28,5 @@
     fi
   '';
 in {
-  home.packages = [pkgs.hyprshot screenshot pkgs.slurp pkgs.grim pkgs.grimblast];
+  home.packages = [ screenshot pkgs.grim pkgs.grimblast ];
 }
