@@ -79,7 +79,6 @@
       #   pkill tofi
       else
         options=(
-          "󰅶 Caffeine"
           "󰖔 Night-shift"
           " Nixy"
           "󰈊 Hyprpicker"
@@ -91,9 +90,6 @@
         selected=''${selected:2}
 
         case $selected in
-          "Caffeine")
-            caffeine
-            ;;
           "Night-shift")
             night-shift
             ;;
