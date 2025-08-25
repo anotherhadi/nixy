@@ -16,6 +16,7 @@ in {
       update.method = "never";
       git = {
         commit.signOff = true;
+        overrideGpg = true; 
         parseEmoji = true;
       };
       gui = {
