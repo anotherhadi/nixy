@@ -4,8 +4,8 @@
       [
         "$mod,RETURN, exec, uwsm app -- ${pkgs.kitty}/bin/kitty" # Kitty
         "$mod,E, exec,  uwsm app -- ${pkgs.xfce.thunar}/bin/thunar" # Thunar
-        "$mod,B, exec,  uwsm app -- zen-beta" # Zen Browser
-        "$mod,K, exec,  uwsm app -- ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
+        "$mod,B, exec,  uwsm app -- ${pkgs.brave}/bin/brave" # Brave Browser
+        "$mod,K, exec,  uwsm app -- ${pkgs.proton-pass}/bin/proton-pass" # Proton Pass
         "$mod,L, exec,  uwsm app -- ${pkgs.hyprlock}/bin/hyprlock" # Lock
         "$mod,X, exec, powermenu" # Powermenu
         "$mod,SPACE, exec, menu" # Launcher
