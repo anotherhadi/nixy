@@ -18,7 +18,6 @@
     ../../home/programs/thunar
     ../../home/programs/lazygit
     ../../home/programs/zen
-    ../../home/programs/duckduckgo-colorscheme
     ../../home/programs/discord
     ../../home/programs/tailscale
 
