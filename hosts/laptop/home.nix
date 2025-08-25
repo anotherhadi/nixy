@@ -33,7 +33,6 @@
     ../../home/system/wofi
     ../../home/system/zathura
     ../../home/system/mime
-    ../../home/system/walker
     ../../home/system/udiskie
     # ../../home/system/hypridle
     # ../../home/system/clipman
