@@ -15,7 +15,6 @@
     ../../home/programs/git
     ../../home/programs/git/signing.nix
     ../../home/programs/spicetify
-    # ../../home/programs/nextcloud
     ../../home/programs/thunar
     ../../home/programs/lazygit
     ../../home/programs/zen
@@ -28,15 +27,15 @@
 
     # System (Desktop environment like stuff)
     ../../home/system/hyprland
-    # ../../home/system/hypridle
     ../../home/system/hyprlock
     ../../home/system/hyprpanel
     ../../home/system/hyprpaper
     ../../home/system/wofi
     ../../home/system/zathura
     ../../home/system/mime
-    # ../../home/system/walker # FIXME: Broken for now
+    ../../home/system/walker
     ../../home/system/udiskie
+    # ../../home/system/hypridle
     # ../../home/system/clipman
 
     ./secrets # CHANGEME: You should probably remove this line, this is where I store my secrets
@@ -60,6 +59,7 @@
       gnome-clocks # Clocks app
       gnome-text-editor # Basic graphic text editor
       mpv # Video player
+      brave # Web browser
 
       # Privacy
       session-desktop # Session app, private messages
@@ -96,7 +96,6 @@
       cmatrix
 
       # Backup
-      brave
       vscode
     ];
 
