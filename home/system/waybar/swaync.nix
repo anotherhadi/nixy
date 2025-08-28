@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   services.swaync = {
     enable = true;
     settings = {
@@ -19,7 +19,7 @@
       image-visibility = "when-available";
       transition-time = 100;
 
-      widgets = [ "dnd" "mpris" "notifications" ];
+      widgets = ["title" "buttons-grid" "dnd" "inhibitors" "mpris" "notifications"];
 
       widget-config = {
         inhibitors = {
@@ -32,10 +32,62 @@
           clear-all-button = true;
           button-text = "Clear All";
         };
-        dnd = { text = "Do Not Disturb"; };
+        dnd = {text = "Do Not Disturb";};
         mpris = {
           image-size = 64;
           blur = true;
+        };
+        buttons-grid = {
+          actions = [
+            {
+              label = "󰐥";
+              command = "systemctl poweroff";
+            }
+            {
+              label = "󰜉";
+              command = "systemctl reboot";
+            }
+            {
+              label = "󰒲";
+              command = "systemctl suspend";
+            }
+            {
+              label = "󰌾";
+              command = "lock";
+            }
+            {
+              label = "󰍃";
+              command = "${pkgs.hyprland}/bin/hyprctl dispatch exit";
+            }
+            {
+              label = "󰕾";
+              command = "${pkgs.swayosd}/bin/swayosd-client --output-volume mute-toggle";
+            }
+            {
+              label = "󰍬";
+              command = "${pkgs.swayosd}/bin/swayosd-client --input-volume mute-toggle";
+            }
+            {
+              label = "󰂯";
+              command = "${pkgs.blueman}/bin/blueman-manager";
+            }
+            {
+              label = "󰹑";
+              command = "screenshot region";
+            }
+            {
+              label = "";
+              command = "${pkgs.kooha}/bin/kooha";
+            }
+            {
+              label = "";
+              command = "caffeine";
+            }
+            {
+              label = "󰋱";
+              command = "hyprfocus-toggle";
+            }
+          ];
         };
       };
     };
@@ -43,20 +95,20 @@
       .notification,
       .notification.low,
       .notification.normal,
-      .notification.critical,      
+      .notification.critical,
       .notification-default-action,
       .notification-default-action:hover,
       .notification-default-action:active,
       .notification-row:focus,
       .notification-group:focus,
-      .notification-group.collapsed .notification-row .notification, 
+      .notification-group.collapsed .notification-row .notification,
       .control-center .notification-row .notification-background,
       .control-center .notification-row .notification-background:hover,
       .control-center .notification-row .notification-background:active {
         background: transparent;
         border: none;
         outline: none;
-        box-shadow: none; 
+        box-shadow: none;
         margin: 0;
         padding: 0;
       }
@@ -70,7 +122,7 @@
       }
 
       .widget-body, .widget-mpris, .widget-dnd, .widget-inhibitors {
-        margin: 4px 5px; 
+        margin: 4px 5px;
       }
 
       .notification-content {
@@ -93,7 +145,7 @@
       }
 
       .close-button:hover {
-        background-color: @base0C; 
+        background-color: @base0C;
       }
 
       .close-button:active {
