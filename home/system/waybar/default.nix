@@ -39,6 +39,21 @@
         on-click-right = ''${pkgs.swayosd}/bin/swayosd-client --custom-message="Powermode is set to $(powerprofilesctl get)" --custom-icon="emblem-default"'';
       };
 
+      "custom/vpn" = {
+        interval = 3;
+        format = "{}";
+        exec = ''
+          if ip add show | grep -qF "proton"; then
+            echo '{"text":"󰖂 VPN On","class":"vpn-on"}'
+          else
+            echo '{"text":"󰖂 VPN Off","class":"vpn-off"}'
+          fi
+        '';
+        return-type = "json";
+        max-length = "100";
+        on-click = "protonvpn-app";
+      };
+
       cava = {
         framerate = 240;
         bars = 20;
@@ -101,7 +116,7 @@
           transition-duration = 300;
           transitition-left-to-right = false;
         };
-        modules = ["custom/arrow-toggle" "tray"];
+        modules = ["custom/arrow-toggle" "tray" "custom/vpn"];
       };
 
       "hyprland/window" = {
@@ -193,6 +208,7 @@
       #tray,
       #cava,
       #custom-notification,
+      #custom-vpn,
       #mpd {
           padding: 0 10px;
           border-radius: 15px;
@@ -249,6 +265,14 @@
               background-color: #f9e2af;
               color:#96804e;
           }
+      }
+
+      #custom-vpn.vpn-on {
+        color: #2ecc71;
+      }
+
+      #custom-vpn.vpn-off {
+        color: #e74c3c;
       }
 
       #battery.critical:not(.charging) {
