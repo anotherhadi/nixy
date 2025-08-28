@@ -27,7 +27,8 @@
     # System (Desktop environment like stuff)
     ../../home/system/hyprland
     ../../home/system/hyprlock
-    ../../home/system/hyprpanel
+    # ../../home/system/hyprpanel
+    ../../home/system/waybar
     ../../home/system/hyprpaper
     ../../home/system/wofi
     ../../home/system/zathura
@@ -64,7 +65,7 @@
       protonvpn-gui
       protonvpn-cli
       proton-pass
-      protonmail-desktop
+      # protonmail-desktop # Now using the online brave app
       proton-authenticator
 
       # Dev

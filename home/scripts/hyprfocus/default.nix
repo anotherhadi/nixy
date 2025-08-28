@@ -25,6 +25,7 @@
           keyword decoration:active_opacity 1"
 
       echo "1" > /tmp/hyprfocus
+      ${pkgs.swayosd}/bin/swayosd-client --custom-message="Hyprfocus On" --custom-icon="emblem-default"
     '';
 
   hyprfocus-off =
@@ -34,6 +35,8 @@
       hyprctl reload
       hyprpanel-show
       rm /tmp/hyprfocus
+
+      ${pkgs.swayosd}/bin/swayosd-client --custom-message="Hyprfocus Off" --custom-icon="emblem-default"
     '';
 
   hyprfocus-toggle =
