@@ -51,7 +51,6 @@
       blanket # White-noise app
       obsidian # Note taking app
       planify # Todolists
-      gnome-calendar # Calendar
       textpieces # Manipulate texts
       curtail # Compress images
       resources # Ressource monitor
