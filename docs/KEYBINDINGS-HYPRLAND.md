@@ -8,6 +8,9 @@
 | -- | -- |
 | Switch Workspace | SUPER + {Number} |
 | Move app to Workspace | SHIFT + SUPER + {Number} |
+| Proton VPN | SUPER + V |
+| Proton Authenticator | SUPER + A |
+| Lock | SUPER + L |
 | Powermenu | SUPER + X |
 | Launcher | SUPER + SPACE |
 | Quickmenu | SUPER + C |
@@ -31,16 +34,36 @@
 | Toggle hyprpanel | SHIFT + SUPER + T |
 | Clipboard picker with wofi | SHIFT + SUPER + C |
 | Emoji picker with wofi | SHIFT + SUPER + E |
-| Toggle night shift | SUPER + F2 |
-| Toggle night shift | SUPER + F3 |
+| Toggle night shift | SHIFT + SUPER + F2 |
+| Toggle night shift | SHIFT + SUPER + F3 |
 | Move Window (mouse) | SUPER + mouse:272 |
 | Resize Window (mouse) | SUPER + R |
-| Toggle Mute | XF86AudioMute |
-| Play/Pause Song | XF86AudioPlay |
-| Next Song | XF86AudioNext |
-| Previous Song | XF86AudioPrev |
 | Lock when closing Lid | switch:Lid Switch |
-| Sound Up | XF86AudioRaiseVolume |
-| Sound Down | XF86AudioLowerVolume |
-| Brightness Up | XF86MonBrightnessUp |
-| Brightness Down | XF86MonBrightnessDown |
+| Proton VPN | SUPER + V |
+| Proton Authenticator | SUPER + A |
+| Lock | SUPER + L |
+| Powermenu | SUPER + X |
+| Launcher | SUPER + SPACE |
+| Quickmenu | SUPER + C |
+| Toggle HyprFocus | SHIFT + SUPER + SPACE |
+| "$mod,P, exec,  uwsm app -- ${pkgs.planify}/bin/io.github.alainm23.planify"  |  |
+| Close window | SUPER + Q |
+| Toggle Floating | SUPER + T |
+| Toggle Fullscreen | SUPER + F |
+| Move focus left | SUPER + left |
+| Move focus Right | SUPER + right |
+| Move focus Up | SUPER + up |
+| Move focus Down | SUPER + down |
+| Focus previous monitor | SHIFT + SUPER + up |
+| Focus next monitor | SHIFT + SUPER + down |
+| Add to master | SHIFT + SUPER + left |
+| Remove from master | SHIFT + SUPER + right |
+| Screenshot region | SUPER + PRINT |
+| Screenshot monitor | PRINT |
+| Screenshot window | SHIFT + SUPER + PRINT |
+| Screenshot region then edit | ALTPRINT |
+| Toggle hyprpanel | SHIFT + SUPER + T |
+| Clipboard picker with wofi | SHIFT + SUPER + C |
+| Emoji picker with wofi | SHIFT + SUPER + E |
+| Toggle night shift | SHIFT + SUPER + F2 |
+| Toggle night shift | SHIFT + SUPER + F3 |
