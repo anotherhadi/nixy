@@ -23,8 +23,8 @@
         "group/extras"
         "pulseaudio"
         "battery"
-        "custom/notification"
         "clock"
+        "custom/notification"
       ];
 
       battery = {
@@ -156,6 +156,10 @@
     };
 
     style = ''
+      * {
+        font-family: ${config.stylix.fonts.serif.name}, sans-serif;
+      }
+
       window#waybar {
           background-color: transparent;
       }
@@ -239,17 +243,13 @@
           border-radius: 15px;
       }
 
-      #clock {
+      #custom-notification {
           background: #${config.lib.stylix.colors.base0D};
           color: #${config.lib.stylix.colors.base05};
-          margin-right: 25px;
-          background-size: 300% 300%;
-          text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
-          font-size: 15px;
-          padding-top: 5px;
-          padding-right: 21px;
+          font-size: 20px;
           font-weight: bolder;
-          padding-left: 20px
+          padding-left: 20px;
+          padding-right: 24px;
       }
 
       #battery {
