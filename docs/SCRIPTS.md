@@ -91,4 +91,5 @@ Usefull quick scripts
 - `powermenu` - Open power dropdown menu. (wofi)
 - `quickmenu` - Open a dropdown menu with shortcuts and scripts. (wofi)
 - `lock` - Lock the screen. (hyprlock)
+- `powermode-toggle` - Toggle between performance and balanced power mode. (powerprofilesctl)
 
