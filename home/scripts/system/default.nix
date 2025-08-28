@@ -6,6 +6,7 @@
 #- - `powermenu` - Open power dropdown menu. (wofi)
 #- - `quickmenu` - Open a dropdown menu with shortcuts and scripts. (wofi)
 #- - `lock` - Lock the screen. (hyprlock)
+#- - `powermode-toggle` - Toggle between performance and balanced power mode. (powerprofilesctl)
 {pkgs, ...}: let
   menu =
     pkgs.writeShellScriptBin "menu"
@@ -112,4 +113,18 @@
     ''
       ${pkgs.hyprlock}/bin/hyprlock
     '';
-in {home.packages = [menu powermenu lock quickmenu];}
+
+  powermode-toggle =
+    pkgs.writeShellScriptBin "powermode-toggle"
+    # bash
+    ''
+      current_profile=$(powerprofilesctl get)
+      if [ "$current_profile" = "performance" ]; then
+        powerprofilesctl set balanced
+        notif "powermode" "󰗑 Balanced Mode Activated" "Enjoy the balance!"
+      else
+        powerprofilesctl set performance
+        notif "powermode" "󱐋 Performance Mode Activated" "Enjoy the power!"
+      fi
+    '';
+in {home.packages = [menu powermenu lock quickmenu powermode-toggle];}
