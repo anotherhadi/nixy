@@ -121,10 +121,10 @@
       current_profile=$(powerprofilesctl get)
       if [ "$current_profile" = "performance" ]; then
         powerprofilesctl set balanced
-        notif "powermode" "󰗑 Balanced Mode Activated" "Enjoy the balance!"
+        ${pkgs.swayosd}/bin/swayosd-client --custom-message="Powermode set to balanced" --custom-icon="emblem-default"
       else
         powerprofilesctl set performance
-        notif "powermode" "󱐋 Performance Mode Activated" "Enjoy the power!"
+        ${pkgs.swayosd}/bin/swayosd-client --custom-message="Powermode set to performance" --custom-icon="emblem-default"
       fi
     '';
 in {home.packages = [menu powermenu lock quickmenu powermode-toggle];}

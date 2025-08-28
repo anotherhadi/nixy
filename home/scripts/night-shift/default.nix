@@ -16,10 +16,7 @@
     # bash
     ''
       ${pkgs.hyprsunset}/bin/hyprsunset -t ${value} &
-      title="󰖔  Night-Shift Activated"
-      description="Night-Shift is now activated! Your screen will be warmer and easier on the eyes."
-
-      notif "night-shift" "$title" "$description"
+      ${pkgs.swayosd}/bin/swayosd-client --custom-message="Night-Shift On" --custom-icon="emblem-default"
     '';
 
   night-shift-off =
@@ -27,10 +24,7 @@
     # bash
     ''
       pkill hyprsunset
-      title="󰖕  Night-Shift Deactivated"
-      description="Night-Shift is now deactivated! Your screen will return to normal."
-
-      notif "night-shift" "$title" "$description"
+      ${pkgs.swayosd}/bin/swayosd-client --custom-message="Night-Shift Off" --custom-icon="emblem-default"
     '';
 
   night-shift =
