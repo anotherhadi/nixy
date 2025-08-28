@@ -43,10 +43,10 @@
         interval = 3;
         format = "{}";
         exec = ''
-          if ip add show | grep -qF "proton"; then
-            echo '{"text":"󰖂 VPN On","class":"vpn-on"}'
+          if ip add show | ${pkgs.ripgrep}/bin/rg -qF "proton"; then
+            echo '{"text":"󰖂   VPN On","class":"vpn-on"}'
           else
-            echo '{"text":"󰖂 VPN Off","class":"vpn-off"}'
+            echo '{"text":"󰖂   VPN Off","class":"vpn-off"}'
           fi
         '';
         return-type = "json";
