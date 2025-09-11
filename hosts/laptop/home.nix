@@ -66,6 +66,7 @@
       proton-pass
       # protonmail-desktop # Now using the online brave app
       proton-authenticator
+      ticktick # Privacy friendly todo app
 
       # Dev
       go
