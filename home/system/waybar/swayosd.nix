@@ -75,7 +75,7 @@ in {
       ",XF86AudioPrev, exec, ${pkgs.swayosd}/bin/swayosd-client --playerctl previous"
     ];
     bindle = [
-      ",XF86AudioRaiseVolume, exec, ${pkgs.swayosd}/bin/swayosd-client --output-volume +2 --max-volume=100"
+      ",XF86AudioRaiseVolume, exec, ${pkgs.swayosd}/bin/swayosd-client --output-volume +2 --max-volume=255"
       ",XF86AudioLowerVolume, exec, ${pkgs.swayosd}/bin/swayosd-client --output-volume -2"
     ];
     bindr = [
