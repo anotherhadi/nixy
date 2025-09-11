@@ -2,7 +2,8 @@
 {lib, ...}:
 with lib; let
   defaultApps = {
-    browser = ["zen-beta.desktop"];
+    # check desktop files here: `ls $(echo $XDG_DATA_DIRS| sed "s/:/ /g")`
+    browser = ["brave-browser.desktop"];
     text = ["org.gnome.TextEditor.desktop"];
     image = ["imv-dir.desktop"];
     audio = ["mpv.desktop"];
