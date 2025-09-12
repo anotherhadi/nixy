@@ -11,10 +11,8 @@
         "$mod,A, exec,  uwsm app -- ${pkgs.proton-authenticator}/bin/proton-authenticator" # Proton Authenticator
         "$mod,L, exec,  uwsm app -- ${pkgs.hyprlock}/bin/hyprlock" # Lock
         "$mod,X, exec, powermenu" # Powermenu
-        "$mod,SPACE, exec, menu" # Launcher
-        "$mod,C, exec, quickmenu" # Quickmenu
+        "$mod,SPACE, exec, vicinae" # Launcher
         "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
-        # "$mod,P, exec,  uwsm app -- ${pkgs.planify}/bin/io.github.alainm23.planify" # Planify
 
         "$mod,Q, killactive," # Close window
         "$mod,T, togglefloating," # Toggle Floating
