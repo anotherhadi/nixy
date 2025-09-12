@@ -12,7 +12,6 @@
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nixcord.url = "github:kaylorben/nixcord";
     sops-nix.url = "github:Mic92/sops-nix";
     nixarr.url = "github:rasmus-kirk/nixarr";
@@ -24,15 +23,6 @@
     };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
-    search-nixos-api.url = "github:anotherhadi/search-nixos-api";
-    eleakxir = {
-      url = "github:anotherhadi/eleakxir-temp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -61,8 +51,6 @@
           inputs.stylix.nixosModules.stylix
           inputs.sops-nix.nixosModules.sops
           inputs.nixarr.nixosModules.default
-          inputs.search-nixos-api.nixosModules.search-nixos-api
-          inputs.eleakxir.nixosModules.eleakxir-backend
           ./hosts/server/configuration.nix
         ];
       };
