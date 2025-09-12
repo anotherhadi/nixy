@@ -20,7 +20,6 @@ in {
     ./bindings.nix
     ./polkitagent.nix
     ./keyboard-backlight.nix # CHANGEME: This is for omen laptop only
-    # ./hyprspace.nix # FIXME: Broken for now
   ];
 
   home.packages = with pkgs; [
