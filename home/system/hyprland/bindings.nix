@@ -32,8 +32,6 @@
         "ALT,PRINT, exec, screenshot region swappy" # Screenshot region then edit
 
         "$shiftMod,T, exec, hyprpanel-toggle" # Toggle hyprpanel
-        "$shiftMod,C, exec, clipboard" # Clipboard picker with wofi
-        "$shiftMod,E, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji" # Emoji picker with wofi
         "$shiftMod,F2, exec, night-shift" # Toggle night shift
         "$shiftMod,F3, exec, night-shift" # Toggle night shift
       ]
