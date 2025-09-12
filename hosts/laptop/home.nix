@@ -18,7 +18,7 @@
     ../../home/programs/thunar
     ../../home/programs/lazygit
     ../../home/programs/discord
-    ../../home/programs/tailscale
+    # ../../home/programs/tailscale # FIXME:
 
     # Scripts
     ../../home/scripts # All scripts
