@@ -7,6 +7,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
@@ -35,7 +36,9 @@
           modules = [
             {
               nixpkgs.overlays = [];
-              _module.args = {inherit inputs;};
+              _module.args = {
+                inherit inputs;
+              };
             }
             inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME: check https://github.com/NixOS/nixos-hardware
             inputs.home-manager.nixosModules.home-manager

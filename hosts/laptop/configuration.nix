@@ -11,7 +11,7 @@
     ../../nixos/sddm.nix
     ../../nixos/users.nix
     ../../nixos/utils.nix
-    # ../../nixos/tailscale.nix # FIXME:
+    ../../nixos/tailscale.nix
     ../../nixos/hyprland.nix
 
     ../../nixos/omen.nix # For my laptop only

@@ -1,5 +1,9 @@
 # Tailscale is a VPN service that makes it easy to connect your devices between each other.
-{config, ...}: let
+{
+  config,
+  inputs,
+  ...
+}: let
   username = config.var.username;
 in {
   security.sudo.extraRules = [
@@ -21,6 +25,7 @@ in {
 
   services.tailscale = {
     enable = true;
+    package = inputs.nixpkgs-stable.legacyPackages.x86_64-linux.tailscale;
     openFirewall = true;
   };
 
