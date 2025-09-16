@@ -26,6 +26,7 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    eleakxir.url = "github:anotherhadi/eleakxir-temp";
   };
 
   outputs = inputs @ {nixpkgs, ...}: {
@@ -54,6 +55,7 @@
           inputs.stylix.nixosModules.stylix
           inputs.sops-nix.nixosModules.sops
           inputs.nixarr.nixosModules.default
+          inputs.eleakxir.nixosModules.eleakxir
           ./hosts/server/configuration.nix
         ];
       };
