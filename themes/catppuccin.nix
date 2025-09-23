@@ -84,8 +84,8 @@
 
     polarity = "dark";
     image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/railroad-cat.png";
-      sha256 = "sha256-1fSJFS/Nco9Nse650ywLBW6c5UO9l6CbfQGJUfrvsx4=";
+      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/japan-houses.png";
+      sha256 = "sha256-BeTFz+WeulDt5ixg5ni09J439PxMnofWnJz5PGEUgf8=";
     };
   };
 }
