@@ -36,7 +36,6 @@ in {
   gtk.gtk3.bookmarks = [
     "file:///home/${user}/Downloads Downloads"
     "file:///home/${user}/Pictures Pictures"
-    "file:///home/${user}/nextcloud Nextcloud"
     "file:///home/${user}/.config/nixos NixOS"
     "file:///home/${user}/dev Development"
   ];
@@ -115,7 +114,7 @@ in {
     <action>
         <icon>utilities-terminal</icon>
         <name>Open Terminal Here</name>
-        <unique-id>1700000000000001</unique-id> 
+        <unique-id>1700000000000001</unique-id>
         <command>kitty -d %f</command>
         <description>Opens Kitty terminal in the selected folder</description>
         <patterns>*</patterns>
@@ -123,11 +122,11 @@ in {
         <directories/>
     </action>
     <action>
-        <icon></icon> 
+        <icon></icon>
         <name>Extract here</name>
         <submenu></submenu>
-        <unique-id>1689618425925956-3</unique-id> 
-        <command>xarchiver -x . %f</command> 
+        <unique-id>1689618425925956-3</unique-id>
+        <command>xarchiver -x . %f</command>
         <description>Extracts the archive into the directory it is located in.</description>
         <range>*</range>
         <patterns>*.tar.bz2;*.tar.gz;*.tar.xz;*.tar.Z;*.tar;*.taz;*.tb2;*.tbz;*.tbz2;*.tgz;*.txz;*.zip;*.bz2;*.docx;*.apk;*.gz;*.odt;</patterns>
