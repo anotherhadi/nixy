@@ -4,7 +4,10 @@
     setupOpts = {
       image = {
         enabled = true;
-        setupOpts.doc.inline = false;
+        doc = {
+          inline = false;
+          float = true;
+        };
       };
       quickfile.enabled = true;
       statuscolumn.enabled = true;

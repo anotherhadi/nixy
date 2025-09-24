@@ -53,6 +53,7 @@
       formatOnSave = true;
       inlayHints.enable = true;
       null-ls.enable = true;
+      servers.nixd.settings.nil.nix.autoArchive = true;
       otter-nvim = {
         enable = true;
         setupOpts = {
@@ -90,6 +91,7 @@
       go.enable = true;
       markdown = {
         enable = true;
+        format.type = "prettierd";
         extensions = {
           markview-nvim = {
             enable = true;
