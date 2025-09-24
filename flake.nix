@@ -26,7 +26,7 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    eleakxir.url = "github:anotherhadi/eleakxir-temp";
+    eleakxir.url = "github:anotherhadi/eleakxir";
   };
 
   outputs = inputs @ {nixpkgs, ...}: {
