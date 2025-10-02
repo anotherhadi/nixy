@@ -12,6 +12,7 @@
     port = 9198;
     user = "eleakxir";
     group = "eleakxir";
+    limit = 1000;
     folders = ["/var/lib/eleakxir/leaks/" "/mnt/data/clean-leak/"];
     debug = true;
   };
