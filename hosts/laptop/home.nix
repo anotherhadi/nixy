@@ -9,6 +9,7 @@
 
     # Programs
     ../../home/programs/kitty
+    ../../home/programs/alacritty
     ../../home/programs/nvf
     ../../home/programs/shell
     ../../home/programs/fetch
