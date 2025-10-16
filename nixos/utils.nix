@@ -94,6 +94,7 @@ in {
     fd
     bc
     gcc
+    file
     git-ignore
     xdg-utils
     wget
