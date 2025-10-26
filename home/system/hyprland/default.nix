@@ -19,7 +19,7 @@ in {
     ./animations.nix
     ./bindings.nix
     ./polkitagent.nix
-    #./keyboard-backlight.nix # CHANGEME: This is for omen laptop only
+    ./keyboard-backlight.nix # CHANGEME: This is for omen laptop only
   ];
 
   home.packages = with pkgs; [

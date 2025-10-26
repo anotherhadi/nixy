@@ -68,7 +68,7 @@
       ticktick # Privacy friendly todo app
 
       # Dev
-      go
+      #go
       bun
       nodejs
       python3
@@ -77,7 +77,10 @@
       pnpm
       air
       duckdb
-     # caido
+      #caido
+      jdk
+      mysql80
+      jetbrains.idea-community-bin
 
       # Utils
       zip
