@@ -109,6 +109,8 @@
       bash.enable = true;
       nix.enable = true;
       tailwind.enable = true;
+      sql.enable = true;
+      java.enable = true;
     };
     formatter = {
       conform-nvim = {

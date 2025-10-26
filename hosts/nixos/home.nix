@@ -80,6 +80,7 @@
       #caido
       jdk
       mysql80
+      sqlite
       jetbrains.idea-community-bin
 
       # Utils
