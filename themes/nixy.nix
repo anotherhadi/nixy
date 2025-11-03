@@ -17,14 +17,14 @@
       animation-speed = "fast"; # "fast" | "medium" | "slow"
       fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
       textColorOnWallpaper =
-        config.lib.stylix.colors.base01; # Color of the text displayed on the wallpaper (Lockscreen, display manager, ...)
+        config.lib.stylix.colors.base05; # Color of the text displayed on the wallpaper (Lockscreen, display manager, ...)
 
       bar = {
         # Hyprpanel
         position = "top"; # "top" | "bottom"
-        transparent = true;
+        transparent = false;
         transparentButtons = false;
-        floating = true;
+        floating = false;
       };
     };
     description = "Theme configuration options";
@@ -48,7 +48,7 @@
       base0A = "f9e2af"; # Classes, Markup Bold, Search Text Background
       base0B = "a6e3a1"; # Strings, Inherited Class, Markup Code, Diff Inserted
       base0C = "94e2d5"; # Support, Regular Expressions, Escape Characters, Markup Quotes
-      base0D = "c5afd4"; # Functions, Methods, Attribute IDs, Headings, Accent color
+      base0D = "8771DA"; # Functions, Methods, Attribute IDs, Headings, Accent color
       base0E = "cba6f7"; # Keywords, Storage, Selector, Markup Italic, Diff Changed
       base0F = "f2cdcd"; # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
     };
@@ -83,8 +83,8 @@
 
     polarity = "dark";
     image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/black-and-white-forest_minimalist_black-and-white.png";
-      sha256 = "sha256-MOlLRQonZ6UAaSJlysjL8snxnMrSFH9VOLrjXaU82Kw=";
+      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/cat-watching-the-star_pixelart_purple_static.png";
+      sha256 = "sha256-P8gCiCC9CZPJyGL4kpvAaOqlNor010s/BUA0muBVfK0=";
     };
   };
 }
