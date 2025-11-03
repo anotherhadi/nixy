@@ -133,11 +133,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1760094526,
-        "narHash": "sha256-jcaAXmns4V/5e6czbohoFzRY2Vz3Xx25e+uPBQdJhEY=",
+        "lastModified": 1762173278,
+        "narHash": "sha256-rw+n05+dgC1rLpQR5RKRTM57RPTuhjyVVsV4bvsbZc4=",
         "owner": "anotherhadi",
         "repo": "eleakxir",
-        "rev": "3dede0273b4928607a536b0d09184d27d7e20eaa",
+        "rev": "7a29929eb3bd0f89f2fd654405f9680bfd084151",
         "type": "github"
       },
       "original": {
