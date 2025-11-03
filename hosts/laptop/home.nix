@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
   imports = [
@@ -60,16 +61,16 @@
 
       # Privacy
       session-desktop # Session app, private messages
+      signal-desktop # Signal app, private messages
       protonvpn-gui
-      protonvpn-cli
       proton-pass
-      # protonmail-desktop # Now using the online brave app
       proton-authenticator
       ticktick # Privacy friendly todo app
 
       # Dev
       go
       bun
+      docker
       nodejs
       python3
       jq
@@ -77,7 +78,7 @@
       pnpm
       air
       duckdb
-      caido
+      inputs.eleakxir.packages.${pkgs.system}.leak-utils
 
       # Utils
       zip
