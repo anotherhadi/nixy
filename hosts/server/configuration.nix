@@ -11,7 +11,7 @@
 
     # NixOS server modules
     ../../server-modules/ssh.nix
-    ../../server-modules/bitwarden.nix
+    # ../../server-modules/bitwarden.nix
     ../../server-modules/firewall.nix
     ../../server-modules/nginx.nix
     ../../server-modules/glance.nix
