@@ -79,6 +79,8 @@
       air
       duckdb
       inputs.eleakxir.packages.${pkgs.system}.leak-utils
+      caido
+      wireshark
 
       # Utils
       zip
