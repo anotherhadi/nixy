@@ -64,7 +64,6 @@ in {
       exec-once = [
         "dbus-update-activation-environment --systemd --all &"
         "systemctl --user enable --now hyprpaper.service &"
-        "systemctl --user enable --now nextcloud-client.service  &"
       ];
 
       monitor = [
