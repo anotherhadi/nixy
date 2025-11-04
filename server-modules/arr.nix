@@ -40,6 +40,7 @@ in {
     radarr.enable = true;
     sonarr.enable = true;
     bazarr.enable = true;
+    readarr.enable = true;
     transmission = {
       enable = true;
       extraSettings = {trash-original-torrent-files = true;};
@@ -59,5 +60,6 @@ in {
     "radarr.${domain}" = mkVirtualHost 7878;
     "sonarr.${domain}" = mkVirtualHost 8989;
     "transmission.${domain}" = mkVirtualHost 9091;
+    "readarr.${domain}" = mkVirtualHost 8787;
   };
 }
