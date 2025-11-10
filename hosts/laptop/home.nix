@@ -82,6 +82,7 @@
       inputs.eleakxir.packages.${pkgs.system}.leak-utils
       caido
       wireshark
+      nuclei
 
       # Utils
       zip
