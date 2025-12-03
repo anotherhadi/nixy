@@ -47,7 +47,7 @@
 
     packages = with pkgs; [
       # Apps
-      bitwarden # Password manager
+      bitwarden-desktop # Password manager
       vlc # Video player
       blanket # White-noise app
       obsidian # Note taking app
@@ -79,7 +79,7 @@
       pnpm
       air
       duckdb
-      inputs.eleakxir.packages.${pkgs.system}.leak-utils
+      inputs.eleakxir.packages.${stdenv.hostPlatform.system}.leak-utils
       caido
       wireshark
       nuclei
