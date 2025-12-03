@@ -18,7 +18,7 @@
   };
 
   environment.systemPackages = [
-    inputs.eleakxir.packages.${pkgs.system}.leak-utils
+    inputs.eleakxir.packages.${pkgs.stdenv.hostPlatform.system}.leak-utils
   ];
 
   services.nginx.virtualHosts."eleakxir-back.hadi.diy" = {
