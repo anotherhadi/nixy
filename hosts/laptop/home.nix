@@ -34,7 +34,7 @@
     ../../home/system/zathura
     ../../home/system/mime
     ../../home/system/udiskie
-    # ../../home/system/vicinae
+    ../../home/system/vicinae
     ../../home/system/wofi
     # ../../home/system/hypridle
 

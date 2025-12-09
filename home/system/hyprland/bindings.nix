@@ -10,9 +10,9 @@
         "$mod,V, exec,  uwsm app -- ${pkgs.protonvpn-gui}/bin/protonvpn-app" # Proton VPN
         "$mod,A, exec,  uwsm app -- ${pkgs.proton-authenticator}/bin/proton-authenticator" # Proton Authenticator
         "$mod,L, exec,  uwsm app -- ${pkgs.hyprlock}/bin/hyprlock" # Lock
-        # "$mod,SPACE, exec, vicinae" # Launcher FIXME: broken
+        "$mod,SPACE, exec, vicinae toggle" # Launcher
+        # "$mod,SPACE, exec, menu" # Launcher
         "$mod,X, exec, powermenu" # Powermenu
-        "$mod,SPACE, exec, menu" # Launcher
 
         "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
 
