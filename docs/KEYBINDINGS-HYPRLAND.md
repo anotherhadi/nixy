@@ -11,9 +11,9 @@
 | Proton VPN | SUPER + V |
 | Proton Authenticator | SUPER + A |
 | Lock | SUPER + L |
-| "$mod,SPACE, exec, vicinae"  |  |
-| Powermenu | SUPER + X |
 | Launcher | SUPER + SPACE |
+| "$mod,SPACE, exec, menu"  |  |
+| Powermenu | SUPER + X |
 | Toggle HyprFocus | SHIFT + SUPER + SPACE |
 | Close window | SUPER + Q |
 | Toggle Floating | SUPER + T |
