@@ -15,7 +15,7 @@
     ../../nixos/hyprland.nix
     ../../nixos/docker.nix
 
-    ../../nixos/omen.nix # For my laptop only
+    ../../nixos/omen.nix # CHANGEME: For my laptop only, remove this (OMEN 16)
 
     # You should let those lines as is
     ./hardware-configuration.nix

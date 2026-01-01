@@ -5,6 +5,7 @@
   config,
   ...
 }: let
+  alert-when-low-battery = false;
   keyboard-backlight = pkgs.writeShellScriptBin "keyboard-backlight" ''
     function set_keyboard_backlight {
       local color=$1
@@ -15,6 +16,9 @@
     }
     state="white"
     set_keyboard_backlight ${config.lib.stylix.colors.base0D}
+    if [ "${toString alert-when-low-battery}" = "false" ]; then
+      exit 0
+    fi
     while true; do
       BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT*/capacity)
       IS_CHARGING=$(cat /sys/class/power_supply/BAT*/status)

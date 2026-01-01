@@ -73,26 +73,25 @@ in {
   '';
 
   home.file.".config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml".text = ''
-    <?xml version="1.0" encoding="UTF-8"?>
+    <?xml version="1.1" encoding="UTF-8"?>
 
     <channel name="thunar" version="1.0">
       <property name="last-view" type="string" value="ThunarIconView"/>
       <property name="last-icon-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_100_PERCENT"/>
       <property name="last-window-maximized" type="bool" value="true"/>
-      <property name="last-separator-position" type="int" value="170"/>
+      <property name="last-separator-position" type="int" value="230"/>
       <property name="last-statusbar-visible" type="bool" value="false"/>
       <property name="last-menubar-visible" type="bool" value="false"/>
       <property name="misc-single-click" type="bool" value="false"/>
       <property name="shortcuts-icon-emblems" type="bool" value="true"/>
       <property name="tree-icon-emblems" type="bool" value="true"/>
-      <property name="misc-file-size-binary" type="bool" value="true"/>
-      <property name="misc-thumbnail-draw-frames" type="bool" value="false"/>
-      <property name="misc-text-beside-icons" type="bool" value="true"/>
-      <property name="misc-change-window-icon" type="bool" value="true"/>
+      <property name="misc-file-size-binary" type="bool" value="false"/>
+      <property name="misc-thumbnail-draw-frames" type="bool" value="true"/>
+      <property name="misc-text-beside-icons" type="bool" value="false"/>
+      <property name="misc-change-window-icon" type="bool" value="false"/>
       <property name="hidden-bookmarks" type="array">
         <value type="string" value="computer:///"/>
         <value type="string" value="recent:///"/>
-        <value type="string" value="file:///"/>
         <value type="string" value="network:///"/>
       </property>
       <property name="hidden-devices" type="array">
@@ -103,35 +102,60 @@ in {
       <property name="last-location-bar" type="string" value="ThunarLocationButtons"/>
       <property name="last-show-hidden" type="bool" value="false"/>
       <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
-      <property name="last-details-view-column-widths" type="string" value="50,50,127,50,50,50,50,50,751,50,50,75,50,145"/>
-      <property name="last-toolbar-items" type="string" value="menu:1,back:1,forward:0,open-parent:0,open-home:0,undo:0,redo:0,zoom-in:0,zoom-out:0,zoom-reset:0,view-as-icons:0,view-as-detailed-list:0,view-as-compact-list:0,toggle-split-view:0,location-bar:1,reload:0,search:1,uca-action-1710183590071525-1:0,new-tab:0,new-window:0,view-switcher:0"/>
+      <property name="last-details-view-column-widths" type="string" value="50,50,118,111,50,50,50,50,993,50,50,84,50,151"/>
+      <property name="last-toolbar-items" type="string" value="menu:1,undo:1,back:1,forward:1,open-parent:0,open-home:0,redo:0,zoom-in:0,zoom-out:0,zoom-reset:0,location-bar:1,view-switcher:1,search:1,view-as-icons:0,view-as-detailed-list:0,view-as-compact-list:0,toggle-split-view:0,reload:0,new-tab:0,new-window:0,uca-action-1700000000000001:0"/>
+      <property name="last-side-pane" type="string" value="THUNAR_SIDEPANE_TYPE_SHORTCUTS"/>
+      <property name="last-image-preview-visible" type="bool" value="false"/>
+      <property name="misc-use-csd" type="bool" value="true"/>
+      <property name="default-view" type="string" value="ThunarIconView"/>
+      <property name="misc-thumbnail-max-file-size" type="uint64" value="1073741824"/>
+      <property name="misc-symbolic-icons-in-toolbar" type="bool" value="true"/>
+      <property name="misc-date-style" type="string" value="THUNAR_DATE_STYLE_SIMPLE"/>
+      <property name="shortcuts-icon-size" type="string" value="THUNAR_ICON_SIZE_16"/>
+      <property name="tree-icon-size" type="string" value="THUNAR_ICON_SIZE_16"/>
+      <property name="misc-symbolic-icons-in-sidepane" type="bool" value="true"/>
+      <property name="misc-open-new-window-as-tab" type="bool" value="false"/>
+      <property name="misc-full-path-in-tab-title" type="bool" value="true"/>
+      <property name="misc-show-delete-action" type="bool" value="false"/>
     </channel>
   '';
 
   xdg.configFile."Thunar/uca.xml".text = ''
     <?xml version="1.0" encoding="UTF-8"?>
     <actions>
-    <action>
-        <icon>utilities-terminal</icon>
-        <name>Open Terminal Here</name>
-        <unique-id>1700000000000001</unique-id>
-        <command>kitty -d %f</command>
-        <description>Opens Kitty terminal in the selected folder</description>
-        <patterns>*</patterns>
-        <startup-notify/>
-        <directories/>
-    </action>
-    <action>
-        <icon></icon>
-        <name>Extract here</name>
+      <action>
+          <icon>utilities-terminal</icon>
+          <name>Open Terminal Here</name>
+          <unique-id>1700000000000001</unique-id>
+          <command>kitty -d %f</command>
+          <description>Opens Kitty terminal in the selected folder</description>
+          <patterns>*</patterns>
+          <startup-notify/>
+          <directories/>
+      </action>
+      <action>
+          <icon></icon>
+          <name>Extract here</name>
+          <submenu></submenu>
+          <unique-id>1689618425925956-3</unique-id>
+          <command>xarchiver -x . %f</command>
+          <description>Extracts the archive into the directory it is located in.</description>
+          <range>*</range>
+          <patterns>*.tar.bz2;*.tar.gz;*.tar.xz;*.tar.Z;*.tar;*.taz;*.tb2;*.tbz;*.tbz2;*.tgz;*.txz;*.zip;*.bz2;*.docx;*.apk;*.gz;*.odt;</patterns>
+          <other-files/>
+      </action>
+      <action>
+        <icon>package-x-generic</icon>
+        <name>Compress here (tar.gz)</name>
         <submenu></submenu>
-        <unique-id>1689618425925956-3</unique-id>
-        <command>xarchiver -x . %f</command>
-        <description>Extracts the archive into the directory it is located in.</description>
+        <unique-id>1700000000000003</unique-id>
+        <command>tar -czvf %n.tar.gz %N</command>
+        <description>Creates a compressed archive (.tar.gz) of selected files/folders.</description>
         <range>*</range>
-        <patterns>*.tar.bz2;*.tar.gz;*.tar.xz;*.tar.Z;*.tar;*.taz;*.tb2;*.tbz;*.tbz2;*.tgz;*.txz;*.zip;*.bz2;*.docx;*.apk;*.gz;*.odt;</patterns>
+        <patterns>*</patterns>
+        <directories/>
         <other-files/>
-    </action>
+      </action>
     </actions>
   '';
 }

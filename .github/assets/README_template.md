@@ -30,8 +30,7 @@ _secrets_, and _custom theming_ all in one place.
 
 **Features:**
 
-- 💻 Hyprland-centric: Preconfigured Hyprland ecosystem (Hyprlock, Hyprpanel,
-  etc.)
+- 💻 Hyprland & Caelestia: Preconfigured Hyprland ecosystem with Caelestia-shell (Ty to both projects!)
 - 🎨 Consistent Theming: Base16 & Stylix-powered themes
 - ⌨️ Vim-like Everywhere: Unified keybindings (Hyprland, nvim, vimium, etc.)
 
@@ -39,12 +38,11 @@ _secrets_, and _custom theming_ all in one place.
 
 {md_table_of_content}
 
-## Gallery
+## Screenshots
 
-![Nixy helper, peaclock](.github/assets/nixy/1.png)
-![Qutebrowser, pipes, shell](.github/assets/nixy/2.png)
-![nvim, lazygit](.github/assets/nixy/3.png)
-![spotify, cava](.github/assets/nixy/4.png)
+![Home](.github/assets/rose-pine/home.png)
+![Flake & Spotify](.github/assets/rose-pine/flake-spotify.png)
+![Browser and notification center](.github/assets/rose-pine/browser-and-notifications.png)
 
 ## Architecture
 
@@ -55,7 +53,6 @@ Contains **dotfiles and settings** that apply to your user environment.
 **Subfolders:**
 
 - `programs` is a collection of apps configured with home-manager
-- `scripts` is a folder full of bash scripts (see [SCRIPTS.md](docs/SCRIPTS.md))
 - `system` is some "desktop environment" configuration
 
 ### 🐧 /nixos
@@ -120,9 +117,6 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 
 - [SERVER](docs/SERVER.md): Check out the server documentation
 - [THEMES](docs/THEMES.md): How themes work and how to create your own
-- [SCRIPTS](docs/SCRIPTS.md): A list of available scripts and their usage
-- [KEYBINDINGS-HYPRLAND](docs/KEYBINDINGS-HYPRLAND.md): Keybindings available in
-  Hyprland
 - [WALLPAPERS](https://github.com/anotherhadi/awesome-wallpapers): An awesome
   collection of wallpapers
 
