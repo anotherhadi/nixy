@@ -5,7 +5,7 @@
 }: {
   imports = [
     # Choose your theme here:
-    ../../themes/nixy.nix
+    ../../themes/rose-pine.nix
   ];
 
   config.var = {
@@ -32,7 +32,7 @@
     autoGarbageCollector = true;
   };
 
-  # Let this here
+  # DON'T TOUCH THIS
   options = {
     var = lib.mkOption {
       type = lib.types.attrs;

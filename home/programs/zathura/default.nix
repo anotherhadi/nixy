@@ -1,3 +1,4 @@
+# TODO: Misc section with VLC, Zathura etc
 # Zathura is a PDF viewer
 {
   programs.zathura = {

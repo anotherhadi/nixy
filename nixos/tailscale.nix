@@ -23,6 +23,10 @@ in {
     }
   ];
 
+  environment.systemPackages = with inputs.nixpkgs-stable.legacyPackages.x86_64-linux; [
+    tailscale
+  ];
+
   services.tailscale = {
     enable = true;
     package = inputs.nixpkgs-stable.legacyPackages.x86_64-linux.tailscale;

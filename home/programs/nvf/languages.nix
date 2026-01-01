@@ -91,7 +91,7 @@
       go.enable = true;
       markdown = {
         enable = true;
-        format.type = "prettierd";
+        format.type = ["prettierd"];
         extensions = {
           markview-nvim = {
             enable = true;

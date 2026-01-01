@@ -13,7 +13,7 @@
   rounding = config.theme.rounding;
   blur = config.theme.blur;
   keyboardLayout = config.var.keyboardLayout;
-  background = "rgb(" + config.lib.stylix.colors.base00 + ")";
+  background = "rgba(" + config.lib.stylix.colors.base00 + "77)";
 in {
   imports = [
     ./animations.nix
@@ -27,13 +27,14 @@ in {
     qt6.qtwayland
     libsForQt5.qt5ct
     qt6Packages.qt6ct
+    hyprland-qtutils
+    adw-gtk3
     hyprshot
     hyprpicker
     swappy
     imv
     wf-recorder
     wlr-randr
-    wl-clipboard
     brightnessctl
     gnome-themes-extra
     libva
@@ -58,12 +59,8 @@ in {
     portalPackage = null;
 
     settings = {
-      "$mod" = "SUPER";
-      "$shiftMod" = "SUPER_SHIFT";
-
       exec-once = [
         "dbus-update-activation-environment --systemd --all &"
-        "systemctl --user enable --now hyprpaper.service &"
       ];
 
       monitor = [
@@ -137,6 +134,16 @@ in {
       };
 
       gesture = "3, horizontal, workspace";
+
+      windowrule = [
+        "match:class proton-authenticator, float on"
+        "match:class proton-authenticator, suppress_event maximize"
+        "match:class proton-authenticator, center on"
+        "match:class proton-authenticator, size 500 400"
+        "match:class protonvpn-app, float on"
+        "match:class protonvpn-app, center on"
+        "match:class protonvpn-app, size 500 400"
+      ];
 
       misc = {
         vfr = true;

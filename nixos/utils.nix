@@ -90,7 +90,6 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    hyprland-qtutils
     fd
     bc
     gcc
@@ -99,9 +98,17 @@ in {
     xdg-utils
     wget
     curl
+    gnupg
+    openssl
     vim
     go
     comma
+    zip
+    unzip
+    optipng
+    jpegoptim
+    pfetch
+    btop
   ];
 
   xdg.portal = {

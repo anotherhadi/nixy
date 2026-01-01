@@ -10,7 +10,7 @@ table_of_content=$(markdown-table-of-contents --start-by 2 ./.github/assets/READ
 readme_content=$(cat "./.github/assets/README_template.md")
 
 # Replace variables
-readme_content=${readme_content//\{primarycolor\}/A594FD}
+readme_content=${readme_content//\{primarycolor\}/A89AD1}
 readme_content=${readme_content//\{backgroundcolor\}/0b0b0b}
 readme_content=${readme_content//\{md_table_of_content\}/$table_of_content}
 
