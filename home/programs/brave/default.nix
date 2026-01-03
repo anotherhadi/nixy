@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  programs.vivaldi = {
+  programs.brave = {
     enable = true;
     commandLineArgs = [
       "--no-default-browser-check"
@@ -7,6 +7,6 @@
   };
 
   home.sessionVariables = {
-    DEFAULT_BROWSER = "${pkgs.vivaldi}/bin/vivaldi";
+    DEFAULT_BROWSER = "${pkgs.brave}/bin/brave";
   };
 }
