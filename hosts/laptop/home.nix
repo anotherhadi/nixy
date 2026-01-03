@@ -5,7 +5,7 @@
 }: {
   imports = [
     # Programs
-    ../../home/programs/vivaldi
+    ../../home/programs/brave
     ../../home/programs/proton
     ../../home/programs/ghostty
     ../../home/programs/nvf
@@ -71,7 +71,7 @@
 
       # Backup
       vscode
-      brave
+      vivaldi
     ];
 
     inherit (config.var) username;
