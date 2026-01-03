@@ -18,6 +18,7 @@
         ingress = {
           "media.hadi.diy" = "http://localhost:443";
           "demandemedia.hadi.diy" = "http://localhost:443";
+          "ssh.hadi.diy" = "ssh://localhost:22";
         };
       };
     };

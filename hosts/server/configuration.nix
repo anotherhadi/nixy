@@ -18,7 +18,7 @@
     ../../server-modules/glance.nix
     ../../server-modules/adguardhome.nix
     ../../server-modules/arr.nix
-    ../../server-modules/mealie.nix
+    # ../../server-modules/mealie.nix
     ../../server-modules/eleakxir.nix
 
     # You should let those lines as is

@@ -12,10 +12,8 @@
     ../../home/programs/shell
     ../../home/programs/fetch
     ../../home/programs/git
-    ../../home/programs/lazygit
-
-    # Scripts
-    ../../home/scripts # All scripts
+    ../../home/programs/git/lazygit.nix
+    ../../home/programs/nixy
   ];
 
   home = {
