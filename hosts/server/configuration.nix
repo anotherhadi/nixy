@@ -13,6 +13,7 @@
     ../../server-modules/ssh.nix
     # ../../server-modules/bitwarden.nix
     ../../server-modules/firewall.nix
+    ../../server-modules/cloudflared.nix
     ../../server-modules/nginx.nix
     ../../server-modules/glance.nix
     ../../server-modules/adguardhome.nix
