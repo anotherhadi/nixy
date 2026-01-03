@@ -53,8 +53,8 @@ in {
   };
 
   services.nginx.virtualHosts = {
-    "jellyfin.${domain}" = mkVirtualHost 8096;
-    "jellyseerr.${domain}" = mkVirtualHost 5055;
+    "media.${domain}" = mkVirtualHost 8096;
+    "demandemedia.${domain}" = mkVirtualHost 5055;
     "bazarr.${domain}" = mkVirtualHost 6767;
     "prowlarr.${domain}" = mkVirtualHost 9696;
     "radarr.${domain}" = mkVirtualHost 7878;
