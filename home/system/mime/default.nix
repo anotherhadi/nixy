@@ -3,7 +3,7 @@
 with lib; let
   defaultApps = {
     # check desktop files here: `ls $(echo $XDG_DATA_DIRS| sed "s/:/ /g")`
-    browser = ["vivaldi-stable.desktop"];
+    browser = ["brave.desktop"];
     text = ["org.gnome.TextEditor.desktop"];
     image = ["imv-dir.desktop"];
     audio = ["mpv.desktop"];
