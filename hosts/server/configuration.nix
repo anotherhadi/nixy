@@ -7,19 +7,21 @@
     ../../nixos/users.nix
     ../../nixos/utils.nix
     ../../nixos/docker.nix
-    ../../nixos/tailscale.nix
 
     # NixOS server modules
     ../../server-modules/ssh.nix
-    # ../../server-modules/bitwarden.nix
     ../../server-modules/firewall.nix
     ../../server-modules/cloudflared.nix
-    ../../server-modules/nginx.nix
     ../../server-modules/glance.nix
     ../../server-modules/adguardhome.nix
     ../../server-modules/arr.nix
-    # ../../server-modules/mealie.nix
     ../../server-modules/eleakxir.nix
+    ../../server-modules/stirling-pdf.nix
+    ../../server-modules/cyberchef.nix
+    ../../server-modules/linkding.nix
+    ../../server-modules/mazanoke.nix
+    ../../server-modules/nginx.nix
+    ../../server-modules/fail2ban.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix

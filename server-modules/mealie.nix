@@ -1,19 +1,9 @@
 # Mealie is a recipe management and meal planning application.
-{config, ...}: let
-  domain = "mealie.hadi.diy";
-in {
-  services = {
-    mealie = {
-      enable = true;
-      port = 8092;
-    };
-
-    nginx.virtualHosts."${domain}" = {
-      useACMEHost = "hadi.diy";
-      forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://127.0.0.1:${toString config.services.mealie.port}";
-      };
-    };
+{config, ...}: {
+  services.mealie = {
+    enable = true;
+    port = 8092;
   };
+
+  services.cloudflared.tunnels."f7c8f777-a36c-4b9a-b6e3-6a112bd43e73".ingress."mealie.hadi.diy" = "http://localhost:${toString config.services.mealie.port}";
 }
