@@ -199,11 +199,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1767483034,
-        "narHash": "sha256-wnSIKOSU1T11qAj+axSCvzlpk7Jjp4D3nlgbGSMhtIc=",
+        "lastModified": 1767711987,
+        "narHash": "sha256-1CxY87J0cOetwvzIaZGl0Vaz/pLjIlTKhC3vt189cGk=",
         "owner": "anotherhadi",
         "repo": "eleakxir",
-        "rev": "881cdfa9cbbeed5e8592546042e5e16cdd603f59",
+        "rev": "717e4136cd728e4fc48e79d04d18c25ef1eb9129",
         "type": "github"
       },
       "original": {

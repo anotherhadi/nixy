@@ -2,12 +2,6 @@
 # See https://github.com/rasmus-kirk/nixarr
 # Setup guide: https://nixarr.com/wiki/setup/
 {config, ...}: let
-  domain = "hadi.diy";
-  mkVirtualHost = port: {
-    useACMEHost = domain;
-    forceSSL = true;
-    locations."/" = {proxyPass = "http://127.0.0.1:${toString port}";};
-  };
   username = config.var.username;
 in {
   # Add my secrets
@@ -43,7 +37,11 @@ in {
     readarr.enable = true;
     transmission = {
       enable = true;
-      extraSettings = {trash-original-torrent-files = true;};
+      extraSettings = {
+        trash-original-torrent-files = true;
+        rpc-whitelist-enabled = false;
+        rpc-host-whitelist-enabled = false;
+      };
       vpn.enable = true;
     };
     recyclarr = {
@@ -52,14 +50,14 @@ in {
     };
   };
 
-  services.nginx.virtualHosts = {
-    "media.${domain}" = mkVirtualHost 8096;
-    "demandemedia.${domain}" = mkVirtualHost 5055;
-    "bazarr.${domain}" = mkVirtualHost 6767;
-    "prowlarr.${domain}" = mkVirtualHost 9696;
-    "radarr.${domain}" = mkVirtualHost 7878;
-    "sonarr.${domain}" = mkVirtualHost 8989;
-    "transmission.${domain}" = mkVirtualHost 9091;
-    "readarr.${domain}" = mkVirtualHost 8787;
+  services.cloudflared.tunnels."f7c8f777-a36c-4b9a-b6e3-6a112bd43e73".ingress = {
+    "media.hadi.diy" = "http://localhost:8096";
+    "demandemedia.hadi.diy" = "http://localhost:5055";
+    "bazarr.hadi.diy" = "http://localhost:6767";
+    "prowlarr.hadi.diy" = "http://localhost:9696";
+    "radarr.hadi.diy" = "http://localhost:7878";
+    "sonarr.hadi.diy" = "http://localhost:8989";
+    "transmission.hadi.diy" = "http://localhost:9091";
+    "readarr.hadi.diy" = "http://localhost:8787";
   };
 }

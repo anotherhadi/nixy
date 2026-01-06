@@ -13,7 +13,7 @@
     user = "eleakxir";
     group = "eleakxir";
     limit = 1000;
-    folders = ["/var/lib/eleakxir/leaks/" "/mnt/data/clean-leak/"];
+    folders = ["/var/lib/eleakxir/leaks/" "/mnt/data/big-leaks/"];
     debug = true;
   };
 
@@ -21,13 +21,5 @@
     inputs.eleakxir.packages.${pkgs.stdenv.hostPlatform.system}.leak-utils
   ];
 
-  services.nginx.virtualHosts."eleakxir-back.hadi.diy" = {
-    useACMEHost = "hadi.diy";
-    forceSSL = true;
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:${
-        toString config.services.eleakxir.port
-      }";
-    };
-  };
+  services.cloudflared.tunnels."f7c8f777-a36c-4b9a-b6e3-6a112bd43e73".ingress."eleakxir-back.hadi.diy" = "http://localhost:${toString config.services.eleakxir.port}";
 }

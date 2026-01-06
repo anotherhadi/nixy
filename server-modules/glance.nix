@@ -33,7 +33,6 @@
   in
     lib.concatMapStringsSep " " roundToString [h s l];
 in {
-  # TODO: Add tailscale custom widget
   services = {
     glance = {
       enable = true;
@@ -318,15 +317,6 @@ in {
         server = {port = 5678;};
       };
     };
-    nginx.virtualHosts."${domain}" = {
-      useACMEHost = "hadi.diy";
-      forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://127.0.0.1:${
-          toString config.services.glance.settings.server.port
-        }";
-      };
-    };
   };
 
   systemd.services.glance = {
@@ -350,4 +340,6 @@ in {
     owner = "glance";
     mode = "0600";
   };
+
+  services.cloudflared.tunnels."f7c8f777-a36c-4b9a-b6e3-6a112bd43e73".ingress."start.hadi.diy" = "http://localhost:${toString config.services.glance.settings.server.port}";
 }
