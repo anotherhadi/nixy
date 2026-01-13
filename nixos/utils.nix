@@ -109,6 +109,8 @@ in {
     jpegoptim
     pfetch
     btop
+    unrar
+    p7zip
   ];
 
   xdg.portal = {
