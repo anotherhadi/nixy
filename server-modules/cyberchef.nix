@@ -1,3 +1,4 @@
+# Cyberchef is a web app for analyzing and decoding data.
 {pkgs, ...}: {
   services = {
     nginx.virtualHosts."cyberchef.local" = {
