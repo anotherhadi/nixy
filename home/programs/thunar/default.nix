@@ -8,12 +8,12 @@
 in {
   # ctrl + m to toggle the menubar
   home.packages = with pkgs; [
-    xfce.thunar
-    xfce.xfconf
-    xfce.tumbler
-    xfce.thunar-archive-plugin
-    xfce.thunar-volman
-    xfce.thunar-media-tags-plugin
+    thunar
+    xfconf
+    tumbler
+    thunar-archive-plugin
+    thunar-volman
+    thunar-media-tags-plugin
     p7zip
     xarchiver
   ];
