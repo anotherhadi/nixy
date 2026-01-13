@@ -1,3 +1,4 @@
+# Stirling-pdf is a high-performance PDF editor and viewer service.
 {config, ...}: {
   services.stirling-pdf = {
     enable = true;

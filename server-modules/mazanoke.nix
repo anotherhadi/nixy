@@ -1,3 +1,4 @@
+# Mazanoke is a self-hosted image downgrader
 {pkgs, ...}: let
   version = "1.1.5";
   mazanoke-pkg = pkgs.stdenv.mkDerivation {

@@ -1,3 +1,4 @@
+# Eleakxir is a search engine for leaked data.
 {
   config,
   inputs,

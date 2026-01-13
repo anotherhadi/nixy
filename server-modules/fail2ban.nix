@@ -1,3 +1,4 @@
+# Fail2Ban is a log-parsing application that protects Linux servers from brute-force attacks.
 {
   services.fail2ban = {
     enable = true;
