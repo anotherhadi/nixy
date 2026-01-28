@@ -105,6 +105,14 @@
           enabled = true;
           dangerous = false;
         }
+        {
+          name = "Wallpapers";
+          icon = "image";
+          description = "Change the current wallpaper";
+          command = ["autocomplete" "wallpaper"];
+          enable = true;
+          dangerous = false;
+        }
       ];
       dragThreshold = 50;
       enableDangerousActions = false;
@@ -115,7 +123,7 @@
         actions = false;
         schemes = false;
         variants = false;
-        wallpapers = false;
+        wallpapers = true;
       };
       showOnHover = false;
       hiddenApps = [];

@@ -17,7 +17,7 @@
       "$mod, X, global, caelestia:session" # Powermenu
 
       # Misc
-      "$mod, L, global, caelestia:lock"
+      "$mod, M, global, caelestia:lock"
       "$mod, N, exec, caelestia shell drawers toggle sidebar"
 
       # Utilities

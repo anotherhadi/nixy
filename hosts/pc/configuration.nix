@@ -13,8 +13,8 @@
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
     ../../nixos/docker.nix
-
-    ../../nixos/omen.nix # CHANGEME: For my laptop only, remove this (OMEN 16)
+    ../../nixos/replays.nix
+    ../../nixos/flatpak.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix

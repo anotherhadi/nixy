@@ -36,7 +36,7 @@
         enableTerm = false;
         enableDiscord = false;
         enableSpicetify = false;
-        enableBtop = false;
+        enableBtop = true;
         enableCava = false;
         enableHypr = false;
         enableGtk = false;

@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
   imports = [
@@ -13,7 +14,7 @@
     ../../home/programs/fetch
     ../../home/programs/git
     ../../home/programs/git/lazygit.nix
-    ../../home/programs/git/signing.nix # Change the key or remove this file
+    # ../../home/programs/git/signing.nix # Change the key or remove this file
     ../../home/programs/spicetify
     ../../home/programs/thunar
     ../../home/programs/discord
@@ -30,7 +31,6 @@
     ../../home/system/udiskie
 
     ./variables.nix # Mostly user-specific configuration
-    ./secrets # CHANGEME: You should probably remove this line, this is where I store my secrets
   ];
 
   home = {
@@ -49,6 +49,9 @@
       signal-desktop # Signal app, private messages
       stirling-pdf # TODO: Server version
       calibre
+      libnotify # notify-send
+      killall
+      steam
 
       # Dev
       go
@@ -67,10 +70,13 @@
       pipes
       cmatrix
       fastfetch
+      yazi
 
       # Backup
       vscode
       vivaldi
+
+      inputs.zen-browser.packages."${stdenv.hostPlatform.system}".twilight
     ];
 
     inherit (config.var) username;

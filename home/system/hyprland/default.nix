@@ -19,7 +19,7 @@ in {
     ./animations.nix
     ./bindings.nix
     ./polkitagent.nix
-    ./keyboard-backlight.nix # CHANGEME: This is for omen laptop only
+    # ./keyboard-backlight.nix # CHANGEME: This is for omen laptop only
   ];
 
   home.packages = with pkgs; [
@@ -64,10 +64,8 @@ in {
       ];
 
       monitor = [
-        "eDP-2,highres,0x0,1" # My internal laptop screen
-        "desc:AOC U34G2G1 0x00000E06,3440x1440@99.98,auto,1" # My external monitor
-        "desc:United Microelectr Corporation UMC SHARP,3840x2160,auto,2" # TV
-        ",prefered,auto,1" # default
+        "DP-1,2560x1440@165.00,0x0,1"
+        "DP-2,2560x1080@200,-1080x0,1, transform, 1"
       ];
 
       env = [
@@ -154,9 +152,8 @@ in {
       };
 
       input = {
-        kb_layout = keyboardLayout;
-
-        kb_options = "caps:escape";
+        kb_layout = "us,ru";
+        kb_options = "grp:alt_shift_toggle,caps:escape";
         follow_mouse = 1;
         sensitivity = 0.5;
         repeat_delay = 300;
