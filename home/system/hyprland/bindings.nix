@@ -7,7 +7,7 @@
       [
         "$mod,RETURN, exec, uwsm app -- ${pkgs.ghostty}/bin/ghostty" # Ghostty (terminal)
         "$mod,E, exec,  uwsm app -- ${pkgs.thunar}/bin/thunar" # Thunar
-        "$mod,B, exec,  uwsm app -- zen" # Browser (Brave)
+        "$mod,B, exec,  uwsm app -- zen" # Browser
         "$mod,K, exec,  uwsm app -- ${pkgs.proton-pass}/bin/proton-pass" # Proton Pass
         "$mod,V, exec,  uwsm app -- ${pkgs.protonvpn-gui}/bin/protonvpn-app" # Proton VPN
         "$mod,A, exec,  uwsm app -- env WEBKIT_DISABLE_COMPOSITING_MODE=1 ${pkgs.proton-authenticator}/bin/proton-authenticator" # Proton Auth
@@ -27,6 +27,12 @@
         "$shiftMod,left, layoutmsg, addmaster" # Add to master
         "$shiftMod,right, layoutmsg, removemaster" # Remove from master
         "$mod CTRL, R, exec, killall -SIGUSR1 gpu-screen-recorder && notify-send 'GPU-Screen-Recorder' 'Повтор успешно сохранён'"
+
+        ", Print, exec, hyprshot -m output"
+        "SHIFT, Print, exec, hyprshot -m region"
+
+        "$mod, S, togglespecialworkspace, magic"
+        "$mod SHIFT, S, movetoworkspace, special:magic"
       ]
       ++ (builtins.concatLists (builtins.genList (i: let
           ws = i + 1;

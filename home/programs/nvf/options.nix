@@ -3,7 +3,7 @@
     viAlias = false;
     vimAlias = true;
     withNodeJs = true;
-    # syntaxHighlighting = true;
+    syntaxHighlighting = true;
     options = {
       autoindent = true;
       smartindent = true;
