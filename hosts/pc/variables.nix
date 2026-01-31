@@ -5,7 +5,7 @@
 }: {
   imports = [
     # Choose your theme here:
-    ../../themes/rose-pine.nix
+    ../../themes/black-metal-venom.nix
   ];
 
   config.var = {
