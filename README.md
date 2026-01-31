@@ -51,9 +51,10 @@ _secrets_, and _custom theming_ all in one place.
 
 ## Screenshots
 
-![Home](.github/assets/rose-pine/home.png)
-![Flake & Spotify](.github/assets/rose-pine/flake-spotify.png)
-![Browser and notification center](.github/assets/rose-pine/browser-and-notifications.png)
+![Home](.github/assets/black-metal-venom/home.png)
+![Flake & Spotify](.github/assets/black-metal-venom/flake-spotify.png)
+
+<!-- ![Browser and notification center](.github/assets/rose-pine/browser-and-notifications.png) -->
 
 ## Architecture
 
