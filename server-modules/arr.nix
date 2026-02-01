@@ -50,6 +50,8 @@ in {
     };
   };
 
+  users.users.jellyfin.extraGroups = ["video" "render"];
+
   services.cloudflared.tunnels."f7c8f777-a36c-4b9a-b6e3-6a112bd43e73".ingress = {
     "media.hadi.diy" = "http://localhost:8096";
     "demandemedia.hadi.diy" = "http://localhost:5055";
