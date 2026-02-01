@@ -41,8 +41,11 @@
       autotagHtml = true;
       context.enable = true;
       highlight.enable = true;
+
       grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
         typescript # in language settings only tsx gets enabled, not typescript
+        cpp
+        c
       ];
     };
     lsp = {
@@ -89,6 +92,12 @@
 
       astro.enable = true;
       go.enable = true;
+      clang = {
+        enable = true;
+      };
+      python = {
+        enable = true;
+      };
       markdown = {
         enable = true;
         format.type = ["prettierd"];
