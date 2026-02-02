@@ -10,7 +10,7 @@
 
   config.var = {
     hostname = "nixos";
-    username = "prizrak";
+    username = "laptop_Prizrak";
     configDirectory =
       "/home/"
       + config.var.username

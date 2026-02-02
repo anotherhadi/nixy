@@ -57,7 +57,7 @@
                 inherit inputs;
               };
             }
-            # inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME: check https://github.com/NixOS/nixos-hardware
+            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480 # CHANGEME: check https://github.com/NixOS/nixos-hardware
             inputs.home-manager.nixosModules.home-manager
             inputs.stylix.nixosModules.stylix
             inputs.nix-flatpak.nixosModules.nix-flatpak

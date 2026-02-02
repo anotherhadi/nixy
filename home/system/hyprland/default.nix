@@ -66,20 +66,6 @@ in {
 
       monitor = [
         "DP-1,2560x1440@165.00,0x0,1"
-        "DP-2,2560x1080@200,-1080x0,1, transform, 1"
-      ];
-
-      workspace = [
-        "1, monitor:DP-1"
-        "2, monitor:DP-1"
-        "3, monitor:DP-1"
-        "4, monitor:DP-1"
-        "5, monitor:DP-1"
-        "6, monitor:DP-2"
-        "7, monitor:DP-2"
-        "8, monitor:DP-2"
-        "9, monitor:DP-2"
-        "0, monitor:DP-2"
       ];
 
       env = [
