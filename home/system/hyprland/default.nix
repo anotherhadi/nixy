@@ -12,7 +12,6 @@
   inactive-opacity = config.theme.inactive-opacity;
   rounding = config.theme.rounding;
   blur = config.theme.blur;
-  keyboardLayout = config.var.keyboardLayout;
   background = "rgba(" + config.lib.stylix.colors.base00 + "77)";
 in {
   imports = [
@@ -44,6 +43,7 @@ in {
     glib
     direnv
     meson
+    hyprland-per-window-layout
   ];
 
   wayland.windowManager.hyprland = {
