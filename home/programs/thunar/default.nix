@@ -17,6 +17,10 @@ in {
     thunar-media-tags-plugin
     p7zip
     xarchiver
+    papirus-icon-theme
+    material-icons
+    material-design-icons
+    material-symbols
   ];
 
   gtk = {
