@@ -52,6 +52,7 @@
   wayland.windowManager.hyprland.settings.exec-once = [
     "uwsm app -- caelestia resizer -d"
     "uwsm app -- caelestia shell -d"
+    "caelestia scheme set -n onedark"
     "caelestia scheme set -n custom"
   ];
 
