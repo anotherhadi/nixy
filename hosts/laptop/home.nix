@@ -47,8 +47,10 @@
       ticktick # Todo app
       session-desktop # Session app, private messages
       signal-desktop # Signal app, private messages
-      stirling-pdf
-      calibre
+      stirling-pdf # PDF Editor
+      calibre # Ebooks
+      swappy # Screenshot tool
+      pinta # Image editor
 
       # Dev
       go
@@ -60,6 +62,7 @@
       just
       air
       duckdb
+      lazydocker
 
       # Just cool
       peaclock
@@ -67,10 +70,6 @@
       pipes
       cmatrix
       fastfetch
-
-      # Backup
-      vscode
-      vivaldi
     ];
 
     inherit (config.var) username;
