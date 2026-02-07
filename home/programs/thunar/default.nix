@@ -2,6 +2,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }: let
   user = config.var.username;
@@ -19,26 +20,28 @@ in {
   ];
 
   gtk = {
+    enable = true;
     iconTheme = {
-      name = "WhiteSur";
-      package = pkgs.whitesur-icon-theme.override {
-        boldPanelIcons = true;
-        alternativeIcons = true;
-      };
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
     };
+
+    # bookmarks for the side pane
+    gtk3.bookmarks = [
+      "file:///home/${user}/Downloads Downloads"
+      "file:///home/${user}/Pictures Pictures"
+      "file:///home/${user}/.config/nixos NixOS"
+      "file:///home/${user}/dev Development"
+    ];
   };
+
+  qt.enable = true;
 
   home.sessionVariables = {
-    XDG_ICON_DIR = "${pkgs.whitesur-icon-theme}/share/icons/WhiteSur";
+    XDG_ICON_DIR = "${pkgs.papirus-icon-theme}/share/icons/Papirus";
+    QS_ICON_THEME = "Papirus";
+    QT_STYLE_OVERRIDE = lib.mkForce "Fusion";
   };
-
-  # bookmarks for the side pane
-  gtk.gtk3.bookmarks = [
-    "file:///home/${user}/Downloads Downloads"
-    "file:///home/${user}/Pictures Pictures"
-    "file:///home/${user}/.config/nixos NixOS"
-    "file:///home/${user}/dev Development"
-  ];
 
   home.file.".config/xarchiver/xarchiverrc".text = ''
     [xarchiver]
