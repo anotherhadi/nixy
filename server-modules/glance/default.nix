@@ -15,9 +15,26 @@
       };
     };
     cloudflared.tunnels."f7c8f777-a36c-4b9a-b6e3-6a112bd43e73".ingress = {
-      "start.hadi.diy" = "http://localhost:${toString config.services.glance.settings.server.port}";
-      "home.hadi.diy" = "http://localhost:${toString config.services.glance.settings.server.port}";
-      "glance.hadi.diy" = "http://localhost:${toString config.services.glance.settings.server.port}";
+      "start.hadi.diy" = "http://localhost:8755";
+      "home.hadi.diy" = "http://localhost:8755";
+      "glance.hadi.diy" = "http://localhost:8755";
+    };
+
+    nginx.virtualHosts."glance.local" = {
+      listen = [
+        {
+          addr = "127.0.0.1";
+          port = 8755;
+        }
+      ];
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:${toString config.services.glance.settings.server.port}";
+        extraConfig = ''
+          proxy_cache_valid 200 30m;
+          proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+          add_header X-Cache-Status $upstream_cache_status;
+        '';
+      };
     };
   };
 
