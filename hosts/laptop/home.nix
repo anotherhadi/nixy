@@ -47,7 +47,7 @@
       ticktick # Todo app
       session-desktop # Session app, private messages
       signal-desktop # Signal app, private messages
-      stirling-pdf # TODO: Server version
+      stirling-pdf
       calibre
 
       # Dev
