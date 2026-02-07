@@ -8,7 +8,10 @@ with lib; let
   defaultApps = {
     # check desktop files here: `ls $(echo $XDG_DATA_DIRS| sed "s/:/ /g")`
     browser = ["brave.desktop"];
-    text = ["org.gnome.TextEditor.desktop"];
+    text = [
+      # "org.gnome.TextEditor.desktop"
+      "nvim-ghostty.desktop"
+    ];
     code = ["nvim-ghostty.desktop"];
     image = ["imv-dir.desktop"];
     audio = ["mpv.desktop"];
@@ -122,7 +125,7 @@ with lib; let
   nvim-ghostty = pkgs.makeDesktopItem {
     name = "nvim-ghostty";
     desktopName = "Neovim (Ghostty)";
-    exec = "ghostty -e nvim %F";
+    exec = ''ghostty --title="Neovim Editor" -e nvim %F'';
     terminal = false;
     categories = ["Development" "TextEditor"];
     mimeTypes = mimeMap.code ++ mimeMap.text;
