@@ -120,7 +120,10 @@
     onSuccessContainer ${colors.base05}
   '';
 
+  colorsHash = builtins.hashString "sha256" (builtins.toJSON colors);
+
   customCli = inputs.caelestia-cli.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (oldAttrs: {
+    name = "${oldAttrs.name or "caelestia-cli"}-themed-${colorsHash}";
     postUnpack = ''
       mkdir -p $sourceRoot/src/caelestia/data/schemes/custom/main
       cp ${customSchemeFile} $sourceRoot/src/caelestia/data/schemes/custom/main/dark.txt
