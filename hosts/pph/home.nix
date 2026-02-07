@@ -40,6 +40,8 @@
       gnome-clocks # Clocks app
       gnome-text-editor # Basic graphic text editor
       mpv # Video player
+      swappy # Screenshot tool
+      pinta # Image editor
 
       # Dev
       go
@@ -51,6 +53,7 @@
       just
       air
       duckdb
+      lazydocker
 
       # Just cool
       peaclock
@@ -58,10 +61,6 @@
       pipes
       cmatrix
       fastfetch
-
-      # Backup
-      vscode
-      vivaldi
     ];
 
     inherit (config.var) username;

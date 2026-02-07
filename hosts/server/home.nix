@@ -34,11 +34,8 @@
       # Utils
       zip
       unzip
-      optipng
-      pfetch
       btop
       fastfetch
-      tailscale
     ];
 
     # Don't touch this
