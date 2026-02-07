@@ -57,8 +57,8 @@ in {
     XDG_DATA_HOME = "$HOME/.local/share";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
     EDITOR = "nvim";
-    TERMINAL = "kitty";
-    TERM = "kitty";
+    TERMINAL = "ghostty";
+    TERM = "ghostty";
     BROWSER = "zen-beta";
   };
 

@@ -63,7 +63,7 @@ in {
     show_toolbar=true
     preferred_custom_cmd=
     preferred_temp_dir=/tmp
-    preferred_extract_dir=/home/${user}/Downloads
+    preferred_extract_dir=./
     allow_sub_dir=0
     ensure_directory=true
     overwrite=false
@@ -134,8 +134,8 @@ in {
           <icon>utilities-terminal</icon>
           <name>Open Terminal Here</name>
           <unique-id>1700000000000001</unique-id>
-          <command>kitty -d %f</command>
-          <description>Opens Kitty terminal in the selected folder</description>
+          <command>ghostty -d %f</command>
+          <description>Opens terminal in the selected folder</description>
           <patterns>*</patterns>
           <startup-notify/>
           <directories/>

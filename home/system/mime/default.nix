@@ -19,7 +19,7 @@ with lib; let
     directory = ["thunar.desktop"];
     office = ["libreoffice.desktop"];
     pdf = ["zathura.desktop"];
-    terminal = ["kitty.desktop"];
+    terminal = ["ghostty.desktop"];
     discord = ["discord.desktop"];
     archive = ["xarchiver.desktop"];
   };

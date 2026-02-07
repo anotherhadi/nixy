@@ -47,7 +47,6 @@ in {
       tree = "eza --icons=always --tree --no-quotes";
       sl = "ls";
       open = "${pkgs.xdg-utils}/bin/xdg-open";
-      icat = "${pkgs.kitty}/bin/kitty +kitten icat";
       cat = "bat --theme=base16 --color=always --paging=never --tabs=2 --wrap=never --plain";
       mkdir = "mkdir -p";
 
