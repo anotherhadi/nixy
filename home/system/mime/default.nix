@@ -1,10 +1,15 @@
 # Mime type associations for the system.
-{lib, ...}:
+{
+  lib,
+  pkgs,
+  ...
+}:
 with lib; let
   defaultApps = {
     # check desktop files here: `ls $(echo $XDG_DATA_DIRS| sed "s/:/ /g")`
     browser = ["brave.desktop"];
     text = ["org.gnome.TextEditor.desktop"];
+    code = ["nvim-ghostty.desktop"];
     image = ["imv-dir.desktop"];
     audio = ["mpv.desktop"];
     video = ["mpv.desktop"];
@@ -18,6 +23,41 @@ with lib; let
 
   mimeMap = {
     text = ["text/plain"];
+    code = [
+      "text/x-csrc"
+      "text/x-chdr"
+      "text/x-c++src"
+      "text/x-c++hdr"
+      "text/x-rust"
+      "text/x-go"
+      "text/x-java"
+      "text/x-csharp"
+
+      "text/x-python"
+      "application/x-shellscript"
+      "text/javascript"
+      "application/javascript"
+      "text/css"
+      "text/x-php"
+      "text/x-ruby"
+
+      "application/json"
+      "application/xml"
+      "text/xml"
+      "text/x-yaml"
+      "application/x-yaml"
+      "application/toml"
+      "text/x-nix"
+      "text/markdown"
+
+      "text/x-dockerfile"
+      "application/x-yaml"
+      "text/x-terraform"
+
+      "application/x-perl"
+      "text/x-lua"
+      "text/x-haskell"
+    ];
     image = [
       "image/bmp"
       "image/gif"
@@ -79,11 +119,22 @@ with lib; let
     discord = ["x-scheme-handler/discord"];
   };
 
+  nvim-ghostty = pkgs.makeDesktopItem {
+    name = "nvim-ghostty";
+    desktopName = "Neovim (Ghostty)";
+    exec = "ghostty -e nvim %F";
+    terminal = false;
+    categories = ["Development" "TextEditor"];
+    mimeTypes = mimeMap.code ++ mimeMap.text;
+  };
+
   associations = with lists;
     listToAttrs (flatten (mapAttrsToList
       (key: map (type: attrsets.nameValuePair type defaultApps."${key}"))
       mimeMap));
 in {
+  home.packages = [nvim-ghostty];
+
   xdg = {
     configFile."mimeapps.list".force = true;
     mimeApps = {
