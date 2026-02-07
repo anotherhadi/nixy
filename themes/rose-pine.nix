@@ -53,8 +53,8 @@
 
     fonts = {
       monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrains Mono Nerd Font";
+        package = pkgs.maple-mono.NF;
+        name = "Maple Mono NF";
       };
       sansSerif = {
         package = pkgs.source-sans-pro;
