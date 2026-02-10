@@ -41,6 +41,7 @@ in {
         kbLayoutChanged = false;
       };
     };
+    dashboard.showOnHover = false;
     border = {
       inherit rounding;
       thickness = 8;
