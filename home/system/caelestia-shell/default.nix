@@ -7,7 +7,6 @@
 }: {
   imports = [
     inputs.caelestia-shell.homeManagerModules.default
-    ./bindings.nix
     ./bar.nix
     ./launcher.nix
     ./appearance.nix
