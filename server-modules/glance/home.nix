@@ -73,12 +73,12 @@
                           url = "https://lumo.proton.me";
                         }
                         {
-                          title = "Gemini";
-                          url = "https://gemini.google.com";
-                        }
-                        {
                           title = "Calendar";
                           url = "https://calendar.proton.me";
+                        }
+                        {
+                          title = "Maps";
+                          url = "https://maps.apple.com";
                         }
                       ];
                     }
@@ -111,6 +111,10 @@
                           title = "Markdown to pdf";
                           url = "https://md2file.com";
                         }
+                        {
+                          title = "Image to Vector";
+                          url = "https://www.vectorcascade.com/";
+                        }
                       ];
                     }
                     {
@@ -131,12 +135,12 @@
                           url = "https://reddit.com";
                         }
                         {
-                          title = "Maps";
-                          url = "https://maps.apple.com";
-                        }
-                        {
                           title = "Youtube";
                           url = "https://youtube.com";
+                        }
+                        {
+                          title = "Instagram";
+                          url = "https://instagram.com";
                         }
                         {
                           title = "Github";
@@ -164,6 +168,14 @@
                         {
                           title = "Nixpkgs";
                           url = "https://github.com/NixOS/nixpkgs";
+                        }
+                        {
+                          title = "Gemini";
+                          url = "https://gemini.google.com";
+                        }
+                        {
+                          title = "Medium";
+                          url = "https://medium.com";
                         }
                       ];
                     }
