@@ -75,8 +75,8 @@
 
     polarity = "dark";
     image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/rain-pixel.png";
-      sha256 = "sha256-f4ZWb4nKCNP1aanTJ5EI0nI7Vpvd+Mp79JFL708qPR4=";
+      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/nepal.png";
+      sha256 = "sha256-0o2+B3+yA++PCyfNC+VqmaX959aKk3GuD7XpOq3SGcM=";
     };
   };
 }
