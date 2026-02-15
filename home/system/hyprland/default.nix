@@ -27,6 +27,8 @@ in {
     qt6.qtwayland
     libsForQt5.qt5ct
     qt6Packages.qt6ct
+    xcb-util-cursor
+    libxcb
     hyprland-qtutils
     adw-gtk3
     hyprshot
@@ -79,8 +81,8 @@ in {
         "XDG_SESSION_TYPE,wayland"
         "XDG_SESSION_DESKTOP,Hyprland"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-        "QT_QPA_PLATFORM=wayland,xcb"
-        "QT_QPA_PLATFORMTHEME=gtk3"
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_QPA_PLATFORMTHEME,gtk3"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "__GL_GSYNC_ALLOWED,0"
