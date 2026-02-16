@@ -64,6 +64,16 @@ in {
               desc = "TickTick";
               cmd = "${pkgs.ticktick}/bin/ticktick";
             }
+            {
+              key = "b";
+              desc = "Brave";
+              cmd = "${pkgs.brave}/bin/brave";
+            }
+            {
+              key = "i";
+              desc = "Brave (Private window)";
+              cmd = "${pkgs.brave}/bin/brave --incognito";
+            }
           ]))
 
         # Web links
@@ -154,6 +164,7 @@ in {
         "$shiftMod, E, exec, pkill fuzzel || caelestia emoji -p" # Emoji picker
         "$mod, SPACE, global, caelestia:launcher" # Launcher
         "$mod, N, exec, caelestia shell drawers toggle sidebar" # Sidebar (Notifications, quick actions)
+        "$mod, D, exec, caelestia shell drawers toggle dashboard" # Dashboard
 
         # Windows
         "$mod,Q, killactive," # Close window
