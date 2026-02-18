@@ -87,6 +87,13 @@
       enableFormat = true;
       enableTreesitter = true;
 
+      python = {
+        enable = true;
+        lsp = {
+          enable = true;
+          servers = ["pyright"];
+        };
+      };
       astro.enable = true;
       go.enable = true;
       markdown = {
