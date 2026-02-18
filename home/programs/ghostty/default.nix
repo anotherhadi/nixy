@@ -5,6 +5,7 @@
     enableZshIntegration = true;
     settings = {
       window-padding-x = 10;
+      confirm-close-surface = false;
       window-padding-y = 10;
       keybind = [
         "ctrl+j=goto_split:left"
