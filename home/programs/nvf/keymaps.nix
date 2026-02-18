@@ -32,33 +32,7 @@
         desc = "Next Buffer";
       }
 
-      # Kitty navigator
-      {
-        key = "<C-h>";
-        mode = "n";
-        silent = true;
-        action = "<cmd>KittyNavigateLeft<cr>";
-      }
-      {
-        key = "<C-j>";
-        mode = "n";
-        silent = true;
-        action = "<cmd>KittyNavigateDown<cr>";
-      }
-      {
-        key = "<C-k>";
-        mode = "n";
-        silent = true;
-        action = "<cmd>KittyNavigateUp<cr>";
-      }
-      {
-        key = "<C-l>";
-        mode = "n";
-        silent = true;
-        action = "<cmd>KittyNavigateRight<cr>";
-      }
-
-      # Disable Arrow Keys in Normal Mode
+      # Disable Arrow Keys in Normal Mode and Middle click
       {
         key = "<Up>";
         mode = "n";
@@ -86,6 +60,24 @@
         silent = true;
         action = "<Nop>";
         desc = "Disable Right Arrow";
+      }
+      {
+        key = "<MiddleMouse>";
+        mode = ["n" "i" "v"]; # Normal, Insert, Visual
+        action = "<nop>"; # No Operation
+        silent = true;
+      }
+      {
+        key = "<2-MiddleMouse>"; # Désactive aussi le double clic molette
+        mode = ["n" "i" "v"];
+        action = "<nop>";
+        silent = true;
+      }
+      {
+        key = "<3-MiddleMouse>"; # Désactive aussi le double clic molette
+        mode = ["n" "i" "v"];
+        action = "<nop>";
+        silent = true;
       }
 
       # UI

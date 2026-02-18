@@ -17,11 +17,5 @@
 
   programs.nvf = {
     enable = true;
-    settings.vim = {
-      startPlugins = [
-        # TODO: Change to ghostty
-        pkgs.vimPlugins.vim-kitty-navigator
-      ];
-    };
   };
 }
