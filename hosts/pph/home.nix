@@ -42,6 +42,8 @@
       mpv # Video player
       swappy # Screenshot tool
       pinta # Image editor
+      libreoffice
+      notesnook
 
       # Dev
       go
