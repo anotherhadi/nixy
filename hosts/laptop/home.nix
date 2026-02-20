@@ -80,6 +80,10 @@
     # Import a profile picture, used by the caelestia dashboard
     file.".face" = {source = ./profile_picture.png;};
 
+    sessionVariables = {
+      AQ_DRM_DEVICES = "/dev/dri/card2:/dev/dri/card1"; # CHANGEME: Related to the GPU
+    };
+
     # Don't touch this
     stateVersion = "24.05";
   };
