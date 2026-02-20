@@ -51,6 +51,8 @@
       calibre # Ebooks
       swappy # Screenshot tool
       pinta # Image editor
+      notesnook
+      element-desktop
 
       # Dev
       go

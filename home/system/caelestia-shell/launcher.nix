@@ -1,8 +1,8 @@
 {
   programs.caelestia.settings = {
     session.commands = {
-      logout = ["loginctl" "terminate-user" ""];
       shutdown = ["systemctl" "poweroff"];
+      logout = ["loginctl" "lock-session"];
       hibernate = ["systemctl" "hibernate"];
       reboot = ["systemctl" "reboot"];
     };
