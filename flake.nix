@@ -9,7 +9,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # FIXME: This is a temporary fix: External monitor doesn't work anymore
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=b1d1c9843f1977f80ca5c9e9ea01d3848e233fbe";
     stylix.url = "github:danth/stylix";
     nixcord.url = "github:kaylorben/nixcord";
     sops-nix.url = "github:Mic92/sops-nix";
@@ -54,20 +55,19 @@
           ];
         };
 
-      pph =
-        nixpkgs.lib.nixosSystem {
-          modules = [
-            {
-              nixpkgs.overlays = [];
-              _module.args = {
-                inherit inputs;
-              };
-            }
-            inputs.home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
-            ./hosts/pph/configuration.nix 
-          ];
-        };
+      pph = nixpkgs.lib.nixosSystem {
+        modules = [
+          {
+            nixpkgs.overlays = [];
+            _module.args = {
+              inherit inputs;
+            };
+          }
+          inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+          ./hosts/pph/configuration.nix
+        ];
+      };
       # Jack is my server
       jack = nixpkgs.lib.nixosSystem {
         modules = [
