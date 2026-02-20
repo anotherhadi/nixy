@@ -141,7 +141,6 @@ in {
       windowrule = [
         "match:class .*, suppress_event maximize"
 
-        "match:class brave-browser, fullscreen_state 0 2"
         "match:class brave-browser, sync_fullscreen 0"
 
         "match:class proton-authenticator, float on"
