@@ -115,6 +115,10 @@
                           title = "Image to Vector";
                           url = "https://www.vectorcascade.com/";
                         }
+                        {
+                          title = "PrivateBin";
+                          url = "https://privatebin.net";
+                        }
                       ];
                     }
                     {
@@ -145,6 +149,10 @@
                         {
                           title = "Github";
                           url = "https://github.com";
+                        }
+                        {
+                          title = "Discord";
+                          url = "https://discord.com/channels/@me/";
                         }
                       ];
                     }
