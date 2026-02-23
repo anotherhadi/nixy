@@ -16,10 +16,4 @@
       terminal = false;
     };
   };
-
-  # Auto-statrt Proton VPN
-
-  wayland.windowManager.hyprland.settings.exec-once = [
-    "protonvpn-app --start-minimized &"
-  ];
 }
