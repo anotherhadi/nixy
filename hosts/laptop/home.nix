@@ -5,21 +5,18 @@
 }: {
   imports = [
     # Programs
-    ../../home/programs/brave
-    ../../home/programs/proton
     ../../home/programs/ghostty
     ../../home/programs/nvf
     ../../home/programs/shell
     ../../home/programs/fetch
     ../../home/programs/git
     ../../home/programs/git/lazygit.nix
-    ../../home/programs/git/signing.nix # Change the key or remove this file
     ../../home/programs/spicetify
     ../../home/programs/thunar
-    ../../home/programs/discord
     ../../home/programs/nixy
     ../../home/programs/zathura
     ../../home/programs/nightshift
+    ../../home/programs/proton
     ../../home/programs/group/cybersecurity.nix
 
     # System (Desktop environment like stuff)
@@ -30,11 +27,14 @@
     ../../home/system/udiskie
 
     ./variables.nix # Mostly user-specific configuration
-    ./secrets # CHANGEME: You should probably remove this line, this is where I store my secrets
   ];
 
   home = {
     packages = with pkgs; [
+      # Browsers
+      firefox
+      chromium
+
       # Apps
       vlc # Video player
       blanket # White-noise app
@@ -45,8 +45,6 @@
       gnome-text-editor # Basic graphic text editor
       mpv # Video player
       ticktick # Todo app
-      session-desktop # Session app, private messages
-      signal-desktop # Signal app, private messages
       stirling-pdf # PDF Editor
       calibre # Ebooks
       swappy # Screenshot tool
@@ -81,7 +79,10 @@
     file.".face" = {source = ./profile_picture.png;};
 
     sessionVariables = {
-      AQ_DRM_DEVICES = "/dev/dri/card2:/dev/dri/card1"; # CHANGEME: Related to the GPU
+      # CHANGEME: check your DRM devices with `ls /dev/dri/`
+      # For single NVIDIA GPU (no integrated graphics): /dev/dri/card1
+      # For NVIDIA + Intel iGPU: /dev/dri/card1:/dev/dri/card0
+      AQ_DRM_DEVICES = "/dev/dri/card1";
     };
 
     # Don't touch this
