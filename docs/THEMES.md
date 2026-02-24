@@ -12,6 +12,6 @@ Wallpapers are loaded from the [hadi's awesome-wallpapers](https://github.com/an
 
 ### Rose-pine
 
-![Home](.github/assets/rose-pine/home.png)
-![Flake & Spotify](.github/assets/rose-pine/flake-spotify.png)
-![Browser and notification center](.github/assets/rose-pine/browser-and-notifications.png)
+![Home](../.github/assets/rose-pine/home.png)
+![Flake & Spotify](../.github/assets/rose-pine/flake-spotify.png)
+![Browser and notification center](../.github/assets/rose-pine/browser-and-notifications.png)
