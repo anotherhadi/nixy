@@ -80,6 +80,10 @@
                           title = "Maps";
                           url = "https://maps.apple.com";
                         }
+                        {
+                          title = "Amazon";
+                          url = "https://amazon.fr";
+                        }
                       ];
                     }
                     {
