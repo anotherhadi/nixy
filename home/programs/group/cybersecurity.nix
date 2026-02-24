@@ -4,6 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
+    firefox
     wireshark
     nmap
     john
