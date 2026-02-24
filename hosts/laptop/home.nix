@@ -54,6 +54,7 @@
       pinta # Image editor
       notesnook
       element-desktop
+      clamtk
 
       # Dev
       go
