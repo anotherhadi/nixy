@@ -41,6 +41,7 @@
         "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # privacy badger
         "ghmbeldphafepmbegfdlkpapadhbakde" # proton pass
         "mmjbdbjnoablegbkcklggeknkfcjkjia" # custom new tab page
+        "oabailhgoobiboghkmlppflobceplfde" # Enable Clipboard
       ];
     in
       map (id: {inherit id;}) ids;
