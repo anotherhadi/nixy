@@ -37,6 +37,7 @@
 in {
   boot.extraModulePackages = [hp-omen-linux-module];
   boot.kernelModules = ["hp-wmi"];
+  boot.kernelParams = ["hp_wmi.force_slow_fan_control=1"];
 
   users.groups.omen-rgb = {};
   users.users.${config.var.username}.extraGroups = ["omen-rgb"];
