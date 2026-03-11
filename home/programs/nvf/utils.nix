@@ -18,7 +18,6 @@
         enable = true;
         sources = {
           buffer = "[Buffer]";
-          nvim-cmp = null;
           path = "[Path]";
         };
         sourcePlugins = [
