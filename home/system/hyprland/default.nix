@@ -139,6 +139,7 @@ in {
 
       windowrule = [
         "match:class .*, suppress_event maximize"
+        "match:class brave-browser, suppressevent float"
 
         "match:class brave-browser, sync_fullscreen 0"
 
