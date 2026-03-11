@@ -160,6 +160,22 @@
         action = "<cmd>close<cr>";
         desc = "Close";
       }
+
+      # QOL
+      {
+        key = ">";
+        mode = "v";
+        silent = true;
+        action = ">gv";
+        desc = "Indent and keep selection";
+      }
+      {
+        key = "<";
+        mode = "v";
+        silent = true;
+        action = "<gv";
+        desc = "Dedent and keep selection";
+      }
     ];
   };
 }
