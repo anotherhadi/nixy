@@ -176,6 +176,54 @@
         action = "<gv";
         desc = "Dedent and keep selection";
       }
+
+      # Move
+      {
+        key = "<C-h>";
+        mode = "n";
+        silent = true;
+        action = "<C-w>h";
+        desc = "Move to left window";
+      }
+      {
+        key = "<C-j>";
+        mode = "n";
+        silent = true;
+        action = "<C-w>j";
+        desc = "Move to bottom window";
+      }
+      {
+        key = "<C-k>";
+        mode = "n";
+        silent = true;
+        action = "<C-w>k";
+        desc = "Move to top window";
+      }
+      {
+        key = "<C-l>";
+        mode = "n";
+        silent = true;
+        action = "<C-w>l";
+        desc = "Move to right window";
+      }
+
+      # Save
+      {
+        key = "<C-s>";
+        mode = ["n" "i" "v"];
+        silent = true;
+        action = "<cmd>w<cr>";
+        desc = "Save file";
+      }
+
+      # Deactivate "esc"
+      {
+        key = "<Esc>";
+        mode = ["n" "i" "v"];
+        silent = true;
+        action = "<Nop>";
+        desc = "Disable Escape";
+      }
     ];
   };
 }
