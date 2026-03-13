@@ -15,6 +15,10 @@
     nixcord.url = "github:kaylorben/nixcord";
     sops-nix.url = "github:Mic92/sops-nix";
     nvf.url = "github:notashelf/nvf";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,6 +55,7 @@
             inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME: check https://github.com/NixOS/nixos-hardware
             inputs.home-manager.nixosModules.home-manager
             inputs.stylix.nixosModules.stylix
+            inputs.nix-index-database.nixosModules.default
             ./hosts/laptop/configuration.nix # CHANGEME: change the path to match your host folder
           ];
         };
@@ -65,6 +70,7 @@
           }
           inputs.home-manager.nixosModules.home-manager
           inputs.stylix.nixosModules.stylix
+          inputs.nix-index-database.nixosModules.default
           ./hosts/pph/configuration.nix
         ];
       };
@@ -77,6 +83,7 @@
           inputs.sops-nix.nixosModules.sops
           inputs.nixarr.nixosModules.default
           inputs.eleakxir.nixosModules.eleakxir
+          inputs.nix-index-database.nixosModules.default
           ./hosts/server/configuration.nix
         ];
       };

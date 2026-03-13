@@ -18,6 +18,7 @@
     ../../home/programs/nightshift
     ../../home/programs/group/cybersecurity.nix
     ../../home/programs/proton
+    ../../home/programs/nix-utils
 
     # System (Desktop environment like stuff)
     ../../home/system/hyprland
