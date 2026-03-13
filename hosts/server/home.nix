@@ -14,6 +14,7 @@
     ../../home/programs/git
     ../../home/programs/git/lazygit.nix
     ../../home/programs/nixy
+    ../../home/programs/nix-utils
   ];
 
   home = {
