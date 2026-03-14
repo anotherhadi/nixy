@@ -15,6 +15,7 @@
     nixcord.url = "github:kaylorben/nixcord";
     sops-nix.url = "github:Mic92/sops-nix";
     nvf.url = "github:notashelf/nvf";
+    default-creds.url = "github:anotherhadi/default-creds";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -84,6 +85,7 @@
           inputs.nixarr.nixosModules.default
           inputs.eleakxir.nixosModules.eleakxir
           inputs.nix-index-database.nixosModules.default
+          inputs.default-creds.nixosModules.default
           ./hosts/server/configuration.nix
         ];
       };
