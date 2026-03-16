@@ -30,6 +30,19 @@
       registers = "unnamedplus";
       providers.wl-copy.enable = true;
     };
+    luaConfigRC.osc52-clipboard = ''
+      vim.g.clipboard = {
+        name = 'OSC 52',
+        copy = {
+          ['+'] = require('vim.ui.clipboard.osc52').copy '+',
+          ['*'] = require('vim.ui.clipboard.osc52').copy '*',
+        },
+        paste = {
+          ['+'] = require('vim.ui.clipboard.osc52').paste '+',
+          ['*'] = require('vim.ui.clipboard.osc52').paste '*',
+        },
+      }
+    '';
     theme = {
       enable = true;
       name = lib.mkForce "catppuccin";
