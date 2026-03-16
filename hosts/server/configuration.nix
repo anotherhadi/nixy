@@ -25,6 +25,7 @@
     ../../server-modules/fail2ban.nix
     ../../server-modules/freshrss.nix
     ../../server-modules/default-creds.nix
+    ../../server-modules/umami.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
