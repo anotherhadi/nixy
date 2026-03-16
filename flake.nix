@@ -9,8 +9,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    # FIXME: This is a temporary fix: External monitor doesn't work anymore
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=b1d1c9843f1977f80ca5c9e9ea01d3848e233fbe";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     stylix.url = "github:danth/stylix";
     nixcord.url = "github:kaylorben/nixcord";
     sops-nix.url = "github:Mic92/sops-nix";
