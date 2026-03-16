@@ -13,6 +13,7 @@
     secrets = {
       ssh-config = {path = "/home/hadrien/.ssh/config";};
       github-key = {path = "/home/hadrien/.ssh/github";};
+      gitlab-key = {path = "/home/hadrien/.ssh/gitlab";};
     };
   };
 
