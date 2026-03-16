@@ -24,6 +24,7 @@
     ../../server-modules/nginx.nix
     ../../server-modules/fail2ban.nix
     ../../server-modules/freshrss.nix
+    ../../server-modules/default-creds.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
