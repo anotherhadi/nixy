@@ -9,7 +9,7 @@
     nmap
     john
     hashcat
-    inputs.eleakxir.packages.${stdenv.hostPlatform.system}.leak-utils
+    # inputs.eleakxir.packages.${stdenv.hostPlatform.system}.leak-utils
     caido
     nuclei
   ];
