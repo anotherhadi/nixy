@@ -36,7 +36,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Server
-    eleakxir.url = "github:anotherhadi/eleakxir";
+    # FIXME: Deleted repo for now
+    # eleakxir.url = "github:anotherhadi/eleakxir";
     nixarr.url = "github:rasmus-kirk/nixarr";
   };
 
@@ -82,7 +83,7 @@
           inputs.stylix.nixosModules.stylix
           inputs.sops-nix.nixosModules.sops
           inputs.nixarr.nixosModules.default
-          inputs.eleakxir.nixosModules.eleakxir
+          # inputs.eleakxir.nixosModules.eleakxir
           inputs.nix-index-database.nixosModules.default
           inputs.default-creds.nixosModules.default
           ./hosts/server/configuration.nix

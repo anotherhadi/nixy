@@ -16,7 +16,7 @@
     ../../server-modules/glance
     ../../server-modules/adguardhome.nix
     ../../server-modules/arr.nix
-    ../../server-modules/eleakxir.nix
+    # ../../server-modules/eleakxir.nix
     ../../server-modules/stirling-pdf.nix
     ../../server-modules/cyberchef.nix
     ../../server-modules/linkding.nix
