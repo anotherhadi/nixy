@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
   imports = [
@@ -60,6 +61,7 @@
       # Dev
       go
       bun
+      inputs.bun2nix.packages.${system}.default
       docker
       nodejs
       python3
