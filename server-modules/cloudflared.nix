@@ -24,6 +24,12 @@
     cloudflared
   ];
 
+  systemd.services."cloudflared-tunnel-a1dfa315-7fc3-4a65-8c02-8387932c35c3" = {
+    wantedBy = ["multi-user.target"];
+    after = ["network-online.target"];
+    wants = ["network-online.target"];
+  };
+
   # At the moment (2025), for support of browser rendering of the tunnels, this line is required:
   services.openssh.settings.Macs = [
     "hmac-sha2-256"
