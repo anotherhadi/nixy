@@ -18,5 +18,5 @@ in {
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPG9SE80ZyBcXZK/f5ypSKudaM5Jo3XtQikCnGo0jI5E hadi@nixy"
   ];
 
-  services.cloudflared.tunnels."f7c8f777-a36c-4b9a-b6e3-6a112bd43e73".ingress."ssh.hadi.diy" = "ssh://localhost:22";
+  services.cloudflared.tunnels."a1dfa315-7fc3-4a65-8c02-8387932c35c3".ingress."ssh.hadi.icu" = "ssh://localhost:22";
 }
