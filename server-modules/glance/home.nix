@@ -58,7 +58,7 @@
                       links = [
                         {
                           title = "Linkding";
-                          url = "https://linkding.hadi.diy";
+                          url = "https://linkding.hadi.icu";
                         }
                         {
                           title = "Mail";
@@ -101,11 +101,11 @@
                         }
                         {
                           title = "Mazanoke (image downgrading)";
-                          url = "https://mazanoke.hadi.diy";
+                          url = "https://mazanoke.hadi.icu";
                         }
                         {
                           title = "Stirling PDF";
-                          url = "https://pdf.hadi.diy";
+                          url = "https://pdf.hadi.icu";
                         }
                         {
                           title = "Vert (file converter)";
@@ -204,11 +204,11 @@
                       links = [
                         {
                           title = "Nix 4 Cyber";
-                          url = "https://n4c.hadi.diy";
+                          url = "https://n4c.hadi.icu";
                         }
                         {
                           title = "Cyberchef";
-                          url = "https://cyberchef.hadi.diy";
+                          url = "https://cyberchef.hadi.icu";
                         }
                         {
                           title = "TryHackMe";

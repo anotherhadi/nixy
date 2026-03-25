@@ -52,14 +52,14 @@ in {
 
   users.users.jellyfin.extraGroups = ["video" "render"];
 
-  services.cloudflared.tunnels."f7c8f777-a36c-4b9a-b6e3-6a112bd43e73".ingress = {
-    "media.hadi.diy" = "http://localhost:8096";
-    "demandemedia.hadi.diy" = "http://localhost:5055";
-    "bazarr.hadi.diy" = "http://localhost:6767";
-    "prowlarr.hadi.diy" = "http://localhost:9696";
-    "radarr.hadi.diy" = "http://localhost:7878";
-    "sonarr.hadi.diy" = "http://localhost:8989";
-    "transmission.hadi.diy" = "http://localhost:9091";
-    "readarr.hadi.diy" = "http://localhost:8787";
+  services.cloudflared.tunnels."a1dfa315-7fc3-4a65-8c02-8387932c35c3".ingress = {
+    "media.hadi.icu" = "http://localhost:8096";
+    "demandemedia.hadi.icu" = "http://localhost:5055";
+    "bazarr.hadi.icu" = "http://localhost:6767";
+    "prowlarr.hadi.icu" = "http://localhost:9696";
+    "radarr.hadi.icu" = "http://localhost:7878";
+    "sonarr.hadi.icu" = "http://localhost:8989";
+    "transmission.hadi.icu" = "http://localhost:9091";
+    "readarr.hadi.icu" = "http://localhost:8787";
   };
 }
