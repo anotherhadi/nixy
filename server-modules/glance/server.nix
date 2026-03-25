@@ -50,9 +50,14 @@
                       icon = "sh:stirling-pdf";
                     }
                     {
-                      title = "Eleakxir";
-                      url = "https://eleakxir.hadi.icu";
-                      icon = "si:elixir";
+                      title = "Default-creds";
+                      url = "https://default-creds.hadi.icu";
+                      icon = "si:passbolt";
+                    }
+                    {
+                      title = "Blog";
+                      url = "https://hadi.icu";
+                      icon = "si:blogger";
                     }
                     {
                       title = "Cyberchef";
@@ -85,11 +90,6 @@
                       title = "Sonarr";
                       url = "https://sonarr.hadi.icu";
                       icon = "si:sonarr";
-                    }
-                    {
-                      title = "Readarr";
-                      url = "https://readarr.hadi.icu";
-                      icon = "si:bookstack";
                     }
                     {
                       title = "Bazarr";
@@ -141,7 +141,7 @@
                     }
                     {
                       title = "Cloudflare Access";
-                      url = "anotherhadi.cloudflareaccess.com";
+                      url = "https://anotherhadi.cloudflareaccess.com";
                     }
                   ];
                 }
