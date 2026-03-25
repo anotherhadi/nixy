@@ -34,7 +34,6 @@ in {
     radarr.enable = true;
     sonarr.enable = true;
     bazarr.enable = true;
-    readarr.enable = true;
     transmission = {
       enable = true;
       extraSettings = {
@@ -60,6 +59,5 @@ in {
     "radarr.hadi.icu" = "http://localhost:7878";
     "sonarr.hadi.icu" = "http://localhost:8989";
     "transmission.hadi.icu" = "http://localhost:9091";
-    "readarr.hadi.icu" = "http://localhost:8787";
   };
 }

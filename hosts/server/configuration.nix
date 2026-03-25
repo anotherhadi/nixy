@@ -17,6 +17,8 @@
     ../../server-modules/adguardhome.nix
     ../../server-modules/arr.nix
     # ../../server-modules/eleakxir.nix
+    ../../server-modules/blog.nix
+    ../../server-modules/awesome-wallpapers.nix
     ../../server-modules/stirling-pdf.nix
     ../../server-modules/cyberchef.nix
     ../../server-modules/mazanoke.nix

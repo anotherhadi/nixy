@@ -14,7 +14,6 @@
     nixcord.url = "github:kaylorben/nixcord";
     sops-nix.url = "github:Mic92/sops-nix";
     nvf.url = "github:notashelf/nvf";
-    default-creds.url = "github:anotherhadi/default-creds";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,6 +38,9 @@
     # FIXME: Deleted repo for now
     # eleakxir.url = "github:anotherhadi/eleakxir";
     nixarr.url = "github:rasmus-kirk/nixarr";
+    default-creds.url = "github:anotherhadi/default-creds";
+    blog.url = "github:anotherhadi/blog";
+    awesome-wallpapers.url = "github:anotherhadi/awesome-wallpapers";
   };
 
   outputs = inputs @ {nixpkgs, ...}: {
