@@ -57,10 +57,6 @@
                       color = "245 50 64";
                       links = [
                         {
-                          title = "Linkding";
-                          url = "https://linkding.hadi.icu";
-                        }
-                        {
                           title = "Mail";
                           url = "https://mail.proton.me";
                         }
@@ -131,10 +127,6 @@
                       color = "245 50 64";
                       links = [
                         {
-                          title = "X";
-                          url = "https://x.com";
-                        }
-                        {
                           title = "Bsky";
                           url = "https://bsky.app";
                         }
@@ -180,6 +172,10 @@
                         {
                           title = "Nixpkgs";
                           url = "https://github.com/NixOS/nixpkgs";
+                        }
+                        {
+                          title = "Claude";
+                          url = "https://claude.ai";
                         }
                         {
                           title = "Gemini";
