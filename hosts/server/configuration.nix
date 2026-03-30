@@ -26,6 +26,7 @@
     ../../server-modules/fail2ban.nix
     ../../server-modules/default-creds.nix
     ../../server-modules/umami.nix
+    ../../server-modules/gitea.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
