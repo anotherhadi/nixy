@@ -1,5 +1,5 @@
 <div align="center">
-    <img alt="nixy logo" src="https://raw.githubusercontent.com/anotherhadi/nixy/main/.github/assets/logo.png" width="120px" />
+    <img alt="nixy logo" src="./.github/assets/logo.png" width="120px" />
 </div>
 
 <br>
@@ -122,3 +122,11 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 
 - [CONTRIBUTING](docs/CONTRIBUTING.md): How to contribute
 - [LICENSE](LICENSE): MIT License
+
+---
+
+<div align="center">
+  <a href="https://github.com/anotherhadi/nixy">github</a> |
+  <a href="https://gitlab.com/anotherhadi/nixy">gitlab (mirror)</a> |
+  <a href="https://git.hadi.icu/anotherhadi/nixy">gitea (mirror)</a>
+</div
