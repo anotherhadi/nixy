@@ -137,6 +137,6 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 
 <div align="center">
   <a href="https://github.com/anotherhadi/nixy">github</a> |
-  <a href="https://gitlab.com/anotherhadi/nixy">gitlab (mirror)</a> |
+  <a href="https://gitlab.com/anotherhadi_mirror/nixy">gitlab (mirror)</a> |
   <a href="https://git.hadi.icu/anotherhadi/nixy">gitea (mirror)</a>
 </div
