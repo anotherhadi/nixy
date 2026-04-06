@@ -31,8 +31,8 @@ in {
         server = {
           HTTP_ADDR = "127.0.0.1";
           HTTP_PORT = 3002;
-          ROOT_URL = "https://git.hadi.icu/";
-          DOMAIN = "git.hadi.icu";
+          ROOT_URL = "https://git.${config.var.domain}/";
+          DOMAIN = "git.${config.var.domain}";
           LANDING_PAGE = "/anotherhadi";
         };
         service = {
@@ -58,7 +58,7 @@ in {
       };
     };
 
-    cloudflared.tunnels."a1dfa315-7fc3-4a65-8c02-8387932c35c3".ingress."git.hadi.icu" = "http://localhost:3002";
+    cloudflared.tunnels."${config.var.tunnelId}".ingress."git.${config.var.domain}" = "http://localhost:3002";
   };
 
   systemd.services.gitea.preStart = lib.mkAfter ''

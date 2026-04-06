@@ -51,13 +51,13 @@ in {
 
   users.users.jellyfin.extraGroups = ["video" "render"];
 
-  services.cloudflared.tunnels."a1dfa315-7fc3-4a65-8c02-8387932c35c3".ingress = {
-    "media.hadi.icu" = "http://localhost:8096";
-    "demandemedia.hadi.icu" = "http://localhost:5055";
-    "bazarr.hadi.icu" = "http://localhost:6767";
-    "prowlarr.hadi.icu" = "http://localhost:9696";
-    "radarr.hadi.icu" = "http://localhost:7878";
-    "sonarr.hadi.icu" = "http://localhost:8989";
-    "transmission.hadi.icu" = "http://localhost:9091";
+  services.cloudflared.tunnels."${config.var.tunnelId}".ingress = {
+    "media.${config.var.domain}" = "http://localhost:8096";
+    "demandemedia.${config.var.domain}" = "http://localhost:5055";
+    "bazarr.${config.var.domain}" = "http://localhost:6767";
+    "prowlarr.${config.var.domain}" = "http://localhost:9696";
+    "radarr.${config.var.domain}" = "http://localhost:7878";
+    "sonarr.${config.var.domain}" = "http://localhost:8989";
+    "transmission.${config.var.domain}" = "http://localhost:9091";
   };
 }

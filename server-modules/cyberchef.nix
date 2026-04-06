@@ -1,5 +1,9 @@
 # Cyberchef is a web app for analyzing and decoding data.
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   services = {
     nginx.virtualHosts."cyberchef.local" = {
       root = "${pkgs.cyberchef}/share/cyberchef";
@@ -10,6 +14,6 @@
         }
       ];
     };
-    cloudflared.tunnels."a1dfa315-7fc3-4a65-8c02-8387932c35c3".ingress."cyberchef.hadi.icu" = "http://localhost:8754";
+    cloudflared.tunnels."${config.var.tunnelId}".ingress."cyberchef.${config.var.domain}" = "http://localhost:8754";
   };
 }

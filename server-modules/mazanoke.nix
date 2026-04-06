@@ -1,5 +1,9 @@
 # Mazanoke is a self-hosted image downgrader
-{pkgs, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   version = "1.1.5";
   mazanoke-pkg = pkgs.stdenv.mkDerivation {
     inherit version;
@@ -30,6 +34,6 @@ in {
         }
       ];
     };
-    cloudflared.tunnels."a1dfa315-7fc3-4a65-8c02-8387932c35c3".ingress."mazanoke.hadi.icu" = "http://localhost:8755";
+    cloudflared.tunnels."${config.var.tunnelId}".ingress."mazanoke.${config.var.domain}" = "http://localhost:8755";
   };
 }

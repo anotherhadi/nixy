@@ -5,5 +5,5 @@
     environment."SERVER_PORT" = "8083";
   };
 
-  services.cloudflared.tunnels."a1dfa315-7fc3-4a65-8c02-8387932c35c3".ingress."pdf.hadi.icu" = "http://localhost:${toString config.services.stirling-pdf.environment.SERVER_PORT}";
+  services.cloudflared.tunnels."${config.var.tunnelId}".ingress."pdf.${config.var.domain}" = "http://localhost:${toString config.services.stirling-pdf.environment.SERVER_PORT}";
 }
