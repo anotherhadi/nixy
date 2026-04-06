@@ -26,42 +26,42 @@
                   sites = [
                     {
                       title = "Adguard";
-                      url = "https://adguard.hadi.icu";
+                      url = "https://adguard.${config.var.domain}";
                       icon = "si:adguard";
                     }
                     {
                       title = "Mealie";
-                      url = "https://mealie.hadi.icu";
+                      url = "https://mealie.${config.var.domain}";
                       icon = "si:mealie";
                     }
                     {
                       title = "Linkding";
-                      url = "https://linkding.hadi.icu";
+                      url = "https://linkding.${config.var.domain}";
                       icon = "sh:linkding";
                     }
                     {
                       title = "Mazanoke";
-                      url = "https://mazanoke.hadi.icu";
+                      url = "https://mazanoke.${config.var.domain}";
                       icon = "sh:mazanoke";
                     }
                     {
                       title = "Stirling PDF";
-                      url = "https://pdf.hadi.icu";
+                      url = "https://pdf.${config.var.domain}";
                       icon = "sh:stirling-pdf";
                     }
                     {
                       title = "Default-creds";
-                      url = "https://default-creds.hadi.icu";
+                      url = "https://default-creds.${config.var.domain}";
                       icon = "si:passbolt";
                     }
                     {
                       title = "Blog";
-                      url = "https://hadi.icu";
+                      url = "https://${config.var.domain}";
                       icon = "si:blogger";
                     }
                     {
                       title = "Cyberchef";
-                      url = "https://cyberchef.hadi.icu";
+                      url = "https://cyberchef.${config.var.domain}";
                       icon = "si:codechef";
                     }
                   ];
@@ -73,37 +73,37 @@
                   sites = [
                     {
                       title = "Jellyfin";
-                      url = "https://media.hadi.icu";
+                      url = "https://media.${config.var.domain}";
                       icon = "si:jellyfin";
                     }
                     {
                       title = "Jellyseerr";
-                      url = "https://demandemedia.hadi.icu";
+                      url = "https://demandemedia.${config.var.domain}";
                       icon = "si:odysee";
                     }
                     {
                       title = "Radarr";
-                      url = "https://radarr.hadi.icu";
+                      url = "https://radarr.${config.var.domain}";
                       icon = "si:radarr";
                     }
                     {
                       title = "Sonarr";
-                      url = "https://sonarr.hadi.icu";
+                      url = "https://sonarr.${config.var.domain}";
                       icon = "si:sonarr";
                     }
                     {
                       title = "Bazarr";
-                      url = "https://bazarr.hadi.icu";
+                      url = "https://bazarr.${config.var.domain}";
                       icon = "si:subtitleedit";
                     }
                     {
                       title = "Prowlarr";
-                      url = "https://prowlarr.hadi.icu";
+                      url = "https://prowlarr.${config.var.domain}";
                       icon = "si:podcastindex";
                     }
                     {
                       title = "Transmission";
-                      url = "https://transmission.hadi.icu";
+                      url = "https://transmission.${config.var.domain}";
                       icon = "si:transmission";
                     }
                   ];

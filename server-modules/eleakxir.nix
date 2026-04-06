@@ -22,5 +22,5 @@
     inputs.eleakxir.packages.${pkgs.stdenv.hostPlatform.system}.leak-utils
   ];
 
-  services.cloudflared.tunnels."a1dfa315-7fc3-4a65-8c02-8387932c35c3".ingress."eleakxir-back.hadi.icu" = "http://localhost:${toString config.services.eleakxir.port}";
+  services.cloudflared.tunnels."${config.var.tunnelId}".ingress."eleakxir-back.${config.var.domain}" = "http://localhost:${toString config.services.eleakxir.port}";
 }

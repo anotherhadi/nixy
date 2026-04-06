@@ -14,7 +14,7 @@
   # This will create a credentials file & give you the tunnel ID to use below.
   services.cloudflared = {
     enable = true;
-    tunnels."a1dfa315-7fc3-4a65-8c02-8387932c35c3" = {
+    tunnels."${config.var.tunnelId}" = {
       credentialsFile = config.sops.secrets."cloudflared-token".path;
       default = "http_status:404";
     };
@@ -24,7 +24,7 @@
     cloudflared
   ];
 
-  systemd.services."cloudflared-tunnel-a1dfa315-7fc3-4a65-8c02-8387932c35c3" = {
+  systemd.services."cloudflared-tunnel-${config.var.tunnelId}" = {
     wantedBy = ["multi-user.target"];
     after = ["network-online.target"];
     wants = ["network-online.target"];

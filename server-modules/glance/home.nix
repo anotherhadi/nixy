@@ -97,11 +97,11 @@
                         }
                         {
                           title = "Mazanoke (image downgrading)";
-                          url = "https://mazanoke.hadi.icu";
+                          url = "https://mazanoke.${config.var.domain}";
                         }
                         {
                           title = "Stirling PDF";
-                          url = "https://pdf.hadi.icu";
+                          url = "https://pdf.${config.var.domain}";
                         }
                         {
                           title = "Vert (file converter)";
@@ -200,11 +200,11 @@
                       links = [
                         {
                           title = "Nix 4 Cyber";
-                          url = "https://n4c.hadi.icu";
+                          url = "https://n4c.${config.var.domain}";
                         }
                         {
                           title = "Cyberchef";
-                          url = "https://cyberchef.hadi.icu";
+                          url = "https://cyberchef.${config.var.domain}";
                         }
                         {
                           title = "TryHackMe";
