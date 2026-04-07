@@ -5,5 +5,5 @@
     port = 8092;
   };
 
-  services.cloudflared.tunnels."f7c8f777-a36c-4b9a-b6e3-6a112bd43e73".ingress."mealie.hadi.diy" = "http://localhost:${toString config.services.mealie.port}";
+  services.cloudflared.tunnels."${config.var.tunnelId}".ingress."mealie.${config.var.domain}" = "http://localhost:${toString config.services.mealie.port}";
 }

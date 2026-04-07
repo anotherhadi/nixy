@@ -14,11 +14,7 @@
         server.port = 5678;
       };
     };
-    cloudflared.tunnels."f7c8f777-a36c-4b9a-b6e3-6a112bd43e73".ingress = {
-      "start.hadi.diy" = "http://localhost:8755";
-      "home.hadi.diy" = "http://localhost:8755";
-      "glance.hadi.diy" = "http://localhost:8755";
-    };
+    cloudflared.tunnels."${config.var.tunnelId}".ingress."home.${config.var.domain}" = "http://localhost:8755";
 
     nginx.virtualHosts."glance.local" = {
       listen = [

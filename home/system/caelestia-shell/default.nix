@@ -11,6 +11,7 @@
     ./launcher.nix
     ./appearance.nix
     ./scheme.nix
+    ./swappy.nix
   ];
 
   programs.caelestia = {

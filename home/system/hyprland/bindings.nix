@@ -83,7 +83,7 @@ in {
             {
               key = "h";
               desc = "Home";
-              cmd = "${pkgs.brave}/bin/brave 'https://home.hadi.diy'";
+              cmd = "${pkgs.brave}/bin/brave 'https://home.hadi.icu'";
             }
             {
               key = "m";

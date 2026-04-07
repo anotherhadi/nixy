@@ -11,5 +11,5 @@
     allowedUDPPorts = [53];
   };
 
-  services.cloudflared.tunnels."f7c8f777-a36c-4b9a-b6e3-6a112bd43e73".ingress."adguard.hadi.diy" = "http://localhost:${toString config.services.adguardhome.port}";
+  services.cloudflared.tunnels."${config.var.tunnelId}".ingress."adguard.${config.var.domain}" = "http://localhost:${toString config.services.adguardhome.port}";
 }
