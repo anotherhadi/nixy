@@ -175,6 +175,10 @@ in {
           clickfinger_behavior = true;
         };
       };
+
+      ecosystem = {
+        no_update_news = true;
+      };
     };
   };
 }
