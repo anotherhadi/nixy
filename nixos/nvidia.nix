@@ -104,5 +104,5 @@ in {
   ];
 
   # Enable Nvidia container toolkit for GPU acceleration in containers (docker)
-  hardware.nvidia-container-toolkit.enable = true;
+  hardware.nvidia-container-toolkit.enable = false;
 }
