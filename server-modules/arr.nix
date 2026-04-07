@@ -34,7 +34,6 @@ in {
     radarr.enable = true;
     sonarr.enable = true;
     bazarr.enable = true;
-    readarr.enable = true;
     transmission = {
       enable = true;
       extraSettings = {
@@ -52,14 +51,13 @@ in {
 
   users.users.jellyfin.extraGroups = ["video" "render"];
 
-  services.cloudflared.tunnels."f7c8f777-a36c-4b9a-b6e3-6a112bd43e73".ingress = {
-    "media.hadi.diy" = "http://localhost:8096";
-    "demandemedia.hadi.diy" = "http://localhost:5055";
-    "bazarr.hadi.diy" = "http://localhost:6767";
-    "prowlarr.hadi.diy" = "http://localhost:9696";
-    "radarr.hadi.diy" = "http://localhost:7878";
-    "sonarr.hadi.diy" = "http://localhost:8989";
-    "transmission.hadi.diy" = "http://localhost:9091";
-    "readarr.hadi.diy" = "http://localhost:8787";
+  services.cloudflared.tunnels."${config.var.tunnelId}".ingress = {
+    "media.${config.var.domain}" = "http://localhost:8096";
+    "demandemedia.${config.var.domain}" = "http://localhost:5055";
+    "bazarr.${config.var.domain}" = "http://localhost:6767";
+    "prowlarr.${config.var.domain}" = "http://localhost:9696";
+    "radarr.${config.var.domain}" = "http://localhost:7878";
+    "sonarr.${config.var.domain}" = "http://localhost:8989";
+    "transmission.${config.var.domain}" = "http://localhost:9091";
   };
 }

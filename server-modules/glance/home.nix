@@ -57,10 +57,6 @@
                       color = "245 50 64";
                       links = [
                         {
-                          title = "Linkding";
-                          url = "https://linkding.hadi.diy";
-                        }
-                        {
                           title = "Mail";
                           url = "https://mail.proton.me";
                         }
@@ -101,11 +97,11 @@
                         }
                         {
                           title = "Mazanoke (image downgrading)";
-                          url = "https://mazanoke.hadi.diy";
+                          url = "https://mazanoke.${config.var.domain}";
                         }
                         {
                           title = "Stirling PDF";
-                          url = "https://pdf.hadi.diy";
+                          url = "https://pdf.${config.var.domain}";
                         }
                         {
                           title = "Vert (file converter)";
@@ -130,10 +126,6 @@
                       same-tab = true;
                       color = "245 50 64";
                       links = [
-                        {
-                          title = "X";
-                          url = "https://x.com";
-                        }
                         {
                           title = "Bsky";
                           url = "https://bsky.app";
@@ -182,6 +174,10 @@
                           url = "https://github.com/NixOS/nixpkgs";
                         }
                         {
+                          title = "Claude";
+                          url = "https://claude.ai";
+                        }
+                        {
                           title = "Gemini";
                           url = "https://gemini.google.com";
                         }
@@ -204,11 +200,11 @@
                       links = [
                         {
                           title = "Nix 4 Cyber";
-                          url = "https://n4c.hadi.diy";
+                          url = "https://n4c.${config.var.domain}";
                         }
                         {
                           title = "Cyberchef";
-                          url = "https://cyberchef.hadi.diy";
+                          url = "https://cyberchef.${config.var.domain}";
                         }
                         {
                           title = "TryHackMe";

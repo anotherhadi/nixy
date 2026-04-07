@@ -26,37 +26,42 @@
                   sites = [
                     {
                       title = "Adguard";
-                      url = "https://adguard.hadi.diy";
+                      url = "https://adguard.${config.var.domain}";
                       icon = "si:adguard";
                     }
                     {
                       title = "Mealie";
-                      url = "https://mealie.hadi.diy";
+                      url = "https://mealie.${config.var.domain}";
                       icon = "si:mealie";
                     }
                     {
                       title = "Linkding";
-                      url = "https://linkding.hadi.diy";
+                      url = "https://linkding.${config.var.domain}";
                       icon = "sh:linkding";
                     }
                     {
                       title = "Mazanoke";
-                      url = "https://mazanoke.hadi.diy";
+                      url = "https://mazanoke.${config.var.domain}";
                       icon = "sh:mazanoke";
                     }
                     {
                       title = "Stirling PDF";
-                      url = "https://pdf.hadi.diy";
+                      url = "https://pdf.${config.var.domain}";
                       icon = "sh:stirling-pdf";
                     }
                     {
-                      title = "Eleakxir";
-                      url = "https://eleakxir.hadi.diy";
-                      icon = "si:elixir";
+                      title = "Default-creds";
+                      url = "https://default-creds.${config.var.domain}";
+                      icon = "si:passbolt";
+                    }
+                    {
+                      title = "Blog";
+                      url = "https://${config.var.domain}";
+                      icon = "si:blogger";
                     }
                     {
                       title = "Cyberchef";
-                      url = "https://cyberchef.hadi.diy";
+                      url = "https://cyberchef.${config.var.domain}";
                       icon = "si:codechef";
                     }
                   ];
@@ -68,42 +73,37 @@
                   sites = [
                     {
                       title = "Jellyfin";
-                      url = "https://media.hadi.diy";
+                      url = "https://media.${config.var.domain}";
                       icon = "si:jellyfin";
                     }
                     {
                       title = "Jellyseerr";
-                      url = "https://demandemedia.hadi.diy";
+                      url = "https://demandemedia.${config.var.domain}";
                       icon = "si:odysee";
                     }
                     {
                       title = "Radarr";
-                      url = "https://radarr.hadi.diy";
+                      url = "https://radarr.${config.var.domain}";
                       icon = "si:radarr";
                     }
                     {
                       title = "Sonarr";
-                      url = "https://sonarr.hadi.diy";
+                      url = "https://sonarr.${config.var.domain}";
                       icon = "si:sonarr";
                     }
                     {
-                      title = "Readarr";
-                      url = "https://readarr.hadi.diy";
-                      icon = "si:bookstack";
-                    }
-                    {
                       title = "Bazarr";
-                      url = "https://bazarr.hadi.diy";
+                      url = "https://bazarr.${config.var.domain}";
                       icon = "si:subtitleedit";
                     }
                     {
                       title = "Prowlarr";
-                      url = "https://prowlarr.hadi.diy";
+                      url = "https://prowlarr.${config.var.domain}";
                       icon = "si:podcastindex";
                     }
                     {
                       title = "Transmission";
-                      url = "https://transmission.hadi.diy";
+                      url = "https://transmission.${config.var.domain}";
                       icon = "si:transmission";
                     }
                   ];
@@ -141,7 +141,7 @@
                     }
                     {
                       title = "Cloudflare Access";
-                      url = "anotherhadi.cloudflareaccess.com";
+                      url = "https://anotherhadi.cloudflareaccess.com";
                     }
                   ];
                 }

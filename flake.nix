@@ -14,7 +14,8 @@
     nixcord.url = "github:kaylorben/nixcord";
     sops-nix.url = "github:Mic92/sops-nix";
     nvf.url = "github:notashelf/nvf";
-    default-creds.url = "github:anotherhadi/default-creds";
+    bun2nix.url = "github:nix-community/bun2nix";
+
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,8 +37,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Server
-    eleakxir.url = "github:anotherhadi/eleakxir";
+    # FIXME: Deleted repo for now
+    # eleakxir.url = "github:anotherhadi/eleakxir";
     nixarr.url = "github:rasmus-kirk/nixarr";
+    default-creds.url = "github:anotherhadi/default-creds";
+    blog.url = "github:anotherhadi/blog";
+    awesome-wallpapers.url = "github:anotherhadi/awesome-wallpapers";
   };
 
   outputs = inputs @ {nixpkgs, ...}: {
@@ -82,7 +87,7 @@
           inputs.stylix.nixosModules.stylix
           inputs.sops-nix.nixosModules.sops
           inputs.nixarr.nixosModules.default
-          inputs.eleakxir.nixosModules.eleakxir
+          # inputs.eleakxir.nixosModules.eleakxir
           inputs.nix-index-database.nixosModules.default
           inputs.default-creds.nixosModules.default
           ./hosts/server/configuration.nix
