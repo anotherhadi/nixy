@@ -61,7 +61,7 @@
       # Dev
       go
       bun
-      inputs.bun2nix.packages.${system}.default
+      inputs.bun2nix.packages.${stdenv.hostPlatform.system}.default
       docker
       nodejs
       python3
@@ -70,6 +70,7 @@
       air
       duckdb
       lazydocker
+      claude-code
 
       # Just cool
       peaclock
