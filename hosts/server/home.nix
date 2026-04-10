@@ -31,6 +31,7 @@
       pnpm
       wireguard-tools
       duckdb
+      claude-code
 
       # Utils
       zip
