@@ -12,6 +12,10 @@ in {
   # Add go binaries to the PATH
   home.sessionPath = ["$HOME/go/bin"];
 
+  home.sessionVariables = {
+    COLORTERM = "truecolor";
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
