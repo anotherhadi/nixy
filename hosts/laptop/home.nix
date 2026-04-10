@@ -18,7 +18,6 @@
     ../../home/programs/git/signing.nix # Change the key or remove this file
     ../../home/programs/spicetify
     ../../home/programs/thunar
-    ../../home/programs/discord
     ../../home/programs/nixy
     ../../home/programs/zathura
     ../../home/programs/nightshift

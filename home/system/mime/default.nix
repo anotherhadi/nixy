@@ -20,7 +20,6 @@ with lib; let
     office = ["libreoffice.desktop"];
     pdf = ["zathura.desktop"];
     terminal = ["ghostty.desktop"];
-    discord = ["discord.desktop"];
     archive = ["xarchiver.desktop"];
   };
 
@@ -119,7 +118,6 @@ with lib; let
       "application/7z"
       "application/*tar"
     ];
-    discord = ["x-scheme-handler/discord"];
   };
 
   nvim-ghostty = pkgs.makeDesktopItem {
