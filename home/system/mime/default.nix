@@ -7,7 +7,7 @@
 with lib; let
   defaultApps = {
     # check desktop files here: `ls $(echo $XDG_DATA_DIRS| sed "s/:/ /g")`
-    browser = ["brave.desktop"];
+    browser = ["zen-beta.desktop"];
     text = [
       # "org.gnome.TextEditor.desktop"
       "nvim-ghostty.desktop"
