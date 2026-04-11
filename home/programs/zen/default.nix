@@ -217,7 +217,11 @@
           }
           {
             id = "key_webconsole";
-            disabled = true;
+            key = "i";
+            modifiers = {
+              accel = true;
+              shift = true;
+            };
           }
           {
             id = "key_jsdebugger";
@@ -257,7 +261,10 @@
           }
           {
             id = "key_reload";
-            disabled = true;
+            key = "r";
+            modifiers = {
+              accel = true;
+            };
           }
           {
             id = "key_reload2";
@@ -265,7 +272,11 @@
           }
           {
             id = "key_reload_skip_cache";
-            disabled = true;
+            key = "r";
+            modifiers = {
+              accel = true;
+              shift = true;
+            };
           }
           {
             id = "key_reload_skip_cache2";
