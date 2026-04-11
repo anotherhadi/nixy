@@ -55,6 +55,7 @@ in {
 
   "zen.glance.enabled" = false;
   "zen.tabs.show-newtab-vertical" = false;
+  "zen.window-sync.enabled" = false;
 
   "privacy.userContext.enabled" = false;
   "privacy.userContext.ui.enabled" = false;
