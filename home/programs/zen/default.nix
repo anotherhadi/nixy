@@ -31,7 +31,6 @@
         settings = import ./settings.nix;
         bookmarks = import ./bookmarks.nix;
         search = import ./search.nix {inherit pkgs;};
-        pins = import ./pins.nix;
         spaces = import ./spaces.nix;
         keyboardShortcuts = [
           # Remaps
@@ -47,8 +46,11 @@
           }
           {
             id = "viewBookmarksToolbarKb";
-            key = "s";
-            modifiers.accel = true;
+            key = "b";
+            modifiers = {
+              accel = true;
+              shift = true;
+            };
           }
           {
             id = "key_findAgain";
@@ -172,7 +174,10 @@
           }
           {
             id = "viewBookmarksSidebarKb";
-            disabled = true;
+            key = "b";
+            modifiers = {
+              accel = true;
+            };
           }
           {
             id = "key_toggleMute";
