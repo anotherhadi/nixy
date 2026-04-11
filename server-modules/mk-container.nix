@@ -7,6 +7,13 @@
 #   externalInterface - WAN interface for NAT, required when internet = true
 #   bindMounts        - host paths to mount into the container (see containers.<name>.bindMounts)
 #   config            - NixOS module for the container
+
+let
+  nginxHardening = { config, ... }: lib.mkIf config.services.nginx.enable {
+    services.nginx.serverTokens = false;
+  };
+in
+
 {
   mkContainer =
     {
@@ -29,7 +36,7 @@
         localAddress = containerIp;
         inherit bindMounts;
         config = { ... }: {
-          imports = [ nixosConfig ];
+          imports = [ nixosConfig nginxHardening ];
           networking.nameservers = lib.mkIf internet [ "1.1.1.1" "1.0.0.1" ];
         };
       };
