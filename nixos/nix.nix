@@ -6,6 +6,11 @@
 }: let
   autoGarbageCollector = config.var.autoGarbageCollector;
 in {
+  # Ask for password once per SSH session (tied to the tty, expires when session closes)
+  security.sudo.extraConfig = ''
+    Defaults timestamp_type=tty,timestamp_timeout=-1
+  '';
+
   security.sudo.extraRules = [
     {
       users = [config.var.username];
@@ -19,7 +24,7 @@ in {
   ];
   nixpkgs.config = {
     allowUnfree = true;
-    allowBroken = true;
+    allowBroken = false;
   };
   nix = {
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];

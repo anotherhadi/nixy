@@ -6,7 +6,6 @@
     ../../nixos/systemd-boot.nix
     ../../nixos/users.nix
     ../../nixos/utils.nix
-    ../../nixos/docker.nix
     ../../nixos/amd-graphics.nix
 
     # NixOS server modules
@@ -23,7 +22,7 @@
     ../../server-modules/stirling-pdf.nix
     ../../server-modules/cyberchef.nix
     ../../server-modules/mazanoke.nix
-    ../../server-modules/nginx.nix
+    ../../server-modules/kernel-hardening.nix
     ../../server-modules/fail2ban.nix
     ../../server-modules/default-creds.nix
     ../../server-modules/umami.nix
