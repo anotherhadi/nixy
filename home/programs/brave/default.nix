@@ -63,11 +63,6 @@
     BraveDarkMode = 1;
   };
 
-  home.sessionVariables = {
-    DEFAULT_BROWSER = "${pkgs.brave}/bin/brave";
-    BROWSER = "${pkgs.brave}/bin/brave";
-  };
-
   xdg.desktopEntries = {
     brave-incognito = {
       name = "Brave (Private window)";

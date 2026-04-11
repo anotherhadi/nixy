@@ -66,59 +66,59 @@ in {
             }
             {
               key = "b";
-              desc = "Brave";
-              cmd = "${pkgs.brave}/bin/brave";
+              desc = "Zen Browser";
+              cmd = "zen-beta";
             }
             {
               key = "i";
-              desc = "Brave (Private window)";
-              cmd = "${pkgs.brave}/bin/brave --incognito";
+              desc = "Zen Browser (Private window)";
+              cmd = "zen-beta --private-window";
             }
           ]))
 
         # Web links
-        "$mod,B, exec,  uwsm app -- ${pkgs.brave}/bin/brave" # Browser (Brave)
+        "$mod,B, exec,  uwsm app -- zen-beta" # Browser (Zen)
         ("$shiftMod, B, exec, "
           + lib.getExe (mkMenu [
             {
               key = "h";
               desc = "Home";
-              cmd = "${pkgs.brave}/bin/brave 'https://home.hadi.icu'";
+              cmd = "zen-beta 'https://home.hadi.icu'";
             }
             {
               key = "m";
               desc = "Proton Mail";
-              cmd = "${pkgs.brave}/bin/brave 'https://mail.proton.me/u/2/inbox'";
+              cmd = "zen-beta 'https://mail.proton.me/u/2/inbox'";
             }
             {
               key = "c";
               desc = "Proton Calendar";
-              cmd = "${pkgs.brave}/bin/brave 'https://calendar.proton.me/u/2'";
+              cmd = "zen-beta 'https://calendar.proton.me/u/2'";
             }
             {
               key = "l";
               desc = "Proton Lumo";
-              cmd = "${pkgs.brave}/bin/brave 'https://lumo.proton.me/u/2'";
+              cmd = "zen-beta 'https://lumo.proton.me/u/2'";
             }
             {
               key = "d";
               desc = "Proton Drive";
-              cmd = "${pkgs.brave}/bin/brave 'https://drive.proton.me/u/2/'";
+              cmd = "zen-beta 'https://drive.proton.me/u/2/'";
             }
             {
               key = "G";
               desc = "Google Gemini";
-              cmd = "${pkgs.brave}/bin/brave 'https://gemini.google.com/'";
+              cmd = "zen-beta 'https://gemini.google.com/'";
             }
             {
               key = "g";
               desc = "Github";
-              cmd = "${pkgs.brave}/bin/brave 'https://github.com/'";
+              cmd = "zen-beta 'https://github.com/'";
             }
             {
               key = "n";
               desc = "MyNixos";
-              cmd = "${pkgs.brave}/bin/brave 'https://mynixos.com/'";
+              cmd = "zen-beta 'https://mynixos.com/'";
             }
           ]))
 

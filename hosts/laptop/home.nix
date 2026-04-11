@@ -23,6 +23,7 @@
     ../../home/programs/nightshift
     ../../home/programs/group/cybersecurity.nix
     ../../home/programs/nix-utils
+    ../../home/programs/zen
 
     # System (Desktop environment like stuff)
     ../../home/system/hyprland
