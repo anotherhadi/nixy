@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  domain,
+  adguardUrl,
+  ...
+}: {
   services.glance.settings.pages = [
     {
       name = "Server";
@@ -26,42 +30,62 @@
                   sites = [
                     {
                       title = "Adguard";
-                      url = "https://adguard.${config.var.domain}";
+                      url = "https://adguard.${domain}";
                       icon = "si:adguard";
                     }
                     {
+                      title = "Blog";
+                      url = "https://${domain}";
+                      icon = "si:blogger";
+                    }
+                    {
+                      title = "Gitea";
+                      url = "https://git.${domain}";
+                      icon = "si:gitea";
+                    }
+                    {
                       title = "Mealie";
-                      url = "https://mealie.${config.var.domain}";
+                      url = "https://mealie.${domain}";
                       icon = "si:mealie";
                     }
                     {
-                      title = "Linkding";
-                      url = "https://linkding.${config.var.domain}";
-                      icon = "sh:linkding";
+                      title = "Umami";
+                      url = "https://umami.${domain}";
+                      icon = "si:umami";
+                    }
+                    {
+                      title = "Iknowyou";
+                      url = "https://iknowyou.${domain}";
+                      icon = "sh:iknowyou";
+                    }
+                    {
+                      title = "Iknowyou Prod";
+                      url = "https://iknowyou-prod.${domain}";
+                      icon = "sh:iknowyou";
+                    }
+                    {
+                      title = "Wallpapers";
+                      url = "https://wallpapers.${domain}";
+                      icon = "si:unsplash";
                     }
                     {
                       title = "Mazanoke";
-                      url = "https://mazanoke.${config.var.domain}";
+                      url = "https://mazanoke.${domain}";
                       icon = "sh:mazanoke";
                     }
                     {
                       title = "Stirling PDF";
-                      url = "https://pdf.${config.var.domain}";
+                      url = "https://pdf.${domain}";
                       icon = "sh:stirling-pdf";
                     }
                     {
                       title = "Default-creds";
-                      url = "https://default-creds.${config.var.domain}";
+                      url = "https://default-creds.${domain}";
                       icon = "si:passbolt";
                     }
                     {
-                      title = "Blog";
-                      url = "https://${config.var.domain}";
-                      icon = "si:blogger";
-                    }
-                    {
                       title = "Cyberchef";
-                      url = "https://cyberchef.${config.var.domain}";
+                      url = "https://cyberchef.${domain}";
                       icon = "si:codechef";
                     }
                   ];
@@ -73,37 +97,37 @@
                   sites = [
                     {
                       title = "Jellyfin";
-                      url = "https://media.${config.var.domain}";
+                      url = "https://media.${domain}";
                       icon = "si:jellyfin";
                     }
                     {
                       title = "Jellyseerr";
-                      url = "https://demandemedia.${config.var.domain}";
+                      url = "https://demandemedia.${domain}";
                       icon = "si:odysee";
                     }
                     {
                       title = "Radarr";
-                      url = "https://radarr.${config.var.domain}";
+                      url = "https://radarr.${domain}";
                       icon = "si:radarr";
                     }
                     {
                       title = "Sonarr";
-                      url = "https://sonarr.${config.var.domain}";
+                      url = "https://sonarr.${domain}";
                       icon = "si:sonarr";
                     }
                     {
                       title = "Bazarr";
-                      url = "https://bazarr.${config.var.domain}";
+                      url = "https://bazarr.${domain}";
                       icon = "si:subtitleedit";
                     }
                     {
                       title = "Prowlarr";
-                      url = "https://prowlarr.${config.var.domain}";
+                      url = "https://prowlarr.${domain}";
                       icon = "si:podcastindex";
                     }
                     {
                       title = "Transmission";
-                      url = "https://transmission.${config.var.domain}";
+                      url = "https://transmission.${domain}";
                       icon = "si:transmission";
                     }
                   ];
@@ -114,7 +138,7 @@
             {
               type = "dns-stats";
               service = "adguard";
-              url = "http://localhost:${toString config.services.adguardhome.port}";
+              url = adguardUrl;
               username = "hadi";
               password = "\${secret:adguard-pwd}";
             }

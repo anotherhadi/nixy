@@ -19,6 +19,7 @@
     # ../../server-modules/eleakxir.nix
     ../../server-modules/blog.nix
     ../../server-modules/awesome-wallpapers.nix
+    ../../server-modules/iknowyou.nix
     ../../server-modules/stirling-pdf.nix
     ../../server-modules/cyberchef.nix
     ../../server-modules/mazanoke.nix
@@ -27,6 +28,7 @@
     ../../server-modules/default-creds.nix
     ../../server-modules/umami.nix
     ../../server-modules/gitea.nix
+    ../../server-modules/mealie.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix

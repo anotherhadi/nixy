@@ -11,7 +11,6 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     stylix.url = "github:danth/stylix";
-    nixcord.url = "github:kaylorben/nixcord";
     sops-nix.url = "github:Mic92/sops-nix";
     nvf.url = "github:notashelf/nvf";
     bun2nix.url = "github:nix-community/bun2nix";
@@ -43,6 +42,7 @@
     default-creds.url = "github:anotherhadi/default-creds";
     blog.url = "github:anotherhadi/blog";
     awesome-wallpapers.url = "github:anotherhadi/awesome-wallpapers";
+    iknowyou.url = "github:anotherhadi/iknowyou";
   };
 
   outputs = inputs @ {nixpkgs, ...}: {

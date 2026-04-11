@@ -24,8 +24,6 @@ The server hosts several key applications:
 - **Mealie**: A self-hosted recipe manager and meal planner with a clean user interface.
 - **Stirling-PDF**: A powerful, locally hosted web application for editing, merging, and converting PDF files.
 - **CyberChef**: The "Cyber Swiss Army Knife" for data analysis, decoding, and encryption tasks.
-- **Linkding**: A simple, fast, and minimalist bookmark manager.
 - **Mazanoke**: A utility service for image processing, specialized in format conversion and downgrading/optimization.
-- **Eleakxir**: A private search engine for exploring data wells (parquet files) with a modern web interface.
 - **SSH**: Secure remote access configuration for server management. (via browser too)
 - **Security related stuff**: Cloudflared, Fail2Ban, Firewall
