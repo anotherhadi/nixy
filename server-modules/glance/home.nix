@@ -1,4 +1,4 @@
-{config, ...}: {
+{ domain, ... }: {
   services.glance.settings.pages = [
     {
       name = "Home";
@@ -97,11 +97,11 @@
                         }
                         {
                           title = "Mazanoke (image downgrading)";
-                          url = "https://mazanoke.${config.var.domain}";
+                          url = "https://mazanoke.${domain}";
                         }
                         {
                           title = "Stirling PDF";
-                          url = "https://pdf.${config.var.domain}";
+                          url = "https://pdf.${domain}";
                         }
                         {
                           title = "Vert (file converter)";
@@ -200,11 +200,11 @@
                       links = [
                         {
                           title = "Nix 4 Cyber";
-                          url = "https://n4c.${config.var.domain}";
+                          url = "https://n4c.${domain}";
                         }
                         {
                           title = "Cyberchef";
-                          url = "https://cyberchef.${config.var.domain}";
+                          url = "https://cyberchef.${domain}";
                         }
                         {
                           title = "TryHackMe";
