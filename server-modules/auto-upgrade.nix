@@ -11,7 +11,7 @@
   sentinelFile = "/var/lib/nixos-auto-upgrade/failure-notified";
 in {
   sops.secrets."signal-sender-number" = {};
-  sops.secrets."signal-receiver-number" = {};
+  sops.secrets."signal-receiver-username" = {};
 
   environment.systemPackages = [pkgs.signal-cli];
 
@@ -46,6 +46,7 @@ in {
     serviceConfig = {
       Type = "oneshot";
       User = "root";
+      Environment = "JAVA_TOOL_OPTIONS=--enable-native-access=ALL-UNNAMED";
     };
     script = ''
       # Already notified for this failure streak, skip
@@ -54,12 +55,12 @@ in {
       fi
 
       SENDER=$(cat ${config.sops.secrets."signal-sender-number".path})
-      RECEIVER=$(cat ${config.sops.secrets."signal-receiver-number".path})
+      RECEIVER=$(cat ${config.sops.secrets."signal-receiver-username".path})
       ${pkgs.signal-cli}/bin/signal-cli \
         --config ${signalConfigDir} \
         -u "$SENDER" send \
-        -m "Jack: nixos-auto-upgrade failed, check the logs: journalctl -u nixos-auto-upgrade" \
-        "$RECEIVER"
+        -u "$RECEIVER" \
+        -m "Jack: nixos-auto-upgrade failed, check the logs: journalctl -u nixos-auto-upgrade"
 
       touch ${sentinelFile}
     '';
