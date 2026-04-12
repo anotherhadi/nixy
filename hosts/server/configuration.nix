@@ -28,6 +28,7 @@
     ../../server-modules/umami.nix
     ../../server-modules/gitea.nix
     ../../server-modules/mealie.nix
+    ../../server-modules/auto-upgrade.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
