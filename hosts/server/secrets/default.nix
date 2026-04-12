@@ -23,8 +23,6 @@
         path = "/home/hadi/.ssh/key.pub";
         mode = "0600";
       };
-      signal-sender-number = {};
-      signal-receiver-username = {};
     };
   };
 
