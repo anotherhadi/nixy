@@ -24,7 +24,7 @@
         mode = "0600";
       };
       signal-sender-number = {};
-      signal-receiver-number = {};
+      signal-receiver-username = {};
     };
   };
 
