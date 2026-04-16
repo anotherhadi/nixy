@@ -33,6 +33,10 @@
           name = "Tools";
           bookmarks = [
             {
+              name = "tldr";
+              url = "https://tldr.inbrowser.app/";
+            }
+            {
               name = "Excalidraw";
               url = "https://excalidraw.com";
             }
