@@ -1,4 +1,9 @@
 {
+  home.sessionVariables = {
+    TERMINAL = "ghostty";
+    TERM = "ghostty";
+  };
+
   programs.ghostty = {
     enable = true;
     installVimSyntax = true;

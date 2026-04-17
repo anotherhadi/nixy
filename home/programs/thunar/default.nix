@@ -1,6 +1,7 @@
 # Thunar is a file explorer
 {
   pkgs,
+  pkgs-stable,
   config,
   lib,
   ...
@@ -8,20 +9,24 @@
   user = config.var.username;
 in {
   # ctrl + m to toggle the menubar
-  home.packages = with pkgs; [
-    thunar
-    xfconf
-    tumbler
-    thunar-archive-plugin
-    thunar-volman
-    thunar-media-tags-plugin
-    p7zip
-    xarchiver
-    papirus-icon-theme
-    material-icons
-    material-design-icons
-    material-symbols
-  ];
+  home.packages =
+    (with pkgs-stable; [
+      xfce.thunar
+      xfce.xfconf
+      xfce.tumbler
+      xfce.thunar-archive-plugin
+      xfce.thunar-volman
+      xfce.thunar-media-tags-plugin
+      p7zip
+      xarchiver
+    ])
+    ++ (with pkgs; [
+      # Icon themes: keep on global pkgs to avoid conflicts with other modules
+      papirus-icon-theme
+      material-icons
+      material-design-icons
+      material-symbols
+    ]);
 
   gtk = {
     enable = true;
@@ -29,6 +34,8 @@ in {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
+
+    gtk4.theme = null;
 
     # bookmarks for the side pane
     gtk3.bookmarks = [

@@ -15,7 +15,6 @@
     ../../server-modules/glance
     ../../server-modules/adguardhome.nix
     ../../server-modules/arr.nix
-    # ../../server-modules/eleakxir.nix
     ../../server-modules/blog.nix
     ../../server-modules/awesome-wallpapers.nix
     ../../server-modules/iknowyou.nix

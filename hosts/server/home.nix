@@ -10,35 +10,17 @@
     # Programs
     ../../home/programs/nvf
     ../../home/programs/shell
-    ../../home/programs/fetch
     ../../home/programs/git
     ../../home/programs/git/lazygit.nix
     ../../home/programs/nixy
     ../../home/programs/nix-utils
+
+    ../../home/programs/group/dev.nix
   ];
 
   home = {
     inherit (config.var) username;
     homeDirectory = "/home/" + config.var.username;
-
-    packages = with pkgs; [
-      # Dev
-      go
-      nodejs
-      python3
-      jq
-      just
-      pnpm
-      wireguard-tools
-      duckdb
-      claude-code
-
-      # Utils
-      zip
-      unzip
-      btop
-      fastfetch
-    ];
 
     # Don't touch this
     stateVersion = "24.05";

@@ -12,8 +12,6 @@
     ../../nixos/users.nix
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
-    ../../nixos/docker.nix
-    ../../nixos/clamav.nix
 
     ../../nixos/omen.nix # CHANGEME: For my laptop only, remove this (OMEN 16)
 

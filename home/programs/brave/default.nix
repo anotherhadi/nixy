@@ -35,13 +35,6 @@
     ];
     extensions = let
       ids = [
-        "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
-        "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
-        "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
-        "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # privacy badger
-        "ghmbeldphafepmbegfdlkpapadhbakde" # proton pass
-        "mmjbdbjnoablegbkcklggeknkfcjkjia" # custom new tab page
-        "oabailhgoobiboghkmlppflobceplfde" # Enable Clipboard
       ];
     in
       map (id: {inherit id;}) ids;
@@ -82,27 +75,4 @@
       categories = ["Network" "WebBrowser"];
     };
   };
-
-  # =================================================================
-  #  BRAVE SETTINGS (via brave://flags)
-  # =================================================================
-
-  # These need to be set manually in brave://flags on first launch:
-  # - Enable Tab Groups (UI)
-  # - Enable Parallel Downloading
-  # - Enable Reader Mode
-  # - GPU Rasterization: Enabled
-  # - Override software rendering list: Enabled
-  #
-  # Privacy settings (brave://settings/privacy):
-  # - Block trackers & ads: Aggressive
-  # - Block all fingerprinting
-  # - Upgrade connections to HTTPS
-  # - Block scripts: Off (breaks sites, use uBlock instead)
-  # - Block cookies: Only 3rd party
-  #
-  # Appearance (brave://settings/appearance):
-  # - Show home button: Off
-  # - Show bookmarks bar: Only on new tab
-  # - Use wide address bar: On
 }
