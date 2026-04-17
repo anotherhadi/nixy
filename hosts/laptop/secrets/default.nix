@@ -5,7 +5,7 @@
   inputs,
   ...
 }: let
-  home = inputs.home-manager.lib.home;
+  inherit (inputs.home-manager.lib) home;
 in {
   imports = [inputs.sops-nix.homeManagerModules.sops];
 

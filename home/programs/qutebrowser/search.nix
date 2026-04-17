@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.qutebrowser.searchEngines = rec {
     startpage = "https://www.startpage.com/sp/search?q={}";
 

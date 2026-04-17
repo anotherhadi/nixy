@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   programs.brave = {
     enable = true;
     commandLineArgs = [

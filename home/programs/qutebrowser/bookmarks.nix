@@ -198,7 +198,7 @@
           ++ [
             {
               isRoot = false;
-              item = item;
+              inherit item;
             }
           ];
         pending = [];
@@ -244,7 +244,7 @@
       )
       bookmarkList);
 
-  privateBookmarksPath = config.qutebrowser.privateBookmarksPath;
+  inherit (config.qutebrowser) privateBookmarksPath;
 in {
   options.qutebrowser.privateBookmarksPath = lib.mkOption {
     type = lib.types.nullOr lib.types.str;
