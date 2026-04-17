@@ -1,11 +1,12 @@
 # Those are my secrets, encrypted with sops
 # You shouldn't import this file, unless you edit it
 {
-  pkgs,
   inputs,
+  pkgs,
+  config,
   ...
 }: let
-  inherit (inputs.home-manager.lib) home;
+  home = config.home.homeDirectory;
 in {
   imports = [inputs.sops-nix.homeManagerModules.sops];
 
