@@ -30,6 +30,7 @@
 
       # Tabs
       "tabs.show" = "switching";
+      "tabs.show_switching_delay" = 3000;
 
       # Scrollbar
       "scrolling.bar" = "never";
