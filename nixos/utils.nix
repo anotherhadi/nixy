@@ -57,9 +57,6 @@ in {
     XDG_DATA_HOME = "$HOME/.local/share";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
     EDITOR = "nvim";
-    TERMINAL = "ghostty";
-    TERM = "ghostty";
-    BROWSER = "zen-beta";
   };
 
   services.libinput.enable = true;

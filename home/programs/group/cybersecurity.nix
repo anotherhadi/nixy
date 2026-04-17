@@ -1,14 +1,13 @@
 {
-  pkgs,
+  pkgs-stable,
   inputs,
   ...
 }: {
-  home.packages = with pkgs; [
+  home.packages = with pkgs-stable; [
     wireshark
     nmap
     john
     hashcat
-    # inputs.eleakxir.packages.${stdenv.hostPlatform.system}.leak-utils
 
     # Web
     caido

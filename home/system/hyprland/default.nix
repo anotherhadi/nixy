@@ -39,13 +39,9 @@ in {
     wlr-randr
     brightnessctl
     gnome-themes-extra
-    libva
     dconf
     wayland-utils
     wayland-protocols
-    glib
-    direnv
-    meson
   ];
 
   wayland.windowManager.hyprland = {
@@ -74,25 +70,16 @@ in {
 
       env = [
         "XDG_CURRENT_DESKTOP,Hyprland"
-        "MOZ_ENABLE_WAYLAND,1"
-        "ANKI_WAYLAND,1"
-        "DISABLE_QT5_COMPAT,0"
-        "NIXOS_OZONE_WL,1"
         "XDG_SESSION_TYPE,wayland"
         "XDG_SESSION_DESKTOP,Hyprland"
+        "ANKI_WAYLAND,1"
+        "DISABLE_QT5_COMPAT,0"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_QPA_PLATFORMTHEME,gtk3"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
-        "__GL_GSYNC_ALLOWED,0"
-        "__GL_VRR_ALLOWED,0"
-        "DISABLE_QT5_COMPAT,0"
         "DIRENV_LOG_FORMAT,"
-        "WLR_DRM_NO_ATOMIC,1"
-        "WLR_BACKEND,vulkan"
-        "WLR_RENDERER,vulkan"
-        "WLR_NO_HARDWARE_CURSORS,1"
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
       ];
@@ -130,7 +117,7 @@ in {
       };
 
       master = {
-        new_status = true;
+        new_status = "slave";
         allow_small_split = true;
         mfact = 0.5;
       };
@@ -139,9 +126,6 @@ in {
 
       windowrule = [
         "match:class .*, suppress_event maximize"
-        "match:class zen-beta, suppress_event float"
-
-        "match:class zen-beta, sync_fullscreen 0"
 
         "match:class proton-authenticator, float on"
         "match:class proton-authenticator, center on"

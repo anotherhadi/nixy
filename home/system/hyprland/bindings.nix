@@ -66,61 +66,18 @@ in {
             }
             {
               key = "b";
-              desc = "Zen Browser";
-              cmd = "zen-beta";
+              desc = "Qutebrowser";
+              cmd = "${pkgs.qutebrowser}/bin/qutebrowser";
             }
             {
               key = "i";
-              desc = "Zen Browser (Private window)";
-              cmd = "zen-beta --private-window";
+              desc = "Qutebrowser (Temp session)";
+              cmd = "${pkgs.qutebrowser}/bin/qutebrowser --temp-basedir";
             }
           ]))
 
         # Web links
-        "$mod,B, exec,  uwsm app -- zen-beta" # Browser (Zen)
-        ("$shiftMod, B, exec, "
-          + lib.getExe (mkMenu [
-            {
-              key = "h";
-              desc = "Home";
-              cmd = "zen-beta 'https://home.hadi.icu'";
-            }
-            {
-              key = "m";
-              desc = "Proton Mail";
-              cmd = "zen-beta 'https://mail.proton.me/u/2/inbox'";
-            }
-            {
-              key = "c";
-              desc = "Proton Calendar";
-              cmd = "zen-beta 'https://calendar.proton.me/u/2'";
-            }
-            {
-              key = "l";
-              desc = "Proton Lumo";
-              cmd = "zen-beta 'https://lumo.proton.me/u/2'";
-            }
-            {
-              key = "d";
-              desc = "Proton Drive";
-              cmd = "zen-beta 'https://drive.proton.me/u/2/'";
-            }
-            {
-              key = "G";
-              desc = "Google Gemini";
-              cmd = "zen-beta 'https://gemini.google.com/'";
-            }
-            {
-              key = "g";
-              desc = "Github";
-              cmd = "zen-beta 'https://github.com/'";
-            }
-            {
-              key = "n";
-              desc = "MyNixos";
-              cmd = "zen-beta 'https://mynixos.com/'";
-            }
-          ]))
+        "$mod,B, exec, uwsm app -- ${pkgs.qutebrowser}/bin/qutebrowser" # Browser (Qutebrowser)
 
         # Power
         "$mod, X, global, caelestia:session" # Powermenu

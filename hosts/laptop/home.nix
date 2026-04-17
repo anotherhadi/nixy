@@ -12,18 +12,17 @@
     ../../home/programs/ghostty
     ../../home/programs/nvf
     ../../home/programs/shell
-    ../../home/programs/fetch
     ../../home/programs/git
     ../../home/programs/git/lazygit.nix
-    ../../home/programs/git/signing.nix # Change the key or remove this file
+    ../../home/programs/git/signing.nix # CHANGEME: Change the key or remove this file
     ../../home/programs/spicetify
     ../../home/programs/thunar
     ../../home/programs/nixy
-    ../../home/programs/zathura
     ../../home/programs/nightshift
+    ../../home/programs/qutebrowser
     ../../home/programs/nix-utils
-    ../../home/programs/zen
 
+    ../../home/programs/group/basic-apps.nix
     ../../home/programs/group/cybersecurity.nix
     ../../home/programs/group/dev.nix
     ../../home/programs/group/misc.nix
@@ -40,31 +39,8 @@
   ];
 
   home = {
-    packages = with pkgs; [
-      # Apps
-      vlc # Video player
-      blanket # White-noise app
-      obsidian # Note taking app
-      textpieces # Manipulate texts
-      resources # Ressource monitor
-      gnome-clocks # Clocks app
-      gnome-text-editor # Basic graphic text editor
-      mpv # Video player
-      ticktick # Todo app
-      session-desktop # Session app, private messages
-      signal-desktop # Signal app, private messages
-      stirling-pdf # PDF Editor
-      calibre # Ebooks
-      swappy # Screenshot tool
-      pinta # Image editor
-      element-desktop
-      clamtk
-    ];
-
     inherit (config.var) username;
     homeDirectory = "/home/" + config.var.username;
-
-    # Import a profile picture, used by the caelestia dashboard
     file.".face" = {source = ./profile_picture.png;};
 
     sessionVariables = {
