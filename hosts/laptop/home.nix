@@ -1,9 +1,4 @@
-{
-  pkgs,
-  config,
-  inputs,
-  ...
-}: {
+{config, ...}: {
   imports = [
     # Programs
     ../../home/programs/brave
