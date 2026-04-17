@@ -7,7 +7,6 @@
 with lib; let
   defaultApps = {
     # check desktop files here: `ls $(echo $XDG_DATA_DIRS| sed "s/:/ /g")`
-    browser = ["zen-beta.desktop"];
     text = [
       # "org.gnome.TextEditor.desktop"
       "nvim-ghostty.desktop"
@@ -91,13 +90,6 @@ with lib; let
       "video/x-msvideo"
     ];
     directory = ["inode/directory"];
-    browser = [
-      "text/html"
-      "x-scheme-handler/about"
-      "x-scheme-handler/http"
-      "x-scheme-handler/https"
-      "x-scheme-handler/unknown"
-    ];
     office = [
       "application/vnd.oasis.opendocument.text"
       "application/vnd.oasis.opendocument.spreadsheet"

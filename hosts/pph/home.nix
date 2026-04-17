@@ -19,6 +19,7 @@
     ../../home/programs/proton
     ../../home/programs/nix-utils
     ../../home/programs/zen
+    ../../home/programs/qutebrowser
 
     ../../home/programs/group/cybersecurity.nix
     ../../home/programs/group/dev.nix
