@@ -16,9 +16,13 @@
     ../../home/programs/nixy
     ../../home/programs/zathura
     ../../home/programs/nightshift
-    ../../home/programs/group/cybersecurity.nix
     ../../home/programs/proton
     ../../home/programs/nix-utils
+    ../../home/programs/zen
+
+    ../../home/programs/group/cybersecurity.nix
+    ../../home/programs/group/dev.nix
+    ../../home/programs/group/misc.nix
 
     # System (Desktop environment like stuff)
     ../../home/system/hyprland
@@ -35,7 +39,6 @@
     packages = with pkgs; [
       # Apps
       vlc # Video player
-      blanket # White-noise app
       obsidian # Note taking app
       textpieces # Manipulate texts
       resources # Ressource monitor
@@ -45,26 +48,6 @@
       swappy # Screenshot tool
       pinta # Image editor
       libreoffice
-      notesnook
-
-      # Dev
-      go
-      bun
-      docker
-      nodejs
-      python3
-      jq
-      just
-      air
-      duckdb
-      lazydocker
-
-      # Just cool
-      peaclock
-      cbonsai
-      pipes
-      cmatrix
-      fastfetch
     ];
 
     inherit (config.var) username;

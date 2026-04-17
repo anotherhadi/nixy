@@ -21,9 +21,12 @@
     ../../home/programs/nixy
     ../../home/programs/zathura
     ../../home/programs/nightshift
-    ../../home/programs/group/cybersecurity.nix
     ../../home/programs/nix-utils
     ../../home/programs/zen
+
+    ../../home/programs/group/cybersecurity.nix
+    ../../home/programs/group/dev.nix
+    ../../home/programs/group/misc.nix
 
     # System (Desktop environment like stuff)
     ../../home/system/hyprland
@@ -54,30 +57,8 @@
       calibre # Ebooks
       swappy # Screenshot tool
       pinta # Image editor
-      notesnook
       element-desktop
       clamtk
-
-      # Dev
-      go
-      bun
-      inputs.bun2nix.packages.${stdenv.hostPlatform.system}.default
-      docker
-      nodejs
-      python3
-      jq
-      just
-      air
-      duckdb
-      lazydocker
-      claude-code
-
-      # Just cool
-      peaclock
-      cbonsai
-      pipes
-      cmatrix
-      fastfetch
     ];
 
     inherit (config.var) username;
