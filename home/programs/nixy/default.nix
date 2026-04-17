@@ -10,7 +10,7 @@
   config,
   ...
 }: let
-  configDirectory = config.var.configDirectory;
+  inherit (config.var) configDirectory;
 
   nixy =
     pkgs.writeShellScriptBin "nixy"

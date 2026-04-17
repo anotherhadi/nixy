@@ -1,4 +1,4 @@
-{...}: {
+{
   xdg.dataFile = {
     # Startpage - hide sponsored results
     "qutebrowser/greasemonkey/startpage-no-ads.user.js".source =
