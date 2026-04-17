@@ -9,7 +9,7 @@
   ];
 
   config.var = {
-    hostname = "nixy";
+    hostname = "h-laptop";
     username = "hadi";
     configDirectory =
       "/home/"
