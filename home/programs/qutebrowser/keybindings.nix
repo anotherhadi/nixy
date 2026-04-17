@@ -1,6 +1,8 @@
 {config, ...}: {
   programs.qutebrowser.keyBindings = {
     normal."<Ctrl-w>" = "tab-close";
+    normal."<Ctrl-Tab>" = "tab-next";
+    normal."<Ctrl-Shift-Tab>" = "tab-prev";
     normal."<Ctrl-b>" = "open file://${config.xdg.dataHome}/qutebrowser/bookmarks.html";
 
     # Ctrl+c is used to leave the current mode and return to normal mode.
