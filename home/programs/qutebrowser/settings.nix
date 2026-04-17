@@ -28,6 +28,15 @@
       # Editor (Ctrl+e in text fields)
       "editor.command" = ["ghostty" "-e" "nvim" "{}"];
 
+      # Tabs
+      "tabs.show" = "switching";
+
+      # Scrollbar
+      "scrolling.bar" = "never";
+
+      # Statusbar
+      "statusbar.show" = "in-mode";
+
       # Privacy
       "content.geolocation" = false;
       "content.cookies.accept" = "no-3rdparty";
