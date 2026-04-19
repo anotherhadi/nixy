@@ -50,6 +50,16 @@ in {
               cmd = "${pkgs.proton-vpn}/bin/protonvpn-app";
             }
             {
+              key = "c";
+              desc = "Proton Calendar";
+              cmd = "${pkgs.qutebrowser}/bin/qutebrowser 'https://calendar.proton.me/'";
+            }
+            {
+              key = "m";
+              desc = "Proton Mail";
+              cmd = "${pkgs.qutebrowser}/bin/qutebrowser 'https://mail.proton.me/'";
+            }
+            {
               key = "o";
               desc = "Obsidian";
               cmd = "${pkgs.obsidian}/bin/obsidian";
