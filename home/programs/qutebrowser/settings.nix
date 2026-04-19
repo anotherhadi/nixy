@@ -29,8 +29,8 @@
       "editor.command" = ["ghostty" "-e" "nvim" "{}"];
 
       # Tabs
-      "tabs.show" = "switching";
-      "tabs.show_switching_delay" = 3000;
+      # "tabs.show" = "switching";
+      # "tabs.show_switching_delay" = 3000;
 
       # Scrollbar
       "scrolling.bar" = "never";
