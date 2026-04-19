@@ -4,184 +4,86 @@
   pkgs,
   ...
 }: let
-  bookmarkList = [
-    {
-      name = "Proton Mail";
-      url = "https://mail.proton.me";
-    }
-    {
-      name = "Proton Drive";
-      url = "https://drive.proton.me";
-    }
-    {
-      name = "Proton Lumo";
-      url = "https://lumo.proton.me";
-    }
-    {
-      name = "Proton Calendar";
-      url = "https://calendar.proton.me";
-    }
-    {
-      name = "Tools";
-      bookmarks = [
-        {
-          name = "tldr";
-          url = "https://tldr.inbrowser.app/";
-        }
-        {
-          name = "Excalidraw";
-          url = "https://excalidraw.com";
-        }
-        {
-          name = "Cobalt (downloader)";
-          url = "https://cobalt.meowing.de";
-        }
-        {
-          name = "Mazanoke (image)";
-          url = "https://mazanoke.hadi.icu";
-        }
-        {
-          name = "Stirling PDF";
-          url = "https://pdf.hadi.icu";
-        }
-        {
-          name = "Vert";
-          url = "https://vert.sh";
-        }
-        {
-          name = "Markdown to PDF";
-          url = "https://md2file.com";
-        }
-        {
-          name = "Image to Vector";
-          url = "https://www.vectorcascade.com/";
-        }
-        {
-          name = "PrivateBin";
-          url = "https://privatebin.net";
-        }
-      ];
-    }
-    {
-      name = "Social";
-      bookmarks = [
-        {
-          name = "Bluesky";
-          url = "https://bsky.app";
-        }
-        {
-          name = "Reddit";
-          url = "https://reddit.com";
-        }
-        {
-          name = "Youtube";
-          url = "https://youtube.com";
-        }
-        {
-          name = "Instagram";
-          url = "https://instagram.com";
-        }
-        {
-          name = "Github";
-          url = "https://github.com";
-        }
-        {
-          name = "Discord";
-          url = "https://discord.com/channels/@me/";
-        }
-      ];
-    }
-    {
-      name = "Other";
-      bookmarks = [
-        {
-          name = "Startpage Config";
-          url = "https://www.startpage.com/do/mypage.pl?prfe=45d331deb05471d659dba933e7400df51d952bb103da6f6125c0e769a6be1d65610456a479f495ceeee7e97311cf227d7c1bb198de0ceeb193d8cddf9c455c19a409cc35c3e3f542ee27bd7cecd3";
-        }
-        {
-          name = "Hyprland Wiki";
-          url = "https://wiki.hypr.land";
-        }
-        {
-          name = "MyNixOS";
-          url = "https://mynixos.com";
-        }
-        {
-          name = "Nixpkgs";
-          url = "https://github.com/NixOS/nixpkgs";
-        }
-        {
-          name = "Claude";
-          url = "https://claude.ai";
-        }
-        {
-          name = "Gemini";
-          url = "https://gemini.google.com";
-        }
-        {
-          name = "Medium";
-          url = "https://medium.com";
-        }
-        {
-          name = "Maps";
-          url = "https://maps.apple.com";
-        }
-        {
-          name = "Amazon";
-          url = "https://amazon.fr";
-        }
-      ];
-    }
-    {
-      name = "Infosec";
-      bookmarks = [
-        {
-          name = "Nix 4 Cyber";
-          url = "https://n4c.hadi.icu";
-        }
-        {
-          name = "Cyberchef";
-          url = "https://cyberchef.hadi.icu";
-        }
-        {
-          name = "TryHackMe";
-          url = "https://tryhackme.com";
-        }
-        {
-          name = "Root-Me";
-          url = "https://root-me.org";
-        }
-        {
-          name = "Exploit-DB";
-          url = "https://exploit-db.com";
-        }
-        {
-          name = "Crack Station";
-          url = "https://crackstation.net";
-        }
-        {
-          name = "Osint Tracker";
-          url = "https://app.osintracker.com";
-        }
-      ];
-    }
-  ];
+  bookmarkList =
+    (import ./general.nix)
+    ++ (import ./tools.nix)
+    ++ (import ./social.nix)
+    ++ (import ./infosec.nix)
+    ++ (import ./other.nix)
+    ++ (import ./jack.nix);
 
   c = config.lib.stylix.colors;
 
   stripProtocol = url:
     lib.removePrefix "https://" (lib.removePrefix "http://" url);
 
-  mkCard = item: ''
+  stripDomain = url:
+    builtins.head (
+      lib.splitString "/" (stripProtocol url)
+    );
+
+  mkCard = item: let
+    domain = stripDomain item.url;
+    initial = builtins.substring 0 1 item.name;
+  in ''
     <a href="${item.url}" class="card">
       <div class="favicon-wrapper">
-        <span class="favicon-fallback">${builtins.substring 0 1 item.name}</span>
+        <img class="favicon" src="https://icons.duckduckgo.com/ip3/${domain}.ico" alt="" aria-hidden="true" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="favicon-fallback" style="display:none">${initial}</span>
       </div>
       <div class="card-info">
         <span class="card-name">${item.name}</span>
         <span class="card-url">${stripProtocol item.url}</span>
       </div>
     </a>'';
+
+  # Render a list of items (cards and/or sub-folders) inside a folder
+  mkFolderContent = items: let
+    step = acc: item:
+      if item ? url
+      then acc // {pending = acc.pending ++ [item];}
+      else {
+        chunks =
+          acc.chunks
+          ++ lib.optional (acc.pending != []) {
+            isCards = true;
+            items = acc.pending;
+          }
+          ++ [{isCards = false; folder = item;}];
+        pending = [];
+      };
+    result = lib.foldl' step {chunks = []; pending = [];} items;
+    chunks =
+      result.chunks
+      ++ lib.optional (result.pending != []) {
+        isCards = true;
+        items = result.pending;
+      };
+  in
+    lib.concatMapStrings (chunk:
+      if chunk.isCards
+      then ''
+        <div class="cards">
+          ${lib.concatMapStrings mkCard chunk.items}
+        </div>''
+      else mkFolder chunk.folder)
+    chunks;
+
+  mkFolder = folder: let
+    iconHtml =
+      if folder ? icon
+      then ''<span class="material-symbols-outlined folder-icon" aria-hidden="true">${folder.icon}</span>''
+      else "";
+  in ''
+    <details class="folder-section" open>
+      <summary class="folder-title">
+        ${iconHtml}<span class="folder-name">${folder.name}</span>
+        <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="folder-content">
+        ${mkFolderContent folder.bookmarks}
+      </div>
+    </details>'';
 
   # Group consecutive root items so they share the same .cards grid
   grouped = let
@@ -195,12 +97,7 @@
             isRoot = true;
             items = acc.pending;
           }
-          ++ [
-            {
-              isRoot = false;
-              inherit item;
-            }
-          ];
+          ++ [{isRoot = false; inherit item;}];
         pending = [];
       };
     result =
@@ -219,30 +116,24 @@
   mkSection = group:
     if group.isRoot
     then ''
-      <div class="folder-section">
+      <div class="root-section">
         <div class="cards">
           ${lib.concatMapStrings mkCard group.items}
         </div>
-      </div>
-    ''
-    else ''
-      <div class="folder-section">
-        <h2 class="folder-title">${group.item.name}</h2>
-        <div class="cards">
-          ${lib.concatMapStrings mkCard group.item.bookmarks}
-        </div>
-      </div>
-    '';
+      </div>''
+    else mkFolder group.item;
+
+  # Recursively collect all leaf bookmarks with their full folder path
+  collectBookmarks = prefix: items:
+    lib.concatMapStrings (item:
+      if item ? url
+      then "${item.url} ${prefix}${item.name}\n"
+      else collectBookmarks "${prefix}${item.name}/" item.bookmarks
+    ) items;
 
   publicBookmarks =
     pkgs.writeText "qutebrowser-public-bookmarks"
-    (lib.concatMapStrings (
-        item:
-          if item ? url
-          then "${item.url} ${item.name}\n"
-          else lib.concatMapStrings (b: "${b.url} ${item.name}/${b.name}\n") item.bookmarks
-      )
-      bookmarkList);
+    (collectBookmarks "" bookmarkList);
 
   inherit (config.qutebrowser) privateBookmarksPath;
 in {
@@ -253,7 +144,6 @@ in {
   };
 
   config = {
-    # Fully static HTML — order is preserved, no dependency on qutebrowser's Jinja rendering
     xdg.dataFile."qutebrowser/bookmarks.html".text = ''
       <!DOCTYPE html>
       <html lang="en">
@@ -261,6 +151,7 @@ in {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bookmarks</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,0,0">
         <style>
           *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -305,22 +196,116 @@ in {
           .search-bar::placeholder { color: #${c.base03}; }
           .search-bar:focus { border-color: #${c.base0D}; }
 
+          .collapse-btn {
+            flex-shrink: 0;
+            background: none;
+            border: 1px solid #${c.base02};
+            border-radius: 8px;
+            color: #${c.base03};
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.47rem;
+            transition: color 0.15s ease, border-color 0.15s ease;
+          }
+
+          .collapse-btn:hover {
+            color: #${c.base0D};
+            border-color: #${c.base0D};
+          }
+
+          .collapse-btn svg {
+            width: 16px;
+            height: 16px;
+          }
+
           .bookmarks-container {
             max-width: 1100px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 1.75rem;
+            gap: 0.75rem;
           }
 
-          .folder-title {
+          .root-section {
+            margin-bottom: 1rem;
+          }
+
+          details.folder-section {
+            border-radius: 8px;
+          }
+
+          details.folder-section > summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 0.5rem;
+            border-radius: 8px;
+            user-select: none;
+            transition: background-color 0.12s ease;
+          }
+
+          details.folder-section > summary::-webkit-details-marker { display: none; }
+
+          details.folder-section > summary:hover {
+            background-color: #${c.base01};
+            color: #${c.base0D};
+          }
+
+          details.folder-section > summary:hover .folder-name {
+            color: #${c.base0D};
+          }
+
+          details.folder-section > summary:hover .folder-icon {
+            color: #${c.base0D};
+          }
+
+          .folder-icon {
+            font-size: 14px;
+            line-height: 1;
+            flex-shrink: 0;
+            color: #${c.base04};
+            user-select: none;
+          }
+
+          .folder-name {
             font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: #${c.base03};
-            margin-bottom: 0.6rem;
-            padding-left: 0.2rem;
+            flex: 1;
+          }
+
+          .chevron {
+            width: 13px;
+            height: 13px;
+            color: #${c.base03};
+            transition: transform 0.2s ease;
+            flex-shrink: 0;
+          }
+
+          details[open] > summary > .chevron {
+            transform: rotate(180deg);
+          }
+
+          .folder-content {
+            padding: 0.4rem 0 0.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+          }
+
+          /* Nested folder indent */
+          .folder-content > details.folder-section > summary {
+            padding-left: 1.2rem;
+          }
+
+          .folder-content > details.folder-section > .folder-content {
+            padding-left: 1rem;
           }
 
           .cards {
@@ -344,10 +329,19 @@ in {
 
           .card:hover {
             background-color: #${c.base02};
-            border-color: #${c.base03};
+            border-color: #${c.base0D};
           }
 
           .favicon-wrapper { position: relative; width: 18px; height: 18px; flex-shrink: 0; }
+
+          .favicon {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 3px;
+          }
 
           .favicon-fallback {
             position: absolute;
@@ -382,7 +376,7 @@ in {
             transition: color 0.12s ease;
           }
 
-          .card:hover .card-name { color: #${c.base0A}; }
+          .card:hover .card-name { color: #${c.base0D}; }
 
           .card-url {
             color: #${c.base03};
@@ -405,6 +399,11 @@ in {
         <div class="header">
           <h1 class="page-title">Bookmarks</h1>
           <input id="search" class="search-bar" type="text" placeholder="Search…" autocomplete="off" spellcheck="false">
+          <button id="collapse-btn" class="collapse-btn" title="Collapse all folders" aria-label="Collapse all folders">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="10" y1="14" x2="3" y2="21"/><line x1="21" y1="3" x2="14" y2="10"/>
+            </svg>
+          </button>
         </div>
         <div class="bookmarks-container">
           <p id="no-results" class="no-results">No results</p>
@@ -414,14 +413,27 @@ in {
           window.addEventListener('DOMContentLoaded', function () {
             const input = document.getElementById('search');
             const noResults = document.getElementById('no-results');
+            const collapseBtn = document.getElementById('collapse-btn');
 
             input.focus();
+
+            collapseBtn.addEventListener('click', function () {
+              document.querySelectorAll('details.folder-section').forEach(function (d) {
+                d.open = false;
+              });
+            });
 
             input.addEventListener('input', function () {
               const query = this.value.toLowerCase().trim();
               let anyVisible = false;
 
-              document.querySelectorAll('.folder-section').forEach(function (section) {
+              if (query) {
+                document.querySelectorAll('details.folder-section').forEach(function (d) {
+                  d.open = true;
+                });
+              }
+
+              document.querySelectorAll('.folder-section, .root-section').forEach(function (section) {
                 let sectionVisible = false;
                 section.querySelectorAll('.card').forEach(function (card) {
                   const name = card.querySelector('.card-name').textContent.toLowerCase();
@@ -438,12 +450,18 @@ in {
 
             input.addEventListener('keydown', function (e) {
               if (e.key === 'Enter') {
-                const first = document.querySelector('.card:not([style*="none"])');
-                if (first) {
-                  location.href = first.href;
+                const val = this.value.trim();
+                const isUrl = /^https?:\/\//i.test(val) || /^[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})(\/.*)?$/.test(val);
+                if (isUrl) {
+                  location.href = /^https?:\/\//i.test(val) ? val : 'https://' + val;
                 } else {
-                  const q = encodeURIComponent(this.value.trim());
-                  if (q) location.href = 'https://www.startpage.com/sp/search?q=' + q;
+                  const first = document.querySelector('.card:not([style*="none"])');
+                  if (first) {
+                    location.href = first.href;
+                  } else {
+                    const q = encodeURIComponent(val);
+                    if (q) location.href = 'https://www.startpage.com/sp/search?q=' + q;
+                  }
                 }
               }
               if (e.key === 'Escape') {
