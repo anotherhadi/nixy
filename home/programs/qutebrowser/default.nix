@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./bookmarks.nix
+    ./bookmarks
     ./search.nix
     ./keybindings.nix
     ./settings.nix
