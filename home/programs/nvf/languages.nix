@@ -47,6 +47,11 @@
     };
     lsp = {
       enable = true;
+      presets = {
+        tailwindcss-language-server = {
+          enable = true;
+        };
+      };
       trouble.enable = true;
       lspSignature.enable = true;
       lspconfig.enable = true;
@@ -115,7 +120,6 @@
       html.enable = true;
       bash.enable = true;
       nix.enable = true;
-      tailwind.enable = true;
     };
     formatter = {
       conform-nvim = {
