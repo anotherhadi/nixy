@@ -14,6 +14,8 @@
     nuclei
     gobuster
     dirb
+    ffuf
+    sqlmap
 
     # Utils
     inetutils

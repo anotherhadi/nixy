@@ -32,6 +32,10 @@
         url = "https://exploit-db.com";
       }
       {
+        name = "GTFOBins";
+        url = "https://gtfobins.org/";
+      }
+      {
         name = "Crack Station";
         url = "https://crackstation.net";
       }
