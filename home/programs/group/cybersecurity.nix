@@ -34,6 +34,12 @@
     redis
   ];
 
+  systemd.user.tmpfiles.rules = [
+    "d %h/Cyber/tmp 0755 - - -"
+    "d %h/Cyber/wordlists 0755 - - -"
+    "d %h/Cyber/wordlists/rules 0755 - - -"
+  ];
+
   home.file = {
     "Cyber/wordlists/seclists" = {
       source = pkgs.fetchFromGitHub {
