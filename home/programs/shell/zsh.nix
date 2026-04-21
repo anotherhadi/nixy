@@ -96,40 +96,12 @@ in {
           else ""
         }
 
-        function sesh-sessions() {
-          session=$(sesh list -t -c | fzf --height 70% --reverse)
-          [[ -z "$session" ]] && return
-          sesh connect $session
-        }
-
-        function chatgptfolder(){
-          echo "################################"
-          echo "###         TREE             ###"
-          echo "################################"
-          ${pkgs.eza}/bin/eza --tree -aF --icons never
-          echo -e "\n\n"
-          echo "##############################"
-          echo "###        CONTENT         ###"
-          echo "##############################"
-          find . -type f -not -path '*/.git/*' -print0 | while IFS= read -r -d "" file; do
-              echo -e "\n--- DEBUT: $file ---\n"
-              cat "$file"
-              echo -e "\n--- FIN: $file ---\n"
-          done
-        }
-
-
         function n4c() {
           category=''${1:-all}
           shift
           args=''${*}
           nix develop "github:nix4cyber/n4c#''${category}" ''${args} -c zsh
         }
-
-        zle     -N             sesh-sessions
-        bindkey -M emacs '\es' sesh-sessions
-        bindkey -M vicmd '\es' sesh-sessions
-        bindkey -M viins '\es' sesh-sessions
 
         # search history based on what's typed in the prompt
         autoload -U history-search-end
