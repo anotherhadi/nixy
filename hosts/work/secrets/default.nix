@@ -15,6 +15,7 @@ in {
     defaultSopsFile = ./secrets.yaml;
     secrets = {
       ssh-config = {path = "${home}/.ssh/config";};
+      netrc = {path = "${home}/.netrc";};
       github-key = {path = "${home}/.ssh/github";};
       gitlab-key = {path = "${home}/.ssh/gitlab";};
     };
