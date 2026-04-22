@@ -15,7 +15,7 @@ in {
     background.enabled = false;
     appearance = {
       transparency = {
-        enable = true;
+        enabled = true;
         base = 0.85;
         layers = 0.4;
       };
