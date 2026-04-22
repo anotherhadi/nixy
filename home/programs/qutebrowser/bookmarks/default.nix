@@ -49,10 +49,20 @@
             isCards = true;
             items = acc.pending;
           }
-          ++ [{isCards = false; folder = item;}];
+          ++ [
+            {
+              isCards = false;
+              folder = item;
+            }
+          ];
         pending = [];
       };
-    result = lib.foldl' step {chunks = []; pending = [];} items;
+    result =
+      lib.foldl' step {
+        chunks = [];
+        pending = [];
+      }
+      items;
     chunks =
       result.chunks
       ++ lib.optional (result.pending != []) {
@@ -97,7 +107,12 @@
             isRoot = true;
             items = acc.pending;
           }
-          ++ [{isRoot = false; inherit item;}];
+          ++ [
+            {
+              isRoot = false;
+              inherit item;
+            }
+          ];
         pending = [];
       };
     result =
@@ -125,11 +140,13 @@
 
   # Recursively collect all leaf bookmarks with their full folder path
   collectBookmarks = prefix: items:
-    lib.concatMapStrings (item:
-      if item ? url
-      then "${item.url} ${prefix}${item.name}\n"
-      else collectBookmarks "${prefix}${item.name}/" item.bookmarks
-    ) items;
+    lib.concatMapStrings (
+      item:
+        if item ? url
+        then "${item.url} ${prefix}${item.name}\n"
+        else collectBookmarks "${prefix}${item.name}/" item.bookmarks
+    )
+    items;
 
   publicBookmarks =
     pkgs.writeText "qutebrowser-public-bookmarks"
@@ -475,10 +492,16 @@ in {
       </html>
     '';
 
-    home.activation.qutebrowserBookmarks = lib.hm.dag.entryAfter ["setupSecrets" "writeBoundary"] ''
+    home.activation.qutebrowserBookmarks = lib.hm.dag.entryAfter ["writeBoundary"] ''
       mkdir -p ${config.home.homeDirectory}/.config/qutebrowser/bookmarks
-      cat ${publicBookmarks} ${lib.optionalString (privateBookmarksPath != null) ''"${privateBookmarksPath}"''} \
-        > ${config.home.homeDirectory}/.config/qutebrowser/bookmarks/urls
+      {
+        cat ${publicBookmarks}
+        ${lib.optionalString (privateBookmarksPath != null) ''
+        if [ -f "${privateBookmarksPath}" ]; then
+          cat "${privateBookmarksPath}"
+        fi
+      ''}
+      } > ${config.home.homeDirectory}/.config/qutebrowser/bookmarks/urls
     '';
   };
 }
