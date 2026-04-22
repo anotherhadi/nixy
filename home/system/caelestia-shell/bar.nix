@@ -19,7 +19,6 @@
       label = " ";
       occupiedBg = true;
       occupiedLabel = "󰪥 ";
-      rounded = true;
       showWindows = false;
       shown = 5;
     };
