@@ -19,8 +19,4 @@
     name = "Github";
     url = "https://github.com";
   }
-  {
-    name = "Feedly";
-    url = "https://feedly.com";
-  }
 ]
