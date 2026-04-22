@@ -39,5 +39,7 @@
     stateVersion = "24.05";
   };
 
+  qutebrowser.privateBookmarksPath = config.sops.secrets.qutebrowser-bookmarks.path;
+
   programs.home-manager.enable = true;
 }
