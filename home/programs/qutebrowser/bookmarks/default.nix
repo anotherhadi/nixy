@@ -37,7 +37,6 @@
       </div>
     </a>'';
 
-  # Render a list of items (cards and/or sub-folders) inside a folder
   mkFolderContent = items: let
     step = acc: item:
       if item ? url
@@ -95,7 +94,6 @@
       </div>
     </details>'';
 
-  # Group consecutive root items so they share the same .cards grid
   grouped = let
     step = acc: item:
       if item ? url
@@ -138,7 +136,6 @@
       </div>''
     else mkFolder group.item;
 
-  # Recursively collect all leaf bookmarks with their full folder path
   collectBookmarks = prefix: items:
     lib.concatMapStrings (
       item:
@@ -151,15 +148,7 @@
   publicBookmarks =
     pkgs.writeText "qutebrowser-public-bookmarks"
     (collectBookmarks "" bookmarkList);
-
-  inherit (config.qutebrowser) privateBookmarksPath;
 in {
-  options.qutebrowser.privateBookmarksPath = lib.mkOption {
-    type = lib.types.nullOr lib.types.str;
-    default = null;
-    description = "Path to a file containing extra (private) bookmarks to append.";
-  };
-
   config = {
     xdg.dataFile."qutebrowser/bookmarks.html".text = ''
       <!DOCTYPE html>
@@ -316,7 +305,6 @@ in {
             gap: 0.25rem;
           }
 
-          /* Nested folder indent */
           .folder-content > details.folder-section > summary {
             padding-left: 1.2rem;
           }
@@ -494,14 +482,7 @@ in {
 
     home.activation.qutebrowserBookmarks = lib.hm.dag.entryAfter ["writeBoundary"] ''
       mkdir -p ${config.home.homeDirectory}/.config/qutebrowser/bookmarks
-      {
-        cat ${publicBookmarks}
-        ${lib.optionalString (privateBookmarksPath != null) ''
-        if [ -f "${privateBookmarksPath}" ]; then
-          cat "${privateBookmarksPath}"
-        fi
-      ''}
-      } > ${config.home.homeDirectory}/.config/qutebrowser/bookmarks/urls
+      cat ${publicBookmarks} > ${config.home.homeDirectory}/.config/qutebrowser/bookmarks/urls
     '';
   };
 }
