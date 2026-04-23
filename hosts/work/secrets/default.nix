@@ -18,7 +18,6 @@ in {
       netrc = {path = "${home}/.netrc";};
       github-key = {path = "${home}/.ssh/github";};
       gitlab-key = {path = "${home}/.ssh/gitlab";};
-      qutebrowser-bookmarks = {};
     };
   };
 
