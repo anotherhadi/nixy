@@ -35,7 +35,6 @@
         enable = true;
       };
     };
-    syntaxHighlighting = true;
     treesitter = {
       enable = true;
       autotagHtml = true;
@@ -56,6 +55,7 @@
       lspSignature.enable = true;
       lspconfig.enable = true;
       formatOnSave = true;
+      mappings.format = null;
       inlayHints.enable = true;
       null-ls.enable = true;
       servers.nixd.settings.nil.nix.autoArchive = true;
@@ -116,7 +116,10 @@
         extensions.ts-error-translator.enable = true;
       };
       css.enable = true;
-      svelte.enable = true;
+      svelte = {
+        enable = true;
+        format.enable = false;
+      };
       html.enable = true;
       bash.enable = true;
       nix.enable = true;
@@ -124,6 +127,7 @@
     formatter = {
       conform-nvim = {
         enable = true;
+        setupOpts.format_after_save = null;
       };
     };
   };
