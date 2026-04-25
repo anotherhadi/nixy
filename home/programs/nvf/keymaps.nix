@@ -207,6 +207,15 @@
         desc = "Move to right window";
       }
 
+      # Format
+      {
+        key = "<leader>lf";
+        mode = "n";
+        silent = true;
+        action = "<cmd>lua require('conform').format({ async = true, lsp_format = 'fallback' })<cr>";
+        desc = "Format file";
+      }
+
       # Save
       {
         key = "<C-s>";
