@@ -3,6 +3,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   imports = [
@@ -55,6 +56,16 @@
     "caelestia scheme set -n onedark"
     "caelestia scheme set -n custom"
   ];
+
+  # shell.json is managed by home-manager (read-only symlink) but caelestia
+  # needs to write to it at runtime: replace the symlink with a mutable copy
+  home.activation.caelestiaWritableShellConfig = lib.hm.dag.entryAfter ["linkGeneration"] ''
+    if [ -L "$HOME/.config/caelestia/shell.json" ]; then
+      $DRY_RUN_CMD cp --remove-destination \
+        "$(readlink -f "$HOME/.config/caelestia/shell.json")" \
+        "$HOME/.config/caelestia/shell.json"
+    fi
+  '';
 
   services.cliphist = {
     enable = true;
