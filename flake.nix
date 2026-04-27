@@ -75,68 +75,24 @@
     };
   };
 
-  outputs = inputs @ {nixpkgs, ...}: {
-    nixosConfigurations = {
-      h-laptop =
-        # CHANGEME: This should match the 'hostname' in your variables.nix file
-        nixpkgs.lib.nixosSystem {
-          modules = [
-            {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  # FIXME: Workaround: Mesa crash with AMD GPU + Wayland + Qt 6.11.0
-                  qutebrowser = prev.symlinkJoin {
-                    name = "qutebrowser";
-                    paths = [prev.qutebrowser];
-                    buildInputs = [prev.makeWrapper];
-                    postBuild = ''
-                      wrapProgram $out/bin/qutebrowser \
-                        --set LIBGL_ALWAYS_SOFTWARE 1
-                    '';
-                  };
-                })
-              ];
-              _module.args = {
-                inherit inputs;
-              };
-            }
-            inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME: check https://github.com/NixOS/nixos-hardware
-            inputs.home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
-            inputs.nix-index-database.nixosModules.default
-            ./hosts/laptop/configuration.nix # CHANGEME: change the path to match your host folder
-          ];
-        };
-
-      h-work = nixpkgs.lib.nixosSystem {
-        modules = [
-          {
-            nixpkgs.overlays = [];
-            _module.args = {
-              inherit inputs;
-            };
-          }
-          inputs.home-manager.nixosModules.home-manager
-          inputs.stylix.nixosModules.stylix
-          inputs.nix-index-database.nixosModules.default
-          ./hosts/work/configuration.nix
-        ];
-      };
-
-      # Jack is my server
-      jack = nixpkgs.lib.nixosSystem {
-        modules = [
-          {_module.args = {inherit inputs;};}
-          inputs.home-manager.nixosModules.home-manager
-          inputs.stylix.nixosModules.stylix
-          inputs.sops-nix.nixosModules.sops
-          inputs.nixarr.nixosModules.default
-          # inputs.eleakxir.nixosModules.eleakxir
-          inputs.nix-index-database.nixosModules.default
-          inputs.default-creds.nixosModules.default
-          ./hosts/server/configuration.nix
-        ];
-      };
+  outputs = inputs @ {nixpkgs, nixpkgs-stable, ...}: let
+    system = "x86_64-linux";
+    args = {
+      inherit inputs nixpkgs system;
+      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
     };
-  };
+    merge = nixpkgs.lib.foldl nixpkgs.lib.recursiveUpdate {};
+  in
+    merge [
+      (import ./home/programs/nvf/flake.nix args)
+      (import ./home/programs/group/flake.nix args)
+      {
+        nixosConfigurations = {
+          h-laptop = import ./hosts/laptop/flake.nix args;
+          h-work = import ./hosts/work/flake.nix args;
+          jack = import ./hosts/server/flake.nix args;
+        };
+      }
+    ];
 }

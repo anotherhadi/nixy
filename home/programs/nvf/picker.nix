@@ -1,5 +1,5 @@
 {
-  programs.nvf.settings.vim = {
+  vim = {
     utility = {
       oil-nvim.enable = true;
       snacks-nvim = {

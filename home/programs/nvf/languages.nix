@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  programs.nvf.settings.vim = {
+  vim = {
     diagnostics = {
       enable = true;
       config = {
@@ -26,7 +26,6 @@
             ''
               function(diagnostic)
                 return string.format("%s", diagnostic.message)
-                --return string.format("%s (%s)", diagnostic.message, diagnostic.source)
               end
             '';
         };
@@ -41,7 +40,7 @@
       context.enable = true;
       highlight.enable = true;
       grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-        typescript # in language settings only tsx gets enabled, not typescript
+        typescript
       ];
     };
     lsp = {

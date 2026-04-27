@@ -1,9 +1,8 @@
 {lib, ...}: {
-  programs.nvf.settings.vim = {
+  vim = {
     viAlias = false;
     vimAlias = true;
     withNodeJs = true;
-    # syntaxHighlighting = true;
     options = {
       autoindent = true;
       smartindent = true;
@@ -19,8 +18,8 @@
       wrap = false;
     };
     globals = {
-      navic_silence = true; # navic tries to attach multiple LSPs and fails
-      suda_smart_edit = 1; # use super user write automatically
+      navic_silence = true;
+      suda_smart_edit = 1;
       neovide_scale_factor = 0.7;
       neovide_cursor_animation_length = 0.1;
       neovide_cursor_short_animation_length = 0;
