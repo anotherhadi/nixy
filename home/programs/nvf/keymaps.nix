@@ -1,10 +1,9 @@
 {
-  programs.nvf.settings.vim = {
+  vim = {
     globals.mapleader = " ";
     binds = {
       whichKey = {
         enable = true;
-        # TODO: registers
         register = {};
       };
     };
@@ -63,18 +62,18 @@
       }
       {
         key = "<MiddleMouse>";
-        mode = ["n" "i" "v"]; # Normal, Insert, Visual
-        action = "<nop>"; # No Operation
-        silent = true;
-      }
-      {
-        key = "<2-MiddleMouse>"; # Désactive aussi le double clic molette
         mode = ["n" "i" "v"];
         action = "<nop>";
         silent = true;
       }
       {
-        key = "<3-MiddleMouse>"; # Désactive aussi le double clic molette
+        key = "<2-MiddleMouse>";
+        mode = ["n" "i" "v"];
+        action = "<nop>";
+        silent = true;
+      }
+      {
+        key = "<3-MiddleMouse>";
         mode = ["n" "i" "v"];
         action = "<nop>";
         silent = true;

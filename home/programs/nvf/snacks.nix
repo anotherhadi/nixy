@@ -1,12 +1,5 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    imagemagick
-    tree-sitter
-    ghostscript
-    tectonic
-    mermaid-cli
-  ];
-  programs.nvf.settings.vim.utility.snacks-nvim = {
+{
+  vim.utility.snacks-nvim = {
     enable = true;
     setupOpts = {
       image = {
