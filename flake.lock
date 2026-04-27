@@ -1421,6 +1421,90 @@
         "type": "github"
       }
     },
+    "qs-anti-adblock-fuckoff": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-r8TloE5nLk2b4FW+lsi5ZBnRRz92HCSZnxFb6Gh1TIY=",
+        "type": "file",
+        "url": "https://update.greasyfork.org/scripts/397070/Anti-AdBlocker%20Fuckoff.user.js"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://update.greasyfork.org/scripts/397070/Anti-AdBlocker%20Fuckoff.user.js"
+      }
+    },
+    "qs-bypass-paywalls-clean": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-gaJ/dwxYLpETu8t42aC8hT2W6ZruGh9gB4IqK6jk/c0=",
+        "type": "file",
+        "url": "https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=userscript/bpc.en.user.js"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=userscript/bpc.en.user.js"
+      }
+    },
+    "qs-dont-track-me-google": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-3WnaMOGedvNTLqvxmL2+2070QyjgcEBFzUgc13wjqr0=",
+        "type": "file",
+        "url": "https://update.greasyfork.org/scripts/428243/Don%27t%20track%20me%20Google.user.js"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://update.greasyfork.org/scripts/428243/Don%27t%20track%20me%20Google.user.js"
+      }
+    },
+    "qs-i-dont-care-about-cookies": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-cq1Hz8P+tH3WUugOXRjLN4bvpsKCDIynXclzlFPmL0w=",
+        "type": "file",
+        "url": "https://update.greasyfork.org/scripts/522645/I%20don%27t%20care%20about%20cookies.user.js"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://update.greasyfork.org/scripts/522645/I%20don%27t%20care%20about%20cookies.user.js"
+      }
+    },
+    "qs-return-youtube-dislike": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-bnnaKtgzC0FdQbR1qiojKpn9PyE94tOFLrh1OcC8pko=",
+        "type": "file",
+        "url": "https://update.greasyfork.org/scripts/436115/Return%20YouTube%20Dislike.user.js"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://update.greasyfork.org/scripts/436115/Return%20YouTube%20Dislike.user.js"
+      }
+    },
+    "qs-sponsorblock-lite": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-GfTwfZVW4Xng5OOG2UBkkWSqADBWyGv/n6bMV0nFxkA=",
+        "type": "file",
+        "url": "https://update.greasyfork.org/scripts/560869/SponsorBlock%20Lite.user.js"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://update.greasyfork.org/scripts/560869/SponsorBlock%20Lite.user.js"
+      }
+    },
+    "qs-tracking-token-stripper": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-G1V4oUE1JJGFZIJz5qaGhjVDCCSrMSeL5nnn+WA97bM=",
+        "type": "file",
+        "url": "https://github.com/doggy8088/TrackingTokenStripper/raw/refs/heads/master/TrackingTokenStripper.user.js"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/doggy8088/TrackingTokenStripper/raw/refs/heads/master/TrackingTokenStripper.user.js"
+      }
+    },
     "quickshell": {
       "inputs": {
         "nixpkgs": [
@@ -1481,6 +1565,13 @@
         "nixpkgs": "nixpkgs_8",
         "nixpkgs-stable": "nixpkgs-stable",
         "nvf": "nvf",
+        "qs-anti-adblock-fuckoff": "qs-anti-adblock-fuckoff",
+        "qs-bypass-paywalls-clean": "qs-bypass-paywalls-clean",
+        "qs-dont-track-me-google": "qs-dont-track-me-google",
+        "qs-i-dont-care-about-cookies": "qs-i-dont-care-about-cookies",
+        "qs-return-youtube-dislike": "qs-return-youtube-dislike",
+        "qs-sponsorblock-lite": "qs-sponsorblock-lite",
+        "qs-tracking-token-stripper": "qs-tracking-token-stripper",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix"
