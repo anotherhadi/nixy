@@ -23,15 +23,9 @@ Then import the home-manager module in your home configuration:
 
 ```nix
 { inputs, ... }: {
-  imports = [
-    inputs.nixy.inputs.nvf.homeManagerModules.default
-    inputs.nixy.homeManagerModules.nvim
-  ];
+  imports = [ inputs.nixy.homeManagerModules.nvim ];
 }
 ```
-
-> [!NOTE]
-> The `nvf` home-manager module is required. It is re-exported via `inputs.nixy.inputs.nvf` so you don't need to declare it separately in your own flake.
 
 ## What's included
 

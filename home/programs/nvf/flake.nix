@@ -29,7 +29,9 @@ in {
   };
 
   homeManagerModules.nvim = {
-    _module.args.inputs = inputs;
-    imports = [./default.nix];
+    imports = [
+      inputs.nvf.homeManagerModules.default
+      ./default.nix
+    ];
   };
 }
