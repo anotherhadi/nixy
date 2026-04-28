@@ -87,6 +87,7 @@
     merge [
       (import ./home/programs/nvf/flake.nix args)
       (import ./home/programs/group/flake.nix args)
+      (import ./home/programs/nixy/flake.nix args)
       {
         nixosConfigurations = {
           h-laptop = import ./hosts/laptop/flake.nix args;
