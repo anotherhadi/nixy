@@ -47,4 +47,9 @@
   };
 
   programs.home-manager.enable = true;
+
+  programs.nixy = {
+    enable = true;
+    configDirectory = config.var.configDirectory;
+  };
 }
