@@ -28,5 +28,8 @@ in {
     program = "${nvimConfig.neovim}/bin/nvim";
   };
 
-  homeManagerModules.nvim = {imports = [./default.nix];};
+  homeManagerModules.nvim = {
+    _module.args.inputs = inputs;
+    imports = [./default.nix];
+  };
 }
