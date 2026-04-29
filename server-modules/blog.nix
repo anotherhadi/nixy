@@ -35,6 +35,9 @@ in {
                 error_page 500 /500.html;
                 error_page 503 /503.html;
                 add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' data: https://umami.${domain}; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://git.${domain}; connect-src 'self' https://umami.${domain};" always;
+                add_header X-Frame-Options "SAMEORIGIN" always;
+                add_header X-Content-Type-Options "nosniff" always;
+                add_header Permissions-Policy "camera=(), microphone=(), geolocation=()" always;
               '';
             };
             "www-redirect" = {
