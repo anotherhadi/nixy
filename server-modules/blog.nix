@@ -25,11 +25,15 @@ in {
                 }
               ];
               locations."/" = {
-                tryFiles = "$uri $uri/ /index.html";
+                tryFiles = "$uri $uri/ =404";
               };
               extraConfig = ''
                 port_in_redirect off;
                 absolute_redirect off;
+                error_page 403 /403.html;
+                error_page 404 /404.html;
+                error_page 500 /500.html;
+                error_page 503 /503.html;
                 add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' data: https://umami.${domain}; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://git.${domain}; connect-src 'self' https://umami.${domain};" always;
               '';
             };
