@@ -39,10 +39,15 @@
     stateVersion = "24.05";
   };
 
-  programs.home-manager.enable = true;
+  wayland.windowManager.hyprland.settings.monitor = [
+    "desc:Philips Consumer Electronics Company PHL 221B8L ZV02144013987,highres,0x0,1"
+  ];
 
-  programs.nixy = {
-    enable = true;
-    configDirectory = config.var.configDirectory;
+  programs = {
+    home-manager.enable = true;
+    nixy = {
+      enable = true;
+      configDirectory = config.var.configDirectory;
+    };
   };
 }
