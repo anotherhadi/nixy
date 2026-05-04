@@ -55,8 +55,7 @@ in {
         # Optimized configuration for switchable graphics laptops
         offload = {
           enable = true; # Mode optimized for power saving
-          enableOffloadCmd =
-            true; # Allows running applications with dedicated GPU
+          enableOffloadCmd = true; # Allows running applications with dedicated GPU
         };
         # sync.enable disabled as offload is generally better for laptops
         sync.enable = false;

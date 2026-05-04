@@ -20,7 +20,9 @@ in {
         "$git_status"
         "$character"
       ];
-      directory = {style = accent;};
+      directory = {
+        style = accent;
+      };
 
       character = {
         success_symbol = "[❯](${accent})";

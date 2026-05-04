@@ -1,4 +1,8 @@
-{inputs, nixpkgs, ...}:
+{
+  inputs,
+  nixpkgs,
+  ...
+}:
 nixpkgs.lib.nixosSystem {
   modules = [
     {

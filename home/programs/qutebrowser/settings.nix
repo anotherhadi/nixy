@@ -7,7 +7,11 @@
       };
       new_instance_open_target = "window";
       "tabs.last_close" = "close";
-      "statusbar.widgets" = ["keypress" "url" "progress"];
+      "statusbar.widgets" = [
+        "keypress"
+        "url"
+        "progress"
+      ];
 
       # Adblock
       "content.blocking.enabled" = true;
@@ -26,7 +30,12 @@
       "downloads.location.prompt" = false;
 
       # Editor (Ctrl+e in text fields)
-      "editor.command" = ["ghostty" "-e" "nvim" "{}"];
+      "editor.command" = [
+        "ghostty"
+        "-e"
+        "nvim"
+        "{}"
+      ];
 
       # Tabs
       # "tabs.show" = "switching";

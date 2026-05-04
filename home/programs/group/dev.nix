@@ -10,12 +10,12 @@
       go
       bun
       nodejs
-      air
-      duckdb
       claude-code
       inputs.bun2nix.packages.${stdenv.hostPlatform.system}.default
     ])
     ++ (with pkgs-stable; [
+      air
+      duckdb
       docker
       python3
       jq

@@ -9,7 +9,14 @@
   ...
 }: {
   imports = [(modulesPath + "/installer/scan/not-detected.nix")];
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "ahci"
+    "nvme"
+    "usbhid"
+    "usb_storage"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = ["dm-snapshot"];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
@@ -20,12 +27,18 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/DD15-1125";
     fsType = "vfat";
-    options = ["fmask=0077" "dmask=0077"];
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+    ];
   };
   fileSystems."/mnt/data" = {
     device = "/dev/disk/by-uuid/0b055155-0134-448c-b1ca-e81030ff064e";
     fsType = "btrfs";
-    options = ["subvol=/" "compress=zstd"]; # adapte selon si t'as des subvolumes
+    options = [
+      "subvol=/"
+      "compress=zstd"
+    ]; # adapte selon si t'as des subvolumes
   };
   swapDevices = [];
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -35,6 +48,5 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode =
-    lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

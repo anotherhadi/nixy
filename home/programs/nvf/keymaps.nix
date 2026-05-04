@@ -62,19 +62,31 @@
       }
       {
         key = "<MiddleMouse>";
-        mode = ["n" "i" "v"];
+        mode = [
+          "n"
+          "i"
+          "v"
+        ];
         action = "<nop>";
         silent = true;
       }
       {
         key = "<2-MiddleMouse>";
-        mode = ["n" "i" "v"];
+        mode = [
+          "n"
+          "i"
+          "v"
+        ];
         action = "<nop>";
         silent = true;
       }
       {
         key = "<3-MiddleMouse>";
-        mode = ["n" "i" "v"];
+        mode = [
+          "n"
+          "i"
+          "v"
+        ];
         action = "<nop>";
         silent = true;
       }
@@ -218,7 +230,11 @@
       # Save
       {
         key = "<C-s>";
-        mode = ["n" "i" "v"];
+        mode = [
+          "n"
+          "i"
+          "v"
+        ];
         silent = true;
         action = "<cmd>w<cr>";
         desc = "Save file";
@@ -227,7 +243,11 @@
       # Deactivate "esc"
       {
         key = "<Esc>";
-        mode = ["n" "i" "v"];
+        mode = [
+          "n"
+          "i"
+          "v"
+        ];
         silent = true;
         action = "<Nop>";
         desc = "Disable Escape";

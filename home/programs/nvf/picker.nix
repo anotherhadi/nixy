@@ -66,8 +66,7 @@
         key = "<leader>fc";
         mode = "n";
         silent = true;
-        action = ''
-          <cmd>lua Snacks.picker.files({ cwd = vim.fn.stdpath("config") })<cr>'';
+        action = ''<cmd>lua Snacks.picker.files({ cwd = vim.fn.stdpath("config") })<cr>'';
         desc = "Find Config File";
       }
       {

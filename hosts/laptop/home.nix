@@ -36,7 +36,9 @@
   home = {
     inherit (config.var) username;
     homeDirectory = "/home/" + config.var.username;
-    file.".face" = {source = ./profile_picture.png;};
+    file.".face" = {
+      source = ./profile_picture.png;
+    };
 
     sessionVariables = {
       AQ_DRM_DEVICES = "/dev/dri/card2:/dev/dri/card1"; # CHANGEME: Related to the GPU

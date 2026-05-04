@@ -7,9 +7,8 @@
   colors = config.lib.stylix.colors;
 
   mkMenu = menu: let
-    configFile =
-      pkgs.writeText "config.yaml"
-      (lib.generators.toYAML {} {
+    configFile = pkgs.writeText "config.yaml" (
+      lib.generators.toYAML {} {
         anchor = "bottom-right";
         border = "#${colors.base0D}80";
         background = "#${colors.base01}EE";
@@ -19,7 +18,8 @@
         rows_per_column = 5;
 
         inherit menu;
-      });
+      }
+    );
   in
     pkgs.writeShellScriptBin "menu" ''
       exec ${lib.getExe pkgs.wlr-which-key} ${configFile}
@@ -32,7 +32,8 @@ in {
     bind =
       [
         # Applications
-        ("$shiftMod, A, exec, "
+        (
+          "$shiftMod, A, exec, "
           + lib.getExe (mkMenu [
             {
               key = "a";
@@ -84,14 +85,16 @@ in {
               desc = "Qutebrowser (Temp session)";
               cmd = "${pkgs.qutebrowser}/bin/qutebrowser --temp-basedir";
             }
-          ]))
+          ])
+        )
 
         # Web links
         "$mod,B, exec, uwsm app -- ${pkgs.qutebrowser}/bin/qutebrowser" # Browser (Qutebrowser)
 
         # Power
         "$mod, X, global, caelestia:session" # Powermenu
-        ("$shiftMod, X, exec, "
+        (
+          "$shiftMod, X, exec, "
           + lib.getExe (mkMenu [
             {
               key = "l";
@@ -123,7 +126,8 @@ in {
               desc = "Restart caelestia";
               cmd = "hyprctl dispatch exec 'caelestia-shell kill | sleep 1 | caelestia-shell'";
             }
-          ]))
+          ])
+        )
 
         # Quick launch
         "$mod,RETURN, exec, uwsm app -- ${pkgs.ghostty}/bin/ghostty" # Ghostty (terminal)
@@ -154,13 +158,17 @@ in {
         ", Print, global, caelestia:screenshotFreeze" # Capture region (freeze)
         "$shiftMod+Alt, S, global, caelestia:screenshot" # Capture region
       ]
-      ++ (builtins.concatLists (builtins.genList (i: let
-          ws = i + 1;
-        in [
-          "$mod,code:1${toString i}, workspace, ${toString ws}"
-          "$mod SHIFT,code:1${toString i}, movetoworkspace, ${toString ws}"
-        ])
-        9));
+      ++ (builtins.concatLists (
+        builtins.genList (
+          i: let
+            ws = i + 1;
+          in [
+            "$mod,code:1${toString i}, workspace, ${toString ws}"
+            "$mod SHIFT,code:1${toString i}, movetoworkspace, ${toString ws}"
+          ]
+        )
+        9
+      ));
 
     bindm = [
       "$mod,mouse:272, movewindow" # Move Window (mouse)

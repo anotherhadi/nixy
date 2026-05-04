@@ -39,4 +39,6 @@
   '';
 
   command = "bash ${keyboard-backlight}/bin/keyboard-backlight &";
-in {wayland.windowManager.hyprland.settings.exec-once = [command];}
+in {
+  wayland.windowManager.hyprland.settings.exec-once = [command];
+}

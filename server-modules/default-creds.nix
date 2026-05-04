@@ -1,21 +1,24 @@
-{ config, inputs, lib, ... }:
-let
-  inherit (import ./mk-container.nix { inherit lib config; }) mkContainer;
-  domain = config.var.domain;
-in
 {
+  config,
+  inputs,
+  lib,
+  ...
+}: let
+  inherit (import ./mk-container.nix {inherit lib config;}) mkContainer;
+  domain = config.var.domain;
+in {
   imports = [
     (mkContainer {
       name = "def-creds";
       hostIp = "10.233.6.1";
       containerIp = "10.233.6.2";
-      nixosConfig = { ... }: {
-        imports = [ inputs.default-creds.nixosModules.default ];
+      nixosConfig = {...}: {
+        imports = [inputs.default-creds.nixosModules.default];
         services.default-creds = {
           enable = true;
           port = 8087;
         };
-        networking.firewall.allowedTCPPorts = [ 8087 ];
+        networking.firewall.allowedTCPPorts = [8087];
         systemd.services.default-creds.environment = {
           HOST = lib.mkForce "0.0.0.0";
           PUBLIC_UMAMI_URL = "https://umami.${domain}";

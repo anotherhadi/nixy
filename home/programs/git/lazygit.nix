@@ -16,12 +16,15 @@ in {
       update.method = "never";
       git = {
         commit.signOff = true;
-        overrideGpg = true; 
+        overrideGpg = true;
         parseEmoji = true;
       };
       gui = {
         theme = {
-          activeBorderColor = [accent "bold"];
+          activeBorderColor = [
+            accent
+            "bold"
+          ];
           inactiveBorderColor = [muted];
         };
         showListFooter = false;

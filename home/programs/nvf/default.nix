@@ -1,4 +1,8 @@
-{inputs, pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [inputs.nvf.homeManagerModules.default];
   # Packages needed by snacks image preview
   home.packages = with pkgs; [

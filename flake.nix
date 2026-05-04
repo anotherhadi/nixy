@@ -75,11 +75,20 @@
     };
   };
 
-  outputs = inputs @ {nixpkgs, nixpkgs-stable, ...}: let
+  outputs = inputs @ {
+    nixpkgs,
+    nixpkgs-stable,
+    ...
+  }: let
     system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
     args = {
-      inherit inputs nixpkgs system;
-      pkgs = nixpkgs.legacyPackages.${system};
+      inherit
+        inputs
+        nixpkgs
+        system
+        pkgs
+        ;
       pkgs-stable = nixpkgs-stable.legacyPackages.${system};
     };
     merge = nixpkgs.lib.foldl nixpkgs.lib.recursiveUpdate {};
@@ -89,6 +98,7 @@
       (import ./home/programs/group/flake.nix args)
       (import ./home/programs/nixy/flake.nix args)
       {
+        formatter.${system} = pkgs.alejandra;
         nixosConfigurations = {
           h-laptop = import ./hosts/laptop/flake.nix args;
           h-work = import ./hosts/work/flake.nix args;
