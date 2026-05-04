@@ -1,14 +1,17 @@
-{ config, pkgs, lib, ... }:
-let
-  inherit (import ./mk-container.nix { inherit lib config; }) mkContainer;
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  inherit (import ./mk-container.nix {inherit lib config;}) mkContainer;
   domain = config.var.domain;
   catppuccin-gitea = pkgs.fetchzip {
     url = "https://github.com/catppuccin/gitea/releases/download/v1.0.2/catppuccin-gitea.tar.gz";
     sha256 = "sha256-rZHLORwLUfIFcB6K9yhrzr+UwdPNQVSadsw6rg8Q7gs=";
     stripRoot = false;
   };
-in
-{
+in {
   imports = [
     (mkContainer {
       name = "gitea";
@@ -19,17 +22,19 @@ in
         hostPath = "/var/lib/gitea";
         isReadOnly = false;
       };
-      nixosConfig = { lib, ... }: {
+      nixosConfig = {lib, ...}: {
         users.users.gitea.uid = lib.mkForce 978;
         users.groups.gitea.gid = lib.mkForce 968;
 
         services.postgresql = {
           enable = true;
-          ensureDatabases = [ "gitea" ];
-          ensureUsers = [{
-            name = "gitea";
-            ensureDBOwnership = true;
-          }];
+          ensureDatabases = ["gitea"];
+          ensureUsers = [
+            {
+              name = "gitea";
+              ensureDBOwnership = true;
+            }
+          ];
         };
 
         services.gitea = {
@@ -69,7 +74,7 @@ in
           ln -sfn ${catppuccin-gitea} /var/lib/gitea/custom/public/assets/css
         '';
 
-        networking.firewall.allowedTCPPorts = [ 3002 ];
+        networking.firewall.allowedTCPPorts = [3002];
         system.stateVersion = "24.05";
       };
     })

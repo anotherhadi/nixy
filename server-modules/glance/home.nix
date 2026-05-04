@@ -1,4 +1,4 @@
-{ domain, ... }: {
+{domain, ...}: {
   services.glance.settings.pages = [
     {
       name = "Home";

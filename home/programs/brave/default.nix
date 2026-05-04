@@ -63,8 +63,14 @@
       exec = "brave --incognito";
       icon = "brave-browser";
       terminal = false;
-      categories = ["Network" "WebBrowser"];
-      mimeType = ["text/html" "text/xml"];
+      categories = [
+        "Network"
+        "WebBrowser"
+      ];
+      mimeType = [
+        "text/html"
+        "text/xml"
+      ];
     };
     brave-tor = {
       name = "Brave (Private window w/Tor)";
@@ -72,7 +78,10 @@
       exec = "brave --tor";
       icon = "brave-browser";
       terminal = false;
-      categories = ["Network" "WebBrowser"];
+      categories = [
+        "Network"
+        "WebBrowser"
+      ];
     };
   };
 }

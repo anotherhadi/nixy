@@ -1,8 +1,10 @@
-{ config, lib, ... }:
-let
-  inherit (import ./mk-container.nix { inherit lib config; }) mkContainer;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  inherit (import ./mk-container.nix {inherit lib config;}) mkContainer;
+in {
   sops.secrets.umami-secret.mode = "0400";
 
   imports = [
@@ -14,7 +16,7 @@ in
         hostPath = config.sops.secrets.umami-secret.path;
         isReadOnly = true;
       };
-      nixosConfig = { ... }: {
+      nixosConfig = {...}: {
         services.umami = {
           enable = true;
           settings = {
@@ -27,7 +29,7 @@ in
         };
         # PrivateUsers breaks systemd-creds inside nspawn containers (nested user namespaces)
         systemd.services.umami.serviceConfig.PrivateUsers = lib.mkForce false;
-        networking.firewall.allowedTCPPorts = [ 8080 ];
+        networking.firewall.allowedTCPPorts = [8080];
         system.stateVersion = "24.05";
       };
     })

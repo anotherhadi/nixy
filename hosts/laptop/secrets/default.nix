@@ -14,11 +14,21 @@ in {
     age.keyFile = "${home}/.config/sops/age/keys.txt";
     defaultSopsFile = ./secrets.yaml;
     secrets = {
-      ssh-config = {path = "${home}/.ssh/config";};
-      github-key = {path = "${home}/.ssh/github";};
-      jack-key = {path = "${home}/.ssh/jack";};
-      signing-key = {path = "${home}/.ssh/key";};
-      signing-pub-key = {path = "${home}/.ssh/key.pub";};
+      ssh-config = {
+        path = "${home}/.ssh/config";
+      };
+      github-key = {
+        path = "${home}/.ssh/github";
+      };
+      jack-key = {
+        path = "${home}/.ssh/jack";
+      };
+      signing-key = {
+        path = "${home}/.ssh/key";
+      };
+      signing-pub-key = {
+        path = "${home}/.ssh/key.pub";
+      };
     };
   };
 
@@ -42,7 +52,10 @@ in {
   '';
 
   systemd.user.services.mbsync.Unit.After = ["sops-nix.service"];
-  home.packages = with pkgs; [sops age];
+  home.packages = with pkgs; [
+    sops
+    age
+  ];
 
   wayland.windowManager.hyprland.settings.exec-once = ["systemctl --user start sops-nix"];
 }

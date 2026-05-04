@@ -117,14 +117,17 @@ with lib; let
     desktopName = "Neovim (Ghostty)";
     exec = ''ghostty --title="Neovim Editor" -e nvim %F'';
     terminal = false;
-    categories = ["Development" "TextEditor"];
+    categories = [
+      "Development"
+      "TextEditor"
+    ];
     mimeTypes = mimeMap.code ++ mimeMap.text;
   };
 
   associations = with lists;
-    listToAttrs (flatten (mapAttrsToList
-      (key: map (type: attrsets.nameValuePair type defaultApps."${key}"))
-      mimeMap));
+    listToAttrs (
+      flatten (mapAttrsToList (key: map (type: attrsets.nameValuePair type defaultApps."${key}")) mimeMap)
+    );
 in {
   home.packages = [nvim-ghostty];
 

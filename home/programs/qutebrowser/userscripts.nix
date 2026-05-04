@@ -29,8 +29,10 @@
     "qutebrowser/greasemonkey/return-youtube-dislike.user.js".source = inputs.qs-return-youtube-dislike;
     "qutebrowser/greasemonkey/sponsorblock-lite.user.js".source = inputs.qs-sponsorblock-lite;
     "qutebrowser/greasemonkey/dont-track-me-google.user.js".source = inputs.qs-dont-track-me-google;
-    "qutebrowser/greasemonkey/i-dont-care-about-cookies.user.js".source = inputs.qs-i-dont-care-about-cookies;
-    "qutebrowser/greasemonkey/tracking-token-stripper.user.js".source = inputs.qs-tracking-token-stripper;
+    "qutebrowser/greasemonkey/i-dont-care-about-cookies.user.js".source =
+      inputs.qs-i-dont-care-about-cookies;
+    "qutebrowser/greasemonkey/tracking-token-stripper.user.js".source =
+      inputs.qs-tracking-token-stripper;
     "qutebrowser/greasemonkey/bypass-paywalls-clean.user.js".source = inputs.qs-bypass-paywalls-clean;
     "qutebrowser/greasemonkey/anti-adblock-fuckoff.user.js".source = inputs.qs-anti-adblock-fuckoff;
   };

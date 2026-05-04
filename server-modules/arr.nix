@@ -49,7 +49,10 @@ in {
     };
   };
 
-  users.users.jellyfin.extraGroups = ["video" "render"];
+  users.users.jellyfin.extraGroups = [
+    "video"
+    "render"
+  ];
 
   services.cloudflared.tunnels."${config.var.tunnelId}".ingress = {
     "media.${config.var.domain}" = "http://localhost:8096";

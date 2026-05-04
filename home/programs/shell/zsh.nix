@@ -7,7 +7,12 @@
 }: let
   fetch = config.theme.fetch; # neofetch, nerdfetch, pfetch
 in {
-  home.packages = with pkgs; [bat ripgrep tldr witr];
+  home.packages = with pkgs; [
+    bat
+    ripgrep
+    tldr
+    witr
+  ];
 
   # Add go binaries to the PATH
   home.sessionPath = ["$HOME/go/bin"];
@@ -22,7 +27,14 @@ in {
     autosuggestion.enable = true;
     syntaxHighlighting = {
       enable = true;
-      highlighters = ["main" "brackets" "pattern" "regexp" "root" "line"];
+      highlighters = [
+        "main"
+        "brackets"
+        "pattern"
+        "regexp"
+        "root"
+        "line"
+      ];
     };
     historySubstringSearch.enable = true;
 
@@ -33,9 +45,7 @@ in {
     };
 
     profileExtra = lib.optionalString (config.home.sessionPath != []) ''
-      export PATH="$PATH''${PATH:+:}${
-        lib.concatStringsSep ":" config.home.sessionPath
-      }"
+      export PATH="$PATH''${PATH:+:}${lib.concatStringsSep ":" config.home.sessionPath}"
     '';
 
     shellAliases = {

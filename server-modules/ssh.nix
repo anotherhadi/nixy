@@ -17,8 +17,14 @@ in {
       AllowTcpForwarding = false;
       ClientAliveInterval = 300;
       ClientAliveCountMax = 2;
-      KexAlgorithms = ["curve25519-sha256" "curve25519-sha256@libssh.org"];
-      Ciphers = ["chacha20-poly1305@openssh.com" "aes256-gcm@openssh.com"];
+      KexAlgorithms = [
+        "curve25519-sha256"
+        "curve25519-sha256@libssh.org"
+      ];
+      Ciphers = [
+        "chacha20-poly1305@openssh.com"
+        "aes256-gcm@openssh.com"
+      ];
     };
   };
 

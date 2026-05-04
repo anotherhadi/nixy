@@ -27,7 +27,10 @@
     genericName = "Web Browser";
     exec = "qutebrowser --temp-basedir %U";
     icon = "qutebrowser";
-    categories = ["Network" "WebBrowser"];
+    categories = [
+      "Network"
+      "WebBrowser"
+    ];
   };
 
   programs.qutebrowser = {

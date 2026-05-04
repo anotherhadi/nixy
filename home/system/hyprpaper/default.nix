@@ -8,8 +8,7 @@
       splash = false;
     };
   };
-  systemd.user.services.hyprpaper.Unit.After =
-    lib.mkForce "graphical-session.target";
+  systemd.user.services.hyprpaper.Unit.After = lib.mkForce "graphical-session.target";
 
   wayland.windowManager.hyprland.settings.exec-once = [
     "systemctl --user enable --now hyprpaper.service"

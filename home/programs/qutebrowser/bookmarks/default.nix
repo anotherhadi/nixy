@@ -14,13 +14,9 @@
 
   c = config.lib.stylix.colors;
 
-  stripProtocol = url:
-    lib.removePrefix "https://" (lib.removePrefix "http://" url);
+  stripProtocol = url: lib.removePrefix "https://" (lib.removePrefix "http://" url);
 
-  stripDomain = url:
-    builtins.head (
-      lib.splitString "/" (stripProtocol url)
-    );
+  stripDomain = url: builtins.head (lib.splitString "/" (stripProtocol url));
 
   mkCard = item: let
     domain = stripDomain item.url;
@@ -69,13 +65,15 @@
         items = result.pending;
       };
   in
-    lib.concatMapStrings (chunk:
-      if chunk.isCards
-      then ''
-        <div class="cards">
-          ${lib.concatMapStrings mkCard chunk.items}
-        </div>''
-      else mkFolder chunk.folder)
+    lib.concatMapStrings (
+      chunk:
+        if chunk.isCards
+        then ''
+          <div class="cards">
+            ${lib.concatMapStrings mkCard chunk.items}
+          </div>''
+        else mkFolder chunk.folder
+    )
     chunks;
 
   mkFolder = folder: let
@@ -145,9 +143,7 @@
     )
     items;
 
-  publicBookmarks =
-    pkgs.writeText "qutebrowser-public-bookmarks"
-    (collectBookmarks "" bookmarkList);
+  publicBookmarks = pkgs.writeText "qutebrowser-public-bookmarks" (collectBookmarks "" bookmarkList);
 in {
   config = {
     xdg.dataFile."qutebrowser/bookmarks.html".text = ''

@@ -5,9 +5,8 @@
   pkgs,
   ...
 }: let
-  hp-omen-linux-module =
-    pkgs.callPackage
-    ({
+  hp-omen-linux-module = pkgs.callPackage (
+    {
       kernel ? config.boot.kernelPackages.kernel,
       stdenv,
       fetchFromGitHub,
@@ -33,7 +32,8 @@
           install hp-wmi.ko -Dm444 -t $out/lib/modules/${kernel.modDirVersion}/kernel/drivers/platform/x86/hp/
           runHook postInstall
         '';
-      })) {kernel = config.boot.kernelPackages.kernel;};
+      })
+  ) {kernel = config.boot.kernelPackages.kernel;};
 in {
   boot.extraModulePackages = [hp-omen-linux-module];
   boot.kernelModules = ["hp-wmi"];

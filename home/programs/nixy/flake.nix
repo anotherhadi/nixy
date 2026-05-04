@@ -8,5 +8,7 @@
     configDirectory = "$HOME/.config/nixos";
   };
 
-  homeManagerModules.nixy = {imports = [./default.nix];};
+  homeManagerModules.nixy = {
+    imports = [./default.nix];
+  };
 }
