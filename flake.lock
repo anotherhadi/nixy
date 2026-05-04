@@ -125,11 +125,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1777068438,
-        "narHash": "sha256-87KZIkdVRICi7BkPs50gM949qRrRBsznchVvmAAWxsY=",
+        "lastModified": 1777484430,
+        "narHash": "sha256-dnUDj6zLNhFeXkUzzKdecF7jqHhayZ4Q9+WbXJW+dnY=",
         "owner": "anotherhadi",
         "repo": "blog",
-        "rev": "e3f0fc5735b272ee518cdc579cf4fd638ee2adb5",
+        "rev": "35ac328d5ed6f701c102ab6729aa842705208e6c",
         "type": "github"
       },
       "original": {
