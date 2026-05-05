@@ -2,6 +2,8 @@
   home.sessionVariables = {
     TERMINAL = "ghostty";
     TERM = "ghostty";
+    XMODIFIERS = "@im=none";
+    GTK_IM_MODULE = "simple";
   };
 
   programs.ghostty = {
