@@ -45,35 +45,6 @@
     awesome-wallpapers.url = "github:anotherhadi/awesome-wallpapers";
     iknowyou.url = "github:anotherhadi/iknowyou";
 
-    # Qutebrowser userscripts (greasemonkey)
-    qs-return-youtube-dislike = {
-      url = "https://update.greasyfork.org/scripts/436115/Return%20YouTube%20Dislike.user.js";
-      flake = false;
-    };
-    qs-sponsorblock-lite = {
-      url = "https://update.greasyfork.org/scripts/560869/SponsorBlock%20Lite.user.js";
-      flake = false;
-    };
-    qs-dont-track-me-google = {
-      url = "https://update.greasyfork.org/scripts/428243/Don%27t%20track%20me%20Google.user.js";
-      flake = false;
-    };
-    qs-i-dont-care-about-cookies = {
-      url = "https://update.greasyfork.org/scripts/522645/I%20don%27t%20care%20about%20cookies.user.js";
-      flake = false;
-    };
-    qs-tracking-token-stripper = {
-      url = "https://github.com/doggy8088/TrackingTokenStripper/raw/refs/heads/master/TrackingTokenStripper.user.js";
-      flake = false;
-    };
-    qs-bypass-paywalls-clean = {
-      url = "https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=userscript/bpc.en.user.js";
-      flake = false;
-    };
-    qs-anti-adblock-fuckoff = {
-      url = "https://update.greasyfork.org/scripts/397070/Anti-AdBlocker%20Fuckoff.user.js";
-      flake = false;
-    };
   };
 
   outputs = inputs @ {
