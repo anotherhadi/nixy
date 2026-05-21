@@ -17,17 +17,10 @@
       softtabstop = 2;
       wrap = false;
     };
-    globals = {
-      navic_silence = true;
-      suda_smart_edit = 1;
-      neovide_scale_factor = 0.7;
-      neovide_cursor_animation_length = 0.1;
-      neovide_cursor_short_animation_length = 0;
-    };
+    globals.navic_silence = true;
     clipboard = {
       enable = true;
       registers = "unnamedplus";
-      providers.wl-copy.enable = true;
     };
     luaConfigRC.osc52-clipboard = ''
       vim.g.clipboard = {

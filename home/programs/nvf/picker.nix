@@ -1,7 +1,6 @@
 {
   vim = {
     utility = {
-      oil-nvim.enable = true;
       snacks-nvim = {
         setupOpts = {
           picker.enabled = true;
@@ -19,27 +18,6 @@
         desc = "Smart Find Files";
       }
       {
-        key = "<leader>,";
-        mode = "n";
-        silent = true;
-        action = "<cmd>lua Snacks.picker.buffers()<cr>";
-        desc = "Buffers";
-      }
-      {
-        key = "<leader>/";
-        mode = "n";
-        silent = true;
-        action = "<cmd>lua Snacks.picker.grep()<cr>";
-        desc = "Grep";
-      }
-      {
-        key = "<leader>:";
-        mode = "n";
-        silent = true;
-        action = "<cmd>lua Snacks.picker.command_history()<cr>";
-        desc = "Command History";
-      }
-      {
         key = "<leader>e";
         mode = "n";
         silent = true;
@@ -47,11 +25,11 @@
         desc = "File Explorer";
       }
       {
-        key = "-";
+        key = "<leader>/";
         mode = "n";
         silent = true;
-        action = "<cmd>Oil<cr>";
-        desc = "Oil";
+        action = "<cmd>lua Snacks.picker.lines()<cr>";
+        desc = "Buffer Lines";
       }
 
       # Find
@@ -63,25 +41,11 @@
         desc = "Buffers";
       }
       {
-        key = "<leader>fc";
-        mode = "n";
-        silent = true;
-        action = ''<cmd>lua Snacks.picker.files({ cwd = vim.fn.stdpath("config") })<cr>'';
-        desc = "Find Config File";
-      }
-      {
         key = "<leader>ff";
         mode = "n";
         silent = true;
         action = "<cmd>lua Snacks.picker.files()<cr>";
         desc = "Find Files";
-      }
-      {
-        key = "<leader>fg";
-        mode = "n";
-        silent = true;
-        action = "<cmd>lua Snacks.picker.git_files()<cr>";
-        desc = "Find Git Files";
       }
       {
         key = "<leader>fp";
@@ -98,71 +62,27 @@
         desc = "Recent";
       }
       {
+        key = "<leader>f:";
+        mode = "n";
+        silent = true;
+        action = "<cmd>lua Snacks.picker.command_history()<cr>";
+        desc = "Command History";
+      }
+      {
         key = "<leader>fn";
         mode = "n";
         silent = true;
         action = "<cmd>lua Snacks.picker.notifications()<cr>";
         desc = "Notification History";
       }
-      {
-        key = "<leader>fe";
-        mode = "n";
-        silent = true;
-        action = "<cmd>lua Snacks.picker.icons()<cr>";
-        desc = "Emoji";
-      }
-
-      # Git
-      {
-        key = "<leader>gb";
-        mode = "n";
-        silent = true;
-        action = "<cmd>lua Snacks.picker.git_branches()<cr>";
-        desc = "Git Branches";
-      }
-      {
-        key = "<leader>gL";
-        mode = "n";
-        silent = true;
-        action = "<cmd>lua Snacks.picker.git_log()<cr>";
-        desc = "Git Log Line";
-      }
-      {
-        key = "<leader>gs";
-        mode = "n";
-        silent = true;
-        action = "<cmd>lua Snacks.picker.git_status()<cr>";
-        desc = "Git Status";
-      }
-      {
-        key = "<leader>gS";
-        mode = "n";
-        silent = true;
-        action = "<cmd>lua Snacks.picker.git_stash()<cr>";
-        desc = "Git Stash";
-      }
-      {
-        key = "<leader>gd";
-        mode = "n";
-        silent = true;
-        action = "<cmd>lua Snacks.picker.git_diff()<cr>";
-        desc = "Git Diff (Hunks)";
-      }
-      {
-        key = "<leader>gf";
-        mode = "n";
-        silent = true;
-        action = "<cmd>lua Snacks.picker.git_log_file()<cr>";
-        desc = "Git Log File";
-      }
 
       # Grep
       {
-        key = "<leader>sb";
+        key = "<leader>sg";
         mode = "n";
         silent = true;
-        action = "<cmd>lua Snacks.picker.lines()<cr>";
-        desc = "Buffer Lines";
+        action = "<cmd>lua Snacks.picker.grep()<cr>";
+        desc = "Grep";
       }
       {
         key = "<leader>st";
@@ -170,20 +90,6 @@
         silent = true;
         action = "<cmd>lua Snacks.picker.todo_comments()<cr>";
         desc = "Todos";
-      }
-      {
-        key = "<leader>sB";
-        mode = "n";
-        silent = true;
-        action = "<cmd>lua Snacks.picker.grep_buffers()<cr>";
-        desc = "Grep Open Buffers";
-      }
-      {
-        key = "<leader>sg";
-        mode = "n";
-        silent = true;
-        action = "<cmd>lua Snacks.picker.grep()<cr>";
-        desc = "Grep";
       }
       {
         key = "<leader>sw";

@@ -4,15 +4,6 @@
   ...
 }: {
   imports = [inputs.nvf.homeManagerModules.default];
-  # Packages needed by snacks image preview
-  home.packages = with pkgs; [
-    imagemagick
-    tree-sitter
-    ghostscript
-    tectonic
-    mermaid-cli
-  ];
-
   programs.nvf = {
     enable = true;
     settings = {
