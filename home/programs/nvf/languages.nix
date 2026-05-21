@@ -122,6 +122,7 @@
       html.enable = true;
       bash.enable = true;
       nix.enable = true;
+      lua.enable = true;
     };
     formatter = {
       conform-nvim = {
