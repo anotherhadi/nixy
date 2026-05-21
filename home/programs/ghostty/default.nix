@@ -1,3 +1,12 @@
+{ pkgs, ... }:
+let
+  cursorShaders = pkgs.fetchFromGitHub {
+    owner = "sahaj-b";
+    repo = "ghostty-cursor-shaders";
+    rev = "06d4e90fb5410e9c4d0b3131584060adddf89406";
+    hash = "sha256-G/UIr1bKnxn1AcHl/4FL/jou6b7M2VeREslYVELxdmw=";
+  };
+in
 {
   home.sessionVariables = {
     TERMINAL = "ghostty";
@@ -18,6 +27,8 @@
       clipboard-write = "allow";
       copy-on-select = "clipboard";
       app-notifications = false;
+      custom-shader = "${cursorShaders}/cursor_warp.glsl";
+      custom-shader-animation = "always";
       keybind = [
         "ctrl+j=goto_split:left"
         "ctrl+i=goto_split:up"
