@@ -6,5 +6,6 @@
     ./starship.nix
     ./zoxide.nix
     ./eza.nix
+    ./direnv.nix
   ];
 }
