@@ -33,5 +33,22 @@
     visuals = {
       rainbow-delimiters.enable = true;
     };
+
+    extraPlugins = {
+      sttr-nvim = {
+        package = pkgs.vimUtils.buildVimPlugin {
+          name = "sttr-nvim";
+          src = pkgs.fetchFromGitHub {
+            owner = "anotherhadi";
+            repo = "sttr.nvim";
+            rev = "b41f2f51372222e23efbe5df9d72391cd933d4d1";
+            hash = "sha256-JPv0NNNUUNPNJM5LHYjcmTvilbOKB3OxI2Q6wxVbTks=";
+          };
+        };
+        setup = ''
+          require("sttr").setup()
+        '';
+      };
+    };
   };
 }
