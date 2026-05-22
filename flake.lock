@@ -1160,6 +1160,22 @@
     },
     "nixpkgs_11": {
       "locked": {
+        "lastModified": 1777954456,
+        "narHash": "sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9+hrDTkDU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "549bd84d6279f9852cae6225e372cc67fb91a4c1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_12": {
+      "locked": {
         "lastModified": 1777268161,
         "narHash": "sha256-bxrdOn8SCOv8tN4JbTF/TXq7kjo9ag4M+C8yzzIRYbE=",
         "owner": "NixOS",
@@ -1174,7 +1190,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_12": {
+    "nixpkgs_13": {
       "locked": {
         "lastModified": 1777268161,
         "narHash": "sha256-bxrdOn8SCOv8tN4JbTF/TXq7kjo9ag4M+C8yzzIRYbE=",
@@ -1472,6 +1488,7 @@
         "nvf": "nvf",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
+        "spilltea": "spilltea",
         "stylix": "stylix",
         "usbguard-tui": "usbguard-tui"
       }
@@ -1515,6 +1532,24 @@
         "type": "github"
       }
     },
+    "spilltea": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_11"
+      },
+      "locked": {
+        "lastModified": 1778703986,
+        "narHash": "sha256-nVH6e+sw7LosTHDq7Al/+2vnKYfbAeXGp2lwlIVF9mI=",
+        "owner": "anotherhadi",
+        "repo": "spilltea",
+        "rev": "2f4765bf37d5130ada770fb52d1a47bedf7d3214",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anotherhadi",
+        "repo": "spilltea",
+        "type": "github"
+      }
+    },
     "stylix": {
       "inputs": {
         "base16": "base16",
@@ -1524,7 +1559,7 @@
         "firefox-gnome-theme": "firefox-gnome-theme",
         "flake-parts": "flake-parts_6",
         "gnome-shell": "gnome-shell",
-        "nixpkgs": "nixpkgs_11",
+        "nixpkgs": "nixpkgs_12",
         "nur": "nur",
         "systems": "systems_8",
         "tinted-kitty": "tinted-kitty",
@@ -1840,7 +1875,7 @@
     },
     "usbguard-tui": {
       "inputs": {
-        "nixpkgs": "nixpkgs_12"
+        "nixpkgs": "nixpkgs_13"
       },
       "locked": {
         "lastModified": 1778071322,
