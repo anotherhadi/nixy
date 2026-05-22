@@ -55,6 +55,13 @@
         action = "<cmd>lua Snacks.lazygit()<cr>";
         desc = "Lazygit";
       }
+      {
+        key = "<leader>ts";
+        mode = "v";
+        silent = true;
+        action = ":<C-u>SttrTransform<CR>";
+        desc = "String Transform";
+      }
 
       # UI
       {
