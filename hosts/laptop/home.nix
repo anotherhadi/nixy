@@ -1,7 +1,7 @@
 {config, ...}: {
   imports = [
     # Programs
-    ../../home/programs/brave
+    ../../home/programs/helium
     ../../home/programs/proton
     ../../home/programs/proton/auto-start-vpn.nix
     ../../home/programs/ghostty
@@ -14,7 +14,6 @@
     ../../home/programs/thunar
     ../../home/programs/nixy
     ../../home/programs/nightshift
-    ../../home/programs/qutebrowser
     ../../home/programs/nix-utils
 
     ../../home/programs/group/basic-apps.nix

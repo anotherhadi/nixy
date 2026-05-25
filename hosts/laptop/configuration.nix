@@ -13,6 +13,7 @@
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
     ../../nixos/usbguard.nix
+    ../../home/programs/helium/system.nix # I hate browser's configuration..
 
     ../../nixos/omen.nix # CHANGEME: For my laptop only, remove this (OMEN 16)
 

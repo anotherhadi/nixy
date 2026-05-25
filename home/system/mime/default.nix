@@ -20,6 +20,7 @@ with lib; let
     pdf = ["zathura.desktop"];
     terminal = ["ghostty.desktop"];
     archive = ["xarchiver.desktop"];
+    browser = ["helium.desktop"];
   };
 
   mimeMap = {
@@ -109,6 +110,13 @@ with lib; let
       "application/rar"
       "application/7z"
       "application/*tar"
+    ];
+    browser = [
+      "text/html"
+      "application/xhtml+xml"
+      "x-scheme-handler/http"
+      "x-scheme-handler/https"
+      "x-scheme-handler/ftp"
     ];
   };
 

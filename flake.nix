@@ -45,6 +45,7 @@
     awesome-wallpapers.url = "github:anotherhadi/awesome-wallpapers";
     iknowyou.url = "github:anotherhadi/iknowyou";
     spilltea.url = "github:anotherhadi/spilltea";
+    helium-browser.url = "github:oxcl/nix-flake-helium-browser";
   };
 
   outputs = inputs @ {

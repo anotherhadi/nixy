@@ -1,8 +1,8 @@
 {config, ...}: {
   imports = [
     # Programs
-    ../../home/programs/brave
     ../../home/programs/proton
+    ../../home/programs/helium
     ../../home/programs/ghostty
     ../../home/programs/nvf
     ../../home/programs/shell
@@ -12,7 +12,6 @@
     ../../home/programs/thunar
     ../../home/programs/nixy
     ../../home/programs/nightshift
-    ../../home/programs/qutebrowser
     ../../home/programs/nix-utils
 
     ../../home/programs/group/basic-apps.nix
