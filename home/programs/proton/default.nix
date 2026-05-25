@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = with pkgs; [
     proton-vpn
     proton-pass
@@ -17,7 +21,7 @@
     };
     "Proton Calendar" = {
       name = "Proton Calendar";
-      exec = "${pkgs.qutebrowser}/bin/qutebrowser \"https://calendar.proton.me\"";
+      exec = ''${config.programs.helium.package}/bin/helium "https://calendar.proton.me"'';
       icon = "proton-calendar";
       type = "Application";
       categories = ["Utility"];
@@ -25,7 +29,7 @@
     };
     "Proton Mail" = {
       name = "Proton Mail";
-      exec = "${pkgs.qutebrowser}/bin/qutebrowser \"https://mail.proton.me/\"";
+      exec = ''${config.programs.helium.package}/bin/helium "https://mail.proton.me/"'';
       icon = "proton-mail";
       type = "Application";
       categories = ["Utility"];

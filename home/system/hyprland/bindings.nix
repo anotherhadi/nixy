@@ -53,12 +53,12 @@ in {
             {
               key = "c";
               desc = "Proton Calendar";
-              cmd = "${pkgs.qutebrowser}/bin/qutebrowser 'https://calendar.proton.me/'";
+              cmd = "${config.programs.helium.package}/bin/helium 'https://calendar.proton.me/'";
             }
             {
               key = "m";
               desc = "Proton Mail";
-              cmd = "${pkgs.qutebrowser}/bin/qutebrowser 'https://mail.proton.me/'";
+              cmd = "${config.programs.helium.package}/bin/helium 'https://mail.proton.me/'";
             }
             {
               key = "o";
@@ -77,19 +77,18 @@ in {
             }
             {
               key = "b";
-              desc = "Qutebrowser";
-              cmd = "${pkgs.qutebrowser}/bin/qutebrowser";
+              desc = "Helium";
+              cmd = "${config.programs.helium.package}/bin/helium";
             }
             {
               key = "i";
-              desc = "Qutebrowser (Temp session)";
-              cmd = "${pkgs.qutebrowser}/bin/qutebrowser --temp-basedir";
+              desc = "Helium (Incognito)";
+              cmd = "${config.programs.helium.package}/bin/helium --incognito";
             }
           ])
         )
 
-        # Web links
-        "$mod,B, exec, uwsm app -- ${pkgs.qutebrowser}/bin/qutebrowser" # Browser (Qutebrowser)
+        "$mod,B, exec, uwsm app -- ${config.programs.helium.package}/bin/helium" # Browser
 
         # Power
         "$mod, X, global, caelestia:session" # Powermenu
