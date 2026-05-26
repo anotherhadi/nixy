@@ -15,6 +15,7 @@
     nvf.url = "github:notashelf/nvf";
     bun2nix.url = "github:nix-community/bun2nix";
     usbguard-tui.url = "github:anotherhadi/usbguard-tui";
+    jwt-tui.url = "github:anotherhadi/jwt-tui";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";

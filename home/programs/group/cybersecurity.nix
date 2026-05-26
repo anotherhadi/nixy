@@ -24,6 +24,7 @@
 
     # Web
     inputs.spilltea.packages.${pkgs.system}.default
+    inputs.jwt-tui.packages.${pkgs.system}.default
     caido
     nuclei
     gobuster

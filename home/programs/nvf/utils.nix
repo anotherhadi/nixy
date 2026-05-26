@@ -49,6 +49,20 @@
           require("sttr").setup()
         '';
       };
+      jwt-tui-nvim = {
+        package = pkgs.vimUtils.buildVimPlugin {
+          name = "jwt-tui-nvim";
+          src = pkgs.fetchFromGitHub {
+            owner = "anotherhadi";
+            repo = "jwt-tui.nvim";
+            rev = "c5100cb2cdfaf333014076a1a5c4c6a778bf3983";
+            hash = "sha256-qnQYZuQwyWkezhuyOorM67KBtatUboubofuT9A6McJI=";
+          };
+        };
+        setup = ''
+          require("jwt-tui").setup()
+        '';
+      };
     };
   };
 }
