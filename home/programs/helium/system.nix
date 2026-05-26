@@ -33,7 +33,7 @@ in {
       SafeBrowsingEnabled = false;
       MetricsReportingEnabled = false;
       SpellCheckServiceEnabled = false;
-      DefaultCookiesSetting = 4;
+      DefaultCookiesSetting = 1;
       DefaultGeolocationSetting = 2;
       DefaultNotificationsSetting = 2;
       DefaultPopupsSetting = 2;

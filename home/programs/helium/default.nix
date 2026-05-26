@@ -34,19 +34,14 @@
   };
 
   heliumFlags = [
-    "--enable-features=UseOzonePlatform"
     "--ozone-platform=wayland"
+    "--enable-features=UseOzonePlatform,VaapiVideoDecoder,VaapiVideoEncoder,CanvasOopRasterization"
+    "--disable-features=UseChromeOSDirectVideoDecoder,WaylandWpColorManagerV1"
     "--enable-accelerated-video-decode"
     "--enable-gpu-rasterization"
-    "--enable-zero-copy"
-    "--ignore-gpu-blocklist"
-    "--enable-features=VaapiVideoDecoder"
-    "--enable-features=VaapiVideoEncoder"
-    "--enable-features=CanvasOopRasterization"
-    "--disable-features=UseChromeOSDirectVideoDecoder"
+    "--use-gl=egl"
     "--no-default-browser-check"
     "--show-avatar-button=never"
-    "--disable-features=WaylandWpColorManagerV1"
   ];
 
   originalPkg = (inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.helium).override {
