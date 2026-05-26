@@ -1,11 +1,6 @@
-{
-  pkgs,
-  pkgs-stable,
-  ...
-}: {
+{pkgs-stable, ...}: {
   home.packages = with pkgs-stable; [
     vlc # Video player
-    blanket # White-noise app
     obsidian # Note taking app
     textpieces # Manipulate texts
     resources # Ressource monitor
@@ -16,6 +11,6 @@
     onlyoffice-desktopeditors # Office suite
 
     signal-desktop # Messaging app
-    element-desktop # Messaging app
+    librewolf
   ];
 }

@@ -4,42 +4,10 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs-stable; [
-    httpie
-    trufflehog
-    sttr
-    wireshark
-    nmap
-    john
-    hashcat
-    metasploit
-    haiti
-    hydra
-    dnsrecon
-    whois
-    dig
-    nosqli
-    jwt-cli
-    nuclei
-
-    # Web
-    inputs.spilltea.packages.${pkgs.system}.default
-    inputs.jwt-tui.packages.${pkgs.system}.default
-    caido
-    nuclei
-    gobuster
-    dirb
-    ffuf
-    sqlmap
-    katana
-
-    # Utils
-    inetutils
-    samba
-    openvpn
-    mariadb
-    redis
-  ];
+  home.packages = import ./cybersecurity-packages.nix {
+    inherit pkgs pkgs-stable inputs;
+    system = pkgs.stdenv.hostPlatform.system;
+  };
 
   systemd.user.tmpfiles.rules = [
     "d %h/Cyber/tmp 0755 - - -"
