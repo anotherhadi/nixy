@@ -12,6 +12,10 @@
             url = "https://wiki.hypr.land";
           }
           {
+            name = "NVF Options";
+            url = "https://nvf.notashelf.dev/";
+          }
+          {
             name = "Stylix Wiki";
             url = "https://nix-community.github.io/stylix/";
           }
