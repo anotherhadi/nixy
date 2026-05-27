@@ -15,6 +15,7 @@
     ../../home/programs/nixy
     ../../home/programs/nightshift
     ../../home/programs/nix-utils
+    ../../home/programs/superfile
 
     ../../home/programs/group/basic-apps.nix
     ../../home/programs/group/cybersecurity.nix
