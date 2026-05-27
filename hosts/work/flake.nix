@@ -12,6 +12,7 @@ nixpkgs.lib.nixosSystem {
     inputs.home-manager.nixosModules.home-manager
     inputs.stylix.nixosModules.stylix
     inputs.nix-index-database.nixosModules.default
+    inputs.helium-browser.nixosModules.default
     ./configuration.nix
   ];
 }
