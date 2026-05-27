@@ -10,6 +10,7 @@
     ../../home/programs/git/lazygit.nix
     ../../home/programs/nixy
     ../../home/programs/nix-utils
+    ../../home/programs/superfile
 
     ../../home/programs/group/dev.nix
   ];
