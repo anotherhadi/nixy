@@ -34,6 +34,8 @@
       rainbow-delimiters.enable = true;
     };
 
+    binds.hardtime-nvim.enable = true;
+
     extraPlugins = {
       sttr-nvim = {
         package = pkgs.vimUtils.buildVimPlugin {
