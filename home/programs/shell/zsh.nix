@@ -49,6 +49,9 @@ in {
     '';
 
     shellAliases = {
+      s = "superfile";
+      spf = "superfile";
+
       vim = "nvim";
       vi = "nvim";
       v = "nvim";
