@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{config, ...}: {
   imports = [
     # Mostly system related configuration
     ../../nixos/audio.nix
@@ -35,6 +31,7 @@
     allow id 1d6b:0003 serial "0000:00:14.0" name "xHCI Host Controller" hash "prM+Jby/bFHCn2lNjQdAMbgc6tse3xVx+hZwjOPHSdQ=" parent-hash "rV9bfLq7c2eA4tYjVjwO4bxhm+y6GgZpl9J60L0fBkY=" with-interface 09:00:00 with-connect-type ""
     allow id 17ef:608d serial "" name "Lenovo USB Optical Mouse" hash "klpDZuv1jhWGNqZLOl+KXF+75Ir3PfBm6D6ncjoLRBU=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" via-port "1-7" with-interface 03:01:02 with-connect-type "hotplug"
     allow id 17ef:6190 serial "" name "Lenovo Calliope USB Keyboard G2" hash "CfZ9R/aoXGm7BN/ojVEzKQwVoxCUtRWMuACrE7BL/5Y=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" via-port "1-10" with-interface { 03:01:01 03:00:00 } with-connect-type "hotplug"
+    allow id 0781:5581 name " SanDisk 3.2Gen1"
   '';
 
   networking.firewall.allowedTCPPorts = [9001];
