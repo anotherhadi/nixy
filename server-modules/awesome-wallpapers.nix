@@ -15,7 +15,7 @@ in {
         services.nginx = {
           enable = true;
           virtualHosts."wallpapers" = {
-            root = "${inputs.awesome-wallpapers.packages.${pkgs.system}.default}/share/awesome-wallpapers";
+            root = "${inputs.awesome-wallpapers.packages.${pkgs.stdenv.hostPlatform.system}.default}/share/awesome-wallpapers";
             listen = [
               {
                 addr = "0.0.0.0";

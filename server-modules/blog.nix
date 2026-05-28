@@ -17,7 +17,7 @@ in {
           enable = true;
           virtualHosts = {
             "blog" = {
-              root = "${inputs.blog.packages.${pkgs.system}.default}/share/blog";
+              root = "${inputs.blog.packages.${pkgs.stdenv.hostPlatform.system}.default}/share/blog";
               listen = [
                 {
                   addr = "0.0.0.0";
