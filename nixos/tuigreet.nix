@@ -1,10 +1,12 @@
 {
   pkgs,
+  inputs,
   config,
   lib,
   ...
 }: let
   c = config.lib.stylix.colors;
+  tuigreet = inputs.notashelf-tuigreet.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
   theme = lib.concatStringsSep ";" [
     "border=#${c.base0D}"
@@ -17,7 +19,7 @@
   ];
 
   tuigreet-launch = pkgs.writeShellScript "tuigreet-launch" ''
-    exec ${pkgs.tuigreet}/bin/tuigreet \
+    exec ${tuigreet}/bin/tuigreet \
       --time \
       --time-format '%H:%M  %A %d %B' \
       --sessions /run/current-system/sw/share/wayland-sessions \
@@ -56,5 +58,5 @@ in {
     TTYVTDisallocate = true;
   };
 
-  environment.systemPackages = [pkgs.tuigreet];
+  environment.systemPackages = [tuigreet];
 }
