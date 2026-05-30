@@ -33,6 +33,11 @@ in {
     timeZone = timeZone;
   };
   i18n.defaultLocale = defaultLocale;
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [ fcitx5-gtk ];
+  };
   i18n.extraLocaleSettings = {
     LC_ADDRESS = extraLocale;
     LC_IDENTIFICATION = extraLocale;
