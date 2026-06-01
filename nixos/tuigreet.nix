@@ -26,7 +26,7 @@
       --remember \
       --remember-user-session \
       --asterisks \
-      --greeting '  Welcome' \
+      --greeting 'Welcome' \
       --container-padding 2 \
       --theme '${theme}' \
       --power-shutdown 'systemctl poweroff' \
@@ -35,6 +35,7 @@
 in {
   services.greetd = {
     enable = true;
+    vt = 1;
     settings = {
       default_session = {
         command = "${tuigreet-launch}";
