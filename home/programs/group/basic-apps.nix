@@ -8,9 +8,12 @@
     gnome-text-editor # Basic graphic text editor
     ticktick # Todo app
     pinta # Image editor
+    switcheroo # Convert images between different formats
     onlyoffice-desktopeditors # Office suite
 
     signal-desktop # Messaging app
-    librewolf
+    librewolf # Backup browser
+
+    caligula # User-friendly, lightweight TUI for disk imaging (ISO, USB BOOT)
   ];
 }
