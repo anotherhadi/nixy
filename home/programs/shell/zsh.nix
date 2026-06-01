@@ -58,6 +58,7 @@ in {
       c = "clear";
       clera = "clear";
       celar = "clear";
+      claer = "clear";
       e = "exit";
       cd = "z";
       ls = "eza --icons=always --no-quotes";
