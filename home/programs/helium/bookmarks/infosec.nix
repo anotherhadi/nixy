@@ -8,6 +8,10 @@
         url = "https://n4c.hadi.icu";
       }
       {
+        name = "Infosec Notes - Anotherhadi";
+        url = "https://hadi.icu/notes";
+      }
+      {
         name = "Cyberchef";
         url = "https://cyberchef.hadi.icu";
       }
@@ -30,6 +34,10 @@
       {
         name = "Exploit-DB";
         url = "https://exploit-db.com";
+      }
+      {
+        name = "Reverse Shell Generator";
+        url = "https://revshells.com";
       }
       {
         name = "GTFOBins";
