@@ -19,4 +19,5 @@
   jq
   just
   nix-prefetch-github
+  rsync
 ])
