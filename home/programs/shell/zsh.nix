@@ -52,6 +52,8 @@ in {
       s = "superfile";
       spf = "superfile";
 
+      spt = "spotatui";
+
       vim = "nvim";
       vi = "nvim";
       v = "nvim";
