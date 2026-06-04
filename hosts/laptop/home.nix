@@ -16,6 +16,7 @@
     ../../home/programs/nightshift
     ../../home/programs/nix-utils
     ../../home/programs/superfile
+    ../../home/programs/spotatui
 
     ../../home/programs/group/basic-apps.nix
     ../../home/programs/group/cybersecurity.nix
