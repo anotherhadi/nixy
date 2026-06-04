@@ -66,6 +66,7 @@
           .helium.browser.layout                       = 3     |
           .helium.browser.minimal_location_bar        = true  |
           .helium.browser.show_dynamic_new_tab_button = false |
+          .helium.browser.rounded_frame               = false |
           .bookmark_bar.show_tab_groups               = false |
           .extensions.settings[$id] = {
             "active_permissions": {"api": [], "explicit_host": [], "manifest_permissions": [], "scriptable_host": []},
