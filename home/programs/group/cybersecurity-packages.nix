@@ -5,10 +5,8 @@
   system,
 }:
 (with pkgs-stable; [
-  httpie
+  termshark # wireshark
   trufflehog
-  sttr
-  wireshark
   nmap
   john
   hashcat

@@ -10,8 +10,6 @@ in {
   home.packages = with pkgs; [
     bat
     ripgrep
-    tldr
-    witr
   ];
 
   # Add go binaries to the PATH
