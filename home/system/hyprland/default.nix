@@ -134,6 +134,10 @@ in {
         "match:class protonvpn-app, float on"
         "match:class protonvpn-app, center on"
         "match:class protonvpn-app, size 500 400"
+
+        "match:title run-bg, float on"
+        "match:title run-bg, center on"
+        "match:title run-bg, size 700 80"
       ];
 
       misc = {

@@ -154,6 +154,21 @@
           enabled = true;
           dangerous = false;
         }
+        {
+          name = "Run in background";
+          icon = "play_circle";
+          description = "Type and run any shell command in the background";
+          command = [
+            "ghostty"
+            "--title=run-bg"
+            "-e"
+            "bash"
+            "-c"
+            "printf 'Run: '; read -r cmd; [ -n \"$cmd\" ] && hyprctl dispatch exec \"$cmd\""
+          ];
+          enabled = true;
+          dangerous = false;
+        }
       ];
       dragThreshold = 50;
       enableDangerousActions = false;
