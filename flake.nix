@@ -13,6 +13,7 @@
     stylix.url = "github:danth/stylix";
     sops-nix.url = "github:Mic92/sops-nix";
     nvf.url = "github:notashelf/nvf";
+    notashelf-tuigreet.url = "github:NotAShelf/tuigreet";
     bun2nix.url = "github:nix-community/bun2nix";
     usbguard-tui.url = "github:anotherhadi/usbguard-tui";
     jwt-tui.url = "github:anotherhadi/jwt-tui";
