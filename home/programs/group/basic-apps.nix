@@ -11,9 +11,9 @@
     switcheroo # Convert images between different formats
     onlyoffice-desktopeditors # Office suite
     blanket # Listen to different sounds
-
     signal-desktop # Messaging app
     librewolf # Backup browser
+    imagemagick # Image manipulation tool
 
     # I love TUIs
     caligula # User-friendly, lightweight TUI for disk imaging (ISO, USB BOOT)
@@ -24,5 +24,7 @@
     tealdeer # Fast tldr client
     sttr # Minimalist "cyberchef" like. Cross-platform, cli app to perform various operations on string
     httpie # Command-line HTTP client, a user-friendly cURL replacement
+    wiremix # Simple TUI mixer for PipeWire
+    impala # TUI for managing wifi
   ];
 }
