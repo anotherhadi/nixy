@@ -6,7 +6,7 @@
   system,
   ...
 }: let
-  devPackages = import ./dev-packages.nix {inherit pkgs pkgs-stable inputs system;};
+  devPackages = import ./dev-packages.nix {inherit pkgs pkgs-stable;};
   cyberPackages = import ./cybersecurity-packages.nix {inherit pkgs pkgs-stable pkgs-nur-hadi;};
 in {
   packages.${system} = {
