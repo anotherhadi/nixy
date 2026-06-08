@@ -1,4 +1,8 @@
-{pkgs-stable, pkgs-nur-hadi, ...}: {
+{
+  pkgs-stable,
+  pkgs-nur-hadi,
+  ...
+}: {
   home.packages = with pkgs-stable; [
     vlc # Video player
     obsidian # Note taking app
@@ -25,7 +29,7 @@
     sttr # Minimalist "cyberchef" like. Cross-platform, cli app to perform various operations on string
     httpie # Command-line HTTP client, a user-friendly cURL replacement
     wiremix # Simple TUI mixer for PipeWire
-    impala # TUI for managing wifi
+    wifitui # TUI for managing wifi
     pkgs-nur-hadi.usbguard-tui
   ];
 }
