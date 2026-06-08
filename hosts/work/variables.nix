@@ -15,7 +15,6 @@
 
     keyboardLayout = "fr";
 
-    location = "Paris";
     timeZone = "Europe/Paris";
     defaultLocale = "en_US.UTF-8";
     extraLocale = "fr_FR.UTF-8";

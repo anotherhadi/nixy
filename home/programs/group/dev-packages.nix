@@ -1,8 +1,6 @@
 {
   pkgs,
   pkgs-stable,
-  inputs,
-  system,
 }:
 (with pkgs; [
   go
