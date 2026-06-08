@@ -1,4 +1,5 @@
 {
+  pkgs,
   pkgs-stable,
   pkgs-nur-hadi,
   ...
@@ -17,19 +18,24 @@
     blanket # Listen to different sounds
     signal-desktop # Messaging app
     librewolf # Backup browser
-    imagemagick # Image manipulation tool
 
     # I love TUIs
     caligula # User-friendly, lightweight TUI for disk imaging (ISO, USB BOOT)
     browsh # A modern text-based browser that renders anything that a modern browser can. It runs in a terminal and can be used remotely over SSH
-    pastel # Command-line tool to generate, analyze, convert and manipulate colors
     dysk # A terminal-based disk usage analyzer
     wikiman # Offline search engine for manual pages (arch wiki, tldr)
     tealdeer # Fast tldr client
     sttr # Minimalist "cyberchef" like. Cross-platform, cli app to perform various operations on string
-    httpie # Command-line HTTP client, a user-friendly cURL replacement
     wiremix # Simple TUI mixer for PipeWire
-    wifitui # TUI for managing wifi
-    pkgs-nur-hadi.usbguard-tui
+    pkgs.wifitui # TUI for managing wifi
+    pkgs-nur-hadi.usbguard-tui # TUI for managing USBGuard rules
+
+    # I love CLIs
+    httpie # Command-line HTTP client, a user-friendly cURL replacement
+    gh # GitHub
+    gh-dash # A terminal dashboard for GitHub
+    figlet # Transform text into ASCII art
+    pastel # Command-line tool to generate, analyze, convert and manipulate colors
+    imagemagick # Image manipulation tool
   ];
 }
