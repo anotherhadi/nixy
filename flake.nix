@@ -14,9 +14,8 @@
     sops-nix.url = "github:Mic92/sops-nix";
     nvf.url = "github:notashelf/nvf";
     notashelf-tuigreet.url = "github:NotAShelf/tuigreet";
-    bun2nix.url = "github:nix-community/bun2nix";
-    usbguard-tui.url = "github:anotherhadi/usbguard-tui";
-    jwt-tui.url = "github:anotherhadi/jwt-tui";
+    helium-browser.url = "github:oxcl/nix-flake-helium-browser";
+    nur-anotherhadi.url = "github:anotherhadi/nur-packages";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
@@ -38,16 +37,13 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     # Server
-    # FIXME: Deleted repo for now
-    # eleakxir.url = "github:anotherhadi/eleakxir";
     nixarr.url = "github:rasmus-kirk/nixarr";
     default-creds.url = "github:anotherhadi/default-creds";
     blog.url = "github:anotherhadi/blog";
     awesome-wallpapers.url = "github:anotherhadi/awesome-wallpapers";
     iknowyou.url = "github:anotherhadi/iknowyou";
-    spilltea.url = "github:anotherhadi/spilltea";
-    helium-browser.url = "github:oxcl/nix-flake-helium-browser";
   };
 
   outputs = inputs @ {
@@ -65,6 +61,7 @@
         pkgs
         ;
       pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+      pkgs-nur-hadi = inputs.nur-anotherhadi.packages.${system};
     };
     merge = nixpkgs.lib.foldl nixpkgs.lib.recursiveUpdate {};
   in

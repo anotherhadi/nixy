@@ -2,11 +2,12 @@
   inputs,
   pkgs,
   pkgs-stable,
+  pkgs-nur-hadi,
   system,
   ...
 }: let
   devPackages = import ./dev-packages.nix {inherit pkgs pkgs-stable inputs system;};
-  cyberPackages = import ./cybersecurity-packages.nix {inherit pkgs pkgs-stable inputs system;};
+  cyberPackages = import ./cybersecurity-packages.nix {inherit pkgs pkgs-stable pkgs-nur-hadi;};
 in {
   packages.${system} = {
     dev = pkgs.buildEnv {

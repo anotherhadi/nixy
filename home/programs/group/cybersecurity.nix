@@ -1,12 +1,11 @@
 {
-  inputs,
-  pkgs-stable,
   pkgs,
+  pkgs-stable,
+  pkgs-nur-hadi,
   ...
 }: {
   home.packages = import ./cybersecurity-packages.nix {
-    inherit pkgs pkgs-stable inputs;
-    system = pkgs.stdenv.hostPlatform.system;
+    inherit pkgs pkgs-stable pkgs-nur-hadi;
   };
 
   systemd.user.tmpfiles.rules = [
