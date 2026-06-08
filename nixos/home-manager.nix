@@ -14,6 +14,7 @@
         system = pkgs.stdenv.hostPlatform.system;
         config.allowUnfree = true;
       };
+      pkgs-nur-hadi = inputs.nur-anotherhadi.packages.${pkgs.stdenv.hostPlatform.system};
     };
   };
 }

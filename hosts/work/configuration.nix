@@ -7,7 +7,7 @@
     ../../nixos/home-manager.nix
     ../../nixos/nix.nix
     ../../nixos/systemd-boot.nix
-    ../../nixos/sddm.nix
+    ../../nixos/tuigreet.nix
     ../../nixos/usbguard.nix
     ../../nixos/users.nix
     ../../nixos/utils.nix

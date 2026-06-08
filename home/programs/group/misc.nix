@@ -1,5 +1,6 @@
 {
   pkgs-stable,
+  pkgs-nur-hadi,
   inputs,
   ...
 }: {
@@ -11,6 +12,5 @@
     pipes
     cmatrix
     fastfetch
-    inputs.usbguard-tui.packages.${pkgs-stable.stdenv.hostPlatform.system}.default
   ];
 }
