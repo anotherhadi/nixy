@@ -7,15 +7,15 @@
   options.theme = lib.mkOption {
     type = lib.types.attrs;
     default = {
-      rounding = 28;
-      bar-rounding = 28 + 10;
+      rounding = 20;
+      bar-rounding = 20 + 10;
       bar-thickness = 0;
-      gaps-in = 10;
-      gaps-out = 10 * 2;
-      active-opacity = 0.98;
-      inactive-opacity = 0.95;
+      gaps-in = 8;
+      gaps-out = 8 * 2;
+      active-opacity = 0.96;
+      inactive-opacity = 0.92;
       blur = true;
-      border-size = 4;
+      border-size = 2;
       animation-speed = "medium"; # "fast" | "medium" | "slow"
       fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
     };
@@ -27,7 +27,7 @@
 
     # See https://tinted-theming.github.io/tinted-gallery/ for more schemes
     base16Scheme = {
-      base00 = "0B0B0D"; # Default Background
+      base00 = "0A0A0C"; # Default Background
       base01 = "110F12"; # Lighter Background (Used for status bars, line number and folding marks)
       base02 = "2D2A36"; # Selection Background
       base03 = "514D63"; # Comments, Invisibles, Line Highlighting
@@ -75,8 +75,8 @@
 
     polarity = "dark";
     image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/a-violet-blur.png";
-      sha256 = "sha256-uzAhuKGqnN038A5P+xdvxYgRiYq046GDmD9P1FcISz4=";
+      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/black-moutains-and-a-city.png";
+      sha256 = "sha256-RTTA3Lf+hnPpo9hwS075kbnIouz12ul2GKO3EIgP6AU=";
     };
   };
 }
