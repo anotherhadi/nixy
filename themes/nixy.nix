@@ -7,16 +7,17 @@
   options.theme = lib.mkOption {
     type = lib.types.attrs;
     default = {
-      rounding = 25;
+      rounding = 28;
+      bar-rounding = 28 + 10;
+      bar-thickness = 0;
       gaps-in = 10;
       gaps-out = 10 * 2;
-      active-opacity = 0.99;
-      inactive-opacity = 0.97;
+      active-opacity = 0.98;
+      inactive-opacity = 0.95;
       blur = true;
-      border-size = 2;
+      border-size = 4;
       animation-speed = "medium"; # "fast" | "medium" | "slow"
       fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
-      textColorOnWallpaper = config.lib.stylix.colors.base00; # Color of the text displayed on the wallpaper (Lockscreen, display manager, ...)
     };
     description = "Theme configuration options";
   };
@@ -26,8 +27,8 @@
 
     # See https://tinted-theming.github.io/tinted-gallery/ for more schemes
     base16Scheme = {
-      base00 = "110F12"; # Default Background
-      base01 = "1C1920"; # Lighter Background (Used for status bars, line number and folding marks)
+      base00 = "0B0B0D"; # Default Background
+      base01 = "110F12"; # Lighter Background (Used for status bars, line number and folding marks)
       base02 = "2D2A36"; # Selection Background
       base03 = "514D63"; # Comments, Invisibles, Line Highlighting
       base04 = "8E8AA0"; # Dark Foreground (Used for status bars)
@@ -74,8 +75,8 @@
 
     polarity = "dark";
     image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/white-snow-and-a-tree_light.png";
-      sha256 = "sha256-HKqDY/iCcV++WwNuNIWZEyXuxYuGWG+krn2vPTe58HQ=";
+      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/a-violet-blur.png";
+      sha256 = "sha256-uzAhuKGqnN038A5P+xdvxYgRiYq046GDmD9P1FcISz4=";
     };
   };
 }
