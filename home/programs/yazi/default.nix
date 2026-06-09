@@ -11,10 +11,6 @@
       ouch = pkgs.yaziPlugins.ouch;
       piper = pkgs.yaziPlugins.piper;
       convert = pkgs.yaziPlugins.convert;
-      "full-border" = {
-        package = pkgs.yaziPlugins."full-border";
-        setup = true;
-      };
       "jump-to-char" = pkgs.yaziPlugins."jump-to-char";
       "wl-clipboard" = pkgs.yaziPlugins."wl-clipboard";
       "batch-rename-gui" = pkgs.yaziPlugins.mkYaziPlugin {
