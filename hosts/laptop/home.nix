@@ -10,7 +10,6 @@
     ../../home/programs/git
     ../../home/programs/git/lazygit.nix
     ../../home/programs/git/signing.nix # CHANGEME: Change the key or remove this file
-    ../../home/programs/spicetify
     ../../home/programs/thunar
     ../../home/programs/nixy
     ../../home/programs/nightshift

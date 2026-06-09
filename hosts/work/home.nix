@@ -8,7 +8,6 @@
     ../../home/programs/shell
     ../../home/programs/git
     ../../home/programs/git/lazygit.nix
-    ../../home/programs/spicetify
     ../../home/programs/thunar
     ../../home/programs/nixy
     ../../home/programs/nightshift
