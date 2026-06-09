@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  rounding = config.theme.rounding + config.theme.gaps-out;
+  inherit (config.theme) bar-rounding bar-thickness;
   inherit (config.stylix) fonts;
 in {
   home.packages = with pkgs; [
@@ -43,8 +43,8 @@ in {
     };
     dashboard.showOnHover = false;
     border = {
-      inherit rounding;
-      thickness = 8;
+      rounding = bar-rounding;
+      thickness = bar-thickness;
     };
   };
 }

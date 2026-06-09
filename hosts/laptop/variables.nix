@@ -5,7 +5,7 @@
 }: {
   imports = [
     # Choose your theme here:
-    ../../themes/darkviolet.nix
+    ../../themes/nixy.nix
   ];
 
   config.var = {
