@@ -42,6 +42,10 @@
       ];
       prepend_previewers = [
         {
+          mime = "image/*";
+          run = ''piper -- chafa --format symbols --animate off --size "$w"x"$h" -- "$1"'';
+        }
+        {
           url = "*.md";
           run = ''piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'';
         }
