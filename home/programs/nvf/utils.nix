@@ -5,6 +5,10 @@
       vim.keymap.del("n", "<leader>tdt")
     '';
     undoFile.enable = true;
+    utility.yazi-nvim = {
+      enable = true;
+      mappings.openYazi = "<leader>e";
+    };
     notes.todo-comments.enable = true;
     assistant.copilot = {
       enable = true;

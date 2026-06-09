@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   vim.luaConfigRC.mini-clue = ''
     local miniclue = require('mini.clue')
     miniclue.setup({
@@ -29,6 +29,7 @@
         { mode = 'n', keys = '<Leader>x', desc = '+trouble' },
         { mode = 'n', keys = '<Leader>!', desc = 'shell' },
         { mode = 'v', keys = '<Leader>!', desc = 'shell' },
+        { mode = 'n', keys = '<Leader>e', desc = 'yazi' },
       },
       window = { delay = 300 },
     })
@@ -36,7 +37,55 @@
 
   vim.mini = {
     ai.enable = true;
-    starter.enable = true;
+    starter = {
+      enable = true;
+      setupOpts = {
+        header = ''
+          ⣟⣯⣟⣯⡇⠀⣿⢩⣛⡼⣏⠀⠈⠋⠀⣈⡷⣙⢎⡳⣙⢮⣙⢮⣙⢎⡳⣙⢾⣿
+          ⢿⡾⣽⡞⣷⣤⣏⡳⡜⡼⠗⠁⢀⠀⠙⢧⠳⣍⢞⡱⣭⠲⣍⠶⣩⢞⡱⡭⣾⣿
+          ⠈⠻⠧⢿⣧⣿⠶⣵⢻⢞⡷⢲⡟⡶⢴⡭⢿⣜⣮⡱⢎⡳⣍⢞⡱⢮⡱⣳⣿⣽
+          ⠀⣰⣶⡏⢷⣈⣿⣸⣇⣾⣸⣿⣾⣹⣆⡹⡎⡶⢇⡿⣹⢷⣾⣈⠷⣇⢷⣿⣿⣹
+          ⣾⣻⣭⣿⣾⣿⣿⣟⣿⣿⡿⣽⡿⣿⢿⣿⣿⣿⣾⣶⣵⣾⠲⣭⢳⣞⣾⡿⣷⣿
+          ⣿⣿⣿⣯⣷⣿⣿⠿⢝⠚⠋⠉⠉⠉⠙⠚⠛⡾⢿⣿⣻⣿⣿⣶⣏⠶⣩⠿⣿⡈
+          ⣿⣟⣿⣻⣿⡏⠀⠀⠀⠳⡀⠀⠀⠀⠀⠰⠊⠀⠀⠈⠙⠳⣿⣿⣿⣿⣧⣻⣿⣿
+          ⠘⢻⣿⣿⣽⡇⠈⠧⣄⠀⠀⠀⠀⠀⠀⢀⣄⡤⠴⠚⠀⠀⠀⠙⢿⣷⡿⣿⣿⣿
+          ⠀⠠⢈⢛⣿⠀⠚⠉⠉⠱⣼⡷⠀⠀⠀⠀⠉⠉⠑⠶⠀⠀⠀⠀⠀⠻⣿⣿⣾⢿
+          ⠀⠡⠈⠉⠹⡀⠀⠀⡄⠀⣸⡀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣯⣿⢿
+          ⠀⠁⢶⣶⠀⢷⠀⠀⠉⠉⠀⠈⠉⠶⠆⠈⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣾⣿
+          ⠀⠡⢸⢹⠏⡍⠓⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣺⡟⠋⠉⢹⢭⢣
+          ⠀⠀⢸⣹⡏⠭⠭⠭⠙⣲⣦⣤⣤⣀⣀⣀⣀⣤⣤⣶⣞⠉⠙⠛⠷⢀⣀⠘⣎⠧
+          ⢁⣈⣀⣀⢀⣀⣀⣀⣼⠟⠹⢿⣯⣟⣿⣻⡿⠿⠛⢿⣿⣦⡀⠀⠀⠀⠀⠉⠉⠘
+        '';
+        footer = "";
+        items = [
+          {
+            name = "files";
+            action = lib.mkLuaInline "function() Snacks.picker.files() end";
+            section = "";
+          }
+          {
+            name = "directories";
+            action = lib.mkLuaInline "function() Snacks.explorer() end";
+            section = "";
+          }
+          {
+            name = "tmp";
+            action = lib.mkLuaInline ''
+              function()
+                local uuid = vim.fn.system("uuidgen"):match("(%S+)")
+                vim.cmd("edit /tmp/" .. uuid .. ".md")
+              end
+            '';
+            section = "";
+          }
+          {
+            name = "recent";
+            action = lib.mkLuaInline "function() Snacks.picker.recent() end";
+            section = "";
+          }
+        ];
+      };
+    };
     comment.enable = true;
     icons.enable = true;
     indentscope.enable = true;
