@@ -18,7 +18,7 @@
         desc = "Smart Find Files";
       }
       {
-        key = "<leader>e";
+        key = "<leader>E";
         mode = "n";
         silent = true;
         action = "<cmd>lua Snacks.explorer()<cr>";
