@@ -24,6 +24,7 @@
       autotagHtml = true;
       context.enable = true;
       highlight.enable = true;
+      textobjects.enable = true;
     };
     lsp = {
       enable = true;

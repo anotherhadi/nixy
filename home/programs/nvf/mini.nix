@@ -27,6 +27,8 @@
         { mode = 'n', keys = '<Leader>u', desc = '+ui' },
         { mode = 'n', keys = '<Leader>l', desc = '+lsp' },
         { mode = 'n', keys = '<Leader>x', desc = '+trouble' },
+        { mode = 'n', keys = '<Leader>!', desc = 'shell' },
+        { mode = 'v', keys = '<Leader>!', desc = 'shell' },
       },
       window = { delay = 300 },
     })
@@ -44,5 +46,6 @@
     jump2d.enable = true;
     statusline.enable = true;
     clue.enable = true;
+    surround.enable = true;
   };
 }
