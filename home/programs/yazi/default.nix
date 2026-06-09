@@ -42,10 +42,6 @@
       ];
       prepend_previewers = [
         {
-          mime = "image/*";
-          run = ''piper -- chafa --format symbols --animate off --size "$w"x"$h" -- "$1"'';
-        }
-        {
           url = "*.md";
           run = ''piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'';
         }
@@ -109,15 +105,10 @@
         run = "plugin batch-rename-gui";
         desc = "Batch rename";
       }
-      {
-        on = [";"];
-        run = "plugin command-palette";
-        desc = "Command palette";
-      }
     ];
   };
 
-  home.packages = with pkgs; [glow ouch hexyl exiftool starship fzf];
+  home.packages = with pkgs; [glow ouch hexyl exiftool fzf wl-clipboard];
 
   xdg.configFile."yazi/plugins/toggle-parent.yazi/main.lua".text = ''
     --- @sync entry
