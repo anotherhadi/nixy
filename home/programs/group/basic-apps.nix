@@ -27,8 +27,11 @@
     tealdeer # Fast tldr client
     sttr # Minimalist "cyberchef" like. Cross-platform, cli app to perform various operations on string
     wiremix # Simple TUI mixer for PipeWire
+    slides # A terminal-based presentation tool that allows you to create and deliver presentations directly from the command line
+    pom # Pomodoro timer in your terminal
     pkgs.wifitui # TUI for managing wifi
     pkgs-nur-hadi.usbguard-tui # TUI for managing USBGuard rules
+    pkgs-nur-hadi.sheets # Terminal based spreadsheet tool
 
     # I love CLIs
     httpie # Command-line HTTP client, a user-friendly cURL replacement
