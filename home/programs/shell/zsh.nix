@@ -4,9 +4,7 @@
   lib,
   config,
   ...
-}: let
-  fetch = config.theme.fetch; # neofetch, nerdfetch, pfetch
-in {
+}: {
   home.packages = with pkgs; [
     bat
     ripgrep
@@ -47,30 +45,23 @@ in {
     '';
 
     shellAliases = {
-      spt = "spotatui";
+      # Change default
       vim = "nvim";
       vi = "nvim";
-      v = "nvim";
-      c = "clear";
-      clera = "clear";
-      celar = "clear";
-      claer = "clear";
-      e = "exit";
       cd = "z";
       ls = "eza --icons=always --no-quotes";
       tree = "eza --icons=always --tree --no-quotes";
-      sl = "ls";
-      open = "${pkgs.xdg-utils}/bin/xdg-open";
       cat = "bat --theme=base16 --color=always --paging=never --tabs=2 --wrap=never --plain";
       mkdir = "mkdir -p";
 
-      obsidian-no-gpu = "env ELECTRON_OZONE_PLATFORM_HINT=auto obsidian --ozone-platform=x11";
-      wireguard-import = "nmcli connection import type wireguard file";
+      # Shortcuts
+      spt = "spotatui";
+      v = "nvim";
+      c = "clear";
+      e = "exit";
+      open = "${pkgs.xdg-utils}/bin/xdg-open";
 
       notes = "nvim ~/notes/index.md --cmd 'cd ~/notes' -c ':lua Snacks.picker.smart()'";
-      note = "notes";
-      tmp = "nvim /tmp/$(date | sed 's/ //g;s/\\.//g').md";
-
       nix-shell = "nix-shell --command zsh";
 
       # git
@@ -87,31 +78,41 @@ in {
       gbr = "git branch";
       grs = "git reset HEAD~1";
       grh = "git reset --hard HEAD~1";
-
       gaa = "git add .";
       gcm = "git commit -m";
+
+      # Typo
+      clera = "clear";
+      celar = "clear";
+      claer = "clear";
+      sl = "ls";
     };
 
     initContent =
       # bash
       ''
         bindkey -e
-        ${
-          if fetch == "neofetch"
-          then pkgs.neofetch + "/bin/neofetch"
-          else if fetch == "nerdfetch"
-          then "nerdfetch"
-          else if fetch == "pfetch"
-          then "echo; ${pkgs.pfetch}/bin/pfetch"
-          else ""
-        }
 
-        function n4c() {
-          category=''${1:-all}
-          shift
-          args=''${*}
-          nix develop "github:nix4cyber/n4c#''${category}" ''${args} -c zsh
-        }
+        # Open command in VIM
+        autoload -Uz edit-command-line
+        zle -N edit-command-line
+        bindkey '^X' edit-command-line
+
+        # Suffix Aliases
+        alias -s {nix,md,txt,json,yml,yaml,go}=nvim
+        alias -s {png,jpg,jpeg,gif,pdf}=xdg-open
+
+        # 3. Global Aliases (Remplacés n'importe où dans la commande, pas seulement au début)
+        alias -g G="| grep"
+        alias -g L="| less"
+        alias -g V="| nvim"
+        alias -g H="| head"
+        alias -g T="| tail"
+        alias -g JQ="| jq"
+        alias -g C="| wl-copy"
+        alias -g NE="2>/dev/null"
+        alias -g ND=">/dev/null"
+        alias -g NUL=">/dev/null 2>1"
 
         # search history based on what's typed in the prompt
         autoload -U history-search-end
@@ -152,7 +153,7 @@ in {
         # Colors
         zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
 
-        # case insensitive tab completion
+        # Case insensitive tab completion
         zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
         zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
         zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
@@ -167,6 +168,13 @@ in {
         zstyle ':completion:*:eza' sort false
         zstyle ':completion:complete:*:options' sort false
         zstyle ':completion:files' sort false
+
+        autoload zmv
+
+        hash -d dl=~/Downloads
+        hash -d ni=~/.config/nixos
+        hash -d de=~/dev
+        hash -d cy=~/Cyber
 
         ${lib.optionalString config.services.gpg-agent.enable ''
           gnupg_path=$(ls $XDG_RUNTIME_DIR/gnupg)
