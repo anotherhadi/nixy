@@ -91,14 +91,13 @@ in {
         "$mod,B, exec, uwsm app -- ${config.programs.helium.package}/bin/helium" # Browser
 
         # Power
-        "$mod, X, global, caelestia:session" # Powermenu
         (
-          "$shiftMod, X, exec, "
+          "$mod, X, exec, "
           + lib.getExe (mkMenu [
             {
               key = "l";
               desc = "Lock";
-              cmd = "hyprctl dispatch global caelestia:lock";
+              cmd = "hyprlock";
             }
             {
               key = "s";
@@ -120,21 +119,14 @@ in {
               desc = "Nightshift";
               cmd = "nightshift-toggle";
             }
-            {
-              key = "c";
-              desc = "Restart caelestia";
-              cmd = "hyprctl dispatch exec 'caelestia-shell kill | sleep 1 | caelestia-shell'";
-            }
           ])
         )
 
         # Quick launch
         "$mod,RETURN, exec, uwsm app -- ${pkgs.ghostty}/bin/ghostty" # Ghostty (terminal)
         "$mod,E, exec,  uwsm app -- ${pkgs.thunar}/bin/thunar" # Thunar
-        "$shiftMod, E, exec, pkill fuzzel || caelestia emoji -p" # Emoji picker
-        "$mod, SPACE, global, caelestia:launcher" # Launcher
-        "$mod, N, exec, caelestia shell drawers toggle sidebar" # Sidebar (Notifications, quick actions)
-        "$mod, D, exec, caelestia shell drawers toggle dashboard" # Dashboard
+        "$mod, SPACE, exec, rofi -show drun" # Launcher
+        "$mod, N, exec, swaync-client -t" # Notification center
 
         # Windows
         "$mod,Q, killactive," # Close window
@@ -152,10 +144,9 @@ in {
         "$shiftMod,L, focusmonitor, 1" # Focus next monitor
 
         # Utilities
-        "$shiftMod, SPACE, exec, caelestia shell gameMode toggle" # Toggle Focus/Game mode
-        "$shiftMod, S, global, caelestia:screenshotFreeze" # Capture region (freeze)
-        ", Print, global, caelestia:screenshotFreeze" # Capture region (freeze)
-        "$shiftMod+Alt, S, global, caelestia:screenshot" # Capture region
+        "$shiftMod, S, exec, hyprshot -m region" # Capture region
+        ", Print, exec, hyprshot -m region" # Capture region
+        "$shiftMod+Alt, S, exec, hyprshot -m output" # Capture screen
       ]
       ++ (builtins.concatLists (
         builtins.genList (
@@ -176,32 +167,21 @@ in {
 
     bindl = [
       # Brightness
-      ", XF86MonBrightnessUp, global, caelestia:brightnessUp"
-      ", XF86MonBrightnessDown, global, caelestia:brightnessDown"
+      ", XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
+      ", XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
 
       # Media
-      ", XF86AudioPlay, global, caelestia:mediaToggle"
-      ", XF86AudioPause, global, caelestia:mediaToggle"
-      ", XF86AudioNext, global, caelestia:mediaNext"
-      ", XF86AudioPrev, global, caelestia:mediaPrev"
-      ", XF86AudioStop, global, caelestia:mediaStop"
+      ", XF86AudioPlay, exec, playerctl play-pause"
+      ", XF86AudioPause, exec, playerctl play-pause"
+      ", XF86AudioNext, exec, playerctl next"
+      ", XF86AudioPrev, exec, playerctl previous"
+      ", XF86AudioStop, exec, playerctl stop"
 
       # Sound
-      ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      ", XF86AudioRaiseVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-      ", XF86AudioLowerVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-    ];
-
-    bindin = [
-      # Launcher
-      "$mod, mouse:272, global, caelestia:launcherInterrupt"
-      "$mod, mouse:273, global, caelestia:launcherInterrupt"
-      "$mod, mouse:274, global, caelestia:launcherInterrupt"
-      "$mod, mouse:275, global, caelestia:launcherInterrupt"
-      "$mod, mouse:276, global, caelestia:launcherInterrupt"
-      "$mod, mouse:277, global, caelestia:launcherInterrupt"
-      "$mod, mouse_up, global, caelestia:launcherInterrupt"
-      "$mod, mouse_down, global, caelestia:launcherInterrupt"
+      ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
+      ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
+      ", XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
+      ", XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
     ];
   };
 }

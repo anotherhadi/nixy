@@ -2,7 +2,6 @@
   imports = [
     # Mostly system related configuration
     ../../nixos/audio.nix
-    ../../nixos/bluetooth.nix
     ../../nixos/fonts.nix
     ../../nixos/home-manager.nix
     ../../nixos/nix.nix

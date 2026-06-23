@@ -1,7 +1,6 @@
 # Systemd-boot configuration for NixOS
 {pkgs, ...}: {
   boot = {
-    bootspec.enable = true;
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {
