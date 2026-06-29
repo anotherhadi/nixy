@@ -1,6 +1,5 @@
 # Thunar is a file explorer
 {
-  pkgs,
   pkgs-stable,
   config,
   lib,
@@ -11,17 +10,16 @@ in {
   # ctrl + m to toggle the menubar
   home.packages =
     (with pkgs-stable; [
-      xfce.thunar
-      xfce.xfconf
-      xfce.tumbler
-      xfce.thunar-archive-plugin
-      xfce.thunar-volman
-      xfce.thunar-media-tags-plugin
+      thunar
+      xfconf
+      tumbler
+      thunar-archive-plugin
+      thunar-volman
+      thunar-media-tags-plugin
       p7zip
       xarchiver
     ])
-    ++ (with pkgs; [
-      # Icon themes: keep on global pkgs to avoid conflicts with other modules
+    ++ (with pkgs-stable; [
       papirus-icon-theme
       material-icons
       material-design-icons
@@ -32,7 +30,7 @@ in {
     enable = true;
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      package = pkgs-stable.papirus-icon-theme;
     };
 
     # bookmarks for the side pane
@@ -47,7 +45,7 @@ in {
   qt.enable = true;
 
   home.sessionVariables = {
-    XDG_ICON_DIR = "${pkgs.papirus-icon-theme}/share/icons/Papirus";
+    XDG_ICON_DIR = "${pkgs-stable.papirus-icon-theme}/share/icons/Papirus";
     QS_ICON_THEME = "Papirus";
     QT_STYLE_OVERRIDE = lib.mkForce "Fusion";
   };

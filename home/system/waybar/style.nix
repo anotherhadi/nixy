@@ -1,4 +1,4 @@
-{ config, ... }: let
+{config, ...}: let
   c = config.lib.stylix.colors;
   fg = "#${c.base05}";
   module-bg = "#${c.base01}";
@@ -7,12 +7,16 @@
   yellow = "#${c.base0A}";
   green = "#${c.base0B}";
   blue = "#${c.base0D}";
+  cyan = "#${c.base0C}";
+  mauve = "#${c.base0E}";
   inactive = "#${c.base03}";
   highlight = "#${c.base02}";
+  font-size = "${toString config.stylix.fonts.sizes.applications}px";
+  font-size-clock = "${toString (config.stylix.fonts.sizes.applications + 2)}px";
 in {
   programs.waybar.style = ''
     * {
-        font-family: 'CaskaydiaCove Nerd Font Propo';
+        font-family: '${config.stylix.fonts.sansSerif.name}';
         border: none;
         border-radius: 0;
         min-height: 0;
@@ -24,81 +28,78 @@ in {
     #waybar {
         font-weight: 700;
         background: transparent;
-        font-size: 14px;
+        font-size: ${font-size};
         color: ${fg};
     }
 
-    #temperature,
+    .modules-center {
+        background: ${module-bg};
+        border-radius: 100px;
+        padding: 6px 14px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    }
+
+    #clock,
+    #tray,
+    #custom-network,
     #bluetooth,
     #battery,
-    #memory,
-    #mpris,
-    #cpu,
-    #load {
-        padding: 1px 7px;
-        min-width: 0;
+    #mpris {
+        padding: 1px 14px;
     }
 
-    #network,
-    #tray {
-        padding: 1px 6px;
+    #clock {
+      font-size: ${font-size-clock};
     }
 
-    #backlight,
-    #pulseaudio {
+    #workspaces {
         padding: 1px 8px;
     }
 
     #pulseaudio {
-        padding-left: 4px;
+        padding: 1px 8px 1px 6px;
     }
 
-    #backlight-slider,
     #pulseaudio-slider {
-        padding: 0 7px 0 2px;
+        padding: 0 8px 0 2px;
     }
 
-    #workspaces,
-    #bluetooth,
-    #battery,
-    #memory,
-    #temperature,
-    #cpu,
-    #mpris,
-    #load {
-        margin: 0 3px;
+    #workspaces button {
+        color: ${fg};
+        font-size: ${font-size};
+        border-radius: 100px;
+        padding: 0 5px;
+        margin: 0 1px;
     }
 
-    #right,
-    #left,
-    #right-hidden-top,
-    #left-hidden-top {
-        padding: 2px 10px;
-        border-radius: 15px;
-        background: ${module-bg};
+    #workspaces button.empty {
+        color: ${inactive};
     }
 
-    #right-hidden-top,
-    #left-hidden-top {
+    #workspaces button:hover {
+        background: transparent;
+        color: ${fg};
+    }
+
+    #workspaces button.active {
+        color: ${module-bg};
+        background: ${blue};
+        border-radius: 60px;
         padding: 0 12px;
+        margin: 0 1px;
     }
 
-    #right, #left {
-        margin: 0 8px;
+    #right-hidden {
+        padding: 0 6px;
     }
 
-    #clock {
-        background: ${module-bg};
-        padding: 1px 18px;
-        border-radius: 15px;
-    }
-
-    #custom-ctlcenter {
-        margin-left: 7px;
+    #custom-arrow-right {
+        padding: 0 5px;
+        font-size: ${toString (config.stylix.fonts.sizes.applications + 2)}px;
     }
 
     #power-profiles-daemon {
-        margin-right: 7px;
+        margin-right: 4px;
     }
 
     #network.disabled,
@@ -108,42 +109,42 @@ in {
         min-width: 0;
     }
 
-    #cpu.critical,
-    #memory.critical,
+    #battery {
+        color: ${green};
+    }
+
+    #battery.charging,
+    #battery.full {
+        color: ${green};
+    }
+
+    #network.ethernet,
+    #network.wifi {
+        color: ${cyan};
+    }
+
+    #bluetooth.on,
+    #bluetooth.connected,
+    #bluetooth {
+        color: ${blue};
+    }
+
     #battery.critical,
-    #temperature.critical,
     #network.disconnected,
     #power-profiles-daemon.performance {
         color: ${red};
     }
 
-    #cpu.warning,
-    #memory.warning,
-    #battery.warning,
-    #temperature.warning {
+    #battery.warning {
         color: ${yellow};
-        background: unset;
     }
 
     #power-profiles-daemon.power-saver {
         color: ${green};
     }
 
-    #custom-start,
-    #custom-ctlcenter {
-        color: ${blue};
-    }
-
-    #workspaces button {
-        color: ${fg};
-        font-size: 14px;
-        border-radius: 100%;
-        padding: 0 2px;
-        margin: 0 3px;
-    }
-
-    #workspaces button:hover {
-        background: transparent;
+    #mpris {
+        color: ${mauve};
     }
 
     #mpris.paused {

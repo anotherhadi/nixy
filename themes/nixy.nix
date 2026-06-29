@@ -57,8 +57,8 @@
         name = "Maple Mono NF";
       };
       sansSerif = {
-        package = pkgs.source-sans-pro;
-        name = "Source Sans Pro";
+        package = pkgs.rubik;
+        name = "Rubik";
       };
       serif = config.stylix.fonts.sansSerif;
       emoji = {
@@ -75,8 +75,8 @@
 
     polarity = "dark";
     image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/black-moutains-and-a-city.png";
-      sha256 = "sha256-RTTA3Lf+hnPpo9hwS075kbnIouz12ul2GKO3EIgP6AU=";
+      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/main/app/static/wallpapers/another-one.png";
+      sha256 = "sha256-zthfsd4QLShPPApV8RoPANaymMC5IiCrmp8QwyyhCcY=";
     };
   };
 }

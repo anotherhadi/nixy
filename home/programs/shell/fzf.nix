@@ -1,5 +1,6 @@
 # Fzf is a general-purpose command-line fuzzy finder.
 {
+  pkgs-stable,
   config,
   lib,
   ...
@@ -10,6 +11,7 @@
 in {
   programs.fzf = {
     enable = true;
+    package = pkgs-stable.fzf;
     enableZshIntegration = true;
     colors = lib.mkForce {
       "fg+" = accent;

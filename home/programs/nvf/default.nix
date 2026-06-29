@@ -1,12 +1,16 @@
 {
   inputs,
-  pkgs,
   config,
   ...
 }: let
   c = config.lib.stylix.colors;
 in {
   imports = [inputs.nvf.homeManagerModules.default];
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
   programs.nvf = {
     enable = true;
     settings = {

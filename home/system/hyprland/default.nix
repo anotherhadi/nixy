@@ -1,6 +1,7 @@
 # Hyprland is a dynamic tiling Wayland compositor that is highly customizable and performant.
 {
   pkgs,
+  pkgs-stable,
   config,
   lib,
   ...
@@ -19,49 +20,43 @@ in {
     ./animations.nix
     ./bindings.nix
     ./polkitagent.nix
-    ./keyboard-backlight.nix # CHANGEME: This is for omen laptop only
+    ./hyprpaper.nix
   ];
 
-  home.packages = with pkgs; [
-    qt5.qtwayland
-    qt6.qtwayland
-    libsForQt5.qt5ct
-    qt6Packages.qt6ct
-    xcb-util-cursor
-    libxcb
-    hyprland-qtutils
-    adw-gtk3
-    hyprshot
-    hyprpicker
-    swappy
-    imv
-    wf-recorder
-    wlr-randr
-    brightnessctl
-    gnome-themes-extra
-    dconf
-    wayland-utils
-    wayland-protocols
-  ];
+  home.packages =
+    (with pkgs; [
+      qt5.qtwayland
+      qt6.qtwayland
+      libsForQt5.qt5ct
+      qt6Packages.qt6ct
+      hyprland-qtutils
+    ])
+    ++ (with pkgs-stable; [
+      xcb-util-cursor
+      libxcb
+      adw-gtk3
+      hyprshot
+      hyprpicker
+      swappy
+      imv
+      wf-recorder
+      wlr-randr
+      brightnessctl
+      gnome-themes-extra
+      dconf
+      wayland-utils
+      wayland-protocols
+    ]);
 
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "hyprlang";
     xwayland.enable = true;
-    systemd = {
-      enable = false;
-      variables = [
-        "--all"
-      ]; # https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
-    };
+    systemd.enable = false;
     package = null;
     portalPackage = null;
 
     settings = {
-      exec-once = [
-        "dbus-update-activation-environment --systemd --all &"
-      ];
-
       monitor = [
         ",prefered,auto,1" # default
       ];

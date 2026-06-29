@@ -23,16 +23,6 @@
     ];
     consoleLogLevel = 0;
     initrd.verbose = false;
-
-    # plymouth = {
-    #   enable = true;
-    #   theme = lib.mkForce "cuts_alt";
-    #   themePackages = with pkgs; [
-    #     (adi1090x-plymouth-themes.override {
-    #       selected_themes = ["cuts_alt"];
-    #     })
-    #   ];
-    # };
   };
 
   # To avoid systemd services hanging on shutdown

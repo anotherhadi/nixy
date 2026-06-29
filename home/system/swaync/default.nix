@@ -1,6 +1,17 @@
-{ config, ... }: let
+{config, ...}: let
   c = config.lib.stylix.colors;
   font = config.stylix.fonts.sansSerif.name;
+  monofont = config.stylix.fonts.monospace.name;
+  rounding = config.theme.rounding;
+  border-size = config.theme.border-size;
+  gaps-in = config.theme.gaps-in;
+  opacityToHex = opacity: let
+    val = builtins.floor (opacity * 255);
+    high = val / 16;
+    low = val - high * 16;
+    digits = "0123456789abcdef";
+  in "${builtins.substring high 1 digits}${builtins.substring low 1 digits}";
+  alphaHex = opacityToHex config.theme.inactive-opacity;
 in {
   services.swaync = {
     enable = true;
@@ -26,43 +37,41 @@ in {
       "hide-on-clear" = false;
       "hide-on-action" = false;
       "script-fail-notify" = true;
-      widgets = [ "mpris" "dnd" "buttons-grid" "notifications" ];
+      widgets = ["mpris" "dnd" "buttons-grid" "notifications"];
       "widget-config" = {
         dnd.text = "Do not disturb";
         mpris = {
           "image-size" = 100;
           "image-radius" = 10;
           autohide = false;
-          blacklist = [ "org.mpris.MediaPlayer2.playerctld" ];
+          blacklist = ["org.mpris.MediaPlayer2.playerctld"];
         };
         "buttons-grid" = {
           actions = [
             {
-              label = "󰌪";
+              label = "󰖔";
               type = "toggle";
-              command = "powerprofilesctl set power-saver";
-              "update-command" = "powerprofilesctl get | grep -q power-saver && echo true || echo false";
+              command = "nightshift-toggle";
+              "update-command" = "pidof hyprsunset > /dev/null && echo true || echo false";
             }
             {
-              label = "";
+              label = "󰈈";
               type = "toggle";
-              command = "wpctl set-mute @DEFAULT_SOURCE@ toggle";
+              command = "focus-toggle";
+              "update-command" = "test -f /tmp/hypr-focus-mode && echo true || echo false";
+            }
+            {
+              label = "󰍭";
+              type = "toggle";
+              command = "swayosd-client --input-volume mute-toggle";
               "update-command" = "wpctl get-volume @DEFAULT_SOURCE@ | grep -q MUTED && echo true || echo false";
             }
             {
-              label = "";
-              command = "ghostty -- htop ; swaync-client -cp";
-            }
-            {
-              label = "";
-              command = "nwg-look ; swaync-client -cp";
-            }
-            {
-              label = "";
+              label = "󰌾";
               command = "swaync-client -cp ; hyprlock";
             }
             {
-              label = "";
+              label = "󰐥";
               command = "swaync-client -cp ; systemctl poweroff";
             }
           ];
@@ -71,10 +80,10 @@ in {
     };
 
     style = ''
-      @define-color center-bg              #${c.base00}cc;
-      @define-color notification-bg        #${c.base00}e5;
+      @define-color center-bg              #${c.base00}${alphaHex};
+      @define-color notification-bg        #${c.base00}${alphaHex};
       @define-color center-notification-bg #${c.base01};
-      @define-color background             #${c.base00}e5;
+      @define-color background             #${c.base00}${alphaHex};
       @define-color background-alt         #${c.base01};
       @define-color text                   #${c.base05};
       @define-color text-alt               #${c.base03};
@@ -83,36 +92,46 @@ in {
       @define-color urgent                 #${c.base08};
 
       * {
+        all: unset;
         font-family: "${font}";
         font-weight: 700;
-        all: unset;
-        --border-radius: 16px;
-        --border-radius-s: 8px;
-        --border-radius-xl: 18px;
+        --border-radius: ${toString rounding}px;
+        --border-radius-s: ${toString gaps-in}px;
+        --border-radius-xl: ${toString (rounding - 2)}px;
         --shadow: 2px 4px 10px rgba(0,0,0,0.15);
       }
 
       .notification { padding: 5px; }
 
+      .notification-row { background: transparent; border: none; box-shadow: none; }
+
+      .control-center .notification { padding: 0; }
+
       .notification-background {
         background: @notification-bg;
         border-radius: var(--border-radius);
-        margin: 8px;
+        border: ${toString border-size}px solid @selected;
+        box-shadow: none;
+        outline: none;
+        margin: ${toString gaps-in}px;
         padding: 0;
       }
 
       .notification-background .close-button {
         margin: 6px;
         padding: 2px;
-        border-radius: 6px;
+        border-radius: ${toString (gaps-in - 2)}px;
         background: transparent;
         color: @text;
       }
 
       .notification-background .close-button:hover { background: @hover; }
 
+      .notification.low,
+      .notification.normal { border: none; }
+
       .notification.critical {
-        border: 2px solid @urgent;
+        border: ${toString border-size}px solid @urgent;
         border-radius: var(--border-radius);
       }
 
@@ -120,6 +139,7 @@ in {
         color: @text;
         margin: 10px;
         font-weight: 700;
+        border: none;
       }
 
       .notification-content .text-box { margin: 0 0 0 15px; }
@@ -170,6 +190,7 @@ in {
       .control-center {
         background: @center-bg;
         border-radius: var(--border-radius);
+        border: ${toString border-size}px solid @selected;
         margin: 5px;
         padding: 5px 5px 0 5px;
       }
@@ -184,7 +205,7 @@ in {
 
       .notification-group { transition: 200ms; }
 
-      .notification-group:not(.collapsed) { margin: 8px; }
+      .notification-group:not(.collapsed) { margin: ${toString gaps-in}px; }
 
       .notification-group-headers,
       .notification-group-buttons {
@@ -306,14 +327,17 @@ in {
         padding: 10px;
         margin: 3px;
         min-width: 2rem;
+        font-family: "${monofont}";
         background: @hover;
         border-radius: var(--border-radius);
         transition: 200ms;
       }
 
       .widget-buttons-grid button > label {
-        font-family: "Maple Mono NF";
-        font-size: 16px;
+        font-family: "${monofont}";
+        font-size: 18px;
+        font-weight: normal;
+        font-style: normal;
         color: @text;
       }
 
@@ -328,4 +352,6 @@ in {
       .blank-window { background: transparent; }
     '';
   };
+
+  stylix.targets.swaync.enable = false;
 }

@@ -3,12 +3,12 @@
     pkgs.writeShellScriptBin "nightshift-toggle"
     # bash
     ''
-      if pidof "hyprsunset"; then
+      if pidof "hyprsunset" > /dev/null; then
         pkill hyprsunset
-        ${pkgs.libnotify}/bin/notify-send "Night Shift Disabled" "Returning to full spectrum light. Filter disabled."
+        swayosd-client --custom-message "Night Shift Off" --custom-icon "night-light-symbolic"
       else
         ${pkgs.hyprsunset}/bin/hyprsunset -t 4500 &
-        ${pkgs.libnotify}/bin/notify-send "Night Shift Activated" "Welcome to the warm side. Blue light filtering is now active."
+        swayosd-client --custom-message "Night Shift On" --custom-icon "night-light-symbolic"
       fi
     '';
 in {

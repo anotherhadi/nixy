@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-stable,
   lib,
   config,
   ...
@@ -63,17 +64,17 @@ in {
             {
               key = "o";
               desc = "Obsidian";
-              cmd = "${pkgs.obsidian}/bin/obsidian";
+              cmd = "${pkgs-stable.obsidian}/bin/obsidian";
             }
             {
               key = "s";
               desc = "Signal";
-              cmd = "${pkgs.signal-desktop}/bin/signal-desktop";
+              cmd = "${pkgs-stable.signal-desktop}/bin/signal-desktop";
             }
             {
               key = "t";
               desc = "TickTick";
-              cmd = "${pkgs.ticktick}/bin/ticktick";
+              cmd = "${pkgs-stable.ticktick}/bin/ticktick";
             }
             {
               key = "b";
@@ -124,7 +125,7 @@ in {
 
         # Quick launch
         "$mod,RETURN, exec, uwsm app -- ${pkgs.ghostty}/bin/ghostty" # Ghostty (terminal)
-        "$mod,E, exec,  uwsm app -- ${pkgs.thunar}/bin/thunar" # Thunar
+        "$mod,E, exec,  uwsm app -- ${pkgs-stable.thunar}/bin/thunar" # Thunar
         "$mod, SPACE, exec, rofi -show drun" # Launcher
         "$mod, N, exec, swaync-client -t" # Notification center
 

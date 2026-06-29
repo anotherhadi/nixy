@@ -1,20 +1,20 @@
 # My shell configuration
 {
-  pkgs,
+  pkgs-stable,
   lib,
   config,
   ...
 }: {
-  home.packages = with pkgs; [
+  home.packages = with pkgs-stable; [
     bat
     ripgrep
   ];
 
-  # Add go binaries to the PATH
-  home.sessionPath = ["$HOME/go/bin"];
-
-  home.sessionVariables = {
-    COLORTERM = "truecolor";
+  home = {
+    sessionPath = ["$HOME/go/bin"];
+    sessionVariables = {
+      COLORTERM = "truecolor";
+    };
   };
 
   programs.zsh = {
@@ -59,7 +59,7 @@
       v = "nvim";
       c = "clear";
       e = "exit";
-      open = "${pkgs.xdg-utils}/bin/xdg-open";
+      open = "${pkgs-stable.xdg-utils}/bin/xdg-open";
 
       notes = "nvim ~/notes/index.md --cmd 'cd ~/notes' -c ':lua Snacks.picker.smart()'";
       nix-shell = "nix-shell --command zsh";
@@ -99,7 +99,9 @@
         bindkey '^X' edit-command-line
 
         # Suffix Aliases
-        alias -s {nix,md,txt,json,yml,yaml,go}=nvim
+        alias -s {nix,md,txt,yml,yaml,go}=nvim
+        alias -s {json,jsonl}=jless
+        alias -s {csv,tsv,parquet,pqt,arrow,db,sqlite,xls,xlsx,xlsm,xlsb,fwf}=tw
         alias -s {png,jpg,jpeg,gif,pdf}=xdg-open
 
         # 3. Global Aliases (Remplacés n'importe où dans la commande, pas seulement au début)

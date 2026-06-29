@@ -1,7 +1,6 @@
 {
   pkgs,
   pkgs-stable,
-  pkgs-nur-hadi,
   ...
 }: {
   home.packages = with pkgs-stable; [
@@ -20,7 +19,6 @@
 
     # I love TUIs
     caligula # User-friendly, lightweight TUI for disk imaging (ISO, USB BOOT)
-    browsh # A modern text-based browser that renders anything that a modern browser can. It runs in a terminal and can be used remotely over SSH
     dysk # A terminal-based disk usage analyzer
     wikiman # Offline search engine for manual pages (arch wiki, tldr)
     tealdeer # Fast tldr client
@@ -28,9 +26,11 @@
     wiremix # Simple TUI mixer for PipeWire
     slides # A terminal-based presentation tool that allows you to create and deliver presentations directly from the command line
     pom # Pomodoro timer in your terminal
+    tabiew # A terminal-based CSV viewer and manipulator
+    jless # A pager for JSON
     pkgs.wifitui # TUI for managing wifi
-    pkgs-nur-hadi.usbguard-tui # TUI for managing USBGuard rules
-    pkgs-nur-hadi.sheets # Terminal based spreadsheet tool
+    pkgs.nur.repos.anotherhadi.usbguard-tui # TUI for managing USBGuard rules
+    pkgs.nur.repos.anotherhadi.sheets # Terminal based spreadsheet tool
 
     # I love CLIs
     httpie # Command-line HTTP client, a user-friendly cURL replacement

@@ -16,6 +16,8 @@
     ../../home/programs/nix-utils
     ../../home/programs/spotatui
     ../../home/programs/yazi
+    ../../home/programs/desktop-actions # TODO:
+    ../../home/programs/focus-mode # TODO: Rename
 
     ../../home/programs/group/basic-apps.nix
     ../../home/programs/group/cybersecurity.nix
@@ -23,9 +25,12 @@
     ../../home/programs/group/misc.nix
 
     # System (Desktop environment like stuff)
+    ../../home/system/hyprlock
     ../../home/system/hyprland
-    ../../home/system/caelestia-shell
-    ../../home/system/hyprpaper
+    ../../home/system/waybar
+    ../../home/system/swaync
+    ../../home/system/swayosd
+    ../../home/system/rofi
     ../../home/system/mime
     ../../home/system/udiskie
 
@@ -45,7 +50,7 @@
     };
 
     # Don't touch this
-    stateVersion = "24.05";
+    stateVersion = "26.05";
   };
 
   wayland.windowManager.hyprland.settings.monitor = [

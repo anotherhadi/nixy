@@ -1,13 +1,13 @@
 # Spotatui is a terminal user interface for Spotify, written in Rust. It allows you to control your Spotify playback and manage your playlists directly from the terminal.
 {
   config,
-  pkgs,
+  pkgs-stable,
   ...
 }: let
   c = config.lib.stylix.colors;
   rgb = base: "${c."${base}-rgb-r"}, ${c."${base}-rgb-g"}, ${c."${base}-rgb-b"}";
 in {
-  home.packages = with pkgs; [
+  home.packages = with pkgs-stable; [
     spotatui
   ];
 

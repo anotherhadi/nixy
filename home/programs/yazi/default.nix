@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, pkgs-stable, ...}: {
   programs.yazi = {
     enable = true;
     shellWrapperName = "y";
@@ -108,7 +108,7 @@
     ];
   };
 
-  home.packages = with pkgs; [glow ouch hexyl exiftool fzf wl-clipboard];
+  home.packages = with pkgs-stable; [glow ouch hexyl exiftool wl-clipboard];
 
   xdg.configFile."yazi/plugins/toggle-parent.yazi/main.lua".text = ''
     --- @sync entry

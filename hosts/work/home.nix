@@ -21,8 +21,8 @@
     ../../home/programs/group/misc.nix
 
     # System (Desktop environment like stuff)
+    ../../home/system/hyprlock
     ../../home/system/hyprland
-    # ../../home/system/caelestia-shell
     ../../home/system/waybar
     ../../home/system/hyprpaper
     ../../home/system/mime

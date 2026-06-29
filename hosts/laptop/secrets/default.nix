@@ -3,6 +3,7 @@
 {
   inputs,
   pkgs,
+  lib,
   config,
   ...
 }: let
@@ -57,5 +58,7 @@ in {
     age
   ];
 
-  wayland.windowManager.hyprland.settings.exec-once = ["systemctl --user start sops-nix"];
+  wayland.windowManager.hyprland.settings.exec-once = [
+    "systemctl --user start sops-nix"
+  ];
 }

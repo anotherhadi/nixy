@@ -1,5 +1,5 @@
 {
   wayland.windowManager.hyprland.settings.exec-once = [
-    "protonvpn-app --start-minimized &"
+    "protonvpn-app --start-minimized"
   ];
 }

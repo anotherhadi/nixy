@@ -1,7 +1,6 @@
 {
   pkgs,
   pkgs-stable,
-  pkgs-nur-hadi,
 }:
 (with pkgs-stable; [
   # Web
@@ -25,7 +24,6 @@
   # Network
   inetutils
   termshark # wireshark in TUI
-  dnsrecon
   whois
   dig
   nmap
@@ -42,7 +40,8 @@
   # Forensics
   binwalk
 ])
-++ (with pkgs-nur-hadi; [
+++ [ pkgs.dnsrecon ]
+++ (with pkgs.nur.repos.anotherhadi; [
   spilltea
   jwt-tui
 ])

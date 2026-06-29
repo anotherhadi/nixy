@@ -1,9 +1,4 @@
-{
-  pkgs-stable,
-  pkgs-nur-hadi,
-  inputs,
-  ...
-}: {
+{pkgs-stable, ...}: {
   home.packages = with pkgs-stable; [
     tty-solitaire
     bastet
