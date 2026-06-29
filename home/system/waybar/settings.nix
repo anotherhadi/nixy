@@ -6,9 +6,9 @@ in {
     {
       layer = "top";
       position = "top";
-      height = 25;
+      height = config.theme.bar-height;
       margin = "${toString gaps-out} ${toString gaps-out} 0";
-      modules-center = ["clock" "tray" "hyprland/workspaces" "custom/network" "bluetooth" "battery" "group/right-hidden"];
+      modules-center = ["custom/osd" "clock" "tray" "hyprland/workspaces" "custom/network" "bluetooth" "battery" "group/right-hidden"];
 
       "group/right-hidden" = {
         orientation = "horizontal";
@@ -92,13 +92,21 @@ in {
         on-click-right = "blueman-manager &";
       };
 
+      "custom/osd" = {
+        exec = "cat /tmp/waybar-osd";
+        exec-if = "test -f /tmp/waybar-osd";
+        signal = 8;
+        interval = "once";
+        format = "{}";
+      };
+
       pulseaudio = {
         format = "{icon}";
         format-bluetooth = "{icon}";
         tooltip-format = "{volume}%";
         format-muted = "<span size='12pt'>󰝟</span>";
         scroll-step = 2;
-        on-click = "swayosd-client --output-volume mute-toggle";
+        on-click = "vol-mute";
         on-click-right = "pavucontrol -t 4 &";
         format-icons = {
           headphone = "";

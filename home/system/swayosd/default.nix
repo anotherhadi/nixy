@@ -61,8 +61,8 @@
   '';
 in {
   services.swayosd = {
-    enable = true;
+    enable = false;
     stylePath = style;
-    topMargin = 0.5;
+    topMargin = 0.06;
   };
 }

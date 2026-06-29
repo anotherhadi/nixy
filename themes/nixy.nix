@@ -8,6 +8,7 @@
     type = lib.types.attrs;
     default = {
       rounding = 20;
+      bar-height = 36;
       bar-rounding = 20 + 10;
       bar-thickness = 0;
       gaps-in = 8;

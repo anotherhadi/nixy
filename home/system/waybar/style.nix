@@ -36,7 +36,7 @@ in {
         background: ${module-bg};
         border-radius: 100px;
         padding: 6px 14px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+        box-shadow: none;
     }
 
     #clock,
@@ -200,6 +200,12 @@ in {
         border-radius: 8px;
         background-color: ${fg};
         background-image: none;
+    }
+
+    #custom-osd {
+        padding: 1px 14px;
+        font-weight: 700;
+        color: ${fg};
     }
   '';
 }

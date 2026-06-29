@@ -30,7 +30,7 @@
     ../../home/system/waybar
     ../../home/system/swaync
     ../../home/system/swayosd
-    ../../home/system/rofi
+    ../../home/system/tofi
     ../../home/system/mime
     ../../home/system/udiskie
 

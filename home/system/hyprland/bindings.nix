@@ -126,7 +126,7 @@ in {
         # Quick launch
         "$mod,RETURN, exec, uwsm app -- ${pkgs.ghostty}/bin/ghostty" # Ghostty (terminal)
         "$mod,E, exec,  uwsm app -- ${pkgs-stable.thunar}/bin/thunar" # Thunar
-        "$mod, SPACE, exec, rofi -show drun" # Launcher
+        "$mod, SPACE, exec, tofi-drun" # Launcher
         "$mod, N, exec, swaync-client -t" # Notification center
 
         # Windows
@@ -168,8 +168,8 @@ in {
 
     bindl = [
       # Brightness
-      ", XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
-      ", XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
+      ", XF86MonBrightnessUp, exec, bright-up"
+      ", XF86MonBrightnessDown, exec, bright-down"
 
       # Media
       ", XF86AudioPlay, exec, playerctl play-pause"
@@ -179,10 +179,10 @@ in {
       ", XF86AudioStop, exec, playerctl stop"
 
       # Sound
-      ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
-      ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
-      ", XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
-      ", XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
+      ", XF86AudioMute, exec, vol-mute"
+      ", XF86AudioRaiseVolume, exec, vol-up"
+      ", XF86AudioLowerVolume, exec, vol-down"
+      ", XF86AudioMicMute, exec, mic-mute"
     ];
   };
 }

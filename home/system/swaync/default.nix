@@ -21,6 +21,9 @@ in {
       positionY = "top";
       cssPriority = "user";
       "control-center-width" = 450;
+      "control-center-margin-top" = 0;
+      "control-center-margin-bottom" = 0;
+      "control-center-margin-right" = 0;
       "fit-to-screen" = true;
       "notification-window-width" = 400;
       "notification-icon-size" = 40;
@@ -189,9 +192,9 @@ in {
 
       .control-center {
         background: @center-bg;
-        border-radius: var(--border-radius);
-        border: ${toString border-size}px solid @selected;
-        margin: 5px;
+        border-radius: 0 0 0 var(--border-radius);
+        border-left: ${toString border-size}px solid @selected;
+        margin: 0;
         padding: 5px 5px 0 5px;
       }
 
