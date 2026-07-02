@@ -12,6 +12,14 @@
             url = "https://wiki.hypr.land";
           }
           {
+            name = "Nerdfont Cheatsheet";
+            url = "https://www.nerdfonts.com/cheat-sheet";
+          }
+          {
+            name = "Helium Bangs";
+            url = "https://helium.computer/bangs";
+          }
+          {
             name = "NVF Options";
             url = "https://nvf.notashelf.dev/";
           }

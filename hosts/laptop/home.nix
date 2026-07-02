@@ -12,12 +12,10 @@
     ../../home/programs/git/signing.nix # CHANGEME: Change the key or remove this file
     ../../home/programs/thunar
     ../../home/programs/nixy
-    ../../home/programs/nightshift
     ../../home/programs/nix-utils
     ../../home/programs/spotatui
     ../../home/programs/yazi
     ../../home/programs/desktop-actions # TODO:
-    ../../home/programs/focus-mode # TODO: Rename
 
     ../../home/programs/group/basic-apps.nix
     ../../home/programs/group/cybersecurity.nix

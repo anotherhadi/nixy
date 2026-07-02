@@ -19,10 +19,12 @@ in {
     settings = {
       positionX = "right";
       positionY = "top";
+      layer = "overlay";
+      "control-center-layer" = "overlay";
       cssPriority = "user";
       "control-center-width" = 450;
-      "control-center-margin-top" = 0;
-      "control-center-margin-bottom" = 0;
+      "control-center-margin-top" = config.theme.gaps-out * 2;
+      "control-center-margin-bottom" = config.theme.gaps-out * 2;
       "control-center-margin-right" = 0;
       "fit-to-screen" = true;
       "notification-window-width" = 400;
@@ -40,9 +42,17 @@ in {
       "hide-on-clear" = false;
       "hide-on-action" = false;
       "script-fail-notify" = true;
-      widgets = ["mpris" "dnd" "buttons-grid" "notifications"];
+      widgets = ["mpris" "volume" "backlight" "dnd" "buttons-grid" "notifications"];
       "widget-config" = {
         dnd.text = "Do not disturb";
+        volume = {
+          label = "󰕾";
+          "show-per-app" = false;
+        };
+        backlight = {
+          label = "󰃠";
+          "min" = 0;
+        };
         mpris = {
           "image-size" = 100;
           "image-radius" = 10;
@@ -83,7 +93,7 @@ in {
     };
 
     style = ''
-      @define-color center-bg              #${c.base00}${alphaHex};
+      @define-color center-bg              #${c.base01}${alphaHex};
       @define-color notification-bg        #${c.base00}${alphaHex};
       @define-color center-notification-bg #${c.base01};
       @define-color background             #${c.base00}${alphaHex};
@@ -192,7 +202,7 @@ in {
 
       .control-center {
         background: @center-bg;
-        border-radius: 0 0 0 var(--border-radius);
+        border-radius: var(--border-radius) 0 0 var(--border-radius);
         border-left: ${toString border-size}px solid @selected;
         margin: 0;
         padding: 5px 5px 0 5px;
@@ -285,6 +295,48 @@ in {
       .widget-mpris-player button:hover {
         border-radius: var(--border-radius-s);
         background: @hover;
+      }
+
+      .widget-volume,
+      .widget-backlight {
+        border-radius: var(--border-radius);
+        padding: 10px 15px;
+        background: @background-alt;
+        box-shadow: var(--shadow);
+        color: @text;
+      }
+
+      .widget-volume > box,
+      .widget-backlight > box {
+        color: @text;
+      }
+
+      .widget-volume label,
+      .widget-backlight label {
+        font-size: 1rem;
+        font-weight: 700;
+        min-width: 1.2rem;
+      }
+
+      .widget-volume slider,
+      .widget-backlight slider {
+        background: @text;
+        border-radius: var(--border-radius-s);
+        min-height: 12px;
+        min-width: 12px;
+      }
+
+      .widget-volume trough,
+      .widget-backlight trough {
+        background: @hover;
+        border-radius: var(--border-radius-s);
+        min-height: 4px;
+      }
+
+      .widget-volume highlight,
+      .widget-backlight highlight {
+        background: @text;
+        border-radius: var(--border-radius-s);
       }
 
       .widget-dnd {

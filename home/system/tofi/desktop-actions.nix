@@ -1,14 +1,4 @@
-{pkgs, ...}: let
-  waybar-toggle = pkgs.writeShellScriptBin "waybar-toggle" ''
-    if pidof waybar > /dev/null; then
-      pkill waybar
-    else
-      hyprctl dispatch exec waybar
-    fi
-  '';
-in {
-  home.packages = [waybar-toggle];
-
+{...}: {
   xdg.desktopEntries = {
     focus-toggle = {
       name = "Focus Mode";
@@ -30,7 +20,7 @@ in {
 
     mic-mute = {
       name = "Mute Microphone";
-      exec = "swayosd-client --input-volume mute-toggle";
+      exec = "mic-mute";
       icon = "microphone-sensitivity-muted-symbolic";
       comment = "Toggle microphone mute";
       categories = ["System"];
@@ -80,6 +70,43 @@ in {
       comment = "Show or hide the status bar";
       categories = ["System"];
       terminal = false;
+    };
+
+    wifi-toggle = {
+      name = "Toggle Wi-Fi";
+      exec = "wifi-toggle";
+      icon = "network-wireless-symbolic";
+      comment = "Enable or disable Wi-Fi";
+      categories = ["System"];
+      terminal = false;
+    };
+
+    bluetooth-toggle = {
+      name = "Toggle Bluetooth";
+      exec = "bluetooth-toggle";
+      icon = "bluetooth-symbolic";
+      comment = "Enable or disable Bluetooth";
+      categories = ["System"];
+      terminal = false;
+    };
+
+    logout = {
+      name = "Logout";
+      exec = "hyprctl dispatch exit";
+      icon = "system-log-out-symbolic";
+      comment = "End the current session";
+      categories = ["System"];
+      terminal = false;
+    };
+
+    spotatui = {
+      name = "Spotify";
+      exec = "ghostty -e spotatui";
+      icon = "spotify";
+      comment = "Control Spotify from the terminal";
+      categories = ["Audio" "Music"];
+      terminal = false;
+      settings.Keywords = "spotify;spotatui;music;";
     };
   };
 }

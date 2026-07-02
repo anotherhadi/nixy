@@ -41,7 +41,7 @@ in {
       DefaultBrowserSettingEnabled = false;
       DeveloperToolsAvailability = 1;
 
-      DnsOverHttpsMode = "secure";
+      DnsOverHttpsMode = "automatic";
       DnsOverHttpsTemplates = "https://dns.quad9.net/dns-query";
 
       DefaultSearchProviderEnabled = true;

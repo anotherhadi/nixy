@@ -1,4 +1,9 @@
-{config, networkScript, ...}: let
+{
+  config,
+  networkScript,
+  bluetoothScript,
+  ...
+}: let
   gaps-out = config.theme.gaps-out;
   c = config.lib.stylix.colors;
 in {
@@ -8,46 +13,19 @@ in {
       position = "top";
       height = config.theme.bar-height;
       margin = "${toString gaps-out} ${toString gaps-out} 0";
-      modules-center = ["custom/osd" "clock" "tray" "hyprland/workspaces" "custom/network" "bluetooth" "battery" "group/right-hidden"];
-
-      "group/right-hidden" = {
-        orientation = "horizontal";
-        drawer = {
-          transition-duration = 500;
-          transition-left-to-right = false;
-          click-to-reveal = true;
-        };
-        modules = ["custom/arrow-right" "power-profiles-daemon" "mpris" "group/group-volume"];
-      };
-
-      "group/group-volume" = {
-        orientation = "horizontal";
-        drawer = {
-          transition-duration = 600;
-          transition-left-to-right = true;
-          reveal-delay = 450;
-        };
-        modules = ["pulseaudio" "pulseaudio/slider"];
-      };
+      modules-center = ["custom/osd" "custom/osd-sep" "clock" "tray" "hyprland/workspaces" "custom/network" "custom/bluetooth" "battery"];
 
       # ── Modules ─────────────────────────────────────────────────────────
 
       "hyprland/workspaces" = {
         format = "{id}";
+        all-outputs = true;
+        move-to-monitor = true;
+        ignore-workspaces = ["[5-9]" "[1-9][0-9]+"];
         on-scroll-down = "hyprctl dispatch workspace e+1";
         on-scroll-up = "hyprctl dispatch workspace e-1";
-        persistent-workspaces."*" = 4;
+        persistent-workspaces."*" = [1 2 3 4];
         cursor = true;
-      };
-
-      mpris = {
-        format = "󰐊";
-        format-paused = "󰏤";
-        tooltip-format = "{title}";
-        tooltip-format-paused = "{title}";
-        on-click = "playerctl play-pause";
-        on-scroll-up = "playerctl previous";
-        on-scroll-down = "playerctl next";
       };
 
       battery = {
@@ -68,28 +46,13 @@ in {
         };
       };
 
-      "power-profiles-daemon" = {
-        format = "{icon}";
-        tooltip-format = "Power profile: {profile}";
-        format-icons = {
-          performance = "";
-          balanced = "";
-          power-saver = "";
-        };
-      };
-
-      bluetooth = {
-        format = "{}";
-        format-on = "󰂰";
-        format-off = "󰂲";
-        format-disabled = "";
-        format-connected = "{device_alias}";
-        format-connected-battery = "{device_alias}";
-        tooltip-format = "Bluetooth {status}";
-        tooltip-format-connected = "Bluetooth {status}\n{device_enumerate}";
-        tooltip-format-enumerate-connected = "  {device_alias}";
-        tooltip-format-enumerate-connected-battery = "  {device_alias}  {device_battery_percentage}%";
+      "custom/bluetooth" = {
+        exec = "${bluetoothScript}";
+        exec-if = "bluetoothctl show 2>/dev/null | grep -q Controller";
+        return-type = "json";
+        interval = 5;
         on-click-right = "blueman-manager &";
+        on-click = "bluetooth-toggle";
       };
 
       "custom/osd" = {
@@ -98,6 +61,15 @@ in {
         signal = 8;
         interval = "once";
         format = "{}";
+      };
+
+      "custom/osd-sep" = {
+        exec = "echo '|'";
+        exec-if = "test -f /tmp/waybar-osd";
+        signal = 8;
+        interval = "once";
+        format = "{}";
+        tooltip = false;
       };
 
       pulseaudio = {

@@ -133,6 +133,7 @@ in {
         "$mod,Q, killactive," # Close window
         "$mod,F, fullscreen" # Toggle Fullscreen
         "$shiftMod,F, togglefloating," # Toggle Floating
+        "$shiftMod, SPACE, exec, focus-toggle" # Toggle focus mode
 
         # Focus Windows
         "$mod,H, movefocus, l" # Move focus left

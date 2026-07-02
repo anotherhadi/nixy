@@ -79,7 +79,6 @@ in {
 
       cursor = {
         no_hardware_cursors = true;
-        default_monitor = "eDP-2";
       };
 
       general = {
@@ -116,6 +115,10 @@ in {
       };
 
       gesture = "3, horizontal, workspace";
+
+      layerrule = [
+        "match:namespace launcher, animation popin 70%"
+      ];
 
       windowrule = [
         "match:class .*, suppress_event maximize"

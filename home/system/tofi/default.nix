@@ -12,6 +12,7 @@
     then barHeight / 2
     else config.theme.rounding;
 in {
+  imports = [./desktop-actions.nix];
   programs.tofi = {
     enable = true;
     settings = {
@@ -31,6 +32,7 @@ in {
 
       font = lib.mkForce font;
       prompt-color = lib.mkForce "#${c.base0D}ff";
+      selection-color = lib.mkForce "#${c.base0D}ff";
 
       outline-width = 0;
       border-width = 0;

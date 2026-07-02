@@ -6,7 +6,9 @@
 nixpkgs.lib.nixosSystem {
   modules = [
     {
-      nixpkgs.overlays = [];
+      nixpkgs.overlays = [
+        inputs.nur.overlays.default
+      ];
       _module.args = {inherit inputs;};
     }
     inputs.home-manager.nixosModules.home-manager
