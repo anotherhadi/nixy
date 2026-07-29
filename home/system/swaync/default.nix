@@ -76,8 +76,8 @@ in {
             {
               label = "󰍭";
               type = "toggle";
-              command = "swayosd-client --input-volume mute-toggle";
-              "update-command" = "wpctl get-volume @DEFAULT_SOURCE@ | grep -q MUTED && echo true || echo false";
+              command = "mic-mute";
+              "update-command" = "mic-status";
             }
             {
               label = "󰌾";
@@ -111,7 +111,6 @@ in {
         --border-radius: ${toString rounding}px;
         --border-radius-s: ${toString gaps-in}px;
         --border-radius-xl: ${toString (rounding - 2)}px;
-        --shadow: 2px 4px 10px rgba(0,0,0,0.15);
       }
 
       .notification { padding: 5px; }
@@ -210,7 +209,6 @@ in {
 
       .control-center .notification-background {
         background: @center-notification-bg;
-        box-shadow: var(--shadow);
       }
 
       .control-center .notification-background .close-button,
@@ -272,7 +270,6 @@ in {
 
       .widget-mpris {
         border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
       }
 
       .mpris-overlay {
@@ -302,7 +299,6 @@ in {
         border-radius: var(--border-radius);
         padding: 10px 15px;
         background: @background-alt;
-        box-shadow: var(--shadow);
         color: @text;
       }
 
@@ -343,7 +339,6 @@ in {
         padding: 10px 15px;
         border-radius: var(--border-radius);
         background: @background-alt;
-        box-shadow: var(--shadow);
         color: @text;
       }
 
@@ -375,7 +370,6 @@ in {
         padding: 5px 15px;
         margin-bottom: 5px;
         background: @background-alt;
-        box-shadow: var(--shadow);
       }
 
       .widget-buttons-grid button {

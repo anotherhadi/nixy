@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   networkScript,
   bluetoothScript,
   ...
@@ -48,7 +49,7 @@ in {
 
       "custom/bluetooth" = {
         exec = "${bluetoothScript}";
-        exec-if = "bluetoothctl show 2>/dev/null | grep -q Controller";
+        exec-if = "${pkgs.bluez}/bin/bluetoothctl list 2>/dev/null | grep -q Controller";
         return-type = "json";
         interval = 5;
         on-click-right = "blueman-manager &";

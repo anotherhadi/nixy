@@ -124,7 +124,7 @@ in {
         )
 
         # Quick launch
-        "$mod,RETURN, exec, uwsm app -- ${pkgs.ghostty}/bin/ghostty" # Ghostty (terminal)
+        "$mod,RETURN, exec, ${pkgs.ghostty}/bin/ghostty +new-window" # Ghostty (terminal, via daemon D-Bus)
         "$mod,E, exec,  uwsm app -- ${pkgs-stable.thunar}/bin/thunar" # Thunar
         "$mod, SPACE, exec, tofi-drun" # Launcher
         "$mod, N, exec, swaync-client -t" # Notification center

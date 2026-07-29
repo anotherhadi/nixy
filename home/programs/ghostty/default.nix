@@ -24,6 +24,9 @@ in {
       window-padding-x = 10;
       confirm-close-surface = false;
       window-padding-y = 10;
+      # Reuse a single background daemon (started at login, see hyprland exec-once)
+      # so every window opens instantly instead of cold-starting a new process.
+      gtk-single-instance = true;
       clipboard-read = "allow";
       clipboard-write = "allow";
       copy-on-select = "clipboard";
@@ -31,14 +34,6 @@ in {
       custom-shader = "${cursorShaders}/cursor_warp.glsl";
       custom-shader-animation = "always";
       keybind = [
-        # "ctrl+j=goto_split:left"
-        # "ctrl+i=goto_split:up"
-        # "ctrl+k=goto_split:down"
-        # "ctrl+l=goto_split:right"
-        # "shift+ctrl+h=new_split:left"
-        # "shift+ctrl+j=new_split:down"
-        # "shift+ctrl+k=new_split:up"
-        # "shift+ctrl+l=new_split:right"
         "shift+ctrl+tab=new_tab"
       ];
     };

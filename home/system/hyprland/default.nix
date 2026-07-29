@@ -38,6 +38,7 @@ in {
       hyprshot
       hyprpicker
       swappy
+      satty
       imv
       wf-recorder
       wlr-randr
@@ -59,6 +60,10 @@ in {
     settings = {
       monitor = [
         ",prefered,auto,1" # default
+      ];
+
+      exec-once = [
+        "systemctl --user start app-com.mitchellh.ghostty.service"
       ];
 
       env = [
@@ -118,6 +123,7 @@ in {
 
       layerrule = [
         "match:namespace launcher, animation popin 70%"
+        "match:namespace swaync-control-center, animation slide right"
       ];
 
       windowrule = [
