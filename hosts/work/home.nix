@@ -1,10 +1,14 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
   imports = [
     # Programs
+    inputs.nvf-config.homeManagerModules.default
     ../../home/programs/proton
     ../../home/programs/helium
     ../../home/programs/ghostty
-    ../../home/programs/nvf
     ../../home/programs/shell
     ../../home/programs/git
     ../../home/programs/git/lazygit.nix

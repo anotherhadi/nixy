@@ -872,6 +872,25 @@
         "type": "github"
       }
     },
+    "nvf-config": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-stable"
+        ],
+        "nvf": [
+          "nvf"
+        ]
+      },
+      "locked": {
+        "path": "./home/programs/nvf",
+        "type": "path"
+      },
+      "original": {
+        "path": "./home/programs/nvf",
+        "type": "path"
+      },
+      "parent": []
+    },
     "root": {
       "inputs": {
         "awesome-wallpapers": "awesome-wallpapers",
@@ -888,6 +907,7 @@
         "notashelf-tuigreet": "notashelf-tuigreet",
         "nur": "nur",
         "nvf": "nvf",
+        "nvf-config": "nvf-config",
         "sops-nix": "sops-nix",
         "stylix": "stylix"
       }

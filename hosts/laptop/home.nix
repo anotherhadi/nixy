@@ -1,11 +1,15 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
   imports = [
     # Programs
     ../../home/programs/helium
     ../../home/programs/proton
     ../../home/programs/proton/auto-start-vpn.nix
     ../../home/programs/ghostty
-    ../../home/programs/nvf
+    inputs.nvf-config.homeManagerModules.default
     ../../home/programs/shell
     ../../home/programs/git
     ../../home/programs/git/lazygit.nix
