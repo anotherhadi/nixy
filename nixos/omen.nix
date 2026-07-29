@@ -13,12 +13,16 @@
     }:
       stdenv.mkDerivation (finalAttrs: {
         pname = "hp-omen-linux-module";
-        version = "rebase-6.14";
+        version = "rebase-6.15";
+        # Upstream only rebases per kernel branch and currently tops out at
+        # rebase-6.15, while linuxPackages_latest is already on 7.x. If the
+        # module ever fails to build against a newer kernel, either bump this
+        # to a fresh upstream branch or fall back to a stable kernel.
         src = fetchFromGitHub {
           owner = "ranisalt";
           repo = "hp-omen-linux-module";
-          rev = finalAttrs.version;
-          sha256 = "sha256-2zCm29bdboSjRm/caMjBPGNc0tZXPUnIIYlHxxfhAok=";
+          rev = "d4b9b5adb84581c3874ca3985dc749c40c3ece67"; # rebase-6.15
+          sha256 = "sha256-IOXHzcCB0n1InMjeIu3XYEJ4bhbHS3NIlS8/+4XIwkQ=";
         };
         setSourceRoot = ''
           export sourceRoot=$(pwd)/${finalAttrs.src.name}/src

@@ -16,11 +16,9 @@ in {
   environment.variables = {
     LIBVA_DRIVER_NAME = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    NIXOS_OZONE_WL = "1";
     __GL_GSYNC_ALLOWED = "1";
     __GL_VRR_ALLOWED = "1";
     NVD_BACKEND = "direct";
-    MOZ_ENABLE_WAYLAND = "1";
   };
 
   nixpkgs.config.nvidia.acceptLicense = true;

@@ -52,7 +52,6 @@ in {
             - *work
   '';
 
-  systemd.user.services.mbsync.Unit.After = ["sops-nix.service"];
   home.packages = with pkgs; [
     sops
     age

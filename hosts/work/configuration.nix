@@ -12,7 +12,7 @@
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
     ../../nixos/docker.nix
-    ../../home/programs/helium/system.nix # I hate browser's configuration..
+    ../../home/programs/gui/helium/system.nix # I hate browser's configuration..
 
     # You should let those lines as is
     ./hardware-configuration.nix
@@ -37,5 +37,5 @@
   networking.firewall.allowedTCPPorts = [9001];
 
   # Don't touch this
-  system.stateVersion = "24.05";
+  system.stateVersion = "26.05";
 }

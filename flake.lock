@@ -882,11 +882,11 @@
         ]
       },
       "locked": {
-        "path": "./home/programs/nvf",
+        "path": "./home/programs/tui/nvf",
         "type": "path"
       },
       "original": {
-        "path": "./home/programs/nvf",
+        "path": "./home/programs/tui/nvf",
         "type": "path"
       },
       "parent": []

@@ -26,6 +26,8 @@
 
     autoUpgrade = false;
     autoGarbageCollector = true;
+
+    hasBattery = false;
   };
 
   # DON'T TOUCH THIS

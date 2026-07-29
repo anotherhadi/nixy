@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   networkScript,
   bluetoothScript,
@@ -7,6 +8,7 @@
 }: let
   gaps-out = config.theme.gaps-out;
   c = config.lib.stylix.colors;
+  hasBattery = config.var.hasBattery or false;
 in {
   programs.waybar.settings = [
     {
@@ -14,7 +16,9 @@ in {
       position = "top";
       height = config.theme.bar-height;
       margin = "${toString gaps-out} ${toString gaps-out} 0";
-      modules-center = ["custom/osd" "custom/osd-sep" "clock" "tray" "hyprland/workspaces" "custom/network" "custom/bluetooth" "battery"];
+      modules-center =
+        ["custom/osd" "custom/osd-sep" "clock" "tray" "hyprland/workspaces" "custom/network" "custom/bluetooth"]
+        ++ lib.optional hasBattery "battery";
 
       # ── Modules ─────────────────────────────────────────────────────────
 

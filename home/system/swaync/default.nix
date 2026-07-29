@@ -403,4 +403,14 @@ in {
   };
 
   stylix.targets.swaync.enable = false;
+
+  # GTK 4.22 defaults to the Vulkan renderer, which compiles its graphics
+  # pipelines lazily on the first frame. The control center has many distinct
+  # visual elements, so the first open triggers a big burst of pipeline
+  # compilation (a multi-second stall on a cold boot) while later opens reuse
+  # the in-process cache. The GL (ngl) renderer avoids this: it stays
+  # GPU-accelerated and benefits from Mesa's on-disk shader cache, so the
+  # first open is as fast as the rest. Scoped to swaync so other GTK4 apps
+  # keep the Vulkan renderer.
+  systemd.user.services.swaync.Service.Environment = ["GSK_RENDERER=ngl"];
 }

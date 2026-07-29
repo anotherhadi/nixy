@@ -11,7 +11,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nvf.url = "github:notashelf/nvf";
     nvf-config = {
-      url = "path:./home/programs/nvf";
+      url = "path:./home/programs/tui/nvf";
       inputs.nixpkgs.follows = "nixpkgs-stable";
       inputs.nvf.follows = "nvf";
     };
@@ -71,8 +71,7 @@
     merge = nixpkgs.lib.foldl nixpkgs.lib.recursiveUpdate {};
   in
     merge [
-      (import ./home/programs/group/flake.nix args)
-      (import ./home/programs/nixy/flake.nix args)
+      (import ./home/programs/tui/nixy/flake.nix args)
       {
         formatter.${system} = pkgs.alejandra;
         packages.${system}.nvim = inputs.nvf-config.packages.${system}.nvim;

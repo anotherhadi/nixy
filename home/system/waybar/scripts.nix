@@ -32,8 +32,8 @@
     fi
   '';
 
-  # Résout $src : source par défaut, sinon première source disponible.
-  # Certaines machines n'ont pas de source audio par défaut (@DEFAULT_AUDIO_SOURCE@ non résolu).
+  # Resolve $src: the default source, otherwise the first available source.
+  # Some machines have no default audio source (@DEFAULT_AUDIO_SOURCE@ unresolved).
   micSource = ''
     src=$(${pkgs.wireplumber}/bin/wpctl inspect @DEFAULT_AUDIO_SOURCE@ 2>/dev/null | sed -n 's/^id \([0-9]*\),.*/\1/p')
     if [ -z "$src" ]; then
@@ -42,8 +42,8 @@
     fi
   '';
 
-  # tofi en mode dmenu vertical : la config globale est un lanceur horizontal de
-  # 36px de haut, inutilisable pour une liste. On surcharge la géométrie.
+  # tofi in vertical dmenu mode: the global config is a 36px-tall horizontal
+  # launcher, unusable for a list, so override the geometry here.
   tofiMenu = "${pkgs.tofi}/bin/tofi --horizontal false --anchor center --width 700 --height 500 --margin-top 0 --margin-left 0 --margin-right 0 --num-results 10";
 in {
   bluetoothScript = pkgs.writeShellScript "waybar-bluetooth" ''
@@ -264,7 +264,7 @@ in {
     jq=${pkgs.jq}/bin/jq
     pwdump=${pkgs.pipewire}/bin/pw-dump
 
-    # IDs des sinks dans l'ordre de pw-dump.
+    # Sink IDs in pw-dump order.
     ids=($("$pwdump" | "$jq" -r '.[] | select(.info.props."media.class"=="Audio/Sink") | .id'))
     n=''${#ids[@]}
     [ "$n" -eq 0 ] && exit 0
@@ -291,7 +291,7 @@ in {
     jq=${pkgs.jq}/bin/jq
     pwdump=${pkgs.pipewire}/bin/pw-dump
 
-    # IDs des sources dans l'ordre de pw-dump.
+    # Source IDs in pw-dump order.
     ids=($("$pwdump" | "$jq" -r '.[] | select(.info.props."media.class"=="Audio/Source") | .id'))
     n=''${#ids[@]}
     [ "$n" -eq 0 ] && exit 0
@@ -314,7 +314,7 @@ in {
   '';
 
   color-pick = pkgs.writeShellScriptBin "color-pick" ''
-    # hyprpicker -a copie déjà la couleur dans le presse-papier.
+    # hyprpicker -a already copies the color to the clipboard.
     color=$(${pkgs.hyprpicker}/bin/hyprpicker -a 2>/dev/null)
     if [ -n "$color" ]; then
       OSD_TEXT="󰈊  $color"
@@ -359,7 +359,7 @@ in {
   '';
 
   airplane-toggle = pkgs.writeShellScriptBin "airplane-toggle" ''
-    # Réutilise nmcli + bluetoothctl (sans privilège) plutôt que rfkill.
+    # Reuse nmcli + bluetoothctl (unprivileged) instead of rfkill.
     on=false
     nmcli radio wifi 2>/dev/null | grep -q enabled && on=true
     bluetoothctl show 2>/dev/null | grep -q "Powered: yes" && on=true
@@ -390,7 +390,7 @@ in {
   '';
 
   caffeine-toggle = pkgs.writeShellScriptBin "caffeine-toggle" ''
-    # Met hypridle en pause (reste éveillé) ou le réactive.
+    # Pause hypridle (stay awake) or resume it.
     if systemctl --user is-active --quiet hypridle; then
       systemctl --user stop hypridle
       OSD_TEXT="󰅶  Keep Awake On"
@@ -400,6 +400,4 @@ in {
     fi
     ${updateOsd}
   '';
-
-  # TODO: Run in background
 }

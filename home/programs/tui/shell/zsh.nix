@@ -104,7 +104,7 @@
         alias -s {csv,tsv,parquet,pqt,arrow,db,sqlite,xls,xlsx,xlsm,xlsb,fwf}=tw
         alias -s {png,jpg,jpeg,gif,pdf}=xdg-open
 
-        # 3. Global Aliases (Remplacés n'importe où dans la commande, pas seulement au début)
+        # 3. Global Aliases (expanded anywhere in the command, not just at the start)
         alias -g G="| grep"
         alias -g L="| less"
         alias -g V="| nvim"
@@ -114,7 +114,7 @@
         alias -g C="| wl-copy"
         alias -g NE="2>/dev/null"
         alias -g ND=">/dev/null"
-        alias -g NUL=">/dev/null 2>1"
+        alias -g NUL=">/dev/null 2>&1"
 
         # search history based on what's typed in the prompt
         autoload -U history-search-end
