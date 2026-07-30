@@ -43,6 +43,10 @@
         name = "Gemini";
         url = "https://gemini.google.com";
       }
+      {
+        name = "Lumo";
+        url = "https://lumo.proton.me";
+      }
     ];
   }
 ]
