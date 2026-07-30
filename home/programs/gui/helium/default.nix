@@ -91,6 +91,7 @@
     nativeBuildInputs = [pkgs.makeWrapper];
     postBuild = ''
       wrapProgram $out/bin/helium \
+        --set-default GTK_USE_PORTAL 1 \
         --run ${lib.escapeShellArg (toString patchScript)}
     '';
   };

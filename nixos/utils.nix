@@ -119,13 +119,20 @@ in {
     xdgOpenUsePortal = true;
     config = {
       common.default = ["gtk"];
-      hyprland.default = [
-        "gtk"
-        "hyprland"
-      ];
+      hyprland = {
+        default = [
+          "gtk"
+          "hyprland"
+        ];
+        # Pick files / choose download paths with yazi instead of the GTK dialog
+        "org.freedesktop.portal.FileChooser" = ["termfilechooser"];
+      };
     };
 
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-termfilechooser
+    ];
   };
 
   security.rtkit.enable = true;

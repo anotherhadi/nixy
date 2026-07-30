@@ -35,6 +35,7 @@
     ../../home/system/swaync
     ../../home/system/tofi
     ../../home/system/mime
+    ../../home/system/termfilechooser
     ../../home/system/udiskie
     ../../home/system/clipboard
     ../../home/system/hypridle
