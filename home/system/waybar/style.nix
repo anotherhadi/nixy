@@ -54,6 +54,10 @@ in {
         color: ${inactive};
     }
 
+    #tray.empty {
+        padding: 0;
+    }
+
     #clock {
       font-size: ${font-size-clock};
     }
