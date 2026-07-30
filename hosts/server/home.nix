@@ -1,10 +1,14 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
   imports = [
     # Mostly user-specific configuration
     ./variables.nix
 
     # Programs
-    ../../home/programs/nvf
+    inputs.nvf-config.homeManagerModules.default
     ../../home/programs/shell
     ../../home/programs/git
     ../../home/programs/git/lazygit.nix

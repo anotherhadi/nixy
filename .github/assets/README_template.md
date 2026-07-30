@@ -120,7 +120,6 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
 - [WALLPAPERS](https://github.com/anotherhadi/awesome-wallpapers): An awesome
   collection of wallpapers
 - [NEOVIM](docs/NEOVIM.md): How to use the Neovim config in your own flake
-- [GROUPS](docs/GROUPS.md): Reusable package groups (dev, cybersecurity)
 
 - [CONTRIBUTING](docs/CONTRIBUTING.md): How to contribute
 - [LICENSE](LICENSE): MIT License

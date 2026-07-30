@@ -1,3 +1,5 @@
 .sops.yaml
 .claude/
 old/
+docs/superpowers/
+.superpowers/

@@ -20,7 +20,7 @@ in {
       iw
       hyprsunset
     ]
-    ++ (with scripts; [vol-up vol-down vol-mute mic-mute bright-up bright-down nightshift-toggle focus-toggle waybar-toggle wifi-toggle bluetooth-toggle]);
+    ++ (with scripts; [vol-up vol-down vol-mute mic-mute bright-up bright-down nightshift-toggle focus-toggle waybar-toggle wifi-toggle bluetooth-toggle dnd-toggle output-cycle input-cycle color-pick screenshot-edit record-toggle power-cycle airplane-toggle clipboard-menu emoji-picker caffeine-toggle mic-status]);
 
   wayland.windowManager.hyprland.settings.exec-once = [
     "waybar"

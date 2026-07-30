@@ -91,6 +91,7 @@
     nativeBuildInputs = [pkgs.makeWrapper];
     postBuild = ''
       wrapProgram $out/bin/helium \
+        --set-default GTK_USE_PORTAL 1 \
         --run ${lib.escapeShellArg (toString patchScript)}
     '';
   };
@@ -111,7 +112,7 @@ in {
 
   xdg.desktopEntries.helium = {
     name = "Helium";
-    genericName = "Navigateur Web";
+    genericName = "Web Browser";
     exec = "${config.programs.helium.package}/bin/helium %U";
     icon = "${config.programs.helium.package}/share/icons/hicolor/256x256/apps/helium.png";
     terminal = false;
@@ -128,7 +129,7 @@ in {
 
   xdg.desktopEntries.helium-private = {
     name = "Helium (Private window)";
-    genericName = "Navigateur Web";
+    genericName = "Web Browser";
     exec = "${config.programs.helium.package}/bin/helium --incognito %U";
     icon = "${config.programs.helium.package}/share/icons/hicolor/256x256/apps/helium.png";
     terminal = false;

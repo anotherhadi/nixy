@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   vim = {
     diagnostics = {
       enable = true;
@@ -25,6 +25,7 @@
       context.enable = true;
       highlight.enable = true;
       textobjects.enable = true;
+      grammars = [pkgs.vimPlugins.nvim-treesitter.grammarPlugins.http];
     };
     lsp = {
       enable = true;

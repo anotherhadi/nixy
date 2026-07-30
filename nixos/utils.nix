@@ -119,13 +119,22 @@ in {
     xdgOpenUsePortal = true;
     config = {
       common.default = ["gtk"];
-      hyprland.default = [
-        "gtk"
-        "hyprland"
-      ];
+      hyprland = {
+        default = [
+          "gtk"
+          "hyprland"
+        ];
+        # Pick files / choose download paths with yazi instead of the GTK dialog.
+        # Key MUST use the "impl" interface name, else xdg-desktop-portal
+        # ignores it and falls back to the default (gtk). See portals.conf(5).
+        "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
+      };
     };
 
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-termfilechooser
+    ];
   };
 
   security.rtkit.enable = true;

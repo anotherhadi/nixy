@@ -10,6 +10,11 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nvf.url = "github:notashelf/nvf";
+    nvf-config = {
+      url = "path:./home/programs/tui/nvf";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+      inputs.nvf.follows = "nvf";
+    };
     nur = {
       url = "github:nix-community/nur";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,11 +71,11 @@
     merge = nixpkgs.lib.foldl nixpkgs.lib.recursiveUpdate {};
   in
     merge [
-      (import ./home/programs/nvf/flake.nix args)
-      (import ./home/programs/group/flake.nix args)
-      (import ./home/programs/nixy/flake.nix args)
+      (import ./home/programs/tui/nixy/flake.nix args)
       {
         formatter.${system} = pkgs.alejandra;
+        packages.${system}.nvim = inputs.nvf-config.packages.${system}.nvim;
+        apps.${system}.nvim = inputs.nvf-config.apps.${system}.nvim;
         nixosConfigurations = {
           h-laptop = import ./hosts/laptop/flake.nix args;
           h-work = import ./hosts/work/flake.nix args;
