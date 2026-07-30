@@ -47,8 +47,9 @@
     allow id 03f0:076b serial "" name "USB5734" hash "BshoqybYo0IKgoDORYPRtbhhlmQrYAxPQb2EAm1JsWA=" parent-hash "JHDjLFApQNqijjmuKdJSWH5+1oLL7S6LQ9QHTAk5fTk=" via-port "8-1.3" with-interface 09:00:00 with-connect-type "unknown"
     allow id 0bda:8153 serial "000001000000" name "USB 10/100/1000 LAN" hash "utEnXKJ57kRUbPcGUaNWhEyoOEbLOYAFxvlsyC0PZkk=" parent-hash "JHDjLFApQNqijjmuKdJSWH5+1oLL7S6LQ9QHTAk5fTk=" with-interface { ff:ff:00 02:06:00 0a:00:00 0a:00:00 } with-connect-type "unknown"
     allow id 046d:0ab7 serial "2046BAB04T68" name "Blue Microphones" hash "cC6AQ2e1Q/BeFeostpbf1mH2WpoUmt6bhau4NlA3niU=" parent-hash "MSXcPAlZqkpTyZQylOhSIB8eMfST2AzVHV9EbrBGTWc=" with-interface { 01:01:00 01:02:00 01:02:00 01:02:00 01:02:00 01:02:00 01:02:00 03:00:00 } with-connect-type "unknown"
-    allow id 1532:02a1 serial "" name "Razer Ornata V3" hash "wfuIjBhhGuge8gflyA526SKqKoy8rHJZQZ+2o6usMiE=" parent-hash "MSXcPAlZqkpTyZQylOhSIB8eMfST2AzVHV9EbrBGTWc=" via-port "7-1.3.3" with-interface { 03:01:01 03:00:01 03:00:02 } with-connect-type "unknown"
     allow id 13fd:5900 serial "50026B76861EE752    " name "External" hash "l/QvVV5hzZj1z6OUwB/kWl+WnH/7awrdMBoiNVx660M=" parent-hash "MSXcPAlZqkpTyZQylOhSIB8eMfST2AzVHV9EbrBGTWc=" with-interface { 08:06:50 08:06:62 } with-connect-type "unknown"
+    allow id 1532:02a1 name "Razer Ornata V3"
+    allow id 03f0:066b name "HP USB-C Dock G5"
   '';
 
   home-manager.users."${config.var.username}" = import ./home.nix;

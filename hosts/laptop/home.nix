@@ -15,7 +15,6 @@
     ../../home/programs/nix-utils
     ../../home/programs/spotatui
     ../../home/programs/yazi
-    ../../home/programs/desktop-actions # TODO:
 
     ../../home/programs/group/basic-apps.nix
     ../../home/programs/group/cybersecurity.nix
@@ -27,7 +26,6 @@
     ../../home/system/hyprland
     ../../home/system/waybar
     ../../home/system/swaync
-    ../../home/system/swayosd
     ../../home/system/tofi
     ../../home/system/mime
     ../../home/system/udiskie
