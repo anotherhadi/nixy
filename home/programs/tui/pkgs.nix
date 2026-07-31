@@ -18,6 +18,11 @@
     pkgs.wifitui # TUI for managing wifi
     pkgs.nur.repos.anotherhadi.usbguard-tui # TUI for managing USBGuard rules
     pkgs.nur.repos.anotherhadi.sheets # Terminal based spreadsheet tool
+    bluetui # TODO: To test
+    rainfrog # TODO: To test
+    posting # TODO: To test
+    newsboat # TODO: To test
+    dooit # TODO: To test
 
     # I love CLIs
     httpie # Command-line HTTP client, a user-friendly cURL replacement
