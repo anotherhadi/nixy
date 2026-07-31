@@ -1,10 +1,29 @@
 {pkgs}: let
+  # Canonical OSD popup: write the shared slot, signal waybar, expire after 2.5s.
+  # Packaged (runtimeInputs) so it works outside a graphical session (systemd).
+  waybar-osd = pkgs.writeShellApplication {
+    name = "waybar-osd";
+    runtimeInputs = with pkgs; [procps coreutils];
+    text = ''
+      if [ -f /tmp/waybar-osd-pid ]; then
+        kill "$(cat /tmp/waybar-osd-pid)" 2>/dev/null || true
+      fi
+      printf '%s' "$1" > /tmp/waybar-osd
+      pkill -RTMIN+8 waybar 2>/dev/null || true
+      ( sleep 2.5; rm -f /tmp/waybar-osd /tmp/waybar-osd-pid; pkill -RTMIN+8 waybar 2>/dev/null || true ) &
+      printf '%s' "$!" > /tmp/waybar-osd-pid
+    '';
+  };
+
+  # battery-monitor: low-battery alerts, run by the systemd user timer.
+  battery-monitor = pkgs.writeShellApplication {
+    name = "battery-monitor";
+    runtimeInputs = with pkgs; [waybar-osd libnotify glib coreutils];
+    text = builtins.readFile ./battery-monitor.sh;
+  };
+
   updateOsd = ''
-    [ -f /tmp/waybar-osd-pid ] && kill "$(cat /tmp/waybar-osd-pid)" 2>/dev/null
-    printf '%s' "$OSD_TEXT" > /tmp/waybar-osd
-    pkill -RTMIN+8 waybar 2>/dev/null
-    ( sleep 2.5; rm -f /tmp/waybar-osd /tmp/waybar-osd-pid; pkill -RTMIN+8 waybar 2>/dev/null ) &
-    printf '%s' "$!" > /tmp/waybar-osd-pid
+    ${waybar-osd}/bin/waybar-osd "$OSD_TEXT"
   '';
 
   volGetText = ''
@@ -46,10 +65,12 @@
   # launcher, unusable for a list, so override the geometry here.
   tofiMenu = "${pkgs.tofi}/bin/tofi --horizontal false --anchor center --width 700 --height 500 --margin-top 0 --margin-left 0 --margin-right 0 --num-results 10";
 in {
+  inherit waybar-osd battery-monitor;
+
   bluetoothScript = pkgs.writeShellScript "waybar-bluetooth" ''
     jq=${pkgs.jq}/bin/jq
     nl=$'\n'
-    # bluetoothctl bloque sans contrôleur par défaut → toujours borné par timeout.
+    # bluetoothctl hangs without a controller by default → always bounded by timeout.
     bt() { timeout 3 ${pkgs.bluez}/bin/bluetoothctl "$@" 2>/dev/null; }
 
     powered=$(bt show | awk '/Powered:/ { print $2; exit }')
@@ -331,7 +352,7 @@ in {
 
   record-toggle = pkgs.writeShellScriptBin "record-toggle" ''
     if pgrep -x wf-recorder >/dev/null; then
-      # -INT laisse wf-recorder finaliser le fichier proprement.
+      # -INT lets wf-recorder finalize the file cleanly.
       pkill -INT -x wf-recorder
       OSD_TEXT="󰕧  Recording saved"
     else
@@ -385,7 +406,7 @@ in {
   emoji-picker = pkgs.writeShellScriptBin "emoji-picker" ''
     export PATH="${pkgs.wtype}/bin:${pkgs.wl-clipboard}/bin:$PATH"
     export BEMOJI_PICKER_CMD="${tofiMenu} --prompt-text 'emoji: '"
-    # -t tape l'emoji (wtype), -c le copie aussi.
+    # -t types the emoji (wtype), -c also copies it.
     exec ${pkgs.bemoji}/bin/bemoji -t -c
   '';
 

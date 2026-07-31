@@ -17,6 +17,7 @@ in {
       "result"
       "result-*"
       ".superpowers/"
+      ".claude/"
       "docs/superpowers/"
     ];
     settings = {
