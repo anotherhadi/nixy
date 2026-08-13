@@ -1,6 +1,7 @@
 {
   inputs,
   nixpkgs,
+  pkgs-unstable,
   ...
 }:
 nixpkgs.lib.nixosSystem {
@@ -9,7 +10,7 @@ nixpkgs.lib.nixosSystem {
       nixpkgs.overlays = [
         inputs.nur.overlays.default
       ];
-      _module.args = {inherit inputs;};
+      _module.args = {inherit inputs pkgs-unstable;};
     }
     inputs.home-manager.nixosModules.home-manager
     inputs.stylix.nixosModules.stylix

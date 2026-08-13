@@ -1,4 +1,9 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
+  scripts = import ../waybar/scripts.nix {inherit pkgs config;};
   c = config.lib.stylix.colors;
   font = config.stylix.fonts.sansSerif.name;
   monofont = config.stylix.fonts.monospace.name;
@@ -64,28 +69,28 @@ in {
             {
               label = "󰖔";
               type = "toggle";
-              command = "nightshift-toggle";
-              "update-command" = "pidof hyprsunset > /dev/null && echo true || echo false";
+              command = "${scripts.nightshift-toggle}/bin/nightshift-toggle";
+              "update-command" = "${pkgs.procps}/bin/pidof ${pkgs.hyprsunset}/bin/hyprsunset > /dev/null && echo true || echo false";
             }
             {
               label = "󰈈";
               type = "toggle";
-              command = "focus-toggle";
+              command = "${scripts.focus-toggle}/bin/focus-toggle";
               "update-command" = "test -f /tmp/hypr-focus-mode && echo true || echo false";
             }
             {
               label = "󰍭";
               type = "toggle";
-              command = "mic-mute";
-              "update-command" = "mic-status";
+              command = "${scripts.mic-mute}/bin/mic-mute";
+              "update-command" = "${scripts.mic-status}/bin/mic-status";
             }
             {
               label = "󰌾";
-              command = "swaync-client -cp ; hyprlock";
+              command = "${pkgs.swaynotificationcenter}/bin/swaync-client -cp ; ${pkgs.hyprlock}/bin/hyprlock";
             }
             {
               label = "󰐥";
-              command = "swaync-client -cp ; systemctl poweroff";
+              command = "${pkgs.swaynotificationcenter}/bin/swaync-client -cp ; systemctl poweroff";
             }
           ];
         };

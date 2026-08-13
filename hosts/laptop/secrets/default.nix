@@ -3,7 +3,6 @@
 {
   inputs,
   pkgs,
-  lib,
   config,
   ...
 }: let

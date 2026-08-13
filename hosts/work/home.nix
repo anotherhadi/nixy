@@ -9,7 +9,6 @@
     ## GUI
     ../../home/programs/gui/proton
     ../../home/programs/gui/helium
-    ../../home/programs/gui/thunar
     ../../home/programs/gui/pkgs.nix
 
     ## TUI
@@ -21,7 +20,6 @@
     ../../home/programs/tui/nixy
     ../../home/programs/tui/nix-utils
     ../../home/programs/tui/spotatui
-    ../../home/programs/tui/yazi
     ../../home/programs/tui/pkgs.nix
 
     ## GROUPS

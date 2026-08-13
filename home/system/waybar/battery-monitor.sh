@@ -1,6 +1,5 @@
-# battery-monitor — low-battery alerts for waybar/swaync.
-# Sourced by the tests with BATTERY_MONITOR_TEST=1 (defines the functions, skips main).
-# Otherwise runs main once (triggered by the battery-monitor systemd timer).
+# battery-monitor: low-battery alerts for waybar/swaync.
+# Runs main once (triggered by the battery-monitor systemd timer).
 
 POWER_SUPPLY_DIR="${POWER_SUPPLY_DIR:-/sys/class/power_supply}"
 STATE_FILE="${BATTERY_STATE_FILE:-/tmp/battery-alert-state}"
@@ -64,8 +63,8 @@ show_crit_notification() {
   id=$(cat "$CRIT_ID_FILE" 2>/dev/null || echo 0)
   newid=$(notify-send --print-id --replace-id="$id" \
     --urgency=critical --expire-time=0 \
-    "󰂃 Critical battery" "Battery at $cap% — plug in the charger")
-  printf '%s' "$newid" > "$CRIT_ID_FILE"
+    "󰂃 Critical battery" "Battery at $cap%: plug in the charger")
+  printf '%s' "$newid" >"$CRIT_ID_FILE"
 }
 
 clear_crit_notification() {
@@ -92,13 +91,13 @@ main() {
   newstate=${result##*:}
 
   case "$action" in
-    osd_warn)   show_warn_osd "$cap" ;;
-    crit_show)  show_crit_notification "$cap" ;;
-    crit_clear) clear_crit_notification ;;
-    noop)       : ;;
+  osd_warn) show_warn_osd "$cap" ;;
+  crit_show) show_crit_notification "$cap" ;;
+  crit_clear) clear_crit_notification ;;
+  noop) : ;;
   esac
 
-  printf '%s' "$newstate" > "$STATE_FILE"
+  printf '%s' "$newstate" >"$STATE_FILE"
 }
 
-[ "${BATTERY_MONITOR_TEST:-}" = "1" ] || main "$@"
+main "$@"

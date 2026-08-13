@@ -1,5 +1,5 @@
-{pkgs-stable, ...}: {
-  home.packages = with pkgs-stable; [
+{pkgs, ...}: {
+  home.packages = with pkgs; [
     vlc # Video player
     obsidian # Note taking app
     textpieces # Manipulate texts
@@ -12,5 +12,6 @@
     onlyoffice-desktopeditors # Office suite
     blanket # Listen to different sounds
     signal-desktop # Messaging app
+    thunar # File explorer
   ];
 }

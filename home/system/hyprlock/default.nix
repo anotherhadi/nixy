@@ -61,9 +61,6 @@ in {
           monitor = "";
           size = "200, 20";
           outline_thickness = 0;
-          dots_size = 0.3;
-          dots_spacing = 0.2;
-          dots_center = false;
           outer_color = "rgba(00000000)";
           inner_color = "rgba(00000000)";
           font_color = "rgb(${c.base05})";

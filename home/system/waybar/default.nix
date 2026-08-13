@@ -1,5 +1,9 @@
-{pkgs, ...}: let
-  scripts = import ./scripts.nix {inherit pkgs;};
+{
+  pkgs,
+  config,
+  ...
+}: let
+  scripts = import ./scripts.nix {inherit pkgs config;};
 in {
   imports = [
     ./settings.nix
@@ -8,6 +12,10 @@ in {
 
   _module.args.networkScript = scripts.networkScript;
   _module.args.bluetoothScript = scripts.bluetoothScript;
+  _module.args.volMuteScript = scripts.vol-mute;
+  _module.args.caffeineToggleScript = scripts.caffeine-toggle;
+  _module.args.osdStatusScript = scripts.waybar-osd-status;
+  _module.args.nightshiftToggleScript = scripts.nightshift-toggle;
 
   programs.waybar.enable = true;
   stylix.targets.waybar.enable = false;
@@ -17,10 +25,9 @@ in {
       playerctl
       pavucontrol
       blueman
-      iw
       hyprsunset
     ]
-    ++ (with scripts; [waybar-osd battery-monitor vol-up vol-down vol-mute mic-mute bright-up bright-down nightshift-toggle focus-toggle waybar-toggle wifi-toggle bluetooth-toggle dnd-toggle output-cycle input-cycle color-pick screenshot-edit record-toggle power-cycle airplane-toggle clipboard-menu emoji-picker caffeine-toggle mic-status]);
+    ++ (with scripts; [waybar-osd waybar-osd-status battery-monitor vol-up vol-down vol-mute mic-mute bright-up bright-down nightshift-toggle focus-toggle waybar-toggle wifi-toggle bluetooth-toggle dnd-toggle output-cycle input-cycle color-pick screenshot-edit record-toggle power-cycle airplane-toggle clipboard-menu emoji-picker caffeine-toggle mic-status]);
 
   # Poll battery level every 30s; battery-monitor no-ops when no battery exists.
   systemd.user.services.battery-monitor = {
@@ -39,6 +46,12 @@ in {
     };
     Install.WantedBy = ["timers.target"];
   };
+
+  # Prevent blueman-applet from auto-starting via XDG autostart (we use custom/bluetooth module instead)
+  xdg.configFile."autostart/blueman.desktop".text = ''
+    [Desktop Entry]
+    Hidden=true
+  '';
 
   wayland.windowManager.hyprland.settings.exec-once = [
     "waybar"

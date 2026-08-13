@@ -9,16 +9,13 @@
     default = {
       rounding = 20;
       bar-height = 36;
-      bar-rounding = 20 + 10;
-      bar-thickness = 0;
       gaps-in = 8;
       gaps-out = 8 * 2;
       active-opacity = 0.96;
       inactive-opacity = 0.92;
-      blur = true;
+      blur = false;
       border-size = 2;
-      animation-speed = "medium"; # "fast" | "medium" | "slow"
-      fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
+      animation-speed = "very-fast"; # "very-fast" | "fast" | "medium" | "slow"
     };
     description = "Theme configuration options";
   };

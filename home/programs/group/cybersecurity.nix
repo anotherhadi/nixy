@@ -1,10 +1,6 @@
-{
-  pkgs,
-  pkgs-stable,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = import ./cybersecurity-packages.nix {
-    inherit pkgs pkgs-stable;
+    inherit pkgs;
   };
 
   systemd.user.tmpfiles.rules = [

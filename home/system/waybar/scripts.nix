@@ -1,17 +1,28 @@
-{pkgs}: let
-  # Canonical OSD popup: write the shared slot, signal waybar, expire after 2.5s.
-  # Packaged (runtimeInputs) so it works outside a graphical session (systemd).
+{
+  pkgs,
+  config,
+}: let
   waybar-osd = pkgs.writeShellApplication {
     name = "waybar-osd";
     runtimeInputs = with pkgs; [procps coreutils];
     text = ''
-      if [ -f /tmp/waybar-osd-pid ]; then
-        kill "$(cat /tmp/waybar-osd-pid)" 2>/dev/null || true
-      fi
       printf '%s' "$1" > /tmp/waybar-osd
-      pkill -RTMIN+8 waybar 2>/dev/null || true
-      ( sleep 2.5; rm -f /tmp/waybar-osd /tmp/waybar-osd-pid; pkill -RTMIN+8 waybar 2>/dev/null || true ) &
-      printf '%s' "$!" > /tmp/waybar-osd-pid
+      pkill -x -RTMIN+8 waybar 2>/dev/null || true
+    '';
+  };
+
+  waybar-osd-status = pkgs.writeShellApplication {
+    name = "waybar-osd-status";
+    runtimeInputs = with pkgs; [coreutils];
+    text = ''
+      file=/tmp/waybar-osd
+      [ -f "$file" ] || exit 1
+      mtime=$(stat -c %Y "$file" 2>/dev/null) || exit 1
+      age=$(( $(date +%s) - mtime ))
+      if [ "$age" -ge 3 ]; then
+        rm -f "$file"
+        exit 1
+      fi
     '';
   };
 
@@ -64,8 +75,19 @@
   # tofi in vertical dmenu mode: the global config is a 36px-tall horizontal
   # launcher, unusable for a list, so override the geometry here.
   tofiMenu = "${pkgs.tofi}/bin/tofi --horizontal false --anchor center --width 700 --height 500 --margin-top 0 --margin-left 0 --margin-right 0 --num-results 10";
+
+  # Name -> glyph table maintained by the nerd-fonts project itself, pinned to
+  # the same release as the nerd-fonts packages in nixos/fonts.nix.
+  nerdFontGlyphnames = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.4.0/glyphnames.json";
+    sha256 = "sha256-4tENI/W/8L1vBnbpsB2XifzcZW3ntJiilVwncW6kQ5w=";
+  };
+  nerdFontIconList = pkgs.runCommand "nerd-font-icons.txt" {nativeBuildInputs = [pkgs.jq];} ''
+    jq -r 'to_entries[] | select(.key != "METADATA") | "\(.value.char)  \(.key)"' \
+      ${nerdFontGlyphnames} > "$out"
+  '';
 in {
-  inherit waybar-osd battery-monitor;
+  inherit waybar-osd waybar-osd-status battery-monitor;
 
   bluetoothScript = pkgs.writeShellScript "waybar-bluetooth" ''
     jq=${pkgs.jq}/bin/jq
@@ -149,7 +171,6 @@ in {
       add_tip "󰦝  VPN  ·  $vpn"
     fi
 
-    # ── Rien ────────────────────────────────────────────────────
     if [ -z "$text" ]; then
       text="󰤭"
       tip="Disconnected"
@@ -397,8 +418,10 @@ in {
   '';
 
   clipboard-menu = pkgs.writeShellScriptBin "clipboard-menu" ''
-    ${pkgs.cliphist}/bin/cliphist list \
-      | ${tofiMenu} --prompt-text "Clipboard: " \
+    list=$(${pkgs.cliphist}/bin/cliphist list)
+    selected=$(printf '%s\n' "$list" | cut -f2- | ${tofiMenu} --prompt-text "Clipboard: ")
+    [ -n "$selected" ] && printf '%s\n' "$list" \
+      | awk -F'\t' -v s="$selected" '$2 == s {print; exit}' \
       | ${pkgs.cliphist}/bin/cliphist decode \
       | ${pkgs.wl-clipboard}/bin/wl-copy
   '';
@@ -408,6 +431,14 @@ in {
     export BEMOJI_PICKER_CMD="${tofiMenu} --prompt-text 'emoji: '"
     # -t types the emoji (wtype), -c also copies it.
     exec ${pkgs.bemoji}/bin/bemoji -t -c
+  '';
+
+  icon-picker = pkgs.writeShellScriptBin "icon-picker" ''
+    selected=$(${tofiMenu} --font "${config.stylix.fonts.monospace.name}" --prompt-text 'icon: ' < ${nerdFontIconList})
+    [ -z "$selected" ] || icon=$(printf '%s\n' "$selected" | awk '{print $1}')
+    [ -n "''${icon:-}" ] || exit 0
+    ${pkgs.wtype}/bin/wtype "$icon"
+    printf '%s' "$icon" | ${pkgs.wl-clipboard}/bin/wl-copy
   '';
 
   caffeine-toggle = pkgs.writeShellScriptBin "caffeine-toggle" ''

@@ -6,13 +6,9 @@
     then "4"
     else if animationSpeed == "medium"
     then "2.5"
-    else "1.5";
-  borderDuration =
-    if animationSpeed == "slow"
-    then "10"
-    else if animationSpeed == "medium"
-    then "6"
-    else "3";
+    else if animationSpeed == "fast"
+    then "1.5"
+    else "0.5";
 in {
   wayland.windowManager.hyprland.settings = {
     animations = {
@@ -38,7 +34,7 @@ in {
         "windows, 1, ${animationDuration}, md3_decel, popin 60%"
         "windowsIn, 1, ${animationDuration}, md3_decel, popin 60%"
         "windowsOut, 1, ${animationDuration}, md3_accel, popin 60%"
-        "border, 1, ${borderDuration}, default"
+        "border, 1, ${animationDuration}, default"
         "fade, 1, ${animationDuration}, md3_decel"
         "layersIn, 1, ${animationDuration}, menu_decel, slide"
         "layersOut, 1, ${animationDuration}, menu_accel"

@@ -1,8 +1,14 @@
-{...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  scripts = import ../waybar/scripts.nix {inherit pkgs config;};
+in {
   xdg.desktopEntries = {
     focus-toggle = {
       name = "Focus Mode";
-      exec = "focus-toggle";
+      exec = "${scripts.focus-toggle}/bin/focus-toggle";
       icon = "do-not-disturb-symbolic";
       comment = "Toggle focus mode";
       categories = ["System"];
@@ -11,7 +17,7 @@
 
     nightshift-toggle = {
       name = "Night Shift";
-      exec = "nightshift-toggle";
+      exec = "${scripts.nightshift-toggle}/bin/nightshift-toggle";
       icon = "night-light-symbolic";
       comment = "Toggle night shift";
       categories = ["System"];
@@ -20,7 +26,7 @@
 
     mic-mute = {
       name = "Mute Microphone";
-      exec = "mic-mute";
+      exec = "${scripts.mic-mute}/bin/mic-mute";
       icon = "microphone-sensitivity-muted-symbolic";
       comment = "Toggle microphone mute";
       categories = ["System"];
@@ -29,7 +35,7 @@
 
     lock = {
       name = "Lock";
-      exec = "hyprlock";
+      exec = "${pkgs.hyprlock}/bin/hyprlock";
       icon = "system-lock-screen-symbolic";
       comment = "Lock the screen";
       categories = ["System"];
@@ -65,7 +71,7 @@
 
     waybar-toggle = {
       name = "Toggle Waybar";
-      exec = "waybar-toggle";
+      exec = "${scripts.waybar-toggle}/bin/waybar-toggle";
       icon = "panel-applets-symbolic";
       comment = "Show or hide the status bar";
       categories = ["System"];
@@ -74,7 +80,7 @@
 
     wifi-toggle = {
       name = "Toggle Wi-Fi";
-      exec = "wifi-toggle";
+      exec = "${scripts.wifi-toggle}/bin/wifi-toggle";
       icon = "network-wireless-symbolic";
       comment = "Enable or disable Wi-Fi";
       categories = ["System"];
@@ -83,7 +89,7 @@
 
     bluetooth-toggle = {
       name = "Toggle Bluetooth";
-      exec = "bluetooth-toggle";
+      exec = "${scripts.bluetooth-toggle}/bin/bluetooth-toggle";
       icon = "bluetooth-symbolic";
       comment = "Enable or disable Bluetooth";
       categories = ["System"];
@@ -92,7 +98,7 @@
 
     color-pick = {
       name = "Pick Color";
-      exec = "color-pick";
+      exec = "${scripts.color-pick}/bin/color-pick";
       icon = "color-select-symbolic";
       comment = "Pick a screen color to the clipboard";
       categories = ["Utility"];
@@ -102,7 +108,7 @@
 
     screenshot-region = {
       name = "Screenshot Region";
-      exec = "hyprshot -m region";
+      exec = "${pkgs.hyprshot}/bin/hyprshot -m region";
       icon = "screenshot-recorded-symbolic";
       comment = "Capture a selected region";
       categories = ["Utility"];
@@ -112,7 +118,7 @@
 
     screenshot-window = {
       name = "Screenshot Window";
-      exec = "hyprshot -m window";
+      exec = "${pkgs.hyprshot}/bin/hyprshot -m window";
       icon = "screenshot-recorded-symbolic";
       comment = "Capture the active window";
       categories = ["Utility"];
@@ -122,7 +128,7 @@
 
     screenshot-screen = {
       name = "Screenshot Screen";
-      exec = "hyprshot -m output";
+      exec = "${pkgs.hyprshot}/bin/hyprshot -m output";
       icon = "screenshot-recorded-symbolic";
       comment = "Capture the whole screen";
       categories = ["Utility"];
@@ -132,7 +138,7 @@
 
     screenshot-edit = {
       name = "Screenshot & Annotate";
-      exec = "screenshot-edit";
+      exec = "${scripts.screenshot-edit}/bin/screenshot-edit";
       icon = "edit-symbolic";
       comment = "Capture a region and open it in Satty";
       categories = ["Utility"];
@@ -142,7 +148,7 @@
 
     record-toggle = {
       name = "Screen Recording";
-      exec = "record-toggle";
+      exec = "${scripts.record-toggle}/bin/record-toggle";
       icon = "media-record-symbolic";
       comment = "Start or stop screen recording";
       categories = ["Utility" "AudioVideo"];
@@ -152,7 +158,7 @@
 
     power-cycle = {
       name = "Power Profile";
-      exec = "power-cycle";
+      exec = "${scripts.power-cycle}/bin/power-cycle";
       icon = "power-profile-balanced-symbolic";
       comment = "Cycle power-saver / balanced / performance";
       categories = ["System"];
@@ -162,7 +168,7 @@
 
     airplane-toggle = {
       name = "Airplane Mode";
-      exec = "airplane-toggle";
+      exec = "${scripts.airplane-toggle}/bin/airplane-toggle";
       icon = "airplane-mode-symbolic";
       comment = "Toggle Wi-Fi and Bluetooth together";
       categories = ["System"];
@@ -172,7 +178,7 @@
 
     clipboard-menu = {
       name = "Clipboard History";
-      exec = "clipboard-menu";
+      exec = "${scripts.clipboard-menu}/bin/clipboard-menu";
       icon = "edit-paste-symbolic";
       comment = "Pick a past clipboard entry";
       categories = ["Utility"];
@@ -180,9 +186,19 @@
       settings.Keywords = "clipboard;history;paste;cliphist;";
     };
 
+    clipboard-wipe = {
+      name = "Clear Clipboard History";
+      exec = "${pkgs.cliphist}/bin/cliphist wipe";
+      icon = "edit-clear-all-symbolic";
+      comment = "Delete all clipboard history entries";
+      categories = ["Utility"];
+      terminal = false;
+      settings.Keywords = "clipboard;history;clear;wipe;delete;cliphist;";
+    };
+
     emoji-picker = {
       name = "Emoji Picker";
-      exec = "emoji-picker";
+      exec = "${scripts.emoji-picker}/bin/emoji-picker";
       icon = "face-smile-symbolic";
       comment = "Pick an emoji and type it";
       categories = ["Utility"];
@@ -190,9 +206,19 @@
       settings.Keywords = "emoji;emoticon;smiley;symbol;";
     };
 
+    icon-picker = {
+      name = "Icon Picker";
+      exec = "${scripts.icon-picker}/bin/icon-picker";
+      icon = "character-map-symbolic";
+      comment = "Pick a Nerd Font icon and type it";
+      categories = ["Utility"];
+      terminal = false;
+      settings.Keywords = "icon;nerdfont;glyph;symbol;";
+    };
+
     caffeine-toggle = {
       name = "Keep Awake";
-      exec = "caffeine-toggle";
+      exec = "${scripts.caffeine-toggle}/bin/caffeine-toggle";
       icon = "my-caffeine-on-symbolic";
       comment = "Pause or resume idle locking and suspend";
       categories = ["System"];
@@ -202,7 +228,7 @@
 
     logout = {
       name = "Logout";
-      exec = "hyprctl dispatch exit";
+      exec = "${pkgs.hyprland}/bin/hyprctl dispatch exit";
       icon = "system-log-out-symbolic";
       comment = "End the current session";
       categories = ["System"];
@@ -211,7 +237,7 @@
 
     dnd-toggle = {
       name = "Do Not Disturb";
-      exec = "dnd-toggle";
+      exec = "${scripts.dnd-toggle}/bin/dnd-toggle";
       icon = "notifications-disabled-symbolic";
       comment = "Toggle Do Not Disturb";
       categories = ["System"];
@@ -221,7 +247,7 @@
 
     vol-mute = {
       name = "Mute Volume";
-      exec = "vol-mute";
+      exec = "${scripts.vol-mute}/bin/vol-mute";
       icon = "audio-volume-muted-symbolic";
       comment = "Toggle output mute";
       categories = ["System"];
@@ -230,7 +256,7 @@
 
     vol-up = {
       name = "Volume Up";
-      exec = "vol-up";
+      exec = "${scripts.vol-up}/bin/vol-up";
       icon = "audio-volume-high-symbolic";
       comment = "Raise the volume by 5%";
       categories = ["System"];
@@ -239,7 +265,7 @@
 
     vol-down = {
       name = "Volume Down";
-      exec = "vol-down";
+      exec = "${scripts.vol-down}/bin/vol-down";
       icon = "audio-volume-low-symbolic";
       comment = "Lower the volume by 5%";
       categories = ["System"];
@@ -248,7 +274,7 @@
 
     bright-up = {
       name = "Brightness Up";
-      exec = "bright-up";
+      exec = "${scripts.bright-up}/bin/bright-up";
       icon = "display-brightness-high-symbolic";
       comment = "Raise the brightness by 5%";
       categories = ["System"];
@@ -257,7 +283,7 @@
 
     bright-down = {
       name = "Brightness Down";
-      exec = "bright-down";
+      exec = "${scripts.bright-down}/bin/bright-down";
       icon = "display-brightness-low-symbolic";
       comment = "Lower the brightness by 5%";
       categories = ["System"];
@@ -266,7 +292,7 @@
 
     output-cycle = {
       name = "Cycle Audio Output";
-      exec = "output-cycle";
+      exec = "${scripts.output-cycle}/bin/output-cycle";
       icon = "audio-speakers-symbolic";
       comment = "Switch to the next audio output";
       categories = ["System"];
@@ -276,7 +302,7 @@
 
     input-cycle = {
       name = "Cycle Audio Input";
-      exec = "input-cycle";
+      exec = "${scripts.input-cycle}/bin/input-cycle";
       icon = "audio-input-microphone-symbolic";
       comment = "Switch to the next audio input";
       categories = ["System"];
@@ -286,12 +312,22 @@
 
     spotatui = {
       name = "Spotify";
-      exec = "ghostty -e spotatui";
+      exec = "${pkgs.ghostty}/bin/ghostty +new-window -e ${pkgs.spotatui}/bin/spotatui";
       icon = "spotify";
       comment = "Control Spotify from the terminal";
       categories = ["Audio" "Music"];
       terminal = false;
       settings.Keywords = "spotify;spotatui;music;";
+    };
+
+    settuings = {
+      name = "Settings";
+      exec = "${pkgs.ghostty}/bin/ghostty +new-window -e ${pkgs.nur.repos.anotherhadi.settuings}/bin/settuings";
+      icon = "preferences-system-symbolic";
+      comment = "Terminal based settings (wifi, bluetooth, audio, ...)";
+      categories = ["Settings"];
+      terminal = false;
+      settings.Keywords = "settings;wifi;bluetooth;audio;settuings;";
     };
   };
 }

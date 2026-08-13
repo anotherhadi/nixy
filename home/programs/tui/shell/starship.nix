@@ -1,6 +1,5 @@
 # starship is a minimal, fast, and extremely customizable prompt for any shell!
 {
-  pkgs-stable,
   config,
   lib,
   ...
@@ -10,7 +9,6 @@
 in {
   programs.starship = {
     enable = true;
-    package = pkgs-stable.starship;
     settings = {
       add_newline = true;
       format = lib.concatStrings [

@@ -8,9 +8,7 @@
 
     ## GUI
     ../../home/programs/gui/proton
-    ../../home/programs/gui/proton/auto-start-vpn.nix
     ../../home/programs/gui/helium
-    ../../home/programs/gui/thunar
     ../../home/programs/gui/pkgs.nix
 
     ## TUI
@@ -24,7 +22,7 @@
     ../../home/programs/tui/nixy
     ../../home/programs/tui/nix-utils
     ../../home/programs/tui/spotatui
-    ../../home/programs/tui/yazi
+    ../../home/programs/tui/elio
     ../../home/programs/tui/pkgs.nix
 
     ## GROUPS
@@ -38,8 +36,8 @@
     ../../home/system/swaync
     ../../home/system/tofi
     ../../home/system/mime
-    ../../home/system/termfilechooser
     ../../home/system/udiskie
+    ../../home/system/termfilechooser
     ../../home/system/clipboard
     ../../home/system/hypridle
 

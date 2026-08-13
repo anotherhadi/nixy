@@ -17,13 +17,17 @@ The server is designed for private, secure, and easily manageable self-hosting o
 
 The server hosts several key applications:
 
-- **NGINX**: Reverse proxy for routing traffic to services via my domain name.
 - **AdGuard Home**: A self-hosted DNS ad blocker for network-wide ad and tracker filtering.
 - **Glance**: An awesome dashboard! (See the screenshot above)
-- **Arr Stack (Radarr, Sonarr, etc.)**: Automated media management tools for handling movies and TV shows. (legaly ofc)
+- **Arr Stack (Radarr, Sonarr, etc.)**: Automated media management tools for handling movies and TV shows. (legally ofc)
 - **Mealie**: A self-hosted recipe manager and meal planner with a clean user interface.
 - **Stirling-PDF**: A powerful, locally hosted web application for editing, merging, and converting PDF files.
 - **CyberChef**: The "Cyber Swiss Army Knife" for data analysis, decoding, and encryption tasks.
 - **Mazanoke**: A utility service for image processing, specialized in format conversion and downgrading/optimization.
+- **Umami**: Privacy-focused web analytics.
+- **Gitea**: Self-hosted git forge.
+- **Blog**: Personal website/blog.
+- **iknowyou**: Personal project hosted in two containers (prod + demo).
+- **Awesome Wallpapers**: Wallpaper browser served via NGINX inside a container.
 - **SSH**: Secure remote access configuration for server management. (via browser too)
-- **Security related stuff**: Cloudflared, Fail2Ban, Firewall
+- **Security related stuff**: Cloudflared, Fail2Ban, Firewall, Kernel Hardening

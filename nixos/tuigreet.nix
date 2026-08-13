@@ -43,14 +43,14 @@ in {
     };
   };
 
+  security.pam.services.greetd.enableGnomeKeyring = true;
+
   # this is a life saver.
   # literally no documentation about this anywhere.
   # might be good to write about this...
   # https://www.reddit.com/r/NixOS/comments/u0cdpi/tuigreet_with_xmonad_how/
   # Unlock the gnome-keyring with the login password so apps (browser
   # secrets via libsecret, ProtonVPN credentials, …) don't reprompt.
-  security.pam.services.greetd.enableGnomeKeyring = true;
-
   systemd.services.greetd.serviceConfig = {
     Type = "idle";
     StandardInput = "tty";
@@ -61,6 +61,4 @@ in {
     TTYVHangup = true;
     TTYVTDisallocate = true;
   };
-
-  environment.systemPackages = [tuigreet];
 }

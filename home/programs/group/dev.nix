@@ -1,14 +1,14 @@
 {
   pkgs,
-  pkgs-stable,
+  pkgs-unstable,
   ...
 }: {
-  home.packages = with pkgs;
+  home.packages = with pkgs-unstable;
     [
       go
       claude-code
     ]
-    ++ (with pkgs-stable; [
+    ++ (with pkgs; [
       nodejs
       air
       duckdb

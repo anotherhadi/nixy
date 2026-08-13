@@ -9,10 +9,10 @@
     image = ["imv-dir.desktop"];
     audio = ["vlc.desktop"];
     video = ["vlc.desktop"];
-    directory = ["thunar.desktop"];
+    directory = ["elio.desktop"];
     office = ["onlyoffice-desktopeditors.desktop"];
     pdf = ["onlyoffice-desktopeditors.desktop"];
-    archive = ["xarchiver.desktop"];
+    archive = ["elio.desktop"];
     browser = ["helium.desktop"];
   };
 
@@ -116,7 +116,7 @@
   nvim-ghostty = pkgs.makeDesktopItem {
     name = "nvim-ghostty";
     desktopName = "Neovim (Ghostty)";
-    exec = ''ghostty --title="Neovim Editor" -e nvim %F'';
+    exec = ''${pkgs.ghostty}/bin/ghostty +new-window --title="Neovim Editor" -e nvim %F'';
     terminal = false;
     categories = ["Development" "TextEditor"];
     mimeTypes = mimeMap.code ++ mimeMap.text;

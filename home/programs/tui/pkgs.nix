@@ -1,24 +1,18 @@
-{
-  pkgs,
-  pkgs-stable,
-  ...
-}: {
-  home.packages = with pkgs-stable; [
+{pkgs, ...}: {
+  home.packages = with pkgs; [
     # I love TUIs
     caligula # User-friendly, lightweight TUI for disk imaging (ISO, USB BOOT)
     dysk # A terminal-based disk usage analyzer
     wikiman # Offline search engine for manual pages (arch wiki, tldr)
     tealdeer # Fast tldr client
-    sttr # Minimalist "cyberchef" like. Cross-platform, cli app to perform various operations on string
-    wiremix # Simple TUI mixer for PipeWire
+    sttr # A minimalist CyberChef-like, cross-platform CLI app for performing various operations on strings
     slides # A terminal-based presentation tool that allows you to create and deliver presentations directly from the command line
     pom # Pomodoro timer in your terminal
     tabiew # A terminal-based CSV viewer and manipulator
     jless # A pager for JSON
-    pkgs.wifitui # TUI for managing wifi
     pkgs.nur.repos.anotherhadi.usbguard-tui # TUI for managing USBGuard rules
     pkgs.nur.repos.anotherhadi.sheets # Terminal based spreadsheet tool
-    bluetui # TODO: To test
+    pkgs.nur.repos.anotherhadi.settuings # Terminal based settings (wifi, bluetooth, audio, ...)
     rainfrog # TODO: To test
     posting # TODO: To test
     newsboat # TODO: To test

@@ -8,6 +8,7 @@ in {
   sops.secrets = {
     recyclarr = {
       owner = "recyclarr";
+      # TODO: too permissive (world-writable), should be 0600/0400
       mode = "0777";
     };
     wireguard-pia = {

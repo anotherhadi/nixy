@@ -116,7 +116,7 @@ in {
   };
 
   xdg.portal = {
-    xdgOpenUsePortal = true;
+    xdgOpenUsePortal = false;
     config = {
       common.default = ["gtk"];
       hyprland = {
@@ -124,7 +124,7 @@ in {
           "gtk"
           "hyprland"
         ];
-        # Pick files / choose download paths with yazi instead of the GTK dialog.
+        # Pick files / choose download paths with elio instead of the GTK dialog.
         # Key MUST use the "impl" interface name, else xdg-desktop-portal
         # ignores it and falls back to the default (gtk). See portals.conf(5).
         "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];

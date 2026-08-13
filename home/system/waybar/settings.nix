@@ -1,9 +1,11 @@
 {
   config,
-  lib,
   pkgs,
   networkScript,
   bluetoothScript,
+  caffeineToggleScript,
+  osdStatusScript,
+  nightshiftToggleScript,
   ...
 }: let
   gaps-out = config.theme.gaps-out;
@@ -15,7 +17,7 @@ in {
       position = "top";
       height = config.theme.bar-height;
       margin = "${toString gaps-out} ${toString gaps-out} 0";
-      modules-center = ["custom/osd" "custom/osd-sep" "clock" "tray" "hyprland/workspaces" "custom/network" "custom/bluetooth" "battery"];
+      modules-center = ["custom/osd" "custom/osd-sep" "clock" "tray" "hyprland/workspaces" "custom/network" "custom/bluetooth" "battery" "group/drawer"];
 
       # ── Modules ─────────────────────────────────────────────────────────
 
@@ -24,8 +26,8 @@ in {
         all-outputs = true;
         move-to-monitor = true;
         ignore-workspaces = ["[5-9]" "[1-9][0-9]+"];
-        on-scroll-down = "hyprctl dispatch workspace e+1";
-        on-scroll-up = "hyprctl dispatch workspace e-1";
+        on-scroll-down = "${pkgs.hyprland}/bin/hyprctl dispatch workspace e+1";
+        on-scroll-up = "${pkgs.hyprland}/bin/hyprctl dispatch workspace e-1";
         persistent-workspaces."*" = [1 2 3 4];
         cursor = true;
       };
@@ -34,17 +36,35 @@ in {
         interval = 20;
         full-at = 100;
         tooltip = true;
-        format-full = "";
         format = "{icon} ";
         format-charging = " {icon} ";
         format-icons = ["" "" "" "" ""];
         tooltip-format = "{capacity}%  ·  {time}";
         tooltip-format-full = "Full\n{capacity}%";
         tooltip-format-charging = "Charging\n{capacity}%  ·  {time}";
+        on-click = "${pkgs.ghostty}/bin/ghostty +new-window -e ${pkgs.nur.repos.anotherhadi.settuings}/bin/settuings --page power";
         states = {
           warning = 30;
           critical = 15;
         };
+      };
+
+      "custom/caffeine" = {
+        exec = "${pkgs.coreutils}/bin/printf '󰅶'";
+        exec-if = "! systemctl --user is-active --quiet hypridle";
+        format = "{}";
+        interval = 5;
+        on-click = "${caffeineToggleScript}/bin/caffeine-toggle";
+        tooltip = false;
+      };
+
+      "custom/nightshift" = {
+        exec = "${pkgs.coreutils}/bin/printf '󰖔'";
+        exec-if = "${pkgs.procps}/bin/pgrep -x hyprsunset";
+        format = "{}";
+        interval = 5;
+        on-click = "${nightshiftToggleScript}/bin/nightshift-toggle";
+        tooltip = false;
       };
 
       "custom/bluetooth" = {
@@ -52,23 +72,22 @@ in {
         exec-if = "${pkgs.bluez}/bin/bluetoothctl list 2>/dev/null | grep -q Controller";
         return-type = "json";
         interval = 5;
-        on-click-right = "blueman-manager &";
-        on-click = "bluetooth-toggle";
+        on-click = "${pkgs.ghostty}/bin/ghostty +new-window -e ${pkgs.nur.repos.anotherhadi.settuings}/bin/settuings --page bluetooth";
       };
 
       "custom/osd" = {
         exec = "cat /tmp/waybar-osd";
-        exec-if = "test -f /tmp/waybar-osd";
+        exec-if = "${osdStatusScript}/bin/waybar-osd-status";
         signal = 8;
-        interval = "once";
+        interval = 1;
         format = "{}";
       };
 
       "custom/osd-sep" = {
         exec = "echo '|'";
-        exec-if = "test -f /tmp/waybar-osd";
+        exec-if = "${osdStatusScript}/bin/waybar-osd-status";
         signal = 8;
-        interval = "once";
+        interval = 1;
         format = "{}";
         tooltip = false;
       };
@@ -79,8 +98,7 @@ in {
         tooltip-format = "{volume}%";
         format-muted = "<span size='12pt'>󰝟</span>";
         scroll-step = 2;
-        on-click = "vol-mute";
-        on-click-right = "pavucontrol -t 4 &";
+        on-click = "${pkgs.ghostty}/bin/ghostty +new-window -e ${pkgs.nur.repos.anotherhadi.settuings}/bin/settuings --page audio";
         format-icons = {
           headphone = "";
           hands-free = "";
@@ -106,7 +124,7 @@ in {
         exec = "${networkScript}";
         return-type = "json";
         interval = 10;
-        on-click-right = "ghostty -e wifitui &";
+        on-click = "${pkgs.ghostty}/bin/ghostty +new-window -e ${pkgs.nur.repos.anotherhadi.settuings}/bin/settuings --page network";
       };
 
       tray = {
@@ -131,10 +149,14 @@ in {
         };
       };
 
-      "custom/arrow-left" = {
-        format = " ";
-        tooltip = false;
-        cursor = true;
+      "group/drawer" = {
+        orientation = "horizontal";
+        drawer = {
+          transition-duration = 300;
+          children-class = "drawer-child";
+          transition-left-to-right = false;
+        };
+        modules = ["custom/arrow-right" "pulseaudio" "custom/nightshift" "custom/caffeine"];
       };
 
       "custom/arrow-right" = {

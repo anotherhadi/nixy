@@ -1,11 +1,11 @@
 # My shell configuration
 {
-  pkgs-stable,
+  pkgs,
   lib,
   config,
   ...
 }: {
-  home.packages = with pkgs-stable; [
+  home.packages = with pkgs; [
     bat
     ripgrep
   ];
@@ -14,31 +14,41 @@
     sessionPath = ["$HOME/go/bin"];
     sessionVariables = {
       COLORTERM = "truecolor";
+      MANPAGER = "bat -l man -p";
     };
   };
 
   programs.zsh = {
     enable = true;
+    autocd = true;
     enableCompletion = true;
     autosuggestion.enable = true;
-    syntaxHighlighting = {
-      enable = true;
-      highlighters = [
-        "main"
-        "brackets"
-        "pattern"
-        "regexp"
-        "root"
-        "line"
-      ];
-    };
+    syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
+
+    plugins = [
+      {
+        name = "zsh-vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      }
+    ];
 
     history = {
       ignoreDups = true;
+      findNoDups = true;
+      expireDuplicatesFirst = true;
+      ignoreSpace = true;
+      append = true;
       save = 10000;
       size = 10000;
     };
+
+    setOptions = [
+      "NOBEEP"
+      "AUTOCD"
+      "NUMERIC_GLOB_SORT"
+    ];
 
     profileExtra = lib.optionalString (config.home.sessionPath != []) ''
       export PATH="$PATH''${PATH:+:}${lib.concatStringsSep ":" config.home.sessionPath}"
@@ -53,22 +63,21 @@
       tree = "eza --icons=always --tree --no-quotes";
       cat = "bat --theme=base16 --color=always --paging=never --tabs=2 --wrap=never --plain";
       mkdir = "mkdir -p";
+      nix-shell = "nix-shell --command zsh";
+      grep = "rg --color=auto";
+      diff = "diff --color=auto";
+      df = "df -h";
 
       # Shortcuts
       spt = "spotatui";
-      v = "nvim";
-      c = "clear";
-      e = "exit";
-      open = "${pkgs-stable.xdg-utils}/bin/xdg-open";
+      open = "${pkgs.xdg-utils}/bin/xdg-open";
 
       notes = "nvim ~/notes/index.md --cmd 'cd ~/notes' -c ':lua Snacks.picker.smart()'";
-      nix-shell = "nix-shell --command zsh";
 
       # git
       g = "lazygit";
       ga = "git add";
       gc = "git commit";
-      gcu = "git add . && git commit -m 'Update'";
       gp = "git push";
       gpl = "git pull";
       gs = "git status";
@@ -81,6 +90,11 @@
       gaa = "git add .";
       gcm = "git commit -m";
 
+      # Original binaries
+      ocat = "/run/current-system/sw/bin/cat";
+      ols = "/run/current-system/sw/bin/ls";
+      ocd = "builtin cd";
+
       # Typo
       clera = "clear";
       celar = "clear";
@@ -88,24 +102,28 @@
       sl = "ls";
     };
 
-    initContent =
+    initContent = lib.mkMerge [
+      (lib.mkOrder 550 ''
+        function zvm_config() {
+          ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
+          ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+          ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+
+          ZVM_VI_HIGHLIGHT_BACKGROUND=none
+          ZVM_VI_HIGHLIGHT_FOREGROUND=none
+          ZVM_VI_HIGHLIGHT_EXTRASTYLE=none
+        }
+      '')
       # bash
       ''
-        bindkey -e
-
-        # Open command in VIM
-        autoload -Uz edit-command-line
-        zle -N edit-command-line
-        bindkey '^X' edit-command-line
-
         # Suffix Aliases
         alias -s {nix,md,txt,yml,yaml,go}=nvim
         alias -s {json,jsonl}=jless
         alias -s {csv,tsv,parquet,pqt,arrow,db,sqlite,xls,xlsx,xlsm,xlsb,fwf}=tw
         alias -s {png,jpg,jpeg,gif,pdf}=xdg-open
 
-        # 3. Global Aliases (expanded anywhere in the command, not just at the start)
-        alias -g G="| grep"
+        # Global Aliases
+        alias -g G="| rg"
         alias -g L="| less"
         alias -g V="| nvim"
         alias -g H="| head"
@@ -116,83 +134,19 @@
         alias -g ND=">/dev/null"
         alias -g NUL=">/dev/null 2>&1"
 
-        # search history based on what's typed in the prompt
-        autoload -U history-search-end
-        zle -N history-beginning-search-backward-end history-search-end
-        zle -N history-beginning-search-forward-end history-search-end
-        bindkey "^[OA" history-beginning-search-backward-end
-        bindkey "^[OB" history-beginning-search-forward-end
+        autoload zmv # Mv for multiple files
 
-        # General completion behavior
-        zstyle ':completion:*' completer _extensions _complete _approximate
-
-        # Use cache
-        zstyle ':completion:*' use-cache on
-        zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
-
-        # Complete the alias
-        zstyle ':completion:*' complete true
-
-        # Autocomplete options
-        zstyle ':completion:*' complete-options true
-
-        # Completion matching control
-        zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-        zstyle ':completion:*' keep-prefix true
-
-        # Group matches and describe
         zstyle ':completion:*' menu select
-        zstyle ':completion:*' list-grouped false
-        zstyle ':completion:*' list-separator '''
-        zstyle ':completion:*' group-name '''
-        zstyle ':completion:*' verbose yes
-        zstyle ':completion:*:matches' group 'yes'
-        zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
-        zstyle ':completion:*:messages' format '%d'
-        zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
-        zstyle ':completion:*:descriptions' format '[%d]'
+        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-        # Colors
-        zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
-
-        # Case insensitive tab completion
-        zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
-        zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
-        zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
-        zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions commands
-        zstyle ':completion:*' special-dirs true
-        zstyle ':completion:*' squeeze-slashes true
-
-        # Sort
-        zstyle ':completion:*' sort false
-        zstyle ":completion:*:git-checkout:*" sort false
-        zstyle ':completion:*' file-sort modification
-        zstyle ':completion:*:eza' sort false
-        zstyle ':completion:complete:*:options' sort false
-        zstyle ':completion:files' sort false
-
-        autoload zmv
-
-        hash -d dl=~/Downloads
-        hash -d ni=~/.config/nixos
-        hash -d de=~/dev
-        hash -d cy=~/Cyber
-
-        ${lib.optionalString config.services.gpg-agent.enable ''
-          gnupg_path=$(ls $XDG_RUNTIME_DIR/gnupg)
-          export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/$gnupg_path/S.gpg-agent.ssh"
-        ''}
-
-        # Allow foot to pipe command output
-        function precmd {
-          if ! builtin zle; then
-              print -n "\e]133;D\e\\"
-          fi
+        zvm_after_init() {
+          bindkey '^[[1;5C' forward-word
+          bindkey '^[[1;5D' backward-word
+          bindkey '^F' _fzf_file_no_hidden
+          bindkey '^[[A' history-substring-search-up
+          bindkey '^[[B' history-substring-search-down
         }
-        function preexec {
-          print -n "\e]133;C\e\\"
-        }
-
-      '';
+      ''
+    ];
   };
 }

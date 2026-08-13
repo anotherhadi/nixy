@@ -17,6 +17,8 @@
 
     ../../nixos/omen.nix # CHANGEME: For my laptop only, remove this (OMEN 16)
 
+    ./wireguard.nix # CHANGEME: For my laptop only
+
     # You should let those lines as is
     ./hardware-configuration.nix
     ./variables.nix

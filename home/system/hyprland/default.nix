@@ -1,7 +1,7 @@
 # Hyprland is a dynamic tiling Wayland compositor that is highly customizable and performant.
 {
+  pkgs-unstable,
   pkgs,
-  pkgs-stable,
   config,
   lib,
   ...
@@ -24,24 +24,26 @@ in {
   ];
 
   home.packages =
-    (with pkgs; [
+    (with pkgs-unstable; [
       qt5.qtwayland
       qt6.qtwayland
-      libsForQt5.qt5ct
-      qt6Packages.qt6ct
       hyprland-qtutils
     ])
-    ++ (with pkgs-stable; [
+    ++ (with pkgs; [
+      libsForQt5.qt5ct
+      qt6Packages.qt6ct
       xcb-util-cursor
+      papirus-icon-theme
+      material-icons
+      material-design-icons
+      material-symbols
       libxcb
       adw-gtk3
       hyprshot
       hyprpicker
-      swappy
       satty
       imv
       wf-recorder
-      wlr-randr
       brightnessctl
       gnome-themes-extra
       dconf
@@ -59,7 +61,7 @@ in {
 
     settings = {
       monitor = [
-        ",prefered,auto,1" # default
+        ",preferred,auto,1" # default
       ];
 
       exec-once = [
@@ -171,5 +173,21 @@ in {
         no_update_news = true;
       };
     };
+  };
+
+  qt.enable = true;
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
+
+  home.sessionVariables = {
+    XDG_ICON_DIR = "${pkgs.papirus-icon-theme}/share/icons/Papirus";
+    QS_ICON_THEME = "Papirus";
+    QT_STYLE_OVERRIDE = lib.mkForce "Fusion";
   };
 }

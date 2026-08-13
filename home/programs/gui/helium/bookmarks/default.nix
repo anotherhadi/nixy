@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs,
+  pkgs-unstable,
   ...
 }: let
   bookmarkList =
@@ -451,7 +451,7 @@ in {
     };
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.darkhttpd}/bin/darkhttpd %h/.local/share/helium-startpage --port 8888 --addr 127.0.0.1 --no-listing";
+      ExecStart = "${pkgs-unstable.darkhttpd}/bin/darkhttpd %h/.local/share/helium-startpage --port 8888 --addr 127.0.0.1 --no-listing";
       Restart = "on-failure";
     };
     Install.WantedBy = ["default.target"];

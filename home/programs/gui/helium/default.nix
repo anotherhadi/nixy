@@ -1,7 +1,7 @@
 {
   inputs,
   config,
-  pkgs,
+  pkgs-unstable,
   lib,
   ...
 }: let
@@ -44,11 +44,11 @@
     "--show-avatar-button=never"
   ];
 
-  originalPkg = (inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.helium).override {
+  originalPkg = (inputs.helium-browser.packages.${pkgs-unstable.stdenv.hostPlatform.system}.helium).override {
     flags = heliumFlags;
   };
 
-  patchScript = pkgs.writeShellScript "helium-patch-prefs" ''
+  patchScript = pkgs-unstable.writeShellScript "helium-patch-prefs" ''
     PROFILE="$HOME/.config/net.imput.helium/Default"
     THEME_DIR="$PROFILE/Extensions/${themeId}/1.0_0"
     PREFS="$PROFILE/Preferences"
@@ -59,7 +59,7 @@
 
     if [ -f "$PREFS" ]; then
       tmp=$(mktemp)
-      ${lib.getExe pkgs.jq} \
+      ${lib.getExe pkgs-unstable.jq} \
         --arg       id       "${themeId}" \
         --slurpfile manifest "$THEME_DIR/manifest.json" \
         '
@@ -85,10 +85,10 @@
     fi
   '';
 
-  baseWrapped = pkgs.symlinkJoin {
+  baseWrapped = pkgs-unstable.symlinkJoin {
     name = "helium-wrapped";
     paths = [originalPkg];
-    nativeBuildInputs = [pkgs.makeWrapper];
+    nativeBuildInputs = [pkgs-unstable.makeWrapper];
     postBuild = ''
       wrapProgram $out/bin/helium \
         --set-default GTK_USE_PORTAL 1 \

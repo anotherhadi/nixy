@@ -1,6 +1,5 @@
 # Fzf is a general-purpose command-line fuzzy finder.
 {
-  pkgs-stable,
   config,
   lib,
   ...
@@ -8,11 +7,16 @@
   accent = "#" + config.lib.stylix.colors.base0D;
   foreground = "#" + config.lib.stylix.colors.base05;
   muted = "#" + config.lib.stylix.colors.base03;
+  previewCmd = "bat --color=always --style=plain,numbers --line-range=:500 {}";
 in {
   programs.fzf = {
     enable = true;
-    package = pkgs-stable.fzf;
     enableZshIntegration = true;
+
+    defaultCommand = "fd --type f --hidden --strip-cwd-prefix";
+    fileWidgetCommand = "fd --type f --hidden --strip-cwd-prefix";
+    fileWidgetOptions = ["--preview '${previewCmd}'"];
+
     colors = lib.mkForce {
       "fg+" = accent;
       "bg+" = "-1";
@@ -21,15 +25,26 @@ in {
       "prompt" = muted;
       "pointer" = accent;
     };
+
     defaultOptions = [
-      "--margin=1"
+      "--height=60%"
       "--layout=reverse"
       "--border=none"
-      "--info='hidden'"
-      "--header=''"
       "--prompt='/ '"
+      "--preview-window=right:65%:wrap:border-left"
       "-i"
       "--no-bold"
     ];
   };
+
+  programs.zsh.initContent = lib.mkAfter ''
+    _fzf_file_no_hidden() {
+      local cmd result
+      cmd="''${FZF_DEFAULT_COMMAND/--hidden /}"
+      result=$(eval "''${cmd:-find . -type f}" | fzf --preview "${previewCmd}") \
+        && LBUFFER+="$result"
+      zle reset-prompt
+    }
+    zle -N _fzf_file_no_hidden
+  '';
 }

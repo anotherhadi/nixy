@@ -98,7 +98,7 @@
         mode = "n";
         silent = true;
         action = "<cmd>set spell!<cr>";
-        desc = "Toggle spellLazyGitcheck";
+        desc = "Toggle spell check";
       }
       {
         key = "<leader>uc";

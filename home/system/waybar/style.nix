@@ -45,17 +45,25 @@ in {
     #workspaces,
     #custom-osd,
     #custom-network,
-    #custom-bluetooth {
+    #custom-bluetooth,
+    #custom-caffeine,
+    #custom-nightshift,
+    #pulseaudio {
         padding: 1px ${module-padding};
+    }
+
+    #custom-arrow-right {
+        color: ${fg};
+        padding: 1px 8px;
+    }
+
+    #group-drawer {
+        padding: 0;
     }
 
     #custom-osd-sep {
         padding: 0;
         color: ${inactive};
-    }
-
-    #tray.empty {
-        padding: 0;
     }
 
     #clock {
@@ -116,6 +124,11 @@ in {
 
     #custom-bluetooth.off {
         color: ${inactive};
+    }
+
+    #custom-caffeine,
+    #custom-nightshift {
+        color: ${yellow};
     }
 
     #custom-osd {

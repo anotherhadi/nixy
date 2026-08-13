@@ -9,12 +9,11 @@
 
     # Programs
     inputs.nvf-config.homeManagerModules.default
-    ../../home/programs/shell
-    ../../home/programs/git
-    ../../home/programs/git/lazygit.nix
-    ../../home/programs/nixy
-    ../../home/programs/nix-utils
-    ../../home/programs/yazi
+    ../../home/programs/tui/shell
+    ../../home/programs/tui/git
+    ../../home/programs/tui/git/lazygit.nix
+    ../../home/programs/tui/nixy
+    ../../home/programs/tui/nix-utils
 
     ../../home/programs/group/dev.nix
   ];

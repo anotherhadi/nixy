@@ -1,9 +1,8 @@
 # Hyprpaper is used to set the wallpaper on the system
-{pkgs-stable, lib, ...}: {
+{lib, ...}: {
   # The wallpaper is set by stylix
   services.hyprpaper = {
     enable = true;
-    package = pkgs-stable.hyprpaper;
     settings = {
       ipc = "on";
       splash = false;

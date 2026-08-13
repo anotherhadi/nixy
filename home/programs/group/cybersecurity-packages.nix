@@ -1,25 +1,20 @@
-{
-  pkgs,
-  pkgs-stable,
-}:
-(with pkgs-stable; [
+{pkgs}: (with pkgs; [
   # Web
   dirb
   ffuf
   katana
   whatweb
+  sqlmap
+  nosqli
 
   # Hashes
   hashcat
   haiti
-  hydra
   john
 
   # Databases
   mariadb
   redis
-  sqlmap
-  nosqli
 
   # Network
   inetutils
@@ -28,6 +23,7 @@
   dig
   nmap
   samba
+  hydra
 
   # Misc
   metasploit
@@ -39,9 +35,6 @@
 
   # Forensics
   binwalk
-])
-++ [ pkgs.dnsrecon ]
-++ (with pkgs.nur.repos.anotherhadi; [
-  spilltea
-  jwt-tui
+  pkgs.nur.repos.anotherhadi.spilltea
+  pkgs.nur.repos.anotherhadi.jwt-tui
 ])

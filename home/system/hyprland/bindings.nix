@@ -1,11 +1,11 @@
 {
   pkgs,
-  pkgs-stable,
   lib,
   config,
   ...
 }: let
   colors = config.lib.stylix.colors;
+  scripts = import ../waybar/scripts.nix {inherit pkgs config;};
 
   mkMenu = menu: let
     configFile = pkgs.writeText "config.yaml" (
@@ -64,17 +64,17 @@ in {
             {
               key = "o";
               desc = "Obsidian";
-              cmd = "${pkgs-stable.obsidian}/bin/obsidian";
+              cmd = "${pkgs.obsidian}/bin/obsidian";
             }
             {
               key = "s";
               desc = "Signal";
-              cmd = "${pkgs-stable.signal-desktop}/bin/signal-desktop";
+              cmd = "${pkgs.signal-desktop}/bin/signal-desktop";
             }
             {
               key = "t";
               desc = "TickTick";
-              cmd = "${pkgs-stable.ticktick}/bin/ticktick";
+              cmd = "${pkgs.ticktick}/bin/ticktick";
             }
             {
               key = "b";
@@ -98,7 +98,7 @@ in {
             {
               key = "l";
               desc = "Lock";
-              cmd = "hyprlock";
+              cmd = "${pkgs.hyprlock}/bin/hyprlock";
             }
             {
               key = "s";
@@ -115,25 +115,20 @@ in {
               desc = "Power Off";
               cmd = "systemctl poweroff";
             }
-            {
-              key = "n";
-              desc = "Nightshift";
-              cmd = "nightshift-toggle";
-            }
           ])
         )
 
         # Quick launch
         "$mod,RETURN, exec, ${pkgs.ghostty}/bin/ghostty +new-window" # Ghostty (terminal, via daemon D-Bus)
-        "$mod,E, exec,  uwsm app -- ${pkgs-stable.thunar}/bin/thunar" # Thunar
-        "$mod, SPACE, exec, tofi-drun" # Launcher
-        "$mod, N, exec, swaync-client -t" # Notification center
+        "$mod,E, exec, ${pkgs.ghostty}/bin/ghostty +new-window -e elio" # Elio
+        "$mod, SPACE, exec, ${pkgs.tofi}/bin/tofi-drun" # Launcher
+        "$mod, N, exec, ${pkgs.swaynotificationcenter}/bin/swaync-client -t" # Notification center
 
         # Windows
         "$mod,Q, killactive," # Close window
         "$mod,F, fullscreen" # Toggle Fullscreen
         "$shiftMod,F, togglefloating," # Toggle Floating
-        "$shiftMod, SPACE, exec, focus-toggle" # Toggle focus mode
+        "$shiftMod, SPACE, exec, ${scripts.focus-toggle}/bin/focus-toggle" # Toggle focus mode
 
         # Focus Windows
         "$mod,H, movefocus, l" # Move focus left
@@ -145,10 +140,13 @@ in {
         "$shiftMod,K, layoutmsg, addmaster" # Add to master
         "$shiftMod,L, focusmonitor, 1" # Focus next monitor
 
+        # Special workspaces
+        "$mod, S, togglespecialworkspace, scratch" # Toggle scratch workspace
+        "$shiftMod, S, movetoworkspace, special:scratch" # Move to scratch workspace
+
         # Utilities
-        "$shiftMod, S, exec, hyprshot -m region" # Capture region
-        ", Print, exec, hyprshot -m region" # Capture region
-        "$shiftMod+Alt, S, exec, hyprshot -m output" # Capture screen
+        ", Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m region" # Capture region
+        "$shiftMod, Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m output" # Capture screen
       ]
       ++ (builtins.concatLists (
         builtins.genList (
@@ -169,21 +167,21 @@ in {
 
     bindl = [
       # Brightness
-      ", XF86MonBrightnessUp, exec, bright-up"
-      ", XF86MonBrightnessDown, exec, bright-down"
+      ", XF86MonBrightnessUp, exec, ${scripts.bright-up}/bin/bright-up"
+      ", XF86MonBrightnessDown, exec, ${scripts.bright-down}/bin/bright-down"
 
       # Media
-      ", XF86AudioPlay, exec, playerctl play-pause"
-      ", XF86AudioPause, exec, playerctl play-pause"
-      ", XF86AudioNext, exec, playerctl next"
-      ", XF86AudioPrev, exec, playerctl previous"
-      ", XF86AudioStop, exec, playerctl stop"
+      ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+      ", XF86AudioPause, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+      ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+      ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
+      ", XF86AudioStop, exec, ${pkgs.playerctl}/bin/playerctl stop"
 
       # Sound
-      ", XF86AudioMute, exec, vol-mute"
-      ", XF86AudioRaiseVolume, exec, vol-up"
-      ", XF86AudioLowerVolume, exec, vol-down"
-      ", XF86AudioMicMute, exec, mic-mute"
+      ", XF86AudioMute, exec, ${scripts.vol-mute}/bin/vol-mute"
+      ", XF86AudioRaiseVolume, exec, ${scripts.vol-up}/bin/vol-up"
+      ", XF86AudioLowerVolume, exec, ${scripts.vol-down}/bin/vol-down"
+      ", XF86AudioMicMute, exec, ${scripts.mic-mute}/bin/mic-mute"
     ];
   };
 }

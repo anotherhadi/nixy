@@ -1,8 +1,10 @@
 # Eza is a ls replacement
-{pkgs-stable, ...}: {
+{
+  programs.zsh.initContent = ''
+    compdef eza=ls
+  '';
   programs.eza = {
     enable = true;
-    package = pkgs-stable.eza;
     icons = "auto";
 
     extraOptions = [
