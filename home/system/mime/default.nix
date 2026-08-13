@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -147,6 +148,10 @@ in {
       music = null;
       publicShare = null;
       templates = null;
+      extraConfig = {
+        NOTES = "${config.home.homeDirectory}/Notes";
+        CYBER = "${config.home.homeDirectory}/Cyber";
+      };
     };
   };
 }

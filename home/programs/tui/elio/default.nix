@@ -66,6 +66,21 @@ in {
     categories = ["System" "FileManager" "FileTools" "ConsoleOnly"];
   };
 
+  xdg.configFile."elio/config.toml".text = ''
+    [places]
+    entries = [
+      "home",
+      "documents",
+      "downloads",
+      "pictures",
+      { title = "Notes", path = "~/Notes" },
+      { title = "Cyber", path = "~/Cyber" },
+      { title = "Projects", path = "~/Projects" },
+      { title = "NixOS Config", path = "~/.config/nixos" },
+      "trash",
+    ]
+  '';
+
   xdg.configFile."elio/theme.toml".text = ''
     [palette]
     bg = "#${c.base00}"

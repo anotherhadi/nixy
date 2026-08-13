@@ -11,10 +11,11 @@
   ];
 
   home = {
-    sessionPath = ["$HOME/go/bin"];
+    sessionPath = ["$HOME/.local/share/go/bin"];
     sessionVariables = {
       COLORTERM = "truecolor";
       MANPAGER = "bat -l man -p";
+      GOPATH = "$HOME/.local/share/go";
     };
   };
 
@@ -72,7 +73,7 @@
       spt = "spotatui";
       open = "${pkgs.xdg-utils}/bin/xdg-open";
 
-      notes = "nvim ~/notes/index.md --cmd 'cd ~/notes' -c ':lua Snacks.picker.smart()'";
+      notes = "nvim ~/Notes/index.md --cmd 'cd ~/notes' -c ':lua Snacks.picker.smart()'";
 
       # git
       g = "lazygit";
