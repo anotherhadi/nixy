@@ -7,7 +7,7 @@
     runtimeInputs = with pkgs; [procps coreutils];
     text = ''
       printf '%s' "$1" > /tmp/waybar-osd
-      pkill -x -RTMIN+8 waybar 2>/dev/null || true
+      pkill -f -RTMIN+8 '^waybar$' 2>/dev/null || true
     '';
   };
 
