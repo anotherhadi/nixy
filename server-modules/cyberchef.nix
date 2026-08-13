@@ -10,11 +10,11 @@ in {
       name = "cyberchef";
       hostIp = "10.233.5.1";
       containerIp = "10.233.5.2";
-      nixosConfig = {pkgs, ...}: {
+      nixosConfig = {pkgs-unstable, ...}: {
         services.nginx = {
           enable = true;
           virtualHosts."cyberchef" = {
-            root = "${pkgs.cyberchef}/share/cyberchef";
+            root = "${pkgs-unstable.cyberchef}/share/cyberchef";
             listen = [
               {
                 addr = "0.0.0.0";

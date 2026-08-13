@@ -10,12 +10,12 @@ in {
       name = "mazanoke";
       hostIp = "10.233.7.1";
       containerIp = "10.233.7.2";
-      nixosConfig = {pkgs, ...}: let
+      nixosConfig = {pkgs-unstable, ...}: let
         version = "1.1.5";
-        mazanoke-pkg = pkgs.stdenv.mkDerivation {
+        mazanoke-pkg = pkgs-unstable.stdenv.mkDerivation {
           inherit version;
           pname = "mazanoke";
-          src = pkgs.fetchFromGitHub {
+          src = pkgs-unstable.fetchFromGitHub {
             owner = "civilblur";
             repo = "mazanoke";
             rev = "v${version}";

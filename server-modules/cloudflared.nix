@@ -2,7 +2,7 @@
 # It allows exposing services securely via Cloudflare Tunnel
 {
   config,
-  pkgs,
+  pkgs-unstable,
   ...
 }: {
   sops.secrets.cloudflared-token.mode = "0400";
@@ -20,7 +20,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-unstable; [
     cloudflared
   ];
 

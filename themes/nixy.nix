@@ -8,16 +8,14 @@
     type = lib.types.attrs;
     default = {
       rounding = 20;
-      bar-rounding = 20 + 10;
-      bar-thickness = 0;
+      bar-height = 36;
       gaps-in = 8;
       gaps-out = 8 * 2;
       active-opacity = 0.96;
       inactive-opacity = 0.92;
-      blur = true;
+      blur = false;
       border-size = 2;
-      animation-speed = "medium"; # "fast" | "medium" | "slow"
-      fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
+      animation-speed = "very-fast"; # "very-fast" | "fast" | "medium" | "slow"
     };
     description = "Theme configuration options";
   };
@@ -57,8 +55,8 @@
         name = "Maple Mono NF";
       };
       sansSerif = {
-        package = pkgs.source-sans-pro;
-        name = "Source Sans Pro";
+        package = pkgs.rubik;
+        name = "Rubik";
       };
       serif = config.stylix.fonts.sansSerif;
       emoji = {
@@ -75,8 +73,8 @@
 
     polarity = "dark";
     image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/black-moutains-and-a-city.png";
-      sha256 = "sha256-RTTA3Lf+hnPpo9hwS075kbnIouz12ul2GKO3EIgP6AU=";
+      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/main/app/static/wallpapers/another-one.png";
+      sha256 = "sha256-zthfsd4QLShPPApV8RoPANaymMC5IiCrmp8QwyyhCcY=";
     };
   };
 }

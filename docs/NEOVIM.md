@@ -37,4 +37,4 @@ Then import the home-manager module in your home configuration:
 | `picker.nix`    | Snacks picker + oil.nvim                                               |
 | `snacks.nix`    | Snacks extras: image preview, zen mode, git signs, statuscolumn        |
 | `utils.nix`     | Bufferline, lualine, copilot, lazygit, toggleterm, autocomplete        |
-| `mini.nix`      | Mini.nvim suite: pairs, comment, icons, indentscope, diff, git         |
+| `mini.nix`      | Mini.nvim suite: ai, clue, comment, diff, git, icons, indentscope, jump2d, pairs, starter, statusline, surround |

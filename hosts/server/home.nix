@@ -1,16 +1,19 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
   imports = [
     # Mostly user-specific configuration
     ./variables.nix
 
     # Programs
-    ../../home/programs/nvf
-    ../../home/programs/shell
-    ../../home/programs/git
-    ../../home/programs/git/lazygit.nix
-    ../../home/programs/nixy
-    ../../home/programs/nix-utils
-    ../../home/programs/yazi
+    inputs.nvf-config.homeManagerModules.default
+    ../../home/programs/tui/shell
+    ../../home/programs/tui/git
+    ../../home/programs/tui/git/lazygit.nix
+    ../../home/programs/tui/nixy
+    ../../home/programs/tui/nix-utils
 
     ../../home/programs/group/dev.nix
   ];

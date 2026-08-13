@@ -6,31 +6,45 @@
   '';
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    stylix.url = "github:danth/stylix";
-    sops-nix.url = "github:Mic92/sops-nix";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     nvf.url = "github:notashelf/nvf";
-    notashelf-tuigreet.url = "github:NotAShelf/tuigreet";
-    helium-browser.url = "github:oxcl/nix-flake-helium-browser";
-    nur-anotherhadi.url = "github:anotherhadi/nur-packages";
-
+    nvf-config = {
+      url = "path:./home/programs/tui/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nvf.follows = "nvf";
+    };
+    nur = {
+      url = "github:nix-community/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    caelestia-shell = {
-      url = "github:caelestia-dots/shell";
+    stylix = {
+      url = "github:nix-community/stylix/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    caelestia-cli = {
-      url = "github:caelestia-dots/cli";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    notashelf-tuigreet = {
+      url = "github:NotAShelf/tuigreet";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    helium-browser = {
+      url = "github:oxcl/nix-flake-helium-browser";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -44,34 +58,49 @@
 
   outputs = inputs @ {
     nixpkgs,
-    nixpkgs-stable,
+    nixpkgs-unstable,
+    git-hooks,
     ...
   }: let
     system = "x86_64-linux";
+    pkgs-unstable = import nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
     pkgs = nixpkgs.legacyPackages.${system};
     args = {
       inherit
         inputs
         nixpkgs
         system
+        pkgs-unstable
         pkgs
         ;
-      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
-      pkgs-nur-hadi = inputs.nur-anotherhadi.packages.${system};
     };
     merge = nixpkgs.lib.foldl nixpkgs.lib.recursiveUpdate {};
+    supportedSystems = ["x86_64-linux" "aarch64-linux"];
+
+    forAllSystems = f:
+      nixpkgs.lib.genAttrs supportedSystems
+      (system: f system (import nixpkgs {inherit system;}));
   in
     merge [
-      (import ./home/programs/nvf/flake.nix args)
-      (import ./home/programs/group/flake.nix args)
-      (import ./home/programs/nixy/flake.nix args)
+      (import ./home/programs/tui/nixy/flake.nix args)
       {
         formatter.${system} = pkgs.alejandra;
+        packages.${system}.nvim = inputs.nvf-config.packages.${system}.nvim;
+        apps.${system}.nvim = inputs.nvf-config.apps.${system}.nvim;
         nixosConfigurations = {
           h-laptop = import ./hosts/laptop/flake.nix args;
           h-work = import ./hosts/work/flake.nix args;
           jack = import ./hosts/server/flake.nix args;
         };
+        devShells = forAllSystems (system: pkgs: {
+          default = import ./shell.nix {
+            inherit pkgs;
+            gitHooksLib = git-hooks.lib.${system};
+          };
+        });
       }
     ];
 }

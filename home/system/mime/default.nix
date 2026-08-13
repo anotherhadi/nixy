@@ -1,25 +1,18 @@
-# Mime type associations for the system.
 {
   lib,
   pkgs,
   ...
-}:
-with lib; let
+}: let
   defaultApps = {
-    # check desktop files here: `ls $(echo $XDG_DATA_DIRS| sed "s/:/ /g")`
-    text = [
-      # "org.gnome.TextEditor.desktop"
-      "nvim-ghostty.desktop"
-    ];
+    text = ["nvim-ghostty.desktop"];
     code = ["nvim-ghostty.desktop"];
     image = ["imv-dir.desktop"];
-    audio = ["mpv.desktop"];
-    video = ["mpv.desktop"];
-    directory = ["thunar.desktop"];
-    office = ["libreoffice.desktop"];
-    pdf = ["zathura.desktop"];
-    terminal = ["ghostty.desktop"];
-    archive = ["xarchiver.desktop"];
+    audio = ["vlc.desktop"];
+    video = ["vlc.desktop"];
+    directory = ["elio.desktop"];
+    office = ["onlyoffice-desktopeditors.desktop"];
+    pdf = ["onlyoffice-desktopeditors.desktop"];
+    archive = ["elio.desktop"];
     browser = ["helium.desktop"];
   };
 
@@ -34,7 +27,6 @@ with lib; let
       "text/x-go"
       "text/x-java"
       "text/x-csharp"
-
       "text/x-python"
       "application/x-shellscript"
       "text/javascript"
@@ -42,7 +34,6 @@ with lib; let
       "text/css"
       "text/x-php"
       "text/x-ruby"
-
       "application/json"
       "application/xml"
       "text/xml"
@@ -51,11 +42,8 @@ with lib; let
       "application/toml"
       "text/x-nix"
       "text/markdown"
-
       "text/x-dockerfile"
-      "application/x-yaml"
       "text/x-terraform"
-
       "application/x-perl"
       "text/x-lua"
       "text/x-haskell"
@@ -104,12 +92,17 @@ with lib; let
       "application/rtf"
     ];
     pdf = ["application/pdf"];
-    terminal = ["terminal"];
     archive = [
       "application/zip"
-      "application/rar"
-      "application/7z"
-      "application/*tar"
+      "application/x-rar-compressed"
+      "application/vnd.rar"
+      "application/x-7z-compressed"
+      "application/x-tar"
+      "application/gzip"
+      "application/x-bzip2"
+      "application/x-xz"
+      "application/x-zstd"
+      "application/x-compressed-tar"
     ];
     browser = [
       "text/html"
@@ -123,19 +116,19 @@ with lib; let
   nvim-ghostty = pkgs.makeDesktopItem {
     name = "nvim-ghostty";
     desktopName = "Neovim (Ghostty)";
-    exec = ''ghostty --title="Neovim Editor" -e nvim %F'';
+    exec = ''${pkgs.ghostty}/bin/ghostty +new-window --title="Neovim Editor" -e nvim %F'';
     terminal = false;
-    categories = [
-      "Development"
-      "TextEditor"
-    ];
+    categories = ["Development" "TextEditor"];
     mimeTypes = mimeMap.code ++ mimeMap.text;
   };
 
-  associations = with lists;
-    listToAttrs (
-      flatten (mapAttrsToList (key: map (type: attrsets.nameValuePair type defaultApps."${key}")) mimeMap)
-    );
+  associations = lib.listToAttrs (
+    lib.flatten (
+      lib.mapAttrsToList
+      (key: map (type: lib.nameValuePair type defaultApps.${key}))
+      mimeMap
+    )
+  );
 in {
   home.packages = [nvim-ghostty];
 
@@ -144,7 +137,16 @@ in {
     mimeApps = {
       enable = true;
       associations.added = associations;
-      defaultApplications = associations;
+      defaultApplications = lib.mapAttrs (_: lib.mkForce) associations;
+    };
+
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+      desktop = null;
+      music = null;
+      publicShare = null;
+      templates = null;
     };
   };
 }

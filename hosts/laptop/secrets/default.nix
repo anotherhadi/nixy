@@ -51,11 +51,12 @@ in {
             - *work
   '';
 
-  systemd.user.services.mbsync.Unit.After = ["sops-nix.service"];
   home.packages = with pkgs; [
     sops
     age
   ];
 
-  wayland.windowManager.hyprland.settings.exec-once = ["systemctl --user start sops-nix"];
+  wayland.windowManager.hyprland.settings.exec-once = [
+    "systemctl --user start sops-nix"
+  ];
 }

@@ -1,11 +1,12 @@
 {
   inputs,
   nixpkgs,
+  pkgs-unstable,
   ...
 }:
 nixpkgs.lib.nixosSystem {
   modules = [
-    {_module.args = {inherit inputs;};}
+    {_module.args = {inherit inputs pkgs-unstable;};}
     inputs.home-manager.nixosModules.home-manager
     inputs.stylix.nixosModules.stylix
     inputs.sops-nix.nixosModules.sops

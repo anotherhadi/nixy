@@ -12,12 +12,12 @@ in {
       name = "blog";
       hostIp = "10.233.3.1";
       containerIp = "10.233.3.2";
-      nixosConfig = {pkgs, ...}: {
+      nixosConfig = {pkgs-unstable, ...}: {
         services.nginx = {
           enable = true;
           virtualHosts = {
             "blog" = {
-              root = "${inputs.blog.packages.${pkgs.stdenv.hostPlatform.system}.default}/share/blog";
+              root = "${inputs.blog.packages.${pkgs-unstable.stdenv.hostPlatform.system}.default}/share/blog";
               listen = [
                 {
                   addr = "0.0.0.0";

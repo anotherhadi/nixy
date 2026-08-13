@@ -1,7 +1,20 @@
 {
   pkgs,
-  pkgs-stable,
+  pkgs-unstable,
   ...
 }: {
-  home.packages = import ./dev-packages.nix {inherit pkgs pkgs-stable;};
+  home.packages = with pkgs-unstable;
+    [
+      go
+      claude-code
+    ]
+    ++ (with pkgs; [
+      nodejs
+      air
+      duckdb
+      python3
+      jq
+      nix-prefetch-github
+      rsync
+    ]);
 }

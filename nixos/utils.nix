@@ -12,11 +12,12 @@
   extraLocale = config.var.extraLocale;
   autoUpgrade = config.var.autoUpgrade;
 in {
-  networking.hostName = hostname;
+  networking = {
+    hostName = hostname;
+    networkmanager.enable = true;
+  };
 
-  networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
-
   system.autoUpgrade = {
     enable = autoUpgrade;
     dates = "04:00";
@@ -32,49 +33,34 @@ in {
   time = {
     timeZone = timeZone;
   };
-  i18n.defaultLocale = defaultLocale;
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.addons = with pkgs; [fcitx5-gtk];
-  };
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = extraLocale;
-    LC_IDENTIFICATION = extraLocale;
-    LC_MEASUREMENT = extraLocale;
-    LC_MONETARY = extraLocale;
-    LC_NAME = extraLocale;
-    LC_NUMERIC = extraLocale;
-    LC_PAPER = extraLocale;
-    LC_TELEPHONE = extraLocale;
-    LC_TIME = extraLocale;
+
+  i18n = {
+    defaultLocale = defaultLocale;
+    extraLocaleSettings = {
+      LC_ADDRESS = extraLocale;
+      LC_IDENTIFICATION = extraLocale;
+      LC_MEASUREMENT = extraLocale;
+      LC_MONETARY = extraLocale;
+      LC_NAME = extraLocale;
+      LC_NUMERIC = extraLocale;
+      LC_PAPER = extraLocale;
+      LC_TELEPHONE = extraLocale;
+      LC_TIME = extraLocale;
+    };
   };
 
   services = {
+    libinput.enable = true;
     xserver = {
       enable = true;
       xkb.layout = keyboardLayout;
-      xkb.variant = "";
     };
     gnome.gnome-keyring.enable = true;
     psd = {
       enable = true;
       resyncTimer = "10m";
     };
-  };
-  console.keyMap = keyboardLayout;
-
-  environment.variables = {
-    XDG_DATA_HOME = "$HOME/.local/share";
-    PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
-    EDITOR = "nvim";
-  };
-
-  services.libinput.enable = true;
-  programs.dconf.enable = true;
-  services = {
     dbus = {
-      enable = true;
       implementation = "broker";
       packages = with pkgs; [
         gcr
@@ -86,66 +72,70 @@ in {
     power-profiles-daemon.enable = true;
     udisks2.enable = true;
   };
+  console.keyMap = keyboardLayout;
 
-  # enable zsh autocompletion for system packages (systemd, etc)
-  environment.pathsToLink = ["/share/zsh"];
+  environment = {
+    variables = {
+      PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
+    };
+    # enable zsh autocompletion for system packages (systemd, etc)
+    pathsToLink = ["/share/zsh"];
+    systemPackages = with pkgs; [
+      fd
+      bc
+      gcc
+      file
+      git-ignore
+      xdg-utils
+      wget
+      curl
+      gnupg
+      openssl
+      vim
+      go
+      comma
+      zip
+      unzip
+      optipng
+      jpegoptim
+      pfetch
+      btop
+      unrar
+      p7zip
+    ];
+  };
+
+  programs.dconf.enable = true;
 
   # Faster rebuilding
   documentation = {
-    enable = true;
     doc.enable = false;
-    man.enable = true;
     dev.enable = false;
     info.enable = false;
     nixos.enable = false;
   };
 
-  environment.systemPackages = with pkgs; [
-    fd
-    bc
-    gcc
-    file
-    git-ignore
-    xdg-utils
-    wget
-    curl
-    gnupg
-    openssl
-    vim
-    go
-    comma
-    zip
-    unzip
-    optipng
-    jpegoptim
-    pfetch
-    btop
-    unrar
-    p7zip
-  ];
-
   xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
+    xdgOpenUsePortal = false;
     config = {
       common.default = ["gtk"];
-      hyprland.default = [
-        "gtk"
-        "hyprland"
-      ];
+      hyprland = {
+        default = [
+          "gtk"
+          "hyprland"
+        ];
+        # Pick files / choose download paths with elio instead of the GTK dialog.
+        # Key MUST use the "impl" interface name, else xdg-desktop-portal
+        # ignores it and falls back to the default (gtk). See portals.conf(5).
+        "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
+      };
     };
 
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-termfilechooser
+    ];
   };
 
-  security = {
-    # allow wayland lockers to unlock the screen
-    pam.services.hyprlock.text = "auth include login";
-
-    # userland niceness
-    rtkit.enable = true;
-
-    # don't ask for password for wheel group
-    sudo.wheelNeedsPassword = false;
-  };
+  security.rtkit.enable = true;
 }

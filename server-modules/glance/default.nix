@@ -83,6 +83,7 @@
   c = config.stylix.base16Scheme;
 in {
   # 0444 so the glance user inside the container can read the bind-mounted file
+  # TODO: too broad (world-readable), scope to the container's mapped uid/gid instead
   sops.secrets.adguard-pwd.mode = "0444";
 
   imports = [

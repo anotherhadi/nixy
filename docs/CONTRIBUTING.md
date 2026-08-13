@@ -9,8 +9,5 @@ The process is straight-forward.
 - Write your changes (new theme, bug fixes, issues fix, ...).
 - Create a Pull Request against the main branch of Nixy.
 
-> [!TIP]
-> To update the README, change the `./.github/assets/README_template.md`
-
 > [!IMPORTANT]
 > Don't push your host's folder

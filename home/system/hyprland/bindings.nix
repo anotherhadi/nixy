@@ -5,6 +5,7 @@
   ...
 }: let
   colors = config.lib.stylix.colors;
+  scripts = import ../waybar/scripts.nix {inherit pkgs config;};
 
   mkMenu = menu: let
     configFile = pkgs.writeText "config.yaml" (
@@ -91,14 +92,13 @@ in {
         "$mod,B, exec, uwsm app -- ${config.programs.helium.package}/bin/helium" # Browser
 
         # Power
-        "$mod, X, global, caelestia:session" # Powermenu
         (
-          "$shiftMod, X, exec, "
+          "$mod, X, exec, "
           + lib.getExe (mkMenu [
             {
               key = "l";
               desc = "Lock";
-              cmd = "hyprctl dispatch global caelestia:lock";
+              cmd = "${pkgs.hyprlock}/bin/hyprlock";
             }
             {
               key = "s";
@@ -115,31 +115,20 @@ in {
               desc = "Power Off";
               cmd = "systemctl poweroff";
             }
-            {
-              key = "n";
-              desc = "Nightshift";
-              cmd = "nightshift-toggle";
-            }
-            {
-              key = "c";
-              desc = "Restart caelestia";
-              cmd = "hyprctl dispatch exec 'caelestia-shell kill | sleep 1 | caelestia-shell'";
-            }
           ])
         )
 
         # Quick launch
-        "$mod,RETURN, exec, uwsm app -- ${pkgs.ghostty}/bin/ghostty" # Ghostty (terminal)
-        "$mod,E, exec,  uwsm app -- ${pkgs.thunar}/bin/thunar" # Thunar
-        "$shiftMod, E, exec, pkill fuzzel || caelestia emoji -p" # Emoji picker
-        "$mod, SPACE, global, caelestia:launcher" # Launcher
-        "$mod, N, exec, caelestia shell drawers toggle sidebar" # Sidebar (Notifications, quick actions)
-        "$mod, D, exec, caelestia shell drawers toggle dashboard" # Dashboard
+        "$mod,RETURN, exec, ${pkgs.ghostty}/bin/ghostty +new-window" # Ghostty (terminal, via daemon D-Bus)
+        "$mod,E, exec, ${pkgs.ghostty}/bin/ghostty +new-window -e elio" # Elio
+        "$mod, SPACE, exec, ${pkgs.tofi}/bin/tofi-drun" # Launcher
+        "$mod, N, exec, ${pkgs.swaynotificationcenter}/bin/swaync-client -t" # Notification center
 
         # Windows
         "$mod,Q, killactive," # Close window
         "$mod,F, fullscreen" # Toggle Fullscreen
         "$shiftMod,F, togglefloating," # Toggle Floating
+        "$shiftMod, SPACE, exec, ${scripts.focus-toggle}/bin/focus-toggle" # Toggle focus mode
 
         # Focus Windows
         "$mod,H, movefocus, l" # Move focus left
@@ -151,11 +140,13 @@ in {
         "$shiftMod,K, layoutmsg, addmaster" # Add to master
         "$shiftMod,L, focusmonitor, 1" # Focus next monitor
 
+        # Special workspaces
+        "$mod, S, togglespecialworkspace, scratch" # Toggle scratch workspace
+        "$shiftMod, S, movetoworkspace, special:scratch" # Move to scratch workspace
+
         # Utilities
-        "$shiftMod, SPACE, exec, caelestia shell gameMode toggle" # Toggle Focus/Game mode
-        "$shiftMod, S, global, caelestia:screenshotFreeze" # Capture region (freeze)
-        ", Print, global, caelestia:screenshotFreeze" # Capture region (freeze)
-        "$shiftMod+Alt, S, global, caelestia:screenshot" # Capture region
+        ", Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m region" # Capture region
+        "$shiftMod, Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m output" # Capture screen
       ]
       ++ (builtins.concatLists (
         builtins.genList (
@@ -176,32 +167,21 @@ in {
 
     bindl = [
       # Brightness
-      ", XF86MonBrightnessUp, global, caelestia:brightnessUp"
-      ", XF86MonBrightnessDown, global, caelestia:brightnessDown"
+      ", XF86MonBrightnessUp, exec, ${scripts.bright-up}/bin/bright-up"
+      ", XF86MonBrightnessDown, exec, ${scripts.bright-down}/bin/bright-down"
 
       # Media
-      ", XF86AudioPlay, global, caelestia:mediaToggle"
-      ", XF86AudioPause, global, caelestia:mediaToggle"
-      ", XF86AudioNext, global, caelestia:mediaNext"
-      ", XF86AudioPrev, global, caelestia:mediaPrev"
-      ", XF86AudioStop, global, caelestia:mediaStop"
+      ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+      ", XF86AudioPause, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+      ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+      ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
+      ", XF86AudioStop, exec, ${pkgs.playerctl}/bin/playerctl stop"
 
       # Sound
-      ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      ", XF86AudioRaiseVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-      ", XF86AudioLowerVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-    ];
-
-    bindin = [
-      # Launcher
-      "$mod, mouse:272, global, caelestia:launcherInterrupt"
-      "$mod, mouse:273, global, caelestia:launcherInterrupt"
-      "$mod, mouse:274, global, caelestia:launcherInterrupt"
-      "$mod, mouse:275, global, caelestia:launcherInterrupt"
-      "$mod, mouse:276, global, caelestia:launcherInterrupt"
-      "$mod, mouse:277, global, caelestia:launcherInterrupt"
-      "$mod, mouse_up, global, caelestia:launcherInterrupt"
-      "$mod, mouse_down, global, caelestia:launcherInterrupt"
+      ", XF86AudioMute, exec, ${scripts.vol-mute}/bin/vol-mute"
+      ", XF86AudioRaiseVolume, exec, ${scripts.vol-up}/bin/vol-up"
+      ", XF86AudioLowerVolume, exec, ${scripts.vol-down}/bin/vol-down"
+      ", XF86AudioMicMute, exec, ${scripts.mic-mute}/bin/mic-mute"
     ];
   };
 }

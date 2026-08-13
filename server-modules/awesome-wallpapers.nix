@@ -11,11 +11,11 @@ in {
       name = "wallpapers";
       hostIp = "10.233.4.1";
       containerIp = "10.233.4.2";
-      nixosConfig = {pkgs, ...}: {
+      nixosConfig = {pkgs-unstable, ...}: {
         services.nginx = {
           enable = true;
           virtualHosts."wallpapers" = {
-            root = "${inputs.awesome-wallpapers.packages.${pkgs.stdenv.hostPlatform.system}.default}/share/awesome-wallpapers";
+            root = "${inputs.awesome-wallpapers.packages.${pkgs-unstable.stdenv.hostPlatform.system}.default}/share/awesome-wallpapers";
             listen = [
               {
                 addr = "0.0.0.0";

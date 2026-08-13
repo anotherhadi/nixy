@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }: {
@@ -38,7 +37,7 @@
     options = [
       "subvol=/"
       "compress=zstd"
-    ]; # adapte selon si t'as des subvolumes
+    ]; # adjust depending on whether you use subvolumes
   };
   swapDevices = [];
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

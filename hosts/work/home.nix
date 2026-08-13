@@ -1,31 +1,42 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
   imports = [
     # Programs
-    ../../home/programs/proton
-    ../../home/programs/helium
-    ../../home/programs/ghostty
-    ../../home/programs/nvf
-    ../../home/programs/shell
-    ../../home/programs/git
-    ../../home/programs/git/lazygit.nix
-    ../../home/programs/thunar
-    ../../home/programs/nixy
-    ../../home/programs/nightshift
-    ../../home/programs/nix-utils
-    ../../home/programs/spotatui
-    ../../home/programs/yazi
 
-    ../../home/programs/group/basic-apps.nix
+    ## GUI
+    ../../home/programs/gui/proton
+    ../../home/programs/gui/helium
+    ../../home/programs/gui/pkgs.nix
+
+    ## TUI
+    inputs.nvf-config.homeManagerModules.default
+    ../../home/programs/tui/ghostty
+    ../../home/programs/tui/shell
+    ../../home/programs/tui/git
+    ../../home/programs/tui/git/lazygit.nix
+    ../../home/programs/tui/nixy
+    ../../home/programs/tui/nix-utils
+    ../../home/programs/tui/spotatui
+    ../../home/programs/tui/pkgs.nix
+
+    ## GROUPS
     ../../home/programs/group/cybersecurity.nix
     ../../home/programs/group/dev.nix
-    ../../home/programs/group/misc.nix
 
     # System (Desktop environment like stuff)
+    ../../home/system/hyprlock
     ../../home/system/hyprland
-    ../../home/system/caelestia-shell
-    ../../home/system/hyprpaper
+    ../../home/system/waybar
+    ../../home/system/swaync
+    ../../home/system/tofi
     ../../home/system/mime
+    ../../home/system/termfilechooser
     ../../home/system/udiskie
+    ../../home/system/clipboard
+    ../../home/system/hypridle
 
     ./variables.nix # Mostly user-specific configuration
     ./secrets # CHANGEME: You should probably remove this line, this is where I store my secrets
@@ -36,7 +47,7 @@
     homeDirectory = "/home/" + config.var.username;
 
     # Don't touch this
-    stateVersion = "24.05";
+    stateVersion = "26.05";
   };
 
   wayland.windowManager.hyprland.settings.monitor = [
