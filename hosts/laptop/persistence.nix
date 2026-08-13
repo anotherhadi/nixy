@@ -13,6 +13,7 @@
       "/var/lib/systemd/timers" # last-run timestamps (e.g. nix gc weekly)
       "/var/log"
       "/var/cache/tuigreet"
+      "/var/db/sudo/lectured" # remembers that the sudo lecture was already shown
     ];
 
     files = [
