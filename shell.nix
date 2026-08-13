@@ -3,7 +3,7 @@
   gitHooksLib,
 }: let
   hooks = gitHooksLib.run {
-    src = ../.;
+    src = ./.;
     hooks = {
       inject-exec = {
         enable = true;
