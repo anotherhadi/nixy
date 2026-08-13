@@ -17,6 +17,9 @@ in {
         "networkmanager"
         "wheel"
       ];
+      # CHANGEME: Set your password with: mkpasswd -m sha-512
+      # Or use initialPassword for first boot, then change it
+      initialPassword = "nixos";
     };
   };
 }

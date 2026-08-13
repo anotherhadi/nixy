@@ -19,6 +19,8 @@ nixpkgs.lib.nixosSystem {
     inputs.nix-index-database.nixosModules.default
     inputs.helium-browser.nixosModules.default
     inputs.impermanence.nixosModules.impermanence
+    inputs.disko.nixosModules.disko
+    ./disko.nix
     ./configuration.nix
   ];
 }
