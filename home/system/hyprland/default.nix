@@ -133,6 +133,9 @@ in {
         "match:class helium, suppress_event fullscreen"
         "match:class helium, sync_fullscreen false"
 
+        "match:class ^(steam_app_.*)$, suppress_event fullscreen"
+        "match:class ^(steam_app_.*)$, sync_fullscreen false"
+
         "match:class proton-authenticator, float on"
         "match:class proton-authenticator, center on"
         "match:class proton-authenticator, size 500 400"
