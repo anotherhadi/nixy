@@ -5,7 +5,7 @@
 This document describes the architecture and setup of the self-hosted **NixOS server**, which is securely accessible via **a Cloudflare Tunnel**.
 The server is designed for private, secure, and easily manageable self-hosting of various services.
 
-![server dashboard](../.github/assets/server_dashboard.png)
+![server dashboard](../.github/assets/screenshots/server_dashboard.png)
 
 ## **Why This Setup?**
 

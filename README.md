@@ -54,8 +54,8 @@ _secrets_, and _custom theming_ all in one place.
 ## Screenshots
 
 ![Home](.github/assets/screenshots/1.png)
-![Flake & Spotify](.github/assets/screenshots/2.png)
-![Browser and notification center](.github/assets/screenshots/3.png)
+![Neovim and spotify](.github/assets/screenshots/2.png)
+![Browser and file explorer](.github/assets/screenshots/3.png)
 
 ## Architecture
 

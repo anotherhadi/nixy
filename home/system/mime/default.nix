@@ -139,5 +139,14 @@ in {
       associations.added = associations;
       defaultApplications = lib.mapAttrs (_: lib.mkForce) associations;
     };
+
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+      desktop = null;
+      music = null;
+      publicShare = null;
+      templates = null;
+    };
   };
 }
