@@ -33,6 +33,7 @@ _secrets_, and _custom theming_ all in one place.
 - 💻 Hyprland & TUIs: Preconfigured Hyprland ecosystem with a lot of cool TUIs
 - 🎨 Consistent Theming: Base16 & Stylix-powered themes
 - ⌨️ Vim-like Everywhere: Unified keybindings (Hyprland, nvim, vimium, etc.)
+- 🔒 Hardened by Default: LUKS encryption, sops-nix secrets, impermanence and more
 
 ## Table of Content
 
