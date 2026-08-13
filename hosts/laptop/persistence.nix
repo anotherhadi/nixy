@@ -1,5 +1,5 @@
 # Impermanence: declares what should survive a wipe of "/".
-{config, ...}: {
+{
   environment.persistence."/persist" = {
     hideMounts = true;
 
@@ -25,14 +25,4 @@
       "/var/lib/systemd/random-seed" # avoid a weak entropy pool on first boot
     ];
   };
-
-  # -- How to find what's missing --
-  # Use the system normally for a week or two, then look for files that
-  # changed recently outside of what's already declared above:
-  #   find "/home/${config.var.username}" -xdev -type f -mtime -14 \
-  #     -not -path '*/.cache/*' -not -path '*/Cache/*' | less
-  # Anything that keeps showing up there (app state, history files,
-  # game saves, browser profile, spotify/lazygit config, GPG state, etc.)
-  # is a candidate to add above. Do this *before* switching root to a
-  # wipeable filesystem, not after.
 }

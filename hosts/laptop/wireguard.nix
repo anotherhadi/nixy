@@ -5,8 +5,6 @@
 }: let
   vpnConnection = "wg-vpn";
 
-  # Same OSD mechanism as home/system/waybar/scripts.nix's waybar-osd: drop the
-  # text in /tmp/waybar-osd and nudge waybar's custom/osd module to show it.
   toggleVpn = pkgs.writeShellScript "toggle-wg-vpn" ''
     set -euo pipefail
     nmcli="${pkgs.networkmanager}/bin/nmcli"
@@ -20,7 +18,7 @@
     fi
 
     printf '%s' "$OSD_TEXT" > /tmp/waybar-osd
-    ${pkgs.procps}/bin/pkill -x -RTMIN+8 waybar 2>/dev/null || true
+    ${pkgs.procps}/bin/pkill -f -RTMIN+8 '^waybar$' 2>/dev/null || true
   '';
 in {
   environment.systemPackages = [
