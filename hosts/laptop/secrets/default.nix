@@ -9,7 +9,7 @@
   home = "/home/${username}";
 in {
   sops = {
-    age.keyFile = "${home}/.config/sops-nix/age/keys.txt";
+    age.keyFile = "${home}/.config/sops/age/keys.txt";
     defaultSopsFile = ./secrets.yaml;
     secrets = {
       ssh-config = {

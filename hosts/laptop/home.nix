@@ -64,7 +64,7 @@
 
       files = [
         ".ssh/known_hosts"
-        ".config/sops-nix/age/keys.txt"
+        ".config/sops/age/keys.txt"
       ];
     };
 
