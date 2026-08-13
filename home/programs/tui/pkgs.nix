@@ -36,4 +36,6 @@
     cmatrix
     fastfetch
   ];
+
+  home.persistence."/persist".directories = [".config/gh" ".config/gh-dash"];
 }

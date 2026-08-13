@@ -11,6 +11,8 @@ in {
     spotatui
   ];
 
+  home.persistence."/persist".directories = [".config/spotatui" ".config/spotify"];
+
   home.file.".config/spotatui/config.yml".text = ''
     keybindings:
       back: q

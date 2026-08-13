@@ -6,12 +6,18 @@
     resources # Resource monitor
     gnome-clocks # Clocks app
     gnome-text-editor # Basic graphic text editor
-    ticktick # Todo app
     pinta # Image editor
     switcheroo # Convert images between different formats
     onlyoffice-desktopeditors # Office suite
     blanket # Listen to different sounds
-    signal-desktop # Messaging app
     thunar # File explorer
+
+    signal-desktop # Messaging app
+    ticktick # Todo app
+  ];
+
+  home.persistence."/persist".directories = [
+    ".config/ticktick"
+    ".config/Signal"
   ];
 }

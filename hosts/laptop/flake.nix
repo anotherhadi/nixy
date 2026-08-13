@@ -18,6 +18,7 @@ nixpkgs.lib.nixosSystem {
     inputs.sops-nix.nixosModules.sops
     inputs.nix-index-database.nixosModules.default
     inputs.helium-browser.nixosModules.default
+    inputs.impermanence.nixosModules.impermanence
     ./configuration.nix
   ];
 }

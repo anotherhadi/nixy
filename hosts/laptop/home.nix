@@ -42,14 +42,30 @@
     ../../home/system/hypridle
 
     ./variables.nix # Mostly user-specific configuration
-    ./secrets # CHANGEME: You should probably remove this line, this is where I store my secrets
   ];
 
   home = {
     inherit (config.var) username;
     homeDirectory = "/home/" + config.var.username;
-    file.".face" = {
-      source = ./profile_picture.png;
+
+    persistence."/persist" = {
+      directories = [
+        ".config/nixos" # this repo itself (nixy manages it here)
+        ".local/share"
+        ".local/state"
+        ".cache"
+        "Notes"
+        "Projects"
+        "Documents"
+        "Downloads"
+        "Pictures"
+        "Videos"
+      ];
+
+      files = [
+        ".ssh/known_hosts"
+        ".config/sops-nix/age/keys.txt"
+      ];
     };
 
     sessionVariables = {

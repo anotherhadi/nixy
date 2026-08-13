@@ -36,10 +36,7 @@ in {
   ];
 
   sops = {
-    age.keyFile = "/home/hadi/.config/sops/age/keys.txt";
-    defaultSopsFile = ./secrets/secrets.yaml;
     secrets.wireguard-private-key = {};
-
     templates."wg-vpn.nmconnection" = {
       path = "/etc/NetworkManager/system-connections/wg-vpn.nmconnection";
       mode = "0600";

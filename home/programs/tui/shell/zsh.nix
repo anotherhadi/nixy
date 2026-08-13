@@ -11,12 +11,11 @@
   ];
 
   home = {
-    sessionPath = ["$HOME/.local/share/go/bin"];
     sessionVariables = {
       COLORTERM = "truecolor";
       MANPAGER = "bat -l man -p";
-      GOPATH = "$HOME/.local/share/go";
     };
+    persistence."/persist".files = [".zsh_history"];
   };
 
   programs.zsh = {

@@ -136,4 +136,8 @@ in {
     categories = ["Network" "WebBrowser"];
     mimeType = ["text/html" "text/xml" "application/xhtml+xml"];
   };
+
+  home.persistence."/persist".directories = [
+    ".config/net.imput.helium"
+  ];
 }
