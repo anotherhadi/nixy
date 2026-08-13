@@ -19,5 +19,6 @@
   home.persistence."/persist".directories = [
     ".config/ticktick"
     ".config/Signal"
+    ".config/obsidian"
   ];
 }
