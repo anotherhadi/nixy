@@ -6,16 +6,17 @@
 }: let
   colors = config.lib.stylix.colors;
   scripts = import ../waybar/scripts.nix {inherit pkgs config;};
+  border-size = config.theme.border-size;
 
   mkMenu = menu: let
     configFile = pkgs.writeText "config.yaml" (
       lib.generators.toYAML {} {
-        anchor = "bottom-right";
-        border = "#${colors.base0D}80";
-        background = "#${colors.base01}EE";
+        anchor = "top";
+        border = "#${colors.base0D}EE";
+        border_width = border-size;
+        background = "#${colors.base01}FF";
         color = "#${colors.base05}";
-        margin_right = 15;
-        margin_bottom = 15;
+        margin_top = 0;
         rows_per_column = 5;
 
         inherit menu;
@@ -23,8 +24,21 @@
     );
   in
     pkgs.writeShellScriptBin "menu" ''
+      # Toggle: if wlr-which-key is already open, closing it is all this run should do.
+      if ${pkgs.procps}/bin/pkill -x wlr-which-key; then
+        exit 0
+      fi
       exec ${lib.getExe pkgs.wlr-which-key} ${configFile}
     '';
+
+  tofi-drun-toggle = pkgs.writeShellScriptBin "tofi-drun-toggle" ''
+    # tofi-drun is a distinct process name from the plain "tofi" binary
+    # used by the emoji/icon/clipboard pickers, so this can't close those.
+    if ${pkgs.procps}/bin/pkill -x tofi-drun; then
+      exit 0
+    fi
+    exec ${pkgs.tofi}/bin/tofi-drun
+  '';
 in {
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
@@ -121,7 +135,7 @@ in {
         # Quick launch
         "$mod,RETURN, exec, ${pkgs.ghostty}/bin/ghostty +new-window" # Ghostty (terminal, via daemon D-Bus)
         "$mod,E, exec, ${pkgs.ghostty}/bin/ghostty +new-window -e elio" # Elio
-        "$mod, SPACE, exec, ${pkgs.tofi}/bin/tofi-drun" # Launcher
+        "$mod, SPACE, exec, ${lib.getExe tofi-drun-toggle}" # Launcher (toggle)
         "$mod, N, exec, ${pkgs.swaynotificationcenter}/bin/swaync-client -t" # Notification center
 
         # Windows
