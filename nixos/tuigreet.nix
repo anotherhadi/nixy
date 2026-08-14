@@ -1,12 +1,11 @@
 {
   pkgs,
-  inputs,
   config,
   lib,
   ...
 }: let
   c = config.lib.stylix.colors;
-  tuigreet = inputs.notashelf-tuigreet.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  tuigreet = pkgs.tuigreet;
 
   theme = lib.concatStringsSep ";" [
     "border=#${c.base0D}"
