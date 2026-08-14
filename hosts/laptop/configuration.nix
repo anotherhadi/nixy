@@ -9,6 +9,7 @@
     ../../nixos/nix.nix
     ../../nixos/systemd-boot.nix
     ../../nixos/tuigreet.nix
+    ../../nixos/autologin.nix # Skip first TUIGreet login, use LUKS password to unlock the keyring
     ../../nixos/users.nix
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
