@@ -18,10 +18,6 @@
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/${config.var.username}/.steam/root/compatibilitytools.d";
   };
 
-  environment.persistence."/persist".directories = [
-    "/home/${config.var.username}/.steam"
-  ];
-
   programs.gamemode.enable = true;
 }
 # Example of recommanded launch options for your games in Steam :

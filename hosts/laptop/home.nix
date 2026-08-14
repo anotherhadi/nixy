@@ -55,6 +55,7 @@
         ".local/share"
         ".local/state"
         ".cache"
+        ".steam"
         "Notes"
         "Projects"
         "Documents"
