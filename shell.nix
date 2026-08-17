@@ -29,6 +29,7 @@ in
     packages = with pkgs;
       [
         doctoc
+        python3
       ]
       ++ hooks.enabledPackages;
 
