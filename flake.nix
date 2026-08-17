@@ -50,11 +50,9 @@
     };
 
     # Server
-    nixarr.url = "github:rasmus-kirk/nixarr";
+    nixarr.url = "github:nix-media-server/nixarr";
     default-creds.url = "github:anotherhadi/default-creds";
     blog.url = "github:anotherhadi/blog";
-    awesome-wallpapers.url = "github:anotherhadi/awesome-wallpapers";
-    iknowyou.url = "github:anotherhadi/iknowyou";
   };
 
   outputs = inputs @ {

@@ -16,17 +16,13 @@
     ../../server-modules/adguardhome.nix
     ../../server-modules/arr.nix
     ../../server-modules/blog.nix
-    ../../server-modules/awesome-wallpapers.nix
-    ../../server-modules/iknowyou.nix
     ../../server-modules/stirling-pdf.nix
     ../../server-modules/cyberchef.nix
     ../../server-modules/mazanoke.nix
     ../../server-modules/kernel-hardening.nix
     ../../server-modules/fail2ban.nix
     ../../server-modules/default-creds.nix
-    ../../server-modules/umami.nix
     ../../server-modules/gitea.nix
-    ../../server-modules/mealie.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
@@ -38,5 +34,5 @@
   home-manager.users."${config.var.username}" = import ./home.nix;
 
   # Don't touch this
-  system.stateVersion = "24.05";
+  system.stateVersion = "26.05";
 }

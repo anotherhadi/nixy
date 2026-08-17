@@ -8,7 +8,7 @@
         path = "/home/hadi/.ssh/config";
         mode = "0600";
       };
-      github-key = {
+      ssh-github-key = {
         owner = "hadi";
         path = "/home/hadi/.ssh/github";
         mode = "0600";
