@@ -1,9 +1,9 @@
 {
   config,
   pkgs,
+  scripts,
   ...
 }: let
-  scripts = import ../waybar/scripts.nix {inherit pkgs config;};
   c = config.lib.stylix.colors;
   font = config.stylix.fonts.sansSerif.name;
   monofont = config.stylix.fonts.monospace.name;

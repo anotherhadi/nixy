@@ -2,10 +2,10 @@
   pkgs,
   lib,
   config,
+  scripts,
   ...
 }: let
   colors = config.lib.stylix.colors;
-  scripts = import ../waybar/scripts.nix {inherit pkgs config;};
   border-size = config.theme.border-size;
 
   mkMenu = menu: let

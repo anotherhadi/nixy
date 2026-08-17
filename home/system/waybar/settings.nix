@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  osdPath,
   networkScript,
   bluetoothScript,
   caffeineToggleScript,
@@ -76,7 +77,7 @@ in {
       };
 
       "custom/osd" = {
-        exec = "cat /tmp/waybar-osd";
+        exec = "cat ${osdPath}";
         exec-if = "${osdStatusScript}/bin/waybar-osd-status";
         signal = 8;
         interval = 1;

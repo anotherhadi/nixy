@@ -6,7 +6,7 @@
     name = "waybar-osd";
     runtimeInputs = with pkgs; [procps coreutils];
     text = ''
-      printf '%s' "$1" > /tmp/waybar-osd
+      printf '%s' "$1" > "$XDG_RUNTIME_DIR/waybar-osd"
       pkill -f -RTMIN+8 '^waybar$' 2>/dev/null || true
     '';
   };
@@ -15,7 +15,7 @@
     name = "waybar-osd-status";
     runtimeInputs = with pkgs; [coreutils];
     text = ''
-      file=/tmp/waybar-osd
+      file="$XDG_RUNTIME_DIR/waybar-osd"
       [ -f "$file" ] || exit 1
       mtime=$(stat -c %Y "$file" 2>/dev/null) || exit 1
       age=$(( $(date +%s) - mtime ))
@@ -86,8 +86,9 @@
     jq -r 'to_entries[] | select(.key != "METADATA") | "\(.value.char)  \(.key)"' \
       ${nerdFontGlyphnames} > "$out"
   '';
+  osdPath = "$XDG_RUNTIME_DIR/waybar-osd";
 in {
-  inherit waybar-osd waybar-osd-status battery-monitor;
+  inherit waybar-osd waybar-osd-status battery-monitor osdPath;
 
   bluetoothScript = pkgs.writeShellScript "waybar-bluetooth" ''
     jq=${pkgs.jq}/bin/jq
@@ -234,19 +235,19 @@ in {
   '';
 
   wifi-toggle = pkgs.writeShellScriptBin "wifi-toggle" ''
-    if nmcli radio wifi | grep -q enabled; then
-      nmcli radio wifi off
+    if ${pkgs.networkmanager}/bin/nmcli radio wifi | grep -q enabled; then
+      ${pkgs.networkmanager}/bin/nmcli radio wifi off
     else
-      nmcli radio wifi on
+      ${pkgs.networkmanager}/bin/nmcli radio wifi on
     fi
     ${updateOsd}
   '';
 
   bluetooth-toggle = pkgs.writeShellScriptBin "bluetooth-toggle" ''
-    if bluetoothctl show | grep -q "Powered: yes"; then
-      bluetoothctl power off
+    if ${pkgs.bluez}/bin/bluetoothctl show | grep -q "Powered: yes"; then
+      ${pkgs.bluez}/bin/bluetoothctl power off
     else
-      bluetoothctl power on
+      ${pkgs.bluez}/bin/bluetoothctl power on
     fi
     ${updateOsd}
   '';
@@ -260,7 +261,7 @@ in {
   '';
 
   nightshift-toggle = pkgs.writeShellScriptBin "nightshift-toggle" ''
-    if pidof "hyprsunset" > /dev/null; then
+    if ${pkgs.procps}/bin/pidof "hyprsunset" > /dev/null; then
       pkill hyprsunset
       OSD_TEXT="󰖔  Night Shift Off"
     else
@@ -271,23 +272,23 @@ in {
   '';
 
   focus-toggle = pkgs.writeShellScriptBin "focus-toggle" ''
-    if test -f /tmp/hypr-focus-mode; then
-      rm /tmp/hypr-focus-mode
+    if test -f "$XDG_RUNTIME_DIR/hypr-focus-mode"; then
+      rm "$XDG_RUNTIME_DIR/hypr-focus-mode"
       OSD_TEXT="󰈈  Focus Off"
       ${updateOsd}
-      hyprctl reload
-      hyprctl dispatch exec waybar
+      ${pkgs.hyprland}/bin/hyprctl reload
+      ${pkgs.hyprland}/bin/hyprctl dispatch exec waybar
     else
-      touch /tmp/hypr-focus-mode
+      touch "$XDG_RUNTIME_DIR/hypr-focus-mode"
       OSD_TEXT="󰈈  Focus On"
       ${updateOsd}
-      pkill waybar || true
-      hyprctl keyword animations:enabled false
-      hyprctl keyword general:gaps_in 0
-      hyprctl keyword general:gaps_out 0
-      hyprctl keyword decoration:active_opacity 1
-      hyprctl keyword decoration:inactive_opacity 1
-      hyprctl keyword decoration:rounding 0
+      ${pkgs.procps}/bin/pkill waybar || true
+      ${pkgs.hyprland}/bin/hyprctl keyword animations:enabled false
+      ${pkgs.hyprland}/bin/hyprctl keyword general:gaps_in 0
+      ${pkgs.hyprland}/bin/hyprctl keyword general:gaps_out 0
+      ${pkgs.hyprland}/bin/hyprctl keyword decoration:active_opacity 1
+      ${pkgs.hyprland}/bin/hyprctl keyword decoration:inactive_opacity 1
+      ${pkgs.hyprland}/bin/hyprctl keyword decoration:rounding 0
     fi
   '';
 

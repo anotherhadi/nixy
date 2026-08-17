@@ -1,10 +1,8 @@
 {
   pkgs,
-  config,
+  scripts,
   ...
-}: let
-  scripts = import ../waybar/scripts.nix {inherit pkgs config;};
-in {
+}: {
   xdg.desktopEntries = {
     focus-toggle = {
       name = "Focus Mode";
