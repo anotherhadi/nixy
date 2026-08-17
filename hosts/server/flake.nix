@@ -13,6 +13,7 @@ nixpkgs.lib.nixosSystem {
     inputs.nixarr.nixosModules.default
     inputs.nix-index-database.nixosModules.default
     inputs.default-creds.nixosModules.default
+    inputs.impermanence.nixosModules.impermanence
     ./configuration.nix
   ];
 }

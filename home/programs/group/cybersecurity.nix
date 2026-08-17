@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   home.packages = import ./cybersecurity-packages.nix {
     inherit pkgs;
   };
@@ -38,7 +43,9 @@
     };
   };
 
-  home.persistence."/persist".directories = [
-    "Cyber"
-  ];
+  home.persistence."/persist" = lib.mkIf (config.var.impermanenceEnabled or false) {
+    directories = [
+      "Cyber"
+    ];
+  };
 }

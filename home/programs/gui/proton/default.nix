@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }: {
   home.packages = with pkgs; [
@@ -28,8 +29,10 @@
     };
   };
 
-  home.persistence."/persist".directories = [
-    ".config/protonvpn"
-    ".config/Proton Pass"
-  ];
+  home.persistence."/persist" = lib.mkIf (config.var.impermanenceEnabled or false) {
+    directories = [
+      ".config/protonvpn"
+      ".config/Proton Pass"
+    ];
+  };
 }

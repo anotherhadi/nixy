@@ -1,6 +1,8 @@
 {
   pkgs,
   pkgs-unstable,
+  config,
+  lib,
   ...
 }: {
   home.packages = with pkgs; [
@@ -38,5 +40,7 @@
     smassh # typing test, 10fastfinger like
   ];
 
-  home.persistence."/persist".directories = [".config/gh" ".config/gh-dash"];
+  home.persistence."/persist" = lib.mkIf (config.var.impermanenceEnabled or false) {
+    directories = [".config/gh" ".config/gh-dash"];
+  };
 }

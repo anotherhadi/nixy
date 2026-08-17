@@ -2,6 +2,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: let
   c = config.lib.stylix.colors;
@@ -11,7 +12,9 @@ in {
     spotatui
   ];
 
-  home.persistence."/persist".directories = [".config/spotatui" ".config/spotify"];
+  home.persistence."/persist" = lib.mkIf (config.var.impermanenceEnabled or false) {
+    directories = [".config/spotatui" ".config/spotify"];
+  };
 
   home.file.".config/spotatui/config.yml".text = ''
     keybindings:

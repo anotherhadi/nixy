@@ -137,7 +137,9 @@ in {
     mimeType = ["text/html" "text/xml" "application/xhtml+xml"];
   };
 
-  home.persistence."/persist".directories = [
-    ".config/net.imput.helium"
-  ];
+  home.persistence."/persist" = lib.mkIf (config.var.impermanenceEnabled or false) {
+    directories = [
+      ".config/net.imput.helium"
+    ];
+  };
 }

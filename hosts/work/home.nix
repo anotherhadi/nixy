@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  lib,
   ...
 }: {
   imports = [
@@ -48,7 +49,7 @@
     inherit (config.var) username;
     homeDirectory = "/home/" + config.var.username;
 
-    persistence."/persist" = {
+    persistence."/persist" = lib.mkIf (config.var.impermanenceEnabled or false) {
       directories = [
         ".config/nixos" # this repo itself (nixy manages it here)
         ".local/share"

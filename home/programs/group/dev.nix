@@ -1,6 +1,8 @@
 {
   pkgs,
   pkgs-unstable,
+  config,
+  lib,
   ...
 }: {
   home = {
@@ -19,7 +21,7 @@
         rsync
       ]);
 
-    persistence."/persist" = {
+    persistence."/persist" = lib.mkIf (config.var.impermanenceEnabled or false) {
       directories = [
         ".claude"
       ];

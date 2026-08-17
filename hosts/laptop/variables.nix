@@ -26,6 +26,7 @@
 
     autoUpgrade = false;
     autoGarbageCollector = true;
+    impermanenceEnabled = true;
   };
 
   # DON'T TOUCH THIS
