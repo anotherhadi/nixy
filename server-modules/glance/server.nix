@@ -74,9 +74,9 @@
                       icon = "sh:mazanoke";
                     }
                     {
-                      title = "Stirling PDF";
+                      title = "BentoPDF";
                       url = "https://pdf.${domain}";
-                      icon = "sh:stirling-pdf";
+                      icon = "sh:bentopdf";
                     }
                     {
                       title = "Default-creds";

@@ -7,13 +7,22 @@
 in {
   imports = [
     (mkContainer {
-      name = "stirling-pdf";
+      name = "bentopdf";
       hostIp = "10.233.9.1";
       containerIp = "10.233.9.2";
       nixosConfig = {...}: {
-        services.stirling-pdf = {
+        services.bentopdf = {
           enable = true;
-          environment."SERVER_PORT" = "8080";
+          domain = "bentopdf";
+          nginx = {
+            enable = true;
+            virtualHost.listen = [
+              {
+                addr = "0.0.0.0";
+                port = 8080;
+              }
+            ];
+          };
         };
         networking.firewall.allowedTCPPorts = [8080];
         system.stateVersion = "24.05";
