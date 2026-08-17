@@ -73,8 +73,8 @@
 
     polarity = "dark";
     image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/main/app/static/wallpapers/another-one.png";
-      sha256 = "sha256-zthfsd4QLShPPApV8RoPANaymMC5IiCrmp8QwyyhCcY=";
+      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/main/wallpapers/another-one.png";
+      sha256 = "sha256-bKke8RNz6qNxHSfLbU5xVVkG3tbFZW1sFjLB1hltcoI=";
     };
   };
 }
