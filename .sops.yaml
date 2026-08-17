@@ -10,3 +10,7 @@ creation_rules:
     key_groups:
       - age:
         - *primary
+  - path_regex: hosts/work/secrets/secrets.yaml$
+    key_groups:
+      - age:
+        - *work
