@@ -24,11 +24,10 @@ in {
       user.name = username;
       user.email = email;
       init.defaultBranch = "main";
-      pull.rebase = "false";
+      pull.rebase = "true";
       push.autoSetupRemote = true;
       color.ui = "1";
       alias = {
-        essa = "push --force";
         co = "checkout";
         fuck = "commit --amend -m";
         c = "commit -m";
