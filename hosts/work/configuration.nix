@@ -26,7 +26,7 @@
 
   home-manager.users."${config.var.username}" = import ./home.nix;
 
-  users.users.${config.var.username}.hashedPassword = "$y$j9T$A7gH534UczuBxulj9IfEu1$ImRy3lpYpemRWNVIkA7efKPWXneFiqhZnEF1aMkWcD8"; # CHANGEME: This is my password
+  users.users.${config.var.username}.hashedPassword = "$y$j9T$quUlRuvuYJ18asD8SUrh11$0mHCP7ZRIOYjNHY0oT.aFfVho1V0M65eClLzVo0RARD"; # CHANGEME: This is my password
 
   # Don't touch this
   system.stateVersion = "26.05";
