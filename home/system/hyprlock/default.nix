@@ -19,7 +19,7 @@ in {
           text = ''cmd[update:0] echo "[$USER@$(hostname) ~]"'';
           color = "rgb(${c.base0D})";
           font_size = 13;
-          font_family = "Maple Mono NF";
+          font_family = config.stylix.fonts.monospace.name;
           position = "48, -48";
           halign = "left";
           valign = "top";
@@ -29,7 +29,7 @@ in {
           text = ''cmd[update:1000] echo "$(date +'%H:%M:%S')"'';
           color = "rgb(${c.base05})";
           font_size = 13;
-          font_family = "Maple Mono NF";
+          font_family = config.stylix.fonts.monospace.name;
           position = "48, -70";
           halign = "left";
           valign = "top";
@@ -39,7 +39,7 @@ in {
           text = ''cmd[update:60000] echo "$(date +'%A %d %B %Y')"'';
           color = "rgb(${c.base04})";
           font_size = 13;
-          font_family = "Maple Mono NF";
+          font_family = config.stylix.fonts.monospace.name;
           position = "48, -92";
           halign = "left";
           valign = "top";
@@ -49,7 +49,7 @@ in {
           text = "passwd:";
           color = "rgb(${c.base0D})";
           font_size = 13;
-          font_family = "Maple Mono NF";
+          font_family = config.stylix.fonts.monospace.name;
           position = "48, -141";
           halign = "left";
           valign = "top";
@@ -70,7 +70,7 @@ in {
           rounding = 0;
           check_color = "rgb(${c.base0B})";
           fail_color = "rgb(${c.base08})";
-          fail_text = ''<span font_desc="Maple Mono NF 13">auth failed</span>'';
+          fail_text = ''<span font_desc="${config.stylix.fonts.monospace.name} 13">auth failed</span>'';
           capslock_color = "rgb(${c.base0A})";
           position = "116, -138";
           halign = "left";
