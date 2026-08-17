@@ -3,6 +3,8 @@
 # script (tofi). Uses the home-manager module so the watcher services are
 # managed the same way as swaync/hypridle.
 {pkgs, ...}: {
+  home.packages = [pkgs.wl-clipboard];
+
   services.cliphist = {
     enable = true;
     allowImages = true;
