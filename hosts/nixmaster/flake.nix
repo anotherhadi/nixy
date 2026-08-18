@@ -17,7 +17,6 @@ nixpkgs.lib.nixosSystem {
     inputs.stylix.nixosModules.stylix
     inputs.sops-nix.nixosModules.sops
     inputs.nix-index-database.nixosModules.default
-    inputs.helium-browser.nixosModules.default
     inputs.impermanence.nixosModules.impermanence
     #inputs.disko.nixosModules.disko
     #./disko.nix

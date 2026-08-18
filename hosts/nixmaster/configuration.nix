@@ -14,7 +14,6 @@
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
     ../../nixos/steam.nix
-    ../../home/programs/gui/helium/system.nix # I hate browser's configuration..
 
     # CHANGEME: You should probably remove those things:
     #./wireguard.nix

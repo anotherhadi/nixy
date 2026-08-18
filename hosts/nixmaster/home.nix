@@ -6,14 +6,12 @@
 }: {
   imports = [
     # Programs
+    inputs.zen-browser.homeModules.beta
 
     ## GUI
-    ../../home/programs/gui/proton
-    ../../home/programs/gui/helium
     ../../home/programs/gui/pkgs.nix
 
     ## TUI
-    inputs.nvf-config.homeManagerModules.default
     ../../home/programs/tui/ghostty
     ../../home/programs/tui/ilovetui
     ../../home/programs/tui/shell
@@ -26,6 +24,7 @@
     ../../home/programs/tui/elio
     ../../home/programs/tui/wikiman
     ../../home/programs/tui/pkgs.nix
+    ../../home/programs/tui/neovim
 
     ## GROUPS
     ../../home/programs/group/cybersecurity.nix
