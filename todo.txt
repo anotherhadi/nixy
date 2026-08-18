@@ -1,4 +1,4 @@
-Fix: delete completely helium from the config 
+Fix: delete completely helium from the config -> Done
 Add: my hyprland config
 Fix: install lua language globaly on nix
-Add: some feature from this hyprland config to mine
+Add: some feature from this hyprland config to mine (seep of the mouse, the delete speed etc etc)

@@ -31,16 +31,11 @@
     ../../home/programs/group/dev.nix
 
     # System (Desktop environment like stuff)
-    ../../home/system/hyprlock
-    ../../home/system/hyprland
-    ../../home/system/waybar
-    ../../home/system/swaync
-    ../../home/system/tofi
     ../../home/system/mime
     ../../home/system/udiskie
     ../../home/system/termfilechooser
-    ../../home/system/clipboard
-    ../../home/system/hypridle
+
+    ../../home/system/hyprland-pkgs
 
     ./variables.nix # Mostly user-specific configuration
   ];
@@ -77,11 +72,6 @@
     # Don't touch this
     stateVersion = "26.05";
   };
-
-  wayland.windowManager.hyprland.settings.monitor = [
-    "eDP-2,highres,0x0,1" # My internal laptop screen
-    "desc:AOC U34G2G1 0x00000E06,3440x1440@99.98,auto,1" # My external monitor
-  ];
 
   programs = {
     home-manager.enable = true;
