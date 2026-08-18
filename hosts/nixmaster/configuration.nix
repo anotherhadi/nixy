@@ -17,11 +17,11 @@
     ../../home/programs/gui/helium/system.nix # I hate browser's configuration..
 
     # CHANGEME: You should probably remove those things:
-    ./wireguard.nix
-    ./persistence.nix # impermanence: what to keep once "/" is wiped on boot
-    ./usbguard.nix
-    ./disko.nix
-    ./secrets
+    #./wireguard.nix
+    #./persistence.nix # impermanence: what to keep once "/" is wiped on boot
+    #./usbguard.nix
+    #./disko.nix
+    #./secrets
 
     # You should let those lines as is
     ./hardware-configuration.nix
@@ -30,7 +30,7 @@
 
   home-manager.users."${config.var.username}" = import ./home.nix;
 
-  users.users.${config.var.username}.hashedPassword = "$y$j9T$A7gH534UczuBxulj9IfEu1$ImRy3lpYpemRWNVIkA7efKPWXneFiqhZnEF1aMkWcD8"; # CHANGEME: This is my password
+  users.users.${config.var.username}.hashedPassword = "$y$j9T$.lpL0xVWdVGlw3CczCoSf0$Vc9U2NhwMiB5uLHm0aecSMTJHo19ng8HN/UFGPKENMC"; # CHANGEME: This is my password. Run mkpasswd -m yescrypt to generate new one.
 
   # Don't touch this
   system.stateVersion = "26.05";

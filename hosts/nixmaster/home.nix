@@ -19,6 +19,7 @@
     ../../home/programs/tui/shell
     ../../home/programs/tui/git
     ../../home/programs/tui/git/lazygit.nix
+    #../../home/programs/tui/git/signing.nix # CHANGEME: Change the key or remove this file
     ../../home/programs/tui/nixy
     ../../home/programs/tui/nix-utils
     ../../home/programs/tui/spotatui
@@ -55,6 +56,7 @@
         ".local/share"
         ".local/state"
         ".cache"
+        ".steam"
         "Notes"
         "Projects"
         "Documents"
@@ -69,12 +71,17 @@
       ];
     };
 
+    sessionVariables = {
+      AQ_DRM_DEVICES = "/dev/dri/card2:/dev/dri/card1"; # CHANGEME: Related to the GPU
+    };
+
     # Don't touch this
     stateVersion = "26.05";
   };
 
   wayland.windowManager.hyprland.settings.monitor = [
-    "desc:Philips Consumer Electronics Company PHL 221B8L ZV02144013987,highres,0x0,1"
+    "eDP-2,highres,0x0,1" # My internal laptop screen
+    "desc:AOC U34G2G1 0x00000E06,3440x1440@99.98,auto,1" # My external monitor
   ];
 
   programs = {

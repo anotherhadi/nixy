@@ -9,24 +9,24 @@
   ];
 
   config.var = {
-    hostname = "h-work";
-    username = "hadrien";
+    hostname = "nixmaster";
+    username = "nix_wizzard";
     configDirectory = "/home/" + config.var.username + "/.config/nixos"; # The path of the nixos configuration directory
 
-    keyboardLayout = "fr";
+    keyboardLayout = "us";
 
     timeZone = "Europe/Paris";
     defaultLocale = "en_US.UTF-8";
     extraLocale = "fr_FR.UTF-8";
 
     git = {
-      username = "Hadi";
-      email = "hadi@example.fr";
+      username = "HoneyChasey";
+      email = "112569860+anotherhadi@users.noreply.github.com";
     };
 
     autoUpgrade = false;
     autoGarbageCollector = true;
-    impermanenceEnabled = true;
+    impermanenceEnabled = false;
   };
 
   # DON'T TOUCH THIS
