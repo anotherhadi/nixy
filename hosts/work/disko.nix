@@ -14,7 +14,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/nvme-WD_PC_SN740_SDDQNQD-256G-1201_24175M800511";
+        device = "/dev/disk/by-id/nvme-SK_hynix_PVC10_HFS512GEM9X173N_5MF4N00141310464Q";
         content = {
           type = "gpt";
           partitions = {
