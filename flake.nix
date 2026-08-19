@@ -4,7 +4,6 @@
     Nixy simplifies and unifies the Hyprland ecosystem with a modular, easily customizable setup.
     It provides a structured way to manage your system configuration and dotfiles with minimal effort.
   '';
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -38,18 +37,15 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs"
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-
     # Server
     nixarr.url = "github:nix-media-server/nixarr";
     default-creds.url = "github:anotherhadi/default-creds";
     blog.url = "github:anotherhadi/blog";
   };
-
   outputs = inputs @ {
     nixpkgs,
     nixpkgs-unstable,
@@ -73,7 +69,6 @@
     };
     merge = nixpkgs.lib.foldl nixpkgs.lib.recursiveUpdate {};
     supportedSystems = ["x86_64-linux" "aarch64-linux"];
-
     forAllSystems = f:
       nixpkgs.lib.genAttrs supportedSystems
       (system: f system (import nixpkgs {inherit system;}));
