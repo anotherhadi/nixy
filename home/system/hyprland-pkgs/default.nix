@@ -9,5 +9,7 @@
     swaynotificationcenter
     tofi
     hyprpolkitagent
+    lua
+    bemenu
   ];
 }

@@ -79,5 +79,6 @@
       enable = true;
       configDirectory = config.var.configDirectory;
     };
+    #zen-browser.enable = true;
   };
 }

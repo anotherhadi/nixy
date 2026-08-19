@@ -1,2 +1,4 @@
-Fix: install lua language globaly on nix
 Fix the quickshell won't startup at the launch of hyprland
+
+
+Feature: adding lsp and language not globaly but only for the packages who use it (exemple, go for nvim and lua-language-server for nvim).
