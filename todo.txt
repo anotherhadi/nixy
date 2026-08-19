@@ -1,4 +1,2 @@
-Fix: delete completely helium from the config -> Done
-Add: my hyprland config
 Fix: install lua language globaly on nix
-Add: some feature from this hyprland config to mine (seep of the mouse, the delete speed etc etc)
+Fix the quickshell won't startup at the launch of hyprland
