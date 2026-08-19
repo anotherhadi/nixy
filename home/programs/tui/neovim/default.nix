@@ -19,5 +19,14 @@ in {
     zathura
     tesseract
     myTex
+
+    # LSP
+    lua-language-server
+    gopls
+    nil # for nix
+    rust-analyzer
+    bash-language-server
+    clang-tools # for C/C++. What a name
+    pyright
   ];
 }
