@@ -1,0 +1,3 @@
+[submodule "Nvarch"]
+	path = Nvarch
+	url = https://github.com/HoneyChasey/Nvarch
