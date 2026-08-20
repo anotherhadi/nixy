@@ -9,20 +9,11 @@
       collection-binextra
     ]);
 in {
-  programs.neovim = {
-    enable = true;
-    extraPackages = with pkgs; [
 
-    # LSP
-    lua-language-server
-    gopls
-    nil # for nix
-    rust-analyzer
-    bash-language-server
-    clang-tools # for C/C++. What a name
-    pyright
-    ];
-  };
+  xdg.configFile.nvim.source = ./nvarch;
+  
+  # LSP
+  # You should't install here lsp, but only when is nedeed, on your current projects path.
 
   home.packages = with pkgs; [
     ripgrep
