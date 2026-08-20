@@ -5,7 +5,7 @@
 }: {
   imports = [inputs.zen-browser.homeModules.beta];
 
-  stylix.targets.zen-browser.profileNames = ["default"];
+  # stylix.targets.zen-browser.profileNames = ["default"];
 
   home.sessionVariables = {
     MOZ_LEGACY_PROFILES = 1;

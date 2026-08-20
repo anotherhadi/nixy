@@ -1,3 +1,4 @@
-Fix the quickshell won't startup at the launch of hyprland
+Remove all theme from the folder themes and where they are used
+
 
 Try to add a wrapper for stopping build for each modification of the neovim plugin
