@@ -1,0 +1,23 @@
+xwg-displays = sudo pacman -S nwg-displays 
+waylbar = sudo pacman -S waybar
+hyprpaper = sudo pacman -S hyperpaper
+hyprlauncher = sudo pacman -S hyprlauncher
+ghostty = sudo pacman -S ghostty
+Advenced Linux Sound Architecture = pacman -S alsa-utils
+pulse audio = pacman -S pulseaudio # Check https://wiki.archlinux.org/title/PulseAudio#Installation
+brightness control = sudo pacman -S brightnessctl 
+Sound open firemware = sudo pacman -S sof-firmware # Please check before the readme before the installation of the firemware
+Zen Browser = flatpak install flathub app.zen_browser.zen
+Zen browser need also this to access download folder = sudo pacman -S xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
+screen shoot on hyprland = sudo pacman -S hyprshot
+
+Font
+Do this commands to dl and install font on your system.
+
+
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip
+mkdir -p ~/.local/share/fonts/CascadiaCode
+unzip CascadiaCode.zip -d ~/.local/share/fonts/CascadiaCode
+fc-cache -fv
+
+And reload the waybar.
