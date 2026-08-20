@@ -10,12 +10,13 @@
     ]);
 in {
 
-  xdg.configFile.nvim.source = ./nvarch;
+  xdg.configFile.nvim.source = ../../../../nvarch; # Add all the config in ~/.config/nvim
   
   # LSP
   # You should't install here lsp, but only when is nedeed, on your current projects path.
 
   home.packages = with pkgs; [
+    neovim
     ripgrep
     lazydocker
     luarocks
