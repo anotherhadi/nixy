@@ -207,6 +207,28 @@
         desc = "Dedent and keep selection";
       }
 
+      # Scroll and center
+      {
+        key = "<C-d>";
+        mode = [
+          "n"
+          "v"
+        ];
+        silent = true;
+        action = "<C-d>zz";
+        desc = "Scroll down and center";
+      }
+      {
+        key = "<C-u>";
+        mode = [
+          "n"
+          "v"
+        ];
+        silent = true;
+        action = "<C-u>zz";
+        desc = "Scroll up and center";
+      }
+
       # Move
       {
         key = "<C-h>";
