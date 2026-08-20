@@ -6,10 +6,10 @@
 }: {
   imports = [
     # Programs
-    inputs.zen-browser.homeModules.beta
 
     ## GUI
     ../../home/programs/gui/pkgs.nix
+    ../../home/programs/gui/zen
 
     ## TUI
     ../../home/programs/tui/ghostty

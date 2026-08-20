@@ -1,10 +1,8 @@
 {
   inputs,
   lib,
-  pkgs,
-  pkgs-stable,
-}:
-{
+  ...
+}: {
   imports = [inputs.zen-browser.homeModules.beta];
 
   stylix.targets.zen-browser.profileNames = ["default"];
@@ -18,17 +16,14 @@
   programs.zen-browser = {
     enable = true;
     languagePacks = ["en-US" "fr"];
-  };
 
-
-  profiles = {
-    default = {
+    profiles.default = {
       id = 0;
       name = "default";
       isDefault = true;
       containersForce = true;
       pinsForce = true;
       spacesForce = true;
-      };
     };
+  };
 }
