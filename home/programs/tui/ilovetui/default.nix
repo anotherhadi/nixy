@@ -2,6 +2,8 @@
   c = config.lib.stylix.colors;
 in {
   home.file.".config/ilovetui/config.yaml".text = ''
+    nerd_fonts: true
+    border: rounded
     colors:
       base00: "#${c.base00}" # Background
       base01: "#${c.base01}" # Lighter Background / Status Bars
