@@ -11,5 +11,6 @@
     hyprpolkitagent
     lua
     bemenu
+    hyprpaper
   ];
 }
