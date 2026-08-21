@@ -1,0 +1,5 @@
+{
+  programs.navi = {
+    enable = true;
+  };
+}

@@ -25,6 +25,7 @@
     ../../home/programs/tui/spotatui
     ../../home/programs/tui/elio
     ../../home/programs/tui/wikiman
+    ../../home/programs/tui/navi
     ../../home/programs/tui/pkgs.nix
 
     ## GROUPS
