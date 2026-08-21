@@ -19,7 +19,7 @@
     ../../server-modules/bentopdf.nix
     ../../server-modules/cyberchef.nix
     ../../server-modules/mazanoke.nix
-    ../../server-modules/kernel-hardening.nix
+    ../../nixos/kernel-hardening.nix
     ../../server-modules/fail2ban.nix
     ../../server-modules/default-creds.nix
     ../../server-modules/gitea.nix

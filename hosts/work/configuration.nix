@@ -11,6 +11,8 @@
     ../../nixos/users.nix
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
+    ../../nixos/kernel-hardening.nix
+    ../../nixos/vulnix.nix
     ../../home/programs/gui/helium/system.nix # I hate browser's configuration..
 
     # CHANGEME: You should probably remove those things:
