@@ -14,8 +14,8 @@
       allow id 1d6b:0002 name "xHCI Host Controller"
       allow id 0951:1666 name "DataTraveler 3.0"
       allow id 1d6b:0003 name "xHCI Host Controller"
-      allow id 17ef:6190 name "Lenovo Calliope USB Keyboard G2"
-      allow id 17ef:608d name "Lenovo USB Optical Mouse"
+      allow id 0461:574a name "HP 125 USB Optical Mouse"
+      allow id 0461:554a name "HP 125 Wired Keyboard"
     '';
   };
 }
