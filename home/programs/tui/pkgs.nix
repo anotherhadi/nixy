@@ -21,6 +21,7 @@
     dua # Tool to conveniently learn about the disk usage of directories
     mcat # Cat command for documents / images / videos and more
     lazyjournal
+    vhs # Create GIF from the command-line
 
     httpie # Command-line HTTP client, a user-friendly cURL replacement
     gh # GitHub
@@ -28,6 +29,7 @@
     pastel # Command-line tool to generate, analyze, convert and manipulate colors
     imagemagick # Image manipulation tool
     chafa # Image to ANSI/Unicode converter and more.
+    proton-vpn-cli
 
     # Just cool
     tty-solitaire
