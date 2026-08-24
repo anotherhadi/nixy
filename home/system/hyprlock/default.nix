@@ -66,10 +66,6 @@ in {
   programs.hyprlock = {
     enable = true;
     settings = {
-      general = {
-        grace = 2;
-      };
-
       background = [
         {
           monitor = "";
