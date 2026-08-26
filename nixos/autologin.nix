@@ -24,4 +24,9 @@
   security.pam.services.login.enableGnomeKeyring = true;
 
   systemd.services.greetd.serviceConfig.KeyringMode = lib.mkForce "shared";
+
+  systemd.services.greetd = {
+    after = ["systemd-udevd.service"];
+    serviceConfig.ExecStartPre = "${pkgs.systemd}/bin/udevadm settle --timeout=10";
+  };
 }
