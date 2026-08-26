@@ -12,6 +12,10 @@ in {
   };
   nix = {
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    registry = {
+      nixpkgs.flake = inputs.nixpkgs;
+      nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
+    };
     channel.enable = false;
     extraOptions = ''
       warn-dirty = false
