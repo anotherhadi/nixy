@@ -68,6 +68,7 @@ in {
 
   xdg.configFile."elio/config.toml".text = ''
     [places]
+    show_devices = false
     entries = [
       "home",
       "documents",
