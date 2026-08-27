@@ -84,5 +84,22 @@
       enable = true;
       configDirectory = config.var.configDirectory;
     };
+
+    git.includes = [
+      {
+        condition = "hasconfig:remote.*.url:**";
+        contents.user = {
+          name = "Hadrien";
+          email = "hadi@example.fr";
+        };
+      }
+      {
+        condition = "hasconfig:remote.*.url:git@github.com:**";
+        contents.user = {
+          name = config.var.git.username;
+          email = config.var.git.email;
+        };
+      }
+    ];
   };
 }
