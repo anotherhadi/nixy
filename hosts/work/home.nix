@@ -94,7 +94,7 @@
         };
       }
       {
-        condition = "hasconfig:remote.*.url:git@github.com:**";
+        condition = "hasconfig:remote.*.url:git@github.com:*/**";
         contents.user = {
           name = config.var.git.username;
           email = config.var.git.email;
