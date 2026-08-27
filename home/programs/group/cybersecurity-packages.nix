@@ -1,5 +1,6 @@
 {pkgs}: (with pkgs; [
   # Web
+  pkgs.nur.repos.anotherhadi.spilltea
   dirb
   ffuf
   katana
@@ -17,24 +18,25 @@
   redis
 
   # Network
-  inetutils
   termshark # wireshark in TUI
+  wtfis # Passive hostname, domain and IP lookup tool
+  inetutils
   whois
   dig
   nmap
   samba
   hydra
+  pkgs.nur.repos.anotherhadi.revshell
 
   # Misc
   metasploit
   nuclei
   openvpn
-
-  # Secrets
-  trufflehog
+  zizmor # CI/CD Pipelines
+  trufflehog # Look for secrets
+  pkgs.nur.repos.anotherhadi.jwt-tui
+  pkgs.nur.repos.anotherhadi.default-creds-tui
 
   # Forensics
   binwalk
-  pkgs.nur.repos.anotherhadi.spilltea
-  pkgs.nur.repos.anotherhadi.jwt-tui
 ])

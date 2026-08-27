@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }: {
   home.packages = import ./cybersecurity-packages.nix {
@@ -41,6 +42,8 @@
       url = "https://raw.githubusercontent.com/CarlosLannister/OwadeReborn/refs/heads/master/owade/fileAnalyze/hashcatLib/best64.rule%7E";
       hash = "sha256-T0XkMHJZQiy63/j25nGTkaiDFjc+blmgEVGTAFgVylU=";
     };
+
+    ".cache/default-creds".source = inputs.default-creds;
   };
 
   home.persistence."/persist" = lib.mkIf (config.var.impermanenceEnabled or false) {

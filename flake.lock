@@ -117,7 +117,7 @@
         "flake-parts": "flake-parts_2",
         "import-tree": "import-tree_2",
         "nixpkgs": [
-          "default-creds",
+          "default-creds-web",
           "nixpkgs"
         ],
         "systems": "systems_2",
@@ -138,21 +138,37 @@
       }
     },
     "default-creds": {
-      "inputs": {
-        "bun2nix": "bun2nix_2",
-        "nixpkgs": "nixpkgs_2"
-      },
+      "flake": false,
       "locked": {
-        "lastModified": 1780323652,
-        "narHash": "sha256-Ol1ygle0M95z0gOIYGD9WK4gl5xsWi7TvS7IgnK/WJQ=",
+        "lastModified": 1787774968,
+        "narHash": "sha256-hkri5ZScV47HZOYUNd4E4UpPP54i34fhfTNaso+TSuE=",
         "owner": "anotherhadi",
         "repo": "default-creds",
-        "rev": "98b207fe54e07086346f5d77c7a5ec6044e67cca",
+        "rev": "d65bf35676d0d8364fc372917aa3d60109e74fde",
         "type": "github"
       },
       "original": {
         "owner": "anotherhadi",
         "repo": "default-creds",
+        "type": "github"
+      }
+    },
+    "default-creds-web": {
+      "inputs": {
+        "bun2nix": "bun2nix_2",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1787818431,
+        "narHash": "sha256-CNXlYP22cJ9pOgCnZXDWA2nX6KevbtPIbQ4mpz7Qb+Q=",
+        "owner": "anotherhadi",
+        "repo": "default-creds-web",
+        "rev": "f376048495395ec58197281fc10bfb96ecd56019",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anotherhadi",
+        "repo": "default-creds-web",
         "type": "github"
       }
     },
@@ -701,11 +717,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787315761,
-        "narHash": "sha256-1ze3fFnH7GhN6P3e76Ved2OGNLU/r1Pgo59TbPi9Pg8=",
+        "lastModified": 1787821287,
+        "narHash": "sha256-/Ob/9a6whpsyrksdbmMX1EQkirE+0ASelmmH6/zKwYM=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "9fd3c9b18edddb6c611fcbee9974d3b6de5443a7",
+        "rev": "f37cbf879053cce9e6d483fb977f57004273c026",
         "type": "github"
       },
       "original": {
@@ -782,6 +798,7 @@
       "inputs": {
         "blog": "blog",
         "default-creds": "default-creds",
+        "default-creds-web": "default-creds-web",
         "disko": "disko",
         "git-hooks": "git-hooks",
         "helium-browser": "helium-browser",
@@ -987,7 +1004,7 @@
     "treefmt-nix_2": {
       "inputs": {
         "nixpkgs": [
-          "default-creds",
+          "default-creds-web",
           "bun2nix",
           "nixpkgs"
         ]
