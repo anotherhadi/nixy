@@ -15,7 +15,6 @@
     ../../server-modules/glance
     ../../server-modules/adguardhome.nix
     ../../server-modules/arr.nix
-    ../../server-modules/blog.nix
     ../../server-modules/bentopdf.nix
     ../../server-modules/cyberchef.nix
     ../../server-modules/mazanoke.nix
