@@ -1,7 +1,6 @@
 {config, ...}: {
   imports = [
     # Mostly system related configuration
-    ../../nixos/nvidia.nix # CHANGEME: Remove this line if you don't have an Nvidia GPU
     ../../nixos/audio.nix
     ../../nixos/bluetooth.nix
     ../../nixos/fonts.nix
@@ -18,11 +17,11 @@
     ../../home/programs/gui/helium/system.nix # I hate browser's configuration..
 
     # CHANGEME: You should probably remove those things:
-    ./wireguard.nix
-    ./persistence.nix # impermanence: what to keep once "/" is wiped on boot
-    ./usbguard.nix
-    ./disko.nix
-    ./secrets
+    #./wireguard.nix
+    #./persistence.nix # impermanence: what to keep once "/" is wiped on boot
+    #./usbguard.nix
+    #./disko.nix
+    #./secrets
 
     # You should let those lines as is
     ./hardware-configuration.nix
