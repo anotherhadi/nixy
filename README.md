@@ -23,10 +23,11 @@
 </div>
 <br>
 
-**Nixy simplifies and unifies** the Hyprland ecosystem with a modular, minimalist & easily
-customizable setup. It provides a structured way to manage your system
-configuration and dotfiles with minimal effort. It includes _home-manager_,
-_secrets_, and _custom theming_ all in one place.
+**Nixy simplifies and unifies** the Hyprland ecosystem with a minimalist,
+modular & easily customizable setup, heavily focused on TUIs. It provides a
+structured way to manage your system configuration and dotfiles with minimal
+effort. It includes _home-manager_, _secrets_, and _custom theming_ all in
+one place.
 
 **Features:**
 
