@@ -16,6 +16,16 @@ in {
     directories = [".config/spotatui" ".config/spotify"];
   };
 
+  xdg.desktopEntries.spotatui = {
+    name = "Spotify";
+    exec = "${pkgs.ghostty}/bin/ghostty +new-window -e ${pkgs.spotatui}/bin/spotatui";
+    icon = "spotify";
+    comment = "Control Spotify from the terminal";
+    categories = ["Audio" "Music"];
+    terminal = false;
+    settings.Keywords = "spotify;spotatui;music;";
+  };
+
   home.file.".config/spotatui/config.yml".text = ''
     keybindings:
       back: q
