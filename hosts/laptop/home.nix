@@ -72,17 +72,17 @@
       ];
     };
 
-   # sessionVariables = {
-   #   AQ_DRM_DEVICES = "/dev/dri/card2:/dev/dri/card1"; # CHANGEME: Related to the GPU
-   # };
+    # sessionVariables = {
+    #   AQ_DRM_DEVICES = "/dev/dri/card2:/dev/dri/card1"; # CHANGEME: Related to the GPU
+    # };
 
     # Don't touch this
     stateVersion = "26.05";
   };
 
   wayland.windowManager.hyprland.settings.monitor = [
-    "eDP-2,highres,0x0,1" # My internal laptop screen
-    "desc:AOC U34G2G1 0x00000E06,3440x1440@99.98,auto,1" # My external monitor
+    "eDP-1,highres,0x0,1" # My internal laptop screen
+    #"desc:AOC U34G2G1 0x00000E06,3440x1440@99.98,auto,1" # My external monitor
   ];
 
   programs = {

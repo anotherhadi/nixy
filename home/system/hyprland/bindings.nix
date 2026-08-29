@@ -86,12 +86,12 @@ in {
               cmd = "${pkgs.signal-desktop}/bin/signal-desktop";
             }
             {
-              key = "t";
+              key = "b";
               desc = "TickTick";
               cmd = "${pkgs.ticktick}/bin/ticktick";
             }
             {
-              key = "b";
+              key = "t";
               desc = "Helium";
               cmd = "${config.programs.helium.package}/bin/helium";
             }
@@ -103,7 +103,7 @@ in {
           ])
         )
 
-        "$mod,B, exec, uwsm app -- ${config.programs.helium.package}/bin/helium" # Browser
+        "$mod,T, exec, uwsm app -- ${config.programs.helium.package}/bin/helium" # Browser
 
         # Power
         (
@@ -133,9 +133,9 @@ in {
         )
 
         # Quick launch
-        "$mod,RETURN, exec, ${pkgs.ghostty}/bin/ghostty +new-window" # Ghostty (terminal, via daemon D-Bus)
-        "$mod,E, exec, ${pkgs.ghostty}/bin/ghostty +new-window -e elio" # Elio
-        "$mod, SPACE, exec, ${lib.getExe tofi-drun-toggle}" # Launcher (toggle)
+        "$mod, RETURN, exec, ${pkgs.ghostty}/bin/ghostty +new-window" # Ghostty (terminal, via daemon D-Bus)
+        "$mod, E, exec, ${pkgs.ghostty}/bin/ghostty +new-window -e elio" # Elio
+        "$mod, D, exec, ${lib.getExe tofi-drun-toggle}" # Launcher (toggle)
         "$mod, N, exec, ${pkgs.swaynotificationcenter}/bin/swaync-client -t" # Notification center
 
         # Windows

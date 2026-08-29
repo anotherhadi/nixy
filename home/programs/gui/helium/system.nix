@@ -61,7 +61,7 @@ in {
       ExtensionInstallForcelist = [
         "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimiu
         "gcknhkkoolaabfmlnjonogaaifnjlfnp" # FoxyProxy
-        "ghmbeldphafepmbegfdlkpapadhbakde" # Proton Pass
+        "oboonakemofpalcgghocfoadofidjkkk" # KeePassXC
         "mdjildafknihdffpkfmmpnpoiajfjnjd" # Consent-O-Matic
         "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # Privacy Badger
       ];
