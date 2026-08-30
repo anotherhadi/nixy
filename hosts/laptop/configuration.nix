@@ -18,9 +18,9 @@
 
     # CHANGEME: You should probably remove those things:
     #./wireguard.nix
-    #./persistence.nix # impermanence: what to keep once "/" is wiped on boot
+    ./persistence.nix # impermanence: what to keep once "/" is wiped on boot
     #./usbguard.nix
-    # ./disko.nix
+    #./disko.nix
     ./secrets
 
     # You should let those lines as is
