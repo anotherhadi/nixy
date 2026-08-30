@@ -12,35 +12,10 @@ in {
     age.keyFile = "${home}/.config/sops/age/keys.txt";
     defaultSopsFile = ./secrets.yaml;
     secrets = {
-      ssh-config = {
-        owner = username;
-        mode = "0600";
-        path = "${home}/.ssh/config";
-      };
       ssh-github-key = {
         owner = username;
         mode = "0600";
         path = "${home}/.ssh/github";
-      };
-      anotherhadi-pgp-key = {
-        owner = username;
-        mode = "0600";
-        path = "${home}/.ssh/anotherhadi-priv.asc";
-      };
-      ssh-jack-key = {
-        owner = username;
-        mode = "0600";
-        path = "${home}/.ssh/jack";
-      };
-      signing-key = {
-        owner = username;
-        mode = "0600";
-        path = "${home}/.ssh/key";
-      };
-      signing-pub-key = {
-        owner = username;
-        mode = "0600";
-        path = "${home}/.ssh/key.pub";
       };
     };
   };

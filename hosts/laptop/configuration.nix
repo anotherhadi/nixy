@@ -20,8 +20,8 @@
     #./wireguard.nix
     #./persistence.nix # impermanence: what to keep once "/" is wiped on boot
     #./usbguard.nix
-   # ./disko.nix
-    #./secrets
+    # ./disko.nix
+    ./secrets
 
     # You should let those lines as is
     ./hardware-configuration.nix
@@ -30,7 +30,7 @@
 
   home-manager.users."${config.var.username}" = import ./home.nix;
 
-  users.users.${config.var.username}.hashedPassword = "$y$j9T$A7gH534UczuBxulj9IfEu1$ImRy3lpYpemRWNVIkA7efKPWXneFiqhZnEF1aMkWcD8"; # CHANGEME: This is my password
+  users.users.${config.var.username}.hashedPassword = "$y$j9T$A7gH534UczuBxulj9IfEu1$ImRy3lpYpemRWNVIkA7efKPWXneFiqhZnEF1aMkWcD8";
 
   # Don't touch this
   system.stateVersion = "26.05";
