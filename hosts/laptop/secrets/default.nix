@@ -17,6 +17,21 @@ in {
         mode = "0600";
         path = "${home}/.ssh/github";
       };
+      personal-email = {
+        owner = username;
+      };
+      seznam-email = {
+        owner = username;
+      };
+      google-email = {
+        owner = username;
+      };
+      work-email = {
+        owner = username;
+      };
+      discord-token = {
+        owner = username;
+      };
     };
   };
 

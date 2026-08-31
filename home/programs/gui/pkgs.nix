@@ -14,7 +14,6 @@
     ticktick # Todo app
     keepassxc # Password manager
     localsend
-    mailspring # email client
     # Backup
     # thunar
     #gnome-text-editor

@@ -72,8 +72,8 @@ in {
             }
             {
               key = "m";
-              desc = "Proton Mail";
-              cmd = "${config.programs.helium.package}/bin/helium 'https://mail.proton.me/'";
+              desc = "Mail Aerc";
+              cmd = "${pkgs.ghostty}/bin/ghostty +new-window -e aerc";
             }
             {
               key = "o";

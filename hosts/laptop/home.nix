@@ -27,6 +27,8 @@
     ../../home/programs/tui/wikiman
     ../../home/programs/tui/navi
     ../../home/programs/tui/pkgs.nix
+    ../../home/programs/tui/aerc
+    ../../home/programs/tui/oxicord
 
     ## GROUPS
     ../../home/programs/group/cybersecurity.nix

@@ -48,6 +48,11 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    oxicord = {
+      url = "github:linuxmobile/oxicord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     default-creds = {
       url = "github:anotherhadi/default-creds";
       flake = false;
