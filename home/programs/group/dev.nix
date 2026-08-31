@@ -10,6 +10,7 @@
       [
         go
         claude-code
+        bun
       ]
       ++ (with pkgs; [
         nodejs
