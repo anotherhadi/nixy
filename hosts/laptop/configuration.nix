@@ -28,6 +28,17 @@
     ./variables.nix
   ];
 
+  # Enable the fingerprint daemon
+  services.fprintd.enable = true;
+
+  # Integrate fingerprint authentication into PAM services
+  security.pam.services = {
+    login.fprintAuth = true;
+    su.fprintAuth = true;
+    sudo.fprintAuth = true;
+    polkit-1.fprintAuth = true;
+  };
+
   home-manager.users."${config.var.username}" = import ./home.nix;
 
   users.users.${config.var.username}.hashedPassword = "$y$j9T$A7gH534UczuBxulj9IfEu1$ImRy3lpYpemRWNVIkA7efKPWXneFiqhZnEF1aMkWcD8";
