@@ -22,6 +22,7 @@
     ../../server-modules/fail2ban.nix
     ../../server-modules/default-creds.nix
     ../../server-modules/gitea.nix
+    ../../server-modules/home-assistant.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
