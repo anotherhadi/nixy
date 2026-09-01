@@ -1,7 +1,11 @@
 # *arr is a collection of media management applications.
 # See https://github.com/rasmus-kirk/nixarr
 # Setup guide: https://nixarr.com/wiki/setup/
-{config, ...}: let
+{
+  config,
+  pkgs-unstable,
+  ...
+}: let
   username = config.var.username;
 in {
   # Add my secrets
@@ -30,7 +34,10 @@ in {
     };
 
     jellyfin.enable = true;
-    seerr.enable = true;
+    seerr = {
+      enable = true;
+      package = pkgs-unstable.seerr;
+    };
     prowlarr.enable = true;
     radarr.enable = true;
     sonarr.enable = true;
