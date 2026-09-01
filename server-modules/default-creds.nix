@@ -14,7 +14,7 @@ in {
       containerIp = "10.233.6.2";
       nixosConfig = {...}: {
         imports = [inputs.default-creds-web.nixosModules.default];
-        services.default-creds = {
+        services.default-creds-web = {
           enable = true;
           port = 8087;
         };
@@ -31,7 +31,5 @@ in {
     })
   ];
 
-  # TODO: ??
-  services.default-creds.enable = lib.mkForce false;
   services.cloudflared.tunnels."${config.var.tunnelId}".ingress."default-creds.${config.var.domain}" = "http://10.233.6.2:8087";
 }

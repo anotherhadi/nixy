@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs-unstable,
   ...
 }: let
   inherit (import ./mk-container.nix {inherit lib config;}) mkContainer;
@@ -10,7 +11,7 @@ in {
       name = "mazanoke";
       hostIp = "10.233.7.1";
       containerIp = "10.233.7.2";
-      nixosConfig = {pkgs-unstable, ...}: let
+      nixosConfig = {...}: let
         version = "1.1.5";
         mazanoke-pkg = pkgs-unstable.stdenv.mkDerivation {
           inherit version;

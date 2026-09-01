@@ -26,8 +26,15 @@
 
   systemd.services."cloudflared-tunnel-${config.var.tunnelId}" = {
     wantedBy = ["multi-user.target"];
-    after = ["network-online.target"];
+    after = ["network-online.target" "adguardhome.service"];
     wants = ["network-online.target"];
+    requires = ["adguardhome.service"];
+    serviceConfig = {
+      Restart = "on-failure";
+      RestartSec = "5s";
+      StartLimitIntervalSec = 300;
+      StartLimitBurst = 10;
+    };
   };
 
   # At the moment (2025), for support of browser rendering of the tunnels, this line is required:

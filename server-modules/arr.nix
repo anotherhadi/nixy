@@ -30,13 +30,14 @@ in {
     };
 
     jellyfin.enable = true;
-    jellyseerr.enable = true;
+    seerr.enable = true;
     prowlarr.enable = true;
     radarr.enable = true;
     sonarr.enable = true;
     bazarr.enable = true;
     transmission = {
       enable = true;
+      peerPort = 50000;
       extraSettings = {
         trash-original-torrent-files = true;
         rpc-whitelist-enabled = false;

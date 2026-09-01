@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs-unstable,
   ...
 }: let
   inherit (import ./mk-container.nix {inherit lib config;}) mkContainer;
@@ -10,7 +11,7 @@ in {
       name = "cyberchef";
       hostIp = "10.233.5.1";
       containerIp = "10.233.5.2";
-      nixosConfig = {pkgs-unstable, ...}: {
+      nixosConfig = {...}: {
         services.nginx = {
           enable = true;
           virtualHosts."cyberchef" = {
