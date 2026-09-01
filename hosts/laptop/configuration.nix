@@ -14,12 +14,13 @@
     ../../nixos/hyprland.nix
     ../../nixos/steam.nix
     ../../nixos/kernel-hardening.nix
+    ../../nixos/yubikey.nix
     ../../home/programs/gui/helium/system.nix # I hate browser's configuration..
 
     # CHANGEME: You should probably remove those things:
     #./wireguard.nix
     ./persistence.nix # impermanence: what to keep once "/" is wiped on boot
-    #./usbguard.nix
+    ./usbguard.nix
     #./disko.nix
     ./secrets
 

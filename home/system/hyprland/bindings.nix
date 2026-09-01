@@ -76,6 +76,12 @@ in {
               cmd = "${pkgs.ghostty}/bin/ghostty +new-window -e aerc";
             }
             {
+              key = "d";
+              desc = "Discord";
+              cmd = "${pkgs.ghostty}/bin/ghostty +new-window -e tmux attach -t oxicord";
+            }
+
+            {
               key = "o";
               desc = "Obsidian";
               cmd = "${pkgs.obsidian}/bin/obsidian";

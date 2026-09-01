@@ -50,7 +50,6 @@
     };
     oxicord = {
       url = "github:linuxmobile/oxicord";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     default-creds = {

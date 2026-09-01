@@ -149,16 +149,17 @@
     cat << 'EOF' >> $out
 
     [messages]
-    L = :next-tab<Enter>
-    H = :prev-tab<Enter>
-
+    <C-l> = :next-tab<Enter>
+    <C-h> = :prev-tab<Enter>
+    r = :read -t<Enter>
+    R = :mark -a<Enter>:read<Enter>
     [view]
-    L = :next-tab<Enter>
-    H = :prev-tab<Enter>
+    <C-l> = :next-tab<Enter>
+    <C-h> = :prev-tab<Enter>
 
     [terminal]
-    L = :next-tab<Enter>
-    H = :prev-tab<Enter>
+    <C-l> = :next-tab<Enter>
+    <C-h> = :prev-tab<Enter>
     EOF
   '';
 }

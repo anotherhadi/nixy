@@ -30,9 +30,10 @@
     imagemagick # Image manipulation tool
     chafa # Image to ANSI/Unicode converter and more.
     proton-vpn-cli
+    tmux
 
     # Just cool
-    tty-solitaire
+    #    tty-solitaire
     bastet
     peaclock
     cbonsai
