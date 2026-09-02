@@ -19,7 +19,10 @@
     };
   };
 
-  services.matter-server.enable = true;
+  services.matter-server = {
+    enable = true;
+    extraArgs.primary-interface = config.var.networkInterface;
+  };
 
   networking.firewall.allowedUDPPorts = [5353];
 
