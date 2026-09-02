@@ -53,7 +53,7 @@ in {
 
         [wireguard-peer.36G8+pInNcPK9F1TpHglWs9Pk5uJOY9o8SCNrCBgvHE=]
         endpoint=89.222.96.158:51820
-        allowed-ips=0.0.0.0/0;::/0;
+        allowed-ips=0.0.0.0/0;
         persistent-keepalive=25
 
         [ipv4]
@@ -63,10 +63,8 @@ in {
 
         [ipv6]
         method=manual
-        address1=2a07:b944::2:2/128
-        dns=2a07:b944::2:1;
-        addr-gen-mode=default
-        ip6-privacy=0
+        route1=::/0,,1
+        route1_options=type=blackhole
       '';
     };
   };
