@@ -25,12 +25,18 @@
       context.enable = true;
       highlight.enable = true;
       textobjects.enable = true;
-      grammars = [pkgs.vimPlugins.nvim-treesitter.grammarPlugins.http];
+      grammars = [
+        pkgs.vimPlugins.nvim-treesitter.grammarPlugins.http
+        pkgs.vimPlugins.nvim-treesitter.grammarPlugins.tsx
+      ];
     };
     lsp = {
       enable = true;
       presets = {
         tailwindcss-language-server = {
+          enable = true;
+        };
+        vtsls = {
           enable = true;
         };
       };
@@ -97,7 +103,11 @@
         };
         extraDiagnostics.enable = true;
       };
-      typescript.enable = true;
+      typescript = {
+        enable = true;
+        # vtsls preset used instead: ts_ls here misses .tsx filetypes
+        lsp.servers = [];
+      };
       css.enable = true;
       svelte.enable = true;
       html.enable = true;
