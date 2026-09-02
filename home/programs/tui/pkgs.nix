@@ -31,6 +31,7 @@
     imagemagick # Image manipulation tool
     chafa # Image to ANSI/Unicode converter and more.
     proton-vpn-cli
+    pkgs-unstable.eilmeldung
 
     # Just cool
     tty-solitaire
@@ -41,6 +42,7 @@
     cmatrix
     fastfetch
     smassh # typing test, 10fastfinger like
+    minesweep-rs # Mine sweeper
   ];
 
   home.persistence."/persist" = lib.mkIf (config.var.impermanenceEnabled or false) {

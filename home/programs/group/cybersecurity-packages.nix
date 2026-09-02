@@ -28,6 +28,9 @@
   hydra
   pkgs.nur.repos.anotherhadi.revshell
 
+  # Reverse
+  binsider # Analyzer of executables using a terminal user interface
+
   # Misc
   metasploit
   nuclei

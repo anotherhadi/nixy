@@ -15,6 +15,7 @@
       ++ (with pkgs; [
         nodejs
         air
+        bun
         duckdb
         python3
         jq
