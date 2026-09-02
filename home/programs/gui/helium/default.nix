@@ -63,6 +63,8 @@
         --arg       id       "${themeId}" \
         --slurpfile manifest "$THEME_DIR/manifest.json" \
         '
+          .profile.exit_type                           = "Normal" |
+          .profile.exited_cleanly                      = true   |
           .helium.browser.layout                       = 3     |
           .helium.browser.minimal_location_bar        = true  |
           .helium.browser.show_dynamic_new_tab_button = false |
