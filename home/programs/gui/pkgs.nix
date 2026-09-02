@@ -14,6 +14,7 @@
     ticktick # Todo app
     keepassxc # Password manager
     localsend
+    mattermost-desktop
     # Backup
     # thunar
     #gnome-text-editor

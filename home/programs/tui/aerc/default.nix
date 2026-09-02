@@ -66,35 +66,7 @@
     };
 
     # ----------------------------------------------------
-    # 3. Google Account
-    # ----------------------------------------------------
-    google = {
-      address = "m2a3r3k4@gmail.com";
-      userName = "m2a3r3k4@gmail.com";
-      realName = "M2A3";
-
-      imap.host = "imap.gmail.com";
-      smtp.host = "smtp.gmail.com";
-
-      passwordCommand = "${pkgs.coreutils}/bin/cat /run/secrets/google-email";
-      aerc.enable = true;
-
-      mbsync = {
-        enable = true;
-        create = "both";
-        expunge = "both";
-      };
-
-      imapnotify = {
-        enable = true;
-        boxes = ["INBOX"];
-        onNotify = "${pkgs.libnotify}/bin/notify-send 'Email' 'New message in Google'";
-        onNotifyPost = "${pkgs.isync}/bin/mbsync google";
-      };
-    };
-
-    # ----------------------------------------------------
-    # 4. Work Account
+    # 3. Work Account
     # ----------------------------------------------------
     work = {
       address = "pavlicek@vshosting.cz";
@@ -151,7 +123,7 @@
     [messages]
     <C-l> = :next-tab<Enter>
     <C-h> = :prev-tab<Enter>
-    r = :read -t<Enter>
+    r = :read -t
     R = :mark -a<Enter>:read<Enter>
     [view]
     <C-l> = :next-tab<Enter>

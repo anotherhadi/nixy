@@ -25,13 +25,19 @@ in {
       personal-email = {
         owner = username;
       };
+      personal-email-passwd = {
+        owner = username;
+      };
       seznam-email = {
         owner = username;
       };
-      google-email = {
+      seznam-email-passwd = {
         owner = username;
       };
       work-email = {
+        owner = username;
+      };
+      work-email-passwd = {
         owner = username;
       };
       discord-token = {
