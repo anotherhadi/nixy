@@ -32,6 +32,7 @@ in {
       app-notifications = false;
       custom-shader = "${cursorShaders}/cursor_warp.glsl";
       custom-shader-animation = "always";
+      mouse-scroll-multiplier = "discrete:1";
       keybind = [
         "shift+ctrl+tab=new_tab"
       ];
