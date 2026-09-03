@@ -23,6 +23,7 @@
     mcat # Cat command for documents / images / videos and more
     lazyjournal
     vhs # Create GIF from the command-line
+    andcli # 2FA for your shell
 
     httpie # Command-line HTTP client, a user-friendly cURL replacement
     gh # GitHub
