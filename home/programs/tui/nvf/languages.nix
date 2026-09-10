@@ -101,7 +101,7 @@
             };
           };
         };
-        extraDiagnostics.enable = true;
+        extraDiagnostics.enable = false;
       };
       typescript = {
         enable = true;
