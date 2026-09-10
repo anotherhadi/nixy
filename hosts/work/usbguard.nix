@@ -16,6 +16,7 @@
       allow id 1d6b:0003 name "xHCI Host Controller"
       allow id 0461:574a name "HP 125 USB Optical Mouse"
       allow id 0461:554a name "HP 125 Wired Keyboard"
+      allow id 1f75:0903 name "USB DISK"
     '';
   };
 }
