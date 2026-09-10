@@ -23,7 +23,7 @@
     mcat # Cat command for documents / images / videos and more
     lazyjournal
     vhs # Create GIF from the command-line
-    andcli # 2FA for your shell
+    andcli # 2FA for your shell, waiting for the support of Proton AUTH in the andcli nixpkgs unstable version
 
     httpie # Command-line HTTP client, a user-friendly cURL replacement
     gh # GitHub
