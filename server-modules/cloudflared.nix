@@ -40,5 +40,6 @@
   # At the moment (2025), for support of browser rendering of the tunnels, this line is required:
   services.openssh.settings.Macs = [
     "hmac-sha2-256"
+    "hmac-sha2-512"
   ];
 }

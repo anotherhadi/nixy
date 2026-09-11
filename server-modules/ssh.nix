@@ -20,11 +20,19 @@ in {
       KexAlgorithms = [
         "curve25519-sha256"
         "curve25519-sha256@libssh.org"
+        "ecdh-sha2-nistp256"
+        "ecdh-sha2-nistp384"
+        "ecdh-sha2-nistp521"
       ];
       Ciphers = [
         "chacha20-poly1305@openssh.com"
         "aes256-gcm@openssh.com"
+        "aes128-gcm@openssh.com"
+        "aes256-ctr"
+        "aes192-ctr"
+        "aes128-ctr"
       ];
+      HostKeyAlgorithms = "ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-rsa";
     };
   };
 
