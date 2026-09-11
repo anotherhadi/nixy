@@ -41,5 +41,9 @@
   };
 in {
   customComponents = [idfm];
-  customLovelaceModules = [atomic-calendar-revive];
+  customLovelaceModules = [
+    atomic-calendar-revive
+    pkgs.home-assistant-custom-lovelace-modules.bubble-card
+    pkgs.home-assistant-custom-lovelace-modules.auto-entities
+  ];
 }
