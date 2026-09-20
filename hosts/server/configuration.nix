@@ -24,6 +24,7 @@
     ../../server-modules/gitea.nix
     ../../server-modules/signal-cli-rest-api.nix
     ../../server-modules/home-assistant
+    ../../server-modules/miniflux.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
