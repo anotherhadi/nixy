@@ -1,8 +1,9 @@
-# Clipboard history: cliphist watches the Wayland clipboard and stores every
-# entry (text + images) so it can be recalled later via the `clipboard-menu`
-# script (tofi). Uses the home-manager module so the watcher services are
-# managed the same way as swaync/hypridle.
-{pkgs, ...}: {
+# Clipboard history: cliphist watches the Wayland clipboard and stores every entry
+{
+  pkgs,
+  scripts,
+  ...
+}: {
   home.packages = [pkgs.wl-clipboard];
 
   services.cliphist = {
@@ -22,5 +23,27 @@
       ExecStop = "${pkgs.cliphist}/bin/cliphist wipe";
     };
     Install.WantedBy = ["default.target"];
+  };
+
+  xdg.desktopEntries = {
+    clipboard-menu = {
+      name = "Clipboard History";
+      exec = "${scripts.clipboard-menu}/bin/clipboard-menu";
+      icon = "edit-paste-symbolic";
+      comment = "Pick a past clipboard entry";
+      categories = ["Utility"];
+      terminal = false;
+      settings.Keywords = "clipboard;history;paste;cliphist;";
+    };
+
+    clipboard-wipe = {
+      name = "Clear Clipboard History";
+      exec = "${pkgs.cliphist}/bin/cliphist wipe";
+      icon = "edit-clear-all-symbolic";
+      comment = "Delete all clipboard history entries";
+      categories = ["Utility"];
+      terminal = false;
+      settings.Keywords = "clipboard;history;clear;wipe;delete;cliphist;";
+    };
   };
 }
