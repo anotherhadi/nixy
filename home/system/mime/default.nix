@@ -8,11 +8,11 @@
     text = ["nvim-ghostty.desktop"];
     code = ["nvim-ghostty.desktop"];
     image = ["imv-dir.desktop"];
-    audio = ["vlc.desktop"];
+    audio = ["kew.desktop"];
     video = ["vlc.desktop"];
     directory = ["elio.desktop"];
     office = ["onlyoffice-desktopeditors.desktop"];
-    pdf = ["onlyoffice-desktopeditors.desktop"];
+    pdf = ["helium.desktop"];
     archive = ["elio.desktop"];
     browser = ["helium.desktop"];
   };
@@ -53,21 +53,24 @@
       "image/bmp"
       "image/gif"
       "image/jpeg"
-      "image/jpg"
       "image/png"
       "image/svg+xml"
       "image/tiff"
       "image/vnd.microsoft.icon"
       "image/webp"
+      "image/heif"
+      "image/avif"
     ];
     audio = [
       "audio/aac"
       "audio/mpeg"
       "audio/ogg"
       "audio/opus"
-      "audio/wav"
+      "audio/vnd.wave"
       "audio/webm"
       "audio/x-matroska"
+      "audio/flac"
+      "audio/mp4"
     ];
     video = [
       "video/mp2t"
@@ -78,6 +81,7 @@
       "video/x-flv"
       "video/x-matroska"
       "video/x-msvideo"
+      "video/quicktime"
     ];
     directory = ["inode/directory"];
     office = [
@@ -104,6 +108,8 @@
       "application/x-xz"
       "application/x-zstd"
       "application/x-compressed-tar"
+      "application/x-bzip2-compressed-tar"
+      "application/x-xz-compressed-tar"
     ];
     browser = [
       "text/html"
@@ -145,7 +151,6 @@ in {
       enable = true;
       createDirectories = true;
       desktop = null;
-      music = null;
       publicShare = null;
       templates = null;
       extraConfig = {

@@ -3,6 +3,7 @@
   username = config.var.git.username;
   email = config.var.git.email;
 in {
+  imports = [./lazygit.nix];
   programs.git = {
     enable = true;
     ignores = [

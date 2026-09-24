@@ -55,7 +55,12 @@
     };
   };
 in {
-  home.packages = [elio];
+  home.packages = [
+    elio
+    pkgs.poppler-utils # PDF previews
+    pkgs.ffmpeg # media metadata and thumbnails
+    pkgs.resvg # SVG previews
+  ];
 
   xdg.desktopEntries.elio = {
     name = "elio";

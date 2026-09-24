@@ -1,6 +1,11 @@
 # hypridle handles idle management: lock the screen, turn the display off, and
 # suspend after periods of inactivity. The `caffeine-toggle` script pauses it.
-{pkgs, ...}: {
+{
+  pkgs,
+  scripts,
+  ...
+}: {
+  # TODO: Is it possible to move "some" script here but keep the script import ?
   services.hypridle = {
     enable = true;
     settings = {
@@ -26,6 +31,18 @@
           on-timeout = "systemctl suspend";
         }
       ];
+    };
+  };
+
+  xdg.desktopEntries = {
+    caffeine-toggle = {
+      name = "Keep Awake";
+      exec = "${scripts.caffeine-toggle}/bin/caffeine-toggle";
+      icon = "my-caffeine-on-symbolic";
+      comment = "Pause or resume idle locking and suspend";
+      categories = ["System"];
+      terminal = false;
+      settings.Keywords = "caffeine;idle;awake;inhibit;suspend;";
     };
   };
 }

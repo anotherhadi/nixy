@@ -10,8 +10,11 @@
     pinta # Image editor
     onlyoffice-desktopeditors # Office suite
     blanket # Listen to different sounds
+    # TODO: Will try signal TUI again
     signal-desktop # Messaging app
     ticktick # Todo app
+
+    # TODO: Zatura ? Avec home manager pour stylix
 
     # Backup
     thunar

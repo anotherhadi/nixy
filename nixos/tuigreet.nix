@@ -60,4 +60,8 @@ in {
     TTYVHangup = true;
     TTYVTDisallocate = true;
   };
+
+  environment.persistence."/persist".directories = [
+    "/var/cache/tuigreet"
+  ];
 }

@@ -5,15 +5,9 @@
   inputs,
   ...
 }: {
-  home.packages = import ./cybersecurity-packages.nix {
+  home.packages = import ./pkgs.nix {
     inherit pkgs;
   };
-
-  systemd.user.tmpfiles.rules = [
-    "d %h/Cyber/tmp 0755 - - -"
-    "d %h/Cyber/wordlists 0755 - - -"
-    "d %h/Cyber/wordlists/rules 0755 - - -"
-  ];
 
   home.file = {
     "Cyber/wordlists/seclists".source = pkgs.fetchFromGitHub {
@@ -43,6 +37,7 @@
       hash = "sha256-T0XkMHJZQiy63/j25nGTkaiDFjc+blmgEVGTAFgVylU=";
     };
 
+    # Open source list of default credentials
     ".cache/default-creds".source = inputs.default-creds;
   };
 

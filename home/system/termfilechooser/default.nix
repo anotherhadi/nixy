@@ -60,6 +60,6 @@ in {
     open_mode=suggested
     save_mode=suggested
     env=TERMCMD=${termcmd}
-        PATH=${config.home.profileDirectory}/bin:/run/current-system/sw/bin:/run/wrappers/bin
+    PATH=${config.home.profileDirectory}/bin:/run/current-system/sw/bin:/run/wrappers/bin
   '';
 }

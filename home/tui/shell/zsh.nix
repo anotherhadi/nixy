@@ -15,9 +15,6 @@
       COLORTERM = "truecolor";
       MANPAGER = "bat -l man -p";
     };
-    persistence."/persist" = lib.mkIf (config.var.impermanenceEnabled or false) {
-      files = [".zsh_history"];
-    };
   };
 
   programs.zsh = {
@@ -37,6 +34,7 @@
     ];
 
     history = {
+      path = lib.mkIf (config.var.impermanenceEnabled or false) "/persist${config.home.homeDirectory}/.zsh_history";
       ignoreDups = true;
       findNoDups = true;
       expireDuplicatesFirst = true;
@@ -63,7 +61,6 @@
       cd = "z";
       ls = "eza --icons=always --no-quotes";
       tree = "eza --icons=always --tree --no-quotes";
-      cat = "bat --theme=base16 --color=always --paging=never --tabs=2 --wrap=never --plain";
       mkdir = "mkdir -p";
       nix-shell = "nix-shell --command zsh";
       grep = "rg --color=auto";
@@ -118,6 +115,33 @@
       '')
       # bash
       ''
+        # cat: preview images inline (kitty graphics protocol, works in Ghostty)
+        # instead of dumping bat's binary garbage; falls back to bat otherwise.
+        cat() {
+          local -a imgs rest
+          local f
+          for f in "$@"; do
+            case "''${f:l}" in
+              *.png|*.jpg|*.jpeg|*.gif|*.bmp|*.webp|*.tiff|*.ico)
+                imgs+=("$f")
+                ;;
+              *)
+                rest+=("$f")
+                ;;
+            esac
+          done
+
+          if (( ''${#imgs} )); then
+            for f in "''${imgs[@]}"; do
+              chafa --format=kitty "$f"
+            done
+          fi
+
+          if (( ''${#rest} || ! ''${#imgs} )); then
+            bat --theme=base16 --color=always --paging=never --tabs=2 --wrap=never --plain "''${rest[@]}"
+          fi
+        }
+
         # Suffix Aliases
         alias -s {nix,md,txt,yml,yaml,go}=nvim
         alias -s {json,jsonl}=jless
@@ -145,6 +169,7 @@
           bindkey '^[[1;5C' forward-word
           bindkey '^[[1;5D' backward-word
           bindkey '^F' _fzf_file_no_hidden
+          bindkey '^R' fzf-history-widget
           bindkey '^[[A' history-substring-search-up
           bindkey '^[[B' history-substring-search-down
         }

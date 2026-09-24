@@ -26,13 +26,6 @@
     '';
   };
 
-  # battery-monitor: low-battery alerts, run by the systemd user timer.
-  battery-monitor = pkgs.writeShellApplication {
-    name = "battery-monitor";
-    runtimeInputs = with pkgs; [waybar-osd libnotify glib coreutils];
-    text = builtins.readFile ./battery-monitor.sh;
-  };
-
   updateOsd = ''
     ${waybar-osd}/bin/waybar-osd "$OSD_TEXT"
   '';
@@ -88,7 +81,7 @@
   '';
   osdPath = "$XDG_RUNTIME_DIR/waybar-osd";
 in {
-  inherit waybar-osd waybar-osd-status battery-monitor osdPath;
+  inherit waybar-osd waybar-osd-status osdPath;
 
   bluetoothScript = pkgs.writeShellScript "waybar-bluetooth" ''
     jq=${pkgs.jq}/bin/jq

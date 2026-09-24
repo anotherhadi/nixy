@@ -24,6 +24,11 @@ in {
       "bg" = "-1";
       "prompt" = muted;
       "pointer" = accent;
+      "border" = muted;
+      "preview-border" = muted;
+      "scrollbar" = muted;
+      "preview-scrollbar" = muted;
+      "gutter" = muted;
     };
 
     defaultOptions = [

@@ -3,49 +3,20 @@
   inputs,
   lib,
   ...
-}: {
-  imports = [
-    # Programs
+}: let
+  utils = import ../../home/lib/utils.nix {inherit lib;};
+in {
+  imports =
+    utils.importAll ../../home/tui
+    ++ utils.importAll ../../home/gui
+    ++ utils.importAll ../../home/system # System (Desktop environment like stuff)
+    ++ [
+      inputs.nvf-config.homeManagerModules.default # My vim config
+      ../../home/tui/git/signing.nix # CHANGEME: Change the key or remove this file
+      ./variables.nix # Mostly user-specific configuration
+    ];
 
-    ## GUI
-    ../../home/programs/gui/proton
-    ../../home/programs/gui/helium
-    ../../home/programs/gui/pkgs.nix
-
-    ## TUI
-    inputs.nvf-config.homeManagerModules.default
-    ../../home/programs/tui/ghostty
-    ../../home/programs/tui/ilovetui
-    ../../home/programs/tui/shell
-    ../../home/programs/tui/git
-    ../../home/programs/tui/git/lazygit.nix
-    ../../home/programs/tui/git/signing.nix # CHANGEME: Change the key or remove this file
-    ../../home/programs/tui/nixy
-    ../../home/programs/tui/nix-utils
-    ../../home/programs/tui/myx
-    ../../home/programs/tui/elio
-    ../../home/programs/tui/wikiman
-    ../../home/programs/tui/navi
-    ../../home/programs/tui/pkgs.nix
-
-    ## GROUPS
-    ../../home/programs/group/cybersecurity.nix
-    ../../home/programs/group/dev.nix
-
-    # System (Desktop environment like stuff)
-    ../../home/system/hyprlock
-    ../../home/system/hyprland
-    ../../home/system/waybar
-    ../../home/system/swaync
-    ../../home/system/tofi
-    ../../home/system/mime
-    ../../home/system/udiskie
-    ../../home/system/termfilechooser
-    ../../home/system/clipboard
-    ../../home/system/hypridle
-
-    ./variables.nix # Mostly user-specific configuration
-  ];
+  # TODO: test taskwarrior avec l'application ios et le serveur selfhost
 
   home = {
     inherit (config.var) username;
@@ -59,6 +30,7 @@
         ".cache"
         ".steam"
         "Notes"
+        "Music"
         "Projects"
         "Documents"
         "Downloads"

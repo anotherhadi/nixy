@@ -2,7 +2,7 @@
 {
   services.udiskie = {
     enable = true;
-    notify = true;
+    notify = false;
     automount = true;
     tray = "never";
   };

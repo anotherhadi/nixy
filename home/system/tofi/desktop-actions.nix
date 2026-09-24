@@ -194,16 +194,6 @@
       settings.Keywords = "icon;nerdfont;glyph;symbol;";
     };
 
-    caffeine-toggle = {
-      name = "Keep Awake";
-      exec = "${scripts.caffeine-toggle}/bin/caffeine-toggle";
-      icon = "my-caffeine-on-symbolic";
-      comment = "Pause or resume idle locking and suspend";
-      categories = ["System"];
-      terminal = false;
-      settings.Keywords = "caffeine;idle;awake;inhibit;suspend;";
-    };
-
     logout = {
       name = "Logout";
       exec = "${pkgs.hyprland}/bin/hyprctl dispatch exit";

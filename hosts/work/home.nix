@@ -23,7 +23,7 @@
     ../../home/programs/tui/nix-utils
     ../../home/programs/tui/myx
     ../../home/programs/tui/elio
-    ../../home/programs/tui/wikiman
+    ../../home/programs/tui/tealdeer
     ../../home/programs/tui/navi
     ../../home/programs/tui/pkgs.nix
 
