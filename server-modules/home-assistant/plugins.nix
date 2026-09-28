@@ -39,10 +39,25 @@
       cp $src $out/atomic-calendar-revive.js
     '';
   };
+
+  multiday-calendar-card = pkgs.stdenvNoCC.mkDerivation {
+    pname = "multiday-calendar-card";
+    version = "0.3.0";
+    src = pkgs.fetchurl {
+      url = "https://raw.githubusercontent.com/Uko/multiday-calendar-card/v0.3.0/dist/multiday-calendar-card.js";
+      hash = "sha256-vDRp/AwJWHpUTMP+rO4rHdvaFxQJCG+GAzUKGwQiDTM=";
+    };
+    dontUnpack = true;
+    installPhase = ''
+      mkdir $out
+      cp $src $out/multiday-calendar-card.js
+    '';
+  };
 in {
   customComponents = [idfm];
   customLovelaceModules = [
     atomic-calendar-revive
+    multiday-calendar-card
     pkgs.home-assistant-custom-lovelace-modules.bubble-card
     pkgs.home-assistant-custom-lovelace-modules.auto-entities
   ];
