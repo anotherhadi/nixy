@@ -4,24 +4,6 @@
   ...
 }: {
   xdg.desktopEntries = {
-    focus-toggle = {
-      name = "Focus Mode";
-      exec = "${scripts.focus-toggle}/bin/focus-toggle";
-      icon = "do-not-disturb-symbolic";
-      comment = "Toggle focus mode";
-      categories = ["System"];
-      terminal = false;
-    };
-
-    nightshift-toggle = {
-      name = "Night Shift";
-      exec = "${scripts.nightshift-toggle}/bin/nightshift-toggle";
-      icon = "night-light-symbolic";
-      comment = "Toggle night shift";
-      categories = ["System"];
-      terminal = false;
-    };
-
     mic-mute = {
       name = "Mute Microphone";
       exec = "${scripts.mic-mute}/bin/mic-mute";
@@ -31,20 +13,20 @@
       terminal = false;
     };
 
-    lock = {
-      name = "Lock";
-      exec = "${pkgs.hyprlock}/bin/hyprlock";
-      icon = "system-lock-screen-symbolic";
-      comment = "Lock the screen";
-      categories = ["System"];
-      terminal = false;
-    };
-
     reboot = {
       name = "Reboot";
       exec = "systemctl reboot";
       icon = "system-restart-symbolic";
       comment = "Restart the system";
+      categories = ["System"];
+      terminal = false;
+    };
+
+    suspend = {
+      name = "Suspend";
+      exec = "systemctl suspend";
+      icon = "system-suspend-symbolic";
+      comment = "Suspend the system";
       categories = ["System"];
       terminal = false;
     };
@@ -63,15 +45,6 @@
       exec = "systemctl hibernate";
       icon = "drive-harddisk-symbolic";
       comment = "Hibernate the system";
-      categories = ["System"];
-      terminal = false;
-    };
-
-    waybar-toggle = {
-      name = "Toggle Waybar";
-      exec = "${scripts.waybar-toggle}/bin/waybar-toggle";
-      icon = "panel-applets-symbolic";
-      comment = "Show or hide the status bar";
       categories = ["System"];
       terminal = false;
     };
@@ -154,16 +127,6 @@
       settings.Keywords = "record;recording;screencast;video;";
     };
 
-    power-cycle = {
-      name = "Power Profile";
-      exec = "${scripts.power-cycle}/bin/power-cycle";
-      icon = "power-profile-balanced-symbolic";
-      comment = "Cycle power-saver / balanced / performance";
-      categories = ["System"];
-      terminal = false;
-      settings.Keywords = "power;profile;performance;battery;";
-    };
-
     airplane-toggle = {
       name = "Airplane Mode";
       exec = "${scripts.airplane-toggle}/bin/airplane-toggle";
@@ -194,16 +157,6 @@
       settings.Keywords = "icon;nerdfont;glyph;symbol;";
     };
 
-    caffeine-toggle = {
-      name = "Keep Awake";
-      exec = "${scripts.caffeine-toggle}/bin/caffeine-toggle";
-      icon = "my-caffeine-on-symbolic";
-      comment = "Pause or resume idle locking and suspend";
-      categories = ["System"];
-      terminal = false;
-      settings.Keywords = "caffeine;idle;awake;inhibit;suspend;";
-    };
-
     logout = {
       name = "Logout";
       exec = "${pkgs.hyprland}/bin/hyprctl dispatch exit";
@@ -211,16 +164,6 @@
       comment = "End the current session";
       categories = ["System"];
       terminal = false;
-    };
-
-    dnd-toggle = {
-      name = "Do Not Disturb";
-      exec = "${scripts.dnd-toggle}/bin/dnd-toggle";
-      icon = "notifications-disabled-symbolic";
-      comment = "Toggle Do Not Disturb";
-      categories = ["System"];
-      terminal = false;
-      settings.Keywords = "dnd;notifications;disturb;swaync;silence;";
     };
 
     vol-mute = {

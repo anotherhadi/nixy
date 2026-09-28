@@ -3,8 +3,19 @@
   pkgs,
   scripts,
   ...
-}: {
-  home.packages = [pkgs.wl-clipboard];
+}: let
+  tofiMenu = "${pkgs.tofi}/bin/tofi --horizontal false --anchor center --width 700 --height 500 --margin-top 0 --margin-left 0 --margin-right 0 --num-results 10";
+in {
+  scripts.clipboard-menu = pkgs.writeShellScriptBin "clipboard-menu" ''
+    list=$(${pkgs.cliphist}/bin/cliphist list)
+    selected=$(printf '%s\n' "$list" | cut -f2- | ${tofiMenu} --prompt-text "Clipboard: ")
+    [ -n "$selected" ] && printf '%s\n' "$list" \
+      | awk -F'\t' -v s="$selected" '$2 == s {print; exit}' \
+      | ${pkgs.cliphist}/bin/cliphist decode \
+      | ${pkgs.wl-clipboard}/bin/wl-copy
+  '';
+
+  home.packages = [pkgs.wl-clipboard scripts.clipboard-menu];
 
   services.cliphist = {
     enable = true;

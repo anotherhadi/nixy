@@ -1,6 +1,5 @@
 # Use elio as the file picker for portal dialogs (browser "select file(s)" and
-# "save download to..."). The backend is xdg-desktop-portal-termfilechooser,
-# enabled system-wide in nixos/utils.nix (extraPortals + FileChooser routing).
+# "save download to...").
 {
   config,
   pkgs,
@@ -48,9 +47,6 @@
       fi
     fi
   '';
-  # ghostty must run in the foreground instead of handing off to the
-  # single-instance daemon, otherwise the wrapper returns before you've picked
-  # anything and the portal reads an empty selection.
   termcmd = "ghostty --gtk-single-instance=false --title=termfilechooser -e";
 in {
   xdg.configFile."xdg-desktop-portal-termfilechooser/config".text = ''
@@ -60,6 +56,6 @@ in {
     open_mode=suggested
     save_mode=suggested
     env=TERMCMD=${termcmd}
-        PATH=${config.home.profileDirectory}/bin:/run/current-system/sw/bin:/run/wrappers/bin
+    PATH=${config.home.profileDirectory}/bin:/run/current-system/sw/bin:/run/wrappers/bin
   '';
 }
