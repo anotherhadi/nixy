@@ -68,7 +68,12 @@ in {
       ];
     };
     gvfs.enable = true;
-    upower.enable = true;
+    upower = {
+      enable = true;
+      percentageLow = 10;
+      percentageCritical = 5;
+      percentageAction = 3;
+    };
     power-profiles-daemon.enable = true;
     udisks2.enable = true;
   };

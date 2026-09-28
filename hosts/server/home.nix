@@ -14,7 +14,7 @@
     ../../home/programs/tui/nixy
     ../../home/programs/tui/nix-utils
     ../../home/programs/tui/elio
-    ../../home/programs/tui/wikiman
+    ../../home/programs/tui/tealdeer
     ../../home/programs/tui/pkgs.nix
 
     ../../home/programs/group/dev.nix

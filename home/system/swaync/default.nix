@@ -18,6 +18,28 @@
   in "${builtins.substring high 1 digits}${builtins.substring low 1 digits}";
   alphaHex = opacityToHex config.theme.inactive-opacity;
 in {
+  scripts.dnd-toggle = pkgs.writeShellScriptBin "dnd-toggle" ''
+    state=$(${pkgs.swaynotificationcenter}/bin/swaync-client -d)
+    if [ "$state" = "true" ]; then
+      OSD_TEXT="󰂛  Do Not Disturb On"
+    else
+      OSD_TEXT="󰂚  Do Not Disturb Off"
+    fi
+    ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT"
+  '';
+
+  home.packages = [scripts.dnd-toggle];
+
+  xdg.desktopEntries.dnd-toggle = {
+    name = "Do Not Disturb";
+    exec = "${scripts.dnd-toggle}/bin/dnd-toggle";
+    icon = "notifications-disabled-symbolic";
+    comment = "Toggle Do Not Disturb";
+    categories = ["System"];
+    terminal = false;
+    settings.Keywords = "dnd;notifications;disturb;swaync;silence;";
+  };
+
   services.swaync = {
     enable = true;
 
@@ -409,13 +431,5 @@ in {
 
   stylix.targets.swaync.enable = false;
 
-  # GTK 4.22 defaults to the Vulkan renderer, which compiles its graphics
-  # pipelines lazily on the first frame. The control center has many distinct
-  # visual elements, so the first open triggers a big burst of pipeline
-  # compilation (a multi-second stall on a cold boot) while later opens reuse
-  # the in-process cache. The GL (ngl) renderer avoids this: it stays
-  # GPU-accelerated and benefits from Mesa's on-disk shader cache, so the
-  # first open is as fast as the rest. Scoped to swaync so other GTK4 apps
-  # keep the Vulkan renderer.
   systemd.user.services.swaync.Service.Environment = ["GSK_RENDERER=ngl"];
 }

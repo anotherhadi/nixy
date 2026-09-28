@@ -21,6 +21,7 @@ in {
     ./bindings.nix
     ./polkitagent.nix
     ./hyprpaper.nix
+    ./scripts.nix
   ];
 
   home.packages =

@@ -2,11 +2,6 @@
   config,
   pkgs,
   osdPath,
-  networkScript,
-  bluetoothScript,
-  caffeineToggleScript,
-  osdStatusScript,
-  nightshiftToggleScript,
   ...
 }: let
   gaps-out = config.theme.gaps-out;
@@ -18,9 +13,7 @@ in {
       position = "top";
       height = config.theme.bar-height;
       margin = "${toString gaps-out} ${toString gaps-out} 0";
-      modules-center = ["custom/osd" "custom/osd-sep" "clock" "tray" "hyprland/workspaces" "custom/network" "custom/bluetooth" "battery" "group/drawer"];
-
-      # ── Modules ─────────────────────────────────────────────────────────
+      modules-center = ["custom/osd" "custom/osd-sep" "clock" "tray" "hyprland/workspaces" "custom/network" "custom/bluetooth" "battery" "pulseaudio" "custom/nightshift" "custom/caffeine"];
 
       "hyprland/workspaces" = {
         format = "{id}";
@@ -55,7 +48,7 @@ in {
         exec-if = "! systemctl --user is-active --quiet hypridle";
         format = "{}";
         interval = 5;
-        on-click = "${caffeineToggleScript}/bin/caffeine-toggle";
+        on-click = "${config.scripts.caffeine-toggle}/bin/caffeine-toggle";
         tooltip = false;
       };
 
@@ -64,12 +57,12 @@ in {
         exec-if = "${pkgs.procps}/bin/pgrep -x hyprsunset";
         format = "{}";
         interval = 5;
-        on-click = "${nightshiftToggleScript}/bin/nightshift-toggle";
+        on-click = "${config.scripts.nightshift-toggle}/bin/nightshift-toggle";
         tooltip = false;
       };
 
       "custom/bluetooth" = {
-        exec = "${bluetoothScript}";
+        exec = "${config.scripts.bluetoothScript}";
         exec-if = "${pkgs.bluez}/bin/bluetoothctl list 2>/dev/null | grep -q Controller";
         return-type = "json";
         interval = 5;
@@ -78,7 +71,7 @@ in {
 
       "custom/osd" = {
         exec = "cat ${osdPath}";
-        exec-if = "${osdStatusScript}/bin/waybar-osd-status";
+        exec-if = "${config.scripts.waybar-osd-status}/bin/waybar-osd-status";
         signal = 8;
         interval = 1;
         format = "{}";
@@ -86,7 +79,7 @@ in {
 
       "custom/osd-sep" = {
         exec = "echo '|'";
-        exec-if = "${osdStatusScript}/bin/waybar-osd-status";
+        exec-if = "${config.scripts.waybar-osd-status}/bin/waybar-osd-status";
         signal = 8;
         interval = 1;
         format = "{}";
@@ -122,7 +115,7 @@ in {
       };
 
       "custom/network" = {
-        exec = "${networkScript}";
+        exec = "${config.scripts.networkScript}";
         return-type = "json";
         interval = 10;
         on-click = "${pkgs.ghostty}/bin/ghostty +new-window -e ${pkgs.nur.repos.anotherhadi.settuings}/bin/settuings --page network";

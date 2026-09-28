@@ -46,63 +46,6 @@ in {
 
     bind =
       [
-        # Applications
-        (
-          "$shiftMod, A, exec, "
-          + lib.getExe (mkMenu [
-            {
-              key = "a";
-              desc = "Proton Authenticator";
-              cmd = "env WEBKIT_DISABLE_COMPOSITING_MODE=1 ${pkgs.proton-authenticator}/bin/proton-authenticator";
-            }
-            {
-              key = "p";
-              desc = "Proton Pass";
-              cmd = "${pkgs.proton-pass}/bin/proton-pass";
-            }
-            {
-              key = "v";
-              desc = "Proton VPN";
-              cmd = "${pkgs.proton-vpn}/bin/protonvpn-app";
-            }
-            {
-              key = "c";
-              desc = "Proton Calendar";
-              cmd = "${config.programs.helium.package}/bin/helium 'https://calendar.proton.me/'";
-            }
-            {
-              key = "m";
-              desc = "Proton Mail";
-              cmd = "${config.programs.helium.package}/bin/helium 'https://mail.proton.me/'";
-            }
-            {
-              key = "o";
-              desc = "Obsidian";
-              cmd = "${pkgs.obsidian}/bin/obsidian";
-            }
-            {
-              key = "s";
-              desc = "Signal";
-              cmd = "${pkgs.signal-desktop}/bin/signal-desktop";
-            }
-            {
-              key = "t";
-              desc = "TickTick";
-              cmd = "${pkgs.ticktick}/bin/ticktick";
-            }
-            {
-              key = "b";
-              desc = "Helium";
-              cmd = "${config.programs.helium.package}/bin/helium";
-            }
-            {
-              key = "i";
-              desc = "Helium (Incognito)";
-              cmd = "${config.programs.helium.package}/bin/helium --incognito";
-            }
-          ])
-        )
-
         "$mod,B, exec, uwsm app -- ${config.programs.helium.package}/bin/helium" # Browser
 
         # Power
@@ -112,22 +55,22 @@ in {
             {
               key = "l";
               desc = "Lock";
-              cmd = "${pkgs.hyprlock}/bin/hyprlock";
+              cmd = config.xdg.desktopEntries.lock.exec;
             }
             {
               key = "s";
               desc = "Suspend";
-              cmd = "systemctl suspend";
+              cmd = config.xdg.desktopEntries.suspend.exec;
             }
             {
               key = "r";
               desc = "Reboot";
-              cmd = "systemctl reboot";
+              cmd = config.xdg.desktopEntries.reboot.exec;
             }
             {
               key = "p";
               desc = "Power Off";
-              cmd = "systemctl poweroff";
+              cmd = config.xdg.desktopEntries.shutdown.exec;
             }
           ])
         )
@@ -159,8 +102,8 @@ in {
         "$shiftMod, S, movetoworkspace, special:scratch" # Move to scratch workspace
 
         # Utilities
-        ", Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m region" # Capture region
-        "$shiftMod, Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m output" # Capture screen
+        ", Print, exec, ${config.xdg.desktopEntries.screenshot-region.exec}" # Capture region
+        "$shiftMod, Print, exec, ${config.xdg.desktopEntries.screenshot-screen.exec}" # Capture screen
       ]
       ++ (builtins.concatLists (
         builtins.genList (

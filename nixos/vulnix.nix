@@ -24,4 +24,8 @@
       RandomizedDelaySec = "1h";
     };
   };
+
+  environment.persistence."/persist".directories = [
+    "/var/cache/vulnix"
+  ];
 }

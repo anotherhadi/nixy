@@ -1,6 +1,24 @@
 # hypridle handles idle management: lock the screen, turn the display off, and
 # suspend after periods of inactivity. The `caffeine-toggle` script pauses it.
-{pkgs, ...}: {
+{
+  pkgs,
+  scripts,
+  ...
+}: {
+  scripts.caffeine-toggle = pkgs.writeShellScriptBin "caffeine-toggle" ''
+    # Pause hypridle (stay awake) or resume it.
+    if systemctl --user is-active --quiet hypridle; then
+      systemctl --user stop hypridle
+      OSD_TEXT="󰅶  Keep Awake On"
+    else
+      systemctl --user start hypridle
+      OSD_TEXT="󰾫  Keep Awake Off"
+    fi
+    ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT"
+  '';
+
+  home.packages = [scripts.caffeine-toggle];
+
   services.hypridle = {
     enable = true;
     settings = {
@@ -17,7 +35,7 @@
           on-timeout = "loginctl lock-session";
         }
         {
-          timeout = 360; # 6 min → screen off
+          timeout = 720; # 12 min → screen off
           on-timeout = "${pkgs.hyprland}/bin/hyprctl dispatch dpms off";
           on-resume = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
         }
@@ -26,6 +44,18 @@
           on-timeout = "systemctl suspend";
         }
       ];
+    };
+  };
+
+  xdg.desktopEntries = {
+    caffeine-toggle = {
+      name = "Keep Awake";
+      exec = "${scripts.caffeine-toggle}/bin/caffeine-toggle";
+      icon = "my-caffeine-on-symbolic";
+      comment = "Pause or resume idle locking and suspend";
+      categories = ["System"];
+      terminal = false;
+      settings.Keywords = "caffeine;idle;awake;inhibit;suspend;";
     };
   };
 }

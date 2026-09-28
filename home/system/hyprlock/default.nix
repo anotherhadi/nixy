@@ -63,6 +63,15 @@
 in {
   stylix.targets.hyprlock.enable = false;
 
+  xdg.desktopEntries.lock = {
+    name = "Lock";
+    exec = "${pkgs.hyprlock}/bin/hyprlock";
+    icon = "system-lock-screen-symbolic";
+    comment = "Lock the screen";
+    categories = ["System"];
+    terminal = false;
+  };
+
   programs.hyprlock = {
     enable = true;
     settings = {
