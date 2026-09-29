@@ -44,7 +44,8 @@ in {
   };
 
   wayland.windowManager.hyprland.settings.monitor = [
-    "desc:Philips Consumer Electronics Company PHL 221B8L ZV02144013987,highres,0x0,1"
+    "desc:Philips Consumer Electronics Company PHL 252B9 UHB2223003334,highres,0x0,1"
+    "desc:Acer Technologies Acer B246HL LXQEE0094208,highres,auto,1"
   ];
 
   programs = {
