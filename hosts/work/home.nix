@@ -3,48 +3,17 @@
   inputs,
   lib,
   ...
-}: {
-  imports = [
-    # Programs
-
-    ## GUI
-    ../../home/programs/gui/proton
-    ../../home/programs/gui/helium
-    ../../home/programs/gui/pkgs.nix
-
-    ## TUI
-    inputs.nvf-config.homeManagerModules.default
-    ../../home/programs/tui/ghostty
-    ../../home/programs/tui/ilovetui
-    ../../home/programs/tui/shell
-    ../../home/programs/tui/git
-    ../../home/programs/tui/git/lazygit.nix
-    ../../home/programs/tui/nixy
-    ../../home/programs/tui/nix-utils
-    ../../home/programs/tui/myx
-    ../../home/programs/tui/elio
-    ../../home/programs/tui/tealdeer
-    ../../home/programs/tui/navi
-    ../../home/programs/tui/pkgs.nix
-
-    ## GROUPS
-    ../../home/programs/group/cybersecurity.nix
-    ../../home/programs/group/dev.nix
-
-    # System (Desktop environment like stuff)
-    ../../home/system/hyprlock
-    ../../home/system/hyprland
-    ../../home/system/waybar
-    ../../home/system/swaync
-    ../../home/system/tofi
-    ../../home/system/mime
-    ../../home/system/udiskie
-    ../../home/system/termfilechooser
-    ../../home/system/clipboard
-    ../../home/system/hypridle
-
-    ./variables.nix # Mostly user-specific configuration
-  ];
+}: let
+  utils = import ../../home/lib/utils.nix {inherit lib;};
+in {
+  imports =
+    utils.importAll ../../home/tui
+    ++ utils.importAll ../../home/gui
+    ++ utils.importAll ../../home/system # System (Desktop environment like stuff)
+    ++ [
+      inputs.nvf-config.homeManagerModules.default # My vim config
+      ./variables.nix # Mostly user-specific configuration
+    ];
 
   home = {
     inherit (config.var) username;
