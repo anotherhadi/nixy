@@ -1,27 +1,18 @@
 {
   config,
   inputs,
+  lib,
   ...
-}: {
-  imports = [
-    ## TUI
-    inputs.nvf-config.homeManagerModules.default
-    ../../home/programs/tui/ilovetui
-    ../../home/programs/tui/shell
-    ../../home/programs/tui/git
-    ../../home/programs/tui/git/lazygit.nix
-    ../../home/programs/tui/git/signing.nix # CHANGEME: Change the key or remove this file
-    ../../home/programs/tui/nixy
-    ../../home/programs/tui/nix-utils
-    ../../home/programs/tui/elio
-    ../../home/programs/tui/tealdeer
-    ../../home/programs/tui/pkgs.nix
-
-    ../../home/programs/group/dev.nix
-
-    # Mostly user-specific configuration
-    ./variables.nix
-  ];
+}: let
+  utils = import ../../home/lib/utils.nix {inherit lib;};
+in {
+  imports =
+    utils.importAll ../../home/tui
+    ++ [
+      inputs.nvf-config.homeManagerModules.default # My vim config
+      ../../home/tui/git/signing.nix # CHANGEME: Change the key or remove this file
+      ./variables.nix # Mostly user-specific configuration
+    ];
 
   home = {
     inherit (config.var) username;
