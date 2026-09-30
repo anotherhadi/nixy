@@ -46,7 +46,6 @@ in {
       "manual"
       "meteo_france"
       "remote_calendar"
-      "music_assistant"
       "systemmonitor"
     ];
     customComponents = plugins.customComponents;
@@ -107,28 +106,16 @@ in {
     done
   '';
 
-  services.music-assistant = {
-    enable = true;
-    openFirewall = true;
-    providers = [
-      "hass"
-      "hass_players"
-      "spotify"
-      "sonos"
-      "airplay"
-      "chromecast"
-    ];
-  };
-
   services.matter-server = {
     enable = true;
     extraArgs.primary-interface = config.var.networkInterface;
   };
 
   networking.firewall.allowedUDPPorts = [5353];
+  # Sonos event subscriptions (callbacks from speakers to HA)
+  networking.firewall.allowedTCPPorts = [1400];
 
   services.cloudflared.tunnels."${config.var.tunnelId}".ingress = {
     "hass.${config.var.domain}" = "http://localhost:${toString config.services.home-assistant.config.http.server_port}";
-    "music.${config.var.domain}" = "http://localhost:8095";
   };
 }
