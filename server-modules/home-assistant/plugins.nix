@@ -54,7 +54,11 @@
     '';
   };
 in {
-  customComponents = [idfm];
+  customComponents = [
+    idfm
+    pkgs.home-assistant-custom-components.adaptive_lighting
+    pkgs.home-assistant-custom-components.spook
+  ];
   customLovelaceModules = [
     atomic-calendar-revive
     multiday-calendar-card

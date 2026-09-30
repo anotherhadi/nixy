@@ -46,6 +46,8 @@ in {
       "manual"
       "meteo_france"
       "remote_calendar"
+      "music_assistant"
+      "systemmonitor"
     ];
     customComponents = plugins.customComponents;
     customLovelaceModules = plugins.customLovelaceModules;
@@ -105,6 +107,19 @@ in {
     done
   '';
 
+  services.music-assistant = {
+    enable = true;
+    openFirewall = true;
+    providers = [
+      "hass"
+      "hass_players"
+      "spotify"
+      "sonos"
+      "airplay"
+      "chromecast"
+    ];
+  };
+
   services.matter-server = {
     enable = true;
     extraArgs.primary-interface = config.var.networkInterface;
@@ -112,5 +127,8 @@ in {
 
   networking.firewall.allowedUDPPorts = [5353];
 
-  services.cloudflared.tunnels."${config.var.tunnelId}".ingress."hass.${config.var.domain}" = "http://localhost:${toString config.services.home-assistant.config.http.server_port}";
+  services.cloudflared.tunnels."${config.var.tunnelId}".ingress = {
+    "hass.${config.var.domain}" = "http://localhost:${toString config.services.home-assistant.config.http.server_port}";
+    "music.${config.var.domain}" = "http://localhost:8095";
+  };
 }
