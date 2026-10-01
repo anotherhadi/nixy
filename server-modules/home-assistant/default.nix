@@ -46,6 +46,7 @@ in {
       "matter"
       "thread"
       "sonos"
+      "spotify"
       "apple_tv"
       "signal_messenger"
       "manual"
