@@ -11,6 +11,11 @@
     "h"
     "d"
   ];
+
+  motionRooms = [
+    "toilet"
+    "entry"
+  ];
 in {
   sops.secrets =
     {
@@ -60,6 +65,27 @@ in {
       automation = "!include automations.yaml";
       script = "!include scripts.yaml";
       frontend.themes = nixyTheme;
+      # Timestamp of the last motion detection (trigger-based, survives restarts)
+      template =
+        map (room: {
+          trigger = [
+            {
+              trigger = "state";
+              entity_id = "binary_sensor.${room}_motion";
+              to = "on";
+            }
+          ];
+          sensor = [
+            {
+              name = "${room} last motion";
+              unique_id = "${room}_last_motion";
+              device_class = "timestamp";
+              icon = "mdi:motion-sensor";
+              state = "{{ now().isoformat() }}";
+            }
+          ];
+        })
+        motionRooms;
       alarm_control_panel = [
         {
           platform = "manual";
