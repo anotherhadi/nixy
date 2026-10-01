@@ -64,5 +64,6 @@ in {
     pkgs.home-assistant-custom-lovelace-modules.bubble-card
     pkgs.home-assistant-custom-lovelace-modules.auto-entities
     pkgs.home-assistant-custom-lovelace-modules.mushroom
+    pkgs.home-assistant-custom-lovelace-modules.card-mod
   ];
 }

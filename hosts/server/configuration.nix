@@ -25,6 +25,7 @@
     ../../server-modules/signal-cli-rest-api.nix
     ../../server-modules/home-assistant
     ../../server-modules/miniflux.nix
+    ../../server-modules/uptime-kuma.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
