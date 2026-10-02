@@ -2,58 +2,13 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: let
   c = config.lib.stylix.colors;
-  # TODO: Waiting for a version in nixpkgs
-  version = "1.12.0";
-  sources = {
-    "x86_64-linux" = {
-      url = "https://github.com/elio-fm/elio/releases/download/v${version}/elio-${version}-x86_64-unknown-linux-gnu.tar.gz";
-      hash = "sha256-QLcp3MqW1P5uW8nh2njA2G+Fz3aIFrxx/rBT2jYeQPg=";
-    };
-  };
-  source =
-    sources.${pkgs.stdenv.hostPlatform.system}
-                    or (throw "elio: unsupported platform ${pkgs.stdenv.hostPlatform.system}");
-
-  elio = pkgs.stdenv.mkDerivation {
-    pname = "elio";
-    inherit version;
-
-    src = pkgs.fetchurl {inherit (source) url hash;};
-
-    nativeBuildInputs = [pkgs.autoPatchelfHook];
-
-    buildInputs = [pkgs.stdenv.cc.cc.lib];
-
-    installPhase = ''
-      runHook preInstall
-
-      install -Dm755 elio -t $out/bin
-
-      for size in 48 128 256 512; do
-          install -Dm644 \
-              "packaging/linux/icons/hicolor/''${size}x''${size}/apps/elio.png" \
-              "$out/share/icons/hicolor/''${size}x''${size}/apps/elio.png"
-      done
-      install -Dm644 packaging/linux/elio.desktop -t $out/share/applications
-
-      runHook postInstall
-    '';
-
-    meta = {
-      description = "Terminal file manager";
-      homepage = "https://github.com/elio-fm/elio";
-      license = pkgs.lib.licenses.mit;
-      mainProgram = "elio";
-      platforms = builtins.attrNames sources;
-      sourceProvenance = [pkgs.lib.sourceTypes.binaryNativeCode];
-    };
-  };
 in {
   home.packages = [
-    elio
+    inputs.elio.packages.${pkgs.stdenv.hostPlatform.system}.elio
     pkgs.poppler-utils # PDF previews
     pkgs.ffmpeg # media metadata and thumbnails
     pkgs.resvg # SVG previews
@@ -61,7 +16,7 @@ in {
 
   xdg.desktopEntries.elio = {
     name = "elio";
-    exec = "${pkgs.ghostty}/bin/ghostty +new-window -e ${elio}/bin/elio %f";
+    exec = "${pkgs.ghostty}/bin/ghostty +new-window -e ${inputs.elio.packages.${pkgs.stdenv.hostPlatform.system}.elio}/bin/elio %f";
     terminal = false;
     icon = "elio";
     mimeType = ["inode/directory"];

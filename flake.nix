@@ -51,6 +51,9 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    elio = {
+      url = "github:elio-fm/elio";
+    };
     default-creds = {
       url = "github:anotherhadi/default-creds";
       flake = false;
