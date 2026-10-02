@@ -4,8 +4,12 @@
     icon = "dns";
     bookmarks = [
       {
-        name = "Glance";
-        url = "https://home.hadi.icu";
+        name = "Home Assistant";
+        url = "https://hass.hadi.icu";
+      }
+      {
+        name = "Uptime Kuma";
+        url = "https://uptime.hadi.icu";
       }
       {
         name = "Blog";
@@ -56,10 +60,6 @@
           {
             name = "Cloudflare";
             url = "https://dash.cloudflare.com";
-          }
-          {
-            name = "Cloudflare Zero Trust";
-            url = "https://one.dash.cloudflare.com";
           }
         ];
       }

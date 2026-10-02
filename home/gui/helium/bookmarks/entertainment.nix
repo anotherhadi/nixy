@@ -28,6 +28,10 @@
             url = "https://bsky.app";
           }
           {
+            name = "X/Twitter";
+            url = "https://x.com";
+          }
+          {
             name = "Reddit";
             url = "https://reddit.com";
           }

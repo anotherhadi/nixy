@@ -32,6 +32,10 @@
             url = "https://github.com/NixOS/nixpkgs";
           }
           {
+            name = "Terminal Trove";
+            url = "https://terminaltrove.com/";
+          }
+          {
             name = "tldr";
             url = "https://tldr.inbrowser.app/";
           }

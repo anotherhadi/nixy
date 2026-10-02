@@ -36,6 +36,14 @@
         url = "https://privatebin.net";
       }
       {
+        name = "Google";
+        url = "https://google.com";
+      }
+      {
+        name = "Google Maps";
+        url = "https://google.com/maps";
+      }
+      {
         name = "Claude";
         url = "https://claude.ai";
       }
