@@ -142,6 +142,7 @@ in {
   home.persistence."/persist" = lib.mkIf (config.var.impermanenceEnabled or false) {
     directories = [
       ".config/net.imput.helium"
+      ".pki" # NSS database (client certificates)
     ];
   };
 }
