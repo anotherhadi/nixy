@@ -168,11 +168,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1790882387,
-        "narHash": "sha256-6yVkkjdVBCQQs8EtUzTqa1pKeRKMcffsM8t0Y69M87k=",
+        "lastModified": 1790950813,
+        "narHash": "sha256-WuwuSvEKpQZduP7mt3Fnc4xrQ9si0Zt8RrOh69L95qA=",
         "owner": "elio-fm",
         "repo": "elio",
-        "rev": "fbb9643f4d0f19a60f496832be345130877e51bd",
+        "rev": "fde80eece9b83a569ade2d00f4cb90e704789dc2",
         "type": "github"
       },
       "original": {
@@ -601,11 +601,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1790652569,
-        "narHash": "sha256-641r7xrlSOHYoktL9/aArPIYNgZJ9eM5URzSEOtPJDY=",
+        "lastModified": 1790178388,
+        "narHash": "sha256-kK3t7gwoz4Nx8RF46cs1Xz/skKNcK7y3KYP+gGqX6W8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b6c8664de9b6cc07fe5666a29f91884ba81197c4",
+        "rev": "00455b0a3690d3f5dc61e9aef4277dc86235b73f",
         "type": "github"
       },
       "original": {

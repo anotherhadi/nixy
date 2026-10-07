@@ -23,7 +23,7 @@
     termcmd="''${TERMCMD:-ghostty --gtk-single-instance=false --title=termfilechooser -e}"
 
     if [[ "$save" = "1" ]]; then
-      set -- --chooser-file="$out" "$path"
+      set -- --chooser-file="$out" --save-as "$path"
     elif [[ "$directory" = "1" ]]; then
       set -- --chooser-file="$out" --cwd-file="$out.1" "$path"
     else
@@ -55,6 +55,7 @@ in {
     default_dir=$HOME
     open_mode=suggested
     save_mode=suggested
+    create_help_file=0
     env=TERMCMD=${termcmd}
     PATH=${config.home.profileDirectory}/bin:/run/current-system/sw/bin:/run/wrappers/bin
   '';
