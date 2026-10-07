@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{config, ...}: {
   imports = [
     ../../nixos/nvidia.nix # CHANGEME: Remove this line if you don't have an Nvidia GPU
     ../../nixos/audio.nix
@@ -18,6 +14,7 @@
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
     ../../nixos/steam.nix
+    ../../nixos/ollama.nix
     ../../nixos/kernel-hardening.nix
     ../../home/gui/helium/system.nix # I hate browser's configuration..
 
