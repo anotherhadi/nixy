@@ -43,7 +43,9 @@
 
   home.persistence."/persist" = lib.mkIf (config.var.impermanenceEnabled or false) {
     directories = [
-      "Cyber"
+      "Cyber/reports"
+      "Cyber/notes"
+      "Cyber/programs"
     ];
   };
 }
