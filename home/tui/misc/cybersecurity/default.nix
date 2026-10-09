@@ -5,6 +5,8 @@
   inputs,
   ...
 }: {
+  imports = [./browser.nix];
+
   home.packages = import ./pkgs.nix {
     inherit pkgs;
   };
@@ -46,6 +48,7 @@
       "Cyber/reports"
       "Cyber/notes"
       "Cyber/programs"
+      "Cyber/certs"
     ];
   };
 }
