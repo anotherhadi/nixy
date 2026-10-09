@@ -33,6 +33,7 @@
   users.users.${config.var.username}.hashedPassword = "$y$j9T$A7gH534UczuBxulj9IfEu1$ImRy3lpYpemRWNVIkA7efKPWXneFiqhZnEF1aMkWcD8"; # CHANGEME: This is my password
 
   # Impermanence: declares what should survive a wipe of "/".
+  # TODO: Impermanence perms 755 by default
   environment.persistence."/persist" = {
     hideMounts = true;
 
