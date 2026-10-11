@@ -4,6 +4,10 @@
     icon = "terminal";
     bookmarks = [
       {
+        name = "YesWeHack";
+        url = "https://yeswehack.com/";
+      }
+      {
         name = "Nix 4 Cyber";
         url = "https://n4c.hadi.icu";
       }
