@@ -1,5 +1,0 @@
-{
-  programs = {
-    cava.enable = true;
-  };
-}

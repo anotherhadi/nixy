@@ -1,0 +1,38 @@
+{inputs, ...}: {
+  flake.modules.nixos.default-creds = {
+    config,
+    lib,
+    ...
+  }: let
+    inherit (import ./_mk-container.nix {inherit lib config;}) mkContainer;
+    domain = config.nixy.server.domain;
+  in {
+    imports = [
+      inputs.default-creds-web.nixosModules.default
+      (mkContainer {
+        name = "def-creds";
+        hostIp = "10.233.6.1";
+        containerIp = "10.233.6.2";
+        internet = true;
+        nixosConfig = {...}: {
+          imports = [inputs.default-creds-web.nixosModules.default];
+          services.default-creds-web = {
+            enable = true;
+            port = 8087;
+          };
+          networking.firewall.allowedTCPPorts = [8087];
+          systemd.services.default-creds-web.environment = {
+            HOST = lib.mkForce "0.0.0.0";
+            PUBLIC_UMAMI_URL = "https://umami.${domain}";
+            PUBLIC_UMAMI_WEBSITE_ID = "7197484c-01ad-488e-9caa-5ab7b7595f08";
+            UMAMI_URL = "https://umami.${domain}";
+            UMAMI_WEBSITE_ID = "7197484c-01ad-488e-9caa-5ab7b7595f08";
+          };
+          system.stateVersion = "24.05";
+        };
+      })
+    ];
+
+    services.cloudflared.tunnels."${config.nixy.server.tunnelId}".ingress."default-creds.${config.nixy.server.domain}" = "http://10.233.6.2:8087";
+  };
+}

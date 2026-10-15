@@ -103,11 +103,12 @@ This folder contains server-related nixos modules. (gitea, cloudflared, self-hos
 git clone https://github.com/anotherhadi/nixy ~/.config/nixos
 ```
 
-2. Copy the `hosts/laptop` folder, rename it to match your system’s hostname,
-   and update `variables.nix` with your machine’s settings.
-3. Copy your `hardware-configuration.nix` into your new host's folder to ensure
-   proper hardware support.
-4. Register your new host in `flake.nix` by adding it under nixosConfigurations.
+2. Copy the `modules/hosts/laptop` folder to `modules/hosts/<hostname>`, rename
+   the `nixosConfigurations` entry in its `default.nix` and update `_variables.nix`
+   with your machine’s settings.
+3. Copy your `hardware-configuration.nix` into your new host's folder as
+   `_hardware-configuration.nix` to ensure proper hardware support.
+   (Files starting with `_` are plain NixOS modules, ignored by import-tree.)
 
 > [!IMPORTANT]
 > `# CHANGEME` comments are placed throughout the config to

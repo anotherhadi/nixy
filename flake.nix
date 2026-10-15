@@ -7,13 +7,13 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+    import-tree.url = "github:vic/import-tree";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nvf.url = "github:notashelf/nvf";
-    nvf-config = {
-      url = "path:./home/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nvf.follows = "nvf";
-    };
     nur = {
       url = "github:nix-community/nur";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,19 +22,14 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    stylix = {
-      url = "github:nix-community/stylix/release-26.05";
+    hjem = {
+      url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    impermanence.url = "github:nix-community/impermanence";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,9 +46,17 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    elio = {
-      url = "github:elio-fm/elio";
+    nixpak = {
+      url = "github:nixpak/nixpak";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
+
+    impermanence.url = "github:nix-community/impermanence";
+    elio.url = "github:elio-fm/elio";
+    nixarr.url = "github:nix-media-server/nixarr";
+    default-creds-web.url = "github:anotherhadi/default-creds-web";
+
     default-creds = {
       url = "github:anotherhadi/default-creds";
       flake = false;
@@ -62,57 +65,9 @@
       url = "github:tldr-pages/tldr";
       flake = false;
     };
-
-    # Server
-    nixarr.url = "github:nix-media-server/nixarr";
-    default-creds-web.url = "github:anotherhadi/default-creds-web";
   };
 
-  outputs = inputs @ {
-    nixpkgs,
-    nixpkgs-unstable,
-    git-hooks,
-    ...
-  }: let
-    system = "x86_64-linux";
-    pkgs-unstable = import nixpkgs-unstable {
-      inherit system;
-      config.allowUnfree = true;
-    };
-    pkgs = nixpkgs.legacyPackages.${system};
-    args = {
-      inherit
-        inputs
-        nixpkgs
-        system
-        pkgs-unstable
-        pkgs
-        ;
-    };
-    merge = nixpkgs.lib.foldl nixpkgs.lib.recursiveUpdate {};
-    supportedSystems = ["x86_64-linux" "aarch64-linux"];
-
-    forAllSystems = f:
-      nixpkgs.lib.genAttrs supportedSystems
-      (system: f system (import nixpkgs {inherit system;}));
-  in
-    merge [
-      (import ./home/tui/nixy/flake.nix args)
-      {
-        formatter.${system} = pkgs.alejandra;
-        packages.${system}.nvim = inputs.nvf-config.packages.${system}.nvim;
-        apps.${system}.nvim = inputs.nvf-config.apps.${system}.nvim;
-        nixosConfigurations = {
-          h-laptop = import ./hosts/laptop/flake.nix args;
-          h-work = import ./hosts/work/flake.nix args;
-          jack = import ./hosts/server/flake.nix args;
-        };
-        devShells = forAllSystems (system: pkgs: {
-          default = import ./shell.nix {
-            inherit pkgs;
-            gitHooksLib = git-hooks.lib.${system};
-          };
-        });
-      }
-    ];
+  # Dendritic layout: every file under ./modules is a flake-parts module
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
 }
