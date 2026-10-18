@@ -28,7 +28,10 @@
 
         persist = {
           directories = [".claude"];
-          files = [".claude.json"];
+          files = [
+            ".claude.json"
+            ".npmrc" # npm login token
+          ];
         };
       })
     ];

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   vim = {
     diagnostics = {
       enable = true;
@@ -121,6 +125,11 @@
         setupOpts.format_on_save = {
           lsp_format = "fallback";
         };
+        # Prefer the project's pinned prettier (node_modules/.bin), so nvim, npm run format
+        # and CI format identically. nvf hardcodes the nixpkgs one, hence mkForce.
+        setupOpts.formatters.prettier.command = lib.mkForce (lib.generators.mkLuaInline ''
+          require("conform.util").find_executable({ "node_modules/.bin/prettier" }, "${lib.getExe pkgs.prettier}")
+        '');
       };
     };
   };
