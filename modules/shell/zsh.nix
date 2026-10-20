@@ -66,15 +66,11 @@
             vi = "nvim";
             mkdir = "mkdir -p";
             nix-shell = "nix-shell --command zsh";
-            grep = "rg --color=auto";
             diff = "diff --color=auto";
             df = "df -h";
 
             # Shortcuts
-            spt = "myx";
             open = "${pkgs.xdg-utils}/bin/xdg-open";
-
-            notes = "nvim ~/Notes/index.md --cmd 'cd ~/notes' -c ':lua Snacks.picker.smart()'";
 
             # git
             g = "lazygit";
@@ -171,7 +167,7 @@
                 fi
 
                 if (( ''${#rest} || ! ''${#imgs} )); then
-                  bat --theme=base16 --color=always --paging=never --tabs=2 --wrap=never --plain "''${rest[@]}"
+                  bat --theme=base16 --color=auto --paging=never --tabs=2 --wrap=never --plain "''${rest[@]}"
                 fi
               }
 
@@ -189,6 +185,7 @@
               alias -g T="| tail"
               alias -g JQ="| jq"
               alias -g C="| wl-copy"
+              # TODO: add signal notif
               alias -g NE="2>/dev/null"
               alias -g ND=">/dev/null"
               alias -g NUL=">/dev/null 2>&1"
