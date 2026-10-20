@@ -46,14 +46,14 @@
               smassh # typing test, 10fastfinger like
 
               cava # Audio visualizer
-              navi # Interactive cheatsheets
+              pkgs.nur.repos.sectui.cheatmd # Interactive cheatsheets from Markdown files
             ];
           }
 
           (lib.optionalAttrs (options ? zsh) {
             zsh.initContent = lib.mkOrder 1100 ''
               if [[ $options[zle] = on ]]; then
-                eval "$(${pkgs.navi}/bin/navi widget zsh)"
+                eval "$(${pkgs.nur.repos.sectui.cheatmd}/bin/cheatmd widget zsh)"
               fi
             '';
           })
