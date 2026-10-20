@@ -47,6 +47,16 @@ in {
         mode = "0600";
         path = "${home}/.config/myx/config.toml";
       };
+      subfinder-providers = {
+        owner = username;
+        mode = "0400";
+        path = "${home}/.config/subfinder/provider-config.yaml";
+      };
+      urlfinder-providers = {
+        owner = username;
+        mode = "0400";
+        path = "${home}/.config/urlfinder/provider-config.yaml";
+      };
     };
   };
 
