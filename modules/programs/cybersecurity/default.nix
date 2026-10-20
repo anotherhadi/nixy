@@ -8,44 +8,39 @@
     imports = [aspects.hjem];
 
     hjem.extraModules = [
-      ({pkgs, ...}: {
-        packages = import ./_pkgs.nix {inherit pkgs;};
+      ({
+        config,
+        pkgs,
+        ...
+      }: let
+        wordlists-fetch = import ./_wordlists.nix {inherit pkgs;};
+      in {
+        packages = import ./_pkgs.nix {inherit pkgs;} ++ [wordlists-fetch];
 
         files = {
-          "Cyber/wordlists/seclists".source = pkgs.fetchFromGitHub {
-            owner = "danielmiessler";
-            repo = "SecLists";
-            rev = "47aa98053fce8670c6489e4f6fb57dc34881d8bd";
-            hash = "sha256-ojXLB/TXap1Qi0MtV5/WJlJpjNIDYx/sLY2KHm0uFKI=";
-          };
-
-          "Cyber/wordlists/fuzz4bounty".source = pkgs.fetchFromGitHub {
-            owner = "0xPugal";
-            repo = "fuzz4bounty";
-            rev = "a805f6b434033f054312da0ddc2bc3021cc9a3b0";
-            hash = "sha256-wMhx1CcxIyw2E7gJXQxXAFc7m5nYt0FXNkoTZqFMQh4=";
-          };
-
-          # RULES
-          "Cyber/wordlists/rules/oneruletorulethemstill".source = pkgs.fetchFromGitHub {
-            owner = "stealthsploit";
-            repo = "oneruletorulethemstill";
-            rev = "4bfb7322e189305b5f35bb7fcd4e9cc233c3d3c6";
-            hash = "sha256-h7MeymIXS/6wlPRt4lzsIEqOOssP0lDx9nQip65cwZw=";
-          };
-
-          "Cyber/wordlists/rules/best64.rule".source = pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/CarlosLannister/OwadeReborn/refs/heads/master/owade/fileAnalyze/hashcatLib/best64.rule%7E";
-            hash = "sha256-T0XkMHJZQiy63/j25nGTkaiDFjc+blmgEVGTAFgVylU=";
-          };
-
           # Open source list of default credentials
           ".cache/default-creds".source = inputs.default-creds;
+        };
+
+        xdg.config.files."cheatmd/cheatmd.yaml".text = ''
+          path: ${config.directory}/Cyber/bb/_notes
+        '';
+
+        systemd.services.wordlists-fetch = {
+          description = "Download missing wordlists into ~/Cyber/wordlists";
+          wantedBy = ["default.target"];
+          serviceConfig = {
+            Type = "oneshot";
+            ExecStart = "${wordlists-fetch}/bin/wordlists-fetch";
+            Restart = "on-failure";
+            RestartSec = 60; # Offline at login
+          };
         };
 
         persist.directories = [
           "Cyber/bb"
           "Cyber/certs"
+          "Cyber/wordlists"
         ];
       })
     ];

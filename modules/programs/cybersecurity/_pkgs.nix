@@ -3,12 +3,21 @@
   pkgs.nur.repos.anotherhadi.spilltea
   dirb
   ffuf
-  katana
-  whatweb
+  kiterunner
   sqlmap
   nosqli
-  pkgs.unstable.waymore
-  uro
+  pkgs.unstable.uro
+  pkgs.unstable.katana
+  pkgs.unstable.whatweb
+  pkgs.unstable.httpx
+  pkgs.unstable.dnsx
+  pkgs.unstable.shuffledns
+  pkgs.unstable.subfinder
+  pkgs.unstable.urlfinder
+  pkgs.unstable.cdncheck
+  pkgs.unstable.naabu
+  pkgs.unstable.alterx
+  massdns
 
   # Hashes
   hashcat
