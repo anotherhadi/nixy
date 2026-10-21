@@ -71,6 +71,8 @@
 
             # Shortcuts
             open = "${pkgs.xdg-utils}/bin/xdg-open";
+            cyber = "cd ~/Cyber && nvim .";
+            notes = "cd ~/Notes && nvim .";
 
             # git
             g = "lazygit";
