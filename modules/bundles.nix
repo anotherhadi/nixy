@@ -38,6 +38,7 @@
       ilovetui
       dev
       nix-index
+      signal-notify
       cybersecurity
       nixy
       nvim
