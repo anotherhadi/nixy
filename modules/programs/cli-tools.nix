@@ -32,7 +32,6 @@
               pastel # Command-line tool to generate, analyze, convert and manipulate colors
               imagemagick # Image manipulation tool
               chafa # Image to ANSI/Unicode converter and more.
-              pkgs.unstable.yt-dlp
               pkgs.unstable.yoinks # Downloader
 
               # Just cool
@@ -46,7 +45,6 @@
               smassh # typing test, 10fastfinger like
 
               cava # Audio visualizer
-              pkgs.nur.repos.sectui.cheatmd # Interactive cheatsheets from Markdown files
             ];
           }
 

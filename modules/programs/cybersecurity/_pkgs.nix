@@ -1,7 +1,8 @@
 {pkgs, ...}: (with pkgs; [
+  pkgs.nur.repos.sectui.cheatmd # Interactive cheatsheets from Markdown files
+
   # Web
   pkgs.nur.repos.anotherhadi.spilltea
-  dirb
   ffuf
   kiterunner
   sqlmap
@@ -17,6 +18,7 @@
   pkgs.unstable.cdncheck
   pkgs.unstable.naabu
   pkgs.unstable.alterx
+  pkgs.unstable.nuclei
   massdns
 
   # Hashes
@@ -37,18 +39,16 @@
   nmap
   samba
   hydra
-  pkgs.nur.repos.anotherhadi.revshell
+  pkgs.nur.repos.anotherhadi.revshell # Reverse shell
 
   # Reverse
   binsider # Analyzer of executables using a terminal user interface
 
   # Misc
   metasploit
-  nuclei
   openvpn
   zizmor # CI/CD Pipelines
   trufflehog # Look for secrets
-  pkgs.nur.repos.anotherhadi.jwt-tui
   pkgs.nur.repos.anotherhadi.default-creds-tui
 
   # Forensics
