@@ -1,10 +1,12 @@
 # TLDR provides simplified, example-based help pages for shell commands
-# Pages come from the tldr-pages flake input (offline, no auto-update)
 {
   aspects,
   inputs,
+  config,
   ...
-}: {
+}: let
+  inherit (config.flake.lib) mkSandbox;
+in {
   flake.modules.nixos.tldr = {
     imports = [aspects.hjem];
 
@@ -25,10 +27,19 @@
             mv "$out/tldr-pages/pages" "$out/tldr-pages/pages.en"
           fi
         '';
+
+        # Sandboxed: no network, no D-Bus, only its own (read-only) config.
+        # The page cache lives in the store, so nothing needs to be writable.
+        tealdeer = (mkSandbox pkgs).wrap {
+          package = pkgs.tealdeer;
+          config = {sloth, ...}: {
+            bubblewrap.bind.ro = [(sloth.concat' sloth.xdgConfigHome "/tealdeer")];
+          };
+        };
       in {
         config = lib.mkMerge [
           {
-            packages = [pkgs.tealdeer]; # Fast tldr client
+            packages = [tealdeer];
 
             xdg.config.files."tealdeer/config.toml" = {
               generator = (pkgs.formats.toml {}).generate "tealdeer-config.toml";

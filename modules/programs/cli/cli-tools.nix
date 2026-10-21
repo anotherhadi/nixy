@@ -43,7 +43,6 @@
               cmatrix
               fastfetch
               smassh # typing test, 10fastfinger like
-
               cava # Audio visualizer
             ];
           }
