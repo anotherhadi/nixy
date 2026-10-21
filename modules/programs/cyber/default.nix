@@ -62,6 +62,9 @@
         persist.directories = [
           "Cyber"
         ];
+        persist.files = [
+          ".pdcp/credentials.yaml" # ProjectDiscovery API key (vulnx auth)
+        ];
       })
     ];
   };
