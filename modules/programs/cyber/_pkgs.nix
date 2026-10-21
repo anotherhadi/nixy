@@ -19,6 +19,7 @@
   pkgs.unstable.naabu
   pkgs.unstable.alterx
   pkgs.unstable.nuclei
+  pkgs.unstable.vulnx
   massdns
 
   # Hashes
