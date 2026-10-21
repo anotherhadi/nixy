@@ -1,5 +1,14 @@
 # Todolist
 
+## Docs
+
+## Migration to Sway
+
+## Waybar
+
+- "pills" for OSD in waybar!
+- red pill for low battery!!
+
 ## Sandboxing:
 
 - Programs
@@ -33,6 +42,7 @@
   - [ ] Steam
   - [ ] Tldr
   - [ ] Usbguard
+  - [ ] Claude code
 - Shell
   - [ ] Direnv
   - [ ] Eza
