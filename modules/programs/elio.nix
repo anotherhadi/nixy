@@ -91,6 +91,19 @@ in {
               "trash",
             ]
 
+            [goto]
+            entries = [
+              "top",
+              { builtin = "downloads", key = "D" },
+              "home",
+              { builtin = "config", key = "C" },
+              { title = "notes", path = "~/Notes", key = "n" },
+              { title = "cyber", path = "~/Cyber", key = "c" },
+              { title = "projects", path = "~/Projects", key = "p" },
+              { title = "tmp", path = "/tmp", key = "T" },
+              { title = "repo root", command = "git rev-parse --show-toplevel", key = "r" },
+            ]
+
             [portal]
             terminal = "ghostty"
           '';
