@@ -24,6 +24,10 @@
       btop
       cli-tools
       tldr
+      yoinks
+      mcat
+      chafa
+      imagemagick
       opencode
       kew
       eilmeldung
