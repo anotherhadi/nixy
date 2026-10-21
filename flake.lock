@@ -100,11 +100,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1790950813,
-        "narHash": "sha256-WuwuSvEKpQZduP7mt3Fnc4xrQ9si0Zt8RrOh69L95qA=",
+        "lastModified": 1792519955,
+        "narHash": "sha256-C0ic8c95yLwDXa/Af2ghLBNX99dhHQOrE+5PndiqBso=",
         "owner": "elio-fm",
         "repo": "elio",
-        "rev": "fde80eece9b83a569ade2d00f4cb90e704789dc2",
+        "rev": "c2b582845c6037b638f2be5dcd5640c90245613a",
         "type": "github"
       },
       "original": {
