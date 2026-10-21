@@ -1,4 +1,4 @@
-# Offensive security toolbox: tools, wordlists and a dedicated browser (librewolf.nix)
+# Offensive security toolbox: tools, wordlists, a dedicated browser (librewolf.nix) and CVE watch (veille-vulnx.nix)
 {
   aspects,
   inputs,
@@ -22,6 +22,7 @@
     imports = [
       aspects.hjem
       aspects.secrets
+      aspects.veille-vulnx
     ];
 
     sops.secrets = {
