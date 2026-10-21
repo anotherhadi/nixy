@@ -58,8 +58,9 @@ in {
       ({lib, ...}: {
         packages = [
           elio
+          pkgs._7zz # Archives
           pkgs.poppler-utils # PDF previews
-          pkgs.ffmpeg # media metadata and thumbnails
+          pkgs.ffmpeg-headless # media metadata and thumbnails
           pkgs.resvg # SVG previews
           (lib.hiPrio (pkgs.makeDesktopItem {
             name = "elio";
