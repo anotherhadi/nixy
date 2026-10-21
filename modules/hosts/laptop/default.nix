@@ -6,7 +6,8 @@
 }: {
   flake.nixosConfigurations.h-laptop = inputs.nixpkgs.lib.nixosSystem {
     modules = with aspects; [
-      common
+      base # common, secrets, theme, hjem, nix, users... (see modules/bundles.nix)
+
       # Host values (modules/hosts/common.nix)
       {
         networking.hostName = "h-laptop";
@@ -20,7 +21,6 @@
       }
 
       inputs.nixos-hardware.nixosModules.omen-16-n0005ne
-      inputs.sops-nix.nixosModules.sops
       inputs.disko.nixosModules.disko
 
       # System
@@ -29,15 +29,8 @@
       audio
       bluetooth
       fonts
-      theme
-      hjem
-      nix
       lanzaboote # CHANGEME: Replace with systemd-boot if you don't want to setup secure boot
-      users
-      networking
-      locale
-      cli-base
-      kernel-hardening
+      usbguard # Rules in ./_configuration.nix
 
       # Desktop
       tuigreet

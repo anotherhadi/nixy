@@ -63,8 +63,8 @@ in {
             };
 
             # Named colors (red, cyan, bright-black...) follow the theme
-            palette = "base16";
-            palettes.base16 =
+            palette = "base24";
+            palettes.base24 =
               c
               // {
                 black = c.base00;
@@ -72,20 +72,20 @@ in {
                 bright-black = c.base03;
                 bright-white = c.base07;
                 red = c.base08;
-                bright-red = c.base08;
+                bright-red = c.base12;
                 orange = c.base09;
                 yellow = c.base0A;
-                bright-yellow = c.base0A;
+                bright-yellow = c.base13;
                 green = c.base0B;
-                bright-green = c.base0B;
+                bright-green = c.base14;
                 cyan = c.base0C;
-                bright-cyan = c.base0C;
+                bright-cyan = c.base15;
                 blue = c.base0D;
-                bright-blue = c.base0D;
+                bright-blue = c.base16;
                 magenta = c.base0E;
-                bright-magenta = c.base0E;
+                bright-magenta = c.base17;
                 purple = c.base0E;
-                bright-purple = c.base0E;
+                bright-purple = c.base17;
                 brown = c.base0F;
               };
           };

@@ -21,23 +21,6 @@ in {
     };
 
     # Linux console (TTY), ANSI order
-    console.colors = map (base: c.${base}) [
-      "base00"
-      "base08"
-      "base0B"
-      "base0A"
-      "base0D"
-      "base0E"
-      "base0C"
-      "base05"
-      "base03"
-      "base08"
-      "base0B"
-      "base0A"
-      "base0D"
-      "base0E"
-      "base0C"
-      "base07"
-    ];
+    console.colors = map (base: c.${base}) theme.ansi;
   };
 }

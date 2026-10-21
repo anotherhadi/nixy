@@ -1,4 +1,4 @@
-# Nixy base16 palette, hand-made. Exposed flake-wide as config.theme (modules/theme/default.nix)
+# Nixy base24 palette, hand-made. Exposed flake-wide as config.theme (modules/theme/default.nix)
 {
   base00 = "0A0A0C"; # Default Background
   base01 = "110F12"; # Lighter Background (Used for status bars, line number and folding marks)
@@ -16,4 +16,13 @@
   base0D = "9E97F8"; # Functions, Methods, Attribute IDs, Headings, Accent color
   base0E = "C090E8"; # Keywords, Storage, Selector, Markup Italic, Diff Changed
   base0F = "D080A0"; # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+  # base24 extension: darker backgrounds and bright variants of the accents (ANSI 9-14)
+  base10 = "070709"; # Darker Background
+  base11 = "040405"; # Darkest Background
+  base12 = "EA8C99"; # Bright Red
+  base13 = "D6C47C"; # Bright Yellow
+  base14 = "9CCC9C"; # Bright Green
+  base15 = "8ECCD3"; # Bright Cyan
+  base16 = "B6B0FA"; # Bright Blue
+  base17 = "D2AAF0"; # Bright Purple
 }

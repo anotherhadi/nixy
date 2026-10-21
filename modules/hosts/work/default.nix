@@ -6,7 +6,8 @@
 }: {
   flake.nixosConfigurations.h-work = inputs.nixpkgs.lib.nixosSystem {
     modules = with aspects; [
-      common
+      base # common, secrets, theme, hjem, nix, users... (see modules/bundles.nix)
+
       # Host values (modules/hosts/common.nix)
       {
         networking.hostName = "h-work";
@@ -19,23 +20,15 @@
         };
       }
 
-      inputs.sops-nix.nixosModules.sops
       inputs.disko.nixosModules.disko
 
       # System
       impermanence
       audio
       fonts
-      theme
-      hjem
-      nix
       systemd-boot
-      users
-      networking
-      locale
-      cli-base
-      kernel-hardening
       vulnix
+      usbguard # Rules in ./_configuration.nix
 
       # Desktop
       tuigreet

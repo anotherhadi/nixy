@@ -5,7 +5,29 @@
   ...
 }: {
   flake.modules.nixos.cybersecurity = {
-    imports = [aspects.hjem];
+    config,
+    lib,
+    ...
+  }: let
+    username = config.nixy.username;
+    home = config.users.users.${username}.home;
+    # API keys of the recon tools, on hosts whose sops file has them
+    providers = tool:
+      lib.mkIf (builtins.elem "${tool}-providers" config.nixy.secrets.available) {
+        owner = username;
+        mode = "0400";
+        path = "${home}/.config/${tool}/provider-config.yaml";
+      };
+  in {
+    imports = [
+      aspects.hjem
+      aspects.secrets
+    ];
+
+    sops.secrets = {
+      subfinder-providers = providers "subfinder";
+      urlfinder-providers = providers "urlfinder";
+    };
 
     hjem.extraModules = [
       ({
@@ -23,7 +45,7 @@
         };
 
         xdg.config.files."cheatmd/cheatmd.yaml".text = ''
-          path: ${config.directory}/Cyber/bb/_notes
+          path: ${config.directory}/Cyber/_notes
         '';
 
         systemd.services.wordlists-fetch = {
@@ -38,9 +60,7 @@
         };
 
         persist.directories = [
-          "Cyber/bb"
-          "Cyber/certs"
-          "Cyber/wordlists"
+          "Cyber"
         ];
       })
     ];

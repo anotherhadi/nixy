@@ -66,24 +66,7 @@ in {
               cursor-color = c.base05;
               selection-background = c.base02;
               selection-foreground = c.base05;
-              palette = lib.imap0 (i: base: "${toString i}=#${c.${base}}") [
-                "base00"
-                "base08"
-                "base0B"
-                "base0A"
-                "base0D"
-                "base0E"
-                "base0C"
-                "base05"
-                "base03"
-                "base08"
-                "base0B"
-                "base0A"
-                "base0D"
-                "base0E"
-                "base0C"
-                "base07"
-              ];
+              palette = lib.imap0 (i: base: "${toString i}=#${c.${base}}") theme.ansi;
             };
 
             # Single-instance daemon, started by Hyprland (exec-once) or D-Bus activation

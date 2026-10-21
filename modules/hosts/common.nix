@@ -13,11 +13,6 @@
         description = "Main user of the host";
       };
 
-      git = {
-        name = lib.mkOption {type = lib.types.str;};
-        email = lib.mkOption {type = lib.types.str;};
-      };
-
       configDirectory = lib.mkOption {
         type = lib.types.str;
         default = "${config.users.users.${config.nixy.username}.home}/.config/nixos";

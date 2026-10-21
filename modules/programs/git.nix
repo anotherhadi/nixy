@@ -1,9 +1,10 @@
 # Git configuration (git, gh, lazygit)
-# Identity comes from the host variables (config.nixy.git), hosts can add more
+# Identity is set by each host (nixy.git.{name,email}), hosts can add more
 # settings through hjem.users.<user>.xdg.config.files."git/config".value
 {
   aspects,
   config,
+  lib,
   ...
 }: let
   c = config.theme.withHashtag;
@@ -11,7 +12,18 @@ in {
   flake.modules.nixos.git = {
     imports = [aspects.hjem];
 
-    hjem.extraModules = [
+    options.nixy.git = {
+      name = lib.mkOption {
+        type = lib.types.str;
+        description = "Git author name of the host's user";
+      };
+      email = lib.mkOption {
+        type = lib.types.str;
+        description = "Git author email of the host's user";
+      };
+    };
+
+    config.hjem.extraModules = [
       ({
         lib,
         pkgs,
@@ -143,8 +155,37 @@ in {
 
   # Sign commits with an SSH key
   # CHANGEME: change this to your own SSH key.
-  # ~/.ssh/key.pub itself is managed by sops (see modules/hosts/laptop/_secrets/default.nix: signing-pub-key).
-  flake.modules.nixos.git-signing = {
+  # The key pair comes from the host's sops file (signing-key, signing-pub-key)
+  flake.modules.nixos.git-signing = {config, ...}: let
+    username = config.nixy.username;
+    home = config.users.users.${username}.home;
+    keys = ["signing-key" "signing-pub-key"];
+  in {
+    imports = [
+      aspects.git
+      aspects.secrets
+    ];
+
+    assertions =
+      map (key: {
+        assertion = builtins.elem key config.nixy.secrets.available;
+        message = "git-signing: the host's sops file has no `${key}` secret";
+      })
+      keys;
+
+    sops.secrets = {
+      signing-key = {
+        owner = username;
+        mode = "0600";
+        path = "${home}/.ssh/key";
+      };
+      signing-pub-key = {
+        owner = username;
+        mode = "0600";
+        path = "${home}/.ssh/key.pub";
+      };
+    };
+
     hjem.extraModules = [
       {
         files.".ssh/allowed_signers".text = "* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIINhWby7lUUXQNKbRu9/UOrGjWDf3fvoAwGHomWv/+lL";

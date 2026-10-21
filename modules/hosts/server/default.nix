@@ -6,7 +6,8 @@
 }: {
   flake.nixosConfigurations.jack = inputs.nixpkgs.lib.nixosSystem {
     modules = with aspects; [
-      common
+      base # common, secrets, theme, hjem, nix, users... (see modules/bundles.nix)
+
       # Host values (modules/hosts/common.nix)
       {
         networking.hostName = "jack";
@@ -24,19 +25,9 @@
         };
       }
 
-      inputs.sops-nix.nixosModules.sops
-
       # System
-      theme
-      hjem
-      nix
       systemd-boot
-      users
-      networking
-      locale
-      cli-base
       amd-graphics
-      kernel-hardening
 
       # Services
       homelab # see modules/bundles.nix

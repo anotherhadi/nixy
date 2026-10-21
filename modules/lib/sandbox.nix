@@ -17,6 +17,12 @@
           cmd.SysProcAttr.Foreground = true
           cmd.SysProcAttr.Ctty = 0
         }'
+
+        # With network, nixpak also binds /etc/{resolv.conf,hosts}: redundant since
+        # the base binds all of /etc, and fatal as NixOS's /etc/hosts is a symlink
+        substituteInPlace modules/bubblewrap.nix --replace-fail \
+          'mapNetFiles = config.bubblewrap.network && !config.pasta.enable;' \
+          'mapNetFiles = false;'
       '';
     };
 
@@ -38,9 +44,9 @@
     ];
 
     base = {sloth, ...}: {
-      dbus.enable = false; # Opt-in per app
+      dbus.enable = pkgs.lib.mkDefault false; # Opt-in per app
       bubblewrap = {
-        network = false; # Opt-in per app
+        network = pkgs.lib.mkDefault false; # Opt-in per app
         dieWithParent = true;
         bind.ro = [
           "/etc" # passwd, /etc/profiles (user PATH), fonts...

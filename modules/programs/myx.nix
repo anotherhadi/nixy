@@ -2,7 +2,23 @@
 # theming, a live visualizer and synced lyrics.
 {aspects, ...}: {
   flake.modules.nixos.myx = {
-    imports = [aspects.hjem];
+    config,
+    lib,
+    ...
+  }: let
+    username = config.nixy.username;
+  in {
+    imports = [
+      aspects.hjem
+      aspects.secrets
+    ];
+
+    # Spotify credentials, on hosts whose sops file has them
+    sops.secrets.myx-config = lib.mkIf (builtins.elem "myx-config" config.nixy.secrets.available) {
+      owner = username;
+      mode = "0600";
+      path = "${config.users.users.${username}.home}/.config/myx/config.toml";
+    };
 
     hjem.extraModules = [
       ({pkgs, ...}: {

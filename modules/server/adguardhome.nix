@@ -1,7 +1,11 @@
 # Adguard is a network-wide ad blocker
 # When installed, open localhost:3000 to setup
 {
-  flake.modules.nixos.adguardhome = {config, ...}: {
+  flake.modules.nixos.adguardhome = {
+    config,
+    lib,
+    ...
+  }: {
     services.adguardhome = {
       enable = true;
       port = 3000;
@@ -20,5 +24,11 @@
     };
 
     services.cloudflared.tunnels."${config.nixy.server.tunnelId}".ingress."adguard.${config.nixy.server.domain}" = "http://localhost:${toString config.services.adguardhome.port}";
+
+    # The tunnel resolves through AdGuard: start it once DNS is up
+    systemd.services."cloudflared-tunnel-${config.nixy.server.tunnelId}" = lib.mkIf config.services.cloudflared.enable {
+      after = ["adguardhome.service"];
+      requires = ["adguardhome.service"];
+    };
   };
 }

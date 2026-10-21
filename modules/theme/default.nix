@@ -5,7 +5,7 @@
   options.theme = lib.mkOption {
     type = lib.types.attrs;
     readOnly = true;
-    description = "Global theme: base16 palette (hex without #), fonts, cursor, wallpaper and UI sizes";
+    description = "Global theme: base24 palette (hex without #), fonts, cursor, wallpaper and UI sizes";
     default = let
       colors = import ./_palette.nix;
       hexToRgb = hex: map (i: lib.fromHexString (builtins.substring i 2 hex)) [0 2 4];
@@ -14,6 +14,26 @@
       withHashtag = lib.mapAttrs (_: c: "#${c}") colors;
       rgb = lib.mapAttrs (_: hexToRgb) colors; # base00 = [r g b]
       polarity = "dark";
+
+      # base24 slots in ANSI order (0-15), for terminal palettes
+      ansi = [
+        "base00" # black
+        "base08" # red
+        "base0B" # green
+        "base0A" # yellow
+        "base0D" # blue
+        "base0E" # magenta
+        "base0C" # cyan
+        "base05" # white
+        "base03" # bright black
+        "base12" # bright red
+        "base14" # bright green
+        "base13" # bright yellow
+        "base16" # bright blue
+        "base17" # bright magenta
+        "base15" # bright cyan
+        "base07" # bright white
+      ];
 
       # Names only, packages are installed in theme/nixos.nix
       fonts = {

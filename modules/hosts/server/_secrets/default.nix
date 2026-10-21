@@ -1,13 +1,9 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+# Only the host's own files live here, features declare theirs (modules/system/secrets.nix)
+{config, ...}: let
   username = config.nixy.username;
   home = config.users.users.${username}.home;
 in {
   sops = {
-    age.keyFile = "${home}/.config/sops/age/keys.txt";
     defaultSopsFile = ./secrets.yaml;
     secrets = {
       sshconfig = {
@@ -20,21 +16,6 @@ in {
         path = "${home}/.ssh/github";
         mode = "0600";
       };
-      signing-key = {
-        owner = username;
-        path = "${home}/.ssh/key";
-        mode = "0600";
-      };
-      signing-pub-key = {
-        owner = username;
-        path = "${home}/.ssh/key.pub";
-        mode = "0600";
-      };
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    sops
-    age
-  ];
 }

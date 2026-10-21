@@ -1,15 +1,11 @@
 # Those are my secrets, encrypted with sops
 # You shouldn't import this file, unless you edit it
-{
-  pkgs,
-  config,
-  ...
-}: let
+# Only the host's own files live here, features declare theirs (modules/system/secrets.nix)
+{config, ...}: let
   username = config.nixy.username;
   home = config.users.users.${username}.home;
 in {
   sops = {
-    age.keyFile = "${home}/.config/sops/age/keys.txt";
     defaultSopsFile = ./secrets.yaml;
     secrets = {
       ssh-config = {
@@ -32,16 +28,6 @@ in {
         mode = "0600";
         path = "${home}/.ssh/gitlab";
       };
-      myx-config = {
-        owner = username;
-        mode = "0600";
-        path = "${home}/.config/myx/config.toml";
-      };
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    sops
-    age
-  ];
 }

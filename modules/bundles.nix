@@ -2,6 +2,20 @@
 # Importing a bundle and one of its members is fine: aspects are deduplicated (flake/parts.nix)
 {aspects, ...}: {
   flake.modules.nixos = with aspects; {
+    # System base, on every host
+    base.imports = [
+      common
+      secrets
+      theme
+      hjem
+      nix
+      users
+      networking
+      locale
+      cli-base
+      kernel-hardening
+    ];
+
     # Terminal environment, on every host
     tui.imports = [
       shell

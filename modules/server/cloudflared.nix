@@ -27,9 +27,8 @@
 
     systemd.services."cloudflared-tunnel-${config.nixy.server.tunnelId}" = {
       wantedBy = ["multi-user.target"];
-      after = ["network-online.target" "adguardhome.service"];
+      after = ["network-online.target"];
       wants = ["network-online.target"];
-      requires = ["adguardhome.service"];
       serviceConfig = {
         Restart = "on-failure";
         RestartSec = "5s";
