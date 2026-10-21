@@ -17,6 +17,7 @@
             duckdb
             python3
             jq
+            yq-go
             nix-prefetch-github
             rsync
           ]);
