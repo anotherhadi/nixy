@@ -28,7 +28,7 @@ in {
         else
           OSD_TEXT="󰂚  Do Not Disturb Off"
         fi
-        ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT"
+        ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT" notifications
       '';
 
       packages = [

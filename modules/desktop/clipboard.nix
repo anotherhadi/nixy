@@ -7,7 +7,7 @@
       scripts,
       ...
     }: let
-      tofiMenu = "${pkgs.tofi}/bin/tofi --horizontal false --anchor center --width 700 --height 500 --margin-top 0 --margin-left 0 --margin-right 0 --num-results 10";
+      tofiMenu = "${scripts.tofi-menu}/bin/tofi-menu";
       cliphist = "${pkgs.cliphist}/bin/cliphist";
 
       mkWatcher = description: type: {

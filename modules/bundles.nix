@@ -66,9 +66,10 @@
       uptime-kuma
     ];
 
-    # Graphical session: Hyprland + bar, notifications, launcher, lock, theming...
+    # Graphical session: Hyprland (+ sway) + bar, notifications, launcher, lock, theming...
     gui.imports = [
       hyprland
+      sway # Alternative session, pick it in tuigreet
       desktop
       helium
       signal

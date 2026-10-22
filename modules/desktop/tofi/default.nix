@@ -3,31 +3,46 @@
   inherit (config) theme;
   c = theme.colors;
   barHeight = theme.bar-height;
-  rounding =
-    if theme.rounding > barHeight / 2
-    then barHeight / 2
-    else theme.rounding;
+  # Height of a text line in Pango (Rubik at the popups size): tofi draws text
+  # from the top padding without centering it, so the padding does the centering
+  lineHeight = 22;
+  padY = (barHeight - lineHeight) / 2;
+
+  # Vertical menus: the prompt sits on the bar, the results below
+  menuResults = 10;
+  menuSpacing = 6;
+  menuHeight = barHeight + menuResults * (menuSpacing + lineHeight);
 in {
   flake.modules.nixos.desktop.hjem.extraModules = [
     ({
       lib,
       pkgs,
+      scripts,
       ...
     }: {
+      # dmenu-style menu reading choices from stdin, for the pickers
+      scripts.tofi-menu = pkgs.writeShellScriptBin "tofi-menu" ''
+        exec ${pkgs.tofi}/bin/tofi --horizontal false --height ${toString menuHeight} \
+          --num-results ${toString menuResults} --result-spacing ${toString menuSpacing} \
+          --padding-bottom ${toString padY} "$@"
+      '';
+
       packages = [pkgs.tofi];
 
       xdg.config.files."tofi/config".text = lib.generators.toKeyValue {} {
+        # Covers the bar exactly: full width, flush with the top
         anchor = "top";
+        width = "100%";
         height = barHeight;
-        margin-top = theme.gaps-out;
-        margin-left = 350;
-        margin-right = 350;
+        margin-top = 0;
+        margin-left = 0;
+        margin-right = 0;
 
         horizontal = true;
         num-results = 8;
         result-spacing = 20;
-        padding-top = 2;
-        padding-bottom = 2;
+        padding-top = padY;
+        padding-bottom = 0;
         padding-left = 14;
         padding-right = 14;
 
@@ -48,7 +63,7 @@ in {
 
         outline-width = 0;
         border-width = 0;
-        corner-radius = rounding;
+        corner-radius = 0;
 
         prompt-text = "  ";
         placeholder-text = "Search...";

@@ -31,8 +31,33 @@ in {
           fi
           exec ${lib.getExe pkgs.wlr-which-key} ${configFile}
         '';
+    in {
+      # Shared with sway (modules/desktop/sway/bindings.nix)
+      scripts.power-menu = pkgs.writeShellScriptBin "power-menu" ("exec "
+        + lib.getExe (mkMenu [
+          {
+            key = "l";
+            desc = "Lock";
+            cmd = "${pkgs.hyprlock}/bin/hyprlock";
+          }
+          {
+            key = "s";
+            desc = "Suspend";
+            cmd = "systemctl suspend";
+          }
+          {
+            key = "r";
+            desc = "Reboot";
+            cmd = "systemctl reboot";
+          }
+          {
+            key = "p";
+            desc = "Power Off";
+            cmd = "systemctl poweroff";
+          }
+        ]));
 
-      tofi-drun-toggle = pkgs.writeShellScriptBin "tofi-drun-toggle" ''
+      scripts.tofi-drun-toggle = pkgs.writeShellScriptBin "tofi-drun-toggle" ''
         # tofi-drun is a distinct process name from the plain "tofi" binary
         # used by the emoji/icon/clipboard pickers, so this can't close those.
         if ${pkgs.procps}/bin/pkill -x tofi-drun; then
@@ -40,44 +65,19 @@ in {
         fi
         exec ${pkgs.tofi}/bin/tofi-drun
       '';
-    in {
+
       hyprland.settings = {
         "$mod" = "SUPER";
         "$shiftMod" = "SUPER_SHIFT";
 
         bind =
           [
-            # Power
-            (
-              "$mod, X, exec, "
-              + lib.getExe (mkMenu [
-                {
-                  key = "l";
-                  desc = "Lock";
-                  cmd = "${pkgs.hyprlock}/bin/hyprlock";
-                }
-                {
-                  key = "s";
-                  desc = "Suspend";
-                  cmd = "systemctl suspend";
-                }
-                {
-                  key = "r";
-                  desc = "Reboot";
-                  cmd = "systemctl reboot";
-                }
-                {
-                  key = "p";
-                  desc = "Power Off";
-                  cmd = "systemctl poweroff";
-                }
-              ])
-            )
+            "$mod, X, exec, ${scripts.power-menu}/bin/power-menu" # Power menu
 
             # Quick launch
             "$mod,RETURN, exec, ${pkgs.ghostty}/bin/ghostty +new-window" # Ghostty (terminal, via daemon D-Bus)
             "$mod,E, exec, ${pkgs.ghostty}/bin/ghostty +new-window -e elio" # Elio
-            "$mod, SPACE, exec, ${lib.getExe tofi-drun-toggle}" # Launcher (toggle)
+            "$mod, SPACE, exec, ${scripts.tofi-drun-toggle}/bin/tofi-drun-toggle" # Launcher (toggle)
             "$mod, N, exec, ${pkgs.swaynotificationcenter}/bin/swaync-client -t" # Notification center
 
             # Windows

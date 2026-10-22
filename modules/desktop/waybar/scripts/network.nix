@@ -6,7 +6,7 @@
       ...
     }: let
       updateOsd = ''
-        ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT"
+        ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT" network
       '';
     in {
       scripts.networkScript = pkgs.writeShellScript "waybar-network" ''

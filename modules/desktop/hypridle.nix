@@ -12,6 +12,15 @@ in {
         scripts,
         ...
       }: {
+        # Screen on/off for Hyprland or sway
+        scripts.dpms = pkgs.writeShellScriptBin "dpms" ''
+          if [ -n "$SWAYSOCK" ]; then
+            ${pkgs.sway}/bin/swaymsg "output * power $1"
+          else
+            ${pkgs.hyprland}/bin/hyprctl dispatch dpms "$1"
+          fi
+        '';
+
         scripts.caffeine-toggle = pkgs.writeShellScriptBin "caffeine-toggle" ''
           # Pause hypridle (stay awake) or resume it.
           if systemctl --user is-active --quiet hypridle; then
@@ -21,7 +30,7 @@ in {
             systemctl --user start hypridle
             OSD_TEXT="󰾫  Keep Awake Off"
           fi
-          ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT"
+          ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT" caffeine
         '';
 
         packages = [
@@ -44,7 +53,7 @@ in {
               # Avoid starting multiple hyprlock instances.
               lock_cmd = "${pkgs.procps}/bin/pidof ${pkgs.hyprlock}/bin/hyprlock || ${pkgs.hyprlock}/bin/hyprlock --grace 5";
               before_sleep_cmd = "loginctl lock-session";
-              after_sleep_cmd = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
+              after_sleep_cmd = "${scripts.dpms}/bin/dpms on";
             };
 
             listener = [
@@ -54,8 +63,8 @@ in {
               }
               {
                 timeout = 720; # 12 min → screen off
-                on-timeout = "${pkgs.hyprland}/bin/hyprctl dispatch dpms off";
-                on-resume = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
+                on-timeout = "${scripts.dpms}/bin/dpms off";
+                on-resume = "${scripts.dpms}/bin/dpms on";
               }
               {
                 timeout = 1800; # 30 min → suspend

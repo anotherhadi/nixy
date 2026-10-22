@@ -37,7 +37,7 @@
               esac
               "$ppd" set "$next"
               OSD_TEXT="$icon  ''${next^}"
-              ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT"
+              ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT" power
             '';
 
             packages = [

@@ -17,9 +17,12 @@
       OSD_TEXT="󰦝  VPN On"
     fi
 
-    # Same file as the waybar-osd script (modules/desktop/waybar/scripts/osd.nix)
-    printf '%s' "$OSD_TEXT" > "''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/waybar-osd"
+    # Same as the waybar-osd script (modules/desktop/waybar/scripts/osd.nix)
+    osd="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/osd"
+    mkdir -p "$osd"
+    printf '%s' "$OSD_TEXT" > "$osd/vpn"
     ${pkgs.procps}/bin/pkill -f -RTMIN+8 '^waybar$' 2>/dev/null || true
+    ${pkgs.procps}/bin/pkill -x -RTMIN+8 swaybar-status 2>/dev/null || true
   '';
 in {
   environment.systemPackages = [

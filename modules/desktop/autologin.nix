@@ -1,4 +1,4 @@
-# Autologin at boot: greetd starts your session directly on the first VT
+# Autologin at boot: greetd starts sway directly on the first VT (Hyprland: pick it in tuigreet)
 {
   flake.modules.nixos.autologin = {
     pkgs,
@@ -7,7 +7,8 @@
     ...
   }: {
     services.greetd.settings.initial_session = {
-      command = "${pkgs.uwsm}/bin/uwsm start -e -D Hyprland hyprland.desktop";
+      # Same command as tuigreet's "Sway (UWSM)" entry (modules/desktop/sway/system.nix)
+      command = "${pkgs.uwsm}/bin/uwsm start -F -- /run/current-system/sw/bin/sway";
       user = config.nixy.username;
     };
 

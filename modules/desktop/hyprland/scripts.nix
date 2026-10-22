@@ -11,13 +11,13 @@
         if test -f "$XDG_RUNTIME_DIR/hypr-focus-mode"; then
           rm "$XDG_RUNTIME_DIR/hypr-focus-mode"
           OSD_TEXT="󰈈  Focus Off"
-          ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT"
+          ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT" focus
           ${pkgs.hyprland}/bin/hyprctl reload
           ${pkgs.hyprland}/bin/hyprctl dispatch exec waybar
         else
           touch "$XDG_RUNTIME_DIR/hypr-focus-mode"
           OSD_TEXT="󰈈  Focus On"
-          ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT"
+          ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT" focus
           ${pkgs.procps}/bin/pkill waybar || true
           ${pkgs.hyprland}/bin/hyprctl keyword animations:enabled false
           ${pkgs.hyprland}/bin/hyprctl keyword general:gaps_in 0
@@ -36,7 +36,7 @@
           ${pkgs.hyprsunset}/bin/hyprsunset -t 4500 &
           OSD_TEXT="󰖔  Night Shift On"
         fi
-        ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT"
+        ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT" nightshift
       '';
 
       packages = [

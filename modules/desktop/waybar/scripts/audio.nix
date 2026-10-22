@@ -30,7 +30,7 @@
       '';
 
       updateOsd = ''
-        ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT"
+        ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT" audio
       '';
     in {
       scripts.vol-up = pkgs.writeShellScriptBin "vol-up" ''

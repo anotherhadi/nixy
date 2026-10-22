@@ -6,7 +6,7 @@
       ...
     }: let
       updateOsd = ''
-        ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT"
+        ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT" devices
       '';
     in {
       scripts.output-cycle = pkgs.writeShellScriptBin "output-cycle" ''

@@ -75,7 +75,7 @@ in {
           };
 
           "custom/osd" = {
-            exec = "cat $XDG_RUNTIME_DIR/waybar-osd";
+            exec = "${scripts.waybar-osd-status}/bin/waybar-osd-status";
             exec-if = "${scripts.waybar-osd-status}/bin/waybar-osd-status";
             signal = 8;
             interval = 1;

@@ -17,7 +17,7 @@
       '';
 
       updateOsd = ''
-        ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT"
+        ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT" brightness
       '';
     in {
       scripts.bright-up = pkgs.writeShellScriptBin "bright-up" ''

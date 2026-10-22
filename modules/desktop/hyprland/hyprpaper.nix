@@ -18,7 +18,8 @@ in {
         after = ["graphical-session.target"];
         partOf = ["graphical-session.target"];
         wantedBy = ["graphical-session.target"];
-        unitConfig.ConditionEnvironment = "WAYLAND_DISPLAY";
+        # Aborts under sway, which draws the wallpaper itself (modules/desktop/sway)
+        unitConfig.ConditionEnvironment = ["WAYLAND_DISPLAY" "!SWAYSOCK"];
         serviceConfig = {
           ExecStart = "${pkgs.hyprpaper}/bin/hyprpaper";
           Restart = "always";
