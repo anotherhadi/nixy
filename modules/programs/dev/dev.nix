@@ -8,7 +8,6 @@
         packages =
           (with pkgs.unstable; [
             go
-            claude-code
             bun
             nodejs
           ])
@@ -27,13 +26,7 @@
           PATH = ["$HOME/.local/share/go/bin" "$PATH"];
         };
 
-        persist = {
-          directories = [".claude"];
-          files = [
-            ".claude.json"
-            ".npmrc" # npm login token
-          ];
-        };
+        persist.files = [".npmrc"]; # npm login token
       })
     ];
   };

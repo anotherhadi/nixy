@@ -1,4 +1,5 @@
 {config, ...}: let
+  inherit (config.flake.lib) mkContainer;
   c = config.theme.colors;
 in {
   flake.modules.nixos.glance = {
@@ -6,7 +7,6 @@ in {
     lib,
     ...
   }: let
-    inherit (import ../_mk-container.nix {inherit lib config;}) mkContainer;
     domain = config.nixy.server.domain;
     hostIp = "10.233.12.1";
 
@@ -88,7 +88,7 @@ in {
     sops.secrets.adguard-pwd.mode = "0444";
 
     imports = [
-      (mkContainer {
+      (mkContainer config {
         name = "glance";
         hostIp = hostIp;
         containerIp = "10.233.12.2";

@@ -1,11 +1,12 @@
-{
+{config, ...}: let
+  inherit (config.flake.lib) mkContainer;
+in {
   flake.modules.nixos.gitea = {
     config,
     pkgs,
     lib,
     ...
   }: let
-    inherit (import ./_mk-container.nix {inherit lib config;}) mkContainer;
     domain = config.nixy.server.domain;
     catppuccin-gitea = pkgs.unstable.fetchzip {
       url = "https://github.com/catppuccin/gitea/releases/download/v1.0.2/catppuccin-gitea.tar.gz";
@@ -68,7 +69,7 @@
     };
   in {
     imports = [
-      (mkContainer {
+      (mkContainer config {
         name = "gitea";
         hostIp = "10.233.11.1";
         containerIp = "10.233.11.2";

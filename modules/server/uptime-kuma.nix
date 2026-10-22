@@ -1,13 +1,9 @@
-{
-  flake.modules.nixos.uptime-kuma = {
-    config,
-    lib,
-    ...
-  }: let
-    inherit (import ./_mk-container.nix {inherit lib config;}) mkContainer;
-  in {
+{config, ...}: let
+  inherit (config.flake.lib) mkContainer;
+in {
+  flake.modules.nixos.uptime-kuma = {config, ...}: {
     imports = [
-      (mkContainer {
+      (mkContainer config {
         name = "uptime-kuma";
         hostIp = "10.233.13.1";
         containerIp = "10.233.13.2";

@@ -32,7 +32,6 @@
   redis
 
   # Network
-  termshark # wireshark in TUI
   wtfis # Passive hostname, domain and IP lookup tool
   inetutils
   whois
@@ -51,7 +50,4 @@
   zizmor # CI/CD Pipelines
   trufflehog # Look for secrets
   pkgs.nur.repos.anotherhadi.default-creds-tui
-
-  # Forensics
-  binwalk
 ])

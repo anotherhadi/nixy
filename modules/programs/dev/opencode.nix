@@ -6,6 +6,7 @@
   lib,
   ...
 }: let
+  inherit (config.flake.lib) mkSandbox;
   c = config.theme.withHashtag;
   # key = [dark light] base16 slots, same mapping as stylix's opencode target
   themeSlots = {
@@ -67,8 +68,55 @@ in {
     hjem.extraModules = [
       ({pkgs, ...}: let
         json = (pkgs.formats.json {}).generate;
+
+        # Sandboxed: network (Ollama, models.dev), but only sees the project it is started in
+        # and its own state. Secrets are hidden. Everything opencode spawns inherits the sandbox.
+        sandboxed = (mkSandbox pkgs).wrap {
+          package = pkgs.opencode;
+          config = {sloth, ...}: let
+            home = sloth.concat' sloth.homeDir;
+          in {
+            bubblewrap = {
+              network = true;
+              bind.rw = [
+                (sloth.env "OPENCODE_SANDBOX_DIR") # Set by the wrapper below
+                (home "/.local/share/opencode") # Sessions, auth.json
+                (home "/.local/state/opencode")
+                (home "/.cache/opencode")
+                (home "/.cache/go-build")
+                (home "/.local/share/go") # GOPATH (module cache)
+              ];
+              bind.ro = [
+                (home "/.config/opencode") # Generated below
+                (home "/.config/git")
+                "/nix/var/nix/daemon-socket" # nix build/eval through the daemon (user isn't trusted)
+              ];
+              tmpfs = ["/tmp"];
+              env = {
+                TMPDIR = "/tmp"; # The outer one (nix-shell...) doesn't exist inside
+                NIX_REMOTE = "daemon"; # /nix/var/nix is writable in the sandbox root, nix would pick an empty local store
+              };
+            };
+          };
+        };
+
+        # Bind sources must exist, otherwise the app writes into the sandbox's tmpfs and loses it
+        opencode = pkgs.writeShellScriptBin "opencode" ''
+          mkdir -p "$HOME/.local/share/opencode" "$HOME/.local/state/opencode" "$HOME/.cache/opencode"
+
+          # Project = enclosing git repo (so .git is visible from a subdir), else the current dir
+          OPENCODE_SANDBOX_DIR=$(${pkgs.git}/bin/git rev-parse --show-toplevel 2>/dev/null || pwd -P)
+          case "$OPENCODE_SANDBOX_DIR" in
+            / | "$HOME")
+              echo "opencode: refusing to expose $OPENCODE_SANDBOX_DIR, start it from a project dir" >&2
+              exit 1
+              ;;
+          esac
+          export OPENCODE_SANDBOX_DIR
+          exec ${sandboxed}/bin/opencode "$@"
+        '';
       in {
-        packages = [pkgs.opencode];
+        packages = [opencode];
 
         xdg.config.files."opencode/opencode.json" = {
           generator = json "opencode.json";

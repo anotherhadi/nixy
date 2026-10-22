@@ -1,14 +1,11 @@
-{
-  flake.modules.nixos.miniflux = {
-    config,
-    lib,
-    ...
-  }: let
-    inherit (import ./_mk-container.nix {inherit lib config;}) mkContainer;
+{config, ...}: let
+  inherit (config.flake.lib) mkContainer;
+in {
+  flake.modules.nixos.miniflux = {config, ...}: let
     domain = config.nixy.server.domain;
   in {
     imports = [
-      (mkContainer {
+      (mkContainer config {
         name = "miniflux";
         hostIp = "10.233.8.1";
         containerIp = "10.233.8.2";

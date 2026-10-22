@@ -1,4 +1,5 @@
-# Offensive security toolbox: tools, wordlists, a dedicated browser (librewolf.nix) and CVE watch (veille-vulnx.nix)
+# Offensive security toolbox: tools, wordlists, a dedicated browser (librewolf.nix), CVE watch (veille-vulnx.nix)
+# and tables of the findings notes (findings.nix)
 {
   aspects,
   inputs,
@@ -23,6 +24,7 @@
       aspects.hjem
       aspects.secrets
       aspects.veille-vulnx
+      aspects.findings
     ];
 
     sops.secrets = {
@@ -62,6 +64,8 @@
 
         persist.directories = [
           "Cyber"
+          ".config/nuclei"
+          "nuclei-templates" # Downloaded by nuclei (-update-templates)
         ];
         persist.files = [
           ".pdcp/credentials.yaml" # ProjectDiscovery API key (vulnx auth)

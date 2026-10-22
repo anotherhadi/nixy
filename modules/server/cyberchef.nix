@@ -1,14 +1,13 @@
-{
+{config, ...}: let
+  inherit (config.flake.lib) mkContainer;
+in {
   flake.modules.nixos.cyberchef = {
     config,
     pkgs,
-    lib,
     ...
-  }: let
-    inherit (import ./_mk-container.nix {inherit lib config;}) mkContainer;
-  in {
+  }: {
     imports = [
-      (mkContainer {
+      (mkContainer config {
         name = "cyberchef";
         hostIp = "10.233.5.1";
         containerIp = "10.233.5.2";

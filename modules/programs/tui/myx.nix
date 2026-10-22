@@ -1,6 +1,12 @@
 # Myx is a lean terminal Spotify player written in Rust, with album-art-reactive
 # theming, a live visualizer and synced lyrics.
-{aspects, ...}: {
+{
+  aspects,
+  config,
+  ...
+}: let
+  inherit (config.flake.lib) mkSandbox;
+in {
   flake.modules.nixos.myx = {
     config,
     lib,
@@ -20,14 +26,36 @@
       path = "${config.users.users.${username}.home}/.config/myx/config.toml";
     };
 
+    # Bind sources must exist, otherwise the app writes into the sandbox's tmpfs and loses it
+    systemd.user.tmpfiles.rules = [
+      "d %h/.config/myx 0700 - - -"
+      "d %h/.cache/myx 0700 - - -"
+    ];
+
     hjem.extraModules = [
-      ({pkgs, ...}: {
+      ({pkgs, ...}: let
+        # Sandboxed: network (Spotify), audio, only its config and cache
+        myx = (mkSandbox pkgs).wrap {
+          package = pkgs.unstable.myx;
+          config = {sloth, ...}: {
+            bubblewrap = {
+              network = true;
+              bind.rw = map (d: sloth.concat' sloth.homeDir "/${d}") [".config/myx" ".cache/myx"];
+              bind.ro = ["/run/secrets/myx-config"]; # ~/.config/myx/config.toml is a symlink to it
+              sockets = {
+                pipewire = true;
+                pulse = true;
+              };
+            };
+          };
+        };
+      in {
         packages = [
-          pkgs.unstable.myx
+          myx
           (pkgs.makeDesktopItem {
             name = "myx";
             desktopName = "Spotify";
-            exec = "${pkgs.ghostty}/bin/ghostty --window-padding-x=0 --window-padding-y=0 -e ${pkgs.unstable.myx}/bin/myx";
+            exec = "${pkgs.ghostty}/bin/ghostty --window-padding-x=0 --window-padding-y=0 -e ${myx}/bin/myx";
             icon = "spotify";
             comment = "Control Spotify from the terminal";
             categories = ["Audio" "Music"];

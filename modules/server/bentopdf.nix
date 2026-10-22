@@ -1,13 +1,9 @@
-{
-  flake.modules.nixos.bentopdf = {
-    config,
-    lib,
-    ...
-  }: let
-    inherit (import ./_mk-container.nix {inherit lib config;}) mkContainer;
-  in {
+{config, ...}: let
+  inherit (config.flake.lib) mkContainer;
+in {
+  flake.modules.nixos.bentopdf = {config, ...}: {
     imports = [
-      (mkContainer {
+      (mkContainer config {
         name = "bentopdf";
         hostIp = "10.233.9.1";
         containerIp = "10.233.9.2";

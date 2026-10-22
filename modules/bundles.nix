@@ -37,6 +37,7 @@
       proton
       ilovetui
       dev
+      claude-code
       nix-index
       signal-notify
       cybersecurity
@@ -70,7 +71,16 @@
       hyprland
       desktop
       helium
-      gui-apps
+      signal
+      obsidian
+      ticktick
+      imv
+      vlc
+      pinta
+      onlyoffice
+      blanket
+      thunar # Backup
+      gnome-text-editor # Backup
       filen
     ];
   };

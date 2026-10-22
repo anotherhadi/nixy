@@ -1,15 +1,20 @@
-{inputs, ...}: {
+{
+  inputs,
+  config,
+  ...
+}: let
+  inherit (config.flake.lib) mkContainer;
+in {
   flake.modules.nixos.default-creds = {
     config,
     lib,
     ...
   }: let
-    inherit (import ./_mk-container.nix {inherit lib config;}) mkContainer;
     domain = config.nixy.server.domain;
   in {
     imports = [
       inputs.default-creds-web.nixosModules.default
-      (mkContainer {
+      (mkContainer config {
         name = "def-creds";
         hostIp = "10.233.6.1";
         containerIp = "10.233.6.2";

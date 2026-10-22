@@ -11,12 +11,19 @@ in {
   flake.modules.nixos.elio = {pkgs, ...}: let
     elioPkg = inputs.elio.packages.${pkgs.stdenv.hostPlatform.system}.elio;
 
-    # Sandboxed: no network, no D-Bus, secrets hidden, NixOS config read-only.
-    # Everything elio spawns inherits the sandbox.
+    # Sandboxed: no network, D-Bus only to the portal, secrets hidden, NixOS config read-only.
+    # Everything elio spawns directly (previewers, "open with") inherits the sandbox.
     elio = (mkSandbox pkgs).wrap {
       package = elioPkg;
       config = {sloth, ...}: {
+        # Files are opened through the portal (xdg-open -> OpenURI.OpenFile): the default app
+        # starts outside this sandbox, in its own, instead of inheriting this one
+        dbus = {
+          enable = true;
+          policies."org.freedesktop.portal.Desktop" = "talk";
+        };
         bubblewrap = {
+          env.NIXOS_XDG_OPEN_USE_PORTAL = "1";
           bind.rw = [sloth.homeDir];
           bind.ro = [
             (sloth.concat' sloth.homeDir "/.config/nixos")

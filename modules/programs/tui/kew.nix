@@ -4,23 +4,68 @@
   config,
   ...
 }: let
-  inherit (config.flake.lib) mime;
+  inherit (config.flake.lib) mkSandbox mime;
 in {
   flake.modules.nixos.kew = {
     imports = [aspects.hjem];
 
+    # Bind sources must exist, otherwise the app writes into the sandbox's tmpfs and loses it
+    systemd.user.tmpfiles.rules = [
+      "d %h/.config/kew 0700 - - -"
+      "d %h/.local/state/kew 0700 - - -"
+    ];
+
     hjem.extraModules = [
       ({pkgs, ...}: let
+        # Sandboxed: no network, reads the user dirs (files opened from elio), writes its
+        # config, its state and ~/Music (favorites playlist)
+        kew = (mkSandbox pkgs).wrap {
+          package = pkgs.kew;
+          config = {sloth, ...}: let
+            home = d: sloth.concat' sloth.homeDir "/${d}";
+          in {
+            dbus = {
+              enable = true;
+              policies = {
+                "org.mpris.MediaPlayer2.kew" = "own"; # Media keys, waybar
+                "org.freedesktop.Notifications" = "talk"; # Now playing
+              };
+            };
+            bubblewrap = {
+              bind.ro = map home [
+                # XDG user dirs (desktop/user-dirs.nix)
+                "Cyber"
+                "Documents"
+                "Downloads"
+                "Notes"
+                "Pictures"
+                "Projects"
+                "Videos"
+              ];
+              bind.rw = map home [".config/kew" ".local/state/kew" "Music"];
+              env = {
+                XDG_STATE_HOME = home ".local/state/kew"; # Otherwise kewstaterc lands directly in ~/.local/state
+                TMPDIR = "/tmp"; # PID file
+              };
+              tmpfs = ["/tmp"];
+              sockets = {
+                pipewire = true;
+                pulse = true;
+              };
+            };
+          };
+        };
+
         kewLauncher = pkgs.writeShellScript "kew-launcher" ''
           if [ -n "$1" ]; then
-            exec ${pkgs.kew}/bin/kew play "$1"
+            exec ${kew}/bin/kew play "$1"
           else
-            exec ${pkgs.kew}/bin/kew
+            exec ${kew}/bin/kew
           fi
         '';
       in {
         packages = [
-          pkgs.kew
+          kew
           (pkgs.makeDesktopItem {
             name = "kew";
             desktopName = "Music Player";
