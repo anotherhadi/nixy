@@ -94,16 +94,11 @@
       go.enable = true;
       markdown = {
         enable = true;
-        format.type = ["prettier"];
-        extensions = {
-          markview-nvim = {
-            enable = true;
-            setupOpts = {
-              preview = {
-                hybrid_modes = ["n"];
-              };
-            };
-          };
+        format.type = ["deno"];
+        extensions.render-markdown-nvim = {
+          enable = true;
+          # render in every mode, anti_conceal (on by default) keeps the cursor line raw
+          setupOpts.render_modes = true;
         };
         extraDiagnostics.enable = false;
       };
