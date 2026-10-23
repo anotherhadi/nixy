@@ -1,0 +1,28 @@
+# Catppuccin Mocha, with a darker background
+{
+  base00 = "161622"; # Default Background (darker than Mocha base 1E1E2E)
+  base01 = "1E1E2E"; # Lighter Background (Mocha base)
+  base02 = "313244"; # Selection Background (surface0)
+  base03 = "6C7086"; # Comments, Invisibles, Line Highlighting (overlay0)
+  base04 = "9399B2"; # Dark Foreground (overlay2)
+  base05 = "CDD6F4"; # Default Foreground, Caret, Delimiters, Operators (text)
+  base06 = "F5E0DC"; # Light Foreground (rosewater)
+  base07 = "B4BEFE"; # Light Background (lavender)
+  base08 = "F38BA8"; # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted (red)
+  base09 = "FAB387"; # Integers, Boolean, Constants, XML Attributes, Markup Link Url (peach)
+  base0A = "F9E2AF"; # Classes, Markup Bold, Search Text Background (yellow)
+  base0B = "A6E3A1"; # Strings, Inherited Class, Markup Code, Diff Inserted (green)
+  base0C = "94E2D5"; # Support, Regular Expressions, Escape Characters, Markup Quotes (teal)
+  base0D = "89B4FA"; # Functions, Methods, Attribute IDs, Headings, Accent color (blue)
+  base0E = "CBA6F7"; # Keywords, Storage, Selector, Markup Italic, Diff Changed (mauve)
+  base0F = "F2CDCD"; # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?> (flamingo)
+  # base24 extension: darker backgrounds and bright variants of the accents (ANSI 9-14)
+  base10 = "11111B"; # Darker Background (crust)
+  base11 = "0B0B12"; # Darkest Background
+  base12 = "EBA0AC"; # Bright Red (maroon)
+  base13 = "F5E0DC"; # Bright Yellow (rosewater)
+  base14 = "A6E3A1"; # Bright Green (green)
+  base15 = "89DCEB"; # Bright Cyan (sky)
+  base16 = "74C7EC"; # Bright Blue (sapphire)
+  base17 = "F5C2E7"; # Bright Purple (pink)
+}

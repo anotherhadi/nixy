@@ -21,8 +21,8 @@
         bindsym $mod+x mode $power
 
         # Quick launch
-        bindsym $mod+Return exec ${pkgs.ghostty}/bin/ghostty +new-window
-        bindsym $mod+e exec ${pkgs.ghostty}/bin/ghostty +new-window -e elio
+        bindsym $mod+Return exec ${scripts.term}/bin/term
+        bindsym $mod+e exec ${scripts.term}/bin/term elio
         bindsym $mod+space exec ${scripts.tofi-drun-toggle}/bin/tofi-drun-toggle
         bindsym $mod+n exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t
 

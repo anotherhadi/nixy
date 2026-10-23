@@ -1,4 +1,4 @@
-# starship is a minimal, fast, and extremely customizable prompt for any shell!
+# Starship is a minimal, fast, and extremely customizable prompt for any shell!
 {config, ...}: let
   c = config.theme.withHashtag;
   accent = c.base0D;
@@ -19,6 +19,7 @@ in {
             add_newline = true;
             format = lib.concatStrings [
               "$nix_shell"
+              "$direnv"
               "$hostname"
               "$directory"
               "$git_branch"
@@ -40,6 +41,17 @@ in {
               format = "[$symbol]($style) ";
               symbol = "🐚";
               style = "";
+            };
+
+            # .envrc in the directory: gear, plus a red mark while it is blocked or denied
+            direnv = {
+              disabled = false;
+              format = "[$symbol]($style)[$allowed](red) ";
+              symbol = "󰫧";
+              style = "";
+              allowed_msg = "";
+              not_allowed_msg = "!";
+              denied_msg = "✗";
             };
 
             git_branch = {

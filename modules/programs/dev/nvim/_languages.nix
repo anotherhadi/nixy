@@ -16,7 +16,7 @@
           };
         };
         underline = true;
-        update_in_insert = true;
+        update_in_insert = false;
         virtual_text = true;
       };
       nvim-lint = {
@@ -26,7 +26,7 @@
     treesitter = {
       enable = true;
       autotagHtml = true;
-      context.enable = true;
+      context.enable = false;
       highlight.enable = true;
       textobjects.enable = true;
       grammars = [
@@ -47,7 +47,7 @@
       trouble.enable = true;
       lspSignature.enable = true;
       lspconfig.enable = true;
-      formatOnSave = false;
+      formatOnSave = true; # through conform, toggled by vim.g.formatsave
       mappings.format = null;
       inlayHints.enable = true;
       servers.nil.settings.nix.autoArchive = true;
@@ -117,14 +117,15 @@
     formatter = {
       conform-nvim = {
         enable = true;
-        setupOpts.format_on_save = {
-          lsp_format = "fallback";
-        };
+        setupOpts.format_after_save = null; # format_on_save already formats, don't run twice
         # Prefer the project's pinned prettier (node_modules/.bin), so nvim, npm run format
         # and CI format identically. nvf hardcodes the nixpkgs one, hence mkForce.
         setupOpts.formatters.prettier.command = lib.mkForce (lib.generators.mkLuaInline ''
           require("conform.util").find_executable({ "node_modules/.bin/prettier" }, "${lib.getExe pkgs.prettier}")
         '');
+        # deno defaults to proseWrap=always (hard wrap at 80), which strands long links on
+        # their own line; keep the line breaks as written.
+        setupOpts.formatters.deno.append_args = ["--prose-wrap" "preserve"];
       };
     };
   };

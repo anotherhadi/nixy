@@ -11,7 +11,7 @@ in {
       scripts,
       ...
     }: let
-      settuings = page: "${pkgs.ghostty}/bin/ghostty +new-window -e ${pkgs.nur.repos.anotherhadi.settuings}/bin/settuings --page ${page}";
+      settuings = page: "${scripts.term}/bin/term ${pkgs.nur.repos.anotherhadi.settuings}/bin/settuings --page ${page}";
 
       status = pkgs.writeShellScriptBin "swaybar-status" ''
         export PATH=${lib.makeBinPath (with pkgs; [coreutils jq procps])}:$PATH

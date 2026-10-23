@@ -1,7 +1,7 @@
 {
   # https://github.com/anotherhadi/nixy
   description = ''
-    Nixy simplifies and unifies the Hyprland ecosystem with a minimalist & easily customizable NixOS setup, heavily focused on TUIs.
+    Nixy: a hardened, minimalist & dendritic NixOS configuration, built around Sway and heavily focused on TUIs.
   '';
 
   inputs = {

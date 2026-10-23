@@ -39,7 +39,6 @@
         redraw() { pkill -x -RTMIN+8 swaybar-status 2>/dev/null || true; }
 
         if pgrep -x wf-recorder >/dev/null; then
-          # -INT lets wf-recorder finalize the file cleanly.
           pkill -INT -x wf-recorder
           exit 0
         fi

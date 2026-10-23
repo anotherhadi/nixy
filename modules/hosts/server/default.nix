@@ -1,4 +1,3 @@
-# Home server
 {
   aspects,
   inputs,
@@ -6,9 +5,8 @@
 }: {
   flake.nixosConfigurations.jack = inputs.nixpkgs.lib.nixosSystem {
     modules = with aspects; [
-      base # common, secrets, theme, hjem, nix, users... (see modules/bundles.nix)
+      base
 
-      # Host values (modules/hosts/common.nix)
       {
         networking.hostName = "jack";
         nixy = {
@@ -33,10 +31,10 @@
       homelab # see modules/bundles.nix
 
       # Programs
-      tui # shell, git, nvim, cybersecurity... (see modules/bundles.nix)
+      tui # shell, git, nvim, cybersecurity...
       git-signing # CHANGEME: Change the key or remove this line
 
-      # Host-specific (plain NixOS modules, "_" keeps import-tree away)
+      # Host-specific
       ./_configuration.nix
     ];
   };

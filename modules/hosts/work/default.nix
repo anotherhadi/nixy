@@ -6,9 +6,8 @@
 }: {
   flake.nixosConfigurations.h-work = inputs.nixpkgs.lib.nixosSystem {
     modules = with aspects; [
-      base # common, secrets, theme, hjem, nix, users... (see modules/bundles.nix)
+      base
 
-      # Host values (modules/hosts/common.nix)
       {
         networking.hostName = "h-work";
         nixy = {
@@ -27,7 +26,6 @@
       audio
       fonts
       systemd-boot
-      vulnix
       usbguard # Rules in ./_configuration.nix
 
       # Desktop
@@ -36,9 +34,9 @@
       gui # sway, desktop, helium, gui apps
 
       # Programs
-      tui # shell, git, nvim, cybersecurity... (see modules/bundles.nix)
+      tui # shell, git, nvim, cybersecurity...
 
-      # Host-specific (plain NixOS modules, "_" keeps import-tree away)
+      # Host-specific
       ./_disko.nix
       ./_configuration.nix
     ];

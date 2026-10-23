@@ -9,7 +9,6 @@ in {
   flake.modules.nixos.kew = {
     imports = [aspects.hjem];
 
-    # Bind sources must exist, otherwise the app writes into the sandbox's tmpfs and loses it
     systemd.user.tmpfiles.rules = [
       "d %h/.config/kew 0700 - - -"
       "d %h/.local/state/kew 0700 - - -"
@@ -17,7 +16,7 @@ in {
 
     hjem.extraModules = [
       ({pkgs, ...}: let
-        # Sandboxed: no network, reads the user dirs (files opened from elio), writes its
+        # Sandboxed: no network, reads the user dirs, writes its
         # config, its state and ~/Music (favorites playlist)
         kew = (mkSandbox pkgs).wrap {
           package = pkgs.kew;
@@ -69,7 +68,7 @@ in {
           (pkgs.makeDesktopItem {
             name = "kew";
             desktopName = "Music Player";
-            exec = "${pkgs.ghostty}/bin/ghostty --window-padding-x=0 --window-padding-y=0 -e ${kewLauncher} %f";
+            exec = "${pkgs.kitty}/bin/kitty -o window_padding_width=0 ${kewLauncher} %f";
             comment = "Play music from the terminal";
             categories = ["Audio" "Music"];
             terminal = false;
@@ -80,7 +79,7 @@ in {
 
         xdg.mime-apps = mime.defaultFor "kew.desktop" mime.types.audio;
 
-        persist.directories = [".config/kew"];
+        persist.directories = [".config/kew" "Music"];
       })
     ];
   };

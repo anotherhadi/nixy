@@ -1,39 +1,4 @@
 {lib, ...}: {
-  vim.luaConfigRC.mini-clue = ''
-    local miniclue = require('mini.clue')
-    miniclue.setup({
-      triggers = {
-        { mode = 'n', keys = '<Leader>' },
-        { mode = 'x', keys = '<Leader>' },
-        { mode = 'n', keys = 'g' },
-        { mode = 'x', keys = 'g' },
-        { mode = 'n', keys = "'" },
-        { mode = 'n', keys = '`' },
-        { mode = 'n', keys = '"' },
-        { mode = 'i', keys = '<C-r>' },
-        { mode = 'c', keys = '<C-r>' },
-        { mode = 'n', keys = '<C-w>' },
-        { mode = 'n', keys = 'z' },
-      },
-      clues = {
-        miniclue.gen_clues.g(),
-        miniclue.gen_clues.marks(),
-        miniclue.gen_clues.registers(),
-        miniclue.gen_clues.windows({ submode_resize = true }),
-        miniclue.gen_clues.z(),
-        { mode = 'n', keys = '<Leader>f', desc = '+find' },
-        { mode = 'n', keys = '<Leader>s', desc = '+search' },
-        { mode = 'n', keys = '<Leader>t', desc = '+tools' },
-        { mode = 'n', keys = '<Leader>u', desc = '+ui' },
-        { mode = 'n', keys = '<Leader>l', desc = '+lsp' },
-        { mode = 'n', keys = '<Leader>x', desc = '+trouble' },
-        { mode = 'n', keys = '<Leader>!', desc = 'shell' },
-        { mode = 'v', keys = '<Leader>!', desc = 'shell' },
-      },
-      window = { delay = 300 },
-    })
-  '';
-
   vim.mini = {
     ai.enable = true;
     starter = {
@@ -93,7 +58,44 @@
     git.enable = true;
     jump2d.enable = true;
     statusline.enable = true;
-    clue.enable = true;
+    clue = {
+      enable = true;
+      setupOpts = let
+        trigger = mode: keys: {inherit mode keys;};
+        clue = mode: keys: desc: {inherit mode keys desc;};
+        gen = lib.mkLuaInline;
+      in {
+        triggers = [
+          (trigger "n" "<Leader>")
+          (trigger "x" "<Leader>")
+          (trigger "n" "g")
+          (trigger "x" "g")
+          (trigger "n" "'")
+          (trigger "n" "`")
+          (trigger "n" "\"")
+          (trigger "i" "<C-r>")
+          (trigger "c" "<C-r>")
+          (trigger "n" "<C-w>")
+          (trigger "n" "z")
+        ];
+        clues = [
+          (gen "require('mini.clue').gen_clues.g()")
+          (gen "require('mini.clue').gen_clues.marks()")
+          (gen "require('mini.clue').gen_clues.registers()")
+          (gen "require('mini.clue').gen_clues.windows({ submode_resize = true })")
+          (gen "require('mini.clue').gen_clues.z()")
+          (clue "n" "<Leader>f" "+find")
+          (clue "n" "<Leader>s" "+search")
+          (clue "n" "<Leader>t" "+tools")
+          (clue "n" "<Leader>u" "+ui")
+          (clue "n" "<Leader>l" "+lsp")
+          (clue "n" "<Leader>x" "+trouble")
+          (clue "n" "<Leader>!" "shell")
+          (clue "v" "<Leader>!" "shell")
+        ];
+        window.delay = 300;
+      };
+    };
     surround.enable = true;
   };
 }

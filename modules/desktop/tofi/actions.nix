@@ -1,6 +1,10 @@
 {
   flake.modules.nixos.desktop.hjem.extraModules = [
-    ({pkgs, ...}: {
+    ({
+      pkgs,
+      scripts,
+      ...
+    }: {
       launcher = {
         reboot = {
           name = "Reboot";
@@ -24,7 +28,7 @@
         };
         settuings = {
           name = "Settings";
-          exec = "${pkgs.ghostty}/bin/ghostty +new-window -e ${pkgs.nur.repos.anotherhadi.settuings}/bin/settuings";
+          exec = "${scripts.term}/bin/term ${pkgs.nur.repos.anotherhadi.settuings}/bin/settuings";
         };
       };
     })

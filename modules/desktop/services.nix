@@ -6,6 +6,8 @@
       gnome.gnome-keyring.enable = true;
       gvfs.enable = true;
       dbus.packages = [pkgs.gcr];
+      # On by default with a graphical session, pulls ~700 MiB of voices
+      speechd.enable = false;
     };
 
     programs.dconf.enable = true;

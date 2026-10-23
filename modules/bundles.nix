@@ -19,7 +19,7 @@
     # Terminal environment, on every host
     tui.imports = [
       shell
-      ghostty
+      kitty
       git
       btop
       cli-tools
@@ -52,7 +52,6 @@
       fail2ban
       cloudflared
       adguardhome
-      glance
       arr
       bentopdf
       cyberchef
@@ -77,9 +76,7 @@
       vlc
       pinta
       onlyoffice
-      blanket
       thunar # Backup
-      gnome-text-editor # Backup
       filen
     ];
   };

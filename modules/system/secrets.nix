@@ -1,7 +1,4 @@
 # Secrets (sops-nix): age key and tooling, shared by every host
-# Hosts only point to their file:  sops.defaultSopsFile = ./_secrets/secrets.yaml;
-# Features declare the secrets they use themselves (sops.secrets.<name>), and
-# check nixy.secrets.available for the ones only some hosts have
 {
   aspects,
   inputs,

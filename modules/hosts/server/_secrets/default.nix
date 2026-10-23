@@ -1,4 +1,3 @@
-# Only the host's own files live here, features declare theirs (modules/system/secrets.nix)
 {config, ...}: let
   username = config.nixy.username;
   home = config.users.users.${username}.home;

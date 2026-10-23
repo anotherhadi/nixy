@@ -51,7 +51,7 @@
     boot.kernelParams = [
       "init_on_alloc=1" # zero freshly allocated kernel memory
       "init_on_free=1" # zero freed kernel memory
-      "slab_nomerge" # don't merge slab caches of different sizes (harder heap grooming)
+      "slab_nomerge" # don't merge slab caches of different sizes
       "page_alloc.shuffle=1" # randomize page allocator freelists
       "randomize_kstack_offset=1" # randomize the kernel stack offset on syscall entry
     ];

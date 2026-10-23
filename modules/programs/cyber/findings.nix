@@ -1,6 +1,5 @@
-# mdtable: table of the markdown frontmatters of a directory (recursive), colored with the theme
-# findings: views of the bug bounty findings of the current directory (recursive) on top of mdtable (like the Obsidian base)
-# Interactive by default: Enter opens the note in $EDITOR, then the table comes back up to date
+# mdtable: table of the markdown frontmatters of a directory
+# findings: views of the bug bounty findings of the current directory
 {
   aspects,
   config,
@@ -38,7 +37,7 @@ in {
         bold = base: "1;${fg base}";
         dim = fg "base03";
 
-        # Frontmatter value (lowercased) -> color, whatever the column
+        # Frontmatter value
         valueColors = {
           # severity
           critical = bold "base08";
@@ -114,8 +113,6 @@ in {
             [[ -t 1 ]] || print=true # piped: nothing to pick from
             cd "$dir"
 
-            # One JSON object per note: its frontmatter, plus path and mtime.
-            # yq reads the notes one by one: with several files, one bad note stops them all
             notes() {
               { rg -0 -lU '\A---\r?\n' -g '*.md' -g '!_templates' || true; } |
                 while IFS= read -r -d "" f; do

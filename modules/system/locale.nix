@@ -24,7 +24,6 @@
       };
     };
 
-    # Read by sway too (desktop/sway/default.nix)
     services.xserver.xkb.layout = lib.mkDefault "fr"; # CHANGEME
     console.keyMap = lib.mkDefault config.services.xserver.xkb.layout;
   };

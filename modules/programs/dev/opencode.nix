@@ -1,5 +1,4 @@
 # Opencode with local Ollama models
-# Switch model in a session with /models
 {
   aspects,
   config,
@@ -69,8 +68,8 @@ in {
       ({pkgs, ...}: let
         json = (pkgs.formats.json {}).generate;
 
-        # Sandboxed: network (Ollama, models.dev), but only sees the project it is started in
-        # and its own state. Secrets are hidden. Everything opencode spawns inherits the sandbox.
+        # Sandboxed: network (Ollama), but only sees the project it is started in
+        # and its own state. Secrets are hidden.
         sandboxed = (mkSandbox pkgs).wrap {
           package = pkgs.opencode;
           config = {sloth, ...}: let
@@ -93,14 +92,14 @@ in {
               ];
               tmpfs = ["/tmp"];
               env = {
-                TMPDIR = "/tmp"; # The outer one (nix-shell...) doesn't exist inside
-                NIX_REMOTE = "daemon"; # /nix/var/nix is writable in the sandbox root, nix would pick an empty local store
+                TMPDIR = "/tmp";
+                NIX_REMOTE = "daemon";
+                OPENCODE_DISABLE_MODELS_FETCH = "1"; # No models.dev, the Ollama models are listed below
               };
             };
           };
         };
 
-        # Bind sources must exist, otherwise the app writes into the sandbox's tmpfs and loses it
         opencode = pkgs.writeShellScriptBin "opencode" ''
           mkdir -p "$HOME/.local/share/opencode" "$HOME/.local/state/opencode" "$HOME/.cache/opencode"
 
@@ -133,6 +132,8 @@ in {
               };
             };
             model = "ollama/qwen3.5:35b-a3b";
+            share = "disabled";
+            autoupdate = false;
           };
         };
 

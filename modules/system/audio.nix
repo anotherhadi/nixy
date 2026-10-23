@@ -12,7 +12,7 @@
 
     environment.systemPackages = [pkgs.alsa-utils];
 
-    # TODO: Desc
+    # For my dock:
     services.udev.extraRules = ''
       SUBSYSTEM=="sound", KERNEL=="controlC*", ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="056b", TAG+="systemd", ENV{SYSTEMD_WANTS}+="unmute-dock-headphones@%k.service"
     '';

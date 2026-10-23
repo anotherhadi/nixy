@@ -75,9 +75,14 @@ in {
             "${certDir}/burp.der"
             "${certDir}/caido.crt"
             "${home}/.local/share/spilltea/mitmproxy-ca-cert.pem"
+            "${home}/.local/share/spilltea/ca/ca.pem"
           ];
-          # FoxyProxy needs private window access to drive proxy.settings
-          ExtensionSettings."foxyproxy@eric.h.jung".private_browsing = true;
+          # Pin every extension to the toolbar; FoxyProxy also needs private
+          # window access to drive proxy.settings
+          ExtensionSettings =
+            lib.recursiveUpdate
+            (lib.genAttrs (map (ext: ext.addonId) extensions) (_: {default_area = "navbar";}))
+            {"foxyproxy@eric.h.jung".private_browsing = true;};
           SanitizeOnShutdown = {
             Cache = true;
             Cookies = true;
@@ -116,6 +121,9 @@ in {
 
           # Allow the proxy CA on pinned domains
           "security.cert_pinning.enforcement_level" = 1;
+
+          # Hide the bookmarks toolbar
+          "browser.toolbars.bookmarks.visibility" = "never";
 
           # Always show the full URL
           "browser.urlbar.trimURLs" = false;

@@ -1,4 +1,4 @@
-# Nvidia configuration for NixOS with Wayland (sway) support
+# Nvidia configuration for NixOS with Wayland support
 # Import this module only if you have an Nvidia GPU
 {
   flake.modules.nixos.nvidia = {
@@ -10,38 +10,23 @@
   in {
     services.xserver.videoDrivers = ["nvidia"];
 
-    boot.kernelParams = [
-      "nvidia.NVreg_PreserveVideoMemoryAllocations=1" # Improves resume after sleep
-    ];
-
-    environment.variables = {
-      LIBVA_DRIVER_NAME = "nvidia";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-      __GL_GSYNC_ALLOWED = "1";
-      __GL_VRR_ALLOWED = "1";
-      NVD_BACKEND = "direct";
-    };
-
-    nixpkgs.config.nvidia.acceptLicense = true;
-
     hardware = {
       nvidia = {
-        open = true; # Open kernel modules, recommended for Turing and newer (RTX 4070 = Ada Lovelace)
-        nvidiaSettings = true;
+        open = true;
+        nvidiaSettings = false;
         powerManagement = {
           enable = true;
           finegrained = true;
         };
+        dynamicBoost.enable = true;
         modesetting.enable = true;
         package = nvidiaDriverChannel;
-        # forceFullCompositionPipeline = true; # Only useful when display is connected directly to Nvidia GPU, not in PRIME offload mode
 
         prime = {
           offload = {
             enable = true;
             enableOffloadCmd = true;
           };
-          sync.enable = false; # offload mode is better for battery life
           amdgpuBusId = "PCI:5:0:0";
           nvidiaBusId = "PCI:1:0:0";
         };
@@ -50,14 +35,7 @@
       graphics = {
         enable = true;
         enable32Bit = true;
-        extraPackages = with pkgs; [
-          nvidia-vaapi-driver
-          libva-vdpau-driver
-          libvdpau-va-gl
-          egl-wayland
-          vulkan-loader
-          libva
-        ];
+        extraPackages = [pkgs.nvidia-vaapi-driver];
       };
     };
 

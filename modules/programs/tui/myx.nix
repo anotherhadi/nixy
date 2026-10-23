@@ -26,7 +26,6 @@ in {
       path = "${config.users.users.${username}.home}/.config/myx/config.toml";
     };
 
-    # Bind sources must exist, otherwise the app writes into the sandbox's tmpfs and loses it
     systemd.user.tmpfiles.rules = [
       "d %h/.config/myx 0700 - - -"
       "d %h/.cache/myx 0700 - - -"
@@ -34,10 +33,14 @@ in {
 
     hjem.extraModules = [
       ({pkgs, ...}: let
-        # Sandboxed: network (Spotify), audio, only its config and cache
+        # Sandboxed: network (Spotify), audio, MPRIS, only its config and cache
         myx = (mkSandbox pkgs).wrap {
           package = pkgs.unstable.myx;
           config = {sloth, ...}: {
+            dbus = {
+              enable = true;
+              policies."org.mpris.MediaPlayer2.myx" = "own"; # Media keys (souvlaki panics without a bus)
+            };
             bubblewrap = {
               network = true;
               bind.rw = map (d: sloth.concat' sloth.homeDir "/${d}") [".config/myx" ".cache/myx"];
@@ -55,7 +58,7 @@ in {
           (pkgs.makeDesktopItem {
             name = "myx";
             desktopName = "Spotify";
-            exec = "${pkgs.ghostty}/bin/ghostty --window-padding-x=0 --window-padding-y=0 -e ${myx}/bin/myx";
+            exec = "${pkgs.kitty}/bin/kitty -o window_padding_width=0 ${myx}/bin/myx";
             icon = "spotify";
             comment = "Control Spotify from the terminal";
             categories = ["Audio" "Music"];

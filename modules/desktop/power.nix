@@ -43,8 +43,6 @@
             packages = [pkgs.poweralertd];
             launcher.power-cycle.name = "Power Profile";
 
-            # Event-driven low-battery/critical/full notifications via UPower dbus signals
-            # (thresholds above, services.upower.percentage*).
             systemd.services.poweralertd = {
               description = "UPower-powered battery notifications";
               wantedBy = ["graphical-session.target"];

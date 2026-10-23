@@ -9,7 +9,6 @@ in {
   flake.modules.nixos.onlyoffice = {
     imports = [aspects.hjem];
 
-    # Bind sources must exist, otherwise the app writes into the sandbox's tmpfs and loses it
     systemd.user.tmpfiles.rules = [
       "d %h/.config/onlyoffice 0700 - - -"
       "d %h/.local/share/onlyoffice 0700 - - -"
@@ -23,13 +22,13 @@ in {
           package = pkgs.onlyoffice-desktopeditors;
           gui = true;
           config = {sloth, ...}: {
-            # The portal hands it files through the document store under the .desktop ID:
-            # rename the .desktop to the app ID so both match (mime default below)
             flatpak = {
               appId = "org.onlyoffice.desktopeditors";
               desktopFile = "onlyoffice-desktopeditors.desktop";
             };
             bubblewrap = {
+              # X11 only (bundled Qt has no Wayland plugin): runs on Xwayland
+              sockets.x11 = true;
               bind.ro = map (d: sloth.concat' sloth.homeDir "/${d}") [
                 # XDG user dirs (desktop/user-dirs.nix)
                 "Cyber"

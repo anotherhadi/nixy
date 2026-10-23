@@ -1,5 +1,4 @@
 # Podman: rootless, daemonless containers (`docker` is an alias to podman)
-# Images and volumes live in ~/.local/share/containers (already persisted)
 {
   flake.modules.nixos.podman = {pkgs, ...}: {
     virtualisation.podman = {

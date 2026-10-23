@@ -9,7 +9,6 @@ in {
   flake.modules.nixos.pinta = {
     imports = [aspects.hjem];
 
-    # Bind sources must exist, otherwise the app writes into the sandbox's tmpfs and loses it
     systemd.user.tmpfiles.rules = ["d %h/.config/Pinta 0700 - - -"];
 
     hjem.extraModules = [

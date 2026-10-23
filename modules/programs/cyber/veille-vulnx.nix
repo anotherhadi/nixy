@@ -1,7 +1,6 @@
 # veille-vulnx: watch new CVEs of the technologies listed in a watchlist, with vulnx
-# Reports each CVE never seen before (stdout, daily report, and the watchlist's on_match command)
-# Data in ~/.local/state/veille-vulnx (already persisted): watchlist.yaml (edited by hand), seen.txt, reports/
-# Runs once per boot, when the graphical session is up, retrying until online
+# Check logs: `journalctl --user -u veille-vulnx -b`
+# Check reports: `ls ~/.local/state/veille-vulnx/reports`
 {aspects, ...}: {
   flake.modules.nixos.veille-vulnx = {
     imports = [
@@ -78,8 +77,6 @@
                 msg="[$tech @ $seen_on] $cve ($severity, cvss $score) $name"
                 echo "$msg" | tee -a "$REPORT"
 
-                # Values passed as environment variables, not substituted in the
-                # command: a CVE name cannot inject anything
                 if [[ -n "$on_match" ]] && ! TECH="$tech" SEEN_ON="$seen_on" CVE="$cve" \
                   SEVERITY="$severity" CVSS="$score" NAME="$name" MESSAGE="$msg" \
                   bash -c "$on_match" </dev/null; then

@@ -21,7 +21,7 @@
       aspects.boot
     ];
 
-    # lanzaboote replaces systemd-boot (it installs a signed one itself)
+    # lanzaboote replaces systemd-boot
     boot.loader.systemd-boot.enable = lib.mkForce false;
     boot.lanzaboote = {
       enable = true;

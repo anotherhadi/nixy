@@ -25,7 +25,6 @@ in {
           };
         };
 
-        # Bind sources must exist, otherwise the app writes into the sandbox's tmpfs and loses it
         yoinks = pkgs.writeShellScriptBin "yoinks" ''
           mkdir -p "$HOME/Downloads" "$HOME/.config/yoinks"
           exec ${sandboxed}/bin/yoinks "$@"

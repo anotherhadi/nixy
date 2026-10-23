@@ -10,7 +10,11 @@ in {
     imports = [aspects.hjem];
 
     hjem.extraModules = [
-      ({pkgs, ...}: let
+      ({
+        pkgs,
+        scripts,
+        ...
+      }: let
         btopPackage = pkgs.btop.override {cudaSupport = true;};
       in {
         packages = [
@@ -18,7 +22,7 @@ in {
           (pkgs.makeDesktopItem {
             name = "btop";
             desktopName = "btop++";
-            exec = "${pkgs.ghostty}/bin/ghostty +new-window -e ${btopPackage}/bin/btop";
+            exec = "${scripts.term}/bin/term ${btopPackage}/bin/btop";
             comment = "Ressources monitor (btop)";
             categories = ["Settings"];
             terminal = false;

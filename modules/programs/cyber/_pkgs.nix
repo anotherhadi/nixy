@@ -1,12 +1,10 @@
 {pkgs, ...}: (with pkgs; [
-  pkgs.nur.repos.sectui.cheatmd # Interactive cheatsheets from Markdown files
-
   # Web
   pkgs.nur.repos.anotherhadi.spilltea
   ffuf
-  kiterunner
   sqlmap
   nosqli
+  pkgs.unstable.kiterunner
   pkgs.unstable.uro
   pkgs.unstable.katana
   pkgs.unstable.whatweb

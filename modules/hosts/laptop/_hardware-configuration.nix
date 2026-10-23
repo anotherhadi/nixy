@@ -1,4 +1,4 @@
-# Hardware detection - filesystems are managed by _disko.nix
+# Hardware detection
 {
   config,
   lib,

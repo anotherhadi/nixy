@@ -1,5 +1,4 @@
-# Offensive security toolbox: tools, wordlists, a dedicated browser (librewolf.nix), CVE watch (veille-vulnx.nix)
-# and tables of the findings notes (findings.nix)
+# Offensive security toolbox
 {
   aspects,
   inputs,
@@ -25,6 +24,7 @@
       aspects.secrets
       aspects.veille-vulnx
       aspects.findings
+      aspects.cheatmd
     ];
 
     sops.secrets = {
@@ -33,11 +33,7 @@
     };
 
     hjem.extraModules = [
-      ({
-        config,
-        pkgs,
-        ...
-      }: let
+      ({pkgs, ...}: let
         wordlists-fetch = import ./_wordlists.nix {inherit pkgs;};
       in {
         packages = import ./_pkgs.nix {inherit pkgs;} ++ [wordlists-fetch];
@@ -46,10 +42,6 @@
           # Open source list of default credentials
           ".cache/default-creds".source = inputs.default-creds;
         };
-
-        xdg.config.files."cheatmd/cheatmd.yaml".text = ''
-          path: ${config.directory}/Cyber/_notes
-        '';
 
         systemd.services.wordlists-fetch = {
           description = "Download missing wordlists into ~/Cyber/wordlists";
@@ -62,10 +54,16 @@
           };
         };
 
+        # ProjectDiscovery tools (nuclei, httpx, subfinder...) check for updates on every run
+        environment.sessionVariables = {
+          DISABLE_UPDATE_CHECK = "true";
+          NUCLEI_TEMPLATES_DIR = "${home}/.nuclei-templates";
+        };
+
         persist.directories = [
           "Cyber"
           ".config/nuclei"
-          "nuclei-templates" # Downloaded by nuclei (-update-templates)
+          ".nuclei-templates"
         ];
         persist.files = [
           ".pdcp/credentials.yaml" # ProjectDiscovery API key (vulnx auth)

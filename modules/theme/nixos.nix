@@ -1,5 +1,4 @@
-# System side of the theme: fonts (+ fontconfig defaults) and console colors
-# User apps are themed by their own aspects, reading config.theme
+# System side of the theme
 {config, ...}: let
   inherit (config) theme;
   c = theme.colors;

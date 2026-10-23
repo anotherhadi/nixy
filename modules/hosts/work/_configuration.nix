@@ -8,7 +8,6 @@
     ./_hardware-configuration.nix
   ];
 
-  # User side: features add their files through hjem.extraModules, this is what's host-specific
   hjem.users.${config.nixy.username} = {
     lib,
     pkgs,
@@ -16,7 +15,6 @@
   }: {
     enable = true;
 
-    # The Philips on the left, sway places the Acer on its right
     sway.config = ''
       output "Philips Consumer Electronics Company PHL 252B9 UHB2223003334" position 0 0 scale 1
     '';

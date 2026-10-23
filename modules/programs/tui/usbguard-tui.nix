@@ -4,7 +4,11 @@
     imports = [aspects.hjem];
 
     hjem.extraModules = [
-      ({pkgs, ...}: let
+      ({
+        pkgs,
+        scripts,
+        ...
+      }: let
         usbguard-tui = pkgs.nur.repos.anotherhadi.usbguard-tui;
       in {
         packages = [
@@ -12,7 +16,7 @@
           (pkgs.makeDesktopItem {
             name = "usbguard-tui";
             desktopName = "USBGuard TUI";
-            exec = "${pkgs.ghostty}/bin/ghostty +new-window -e ${pkgs.polkit}/bin/pkexec ${usbguard-tui}/bin/usbguard-tui";
+            exec = "${scripts.term}/bin/term ${pkgs.polkit}/bin/pkexec ${usbguard-tui}/bin/usbguard-tui";
             comment = "Manage USBGuard rules";
             categories = ["Settings"];
             terminal = false;

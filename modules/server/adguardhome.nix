@@ -14,7 +14,6 @@
     networking.firewall = {
       allowedTCPPorts = [53];
       allowedUDPPorts = [53];
-      # Allow containers to reach adguard UI (for glance dns-stats widget)
       extraCommands = ''
         iptables -I INPUT 1 -s 10.233.0.0/16 -p tcp --dport 3000 -j ACCEPT
       '';

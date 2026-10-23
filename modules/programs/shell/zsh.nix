@@ -1,9 +1,4 @@
-# My shell configuration (~/.zshenv, ~/.zshrc)
-# Other features hook into zsh when it's there (`lib.optionalAttrs (options ? zsh)`):
-#   zsh.shellAliases      aliases
-#   zsh.initContent       .zshrc lines, ordered with lib.mkOrder:
-#                         550 before compinit, 1000 default, 1100 integrations,
-#                         1500 (mkAfter) end, 2000 last (zoxide)
+# My shell configuration
 {aspects, ...}: {
   flake.modules.nixos.shell = {
     imports = [aspects.hjem];
@@ -146,8 +141,7 @@
 
             # bash
             ''
-              # cat: preview images inline (kitty graphics protocol, works in Ghostty)
-              # instead of dumping bat's binary garbage; falls back to bat otherwise.
+              # cat: preview images inline instead of dumping bat's binary garbage
               cat() {
                 local -a imgs rest
                 local f
@@ -187,7 +181,8 @@
               alias -g T="| tail"
               alias -g JQ="| jq"
               alias -g C="| wl-copy"
-              # TODO: add signal notif
+              alias -g NO='; ${pkgs.libnotify}/bin/notify-send "$? · ''${history[$HISTCMD]% NO}"'
+              alias -g NS='; signal-notify "$HOST: $? · ''${history[$HISTCMD]% NS}"'
               alias -g NE="2>/dev/null"
               alias -g ND=">/dev/null"
               alias -g NUL=">/dev/null 2>&1"

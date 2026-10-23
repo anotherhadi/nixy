@@ -43,7 +43,7 @@ in {
 
         sway.config = ''
           # Startup
-          exec uwsm finalize SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME && systemctl --user start app-com.mitchellh.ghostty.service
+          exec uwsm finalize SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
           exec ${swaymonad}/bin/swaymonad
 
           # Look

@@ -1,4 +1,3 @@
-# Laptop (HP Omen 16)
 {
   aspects,
   inputs,
@@ -6,7 +5,7 @@
 }: {
   flake.nixosConfigurations.h-laptop = inputs.nixpkgs.lib.nixosSystem {
     modules = with aspects; [
-      base # common, secrets, theme, hjem, nix, users... (see modules/bundles.nix)
+      base
 
       # Host values (modules/hosts/common.nix)
       {
@@ -38,12 +37,12 @@
       gui # sway, desktop, helium, gui apps
 
       # Programs
-      tui # shell, git, nvim, cybersecurity... (see modules/bundles.nix)
+      tui # shell, git, nvim, cybersecurity...
       git-signing # CHANGEME: Change the key or remove this line
       steam
       ollama
 
-      # Host-specific (plain NixOS modules, "_" keeps import-tree away)
+      # Host-specific
       ./_disko.nix
       ./_configuration.nix
     ];

@@ -12,7 +12,6 @@ in {
     elioPkg = inputs.elio.packages.${pkgs.stdenv.hostPlatform.system}.elio;
 
     # Sandboxed: no network, D-Bus only to the portal, secrets hidden, NixOS config read-only.
-    # Everything elio spawns directly (previewers, "open with") inherits the sandbox.
     elio = (mkSandbox pkgs).wrap {
       package = elioPkg;
       config = {sloth, ...}: {
@@ -36,7 +35,7 @@ in {
 
     elioPortal = let
       service = pkgs.writeShellScript "elio-portal-service" ''
-        export PATH=${pkgs.ghostty}/bin:$PATH
+        export PATH=${pkgs.kitty}/bin:$PATH
         exec -a ${elio}/bin/elio ${elioPkg}/bin/elio --portal-service
       '';
     in
@@ -62,7 +61,11 @@ in {
     };
 
     hjem.extraModules = [
-      ({lib, ...}: {
+      ({
+        lib,
+        scripts,
+        ...
+      }: {
         packages = [
           elio
           pkgs._7zz # Archives
@@ -72,7 +75,7 @@ in {
           (lib.hiPrio (pkgs.makeDesktopItem {
             name = "elio";
             desktopName = "Files";
-            exec = "${pkgs.ghostty}/bin/ghostty +new-window -e ${elio}/bin/elio %f";
+            exec = "${scripts.term}/bin/term ${elio}/bin/elio %f";
             terminal = false;
             mimeTypes = ["inode/directory"];
             categories = ["System" "FileManager" "FileTools" "ConsoleOnly"];
@@ -113,7 +116,7 @@ in {
             ]
 
             [portal]
-            terminal = "ghostty"
+            terminal = "kitty"
           '';
 
           ".config/elio/theme.toml".text = ''

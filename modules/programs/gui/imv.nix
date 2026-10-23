@@ -18,8 +18,6 @@ in {
           config = {sloth, ...}: {
             # bin/imv is a script picking imv-wayland/imv-x11: wrap the real binary, nixpak rewrites the script
             app.binPath = "bin/imv-wayland";
-            # The portal hands it files through the document store under the .desktop ID:
-            # rename the .desktop to the app ID so both match (mime default below)
             flatpak = {
               appId = "io.github.imv";
               desktopFile = "imv-dir.desktop";

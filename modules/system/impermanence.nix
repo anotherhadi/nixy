@@ -30,7 +30,7 @@
       ];
     };
 
-    # Home: hosts add their own folders (Music, .steam...) with hjem.users.<user>.persist
+    # Home: programs add their own folders (~/Music in kew, .steam in steam...) with persist.*
     hjem.extraModules = [
       {
         persist = {

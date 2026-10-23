@@ -11,8 +11,7 @@ in {
 
     hjem.extraModules = [
       ({pkgs, ...}: let
-        # Sandboxed like elio: no network, whole home, NixOS config read-only
-        # Everything thunar opens inherits the sandbox
+        # Sandboxed: no network, whole home, NixOS config read-only
         thunar = (mkSandbox pkgs).wrap {
           package = pkgs.thunar;
           gui = true;

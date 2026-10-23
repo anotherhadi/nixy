@@ -1,4 +1,4 @@
-# Chafa: image to ANSI/Unicode (and sixel, kitty) converter
+# Chafa: image to ANSI/Unicode converter
 {
   aspects,
   config,

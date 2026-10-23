@@ -1,4 +1,4 @@
-# Obsidian: note taking app, vault in ~/Notes
+# Obsidian: note taking app
 {
   aspects,
   config,
@@ -9,7 +9,6 @@ in {
   flake.modules.nixos.obsidian = {
     imports = [aspects.hjem];
 
-    # Bind sources must exist, otherwise the app writes into the sandbox's tmpfs and loses it
     systemd.user.tmpfiles.rules = ["d %h/.config/obsidian 0700 - - -"];
 
     hjem.extraModules = [

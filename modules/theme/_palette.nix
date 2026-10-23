@@ -1,4 +1,3 @@
-# Nixy base24 palette, hand-made. Exposed flake-wide as config.theme (modules/theme/default.nix)
 {
   base00 = "0A0A0C"; # Default Background
   base01 = "110F12"; # Lighter Background (Used for status bars, line number and folding marks)

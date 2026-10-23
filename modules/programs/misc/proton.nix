@@ -1,5 +1,4 @@
 # Proton tools
-# TODO: proton-pass-agent ?
 {
   aspects,
   config,
@@ -10,7 +9,6 @@ in {
   flake.modules.nixos.proton = {
     imports = [aspects.hjem];
 
-    # Bind sources must exist, otherwise the app writes into the sandbox's tmpfs and loses it
     systemd.user.tmpfiles.rules = [
       "d %h/.config/Proton 0700 - - -"
       "d %h/.cache/Proton 0700 - - -"
@@ -18,9 +16,12 @@ in {
     ];
 
     hjem.extraModules = [
-      ({pkgs, ...}: let
-        # Sandboxed: network, NetworkManager (system bus, unfiltered: nixpak only proxies the
-        # session one), the keyring for the session, and only Proton's own files.
+      ({
+        pkgs,
+        scripts,
+        ...
+      }: let
+        # Sandboxed: network, NetworkManager, the keyring for the session, and only Proton's own files.
         # The TUI drives protonvpn and nmcli, which run sandboxed inside it.
         sandbox = package:
           (mkSandbox pkgs).wrap {
@@ -47,13 +48,12 @@ in {
         proton-vpn-tui = sandbox pkgs.nur.repos.anotherhadi.proton-vpn-tui;
       in {
         packages = [
-          # TODO: config
           proton-vpn-tui
           protonvpn
           (pkgs.makeDesktopItem {
             name = "proton-vpn-tui";
             desktopName = "Proton VPN";
-            exec = "${pkgs.ghostty}/bin/ghostty +new-window -e ${proton-vpn-tui}/bin/proton-vpn-tui";
+            exec = "${scripts.term}/bin/term ${proton-vpn-tui}/bin/proton-vpn-tui";
             comment = "Connect to Proton VPN from the terminal";
             categories = ["Network"];
             terminal = false;

@@ -17,7 +17,6 @@
       OSD_TEXT="󰦝  VPN On"
     fi
 
-    # Same as the osd script (modules/desktop/scripts/osd.nix)
     osd="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/osd"
     mkdir -p "$osd"
     printf '%s' "$OSD_TEXT" > "$osd/vpn"

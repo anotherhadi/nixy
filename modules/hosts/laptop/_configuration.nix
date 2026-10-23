@@ -4,7 +4,6 @@
     ./_wireguard.nix
     ./_secrets
 
-    # You should let those lines as is
     ./_hardware-configuration.nix
   ];
 
@@ -13,10 +12,11 @@
     enable = true;
 
     environment.sessionVariables = {
-      WLR_DRM_DEVICES = "/dev/dri/card2:/dev/dri/card1"; # CHANGEME: Related to the GPU, the first one renders
+      # CHANGEME: Related to the GPU, the first one renders (symlinks from the udev rules below)
+      WLR_DRM_DEVICES = "/dev/dri/amd-igpu:/dev/dri/nvidia-dgpu";
     };
 
-    # Screens (modules/desktop/kanshi.nix): the laptop alone, or with the AOC on its right
+    # Screens
     xdg.config.files."kanshi/config".text = let
       laptop = ''output "BOE 0x0B7D Unknown" enable mode 2560x1440@240Hz position 0,0 scale 1'';
     in ''
@@ -29,16 +29,19 @@
         output "AOC U34G2G1 0x00000E06" enable mode 3440x1440@99.982Hz position 2560,0 scale 1
       }
     '';
-
-    # TODO: Signal-notif
-
-    persist.directories = ["Music"];
   };
+
+  # Stable names for the GPUs: cardN numbers change between boots
+  # CHANGEME: PCI addresses from `ls -l /dev/dri/by-path/`
+  services.udev.extraRules = ''
+    SUBSYSTEM=="drm", KERNEL=="card*", KERNELS=="0000:05:00.0", SYMLINK+="dri/amd-igpu"
+    SUBSYSTEM=="drm", KERNEL=="card*", KERNELS=="0000:01:00.0", SYMLINK+="dri/nvidia-dgpu"
+  '';
 
   # User password
   users.users.${config.nixy.username}.hashedPassword = "$y$j9T$A7gH534UczuBxulj9IfEu1$ImRy3lpYpemRWNVIkA7efKPWXneFiqhZnEF1aMkWcD8"; # CHANGEME: This is my password
 
-  # USB devices allowed on this machine (modules/system/usbguard.nix)
+  # USB devices allowed on this machine
   services.usbguard = {
     rules = ''
       allow id 13fd:5900 name "External"

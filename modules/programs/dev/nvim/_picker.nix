@@ -93,7 +93,7 @@
       }
       {
         key = "<leader>sw";
-        mode = "n";
+        mode = ["n" "x"];
         silent = true;
         action = "<cmd>lua Snacks.picker.grep_word()<cr>";
         desc = "Visual selection or word";

@@ -1,12 +1,4 @@
 # Hjem: user files and packages
-# Features add their user side with hjem.extraModules (applied to every hjem user),
-# hosts enable their users with hjem.users.<user>.enable = true
-#
-# Extra per-user options available to every feature:
-#   persist.{directories,files}  paths relative to $HOME kept across reboots (impermanence)
-#   scripts.<name>               shared script registry, read back with the `scripts` module arg
-#                                (those with a bin/ are added to PATH)
-#   launcher.<name>              desktop entry ({name, exec}), exec defaults to scripts.<name>
 {inputs, ...}: {
   flake.modules.nixos.hjem = {
     config,

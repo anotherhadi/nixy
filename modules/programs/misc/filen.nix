@@ -1,5 +1,6 @@
 # Filen CLI: continuous two-way sync
-# First login is manual: run `filen` alone, log in and save the credentials, then `systemctl --user restart filen-sync`
+# First login is manual:
+# run `filen` alone, log in and save the credentials, then `systemctl --user restart filen-sync`
 {
   aspects,
   config,
@@ -10,8 +11,6 @@ in {
   flake.modules.nixos.filen = {
     imports = [aspects.hjem];
 
-    # Bind sources must exist, otherwise nixpak skips the bind and filen writes
-    # into the sandbox's tmpfs, losing its login (first run, hosts without impermanence)
     systemd.user.tmpfiles.rules = ["d %h/.config/filen-cli 0700 - - -"];
 
     hjem.extraModules = [

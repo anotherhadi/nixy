@@ -1,23 +1,19 @@
-{lib, ...}: {
+{
   vim = {
     viAlias = false;
     vimAlias = true;
-    withNodeJs = true;
     options = {
-      autoindent = true;
       smartindent = true;
       shiftwidth = 2;
       foldlevel = 99;
       foldcolumn = "auto:1";
       mousescroll = "ver:1,hor:1";
-      mousemoveevent = true;
       fillchars = "eob:‿,fold: ,foldopen:▼,foldsep:⸽,foldclose:⏵";
       signcolumn = "yes";
       tabstop = 2;
       softtabstop = 2;
       wrap = false;
     };
-    globals.navic_silence = true;
     clipboard = {
       enable = true;
       registers = "unnamedplus";
@@ -35,11 +31,5 @@
         },
       }
     '';
-    theme = {
-      enable = true;
-      name = lib.mkForce "catppuccin";
-      style = lib.mkForce "mocha";
-      transparent = lib.mkForce true;
-    };
   };
 }

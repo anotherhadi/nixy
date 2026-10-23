@@ -1,11 +1,14 @@
 {pkgs, ...}: {
   vim = {
-    luaConfigRC.remove-todo-keymaps = ''
-      vim.keymap.del("n", "<leader>tdq")
-      vim.keymap.del("n", "<leader>tdt")
-    '';
     undoFile.enable = true;
-    notes.todo-comments.enable = true;
+    notes.todo-comments = {
+      enable = true;
+      # Todos: <leader>st (picker), <leader>xt (Trouble)
+      mappings = {
+        quickFix = null;
+        trouble = null;
+      };
+    };
 
     autocomplete = {
       nvim-cmp = {
@@ -14,9 +17,6 @@
           buffer = "[Buffer]";
           path = "[Path]";
         };
-        sourcePlugins = [
-          pkgs.vimPlugins.cmp-cmdline
-        ];
       };
     };
 

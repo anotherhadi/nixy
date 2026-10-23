@@ -1,4 +1,4 @@
-# Direnv loads per-directory environments (.envrc), nix-direnv caches `use flake`
+# Direnv loads per-directory environments
 {
   flake.modules.nixos.shell = {
     hjem.extraModules = [
@@ -9,9 +9,10 @@
       }: {
         packages = [pkgs.direnv];
 
+        # Silent, errors still shown: a filter that matches no message. The documented
         xdg.config.files."direnv/direnv.toml".text = ''
           [global]
-          log_format = "-"
+          log_filter = "^$"
         '';
         xdg.config.files."direnv/lib/nix-direnv.sh".source = "${pkgs.nix-direnv}/share/nix-direnv/direnvrc";
 

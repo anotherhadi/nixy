@@ -18,13 +18,11 @@
         gnupg
         openssl
         vim
-        go
         zip
         unzip
         optipng
         jpegoptim
         pfetch
-        unrar
         p7zip
       ];
     };

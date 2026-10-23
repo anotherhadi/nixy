@@ -9,7 +9,6 @@ in {
   flake.modules.nixos.vlc = {
     imports = [aspects.hjem];
 
-    # Bind sources must exist, otherwise the app writes into the sandbox's tmpfs and loses it
     systemd.user.tmpfiles.rules = [
       "d %h/.config/vlc 0700 - - -"
       "d %h/.local/share/vlc 0700 - - -"
@@ -23,8 +22,6 @@ in {
           package = pkgs.vlc;
           gui = true;
           config = {sloth, ...}: {
-            # The portal hands it files through the document store under the .desktop ID:
-            # rename the .desktop to the app ID so both match (mime default below)
             flatpak = {
               appId = "org.videolan.VLC";
               desktopFile = "vlc.desktop";

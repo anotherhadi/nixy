@@ -15,7 +15,7 @@
         <img src="https://img.shields.io/github/repo-size/anotherhadi/nixy?color=A89AD1&labelColor=0b0b0b&style=for-the-badge&logo=github&logoColor=A89AD1">
     </a>
     <a href="https://nixos.org">
-        <img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&labelColor=0b0b0b&logo=NixOS&logoColor=A89AD1&color=A89AD1">
+        <img src="https://img.shields.io/badge/NixOS-26.05-blue.svg?style=for-the-badge&labelColor=0b0b0b&logo=NixOS&logoColor=A89AD1&color=A89AD1">
     </a>
     <a href="https://github.com/anotherhadi/nixy/blob/main/LICENSE">
         <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&colorA=0b0b0b&colorB=A89AD1&logo=unlicense&logoColor=A89AD1"/>
@@ -23,127 +23,73 @@
 </div>
 <br>
 
-**Nixy simplifies and unifies** the Hyprland ecosystem with a minimalist,
-modular & easily customizable setup, heavily focused on TUIs. It provides a
-structured way to manage your system configuration and dotfiles with minimal
-effort. It includes _home-manager_, _secrets_, and _custom theming_ all in
-one place.
+Nixy is a modular NixOS configuration. It is:
 
-**Features:**
+- [Hardened](#hardened)
+- Minimalist
+- [Stable](#why-stable)
+- [Dendritic](#structure)
+- Focused on TUIs: I f**king love them, so I have a lot of them ([why?](#why-tuis))
+- Consistently themed
+- A server config as well (I love to self-host things)
 
-- 💻 Hyprland & TUIs: Preconfigured Hyprland ecosystem with a lot of cool TUIs
-- 🎨 Consistent Theming: Base16 & Stylix-powered themes
-- ⌨️ Vim-like Everywhere: Unified keybindings (Hyprland, nvim, vimium, etc.)
-- 🔒 Hardened by Default: LUKS encryption, sops-nix secrets, impermanence and more
-
-## Table of Content
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [Screenshots](#screenshots)
-- [Architecture](#architecture)
-  - [🏠 /home (User-level configuration)](#-home-user-level-configuration)
-  - [🐧 /nixos](#-nixos)
-  - [🎨 /themes](#-themes)
-  - [💻 /hosts](#-hosts)
-  - [🖥️ /server-modules](#-server-modules)
-- [Installation](#installation)
-- [Documentation](#documentation)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+My main use is infosec-related. I do bug bounty, CTF and pentesting using this machine. This is also my main machine, so I do a lot of random stuff on it.
 
 ## Screenshots
 
 ![Home](.github/assets/screenshots/1.png)
-![Neovim and spotify](.github/assets/screenshots/2.png)
+![Neovim and Spotify](.github/assets/screenshots/2.png)
 ![Browser and file explorer](.github/assets/screenshots/3.png)
 
-## Architecture
+## Hardened?
 
-### 🏠 /home (User-level configuration)
+- [Impermanence](https://github.com/nix-community/impermanence): `/` is wiped on boot, only a few files & folders are stored on a persistent partition.
+- [sops-nix](https://github.com/Mic92/sops-nix): secrets are stored in the repo, encrypted with an age key.
+- Sandbox: most of my apps are sandboxed with minimal permissions, using [nixpak](https://github.com/nixpak/nixpak) (see [`modules/lib/sandbox.nix`](modules/lib/sandbox.nix)).
+- [Kernel hardening](modules/system/kernel-hardening.nix) config.
+- [LUKS](https://wiki.nixos.org/wiki/Full_Disk_Encryption): encrypted drive, partitioned declaratively with [disko](https://github.com/nix-community/disko).
+- Secure boot: enabled on NixOS thanks to [lanzaboote](https://github.com/nix-community/lanzaboote).
 
-Contains **dotfiles and settings** that apply to your user environment.
+## Structure
 
-**Subfolders:**
+Nixy follows the [dendritic pattern](https://github.com/mightyiam/dendritic): every file under `modules/` is a [flake-parts](https://flake.parts) module, auto-imported by [import-tree](https://github.com/denful/import-tree), that defines one feature (an _aspect_) across every layer it touches: system, user (via [hjem](https://github.com/feel-co/hjem)), persistence, theming. Aspects are grouped into [bundles](modules/bundles.nix) (`base`, `tui`, `homelab`...), and hosts just pick the bundles and aspects they want.
 
-- `programs` is a collection of apps configured with home-manager
-- `system` is some "desktop environment" configuration
+## Installation / Usage
 
-### 🐧 /nixos
+Nixy is my personal config: it's not meant to be installed as-is (hardware, disks, secrets and users are mine). Feel free to read it, steal modules, and adapt them. Most aspects are self-contained, so copying a single file from `modules/` is usually enough.
 
-Those are the system-level configurations. (audio, bluetooth, gpu, bootloader,
-...)
+If you still want to try it:
 
-### 🎨 /themes
+1. Fork the repo and clone it to `~/.config/nixos` (or set `nixy.configDirectory` to wherever you put it)
+2. Copy a host from [`modules/hosts/`](modules/hosts) and replace its hardware configuration, disko layout and secrets with yours (`sops` + your own age key)
+3. Pick the bundles/aspects you want in the host's `default.nix`
+4. Build with `nixy rebuild` (or `nh os switch .`)
 
-This folder contains all system themes. Mainly
-[stylix](https://stylix.danth.me/) configurations. Check out the available
-themes and learn how to create your own in [THEMES.md](docs/THEMES.md)
+## Why?
 
-### 💻 /hosts
+### Why Sway?
 
-This directory contains host-specific configurations. Each host includes:
+I was on [Hyprland](https://hypr.land) for a few years, but I wanted something more minimalist & more stable. [Sway](https://swaywm.org) does exactly that.
 
-- `configuration.nix` for system-wide settings
-- `home.nix` for user-level configuration
-- `variables.nix` for global variables
-- `secrets/` for sensitive data
+### Why stable?
 
-### 🖥️ /server-modules
+Running unstable and getting the latest features as soon as they land was fun, but now I prefer a config that needs less maintenance. Nixy follows the latest NixOS release, and only a few packages here and there come from `nixpkgs-unstable`, when I need a specific feature or fix.
 
-This folder contains server-related nixos modules. (gitea, cloudflared, self-hosted apps, ...)
+### Why TUIs?
 
-## Installation
+They're keyboard-driven, fast to start, light on resources and usually local-first: no account, no Electron, no telemetry. They all live in the same terminal, with the same theme, the same keybindings and the same workflow. And they work the same way on my laptop and over SSH on my server.
 
-1. [Fork](https://github.com/anotherhadi/nixy/fork) this repo and clone it to
-   your system:
+### Why impermanence?
 
-```sh
-git clone https://github.com/anotherhadi/nixy ~/.config/nixos
-```
+With `/` wiped on every boot, the only state on my machine is the state I explicitly declared. No forgotten config files, no leftovers from a program I tried once, no hidden drift between what the repo says and what the machine is. It's also a security win: anything that would persist outside of `/persist` (malware, tampered files) is gone after a reboot.
 
-2. Copy the `modules/hosts/laptop` folder to `modules/hosts/<hostname>`, rename
-   the `nixosConfigurations` entry in its `default.nix` and update `_variables.nix`
-   with your machine’s settings.
-3. Copy your `hardware-configuration.nix` into your new host's folder as
-   `_hardware-configuration.nix` to ensure proper hardware support.
-   (Files starting with `_` are plain NixOS modules, ignored by import-tree.)
+### Why the dendritic pattern?
 
-> [!IMPORTANT]
-> `# CHANGEME` comments are placed throughout the config to
-> indicate necessary modifications. Use the following command to quickly locate
-> them:
->
-> ```sh
-> rg "CHANGEME" ~/.config/nixos
-> ```
-
-> [!TIP]
-> When you add new files, don't forget to run `git add .` to add them to the git
-> repository
-
-5. Build the system
-
-```sh
-sudo nixos-rebuild switch --flake ~/.config/nixos#yourhostname
-```
-
-## Documentation
-
-- [SERVER](docs/SERVER.md): Check out the server documentation
-- [THEMES](docs/THEMES.md): How themes work and how to create your own
-- [WALLPAPERS](https://github.com/anotherhadi/awesome-wallpapers): An awesome
-  collection of wallpapers
-- [NEOVIM](docs/NEOVIM.md): How to use the Neovim config in your own flake
-
-- [CONTRIBUTING](docs/CONTRIBUTING.md): How to contribute
-- [LICENSE](LICENSE): MIT License
+One file = one feature. Everything related to a program (packages, config, persisted folders, sandbox, theme) lives in the same place, so adding a feature means adding a file, and removing it means deleting that file. No `imports` lists to maintain by hand: import-tree loads everything, and hosts just choose which aspects they enable.
 
 ---
 
 <div align="center">
   <a href="https://github.com/anotherhadi/nixy">github</a> |
-  <a href="https://gitlab.com/anotherhadi_mirror/nixy">gitlab (mirror)</a> |
   <a href="https://git.hadi.icu/anotherhadi/nixy">gitea (mirror)</a>
-</div
+</div>

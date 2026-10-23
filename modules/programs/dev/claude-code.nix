@@ -13,7 +13,6 @@ in {
       ({pkgs, ...}: let
         # Sandboxed: network, but only sees the project it is started in and its own state.
         # Secrets (~/.ssh, gh...) are hidden, so no push nor signed commits from inside.
-        # Everything claude spawns (shell, git, nix, go...) inherits the sandbox.
         sandboxed = (mkSandbox pkgs).wrap {
           package = pkgs.unstable.claude-code;
           config = {sloth, ...}: let
@@ -34,14 +33,14 @@ in {
               ];
               tmpfs = ["/tmp"];
               env = {
-                TMPDIR = "/tmp"; # The outer one (nix-shell...) doesn't exist inside
-                NIX_REMOTE = "daemon"; # /nix/var/nix is writable in the sandbox root, nix would pick an empty local store
+                TMPDIR = "/tmp";
+                NIX_REMOTE = "daemon";
+                CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC = "1"; # No telemetry, error reporting nor autoupdater
               };
             };
           };
         };
 
-        # Bind sources must exist, otherwise the app writes into the sandbox's tmpfs and loses it
         claude = pkgs.writeShellScriptBin "claude" ''
           mkdir -p "$HOME/.claude"
           [ -e "$HOME/.claude.json" ] || echo '{}' > "$HOME/.claude.json"

@@ -16,9 +16,6 @@
   };
 
   config = {
-    # `aspects.<name>`: flake.modules.nixos.<name> with a key, so the module system
-    # imports each aspect once even when hosts, bundles and other aspects all import it.
-    # Hosts and aspects import from here, flake.modules stays the published output.
     _module.args.aspects =
       lib.mapAttrs (name: module: {
         key = "nixy#aspects.${name}";

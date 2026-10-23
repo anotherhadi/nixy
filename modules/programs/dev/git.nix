@@ -1,6 +1,4 @@
 # Git configuration (git, gh, lazygit)
-# Identity is set by each host (nixy.git.{name,email}), hosts can add more
-# settings through hjem.users.<user>.xdg.config.files."git/config".value
 {
   aspects,
   config,

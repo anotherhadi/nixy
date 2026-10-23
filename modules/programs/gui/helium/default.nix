@@ -57,8 +57,10 @@
     "--show-avatar-button=never"
   ];
 
+  heliumPkg = pkgs: inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.helium;
+
   mkHelium = pkgs: let
-    originalPkg = (inputs.helium-browser.packages.${pkgs.unstable.stdenv.hostPlatform.system}.helium).override {
+    originalPkg = (heliumPkg pkgs).override {
       flags = heliumFlags;
     };
 
@@ -112,7 +114,11 @@
       '';
     };
 in {
-  flake.modules.nixos.helium = {options, ...}: {
+  flake.modules.nixos.helium = {
+    options,
+    pkgs,
+    ...
+  }: {
     imports = [
       aspects.hjem
       inputs.helium-browser.nixosModules.default
@@ -129,6 +135,9 @@ in {
         # System-wide policies (user policies are not read reliably by Chromium)
         programs.helium = {
           enable = true;
+          # Same build as the wrapped package below, so it is not built twice
+          package = heliumPkg pkgs;
+          flags = heliumFlags;
 
           policies = {
             BrowserSignin = 0;

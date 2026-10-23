@@ -1,9 +1,4 @@
-# Sandboxing helper built on nixpak (declarative bubblewrap)
-# Usage, from any flake-parts module:
-#   (config.flake.lib.mkSandbox pkgs).wrap { package = pkgs.foo; config = { sloth, ... }: { ... }; }
-# Returns the package with its main binary replaced by the sandboxed wrapper
-# (its .desktop files are rewritten to launch the wrapper too).
-# gui = true adds what graphical apps need (GPU, Wayland, GTK theme, /tmp...).
+# Sandboxing helper built on nixpak
 {inputs, ...}: {
   flake.lib.mkSandbox = pkgs: let
     # nixpak's launcher starts bwrap in a background process group, so TUI apps
@@ -19,6 +14,33 @@
           cmd.SysProcAttr.Foreground = true
           cmd.SysProcAttr.Ctty = 0
         }'
+
+        # Hidden paths missing on the host can't get a
+        # tmpfs mountpoint under a read-only $HOME bind. Nothing to hide there: skip them.
+        substituteInPlace launcher/bubblewrap.go --replace-fail \
+          '"4"}, conf.BwrapArgs...)' \
+          '"4"}, skipMissingTmpfs(conf.BwrapArgs)...)'
+        cat >> launcher/bubblewrap.go <<'EOF'
+
+        func skipMissingTmpfs(args []string) (out []string) {
+        	for i := 0; i < len(args); i++ {
+        		if args[i] == "--tmpfs" && i+1 < len(args) {
+        			if _, err := os.Lstat(args[i+1]); err != nil {
+        				i++
+        				continue
+        			}
+        		}
+        		out = append(out, args[i])
+        	}
+        	return
+        }
+        EOF
+
+        # Scripts copied to rewrite their paths (e.g. imv's bin/imv picking imv-wayland)
+        # lose their exec bit to --no-preserve=mode: restore it from the original
+        substituteInPlace modules/launch.nix --replace-fail \
+          'substituteInPlace "$line" --replace-fail' \
+          'test -x ''${app}/$(realpath -s --relative-to=$out "$line") && chmod +x "$line"; substituteInPlace "$line" --replace-fail'
 
         # With network, nixpak also binds /etc/{resolv.conf,hosts}: redundant since
         # the base binds all of /etc, and fatal as NixOS's /etc/hosts is a symlink
@@ -70,7 +92,7 @@
 
       # Only reachable when the app enables dbus
       dbus.policies = {
-        "org.freedesktop.portal.Desktop" = "talk"; # File chooser (elio), OpenURI, Settings (dark mode)
+        "org.freedesktop.portal.Desktop" = "talk";
         "org.freedesktop.portal.Documents" = "talk";
       };
 
@@ -80,9 +102,9 @@
           "/.config/gtk-3.0"
           "/.config/gtk-4.0"
           "/.gtkrc-2.0"
-          "/.icons" # Cursor
+          "/.icons"
         ];
-        # Files picked through the portal file chooser (only this app's view of the document store)
+        # Files picked through the portal file chooser
         bind.rw = [
           [
             (sloth.concat [sloth.runtimeDir "/doc/by-app/" config.flatpak.appId])
@@ -97,8 +119,9 @@
           "/dev/nvidia-uvm"
           "/dev/nvidia-uvm-tools"
         ];
-        tmpfs = ["/tmp"];
-        env.NIXOS_XDG_OPEN_USE_PORTAL = "1"; # xdg-open goes through the portal (when dbus is on)
+        # Mounted after the binds, it would hide /tmp/.X11-unix: X11 apps get bwrap's empty /tmp
+        tmpfs = pkgs.lib.optional (!config.bubblewrap.sockets.x11) "/tmp";
+        env.NIXOS_XDG_OPEN_USE_PORTAL = "1"; # xdg-open goes through the portal
       };
     };
   in {

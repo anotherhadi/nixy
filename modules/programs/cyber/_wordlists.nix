@@ -8,26 +8,26 @@ pkgs.writeShellApplication {
     exec 9>"$dest/.lock"
     flock -n 9 || { echo "wordlists-fetch already running"; exit 0; }
 
-    # Missing
-    missing() {
-      if [ -L "$1" ] && [[ "$(readlink "$1")" == /nix/store/* ]]; then rm "$1"; fi
-      [ ! -e "$1" ]
-    }
-
     clone() { # <url> <path>
-      missing "$dest/$2" || return 0
+      [ -e "$dest/$2" ] && return 0
       echo "clone $2"
       rm -rf "$dest/$2.part"
       git clone --quiet --depth 1 "$1" "$dest/$2.part"
       mv "$dest/$2.part" "$dest/$2"
     }
 
-    fetch() { # <url> <path>
-      missing "$dest/$2" || return 0
-      echo "fetch $2"
-      mkdir -p "$(dirname "$dest/$2")"
-      curl -fsSL --retry 3 -o "$dest/$2.part" "$1"
-      mv "$dest/$2.part" "$dest/$2"
+    fetch() { # <url> <path> [filter command...]
+      local url=$1 path=$2
+      shift 2
+      [ -e "$dest/$path" ] && return 0
+      echo "fetch $path"
+      mkdir -p "$(dirname "$dest/$path")"
+      if [ $# -eq 0 ]; then
+        curl -fsSL --retry 3 -o "$dest/$path.part" "$url"
+      else
+        curl -fsSL --retry 3 "$url" | "$@" >"$dest/$path.part"
+      fi
+      mv "$dest/$path.part" "$dest/$path"
     }
 
     clone https://github.com/danielmiessler/SecLists seclists
@@ -49,11 +49,7 @@ pkgs.writeShellApplication {
     # Kiterunner: compiled .kite route lists + the plain-text swagger paths
     fetch "$cdn/kiterunner/swagger-wordlist.txt" assetnote/kiterunner/swagger-wordlist.txt
     for kite in routes-small routes-large; do
-      if missing "$dest/assetnote/kiterunner/$kite.kite"; then
-        echo "fetch assetnote/kiterunner/$kite.kite"
-        curl -fsSL --retry 3 "$cdn/kiterunner/$kite.kite.tar.gz" | tar -xzO "$kite.kite" >"$dest/assetnote/kiterunner/$kite.kite.part"
-        mv "$dest/assetnote/kiterunner/$kite.kite.part" "$dest/assetnote/kiterunner/$kite.kite"
-      fi
+      fetch "$cdn/kiterunner/$kite.kite.tar.gz" "assetnote/kiterunner/$kite.kite" tar -xzO "$kite.kite"
     done
   '';
 }

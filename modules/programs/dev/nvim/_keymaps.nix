@@ -11,13 +11,6 @@
         desc = "Jump2d";
       }
       {
-        key = "K";
-        mode = "n";
-        silent = true;
-        action = "<cmd>lua vim.lsp.buf.hover()<cr>";
-        desc = "LSP Hover";
-      }
-      {
         key = "<C-tab>";
         mode = "n";
         silent = true;
@@ -272,7 +265,8 @@
         desc = "Save file";
       }
 
-      # Deactivate "esc"
+      # Esc disabled to get used to Ctrl+C. In insert mode Ctrl+C skips InsertLeave
+      # (diagnostics, otter...), so it is remapped to a real <Esc> below
       {
         key = "<Esc>";
         mode = [
@@ -283,6 +277,13 @@
         silent = true;
         action = "<Nop>";
         desc = "Disable Escape";
+      }
+      {
+        key = "<C-c>";
+        mode = "i";
+        silent = true;
+        action = "<Esc>";
+        desc = "Leave insert mode";
       }
 
       # Disable Arrow Keys in Normal Mode and Middle click

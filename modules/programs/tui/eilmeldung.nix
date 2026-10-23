@@ -10,7 +10,11 @@ in {
     imports = [aspects.hjem];
 
     hjem.extraModules = [
-      ({pkgs, ...}: let
+      ({
+        pkgs,
+        scripts,
+        ...
+      }: let
         sandboxed = (mkSandbox pkgs).wrap {
           package = pkgs.unstable.eilmeldung;
           config = {sloth, ...}: {
@@ -33,7 +37,6 @@ in {
           };
         };
 
-        # Bind sources must exist, otherwise the app writes into the sandbox's tmpfs and loses it
         eilmeldung = pkgs.writeShellScriptBin "eilmeldung" ''
           mkdir -p "$HOME/.config/eilmeldung" "$HOME/.local/state/eilmeldung"
           exec ${sandboxed}/bin/eilmeldung "$@"
@@ -44,7 +47,7 @@ in {
           (pkgs.makeDesktopItem {
             name = "eilmeldung";
             desktopName = "eilmeldung";
-            exec = "${pkgs.ghostty}/bin/ghostty +new-window -e ${eilmeldung}/bin/eilmeldung";
+            exec = "${scripts.term}/bin/term ${eilmeldung}/bin/eilmeldung";
             comment = "Feature-rich TUI RSS reader";
             categories = ["Network" "ConsoleOnly"];
             terminal = false;

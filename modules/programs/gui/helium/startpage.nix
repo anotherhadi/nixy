@@ -129,6 +129,8 @@ in {
             </div>''
           else mkFolder group.item;
       in {
+        xdg.data.files."helium-startpage/MaterialSymbolsOutlined.ttf".source = "${pkgs.material-symbols}/share/fonts/truetype/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].ttf";
+
         xdg.data.files."helium-startpage/index.html".text = ''
           <!DOCTYPE html>
           <html lang="en">
@@ -136,8 +138,30 @@ in {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Bookmarks</title>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,0,0">
             <style>
+              @font-face {
+                font-family: 'Material Symbols Outlined';
+                font-style: normal;
+                font-weight: 100 700;
+                src: url(MaterialSymbolsOutlined.ttf) format('truetype');
+              }
+
+              .material-symbols-outlined {
+                font-family: 'Material Symbols Outlined';
+                font-weight: normal;
+                font-style: normal;
+                line-height: 1;
+                letter-spacing: normal;
+                text-transform: none;
+                display: inline-block;
+                white-space: nowrap;
+                word-wrap: normal;
+                direction: ltr;
+                font-feature-settings: 'liga';
+                -webkit-font-smoothing: antialiased;
+                font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+              }
+
               *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
               body {

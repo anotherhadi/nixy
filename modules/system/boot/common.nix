@@ -1,4 +1,4 @@
-# Boot settings shared by both boot loaders (systemd-boot.nix, lanzaboote.nix import it):
+# Boot settings shared by both boot loaders
 # kernel, silent boot, faster shutdown
 {
   flake.modules.nixos.boot = {

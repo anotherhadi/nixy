@@ -1,6 +1,4 @@
-# Shared by every host: overlays, the impermanence module (inert, see
-# system/impermanence.nix) and the few host values features read
-# (hosts set them in modules/hosts/<host>/default.nix)
+# Shared by every host
 {inputs, ...}: {
   flake.modules.nixos.common = {
     config,
