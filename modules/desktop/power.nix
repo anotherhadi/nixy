@@ -37,23 +37,11 @@
               esac
               "$ppd" set "$next"
               OSD_TEXT="$icon  ''${next^}"
-              ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT" power
+              ${scripts.osd}/bin/osd "$OSD_TEXT" power
             '';
 
-            packages = [
-              pkgs.poweralertd
-              scripts.power-cycle
-              (pkgs.makeDesktopItem {
-                name = "power-cycle";
-                desktopName = "Power Profile";
-                exec = "${scripts.power-cycle}/bin/power-cycle";
-                icon = "power-profile-balanced-symbolic";
-                comment = "Cycle power-saver / balanced / performance";
-                categories = ["System"];
-                terminal = false;
-                keywords = ["power" "profile" "performance" "battery"];
-              })
-            ];
+            packages = [pkgs.poweralertd];
+            launcher.power-cycle.name = "Power Profile";
 
             # Event-driven low-battery/critical/full notifications via UPower dbus signals
             # (thresholds above, services.upower.percentage*).

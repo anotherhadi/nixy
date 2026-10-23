@@ -1,4 +1,4 @@
-# Picker scripts built on tofi's dmenu mode: emoji and Nerd Font icon input.
+# Picker scripts built on tofi's dmenu mode
 {config, ...}: let
   inherit (config) theme;
 in {
@@ -34,7 +34,10 @@ in {
         printf '%s' "$icon" | ${pkgs.wl-clipboard}/bin/wl-copy
       '';
 
-      packages = [scripts.emoji-picker scripts.icon-picker];
+      launcher.emoji-picker.name = "Emoji Picker";
+      launcher.icon-picker.name = "Icon Picker";
+
+      packages = with pkgs; [bemoji wtype];
     })
   ];
 }

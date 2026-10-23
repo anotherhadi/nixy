@@ -69,7 +69,7 @@ in {
               palette = lib.imap0 (i: base: "${toString i}=#${c.${base}}") theme.ansi;
             };
 
-            # Single-instance daemon, started by Hyprland (exec-once) or D-Bus activation
+            # Single-instance daemon, started by sway (exec) or D-Bus activation
             systemd.packages = [pkgs.ghostty];
             xdg.data.files."dbus-1/services/com.mitchellh.ghostty.service".source = "${pkgs.ghostty}/share/dbus-1/services/com.mitchellh.ghostty.service";
           }

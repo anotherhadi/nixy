@@ -33,7 +33,7 @@
       # Desktop
       tuigreet
       autologin # Skip first TUIGreet login, use LUKS password to unlock the keyring
-      gui # hyprland, desktop, helium, gui apps
+      gui # sway, desktop, helium, gui apps
 
       # Programs
       tui # shell, git, nvim, cybersecurity... (see modules/bundles.nix)

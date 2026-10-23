@@ -231,10 +231,6 @@ in {
                 ];
               }
 
-              (lib.optionalAttrs (options ? hyprland) {
-                hyprland.settings.bind = ["$mod,B, exec, uwsm app -- ${helium}/bin/helium"];
-              })
-
               (lib.optionalAttrs (options ? sway) {
                 sway.config = "bindsym $mod+b exec uwsm app -- ${helium}/bin/helium";
               })

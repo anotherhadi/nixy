@@ -1,18 +1,20 @@
-# Hyprlock: lock screen drawn like a terminal login prompt
+# Hyprlock: lock screen drawn like a terminal running `sudo` in tmux
 {config, ...}: let
   inherit (config) theme;
   inherit (config.flake.lib) toHyprconf;
   c = theme.colors;
   font = theme.fonts.monospace;
 in {
-  flake.modules.nixos.desktop = {
-    programs.hyprlock.enable = true; # package + PAM service
+  flake.modules.nixos.desktop = {pkgs, ...}: {
+    environment.systemPackages = [pkgs.hyprlock];
+    security.pam.services.hyprlock = {};
 
     hjem.extraModules = [
       ({
         config,
-        lib,
         pkgs,
+        osConfig,
+        scripts,
         ...
       }: let
         fontSize = 16;
@@ -24,62 +26,44 @@ in {
         px = x: toString (round x);
 
         paint = color: t: ''<span foreground="#${color}">${t}</span>'';
-        fromFile = name: text: ''cmd[update:0] cat ${pkgs.writeText name text}'';
 
-        inner = 42;
-        width = inner + 2;
-        valueCol = 13;
+        user = config.user;
+        host = osConfig.networking.hostName;
 
-        spaces = n: lib.concatStrings (lib.genList (_: " ") n);
-
-        border = paint c.base0D;
-        hbar = lib.concatStrings (lib.genList (_: "─") inner);
-
-        row = content: border "│" + content + border "│";
-
-        blank = row (spaces inner);
-
-        entry = name: value: let
-          prompt = "  ${name}:";
-          gap = spaces (valueCol - builtins.stringLength prompt);
-          tail = spaces (inner - valueCol - builtins.stringLength value);
-        in
-          row (border prompt + gap + paint c.base05 value + tail);
-
-        lines = [
-          (border "┌${hbar}┐")
-          blank
-          (entry "Session" "Hyprland")
-          (entry "Username" config.user)
-          (entry "Password" "")
-          blank
-          (border "└${hbar}┘")
-        ];
-
-        rowY = i: -((i + 0.5) - (builtins.length lines) / 2.0) * lineH;
-        colX = i: (i - width / 2.0) * charW;
-
-        frameHalfH = (builtins.length lines) * lineH / 2.0;
-        outsideY = frameHalfH + 1.5 * lineH;
+        margin = 2 * charW;
+        barH = lineH;
+        prompt = "[sudo] password for ${user}: ";
 
         inputH = fontSize / 0.8;
-        inputW = 27 * charW;
         dotPad = (inputH - lineH) / 2.0;
-        inputX = colX (valueCol + 1) - dotPad;
-        passwordRow = 4;
-        hidden = "<span> </span>";
+
+        lastLine = pkgs.writeShellScript "hyprlock-last-line" ''
+          n=''${1:-0}
+          if [ "$n" -eq 0 ]; then
+            printf '%s' '${paint c.base0B "${user}@${host}"}:${paint c.base0D "~"}$ unlock'
+          elif [ "$n" -eq 1 ]; then
+            printf 'sudo: 1 incorrect password attempt'
+          else
+            printf 'sudo: %s incorrect password attempts' "$n"
+          fi
+        '';
+
+        label = attrs:
+          {
+            monitor = "";
+            font_size = fontSize;
+            font_family = font;
+            color = "rgb(${c.base05})";
+            halign = "left";
+            valign = "bottom";
+          }
+          // attrs;
       in {
-        packages = [
-          (pkgs.makeDesktopItem {
-            name = "lock";
-            desktopName = "Lock";
-            exec = "${pkgs.hyprlock}/bin/hyprlock";
-            icon = "system-lock-screen-symbolic";
-            comment = "Lock the screen";
-            categories = ["System"];
-            terminal = false;
-          })
-        ];
+        scripts.lock = pkgs.writeShellScriptBin "lock" ''
+          ${pkgs.procps}/bin/pidof ${pkgs.hyprlock}/bin/hyprlock || exec ${pkgs.hyprlock}/bin/hyprlock "$@"
+        '';
+
+        launcher.lock.name = "Lock";
 
         xdg.config.files."hypr/hyprlock.conf".text = toHyprconf {
           importantPrefixes = ["$" "bezier" "monitor" "size"];
@@ -91,69 +75,49 @@ in {
               }
             ];
 
-            label = [
+            shape = [
               {
                 monitor = "";
-                text = ''cmd[update:1000] date +"%H:%M   %A %d %B"'';
-                color = "rgb(${c.base05})";
-                font_size = fontSize;
-                font_family = font;
-                position = "0, -64";
-                halign = "center";
-                valign = "top";
-              }
-              {
-                monitor = "";
-                text = "Welcome";
-                color = "rgb(${c.base05})";
-                font_size = fontSize;
-                font_family = font;
-                position = "0, ${px outsideY}";
-                halign = "center";
-                valign = "center";
-              }
-              {
-                monitor = "";
-                text = fromFile "hyprlock-frame" (lib.concatStringsSep "\n" lines);
-                color = "rgb(${c.base05})";
-                font_size = fontSize;
-                font_family = font;
-                text_align = "left";
+                size = "100%, ${px barH}";
+                color = "rgb(${c.base01})";
+                rounding = 0;
+                border_size = 0;
                 position = "0, 0";
-                halign = "center";
-                valign = "center";
-              }
-              {
-                monitor = "";
-                text = "<span> </span>$FAIL<span> </span>";
-                color = "rgb(${c.base08})";
-                font_size = fontSize;
-                font_family = font;
-                position = "0, ${px (-outsideY)}";
-                halign = "center";
-                valign = "center";
-              }
-              {
-                monitor = "";
-                text =
-                  fromFile "hyprlock-hints"
-                  "${paint c.base0D "Enter"} ${paint c.base04 "unlock"}    ${paint c.base0D "Esc"} ${paint c.base04 "clear"}";
-                color = "rgb(${c.base04})";
-                font_size = fontSize;
-                font_family = font;
-                position = "0, 40";
-                halign = "center";
+                halign = "left";
                 valign = "bottom";
               }
+            ];
+
+            label = [
+              (label {
+                text = "[lock] 0:sudo*";
+                color = "rgb(${c.base04})";
+                position = "${px margin}, 0";
+              })
+              (label {
+                text = "cmd[update:5000] ${scripts.status-pills}";
+                position = "${px (-margin)}, 0";
+                halign = "right";
+              })
+              (label {
+                text = "cmd[update:0] ${lastLine} $ATTEMPTS";
+                position = "${px margin}, ${px (-margin)}";
+                valign = "top";
+              })
+              (label {
+                text = prompt;
+                position = "${px margin}, ${px (-margin - lineH)}";
+                valign = "top";
+              })
             ];
 
             "input-field" = [
               {
                 monitor = "";
-                size = "${px inputW}, ${px inputH}";
-                position = "${px (inputX + inputW / 2.0)}, ${px (rowY passwordRow)}";
-                halign = "center";
-                valign = "center";
+                size = "${px (40 * charW)}, ${px inputH}";
+                position = "${px (margin + builtins.stringLength prompt * charW - dotPad)}, ${px (-margin - lineH + dotPad)}";
+                halign = "left";
+                valign = "top";
 
                 outline_thickness = 0;
                 outer_color = "rgba(00000000)";
@@ -170,8 +134,8 @@ in {
                 dots_center = false;
 
                 swap_font_color = true;
-                placeholder_text = hidden;
-                fail_text = hidden;
+                placeholder_text = "<span> </span>";
+                fail_text = "<span> </span>";
                 check_color = "rgb(${c.base0C})";
                 fail_color = "rgb(${c.base08})";
                 capslock_color = "rgb(${c.base0A})";

@@ -1,6 +1,4 @@
-# Swaybar: sway's built-in bar (waybar stays on Hyprland). Workspaces and tray
-# are swaybar's; the rest comes from `swaybar-status`, an i3bar-protocol script
-# with the same blocks and clicks as waybar, and the shared OSD.
+# Swaybar: sway's built-in bar
 {config, ...}: let
   inherit (config) theme;
   c = theme.colors;
@@ -16,46 +14,13 @@ in {
       settuings = page: "${pkgs.ghostty}/bin/ghostty +new-window -e ${pkgs.nur.repos.anotherhadi.settuings}/bin/settuings --page ${page}";
 
       status = pkgs.writeShellScriptBin "swaybar-status" ''
-        export PATH=${lib.makeBinPath (with pkgs; [coreutils gawk gnugrep jq procps systemd wireplumber])}:$PATH
-        export TZ=${osConfig.time.timeZone}
+        export PATH=${lib.makeBinPath (with pkgs; [coreutils jq procps])}:$PATH
 
-        battery() {
-          for bat in /sys/class/power_supply/BAT*; do
-            [ -r "$bat/capacity" ] || continue
-            local cap icons=($'' $'' $'' $'' $'')
-            cap=$(cat "$bat/capacity")
-            local icon=''${icons[$((cap * 5 / 101))]}
-            if [ "$(cat "$bat/status")" = Charging ]; then
-              printf '%s %s %s%%' $'' "$icon" "$cap"
-            else
-              printf '%s %s%%' "$icon" "$cap"
-            fi
-            return
-          done
-        }
-
-        volume() {
-          local raw vol
-          raw=$(wpctl get-volume @DEFAULT_SINK@ 2>/dev/null) || return
-          vol=$(printf '%s' "$raw" | awk '{printf "%d", $2*100}')
-          if [[ $raw == *MUTED* ]]; then printf '%s' $'\U000f075f'
-          elif [ "$vol" -lt 33 ]; then printf '%s' $'\U000f057f'
-          elif [ "$vol" -lt 66 ]; then printf '%s' $'\U000f0580'
-          else printf '%s' $'\U000f057e'
-          fi
-        }
-
-        # One line of blocks: "name<TAB>text" in, i3bar JSON out
+        # Blocks as i3bar JSON, in badges
         render() {
-          {
-            osd=$(${scripts.waybar-osd-status}/bin/waybar-osd-status) && printf 'osd\t%s\n' "$osd"
-            printf 'clock\t%s\n' "$(date +%H:%M)"
-            [ -n "$network" ] && printf 'network\t%s\n' "$network"
-            [ -n "$bluetooth" ] && printf 'bluetooth\t%s\n' "$bluetooth"
-            bat=$(battery) && [ -n "$bat" ] && printf 'battery\t%s\n' "$bat"
-            vol=$(volume) && [ -n "$vol" ] && printf 'volume\t%s\n' "$vol"
-            systemctl --user is-active --quiet hypridle 2>/dev/null || printf 'caffeine\t%s\n' $'\U000f0176'
-          } | jq -Rnc '[inputs | split("\t") | {name: .[0], full_text: .[1], markup: "pango", separator: false, separator_block_width: 16}]'
+          BLUETOOTH="$bluetooth" ${scripts.status-blocks} | jq -Rnc '
+            ${badge}
+            [inputs | split("\t") | {name: .[0], full_text: (.[2] as $bg | .[1] | badge($bg)), markup: "pango", separator: false, separator_block_width: 8}]'
         }
 
         # Blocks, every second (slow ones less often) or right away on RTMIN+8 (OSD, clicks)
@@ -64,12 +29,8 @@ in {
           local tick=0
           while :; do
             printf '%s,\n' "$(render)"
-            # Slow probes after drawing, so the bar shows up right away
-            if [ $((tick % 10)) -eq 0 ]; then
-              network=$(${scripts.networkScript} | jq -r .text)
-              # bluetoothctl waits forever without bluetoothd (hosts without the bluetooth aspect)
-              bluetooth=$(timeout 1 ${pkgs.bluez}/bin/bluetoothctl list 2>/dev/null | grep -q Controller && ${scripts.bluetoothScript} | jq -r .text)
-            fi
+            # bluetoothctl is slow: after drawing, every 5s
+            [ $((tick % 5)) -eq 0 ] && bluetooth=$(${scripts.status-blocks} bluetooth)
             tick=$((tick + 1))
             sleep 1 &
             wait $! 2>/dev/null
@@ -97,24 +58,132 @@ in {
             volume:4) ${scripts.vol-up}/bin/vol-up ;;
             volume:5) ${scripts.vol-down}/bin/vol-down ;;
             caffeine:1) ${scripts.caffeine-toggle}/bin/caffeine-toggle ;;
+            recording:1) ${scripts.record-toggle}/bin/record-toggle ;;
           esac
         done
       '';
+      # Badge (pill) around each block's text: Nerd Font half circles around its color
+      badge = ''def badge($bg): "<span color=\"#\($bg)\"></span><span background=\"#\($bg)\" color=\"#${c.base00}\"> \(.) </span><span color=\"#\($bg)\"></span>";'';
     in {
+      scripts.status-blocks = pkgs.writeShellScript "status-blocks" ''
+        export PATH=${lib.makeBinPath (with pkgs; [coreutils gawk gnugrep gnused jq playerctl procps systemd wireplumber])}:$PATH
+        export TZ=${osConfig.time.timeZone}
+
+        network() {
+          local dev q eth="" wifi="" vpn="" color=${c.base04} off='󰤭'
+          local signal=('󰤟' '󰤢' '󰤥' '󰤨')
+          for dev in /sys/class/net/*; do
+            case ''${dev##*/} in
+              tun* | wg* | proton* | ppp*) vpn=" 󰖂" color=${c.base0C}; continue ;;
+            esac
+            [ -e "$dev/device" ] && [ "$(cat "$dev/operstate")" = up ] || continue
+            if [ -d "$dev/wireless" ]; then
+              q=$(awk -v i="''${dev##*/}:" '$1 == i { print int($3) }' /proc/net/wireless)
+              wifi=''${signal[''${q:-0} * 4 / 71]} # link quality is out of 70
+            else
+              eth='󰈀'
+            fi
+          done
+          [ -n "$eth" ] || eth=''${wifi:-$off}
+          printf '%s%s\t%s' "$eth" "$vpn" "$color"
+        }
+
+        bluetooth() {
+          [ -n "$(ls /sys/class/bluetooth 2>/dev/null)" ] || return
+          local bt="timeout 2 ${pkgs.bluez}/bin/bluetoothctl"
+          if ! $bt show 2>/dev/null | grep -q 'Powered: yes'; then
+            printf '%s\t${c.base04}' '󰂲'
+          elif [ -n "$($bt devices Connected 2>/dev/null)" ]; then
+            printf '%s\t${c.base0D}' '󰂱'
+          else
+            printf '%s\t${c.base04}' '󰂯'
+          fi
+        }
+
+        battery() {
+          local bat cap icons=('󰁺' '󰁼' '󰁾' '󰂀' '󰂂' '󰁹')
+          for bat in /sys/class/power_supply/BAT*; do
+            [ -r "$bat/capacity" ] || continue
+            cap=$(cat "$bat/capacity")
+            if [ "$(cat "$bat/status")" = Charging ]; then
+              printf '%s %s%%' '󰂄' "$cap"
+            elif [ "$cap" -le 15 ]; then
+              printf '%s %s%%' "''${icons[0]}" "$cap"
+            else
+              printf '%s %s%%' "''${icons[cap / 20]}" "$cap"
+            fi
+            return
+          done
+        }
+
+        volume() {
+          local raw vol
+          raw=$(wpctl get-volume @DEFAULT_SINK@ 2>/dev/null) && [ -n "$raw" ] || return
+          vol=$(printf '%s' "$raw" | awk '{printf "%d", $2*100}')
+          if [[ $raw == *MUTED* ]]; then printf '%s' '󰝟'
+          elif [ "$vol" -lt 33 ]; then printf '%s' '󰕿'
+          elif [ "$vol" -lt 66 ]; then printf '%s' '󰖀'
+          else printf '%s' '󰕾'
+          fi
+        }
+
+        playing() {
+          local artist title text
+          IFS=$'\x1f' read -r artist title < <(playerctl -a metadata --format $'{{status}}\x1f{{artist}}\x1f{{title}}' 2>/dev/null \
+            | awk -F'\x1f' '$1 == "Playing" { print $2 "\x1f" $3; exit }')
+          [ -n "$title" ] || return
+          text="''${artist:+$artist – }$title"
+          [ ''${#text} -gt 40 ] && text="''${text:0:39}…"
+          printf '%s' "$text" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g'
+        }
+
+        if [ "''${1:-}" = bluetooth ]; then
+          bluetooth
+          exit
+        fi
+
+        pgrep -x wf-recorder >/dev/null && printf 'recording\t%s\t${c.base08}\n' '󰑊 Recording'
+        osd=$(${scripts.osd-status}/bin/osd-status) && printf 'osd\t%s\t${c.base05}\n' "$osd"
+        systemctl --user is-active --quiet swayidle 2>/dev/null || printf 'caffeine\t%s\t${c.base09}\n' '󰅶'
+        bt=''${BLUETOOTH-$(bluetooth)}
+        [ -n "$bt" ] && printf 'bluetooth\t%s\n' "$bt"
+        printf 'network\t%s\n' "$(network)"
+        if vol=$(volume) && [ -n "$vol" ]; then
+          np=$(playing) && [ -n "$np" ] && vol="$vol  $np"
+          printf 'volume\t%s\t${c.base0A}\n' "$vol"
+        fi
+        if bat=$(battery) && [ -n "$bat" ]; then
+          cap=''${bat##* } && cap=''${cap%\%}
+          color=${c.base0B}
+          if [ "$cap" -le 15 ] && [[ $bat != '󰂄'* ]]; then
+            color=${c.base08}
+            pad=$(printf '%*s' $((20 + (15 - cap) * 4)) "")
+            bat="$pad$bat$pad"
+          fi
+          printf 'battery\t%s\t%s\n' "$bat" "$color"
+        fi
+        printf 'clock\t%s\t${c.base0E}\n' "$(date +%H:%M)"
+      '';
+
+      scripts.status-pills = pkgs.writeShellScript "status-pills" ''
+        ${scripts.status-blocks} | ${pkgs.gnugrep}/bin/grep -Ev $'^(osd|caffeine)\t' \
+          | ${pkgs.jq}/bin/jq -nRrj '${badge} [inputs | split("\t") | .[2] as $bg | .[1] | badge($bg)] | join(" ")'
+      '';
+
       packages = [status];
 
       sway.config = ''
         bar {
           position top
           status_command ${status}/bin/swaybar-status
-          font pango:${theme.fonts.sansSerif} Bold ${toString theme.fonts.sizes.applications}
+          font pango:${theme.fonts.monospace} Bold ${toString theme.fonts.sizes.applications}
           height ${toString theme.bar-height}
           status_padding 0
           status_edge_padding 14
-          tray_padding 4
+          tray_output none
           workspace_min_width ${toString theme.bar-height}
           colors {
-            background #${c.base01}
+            background #${c.base00}
             statusline #${c.base05}
             separator  #${c.base03}
             # class            border       background   text
@@ -122,7 +191,7 @@ in {
             active_workspace   #${c.base02} #${c.base02} #${c.base05}
             inactive_workspace #${c.base01} #${c.base01} #${c.base05}
             urgent_workspace   #${c.base08} #${c.base08} #${c.base00}
-            binding_mode       #${c.base0A} #${c.base0A} #${c.base00}
+            binding_mode       #${c.base0D} #${c.base0D} #${c.base00}
           }
         }
       '';

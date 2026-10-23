@@ -13,15 +13,21 @@
     enable = true;
 
     environment.sessionVariables = {
-      AQ_DRM_DEVICES = "/dev/dri/card2:/dev/dri/card1"; # CHANGEME: Related to the GPU
+      WLR_DRM_DEVICES = "/dev/dri/card2:/dev/dri/card1"; # CHANGEME: Related to the GPU, the first one renders
     };
 
-    hyprland.settings.monitor = [
-      "eDP-2,highres,0x0,1" # My internal laptop screen
-      "desc:AOC U34G2G1 0x00000E06,3440x1440@99.98,auto,1" # My external monitor
-    ];
-    sway.config = ''
-      output "AOC U34G2G1 0x00000E06" mode 3440x1440@99.980Hz
+    # Screens (modules/desktop/kanshi.nix): the laptop alone, or with the AOC on its right
+    xdg.config.files."kanshi/config".text = let
+      laptop = ''output "BOE 0x0B7D Unknown" enable mode 2560x1440@240Hz position 0,0 scale 1'';
+    in ''
+      profile undocked {
+        ${laptop}
+      }
+
+      profile docked {
+        ${laptop}
+        output "AOC U34G2G1 0x00000E06" enable mode 3440x1440@99.982Hz position 2560,0 scale 1
+      }
     '';
 
     # TODO: Signal-notif

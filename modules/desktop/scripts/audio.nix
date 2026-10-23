@@ -19,8 +19,6 @@
         fi
       '';
 
-      # Resolve $src: the default source, otherwise the first available source.
-      # Some machines have no default audio source (@DEFAULT_AUDIO_SOURCE@ unresolved).
       micSource = ''
         src=$(${pkgs.wireplumber}/bin/wpctl inspect @DEFAULT_AUDIO_SOURCE@ 2>/dev/null | sed -n 's/^id \([0-9]*\),.*/\1/p')
         if [ -z "$src" ]; then
@@ -30,7 +28,34 @@
       '';
 
       updateOsd = ''
-        ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT" audio
+        ${scripts.osd}/bin/osd "$OSD_TEXT" audio
+      '';
+
+      cycleDefault = class: default: icon: fallback: ''
+        wpctl=${pkgs.wireplumber}/bin/wpctl
+        jq=${pkgs.jq}/bin/jq
+        pwdump=${pkgs.pipewire}/bin/pw-dump
+
+        # Node IDs in pw-dump order.
+        ids=($("$pwdump" | "$jq" -r '.[] | select(.info.props."media.class"=="${class}") | .id'))
+        n=''${#ids[@]}
+        [ "$n" -eq 0 ] && exit 0
+
+        cur=$("$wpctl" inspect ${default} 2>/dev/null | sed -n 's/^id \([0-9]*\),.*/\1/p')
+
+        next_index=0
+        for i in "''${!ids[@]}"; do
+          if [ "''${ids[$i]}" = "$cur" ]; then
+            next_index=$(( (i + 1) % n ))
+            break
+          fi
+        done
+        next=''${ids[$next_index]}
+
+        "$wpctl" set-default "$next"
+        desc=$("$pwdump" | "$jq" -r --argjson id "$next" '.[] | select(.id==$id) | .info.props."node.description"')
+        OSD_TEXT="${icon}  ''${desc:-${fallback}}"
+        ${updateOsd}
       '';
     in {
       scripts.vol-up = pkgs.writeShellScriptBin "vol-up" ''
@@ -73,6 +98,23 @@
           echo false
         fi
       '';
+
+      scripts.audio-output-cycle =
+        pkgs.writeShellScriptBin "audio-output-cycle"
+        (cycleDefault "Audio/Sink" "@DEFAULT_AUDIO_SINK@" "󰓃" "Output");
+
+      scripts.audio-input-cycle =
+        pkgs.writeShellScriptBin "audio-input-cycle"
+        (cycleDefault "Audio/Source" "@DEFAULT_AUDIO_SOURCE@" "󰍬" "Input");
+
+      launcher.vol-up.name = "Volume Up";
+      launcher.vol-down.name = "Volume Down";
+      launcher.vol-mute.name = "Mute Volume";
+      launcher.mic-mute.name = "Mute Microphone";
+      launcher.audio-output-cycle.name = "Cycle Audio Output";
+      launcher.audio-input-cycle.name = "Cycle Audio Input";
+
+      packages = with pkgs; [playerctl pavucontrol];
     })
   ];
 }

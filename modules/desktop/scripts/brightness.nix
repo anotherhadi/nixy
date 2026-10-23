@@ -6,7 +6,7 @@
       ...
     }: let
       brightGetText = ''
-        BRIGHT=$(${pkgs.brightnessctl}/bin/brightnessctl -m | awk -F, '{print int($5)}')
+        BRIGHT=$(${pkgs.brightnessctl}/bin/brightnessctl -m | awk -F, '{print int($4)}')
         if [ "$BRIGHT" -lt 33 ]; then
           OSD_TEXT="󰃞  $BRIGHT%"
         elif [ "$BRIGHT" -lt 66 ]; then
@@ -17,7 +17,7 @@
       '';
 
       updateOsd = ''
-        ${scripts.waybar-osd}/bin/waybar-osd "$OSD_TEXT" brightness
+        ${scripts.osd}/bin/osd "$OSD_TEXT" brightness
       '';
     in {
       scripts.bright-up = pkgs.writeShellScriptBin "bright-up" ''
@@ -31,6 +31,11 @@
         ${brightGetText}
         ${updateOsd}
       '';
+
+      launcher.bright-up.name = "Brightness Up";
+      launcher.bright-down.name = "Brightness Down";
+
+      packages = [pkgs.brightnessctl];
     })
   ];
 }

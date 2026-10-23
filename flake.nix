@@ -52,6 +52,11 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
+    swaymonad = {
+      url = "github:nicolasavru/swaymonad";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     impermanence.url = "github:nix-community/impermanence";
     elio.url = "github:elio-fm/elio";
     nixarr.url = "github:nix-media-server/nixarr";

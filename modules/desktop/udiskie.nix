@@ -10,7 +10,7 @@
         value.program_options = {
           automount = true;
           notify = false;
-          tray = "auto";
+          tray = false;
         };
       };
 

@@ -57,7 +57,7 @@ in {
     imports = [aspects.hjem];
 
     xdg.portal = {
-      config.hyprland."org.freedesktop.impl.portal.FileChooser" = ["elio"];
+      config.sway."org.freedesktop.impl.portal.FileChooser" = ["elio"];
       extraPortals = [elioPortal];
     };
 

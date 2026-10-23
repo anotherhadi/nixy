@@ -1,4 +1,4 @@
-# Nvidia configuration for NixOS with Wayland and Hyprland support
+# Nvidia configuration for NixOS with Wayland (sway) support
 # Import this module only if you have an Nvidia GPU
 {
   flake.modules.nixos.nvidia = {

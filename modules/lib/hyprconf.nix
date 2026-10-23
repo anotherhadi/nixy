@@ -1,17 +1,9 @@
-# Hyprlang helpers (Hyprland, hyprlock, hypridle, hyprpaper configs)
+# Hyprlang generator (hyprlock config)
 # toHyprconf is home-manager's generator (lib.hm.generators.toHyprconf)
 # Usage, from any flake-parts module:
 #   config.flake.lib.toHyprconf {attrs = {...};}
-#   lib.types: config.flake.lib.hyprconfType (mergeable settings, like home-manager's)
 {lib, ...}: {
   flake.lib = {
-    hyprconfType = let
-      valueType = with lib.types;
-        nullOr (oneOf [bool int float str path (attrsOf valueType) (listOf valueType)])
-        // {description = "Hyprland configuration value";};
-    in
-      valueType;
-
     toHyprconf = {
       attrs,
       indentLevel ? 0,

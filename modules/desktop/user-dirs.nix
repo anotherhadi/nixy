@@ -1,15 +1,9 @@
 # XDG user directories (Documents, Downloads... plus Notes and Cyber)
 {
   flake.modules.nixos.desktop.hjem.extraModules = [
-    ({
-      config,
-      pkgs,
-      ...
-    }: let
+    ({config, ...}: let
       home = config.directory;
     in {
-      packages = [pkgs.xdg-user-dirs];
-
       xdg.config.files."user-dirs.dirs".text = ''
         XDG_CYBER_DIR="${home}/Cyber"
         XDG_DOCUMENTS_DIR="${home}/Documents"

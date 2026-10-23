@@ -1,4 +1,4 @@
-# Sway keybindings, same as Hyprland's (modules/desktop/hyprland/bindings.nix)
+# Sway keybindings
 {
   flake.modules.nixos.desktop.hjem.extraModules = [
     ({
@@ -8,8 +8,17 @@
       ...
     }: {
       sway.config = ''
-        # Power
-        bindsym $mod+x exec ${scripts.power-menu}/bin/power-menu
+        set $power "power: [l]ock [s]uspend [r]eboot [p]oweroff"
+        mode $power {
+          bindsym l exec ${scripts.lock}/bin/lock, mode "default"
+          bindsym s exec systemctl suspend, mode "default"
+          bindsym r exec systemctl reboot, mode "default"
+          bindsym p exec systemctl poweroff, mode "default"
+          bindsym Escape mode "default"
+          bindsym Ctrl+c mode "default"
+          bindsym $mod+x mode "default"
+        }
+        bindsym $mod+x mode $power
 
         # Quick launch
         bindsym $mod+Return exec ${pkgs.ghostty}/bin/ghostty +new-window
@@ -19,10 +28,11 @@
 
         # Windows
         bindsym $mod+q kill
-        bindsym $mod+f fullscreen toggle
+        bindsym $mod+f nop fullscreen
         bindsym $mod+Shift+f floating toggle
-        # Left drag: move, right drag: resize
+        bindsym $mod+Shift+space exec ${scripts.focus-toggle}/bin/focus-toggle
         floating_modifier $mod normal
+        tiling_drag disable
 
         # Focus
         bindsym $mod+h focus left
@@ -32,11 +42,13 @@
         bindsym $mod+Shift+h focus output left
         bindsym $mod+Shift+l focus output right
 
-        # Force the split of the next window (autotiling-rs picks it otherwise)
-        bindsym $mod+Shift+j splitv
-        bindsym $mod+Shift+k splith
+        # Fewer or more windows in the master column (swaymonad, like Hyprland's)
+        bindsym $mod+Shift+j nop decrement_masters
+        bindsym $mod+Shift+k nop increment_masters
+        # Swap the focused window with the master one
+        bindsym $mod+Shift+Return nop promote_window
 
-        # Resize with hjkl, Escape/Return to leave
+        # Resize with hjkl, Escape/Return/Ctrl+c/$mod+r to leave
         mode "resize" {
           bindsym h resize shrink width 20px
           bindsym j resize grow height 20px
@@ -44,14 +56,16 @@
           bindsym l resize grow width 20px
           bindsym Return mode "default"
           bindsym Escape mode "default"
+          bindsym Ctrl+c mode "default"
+          bindsym $mod+r mode "default"
         }
         bindsym $mod+r mode "resize"
 
-        # Scratchpad (Hyprland's special:scratch)
-        bindsym $mod+s scratchpad show
-        bindsym $mod+Shift+s move scratchpad
+        # Scratch workspace
+        bindsym $mod+s exec ${scripts.scratch-toggle}/bin/scratch-toggle
+        bindsym $mod+Shift+s move container to workspace scratch
 
-        # Workspaces, by keycode (layout independent, like Hyprland's code:1x)
+        # Workspaces, by keycode (layout independent)
         ${lib.concatMapStrings (i: let
           ws = toString (i + 1);
           code = toString (10 + i);
@@ -59,11 +73,12 @@
           bindcode $mod+${code} workspace number ${ws}
           bindcode $mod+Shift+${code} move container to workspace number ${ws}
         '') (lib.range 0 8)}
-        # Screenshots
-        bindsym Print exec ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify savecopy area
-        bindsym $mod+Shift+Print exec ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify savecopy output
 
-        # Brightness (also when locked)
+        # Screenshots
+        bindsym Print exec ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify savecopy anything
+        bindsym $mod+Print exec ${scripts.record-toggle}/bin/record-toggle
+
+        # Brightness
         bindsym --locked XF86MonBrightnessUp exec ${scripts.bright-up}/bin/bright-up
         bindsym --locked XF86MonBrightnessDown exec ${scripts.bright-down}/bin/bright-down
 
@@ -78,7 +93,7 @@
         bindsym --locked XF86AudioMute exec ${scripts.vol-mute}/bin/vol-mute
         bindsym --locked XF86AudioRaiseVolume exec ${scripts.vol-up}/bin/vol-up
         bindsym --locked XF86AudioLowerVolume exec ${scripts.vol-down}/bin/vol-down
-        bindsym --locked XF86AudioMicMute exec ${scripts.mic-mute}/bin/mic-mute
+        bindsym XF86AudioMicMute exec ${scripts.mic-mute}/bin/mic-mute
       '';
     })
   ];

@@ -31,31 +31,15 @@
           | ${pkgs.wl-clipboard}/bin/wl-copy
       '';
 
-      packages = [
-        pkgs.wl-clipboard
-        pkgs.cliphist
-        scripts.clipboard-menu
-        (pkgs.makeDesktopItem {
-          name = "clipboard-menu";
-          desktopName = "Clipboard History";
-          exec = "${scripts.clipboard-menu}/bin/clipboard-menu";
-          icon = "edit-paste-symbolic";
-          comment = "Pick a past clipboard entry";
-          categories = ["Utility"];
-          terminal = false;
-          keywords = ["clipboard" "history" "paste" "cliphist"];
-        })
-        (pkgs.makeDesktopItem {
-          name = "clipboard-wipe";
-          desktopName = "Clear Clipboard History";
+      packages = [pkgs.wl-clipboard pkgs.cliphist];
+
+      launcher = {
+        clipboard-menu.name = "Clipboard History";
+        clipboard-wipe = {
+          name = "Clear Clipboard History";
           exec = "${cliphist} wipe";
-          icon = "edit-clear-all-symbolic";
-          comment = "Delete all clipboard history entries";
-          categories = ["Utility"];
-          terminal = false;
-          keywords = ["clipboard" "history" "clear" "wipe" "delete" "cliphist"];
-        })
-      ];
+        };
+      };
 
       systemd.services = {
         cliphist = mkWatcher "Clipboard management daemon" null;

@@ -9,6 +9,10 @@
       }: {
         packages = [pkgs.direnv];
 
+        xdg.config.files."direnv/direnv.toml".text = ''
+          [global]
+          log_format = "-"
+        '';
         xdg.config.files."direnv/lib/nix-direnv.sh".source = "${pkgs.nix-direnv}/share/nix-direnv/direnvrc";
 
         zsh.initContent = lib.mkOrder 1100 ''

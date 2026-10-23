@@ -31,7 +31,6 @@
       opencode
       kew
       eilmeldung
-      monitui
       usbguard-tui
       myx
       proton
@@ -66,10 +65,9 @@
       uptime-kuma
     ];
 
-    # Graphical session: Hyprland (+ sway) + bar, notifications, launcher, lock, theming...
+    # Graphical session: sway + bar, notifications, launcher, lock, theming...
     gui.imports = [
-      hyprland
-      sway # Alternative session, pick it in tuigreet
+      sway
       desktop
       helium
       signal

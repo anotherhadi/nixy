@@ -1,5 +1,4 @@
-# GTK theme (adw-gtk3 recolored with the palette), icons, cursor and fonts
-# for GTK apps; Qt apps follow GTK (QT_QPA_PLATFORMTHEME=gtk3 in Hyprland)
+# GTK theme, icons, cursor and fonts
 {config, ...}: let
   inherit (config) theme;
   c = theme.withHashtag;
@@ -95,11 +94,7 @@ in {
     ];
 
     hjem.extraModules = [
-      ({
-        config,
-        pkgs,
-        ...
-      }: let
+      ({pkgs, ...}: let
         ini = lib.generators.toINI {} {Settings = gtkSettings;};
       in {
         packages = with pkgs; [
@@ -115,13 +110,6 @@ in {
           "gtk-4.0/gtk.css".text = gtkCss;
         };
 
-        files.".gtkrc-2.0".text = lib.concatLines (lib.mapAttrsToList (k: v: "${k} = ${
-            if builtins.isString v
-            then ''"${v}"''
-            else toString v
-          }")
-          gtkSettings);
-
         # Default cursor for X11 apps (Xwayland)
         files.".icons/default/index.theme".text = ''
           [Icon Theme]
@@ -131,7 +119,6 @@ in {
         '';
 
         environment.sessionVariables = {
-          GTK2_RC_FILES = "${config.directory}/.gtkrc-2.0";
           XCURSOR_THEME = cursor.name;
           XCURSOR_SIZE = cursor.size;
         };

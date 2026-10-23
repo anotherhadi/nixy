@@ -27,7 +27,7 @@ in {
             dbus = {
               enable = true;
               policies = {
-                "org.mpris.MediaPlayer2.kew" = "own"; # Media keys, waybar
+                "org.mpris.MediaPlayer2.kew" = "own"; # Media keys
                 "org.freedesktop.Notifications" = "talk"; # Now playing
               };
             };

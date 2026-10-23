@@ -46,8 +46,8 @@
 
     # TODO: sockets.wayland exposes the raw Wayland socket, including privileged protocols
     # (screencopy, virtual-keyboard, data-control). Look into filtering them later:
-    # nixpak's waylandProxy (filters, but breaks wl-copy), Hyprland permissions
-    # (ecosystem:enforce_permissions), or a wp_security_context_v1 socket.
+    # nixpak's waylandProxy (filters, but breaks wl-copy) or a wp_security_context_v1
+    # socket (sway restricts privileged protocols for those clients).
     base = {sloth, ...}: {
       dbus.enable = pkgs.lib.mkDefault false; # Opt-in per app
       bubblewrap = {

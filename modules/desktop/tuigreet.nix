@@ -7,8 +7,6 @@ in {
     lib,
     ...
   }: let
-    tuigreet = pkgs.tuigreet;
-
     theme = lib.concatStringsSep ";" [
       "border=#${c.base0D}"
       "text=#${c.base05}"
@@ -20,7 +18,7 @@ in {
     ];
 
     tuigreet-launch = pkgs.writeShellScript "tuigreet-launch" ''
-      exec ${tuigreet}/bin/tuigreet \
+      exec ${pkgs.tuigreet}/bin/tuigreet \
         --time \
         --time-format '%H:%M  %A %d %B' \
         --sessions /run/current-system/sw/share/wayland-sessions \
@@ -48,15 +46,11 @@ in {
 
     security.pam.services.greetd.enableGnomeKeyring = true;
 
-    # this is a life saver.
-    # literally no documentation about this anywhere.
-    # might be good to write about this...
-    # https://www.reddit.com/r/NixOS/comments/u0cdpi/tuigreet_with_xmonad_how/
     systemd.services.greetd.serviceConfig = {
       Type = "idle";
       StandardInput = "tty";
       StandardOutput = "tty";
-      StandardError = "journal"; # Without this errors will spam on screen
+      StandardError = "journal";
       # Without these bootlogs will spam on screen
       TTYReset = true;
       TTYVHangup = true;
