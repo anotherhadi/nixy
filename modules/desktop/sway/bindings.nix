@@ -8,6 +8,7 @@
       ...
     }: {
       sway.config = ''
+        # $mod+x twice locks
         set $power "power: [l]ock [s]uspend [r]eboot [p]oweroff"
         mode $power {
           bindsym l exec ${scripts.lock}/bin/lock, mode "default"
@@ -16,7 +17,7 @@
           bindsym p exec systemctl poweroff, mode "default"
           bindsym Escape mode "default"
           bindsym Ctrl+c mode "default"
-          bindsym $mod+x mode "default"
+          bindsym $mod+x exec ${scripts.lock}/bin/lock, mode "default"
         }
         bindsym $mod+x mode $power
 
