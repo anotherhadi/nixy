@@ -20,7 +20,13 @@
       };
     };
 
-    # Screen sharing
-    xdg.portal.wlr.enable = true;
+    # Screen sharing. The portal runs with a minimal PATH: the output picker
+    xdg.portal.wlr = {
+      enable = true;
+      settings.screencast = {
+        chooser_type = "dmenu";
+        chooser_cmd = "${config.hjem.users.${config.nixy.username}.scripts.tofi-menu}/bin/tofi-menu --prompt-text 'Share: '";
+      };
+    };
   };
 }

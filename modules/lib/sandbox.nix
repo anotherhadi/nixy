@@ -122,6 +122,9 @@
         # Mounted after the binds, it would hide /tmp/.X11-unix: X11 apps get bwrap's empty /tmp
         tmpfs = pkgs.lib.optional (!config.bubblewrap.sockets.x11) "/tmp";
         env.NIXOS_XDG_OPEN_USE_PORTAL = "1"; # xdg-open goes through the portal
+        # nixpak binds the pulse dir read-only: libpulse fails to chmod it 0700 and gives up
+        # (no mic, no sound) unless pointed straight at the socket, as flatpak does
+        env.PULSE_SERVER = pkgs.lib.mkIf config.bubblewrap.sockets.pulse (sloth.concat ["unix:" sloth.runtimeDir "/pulse/native"]);
       };
     };
   in {
