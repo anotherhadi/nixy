@@ -58,7 +58,7 @@ in {
             volume:4) ${scripts.vol-up}/bin/vol-up ;;
             volume:5) ${scripts.vol-down}/bin/vol-down ;;
             caffeine:1) ${scripts.caffeine-toggle}/bin/caffeine-toggle ;;
-            recording:1) ${scripts.record-toggle}/bin/record-toggle ;;
+            mic:1 | camera:1 | screen:1) ${scripts.term}/bin/term ${scripts.privacy-who}/bin/privacy-who & ;;
           esac
         done
       '';
@@ -142,7 +142,11 @@ in {
           exit
         fi
 
-        pgrep -x wf-recorder >/dev/null && printf 'recording\t%s\t${c.base08}\n' '󰑊 Recording'
+        # Privacy: whatever is using the mic, the camera or the screen
+        privacy=$(${scripts.privacy-users} | cut -f1)
+        grep -qx mic <<<"$privacy" && printf 'mic\t%s\t${c.base08}\n' '󰍬'
+        grep -qx camera <<<"$privacy" && printf 'camera\t%s\t${c.base08}\n' '󰄀'
+        grep -qx screen <<<"$privacy" && printf 'screen\t%s\t${c.base08}\n' '󰹑'
         osd=$(${scripts.osd-status}/bin/osd-status) && printf 'osd\t%s\t${c.base05}\n' "$osd"
         systemctl --user is-active --quiet swayidle 2>/dev/null || printf 'caffeine\t%s\t${c.base09}\n' '󰅶'
         bt=''${BLUETOOTH-$(bluetooth)}
