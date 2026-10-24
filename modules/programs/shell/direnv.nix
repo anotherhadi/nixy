@@ -3,6 +3,7 @@
   flake.modules.nixos.shell = {
     hjem.extraModules = [
       ({
+        config,
         lib,
         pkgs,
         ...
@@ -13,6 +14,9 @@
         xdg.config.files."direnv/direnv.toml".text = ''
           [global]
           log_filter = "^$"
+
+          [whitelist]
+          prefix = ["${config.directory}/Cyber/programs"]
         '';
         xdg.config.files."direnv/lib/nix-direnv.sh".source = "${pkgs.nix-direnv}/share/nix-direnv/direnvrc";
 
