@@ -1,9 +1,5 @@
 # Sway user configuration
-{
-  config,
-  inputs,
-  ...
-}: let
+{config, ...}: let
   inherit (config) theme;
   c = theme.colors;
 in {
@@ -14,9 +10,7 @@ in {
       pkgs,
       osConfig,
       ...
-    }: let
-      swaymonad = inputs.swaymonad.packages.${pkgs.stdenv.hostPlatform.system}.swaymonad;
-    in {
+    }: {
       options.sway.config = lib.mkOption {
         type = lib.types.lines;
         default = "";
@@ -44,7 +38,6 @@ in {
         sway.config = ''
           # Startup
           exec uwsm finalize SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
-          exec ${swaymonad}/bin/swaymonad
 
           # Look
           default_border pixel ${toString theme.border-size}
@@ -61,7 +54,6 @@ in {
           client.urgent           #${c.base08} #${c.base08} #${c.base00} #${c.base08} #${c.base08}
 
           # Behaviour
-          default_orientation auto
           focus_follows_mouse yes
           mouse_warping container
           focus_on_window_activation focus

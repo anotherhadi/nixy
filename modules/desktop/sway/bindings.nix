@@ -29,7 +29,7 @@
 
         # Windows
         bindsym $mod+q kill
-        bindsym $mod+f nop fullscreen
+        bindsym $mod+f fullscreen toggle
         bindsym $mod+Shift+f floating toggle
         bindsym $mod+Shift+space exec ${scripts.focus-toggle}/bin/focus-toggle
         floating_modifier $mod normal
@@ -42,12 +42,6 @@
         bindsym $mod+l focus right
         bindsym $mod+Shift+h focus output left
         bindsym $mod+Shift+l focus output right
-
-        # Fewer or more windows in the master column (swaymonad, like Hyprland's)
-        bindsym $mod+Shift+j nop decrement_masters
-        bindsym $mod+Shift+k nop increment_masters
-        # Swap the focused window with the master one
-        bindsym $mod+Shift+Return nop promote_window
 
         # Resize with hjkl, Escape/Return/Ctrl+c/$mod+r to leave
         mode "resize" {
