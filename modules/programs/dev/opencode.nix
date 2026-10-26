@@ -71,7 +71,7 @@ in {
         # Sandboxed: network (Ollama), but only sees the project it is started in
         # and its own state. Secrets are hidden.
         sandboxed = (mkSandbox pkgs).wrap {
-          package = pkgs.opencode;
+          package = pkgs.unstable.opencode;
           config = {sloth, ...}: let
             home = sloth.concat' sloth.homeDir;
           in {
