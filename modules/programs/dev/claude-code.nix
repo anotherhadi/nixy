@@ -56,8 +56,13 @@ in {
           export CLAUDE_SANDBOX_DIR
           exec ${sandboxed}/bin/claude "$@"
         '';
+
+        claude-unsafe = pkgs.writeShellScriptBin "claude-unsafe" ''
+          export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
+          exec ${pkgs.unstable.claude-code}/bin/claude "$@"
+        '';
       in {
-        packages = [claude];
+        packages = [claude claude-unsafe];
 
         persist = {
           directories = [".claude"];
