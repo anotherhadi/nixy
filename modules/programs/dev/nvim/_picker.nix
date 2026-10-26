@@ -3,7 +3,14 @@
     utility = {
       snacks-nvim = {
         setupOpts = {
-          picker.enabled = true;
+          picker = {
+            enabled = true;
+            # Generated gsx code
+            sources = {
+              files.exclude = ["*_gsx.go"];
+              explorer.exclude = ["*_gsx.go"];
+            };
+          };
           explorer.enabled = true;
         };
       };
