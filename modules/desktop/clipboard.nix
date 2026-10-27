@@ -8,7 +8,10 @@
       ...
     }: let
       tofiMenu = "${scripts.tofi-menu}/bin/tofi-menu";
-      cliphist = "${pkgs.cliphist}/bin/cliphist";
+      cliphistPkg = pkgs.writeShellScriptBin "cliphist" ''
+        exec ${pkgs.cliphist}/bin/cliphist -db-path "$XDG_RUNTIME_DIR/cliphist.db" "$@"
+      '';
+      cliphist = "${cliphistPkg}/bin/cliphist";
 
       mkWatcher = description: type: {
         inherit description;
@@ -31,7 +34,7 @@
           | ${pkgs.wl-clipboard}/bin/wl-copy
       '';
 
-      packages = [pkgs.wl-clipboard pkgs.cliphist];
+      packages = [pkgs.wl-clipboard cliphistPkg];
 
       launcher = {
         clipboard-menu.name = "Clipboard History";
