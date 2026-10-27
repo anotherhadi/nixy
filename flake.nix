@@ -42,17 +42,16 @@
       url = "github:oxcl/nix-flake-helium-browser";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    git-hooks = {
-      url = "github:cachix/git-hooks.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixpak = {
       url = "github:nixpak/nixpak";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
 
-    impermanence.url = "github:nix-community/impermanence";
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "nixpkgs"; # Only used by its tests
+    };
     elio.url = "github:elio-fm/elio";
     nixarr.url = "github:nix-media-server/nixarr";
     default-creds-web.url = "github:anotherhadi/default-creds-web";
