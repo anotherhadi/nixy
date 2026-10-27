@@ -41,7 +41,7 @@ in {
 
                 window_padding_width = 10;
                 confirm_os_window_close = 0;
-                clipboard_control = "write-clipboard write-primary read-clipboard read-primary";
+                clipboard_control = "write-clipboard write-primary read-clipboard-ask read-primary-ask";
                 copy_on_select = "clipboard";
                 wheel_scroll_multiplier = "1.0";
                 cursor_trail = 3;

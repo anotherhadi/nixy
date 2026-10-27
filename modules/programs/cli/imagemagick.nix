@@ -10,29 +10,52 @@ in {
     imports = [aspects.hjem];
 
     hjem.extraModules = [
-      ({pkgs, ...}: {
-        # Sandboxed: writes wherever asked, but no network and secrets hidden
+      ({pkgs, ...}: let
+        # Sandboxed: parses untrusted files, so no network and only the current dir
+        sandboxed = (mkSandbox pkgs).wrap {
+          package = pkgs.imagemagick;
+          home = "cwd";
+          config = {
+            app.extraEntrypoints = map (bin: "/bin/${bin}") [
+              "animate"
+              "compare"
+              "composite"
+              "conjure"
+              "convert"
+              "display"
+              "identify"
+              "import"
+              "magick-script"
+              "mogrify"
+              "montage"
+              "stream"
+            ];
+            bubblewrap.bind.rw = ["/tmp"];
+          };
+        };
+
+        guarded = pkgs.runCommandLocal "imagemagick-guarded" {} ''
+          mkdir -p $out/bin
+          for bin in ${sandboxed}/bin/*; do
+            name=$(basename "$bin")
+            cat > "$out/bin/$name" <<EOF
+          #!${pkgs.runtimeShell}
+          case "\$PWD" in
+            / | "\$HOME")
+              echo "$name: refusing to expose \$PWD, run it from a subdirectory" >&2
+              exit 1
+              ;;
+          esac
+          exec $bin "\$@"
+          EOF
+            chmod +x "$out/bin/$name"
+          done
+        '';
+      in {
         packages = [
-          ((mkSandbox pkgs).wrap {
-            package = pkgs.imagemagick;
-            config = {sloth, ...}: {
-              # Aliases are symlinks to magick, so each one needs its own sandboxed entrypoint
-              app.extraEntrypoints = map (bin: "/bin/${bin}") [
-                "animate"
-                "compare"
-                "composite"
-                "conjure"
-                "convert"
-                "display"
-                "identify"
-                "import"
-                "magick-script"
-                "mogrify"
-                "montage"
-                "stream"
-              ];
-              bubblewrap.bind.rw = [sloth.homeDir "/tmp"];
-            };
+          (pkgs.symlinkJoin {
+            name = "imagemagick-sandboxed";
+            paths = [guarded sandboxed];
           })
         ];
       })

@@ -15,10 +15,8 @@ in {
         packages = [
           ((mkSandbox pkgs).wrap {
             package = pkgs.chafa;
-            config = {sloth, ...}: {
-              bubblewrap.bind.ro = [sloth.homeDir];
-              bubblewrap.bind.rw = ["/tmp"];
-            };
+            home = "ro";
+            config.bubblewrap.bind.rw = ["/tmp"];
           })
         ];
       })

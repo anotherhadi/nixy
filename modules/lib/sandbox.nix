@@ -64,6 +64,19 @@
       "/.config/gh"
       "/.mozilla"
       "/.config/net.imput.helium"
+      "/.pki" # NSS database: Cloudflare mTLS client certificate
+      "/.local/share/password-store"
+    ];
+
+    homeHiddenPaths = [
+      "/.config/Signal"
+      "/.config/filen-cli"
+    ];
+
+    protectedPaths = [
+      "/.config/nixos"
+      "/.local/share/go/bin"
+      "/.local/share/applications"
     ];
 
     # TODO: sockets.wayland exposes the raw Wayland socket, including privileged protocols
@@ -127,14 +140,36 @@
         env.PULSE_SERVER = pkgs.lib.mkIf config.bubblewrap.sockets.pulse (sloth.concat ["unix:" sloth.runtimeDir "/pulse/native"]);
       };
     };
+
+    # home: "ro" (whole $HOME read-only), "rw" (whole $HOME), "cwd" (only the current dir, read-write)
+    homeAccess = mode: {sloth, ...}: let
+      home = sloth.concat' sloth.homeDir;
+    in {
+      bubblewrap = {
+        bind.ro =
+          pkgs.lib.optional (mode == "ro") sloth.homeDir
+          ++ pkgs.lib.optionals (mode != "ro") (map home protectedPaths);
+        bind.rw =
+          pkgs.lib.optional (mode == "rw") sloth.homeDir
+          ++ pkgs.lib.optional (mode == "cwd") (sloth.envOr "PWD" "/var/empty");
+        tmpfs = map home homeHiddenPaths;
+      };
+    };
   in {
     wrap = {
       package,
       gui ? false,
+      home ? null,
       config ? {},
     }:
-      (mkNixPak {
-        config = {imports = [base config {app.package = package;}] ++ pkgs.lib.optional gui guiBase;};
-      }).config.env;
+      assert pkgs.lib.assertMsg (builtins.elem home [null "ro" "rw" "cwd"]) "mkSandbox: home must be null, \"ro\", \"rw\" or \"cwd\"";
+        (mkNixPak {
+          config = {
+            imports =
+              [base config {app.package = package;}]
+              ++ pkgs.lib.optional gui guiBase
+              ++ pkgs.lib.optional (home != null) (homeAccess home);
+          };
+        }).config.env;
   };
 }

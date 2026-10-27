@@ -14,6 +14,7 @@ in {
     # Sandboxed: no network, D-Bus only to the portal, secrets hidden, NixOS config read-only.
     elio = (mkSandbox pkgs).wrap {
       package = elioPkg;
+      home = "rw";
       config = {sloth, ...}: {
         # Files are opened through the portal (xdg-open -> OpenURI.OpenFile): the default app
         # starts outside this sandbox, in its own, instead of inheriting this one
@@ -23,9 +24,7 @@ in {
         };
         bubblewrap = {
           env.NIXOS_XDG_OPEN_USE_PORTAL = "1";
-          bind.rw = [sloth.homeDir];
           bind.ro = [
-            (sloth.concat' sloth.homeDir "/.config/nixos")
             (sloth.concat' sloth.runtimeDir "/elio/portal") # File chooser socket to the portal service
           ];
           sockets.wayland = true; # wl-copy, GUI apps opened from elio

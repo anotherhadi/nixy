@@ -35,6 +35,8 @@
     };
 
     config = {
+      # TODO: this user-readable key decrypts every host's secrets: any
+      # process running as the user can steal it.
       sops.age.keyFile = "${home}/.config/sops/age/keys.txt";
 
       environment.systemPackages = with pkgs; [

@@ -15,14 +15,11 @@ in {
         thunar = (mkSandbox pkgs).wrap {
           package = pkgs.thunar;
           gui = true;
-          config = {sloth, ...}: {
+          home = "rw";
+          config = {
             dbus = {
               enable = true;
               policies."org.xfce.Xfconf" = "talk"; # Settings
-            };
-            bubblewrap = {
-              bind.rw = [sloth.homeDir];
-              bind.ro = [(sloth.concat' sloth.homeDir "/.config/nixos")];
             };
           };
         };

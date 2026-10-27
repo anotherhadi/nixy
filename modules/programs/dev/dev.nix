@@ -25,7 +25,7 @@
           GOPATH = "$HOME/.local/share/go";
           GOPROXY = "direct"; # Fetch modules from their repo, not Google's proxy.golang.org
           DO_NOT_TRACK = "1"; # Bun crash reports, and every tool honoring it
-          PATH = ["$HOME/.local/share/go/bin" "$PATH"];
+          PATH = ["$PATH" "$HOME/.local/share/go/bin"];
         };
 
         persist.files = [".npmrc"]; # npm login token

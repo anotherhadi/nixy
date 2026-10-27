@@ -12,6 +12,7 @@
         systemd-boot = {
           consoleMode = "auto";
           configurationLimit = 8;
+          editor = false;
         };
       };
 
@@ -25,7 +26,6 @@
         "rd.systemd.show_status=false"
         "rd.udev.log_level=3"
         "udev.log_priority=3"
-        "boot.shell_on_fail"
       ];
       consoleLogLevel = 0;
       initrd.verbose = false;
