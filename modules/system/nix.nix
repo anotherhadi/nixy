@@ -5,18 +5,6 @@
     lib,
     ...
   }: {
-    system.autoUpgrade = {
-      enable = lib.mkDefault false;
-      dates = "04:00";
-      flake = config.nixy.configDirectory;
-      flags = [
-        "--update-input"
-        "nixpkgs"
-        "--commit-lock-file"
-      ];
-      allowReboot = false;
-    };
-
     # Faster rebuilding
     documentation = {
       doc.enable = false;
