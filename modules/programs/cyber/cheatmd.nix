@@ -18,7 +18,7 @@
             packages = [cheatmd];
 
             xdg.config.files."cheatmd/cheatmd.yaml".text = ''
-              path: ${config.directory}/Cyber/_notes
+              path: ${config.directory}/Cyber/notes
             '';
           }
 
