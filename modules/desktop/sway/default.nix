@@ -54,7 +54,7 @@ in {
           client.urgent           #${c.base08} #${c.base08} #${c.base00} #${c.base08} #${c.base08}
 
           # Behaviour
-          focus_follows_mouse yes
+          focus_follows_mouse always
           mouse_warping container
           focus_on_window_activation focus
 
