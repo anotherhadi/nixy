@@ -15,12 +15,12 @@
       '';
 
       xdg.config.files."swayidle/config".text = ''
-        timeout 300 '${scripts.lock}/bin/lock --grace 5'
+        timeout 300 '${scripts.lock}/bin/lock --grace 5 &'
         timeout 720 '${scripts.dpms} off' resume '${scripts.dpms} on'
         timeout 1800 'systemctl suspend'
-        before-sleep 'loginctl lock-session'
+        before-sleep '${scripts.lock}/bin/lock & sleep 1'
         after-resume '${scripts.dpms} on'
-        lock '${scripts.lock}/bin/lock'
+        lock '${scripts.lock}/bin/lock &'
       '';
 
       systemd.services.swayidle = {
