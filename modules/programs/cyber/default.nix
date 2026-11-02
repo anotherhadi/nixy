@@ -12,12 +12,8 @@
     username = config.nixy.username;
     home = config.users.users.${username}.home;
     # API keys of the recon tools, on hosts whose sops file has them
-    providers = tool:
-      lib.mkIf (builtins.elem "${tool}-providers" config.nixy.secrets.available) {
-        owner = username;
-        mode = "0400";
-        path = "${home}/.config/${tool}/provider-config.yaml";
-      };
+    reconTools = ["subfinder" "urlfinder"];
+    hasProviders = tool: builtins.elem "${tool}-providers" config.nixy.secrets.available;
   in {
     imports = [
       aspects.hjem
@@ -27,10 +23,13 @@
       aspects.cheatmd
     ];
 
-    sops.secrets = {
-      subfinder-providers = providers "subfinder";
-      urlfinder-providers = providers "urlfinder";
-    };
+    # Kept in /run/secrets: a sops `path` under ~/.config would create the
+    # tool's config dir as root, and the tools can't write their config.yaml
+    sops.secrets = lib.genAttrs' (lib.filter hasProviders reconTools) (tool:
+      lib.nameValuePair "${tool}-providers" {
+        owner = username;
+        mode = "0400";
+      });
 
     hjem.extraModules = [
       ({pkgs, ...}: let
@@ -38,10 +37,22 @@
       in {
         packages = import ./_pkgs.nix {inherit pkgs;} ++ [wordlists-fetch];
 
-        files = {
-          # Open source list of default credentials
-          ".cache/default-creds".source = inputs.default-creds;
-        };
+        files =
+          {
+            # Open source list of default credentials
+            ".cache/default-creds".source = inputs.default-creds;
+          }
+          // lib.mergeAttrsList (map (tool:
+            {
+              ".config/${tool}/config.yaml".text = ''
+                disable-update-check: true
+              '';
+            }
+            // lib.optionalAttrs (hasProviders tool) {
+              ".config/${tool}/provider-config.yaml".source =
+                config.sops.secrets."${tool}-providers".path;
+            })
+          reconTools);
 
         systemd.services.wordlists-fetch = {
           description = "Download missing wordlists into ~/Cyber/wordlists";
