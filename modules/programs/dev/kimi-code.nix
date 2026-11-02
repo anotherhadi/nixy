@@ -45,6 +45,8 @@ in {
               ];
               bind.ro = [
                 (home "/.config/git")
+                "/bin" # /bin/sh, hardcoded by kimi's shell tool
+                "/usr/bin" # /usr/bin/env shebangs
                 "/nix/var/nix/daemon-socket" # nix build/eval through the daemon (user isn't trusted)
               ];
               tmpfs = ["/tmp"];
