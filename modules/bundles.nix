@@ -37,6 +37,7 @@
       ilovetui
       dev
       claude-code
+      kimi-code
       nix-index
       signal-notify
       cybersecurity
