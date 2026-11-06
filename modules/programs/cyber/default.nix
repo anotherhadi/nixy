@@ -21,6 +21,7 @@
       aspects.veille-vulnx
       aspects.findings
       aspects.cheatmd
+      aspects.sectui
     ];
 
     # Kept in /run/secrets: a sops `path` under ~/.config would create the

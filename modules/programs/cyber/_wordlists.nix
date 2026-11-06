@@ -32,6 +32,7 @@ pkgs.writeShellApplication {
 
     clone https://github.com/danielmiessler/SecLists seclists
     clone https://github.com/0xPugal/fuzz4bounty fuzz4bounty
+    clone https://github.com/sectui/lists sectui
 
     # Rules
     clone https://github.com/stealthsploit/oneruletorulethemstill rules/oneruletorulethemstill
