@@ -13,7 +13,6 @@ in {
         ...
       }: let
         home = config.directory;
-        certDir = "${home}/Cyber/certs";
         addons = pkgs.nur.repos.rycee.firefox-addons;
 
         js-recon-buddy = addons.buildFirefoxXpiAddon {
@@ -26,9 +25,8 @@ in {
         };
 
         extensions = [
-          addons.foxyproxy-standard
+          addons.pwnfox
           addons.wappalyzer
-          addons.multi-account-containers
           js-recon-buddy
         ];
 
@@ -41,23 +39,11 @@ in {
             upgradeMessage = false;
           };
 
-          "foxyproxy@eric.h.jung" = {
-            mode = "127.0.0.1:8080";
-            passthrough = "";
-            data = [
-              {
-                active = true;
-                title = "spilltea";
-                type = "http";
-                hostname = "127.0.0.1";
-                port = "8080";
-                color = "#ff7f50";
-                proxyDNS = true;
-                include = [];
-                exclude = [];
-                tabProxy = [];
-              }
-            ];
+          "PwnFox@bi.tk" = {
+            enabled = true;
+            useBurpProxyAll = true;
+            burpProxyHost = "127.0.0.1";
+            burpProxyPort = "8080";
           };
         };
 
@@ -72,17 +58,14 @@ in {
           OfferToSaveLogins = false;
           DisableFormHistory = true;
           Certificates.Install = [
-            "${certDir}/burp.der"
-            "${certDir}/caido.crt"
-            "${home}/.local/share/spilltea/mitmproxy-ca-cert.pem"
-            "${home}/.local/share/spilltea/ca/ca.pem"
+            "${home}/.local/share/spilltea/ca/mitmproxy-ca-cert.pem"
           ];
-          # Pin every extension to the toolbar; FoxyProxy also needs private
-          # window access to drive proxy.settings
+          # Pin every extension to the toolbar; PwnFox also needs private
+          # window access to proxy requests
           ExtensionSettings =
             lib.recursiveUpdate
             (lib.genAttrs (map (ext: ext.addonId) extensions) (_: {default_area = "navbar";}))
-            {"foxyproxy@eric.h.jung".private_browsing = true;};
+            {"PwnFox@bi.tk".private_browsing = true;};
           SanitizeOnShutdown = {
             Cache = true;
             Cookies = true;

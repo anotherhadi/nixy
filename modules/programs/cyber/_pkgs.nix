@@ -1,6 +1,5 @@
 {pkgs, ...}: (with pkgs; [
   # Web
-  pkgs.nur.repos.anotherhadi.spilltea
   ffuf
   sqlmap
   nosqli
@@ -37,7 +36,6 @@
   nmap
   samba
   hydra
-  pkgs.nur.repos.anotherhadi.revshell # Reverse shell
 
   # Reverse
   binsider # Analyzer of executables using a terminal user interface

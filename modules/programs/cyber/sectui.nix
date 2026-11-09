@@ -19,7 +19,7 @@ in {
       in {
         config = lib.mkMerge [
           {
-            packages = [sectui.operations sectui.steep];
+            packages = [sectui.operations sectui.steep sectui.revshell sectui.spilltea];
 
             xdg.config.files."steep/config.yaml".text = ''
               createCollection: false
@@ -28,6 +28,18 @@ in {
                 collection: hidden
               screenshot:
                 onCapture: wl-copy < "$SCREENSHOT"
+            '';
+
+            xdg.config.files."spilltea/config.yaml".text = ''
+              createProject: false
+              history:
+                jsEndpoints: false # add the paths found in scripts, nothing is sent; row.source.eq:"js"
+              findings: # assets included
+                secrets: true # gitleaks rules
+                cookies: false # no Secure, no HttpOnly, SameSite=None
+                cors: false # credentials allowed for a specific origin
+                disclosure: false # stack traces, SQL errors, source maps, versions in headers
+                reflection: false # parameters found as is in an HTML response, with where
             '';
 
             xdg.config.files."sectui/config.yaml".text = ''
