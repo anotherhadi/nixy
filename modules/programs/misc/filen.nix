@@ -28,7 +28,10 @@ in {
             remote = "/Cyber";
             syncMode = "twoWay";
             ignore = [
-              "programs/*/recon/" # Raw recon output
+              "programs/*/recon/"
+              "programs/*/reqs/"
+              "programs/*/collection/"
+              "programs/*/local/"
               "wordlists"
             ];
           }
