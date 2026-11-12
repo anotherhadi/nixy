@@ -18,8 +18,8 @@
         # Hidden paths missing on the host can't get a
         # tmpfs mountpoint under a read-only $HOME bind. Nothing to hide there: skip them.
         substituteInPlace launcher/bubblewrap.go --replace-fail \
-          '"4"}, conf.BwrapArgs...)' \
-          '"4"}, skipMissingTmpfs(conf.BwrapArgs)...)'
+          '"4"}, conf.Bwrap.Args...)' \
+          '"4"}, skipMissingTmpfs(conf.Bwrap.Args)...)'
         cat >> launcher/bubblewrap.go <<'EOF'
 
         func skipMissingTmpfs(args []string) (out []string) {
