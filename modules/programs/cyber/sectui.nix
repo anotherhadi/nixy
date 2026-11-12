@@ -15,7 +15,7 @@ in {
         pkgs,
         ...
       }: let
-        sectui = pkgs.nur.repos.sectui;
+        sectui = pkgs.nur.repos.anotherhadi;
       in {
         config = lib.mkMerge [
           {
@@ -42,7 +42,7 @@ in {
                 reflection: false # parameters found as is in an HTML response, with where
             '';
 
-            xdg.config.files."sectui/config.yaml".text = ''
+            xdg.config.files."foam/config.yaml".text = ''
               transparentBackground: true
               colors:
                 base00: "${c.base00}" # Background

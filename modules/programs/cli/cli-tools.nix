@@ -15,7 +15,6 @@
           dua # Tool to conveniently learn about the disk usage of directories
           lazyjournal
           pkgs.nur.repos.anotherhadi.settuings # Terminal based settings (wifi, bluetooth, audio, ...)
-          pkgs.nur.repos.anotherhadi.fztea # Flipper Zero from the terminal
           pkgs.unstable.pomo # Pomodoro timer in your terminal
 
           httpie # Command-line HTTP client, a user-friendly cURL replacement
