@@ -78,6 +78,15 @@
         };
       };
     };
+    autocmds = [
+      {
+        event = ["FileType"];
+        pattern = ["markdown"];
+        desc = "Soft-wrap prose instead of inserting hard line breaks";
+        command = "setlocal formatoptions-=t formatoptions-=c wrap linebreak breakindent";
+      }
+    ];
+
     languages = {
       enableExtraDiagnostics = true;
       enableFormat = true;
@@ -94,7 +103,7 @@
       go.enable = true;
       markdown = {
         enable = true;
-        format.type = ["deno"];
+        format.type = [];
         extensions.render-markdown-nvim = {
           enable = true;
           # render in every mode, anti_conceal (on by default) keeps the cursor line raw
@@ -123,9 +132,8 @@
         setupOpts.formatters.prettier.command = lib.mkForce (lib.generators.mkLuaInline ''
           require("conform.util").find_executable({ "node_modules/.bin/prettier" }, "${lib.getExe pkgs.prettier}")
         '');
-        # deno defaults to proseWrap=always (hard wrap at 80), which strands long links on
-        # their own line; keep the line breaks as written.
-        setupOpts.formatters.deno.append_args = ["--prose-wrap" "preserve"];
+        setupOpts.formatters_by_ft.markdown = ["deno_fmt"];
+        setupOpts.formatters.deno_fmt.append_args = ["--prose-wrap" "preserve"];
       };
     };
   };

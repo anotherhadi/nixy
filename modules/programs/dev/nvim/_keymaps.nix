@@ -87,6 +87,13 @@
         desc = "Toggle linebreak";
       }
       {
+        key = "<leader>uz";
+        mode = "n";
+        silent = true;
+        action = "<cmd>lua Snacks.zen()<cr>";
+        desc = "Toggle Zen mode";
+      }
+      {
         key = "<leader>us";
         mode = "n";
         silent = true;
