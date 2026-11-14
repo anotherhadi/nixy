@@ -29,6 +29,7 @@ in {
               ];
               bind.ro = [
                 (home "/.config/git")
+                (home "/.local/share/spilltea/ca/mitmproxy-ca-cert.pem") # Proxy CA (public cert only, not the key), for the bugbounty .envrc
                 "/nix/var/nix/daemon-socket" # nix build/eval through the daemon (user isn't trusted)
               ];
               tmpfs = ["/tmp"];
