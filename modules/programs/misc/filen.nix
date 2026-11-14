@@ -30,7 +30,7 @@ in {
             ignore = [
               "programs/*/recon/"
               "programs/*/reqs/"
-              "programs/*/collection/"
+              "programs/*/collection/runs/"
               "programs/*/local/"
               "wordlists"
             ];
