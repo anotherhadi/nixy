@@ -39,7 +39,7 @@ in {
                 font_size = theme.fonts.sizes.terminal;
                 background_opacity = "1.0";
 
-                window_padding_width = 10;
+                window_padding_width = 3;
                 confirm_os_window_close = 0;
                 clipboard_control = "write-clipboard write-primary read-clipboard-ask read-primary-ask";
                 copy_on_select = "clipboard";
