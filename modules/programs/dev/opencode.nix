@@ -114,8 +114,12 @@ in {
           export OPENCODE_SANDBOX_DIR
           exec ${sandboxed}/bin/opencode "$@"
         '';
+
+        opencode-unsafe = pkgs.writeShellScriptBin "opencode-unsafe" ''
+          exec ${pkgs.unstable.opencode}/bin/opencode "$@"
+        '';
       in {
-        packages = [opencode];
+        packages = [opencode opencode-unsafe];
 
         xdg.config.files."opencode/opencode.json" = {
           generator = json "opencode.json";
