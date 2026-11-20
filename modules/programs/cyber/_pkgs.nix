@@ -19,6 +19,11 @@
   pkgs.unstable.vulnx
   massdns
 
+  # Android app
+  pkgs.unstable.jadx
+  apkeep
+  apktool
+
   # Hashes
   hashcat
   haiti
