@@ -27,6 +27,11 @@ in {
         mode = "0600";
         path = "${home}/.ssh/jack";
       };
+      ssh-whiterabbit-key = {
+        owner = username;
+        mode = "0600";
+        path = "${home}/.ssh/whiterabbit";
+      };
     };
   };
 }

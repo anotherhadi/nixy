@@ -30,6 +30,7 @@
       fonts
       lanzaboote # CHANGEME: Replace with systemd-boot if you don't want to setup secure boot
       usbguard # Rules in ./_configuration.nix
+      netbird
 
       # Desktop
       tuigreet
