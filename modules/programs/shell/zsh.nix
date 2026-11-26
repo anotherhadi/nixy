@@ -63,6 +63,7 @@
             nix-shell = "nix-shell --command zsh";
             diff = "diff --color=auto";
             df = "df -h";
+            ssh = "kitten ssh";
 
             # Shortcuts
             open = "${pkgs.xdg-utils}/bin/xdg-open";
