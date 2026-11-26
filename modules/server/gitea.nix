@@ -14,6 +14,22 @@ in {
       stripRoot = false;
     };
 
+    robotsTxt = pkgs.writeText "gitea-robots.txt" ''
+      User-agent: *
+      Disallow: /*/*/blame/
+      Disallow: /*/*/commits/
+      Disallow: /*/*/commit/
+      Disallow: /*/*/compare/
+      Disallow: /*/*/archive/
+      Disallow: /*/*/raw/
+      Disallow: /*/*/src/commit/
+      Disallow: /*/*/activity
+      Disallow: /*/*/graph
+      Disallow: /*/*/search
+      Disallow: /*/*/releases/download/
+      Crawl-delay: 10
+    '';
+
     giteaUrl = "http://10.233.11.2:3002";
     githubUsername = "anotherhadi";
 
@@ -109,6 +125,10 @@ in {
                 DISABLE_REGISTRATION = true;
                 DEFAULT_KEEP_EMAIL_PRIVATE = true;
                 SHOW_REGISTRATION_BUTTON = false;
+                # Anonymous visitors can browse repos, but expensive pages (blame, commit
+                # history/search, archives, compare...) require login. Stops crawlers from
+                # spawning hundreds of git processes on the mirrored repos.
+                REQUIRE_SIGNIN_VIEW = "expensive";
               };
               ui = {
                 DEFAULT_THEME = "catppuccin-mocha-mauve";
@@ -128,6 +148,7 @@ in {
           systemd.services.gitea.preStart = lib.mkAfter ''
             mkdir -p /var/lib/gitea/custom/public/assets
             ln -sfn ${catppuccin-gitea} /var/lib/gitea/custom/public/assets/css
+            ln -sfn ${robotsTxt} /var/lib/gitea/custom/public/robots.txt
           '';
 
           networking.firewall.allowedTCPPorts = [3002];

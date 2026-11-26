@@ -59,10 +59,12 @@
       mazanoke
       default-creds
       gitea
-      signal-cli-rest-api
       home-assistant
       miniflux
       uptime-kuma
+      mosquitto
+      frigate
+      mealie
     ];
 
     # Graphical session: sway + bar, notifications, launcher, lock, theming...

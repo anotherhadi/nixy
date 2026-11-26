@@ -10,6 +10,10 @@ in {
     nixyTheme = import ./_theme.nix {inherit lib colors;};
     plugins = import ./_plugins.nix {inherit pkgs;};
 
+    # signal-cli-rest-api runs on a separate Ubuntu server (not managed by nix)
+    # Direct access (LAN/NetBird): https://signal.hadi.icu is behind Cloudflare mTLS
+    signalUrl = "http://CHANGEME:8080"; # TODO: IP of the Ubuntu server
+
     signalRecipients = [
       "h"
       "d"
@@ -57,6 +61,7 @@ in {
         "remote_calendar"
         "systemmonitor"
         "uptime_kuma"
+        "mqtt"
       ];
       customComponents = plugins.customComponents;
       customLovelaceModules = plugins.customLovelaceModules;
@@ -171,7 +176,7 @@ in {
           (map (n: {
               name = "signal_${n}";
               platform = "signal_messenger";
-              url = config.services.signal-cli-rest-api.url;
+              url = signalUrl;
               number = "!secret signal_sender";
               recipients = ["!secret ${n}"];
             })
@@ -180,7 +185,7 @@ in {
             {
               name = "signal_all";
               platform = "signal_messenger";
-              url = config.services.signal-cli-rest-api.url;
+              url = signalUrl;
               number = "!secret signal_sender";
               recipients = map (n: "!secret ${n}") signalRecipients;
             }

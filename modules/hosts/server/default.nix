@@ -26,6 +26,7 @@
       # System
       systemd-boot
       amd-graphics
+      netbird
 
       # Services
       homelab # see modules/bundles.nix

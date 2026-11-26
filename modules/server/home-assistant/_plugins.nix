@@ -57,6 +57,7 @@ in {
   customComponents = [
     idfm
     pkgs.home-assistant-custom-components.spook
+    pkgs.home-assistant-custom-components.frigate
   ];
   customLovelaceModules = [
     atomic-calendar-revive

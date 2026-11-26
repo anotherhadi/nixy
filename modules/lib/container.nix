@@ -10,6 +10,7 @@ in {
     hostIp,
     containerIp,
     internet ? false,
+    lan ? [], # LAN subnets the container may reach, e.g. ["192.168.1.0/24"]
     externalInterface ? osConfig.nixy.server.networkInterface,
     bindMounts ? {},
     nixosConfig,
@@ -34,7 +35,22 @@ in {
           };
         };
       }
-      // (lib.optionalAttrs internet {
+      // (lib.optionalAttrs (internet || lan != []) (let
+        # FORWARD rules for this container, in evaluation order:
+        # allow return traffic, allow the given LAN subnets, block other private ranges,
+        # then allow internet (or drop everything else).
+        rules =
+          ["-d ${containerIp} -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT"]
+          ++ map (subnet: "-s ${containerIp} -d ${subnet} -j ACCEPT") lan
+          ++ map (range: "-s ${containerIp} -d ${range} -j DROP") ["10.0.0.0/8" "172.16.0.0/12" "192.168.0.0/16"]
+          ++ [
+            (
+              if internet
+              then "-s ${containerIp} -m conntrack --ctstate NEW -j ACCEPT"
+              else "-s ${containerIp} -j DROP"
+            )
+          ];
+      in {
         boot.kernel.sysctl."net.ipv4.ip_forward" = lib.mkDefault true;
         networking.nat = {
           enable = true;
@@ -42,20 +58,10 @@ in {
           internalInterfaces = ["ve-${name}"];
         };
         # CONTAINER-FWD (defined by another module) blocks all forwarding by default.
-        # Insert rules in FORWARD before it: allow return traffic, block LAN, allow internet.
-        networking.firewall.extraCommands = ''
-          iptables -I FORWARD 1 -s ${containerIp} -m conntrack --ctstate NEW -j ACCEPT
-          iptables -I FORWARD 1 -s ${containerIp} -d 192.168.0.0/16 -j DROP
-          iptables -I FORWARD 1 -s ${containerIp} -d 172.16.0.0/12 -j DROP
-          iptables -I FORWARD 1 -s ${containerIp} -d 10.0.0.0/8 -j DROP
-          iptables -I FORWARD 1 -d ${containerIp} -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
-        '';
-        networking.firewall.extraStopCommands = ''
-          iptables -D FORWARD -s ${containerIp} -m conntrack --ctstate NEW -j ACCEPT 2>/dev/null || true
-          iptables -D FORWARD -s ${containerIp} -d 192.168.0.0/16 -j DROP 2>/dev/null || true
-          iptables -D FORWARD -s ${containerIp} -d 172.16.0.0/12 -j DROP 2>/dev/null || true
-          iptables -D FORWARD -s ${containerIp} -d 10.0.0.0/8 -j DROP 2>/dev/null || true
-          iptables -D FORWARD -d ${containerIp} -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT 2>/dev/null || true
-        '';
-      });
+        # Insert rules at the top of FORWARD (reversed, since each one is inserted at position 1).
+        networking.firewall.extraCommands =
+          lib.concatMapStrings (rule: "iptables -I FORWARD 1 ${rule}\n") (lib.reverseList rules);
+        networking.firewall.extraStopCommands =
+          lib.concatMapStrings (rule: "iptables -D FORWARD ${rule} 2>/dev/null || true\n") rules;
+      }));
 }
