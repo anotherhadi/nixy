@@ -15,13 +15,8 @@
       "h"
     ];
 
-    required = [
-      "signal_sender_number"
-      "cloudflare-mtls-cert"
-      "cloudflare-mtls-key"
-    ];
     enabled =
-      lib.all (k: builtins.elem k config.nixy.secrets.available) required
+      builtins.elem "signal_sender_number" config.nixy.secrets.available
       && signalRecipients != [];
 
     userSecret = {
@@ -67,8 +62,6 @@
           '{number: $number, recipients: $ARGS.positional, message: $message}' \
           --args "''${numbers[@]}" |
           curl -fsS -X POST ${url} \
-            --cert ${secret "cloudflare-mtls-cert"} \
-            --key ${secret "cloudflare-mtls-key"} \
             -H "Content-Type: application/json" \
             --data @- >/dev/null
       '';
@@ -76,14 +69,11 @@
   in {
     imports = [aspects.secrets];
 
-    # Only on hosts whose sops file has the sender, a recipient and the mTLS client cert
+    # Only on hosts whose sops file has the sender and a recipient
     config = lib.mkIf enabled {
       sops.secrets =
         {
           signal-sender-number = userSecret // {key = "signal_sender_number";};
-          # PEM client certificate and key of the Cloudflare mTLS rule on *.hadi.icu
-          cloudflare-mtls-cert = userSecret;
-          cloudflare-mtls-key = userSecret;
         }
         // lib.listToAttrs (map (n: lib.nameValuePair "signal-${n}" (userSecret // {key = n;})) signalRecipients);
 

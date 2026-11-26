@@ -1,7 +1,6 @@
 {config, ...}: {
   imports = [
     # CHANGEME: You should probably remove those things:
-    ./_wireguard.nix
     ./_secrets
 
     ./_hardware-configuration.nix

@@ -66,6 +66,8 @@
       frigate
       mealie
       blog
+      signal-api
+      vpn-exit
     ];
 
     # Graphical session: sway + bar, notifications, launcher, lock, theming...

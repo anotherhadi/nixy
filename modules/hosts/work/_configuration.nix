@@ -2,7 +2,6 @@
   imports = [
     # CHANGEME: You should probably remove those things:
     ./_secrets
-    ./_wireguard.nix
 
     # You should let those lines as is
     ./_hardware-configuration.nix

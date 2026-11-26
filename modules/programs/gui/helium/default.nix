@@ -172,10 +172,6 @@ in {
             ShowHomeButton = false;
             RestoreOnStartup = 4;
 
-            AutoSelectCertificateForUrls = [
-              ''{"pattern":"https://[*.]hadi.icu","filter":{}}'' # Cloudflare mTLS client certificate
-            ];
-
             BookmarkBarEnabled = false;
             ManagedBookmarks = toChromium bookmarkList;
 

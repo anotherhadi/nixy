@@ -10,9 +10,9 @@ in {
     nixyTheme = import ./_theme.nix {inherit lib colors;};
     plugins = import ./_plugins.nix {inherit pkgs;};
 
-    # signal-cli-rest-api runs on a separate Ubuntu server (not managed by nix)
-    # Direct access (LAN/NetBird): https://signal.hadi.icu is behind Cloudflare mTLS
-    signalUrl = "http://CHANGEME:8080"; # TODO: IP of the Ubuntu server
+    # signal-cli-rest-api on the VPS, reached through NetBird (see modules/server/signal-api.nix)
+    # Direct upstream, skips Caddy (same host)
+    signalUrl = config.nixy.server.proxies.signal;
 
     signalRecipients = [
       "h"

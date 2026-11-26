@@ -64,7 +64,7 @@
       "/.config/gh"
       "/.mozilla"
       "/.config/net.imput.helium"
-      "/.pki" # NSS database: Cloudflare mTLS client certificate
+      "/.pki" # NSS database (certificates, client keys)
       "/.local/share/password-store"
     ];
 
