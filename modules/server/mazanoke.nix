@@ -49,6 +49,6 @@ in {
       })
     ];
 
-    services.cloudflared.tunnels."${config.nixy.server.tunnelId}".ingress."mazanoke.${config.nixy.server.domain}" = "http://10.233.7.2:8080";
+    nixy.server.proxies.mazanoke = "http://10.233.7.2:8080";
   };
 }

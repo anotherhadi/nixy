@@ -17,7 +17,6 @@
           };
           server = {
             domain = "hadi.icu";
-            tunnelId = "a1dfa315-7fc3-4a65-8c02-8387932c35c3";
             networkInterface = "enp3s0";
           };
         };

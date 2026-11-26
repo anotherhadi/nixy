@@ -32,6 +32,6 @@ in {
       })
     ];
 
-    services.cloudflared.tunnels."${config.nixy.server.tunnelId}".ingress."default-creds.${config.nixy.server.domain}" = "http://10.233.6.2:8087";
+    nixy.server.proxies.default-creds = "http://10.233.6.2:8087";
   };
 }

@@ -28,6 +28,6 @@ in {
       })
     ];
 
-    services.cloudflared.tunnels."${config.nixy.server.tunnelId}".ingress."mealie.${domain}" = "http://10.233.16.2:9000";
+    nixy.server.proxies.mealie = "http://10.233.16.2:9000";
   };
 }

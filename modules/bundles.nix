@@ -46,12 +46,12 @@
       elio
     ];
 
-    # Self-hosted services exposed through the Cloudflare tunnel (modules/server)
+    # Self-hosted services behind Caddy, reachable through NetBird (modules/server)
     homelab.imports = [
       ssh
       firewall
       fail2ban
-      cloudflared
+      caddy
       adguardhome
       arr
       bentopdf
@@ -65,6 +65,7 @@
       mosquitto
       frigate
       mealie
+      blog
     ];
 
     # Graphical session: sway + bar, notifications, launcher, lock, theming...

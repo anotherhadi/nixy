@@ -22,10 +22,10 @@
       '';
     };
 
-    services.cloudflared.tunnels."${config.nixy.server.tunnelId}".ingress."adguard.${config.nixy.server.domain}" = "http://localhost:${toString config.services.adguardhome.port}";
+    nixy.server.proxies.adguard = "http://localhost:${toString config.services.adguardhome.port}";
 
-    # The tunnel resolves through AdGuard: start it once DNS is up
-    systemd.services."cloudflared-tunnel-${config.nixy.server.tunnelId}" = lib.mkIf config.services.cloudflared.enable {
+    # Caddy resolves through AdGuard (ACME, upstreams): start it once DNS is up
+    systemd.services.caddy = lib.mkIf config.services.caddy.enable {
       after = ["adguardhome.service"];
       requires = ["adguardhome.service"];
     };

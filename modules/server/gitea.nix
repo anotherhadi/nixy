@@ -157,7 +157,7 @@ in {
       })
     ];
 
-    services.cloudflared.tunnels."${config.nixy.server.tunnelId}".ingress."git.${domain}" = giteaUrl;
+    nixy.server.proxies.git = giteaUrl;
 
     sops.secrets = {
       github-mirror-token = {};

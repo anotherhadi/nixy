@@ -66,14 +66,14 @@
       "render"
     ];
 
-    services.cloudflared.tunnels."${config.nixy.server.tunnelId}".ingress = {
-      "media.${config.nixy.server.domain}" = "http://localhost:8096";
-      "demandemedia.${config.nixy.server.domain}" = "http://localhost:5055";
-      "bazarr.${config.nixy.server.domain}" = "http://localhost:6767";
-      "prowlarr.${config.nixy.server.domain}" = "http://localhost:9696";
-      "radarr.${config.nixy.server.domain}" = "http://localhost:7878";
-      "sonarr.${config.nixy.server.domain}" = "http://localhost:8989";
-      "transmission.${config.nixy.server.domain}" = "http://localhost:9091";
+    nixy.server.proxies = {
+      media = "http://localhost:8096";
+      demandemedia = "http://localhost:5055";
+      bazarr = "http://localhost:6767";
+      prowlarr = "http://localhost:9696";
+      radarr = "http://localhost:7878";
+      sonarr = "http://localhost:8989";
+      transmission = "http://localhost:9091";
     };
   };
 }

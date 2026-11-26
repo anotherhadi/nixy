@@ -27,6 +27,6 @@ in {
       })
     ];
 
-    services.cloudflared.tunnels."${config.nixy.server.tunnelId}".ingress."pdf.${config.nixy.server.domain}" = "http://10.233.9.2:8080";
+    nixy.server.proxies.pdf = "http://10.233.9.2:8080";
   };
 }

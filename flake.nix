@@ -56,6 +56,10 @@
     nixarr.url = "github:nix-media-server/nixarr";
     default-creds-web.url = "github:anotherhadi/default-creds-web";
 
+    blog = {
+      url = "github:anotherhadi/blog";
+      flake = false;
+    };
     default-creds = {
       url = "github:anotherhadi/default-creds";
       flake = false;

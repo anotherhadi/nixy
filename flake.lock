@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "blog": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1787921626,
+        "narHash": "sha256-QwnHOjsFOQNkp1HLCp8pfT41CprNPZU/oCu4elm2BL8=",
+        "owner": "anotherhadi",
+        "repo": "blog",
+        "rev": "121cbf24b6823c3e4f444d092c707d625d214d86",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anotherhadi",
+        "repo": "blog",
+        "type": "github"
+      }
+    },
     "bun2nix": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -648,6 +664,7 @@
     },
     "root": {
       "inputs": {
+        "blog": "blog",
         "default-creds": "default-creds",
         "default-creds-web": "default-creds-web",
         "disko": "disko",

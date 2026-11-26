@@ -209,8 +209,8 @@ in {
     # Sonos event subscriptions (callbacks from speakers to HA)
     networking.firewall.allowedTCPPorts = [1400];
 
-    services.cloudflared.tunnels."${config.nixy.server.tunnelId}".ingress = {
-      "hass.${config.nixy.server.domain}" = "http://localhost:${toString config.services.home-assistant.config.http.server_port}";
+    nixy.server.proxies = {
+      hass = "http://localhost:${toString config.services.home-assistant.config.http.server_port}";
     };
   };
 }

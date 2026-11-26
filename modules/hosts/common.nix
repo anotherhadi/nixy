@@ -19,9 +19,17 @@
 
       server = {
         domain = lib.mkOption {type = lib.types.str;};
-        tunnelId = lib.mkOption {
-          type = lib.types.str;
-          description = "Cloudflare tunnel exposing the services";
+        proxies = lib.mkOption {
+          type = lib.types.attrsOf lib.types.str;
+          default = {};
+          example = {mealie = "http://10.233.16.2:9000";};
+          description = "Subdomain -> upstream, served by Caddy on https://<subdomain>.<domain> (modules/server/caddy.nix)";
+        };
+        rootProxy = lib.mkOption {
+          type = lib.types.nullOr lib.types.str;
+          default = null;
+          example = "http://10.233.17.2:8080";
+          description = "Upstream served by Caddy on https://<domain> (apex, not covered by the wildcard)";
         };
         networkInterface = lib.mkOption {
           type = lib.types.str;

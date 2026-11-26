@@ -37,6 +37,6 @@ in {
       mode = "0400";
     };
 
-    services.cloudflared.tunnels."${config.nixy.server.tunnelId}".ingress."miniflux.${domain}" = "http://10.233.8.2:8080";
+    nixy.server.proxies.miniflux = "http://10.233.8.2:8080";
   };
 }

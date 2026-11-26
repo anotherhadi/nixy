@@ -22,6 +22,6 @@ in {
       })
     ];
 
-    services.cloudflared.tunnels."${config.nixy.server.tunnelId}".ingress."uptime.${config.nixy.server.domain}" = "http://10.233.13.2:3001";
+    nixy.server.proxies.uptime = "http://10.233.13.2:3001";
   };
 }

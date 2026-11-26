@@ -30,6 +30,6 @@ in {
       })
     ];
 
-    services.cloudflared.tunnels."${config.nixy.server.tunnelId}".ingress."cyberchef.${config.nixy.server.domain}" = "http://10.233.5.2:8080";
+    nixy.server.proxies.cyberchef = "http://10.233.5.2:8080";
   };
 }

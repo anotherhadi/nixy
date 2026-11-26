@@ -117,7 +117,7 @@ in {
               # Only reached through Frigate's nginx
               api.listen = "127.0.0.1:1984";
               rtsp.listen = ":8554";
-              # WebRTC isn't reachable through the Cloudflare tunnel, live uses MSE over websocket instead
+              # WebRTC disabled, live uses MSE over websocket (through Caddy) instead
               webrtc.listen = "";
               streams = go2rtcStreams;
             };
@@ -154,6 +154,6 @@ in {
 
     systemd.tmpfiles.rules = ["d /mnt/data/frigate 0750 root root -"];
 
-    services.cloudflared.tunnels."${config.nixy.server.tunnelId}".ingress."frigate.${domain}" = "http://10.233.14.2:80";
+    nixy.server.proxies.frigate = "http://10.233.14.2:80";
   };
 }
