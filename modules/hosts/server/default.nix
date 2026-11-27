@@ -29,6 +29,7 @@
 
       # Services
       homelab # see modules/bundles.nix
+      veille-vulnx
 
       # Programs
       tui # shell, git, nvim, cybersecurity...

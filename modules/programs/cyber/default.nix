@@ -18,7 +18,6 @@
     imports = [
       aspects.hjem
       aspects.secrets
-      aspects.veille-vulnx
       aspects.findings
       aspects.cheatmd
       aspects.sectui
