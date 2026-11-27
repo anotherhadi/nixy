@@ -11,6 +11,7 @@ in {
       scripts,
       ...
     }: let
+      netbird = osConfig.services.netbird.clients ? default;
       settuings = page: "${scripts.term}/bin/term ${pkgs.nur.repos.anotherhadi.settuings}/bin/settuings --page ${page}";
 
       status = pkgs.writeShellScriptBin "swaybar-status" ''
@@ -58,6 +59,10 @@ in {
             volume:4) ${scripts.vol-up}/bin/vol-up ;;
             volume:5) ${scripts.vol-down}/bin/vol-down ;;
             caffeine:1) ${scripts.caffeine-toggle}/bin/caffeine-toggle ;;
+            ${lib.optionalString netbird ''
+              netbird:1) ${scripts.term}/bin/term ${scripts.netbird-menu}/bin/netbird-menu & ;;
+              netbird:3) ${scripts.netbird-toggle}/bin/netbird-toggle & ;;
+            ''}
             mic:1 | camera:1 | screen:1) ${scripts.term}/bin/term ${scripts.privacy-who}/bin/privacy-who & ;;
           esac
         done
@@ -152,6 +157,19 @@ in {
         bt=''${BLUETOOTH-$(bluetooth)}
         [ -n "$bt" ] && printf 'bluetooth\t%s\n' "$bt"
         printf 'network\t%s\n' "$(network)"
+        ${lib.optionalString netbird ''
+          # NetBird: up (green), down (grey), logged out (red), with the exit node in use
+          if IFS=$'\t' read -r nb exit < <(${scripts.netbird-state}); then
+            case $nb in
+              up) color=${c.base0B} ;;
+              logout) color=${c.base08} ;;
+              *) color=${c.base04} ;;
+            esac
+            text='󰒍'
+            [ -n "$exit" ] && text="$text 󰇧 $(printf '%s' "$exit" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')"
+            printf 'netbird\t%s\t%s\n' "$text" "$color"
+          fi
+        ''}
         if vol=$(volume) && [ -n "$vol" ]; then
           np=$(playing) && [ -n "$np" ] && vol="$vol  $np"
           printf 'volume\t%s\t${c.base0A}\n' "$vol"

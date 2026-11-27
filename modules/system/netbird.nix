@@ -4,7 +4,10 @@
   flake.modules.nixos.netbird = {
     services.netbird.enable = true;
 
-    networking.firewall.trustedInterfaces = ["wt0"];
+    networking.firewall = {
+      trustedInterfaces = ["wt0"];
+      checkReversePath = "loose";
+    };
 
     environment.persistence."/persist".directories = ["/var/lib/netbird"]; # Peer identity
   };
