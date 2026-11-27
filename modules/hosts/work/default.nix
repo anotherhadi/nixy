@@ -27,6 +27,7 @@
       fonts
       systemd-boot
       usbguard # Rules in ./_configuration.nix
+      netbird
 
       # Desktop
       tuigreet
